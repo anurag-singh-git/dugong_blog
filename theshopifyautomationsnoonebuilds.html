@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Shopify automations no one builds — Dugong Field Notes</title>
+<meta name="description" content="Tagging is 14% of every Shopify workflow merchants ship. Returns and refunds — the work that actually scales with order volume — are under 1%. A field study of 1,374 playbooks and the gap between what's easy to automate and what's worth automating." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@400;500;600&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES — post stylesheet (matches index.html)
+   ========================================================= */
+
+:root {
+  --ink:        #0d1416;
+  --ink-2:      #121b1e;
+  --ink-3:      #1a2528;
+  --line:       #233236;
+  --line-2:     #2e4146;
+  --cream:      #f5ecdc;
+  --cream-mute: #c9bfa9;
+  --cream-dim:  #8a8473;
+  --aqua:       #5fb8b3;
+  --aqua-deep:  #2d7a76;
+  --sand:       #d99566;
+  --sand-deep:  #b6754a;
+  --gold:       #e2b665;
+
+  --display: "Fraunces", "Times New Roman", serif;
+  --body:    "Inter Tight", -apple-system, system-ui, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1280px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(95, 184, 179, 0.08), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 30%, rgba(217, 149, 102, 0.06), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(95, 184, 179, 0.04), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.92 0 0 0 0 0.87 0 0 0 0.7 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+}
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* TICKER */
+.ticker {
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid var(--line);
+  background: var(--ink);
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--cream-dim);
+  padding: 10px 0;
+}
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  gap: 3rem;
+  animation: ticker 50s linear infinite;
+}
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem var(--gutter);
+  background: rgba(13, 20, 22, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.brand { display: inline-flex; align-items: baseline; gap: 0.6rem; font-family: var(--display); font-weight: 500; }
+.brand-mark { font-size: 1.5rem; color: var(--aqua); line-height: 1; }
+.brand-mark.big { font-size: 2.5rem; }
+.brand-name { font-size: 1.15rem; letter-spacing: -0.01em; }
+.brand-slash { color: var(--cream-dim); font-size: 1rem; }
+.brand-section { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; color: var(--cream-mute); text-transform: lowercase; }
+
+.nav-links { display: flex; align-items: center; gap: 2rem; font-family: var(--mono); font-size: 0.82rem; letter-spacing: 0.04em; }
+.nav-links a { color: var(--cream-mute); transition: color 0.2s; position: relative; }
+.nav-links a:hover { color: var(--cream); }
+.nav-links a:hover::after {
+  content: ""; position: absolute; bottom: -6px; left: 0;
+  width: 100%; height: 1px; background: var(--aqua);
+}
+.nav-cta {
+  color: var(--aqua) !important;
+  border: 1px solid var(--line-2);
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+}
+.nav-cta:hover { border-color: var(--aqua); background: rgba(95, 184, 179, 0.06); }
+.nav-cta:hover::after { display: none; }
+
+@media (max-width: 720px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+/* META + TAGS */
+.tag {
+  padding: 0.25rem 0.55rem; border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+  background: rgba(95,184,179,0.1); color: var(--aqua);
+  border: 1px solid rgba(95,184,179,0.2);
+}
+.tag-research   { background: rgba(95,184,179,0.1); color: var(--aqua); border-color: rgba(95,184,179,0.25); }
+.tag-essay      { background: rgba(217,149,102,0.1); color: var(--sand); border-color: rgba(217,149,102,0.25); }
+.tag-postmortem { background: rgba(217,102,102,0.1); color: #e08080; border-color: rgba(217,102,102,0.25); }
+.tag-tactics    { background: rgba(226,182,101,0.1); color: var(--gold); border-color: rgba(226,182,101,0.25); }
+.tag-interview  { background: rgba(180,160,220,0.1); color: #b6a3dc; border-color: rgba(180,160,220,0.25); }
+
+.post-meta {
+  display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em;
+}
+.post-read { color: var(--cream-dim); text-transform: uppercase; }
+.byline-avatar {
+  width: 30px; height: 30px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 0.68rem; font-weight: 600; color: var(--ink); letter-spacing: 0;
+}
+.byline-name { color: var(--cream); }
+.byline-divider { color: var(--line-2); }
+.byline-role { color: var(--cream-dim); }
+
+/* POST */
+.article {
+  position: relative; z-index: 2;
+  max-width: 760px; margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) var(--gutter);
+}
+.article-back {
+  font-family: var(--mono); font-size: 0.82rem;
+  color: var(--cream-mute); margin-bottom: 3rem; display: inline-block;
+  letter-spacing: 0.04em;
+}
+.article-back:hover { color: var(--aqua); }
+
+.article-meta {
+  display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; flex-wrap: wrap;
+}
+.article-title {
+  font-family: var(--display); font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 0.98; letter-spacing: -0.03em;
+  color: var(--cream); margin-bottom: 1.5rem;
+}
+.article-title em { font-style: italic; color: var(--aqua); }
+
+.article-dek {
+  font-family: var(--display); font-weight: 300;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  line-height: 1.5; color: var(--cream-mute); margin-bottom: 2.5rem;
+}
+.article-byline {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  margin-bottom: 3rem;
+  font-family: var(--mono); font-size: 0.85rem;
+}
+.article-body {
+  font-family: var(--display); font-weight: 400;
+  font-size: 1.18rem; line-height: 1.7; color: var(--cream);
+}
+.article-body p { margin-bottom: 1.5rem; }
+.article-body p:first-of-type::first-letter {
+  font-family: var(--display); font-weight: 400;
+  font-size: 5.5rem; float: left; line-height: 0.85;
+  margin: 0.15rem 0.8rem 0 0; color: var(--aqua);
+}
+.article-body h2 {
+  font-family: var(--display); font-weight: 500;
+  font-size: 2rem; line-height: 1.1; letter-spacing: -0.02em;
+  margin: 3rem 0 1.25rem; color: var(--cream);
+}
+.article-body h2::before { content: "§ "; color: var(--aqua); font-weight: 400; }
+.article-body blockquote {
+  font-style: italic; font-weight: 300;
+  font-size: 1.5rem; line-height: 1.45;
+  padding: 1.5rem 2rem; border-left: 2px solid var(--aqua);
+  margin: 2rem 0; color: var(--cream-mute);
+}
+.article-body code {
+  font-family: var(--mono); font-size: 0.92em;
+  background: var(--ink-3); padding: 0.1em 0.35em;
+  border-radius: 3px; color: var(--sand); border: 1px solid var(--line);
+}
+.article-body pre {
+  background: var(--ink); border: 1px solid var(--line);
+  border-radius: 4px; padding: 1.25rem; margin: 2rem 0;
+  overflow-x: auto; font-family: var(--mono); font-size: 0.85rem;
+  line-height: 1.6; color: var(--cream-mute);
+}
+.article-body pre code { background: none; border: none; padding: 0; color: inherit; }
+.article-body pre .k { color: var(--aqua); }
+.article-body pre .s { color: var(--sand); }
+.article-body pre .c { color: var(--cream-dim); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.5rem; }
+.article-body li { margin-bottom: 0.75rem; }
+.article-body a {
+  color: var(--aqua); border-bottom: 1px solid rgba(95,184,179,0.3);
+  transition: border-color 0.2s;
+}
+.article-body a:hover { border-color: var(--aqua); }
+.article-body hr { border: none; text-align: center; margin: 3rem 0; }
+.article-body hr::before {
+  content: "◆ ◆ ◆"; color: var(--cream-dim);
+  letter-spacing: 1em; font-family: var(--mono); font-size: 0.7rem;
+}
+.article-body strong { color: var(--cream); font-weight: 600; }
+
+.callout {
+  display: flex; gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(95,184,179,0.04);
+  border: 1px solid rgba(95,184,179,0.2);
+  border-left: 3px solid var(--aqua);
+  border-radius: 4px; margin: 2rem 0;
+  font-family: var(--body); font-size: 0.95rem;
+  line-height: 1.55; color: var(--cream-mute);
+}
+.callout-mark {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em;
+  color: var(--aqua); text-transform: uppercase;
+  flex-shrink: 0; padding-top: 0.15rem;
+}
+.callout-sand {
+  background: rgba(217,149,102,0.04);
+  border-color: rgba(217,149,102,0.2);
+  border-left-color: var(--sand);
+}
+.callout-sand .callout-mark { color: var(--sand); }
+
+.article-end {
+  margin-top: 4rem; padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share {
+  font-family: var(--mono); font-size: 0.78rem;
+  color: var(--cream-mute); letter-spacing: 0.06em;
+}
+
+/* RELATED */
+.related {
+  max-width: 1080px; margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) var(--gutter);
+  position: relative; z-index: 2;
+}
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.16em;
+  color: var(--aqua); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule {
+  flex: 1; height: 1px;
+  background: linear-gradient(to right, var(--line), transparent);
+  min-width: 40px;
+}
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+.card {
+  display: flex; flex-direction: column;
+  background: var(--ink-2); border: 1px solid var(--line);
+  border-radius: 4px; overflow: hidden; cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.3s, background 0.3s;
+}
+.card:hover { transform: translateY(-4px); border-color: var(--line-2); background: var(--ink-3); }
+.card:hover .card-title { color: var(--aqua); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title {
+  font-family: var(--display); font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  font-size: 1.5rem; line-height: 1.1; letter-spacing: -0.02em;
+  color: var(--cream); margin-bottom: 0.75rem; transition: color 0.3s;
+}
+.card-dek {
+  font-family: var(--body); font-size: 0.92rem; line-height: 1.55;
+  color: var(--cream-mute); margin-bottom: 1.25rem; flex: 1;
+}
+.card-foot {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 0.85rem; border-top: 1px solid var(--line);
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em;
+}
+.card-date { color: var(--cream-dim); }
+.card-author { color: var(--cream-mute); }
+
+/* FOOTER */
+.foot {
+  position: relative; z-index: 2;
+  margin-top: clamp(3rem, 6vw, 5rem);
+  border-top: 1px solid var(--line); background: var(--ink-2);
+}
+.foot-top {
+  display: grid; grid-template-columns: 1fr 2fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  max-width: var(--maxw); margin: 0 auto;
+  padding: clamp(3rem, 5vw, 4rem) var(--gutter) 2rem;
+}
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag {
+  font-family: var(--display); font-style: italic; font-weight: 300;
+  font-size: 1rem; color: var(--cream-mute);
+  max-width: 20em; line-height: 1.4;
+}
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.6rem; }
+.foot-h {
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--aqua); margin-bottom: 0.5rem;
+}
+.foot-cols a { font-family: var(--body); font-size: 0.9rem; color: var(--cream-mute); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--cream); }
+.foot-bot {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  max-width: var(--maxw); margin: 0 auto;
+  padding: 1.5rem var(--gutter); border-top: 1px solid var(--line);
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--cream-dim);
+}
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2,0.7,0.2,1); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>◆ DISPATCH Nº 48 — MAY 28, 2026</span>
+    <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
+    <span>◆ 10 MIN READ · 2,180 WORDS</span>
+    <span>◆ BY PRIYA SINGH</span>
+    <span>◆ DISPATCH Nº 48 — MAY 28, 2026</span>
+    <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
+    <span>◆ 10 MIN READ · 2,180 WORDS</span>
+    <span>◆ BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark">≈</span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+    <a href="https://dugong.live" class="nav-cta">← back to product</a>
+  </nav>
+</header>
+
+<article class="article">
+
+  <a href="index.html" class="article-back">← back to field notes</a>
+
+  <div class="article-meta">
+    <span class="tag tag-research">research</span>
+    <span style="color: var(--cream-dim);">DISPATCH Nº 48</span>
+    <span style="color: var(--line-2);">·</span>
+    <span style="color: var(--cream-dim);">MAY 28, 2026</span>
+    <span style="color: var(--line-2);">·</span>
+    <span style="color: var(--cream-dim);">10 MIN READ</span>
+  </div>
+
+  <h1 class="article-title">
+    The Shopify automations <em>no one</em> builds.
+  </h1>
+
+  <p class="article-dek">
+    Tagging is 14% of every Shopify workflow merchants ship.
+    Returns and refunds — the work that actually scales with order
+    volume — are under 1%. A field study of 1,374 playbooks and the
+    gap between what's easy to automate and what's worth automating.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name">Priya Singh</span>
+    <span class="byline-divider">·</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      There is a merchant we'll call Imani. She runs a forty-SKU
+      candle brand out of a converted garage in Brooklyn. By her own
+      count, her Shopify backend has nineteen tag rules — <em>VIP</em>,
+      <em>repeat</em>, <em>fragrance-preference-vanilla</em>,
+      <em>fragrance-preference-citrus</em>, and on. She built every
+      one of them inside Shopify Flow. They run silently in the
+      background. She has not opened the Flow editor in four months.
+    </p>
+
+    <p>
+      What still sits open on her laptop, at 11pm on a Tuesday: an
+      email from a customer named Marcus. The candle arrived broken.
+      He's attached three photos. He'd like a refund, but he'd also
+      like the same candle reshipped — but please not packed the same
+      way. Imani writes back. She refunds in Shopify. She creates a
+      new order with a discount code that bypasses inventory
+      deduction, because she's already short on that SKU. She emails
+      her 3PL to please use the extra bubble wrap. She tags the
+      customer <code>broken-shipment-feb</code> so she can find them
+      later.
+    </p>
+
+    <p>
+      Forty-five minutes. One customer. Imani has nineteen tag rules
+      and zero return-handling automation.
+    </p>
+
+    <p>
+      She is not unusual.
+    </p>
+
+    <h2>The 14% / 0.8% gap</h2>
+
+    <p>
+      We pulled telemetry from <strong>1,374 Shopify automation
+      workflows</strong> shipped on third-party tools in Q1 2026.
+      Tagging — adding a label to an order or a customer — was
+      <strong>14% of every workflow built</strong>. Returns and
+      refunds, combined, were 0.8%. Abandoned-checkout flows were
+      1.4%. Fraud screening was below 1%.
+    </p>
+
+    <p>
+      That asymmetry doesn't track with where the work is. Talk to
+      any Shopify merchant doing more than fifty orders a day and
+      they'll tell you the same thing: returns eat their afternoons.
+      Fraud reviews eat their mornings. Tagging? Tagging happens
+      once, in the background, forever.
+    </p>
+
+    <p>
+      So why does everyone build the tag and not the return?
+    </p>
+
+    <blockquote>
+      The unbuilt automations aren't unbuilt because no one wants
+      them. They're unbuilt because the tools can't compile them.
+    </blockquote>
+
+    <h2>Easy doesn't mean valuable</h2>
+
+    <p>
+      Tagging is one line of prose. <em>"When a customer's lifetime
+      value crosses $500, tag them VIP."</em> The automation is the
+      rule. The work is done.
+    </p>
+
+    <p>
+      A return is a conversation. <em>"When a customer requests a
+      refund, ask for a photo, decide whether to require return
+      shipping, issue the refund or a partial, restock if applicable,
+      update the 3PL, decide whether to send a replacement, write a
+      brand-appropriate response, tag the customer accordingly, and
+      surface it in a weekly report if it's the third return from
+      the same buyer."</em> That is not one line. That is twelve lines,
+      three judgement calls, and a tone-of-voice problem.
+    </p>
+
+    <p>
+      In a node-based builder, this is roughly impossible. You end
+      up with a Flow chart that has nineteen branches and still hands
+      off to a human four times. So you don't build it. You answer
+      the email instead.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">◆ DATA</span>
+      <span>
+        Across the 1,374 workflows we studied, <strong>67% had four
+        or fewer steps</strong>. The median workflow length on
+        natural-language tools was eleven steps. The work merchants
+        actually have lives in the gap between those numbers.
+      </span>
+    </div>
+
+    <h2>Four Shopify automations that pay back faster than tagging</h2>
+
+    <p>
+      We sat with twelve merchants over two weeks and asked the same
+      question: of everything you do manually, what would you most
+      like to hand off? Four answers came up again and again. None
+      of them were tagging.
+    </p>
+
+    <h2>1. VIP detection that actually means something</h2>
+
+    <p>
+      The tag-by-LTV pattern is a blunt instrument. A customer who
+      spent $600 once is not a VIP. A customer who's spent $400
+      across nine orders, refers two friends a quarter, and writes
+      five-star reviews — that's a VIP. Detecting them takes three
+      signals braided together, not one threshold.
+    </p>
+
+    <p>
+      We've watched merchants try to build this in Flow and give up
+      after twelve nodes. The same logic in prose:
+    </p>
+
+    <pre><code><span class="c"># trigger</span>
+<span class="k">When</span> an order is paid
+
+<span class="c"># condition</span>
+<span class="k">Tag</span> as <span class="s">"VIP"</span> if all are true:
+  · customer's order count is &gt; 4
+  · their average review score is &gt; 4.5
+  · their lifetime value is in the top 20% of the cohort
+    that joined the same month they did
+
+<span class="c"># action</span>
+<span class="k">Send</span> a Slack ping to the founders' channel
+<span class="k">Email</span> a hand-written note offer (template: brand-voice)</code></pre>
+
+    <p>
+      Six lines. Compiled. One fashion brand in our cohort saw a
+      <strong>34% lift in repeat purchase rates</strong> from
+      customers who received VIP recognition inside twenty-four hours
+      of qualifying. The threshold isn't magic; the <em>timeliness</em>
+      is. And timeliness is what manual review costs you.
+    </p>
+
+    <h2>2. Refund triage with evidence parsing</h2>
+
+    <p>
+      The merchant doesn't need the refund to issue itself. They
+      need the email-plus-photos to arrive on a pre-decided path:
+      low-value damage gets auto-approved with a restock skip;
+      high-value damage routes to a human review with the photos
+      already extracted into a shared sheet; a suspected serial
+      returner gets flagged and routed to the founder.
+    </p>
+
+    <p>
+      This is one prose paragraph. It is also four years of opt-in
+      scaffolding in any drag-and-drop tool — because the photos
+      need vision, the LTV check needs a Shopify lookup, the tone
+      of the reply needs a brand-voice file, and the routing needs
+      a fork that no one ever wants to draw.
+    </p>
+
+    <p>
+      Written as prose, it looks like this:
+    </p>
+
+    <pre><code><span class="c"># trigger</span>
+<span class="k">When</span> a refund request email lands in support@
+
+<span class="c"># steps</span>
+1. <span class="k">Read</span> the message and attached photos
+2. <span class="k">If</span> damage looks under $50 → approve refund, skip restock
+3. <span class="k">Else</span> → route to me with photos in Sheets
+4. <span class="k">If</span> this is the customer's 3rd return in 60 days →
+   flag for review, do not auto-approve
+5. <span class="k">Reply</span> with a brand-appropriate message (warm if
+   first return, firm if pattern)</code></pre>
+
+    <p>
+      The compiler calls Shopify's <code>refunds</code> API, calls
+      a vision model on the attached image, looks up the customer's
+      return history, checks the brand-voice file, and writes the
+      draft reply — all without the merchant naming any of those
+      services. The merchant described what they wanted; the
+      compiler picked the tools.
+    </p>
+
+    <h2>3. Chargeback evidence assembly</h2>
+
+    <p>
+      When a dispute lands, the merchant has seventy-two hours to
+      ship a defense packet: order details, IP logs, shipping
+      confirmations, prior conversations, proof of delivery,
+      AVS&nbsp;match, the customer's order history. Manually
+      collected, that's two to three hours per case. ChargePay
+      reports their customers save <strong>ten-plus hours a week</strong>
+      on this exact task.
+    </p>
+
+    <p>
+      The work isn't analytical. It's clerical. But it lives in
+      five systems. Shopify holds the order; Stripe holds the auth
+      log; Gorgias holds the conversation; ShipStation holds the
+      tracking; the 3PL holds the proof-of-delivery scan. A
+      compiled playbook stitches the packet together while the
+      merchant is asleep, drops the PDF into a folder, and posts a
+      one-line summary to Slack with a "submit / hold" button.
+    </p>
+
+    <div class="callout callout-sand">
+      <span class="callout-mark">◆ NOTE</span>
+      <span>
+        The economics here are unusually clean. The average disputed
+        order is $80–$120. The merchant fee for a lost dispute is
+        $15. A compiled response packet has a 65–70% win rate. Every
+        hour spent assembling one returns $50–$80 in recovered
+        revenue. Most merchants don't bother — not because the math
+        is wrong, but because the assembly is awful.
+      </span>
+    </div>
+
+    <h2>4. Abandoned-checkout intent classification</h2>
+
+    <p>
+      The native Shopify abandoned-cart email goes to everyone. It
+      treats the customer who bounced because their card was declined
+      the same as the customer who bounced because they're
+      price-shopping — and the same as the customer who put a $400
+      item in the cart at 2am and woke up reconsidering.
+    </p>
+
+    <p>
+      An AI compiler can read the cart contents, the time of day,
+      the customer's prior history, and the exit pattern, and send
+      a different message — or no message — accordingly. A declined
+      card gets a "your card didn't go through, here's a one-tap
+      retry" email in six minutes. A price-shopper gets a different
+      treatment at twenty-four hours, with a soft discount only if
+      they've never bought before. A 2am cart gets nothing for ten
+      hours, then a warm "still thinking about this?" — not a
+      discount, because they almost certainly weren't price-sensitive.
+    </p>
+
+    <p>
+      Most merchants run the default flow not because they don't
+      know about this — they read the same blog posts you do — but
+      because the cost of <em>building</em> it exceeded the value.
+      In a node graph, that's an eighteen-branch tree. In prose,
+      it's eleven lines.
+    </p>
+
+    <h2>The compiler is the unlock</h2>
+
+    <p>
+      What ties these four workflows together is that they are all
+      conversations, not rules. Each one requires the automation to
+      know something the prose doesn't explicitly state — the
+      appropriate tone for a refund denial, the heuristics for
+      "high-value damage," the difference between a price-shopping
+      bounce and an abandoned-by-distraction bounce.
+    </p>
+
+    <p>
+      This is exactly where a natural-language compiler earns its
+      keep. The merchant describes what they want. The compiler
+      handles what it should <em>be</em> — the retry logic, the
+      timeout, the AVS lookup, the brand-voice pass on the reply.
+      The merchant never writes a node, never picks an integration
+      from a menu of four thousand, never draws a line between two
+      rectangles.
+    </p>
+
+    <p>
+      The Shopify ecosystem has spent a decade optimizing the easy
+      automations. There are entire SaaS companies whose product is
+      "Shopify Flow but with one more trigger type." Tagging,
+      tagging, tagging. The next decade is about the hard ones —
+      the ones that require an automation to <em>think</em> about
+      a refund instead of just <em>route</em> it.
+    </p>
+
+    <hr />
+
+    <h2>Stop building tags</h2>
+
+    <p>
+      Tagging isn't bad. It's just done. If you're a Shopify
+      merchant looking at your automation backlog and the next item
+      on it is "auto-tag customers who buy from the candle line" —
+      consider skipping it.
+    </p>
+
+    <p>
+      The next workflow worth building is the one that's been
+      sitting in your inbox for four months. The one where you wrote
+      <em>"ugh, I should automate this"</em> in the margin of a
+      Notion doc and never came back to it. The one you can
+      describe in two paragraphs but couldn't draw in a node graph
+      if your fund-raise depended on it.
+    </p>
+
+    <p>
+      That's the one. Build that one.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">◆ READING</span>
+      <span>
+        If this resonates, three pieces to follow it up with: our
+        essay on <a href="index.html">the death of the drag-and-drop
+        builder</a>, the <a href="index.html">interview with Kira
+        Hartman</a> on consolidating 400 zaps, and the post-mortem
+        on <a href="index.html">the night our retry logic ate
+        itself.</a>
+      </span>
+    </div>
+
+    <p>
+      If you're a Shopify merchant building one of the workflows
+      above — or stuck on one — the inbox is open:
+      <code>field-notes@dugong.live</code>. We're collecting case
+      studies for issue 50.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share · copy link · ✦</span>
+  </div>
+
+</article>
+
+<section class="related">
+  <div class="section-head">
+    <span class="section-eyebrow">◆ READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+    <a href="index.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">14&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The death of the drag-and-drop builder</h3>
+        <p class="card-dek">
+          For fifteen years, workflow automation looked like a
+          canvas of rectangles. We argue the canvas is the problem.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 28</span>
+          <span class="card-author">A. Rao</span>
+        </div>
+      </div>
+    </a>
+    <a href="index.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-interview">interview</span>
+          <span class="post-read">22&nbsp;min</span>
+        </div>
+        <h3 class="card-title">"We deleted 400 Zapier zaps in a weekend."</h3>
+        <p class="card-dek">
+          A 600-person fintech consolidates four years of brittle
+          no-code into eleven playbooks.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 13</span>
+          <span class="card-author">w/ K. Hartman</span>
+        </div>
+      </div>
+    </a>
+    <a href="index.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-tactics">tactics</span>
+          <span class="post-read">3&nbsp;min</span>
+        </div>
+        <h3 class="card-title">A taxonomy of "the workflow broke"</h3>
+        <p class="card-dek">
+          Six failure modes we see in support tickets, ranked by
+          how often the AI shield catches them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 09</span>
+          <span class="card-author">R. Diaz</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big">≈</span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html">Latest</a>
+        <a href="index.html">Essays</a>
+        <a href="index.html">Post-mortems</a>
+        <a href="index.html">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="https://dugong.live">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>© 2026 Dugong AI Inc.</span>
+    <span>Set in Fraunces &amp; JetBrains Mono. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>
