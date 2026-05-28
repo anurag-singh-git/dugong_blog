@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dugong Field Notes — Workflow Automation, Thought Through</title>
+<meta name="description" content="Field notes on workflow automation, AI agents, and the playbooks that run modern teams. From Dugong." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@400;500;600&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES — stylesheet
+   Editorial dark theme · warm sand + deep aqua + cream
+   ========================================================= */
+
+:root {
+  --ink:        #0d1416;
+  --ink-2:      #121b1e;
+  --ink-3:      #1a2528;
+  --line:       #233236;
+  --line-2:     #2e4146;
+  --cream:      #f5ecdc;
+  --cream-mute: #c9bfa9;
+  --cream-dim:  #8a8473;
+  --aqua:       #5fb8b3;
+  --aqua-deep:  #2d7a76;
+  --sand:       #d99566;
+  --sand-deep:  #b6754a;
+  --gold:       #e2b665;
+
+  --display: "Fraunces", "Times New Roman", serif;
+  --body:    "Inter Tight", -apple-system, system-ui, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1280px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(95, 184, 179, 0.08), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 30%, rgba(217, 149, 102, 0.06), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(95, 184, 179, 0.04), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.92 0 0 0 0 0.87 0 0 0 0.7 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+}
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* TICKER */
+.ticker {
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid var(--line);
+  background: var(--ink);
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--cream-dim);
+  padding: 10px 0;
+}
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  gap: 3rem;
+  animation: ticker 50s linear infinite;
+}
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem var(--gutter);
+  background: rgba(13, 20, 22, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.brand { display: inline-flex; align-items: baseline; gap: 0.6rem; font-family: var(--display); font-weight: 500; }
+.brand-mark { font-size: 1.5rem; color: var(--aqua); line-height: 1; }
+.brand-mark.big { font-size: 2.5rem; }
+.brand-name { font-size: 1.15rem; letter-spacing: -0.01em; }
+.brand-slash { color: var(--cream-dim); font-size: 1rem; }
+.brand-section { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; color: var(--cream-mute); text-transform: lowercase; }
+
+.nav-links { display: flex; align-items: center; gap: 2rem; font-family: var(--mono); font-size: 0.82rem; letter-spacing: 0.04em; }
+.nav-links a { color: var(--cream-mute); transition: color 0.2s; position: relative; }
+.nav-links a:hover { color: var(--cream); }
+.nav-links a:hover::after {
+  content: ""; position: absolute; bottom: -6px; left: 0;
+  width: 100%; height: 1px; background: var(--aqua);
+}
+.nav-cta {
+  color: var(--aqua) !important;
+  border: 1px solid var(--line-2);
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+}
+.nav-cta:hover { border-color: var(--aqua); background: rgba(95, 184, 179, 0.06); }
+.nav-cta:hover::after { display: none; }
+
+@media (max-width: 720px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+/* HERO */
+.hero {
+  position: relative;
+  z-index: 2;
+  padding: clamp(4rem, 10vw, 8rem) var(--gutter) clamp(3rem, 6vw, 5rem);
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+.hero-meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem;
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.12em;
+  color: var(--cream-dim); margin-bottom: 2rem;
+}
+.hero-issue { color: var(--aqua); }
+.hero-divider { color: var(--line-2); }
+.hero-pulse { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--sand); }
+.dot {
+  width: 6px; height: 6px; background: var(--sand); border-radius: 50%;
+  box-shadow: 0 0 12px var(--sand); animation: pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse { 50% { opacity: 0.4; transform: scale(0.9); } }
+
+.hero-title {
+  font-family: var(--display); font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  font-size: clamp(3.5rem, 11vw, 10rem);
+  line-height: 0.92; letter-spacing: -0.035em;
+  color: var(--cream); margin-bottom: 2.5rem;
+}
+.hero-title em { font-style: italic; color: var(--aqua); font-weight: 300; }
+
+.hero-lede {
+  font-family: var(--display); font-weight: 300;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  line-height: 1.5; max-width: 36em;
+  color: var(--cream-mute); margin-bottom: 3.5rem;
+}
+
+.hero-stats {
+  display: flex; flex-wrap: wrap; gap: clamp(2rem, 5vw, 4rem);
+  padding-top: 2rem; border-top: 1px solid var(--line);
+}
+.stat { display: flex; flex-direction: column; gap: 0.35rem; }
+.stat-num {
+  font-family: var(--display); font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400; font-variation-settings: "opsz" 144;
+  color: var(--cream); line-height: 1;
+}
+.stat-label {
+  font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--cream-dim);
+}
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.16em;
+  color: var(--aqua); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule {
+  flex: 1; height: 1px;
+  background: linear-gradient(to right, var(--line), transparent);
+  min-width: 40px;
+}
+
+/* FEATURED */
+.featured {
+  position: relative; z-index: 2;
+  max-width: var(--maxw); margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) var(--gutter);
+}
+.featured-card {
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem); align-items: center;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  background: linear-gradient(135deg, rgba(26, 37, 40, 0.6), rgba(18, 27, 30, 0.4));
+  border: 1px solid var(--line); border-radius: 4px;
+  position: relative; transition: border-color 0.3s, transform 0.3s;
+}
+.featured-card::before {
+  content: ""; position: absolute; inset: -1px; border-radius: 4px;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--aqua), transparent 50%, var(--sand));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity 0.3s; pointer-events: none;
+}
+.featured-card:hover::before { opacity: 0.8; }
+.featured-card:hover .featured-arrow { color: var(--aqua); transform: translateX(8px); }
+
+@media (max-width: 880px) { .featured-card { grid-template-columns: 1fr; } }
+
+.featured-visual { position: relative; }
+
+.playbook-mock {
+  background: var(--ink); border: 1px solid var(--line); border-radius: 6px;
+  padding: 1rem; font-family: var(--mono); font-size: 0.8rem;
+  box-shadow: 0 20px 40px -20px rgba(0,0,0,0.5);
+}
+.pb-header {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding-bottom: 0.75rem; border-bottom: 1px solid var(--line); margin-bottom: 1rem;
+}
+.pb-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line-2); }
+.pb-dot:nth-child(1) { background: #d96666; }
+.pb-dot:nth-child(2) { background: var(--gold); }
+.pb-dot:nth-child(3) { background: var(--aqua); }
+.pb-file { color: var(--cream-mute); font-size: 0.75rem; margin-left: 0.5rem; }
+.pb-status { margin-left: auto; color: var(--aqua); font-size: 0.7rem; display: inline-flex; align-items: center; gap: 0.3rem; }
+
+.pb-node {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  background: var(--ink-2); border: 1px solid var(--line); border-radius: 4px;
+}
+.pb-node.muted { opacity: 0.7; }
+.pb-icon {
+  font-size: 1.1rem; width: 28px; height: 28px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--ink-3); border-radius: 4px; flex-shrink: 0;
+}
+.pb-node-body { flex: 1; min-width: 0; }
+.pb-node-title { color: var(--cream); font-size: 0.78rem; font-weight: 500; }
+.pb-node-sub {
+  color: var(--cream-dim); font-size: 0.68rem; margin-top: 1px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.pb-tag {
+  font-size: 0.62rem; letter-spacing: 0.06em; color: var(--aqua);
+  background: rgba(95,184,179,0.08); padding: 0.18rem 0.4rem;
+  border-radius: 3px; flex-shrink: 0;
+}
+.pb-line { width: 1px; height: 14px; background: var(--line-2); margin: 0.25rem 0 0.25rem 1.85rem; }
+.pb-branch {
+  display: grid; gap: 0.4rem; padding: 0.5rem 0.75rem;
+  border: 1px dashed var(--line-2); border-radius: 4px;
+}
+.pb-branch-arm { font-size: 0.7rem; color: var(--cream-mute); }
+
+.featured-body { display: flex; flex-direction: column; }
+
+.post-meta {
+  display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em;
+}
+
+.tag {
+  padding: 0.25rem 0.55rem; border-radius: 999px;
+  font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+  background: rgba(95,184,179,0.1); color: var(--aqua);
+  border: 1px solid rgba(95,184,179,0.2);
+}
+.tag-research   { background: rgba(95,184,179,0.1); color: var(--aqua); border-color: rgba(95,184,179,0.25); }
+.tag-essay      { background: rgba(217,149,102,0.1); color: var(--sand); border-color: rgba(217,149,102,0.25); }
+.tag-postmortem { background: rgba(217,102,102,0.1); color: #e08080; border-color: rgba(217,102,102,0.25); }
+.tag-tactics    { background: rgba(226,182,101,0.1); color: var(--gold); border-color: rgba(226,182,101,0.25); }
+.tag-interview  { background: rgba(180,160,220,0.1); color: #b6a3dc; border-color: rgba(180,160,220,0.25); }
+
+.post-read { color: var(--cream-dim); text-transform: uppercase; }
+
+.featured-title {
+  font-family: var(--display); font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1; letter-spacing: -0.025em;
+  color: var(--cream); margin-bottom: 1.25rem;
+}
+.featured-dek {
+  font-family: var(--display); font-weight: 300;
+  font-size: 1.05rem; line-height: 1.55;
+  color: var(--cream-mute); margin-bottom: 2rem; max-width: 36em;
+}
+.post-byline {
+  display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.5rem;
+  font-family: var(--mono); font-size: 0.78rem;
+}
+.byline-avatar {
+  width: 30px; height: 30px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 0.68rem; font-weight: 600; color: var(--ink); letter-spacing: 0;
+}
+.byline-name { color: var(--cream); }
+.byline-divider { color: var(--line-2); }
+.byline-role { color: var(--cream-dim); }
+.featured-arrow {
+  font-family: var(--mono); font-size: 0.85rem;
+  color: var(--cream-mute); letter-spacing: 0.04em;
+  transition: color 0.3s, transform 0.3s; align-self: flex-start;
+}
+
+/* GRID */
+.grid-section {
+  position: relative; z-index: 2;
+  max-width: var(--maxw); margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) var(--gutter);
+}
+.filter-pills { display: flex; gap: 0.4rem; margin-left: auto; flex-wrap: wrap; }
+.pill {
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em;
+  color: var(--cream-mute); background: transparent;
+  border: 1px solid var(--line); padding: 0.4rem 0.85rem;
+  border-radius: 999px; cursor: pointer; transition: all 0.2s;
+}
+.pill:hover { color: var(--cream); border-color: var(--line-2); }
+.pill-active { color: var(--ink); background: var(--cream); border-color: var(--cream); }
+
+.article-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; }
+
+.card {
+  grid-column: span 4;
+  display: flex; flex-direction: column;
+  background: var(--ink-2); border: 1px solid var(--line);
+  border-radius: 4px; overflow: hidden; cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.3s, background 0.3s;
+}
+.card:hover { transform: translateY(-4px); border-color: var(--line-2); background: var(--ink-3); }
+.card:hover .card-title { color: var(--aqua); }
+
+.card-tall  { grid-column: span 4; grid-row: span 2; }
+.card-wide  { grid-column: span 8; }
+.card-accent {
+  background: linear-gradient(140deg, rgba(217,149,102,0.08), rgba(18,27,30,1));
+  border-color: rgba(217,149,102,0.2);
+}
+.card-quote { background: var(--ink); border-color: var(--line-2); }
+
+.card-art {
+  height: 200px;
+  background: linear-gradient(135deg, var(--ink-3), var(--ink-2));
+  border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.card-art::before {
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(95,184,179,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(95,184,179,0.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.card-art-1 {
+  background:
+    radial-gradient(circle at 30% 40%, rgba(95,184,179,0.2), transparent 50%),
+    linear-gradient(135deg, var(--ink-3), var(--ink-2));
+}
+.card-art-2 {
+  background:
+    radial-gradient(circle at 70% 60%, rgba(217,149,102,0.18), transparent 50%),
+    linear-gradient(135deg, var(--ink-3), var(--ink-2));
+}
+.art-glyph { font-size: 3rem; position: relative; z-index: 1; filter: drop-shadow(0 0 20px rgba(95,184,179,0.4)); }
+.art-coord {
+  position: absolute; bottom: 12px; left: 12px;
+  font-family: var(--mono); font-size: 0.65rem;
+  color: var(--cream-dim); letter-spacing: 0.08em;
+}
+
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title {
+  font-family: var(--display); font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  font-size: 1.5rem; line-height: 1.1; letter-spacing: -0.02em;
+  color: var(--cream); margin-bottom: 0.75rem; transition: color 0.3s;
+}
+.card-tall .card-title { font-size: 1.85rem; }
+.card-wide .card-title { font-size: 2rem; }
+.card-title em { color: var(--sand); }
+.card-title-quote {
+  font-family: var(--display); font-style: italic; font-weight: 300;
+  font-size: 1.4rem !important; line-height: 1.3; color: var(--cream);
+}
+.quote-mark {
+  font-family: var(--display); font-size: 4rem; line-height: 0.5;
+  color: var(--sand); display: block; margin-bottom: 1rem;
+}
+.card-dek {
+  font-family: var(--body); font-size: 0.92rem; line-height: 1.55;
+  color: var(--cream-mute); margin-bottom: 1.25rem; flex: 1;
+}
+.card-foot {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 0.85rem; border-top: 1px solid var(--line);
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em;
+}
+.card-date { color: var(--cream-dim); }
+.card-author { color: var(--cream-mute); }
+
+@media (max-width: 960px) {
+  .card, .card-tall, .card-wide { grid-column: span 6; }
+  .card-tall { grid-row: span 1; }
+}
+@media (max-width: 600px) {
+  .card, .card-tall, .card-wide { grid-column: span 12; }
+}
+
+/* TOPICS */
+.topics {
+  position: relative; z-index: 2;
+  max-width: var(--maxw); margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) var(--gutter);
+}
+.topic-cloud {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  gap: 0.75rem 1.25rem;
+  font-family: var(--display); font-weight: 400;
+}
+.topic {
+  font-size: var(--topic-size); color: var(--cream-mute);
+  line-height: 1; transition: color 0.2s, transform 0.2s; font-style: italic;
+}
+.topic:hover { color: var(--aqua); transform: translateY(-2px); }
+
+/* NEWSLETTER */
+.signup {
+  position: relative; z-index: 2;
+  margin: clamp(3rem, 6vw, 5rem) auto;
+  max-width: var(--maxw);
+  padding: 0 var(--gutter);
+}
+.signup-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  padding: clamp(2.5rem, 5vw, 5rem);
+  background:
+    radial-gradient(circle at 90% 100%, rgba(95,184,179,0.12), transparent 60%),
+    linear-gradient(135deg, var(--ink-3), var(--ink-2));
+  border: 1px solid var(--line); border-radius: 6px;
+  position: relative; overflow: hidden;
+}
+.signup-inner::before {
+  content: ""; position: absolute; top: -20%; right: -10%;
+  width: 50%; height: 140%;
+  background: radial-gradient(circle, rgba(217,149,102,0.08), transparent 70%);
+  pointer-events: none;
+}
+@media (max-width: 760px) { .signup-inner { grid-template-columns: 1fr; } }
+
+.signup-eyebrow {
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.16em;
+  color: var(--aqua); margin-bottom: 1rem; display: block;
+}
+.signup-title {
+  font-family: var(--display); font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 0.95; letter-spacing: -0.025em;
+  color: var(--cream); margin-bottom: 1.25rem;
+}
+.signup-title em { color: var(--sand); font-weight: 300; }
+.signup-lede {
+  font-family: var(--display); font-weight: 300;
+  font-size: 1.05rem; line-height: 1.5; color: var(--cream-mute);
+}
+.signup-form { display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 1; }
+.signup-label {
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--cream-dim); margin-bottom: 0.75rem;
+}
+.signup-row { display: flex; gap: 0.5rem; margin-bottom: 0.85rem; }
+.signup-row input {
+  flex: 1; background: var(--ink); border: 1px solid var(--line-2);
+  color: var(--cream); padding: 0.9rem 1rem;
+  font-family: var(--mono); font-size: 0.9rem;
+  border-radius: 4px; outline: none; transition: border-color 0.2s;
+}
+.signup-row input:focus { border-color: var(--aqua); }
+.signup-row input::placeholder { color: var(--cream-dim); }
+.signup-row button {
+  background: var(--cream); color: var(--ink); border: none;
+  padding: 0.9rem 1.4rem; font-family: var(--mono); font-size: 0.85rem;
+  font-weight: 600; letter-spacing: 0.04em; border-radius: 4px;
+  cursor: pointer; transition: background 0.2s, color 0.2s;
+}
+.signup-row button:hover { background: var(--aqua); color: var(--ink); }
+.signup-fine {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em;
+  color: var(--cream-dim);
+}
+
+/* ARCHIVE */
+.archive {
+  position: relative; z-index: 2;
+  max-width: var(--maxw); margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) var(--gutter);
+}
+.archive-list { list-style: none; border-top: 1px solid var(--line); }
+.archive-list li {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 2rem;
+  align-items: baseline; padding: 1.4rem 0;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer; transition: background 0.2s, padding 0.3s; position: relative;
+}
+.archive-list li:hover {
+  padding-left: 1rem;
+  background: linear-gradient(to right, rgba(95,184,179,0.04), transparent 50%);
+}
+.archive-list li:hover .arch-title { color: var(--cream); }
+.archive-list li:hover::before {
+  content: "→"; position: absolute; left: -0.5rem; color: var(--aqua);
+}
+.arch-num { font-family: var(--mono); font-size: 0.78rem; color: var(--cream-dim); letter-spacing: 0.06em; }
+.arch-title {
+  font-family: var(--display); font-size: 1.15rem; line-height: 1.3;
+  color: var(--cream-mute); transition: color 0.2s;
+}
+.arch-date { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--cream-dim); }
+.archive-more {
+  display: inline-block; margin-top: 2rem;
+  font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.04em;
+  color: var(--aqua); border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.archive-more:hover { border-color: var(--aqua); }
+@media (max-width: 600px) {
+  .archive-list li { grid-template-columns: auto 1fr; gap: 1rem; }
+  .arch-date { grid-column: 2; font-size: 0.66rem; }
+}
+
+/* FOOTER */
+.foot {
+  position: relative; z-index: 2;
+  margin-top: clamp(3rem, 6vw, 5rem);
+  border-top: 1px solid var(--line); background: var(--ink-2);
+}
+.foot-top {
+  display: grid; grid-template-columns: 1fr 2fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  max-width: var(--maxw); margin: 0 auto;
+  padding: clamp(3rem, 5vw, 4rem) var(--gutter) 2rem;
+}
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag {
+  font-family: var(--display); font-style: italic; font-weight: 300;
+  font-size: 1rem; color: var(--cream-mute);
+  max-width: 20em; line-height: 1.4;
+}
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.6rem; }
+.foot-h {
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--aqua); margin-bottom: 0.5rem;
+}
+.foot-cols a { font-family: var(--body); font-size: 0.9rem; color: var(--cream-mute); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--cream); }
+.foot-bot {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  max-width: var(--maxw); margin: 0 auto;
+  padding: 1.5rem var(--gutter); border-top: 1px solid var(--line);
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--cream-dim);
+}
+
+/* POST PAGE */
+.article {
+  position: relative; z-index: 2;
+  max-width: 760px; margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) var(--gutter);
+}
+.article-back {
+  font-family: var(--mono); font-size: 0.82rem;
+  color: var(--cream-mute); margin-bottom: 3rem; display: inline-block;
+  letter-spacing: 0.04em;
+}
+.article-back:hover { color: var(--aqua); }
+
+.article-meta {
+  display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; flex-wrap: wrap;
+}
+.article-title {
+  font-family: var(--display); font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 0.98; letter-spacing: -0.03em;
+  color: var(--cream); margin-bottom: 1.5rem;
+}
+.article-title em { font-style: italic; color: var(--aqua); }
+
+.article-dek {
+  font-family: var(--display); font-weight: 300;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  line-height: 1.5; color: var(--cream-mute); margin-bottom: 2.5rem;
+}
+.article-byline {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  margin-bottom: 3rem;
+  font-family: var(--mono); font-size: 0.85rem;
+}
+.article-body {
+  font-family: var(--display); font-weight: 400;
+  font-size: 1.18rem; line-height: 1.7; color: var(--cream);
+}
+.article-body p { margin-bottom: 1.5rem; }
+.article-body p:first-of-type::first-letter {
+  font-family: var(--display); font-weight: 400;
+  font-size: 5.5rem; float: left; line-height: 0.85;
+  margin: 0.15rem 0.8rem 0 0; color: var(--aqua);
+}
+.article-body h2 {
+  font-family: var(--display); font-weight: 500;
+  font-size: 2rem; line-height: 1.1; letter-spacing: -0.02em;
+  margin: 3rem 0 1.25rem; color: var(--cream);
+}
+.article-body h2::before { content: "§ "; color: var(--aqua); font-weight: 400; }
+.article-body blockquote {
+  font-style: italic; font-weight: 300;
+  font-size: 1.5rem; line-height: 1.45;
+  padding: 1.5rem 2rem; border-left: 2px solid var(--aqua);
+  margin: 2rem 0; color: var(--cream-mute);
+}
+.article-body code {
+  font-family: var(--mono); font-size: 0.92em;
+  background: var(--ink-3); padding: 0.1em 0.35em;
+  border-radius: 3px; color: var(--sand); border: 1px solid var(--line);
+}
+.article-body pre {
+  background: var(--ink); border: 1px solid var(--line);
+  border-radius: 4px; padding: 1.25rem; margin: 2rem 0;
+  overflow-x: auto; font-family: var(--mono); font-size: 0.85rem;
+  line-height: 1.6; color: var(--cream-mute);
+}
+.article-body pre code { background: none; border: none; padding: 0; color: inherit; }
+.article-body pre .k { color: var(--aqua); }
+.article-body pre .s { color: var(--sand); }
+.article-body pre .c { color: var(--cream-dim); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.5rem; }
+.article-body li { margin-bottom: 0.5rem; }
+.article-body a {
+  color: var(--aqua); border-bottom: 1px solid rgba(95,184,179,0.3);
+  transition: border-color 0.2s;
+}
+.article-body a:hover { border-color: var(--aqua); }
+.article-body hr { border: none; text-align: center; margin: 3rem 0; }
+.article-body hr::before {
+  content: "◆ ◆ ◆"; color: var(--cream-dim);
+  letter-spacing: 1em; font-family: var(--mono); font-size: 0.7rem;
+}
+
+.callout {
+  display: flex; gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(95,184,179,0.04);
+  border: 1px solid rgba(95,184,179,0.2);
+  border-left: 3px solid var(--aqua);
+  border-radius: 4px; margin: 2rem 0;
+  font-family: var(--body); font-size: 0.95rem;
+  line-height: 1.55; color: var(--cream-mute);
+}
+.callout-mark {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em;
+  color: var(--aqua); text-transform: uppercase;
+  flex-shrink: 0; padding-top: 0.15rem;
+}
+
+.article-end {
+  margin-top: 4rem; padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share {
+  font-family: var(--mono); font-size: 0.78rem;
+  color: var(--cream-mute); letter-spacing: 0.06em;
+}
+
+.related {
+  max-width: 1080px; margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) var(--gutter);
+  position: relative; z-index: 2;
+}
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* VIEW TOGGLE */
+.view { display: none; }
+.view.active { display: block; }
+
+/* ANIMATIONS */
+.view.active.home > .hero > * {
+  opacity: 0;
+  animation: rise 0.9s cubic-bezier(0.2,0.7,0.2,1) forwards;
+}
+.view.active.home > .hero > .hero-meta  { animation-delay: 0.1s; }
+.view.active.home > .hero > .hero-title { animation-delay: 0.25s; }
+.view.active.home > .hero > .hero-lede  { animation-delay: 0.45s; }
+.view.active.home > .hero > .hero-stats { animation-delay: 0.6s; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2,0.7,0.2,1); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ HOME VIEW ============ -->
+<div class="view home active" id="view-home">
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>◆ FIELD NOTES VOL. 04 — 2026</span>
+    <span>◆ FROM THE DUGONG RESEARCH DESK</span>
+    <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
+    <span>◆ 12 NEW DISPATCHES THIS MONTH</span>
+    <span>◆ FIELD NOTES VOL. 04 — 2026</span>
+    <span>◆ FROM THE DUGONG RESEARCH DESK</span>
+    <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
+    <span>◆ 12 NEW DISPATCHES THIS MONTH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="#" class="brand" data-nav="home">
+    <span class="brand-mark">≈</span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#latest">Latest</a>
+    <a href="#tags">Topics</a>
+    <a href="#archive">Archive</a>
+    <a href="https://dugong.live" class="nav-cta">← back to product</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-meta">
+    <span class="hero-issue">ISSUE Nº 47</span>
+    <span class="hero-divider">·</span>
+    <span class="hero-date">MAY 28 · 2026</span>
+    <span class="hero-divider">·</span>
+    <span class="hero-pulse"><span class="dot"></span>NEW THIS WEEK</span>
+  </div>
+
+  <h1 class="hero-title">
+    Workflows,<br />
+    <em>thought</em> through.
+  </h1>
+
+  <p class="hero-lede">
+    A working journal from the team building AI-native automation.
+    Essays, post-mortems, and field experiments on the playbooks
+    that quietly run the modern company.
+  </p>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">47</span>
+      <span class="stat-label">dispatches&nbsp;published</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">3.2M</span>
+      <span class="stat-label">runs&nbsp;observed</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">94%</span>
+      <span class="stat-label">first-compile&nbsp;accuracy</span>
+    </div>
+  </div>
+</section>
+
+<section class="featured" id="latest">
+  <div class="section-head">
+    <span class="section-eyebrow">◆ DISPATCH OF THE WEEK</span>
+    <span class="section-rule"></span>
+  </div>
+
+  <a href="#post" class="featured-card" data-nav="post">
+    <div class="featured-visual">
+      <div class="playbook-mock">
+        <div class="pb-header">
+          <span class="pb-dot"></span>
+          <span class="pb-dot"></span>
+          <span class="pb-dot"></span>
+          <span class="pb-file">onboarding-flow.playbook</span>
+          <span class="pb-status">▶ live</span>
+        </div>
+        <div class="pb-node">
+          <span class="pb-icon">⚡</span>
+          <div class="pb-node-body">
+            <div class="pb-node-title">Trigger · new signup</div>
+            <div class="pb-node-sub">POST /webhooks/signup</div>
+          </div>
+          <span class="pb-tag">ai-detected</span>
+        </div>
+        <div class="pb-line"></div>
+        <div class="pb-node">
+          <span class="pb-icon">🧠</span>
+          <div class="pb-node-body">
+            <div class="pb-node-title">AI lead scoring</div>
+            <div class="pb-node-sub">dugong-scorer-v3</div>
+          </div>
+          <span class="pb-tag">ai-generated</span>
+        </div>
+        <div class="pb-line"></div>
+        <div class="pb-branch">
+          <div class="pb-branch-arm">IF score &gt; 80 → 💼 Salesforce</div>
+          <div class="pb-branch-arm">ELSE → 📧 nurture sequence</div>
+        </div>
+        <div class="pb-line"></div>
+        <div class="pb-node muted">
+          <span class="pb-icon">🛡️</span>
+          <div class="pb-node-body">
+            <div class="pb-node-title">Error shield · 3× retry</div>
+            <div class="pb-node-sub">fallback → #ops alert</div>
+          </div>
+          <span class="pb-tag">ai-injected</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="featured-body">
+      <div class="post-meta">
+        <span class="tag tag-research">research</span>
+        <span class="post-read">14&nbsp;min&nbsp;read</span>
+      </div>
+      <h2 class="featured-title">
+        The death of the drag-and-drop builder
+      </h2>
+      <p class="featured-dek">
+        For fifteen years, workflow automation looked like a
+        canvas full of rectangles connected by lines. We argue the
+        canvas is the problem — and natural language plus an AI
+        compiler is what comes next. With evidence from 3.2M runs.
+      </p>
+      <div class="post-byline">
+        <span class="byline-avatar" style="background:#c47a55;">AR</span>
+        <span class="byline-name">Aanya Rao</span>
+        <span class="byline-divider">·</span>
+        <span class="byline-role">Head of Research</span>
+      </div>
+      <span class="featured-arrow">read the dispatch →</span>
+    </div>
+  </a>
+</section>
+
+<section class="grid-section">
+  <div class="section-head">
+    <span class="section-eyebrow">◆ RECENT DISPATCHES</span>
+    <span class="section-rule"></span>
+    <div class="filter-pills">
+      <button class="pill pill-active">all</button>
+      <button class="pill">essays</button>
+      <button class="pill">post-mortems</button>
+      <button class="pill">tactics</button>
+      <button class="pill">interviews</button>
+    </div>
+  </div>
+
+  <div class="article-grid">
+
+    <article class="card card-tall" data-nav="post">
+      <div class="card-art card-art-1">
+        <span class="art-glyph">⚡</span>
+        <span class="art-coord">37.7749,&nbsp;-122.4194</span>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-essay">essay</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">Triggers are the new APIs</h3>
+        <p class="card-dek">
+          When every step is natural language, the trigger becomes
+          the only thing you really design. Here's what we learned
+          watching 12,000 teams write their first one.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 24</span>
+          <span class="card-author">M. Chen</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-postmortem">post-mortem</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">
+          The night our retry logic ate <em>itself</em>
+        </h3>
+        <p class="card-dek">
+          A Slack notification fired every 4 seconds for 11 hours.
+          The blameless story of how we found it, what the AI
+          shield missed, and the fix.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 21</span>
+          <span class="card-author">J. Okafor</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card card-accent" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-tactics">tactics</span>
+          <span class="post-read">4&nbsp;min</span>
+        </div>
+        <h3 class="card-title">
+          Seven prompts that compile cleaner playbooks
+        </h3>
+        <p class="card-dek">
+          Small wording changes that shift our compiler from
+          "good enough" to first-try perfect. Steal them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 19</span>
+          <span class="card-author">L. Park</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-nav="post">
+      <div class="card-art card-art-2">
+        <span class="art-glyph">🔀</span>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-essay">essay</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">
+          Branching is a writing problem
+        </h3>
+        <p class="card-dek">
+          Why "if," "unless," and "when" are the three most
+          undervalued words in automation — and how clearer
+          prose produces cleaner conditional logic.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 16</span>
+          <span class="card-author">A. Rao</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card card-wide" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-interview">interview</span>
+          <span class="post-read">22&nbsp;min</span>
+        </div>
+        <h3 class="card-title">
+          "We deleted 400 Zapier zaps in a weekend."
+        </h3>
+        <p class="card-dek">
+          A conversation with the ops lead at a 600-person fintech
+          on consolidating four years of brittle no-code automation
+          into eleven AI-compiled playbooks. Plus the spreadsheet
+          they used to audit everything.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 13</span>
+          <span class="card-author">w/&nbsp;K.&nbsp;Hartman</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-tactics">tactics</span>
+          <span class="post-read">3&nbsp;min</span>
+        </div>
+        <h3 class="card-title">
+          A taxonomy of "the workflow broke"
+        </h3>
+        <p class="card-dek">
+          Six failure modes we see in support tickets, ranked by
+          how often the AI shield catches them before you do.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 09</span>
+          <span class="card-author">R. Diaz</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-essay">essay</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">
+          On naming things the AI will read later
+        </h3>
+        <p class="card-dek">
+          Variable names, channel names, sheet tabs — they're
+          all prompts now. A small style guide for teams whose
+          workflows write themselves.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 06</span>
+          <span class="card-author">M. Chen</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card card-quote">
+      <div class="card-body">
+        <span class="quote-mark">"</span>
+        <h3 class="card-title card-title-quote">
+          The best playbook is the one your replacement can read
+          on a Tuesday afternoon and understand by lunch.
+        </h3>
+        <div class="card-foot">
+          <span class="card-date">FROM ISSUE 46</span>
+          <span class="card-author">— A. Rao</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="topics" id="tags">
+  <div class="section-head">
+    <span class="section-eyebrow">◆ BROWSE BY TOPIC</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="topic-cloud">
+    <a href="#" class="topic" style="--topic-size:1.8rem;">natural language</a>
+    <a href="#" class="topic" style="--topic-size:1.2rem;">retries</a>
+    <a href="#" class="topic" style="--topic-size:2.4rem;">playbooks</a>
+    <a href="#" class="topic" style="--topic-size:1rem;">salesforce</a>
+    <a href="#" class="topic" style="--topic-size:1.5rem;">branching</a>
+    <a href="#" class="topic" style="--topic-size:1.1rem;">slack</a>
+    <a href="#" class="topic" style="--topic-size:2rem;">AI&nbsp;agents</a>
+    <a href="#" class="topic" style="--topic-size:1rem;">stripe</a>
+    <a href="#" class="topic" style="--topic-size:1.4rem;">triggers</a>
+    <a href="#" class="topic" style="--topic-size:1.2rem;">notion</a>
+    <a href="#" class="topic" style="--topic-size:1.6rem;">post-mortems</a>
+    <a href="#" class="topic" style="--topic-size:1rem;">hubspot</a>
+    <a href="#" class="topic" style="--topic-size:1.3rem;">error&nbsp;shields</a>
+    <a href="#" class="topic" style="--topic-size:1.7rem;">prompt&nbsp;craft</a>
+    <a href="#" class="topic" style="--topic-size:1.1rem;">gmail</a>
+    <a href="#" class="topic" style="--topic-size:1.3rem;">integrations</a>
+    <a href="#" class="topic" style="--topic-size:1rem;">sheets</a>
+    <a href="#" class="topic" style="--topic-size:1.4rem;">self-healing</a>
+  </div>
+</section>
+
+<section class="signup">
+  <div class="signup-inner">
+    <div class="signup-left">
+      <span class="signup-eyebrow">◆ THE WEEKLY DISPATCH</span>
+      <h2 class="signup-title">
+        One letter,<br />
+        every <em>Sunday.</em>
+      </h2>
+      <p class="signup-lede">
+        Three essays. One post-mortem. A workflow worth stealing.
+        Sent the morning before you start the week.
+      </p>
+    </div>
+    <form class="signup-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='subscribed ✓'; this.querySelector('input').value='';">
+      <label class="signup-label" for="email">your email</label>
+      <div class="signup-row">
+        <input id="email" type="email" placeholder="name@company.com" required />
+        <button type="submit">subscribe →</button>
+      </div>
+      <span class="signup-fine">free · unsubscribe anytime · 4,200 readers</span>
+    </form>
+  </div>
+</section>
+
+<section class="archive" id="archive">
+  <div class="section-head">
+    <span class="section-eyebrow">◆ FROM THE ARCHIVE</span>
+    <span class="section-rule"></span>
+  </div>
+  <ul class="archive-list">
+    <li data-nav="post"><span class="arch-num">041</span><span class="arch-title">When automation stops being a tool and starts being a teammate</span><span class="arch-date">APR&nbsp;28</span></li>
+    <li data-nav="post"><span class="arch-num">040</span><span class="arch-title">Counting the hidden cost of a single Zap</span><span class="arch-date">APR&nbsp;21</span></li>
+    <li data-nav="post"><span class="arch-num">039</span><span class="arch-title">The case for boring workflows</span><span class="arch-date">APR&nbsp;14</span></li>
+    <li data-nav="post"><span class="arch-num">038</span><span class="arch-title">Composable triggers: a half-baked manifesto</span><span class="arch-date">APR&nbsp;07</span></li>
+    <li data-nav="post"><span class="arch-num">037</span><span class="arch-title">Why your ops team is secretly a compiler</span><span class="arch-date">MAR&nbsp;31</span></li>
+    <li data-nav="post"><span class="arch-num">036</span><span class="arch-title">A short history of if-this-then-that</span><span class="arch-date">MAR&nbsp;24</span></li>
+  </ul>
+  <a href="#" class="archive-more">browse all 47 dispatches →</a>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big">≈</span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="#">Latest</a>
+        <a href="#">Essays</a>
+        <a href="#">Post-mortems</a>
+        <a href="#">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="#">Pricing</a>
+        <a href="#">AI Engine</a>
+        <a href="#">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Privacy</a>
+        <a href="#">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>© 2026 Dugong AI Inc.</span>
+    <span>Set in Fraunces &amp; JetBrains Mono. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+</div>
+
+<!-- ============ POST VIEW ============ -->
+<div class="view post" id="view-post">
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>◆ DISPATCH Nº 47 — MAY 28, 2026</span>
+    <span>◆ FILED UNDER: RESEARCH</span>
+    <span>◆ 14 MIN READ · 3,420 WORDS</span>
+    <span>◆ BY AANYA RAO</span>
+    <span>◆ DISPATCH Nº 47 — MAY 28, 2026</span>
+    <span>◆ FILED UNDER: RESEARCH</span>
+    <span>◆ 14 MIN READ · 3,420 WORDS</span>
+    <span>◆ BY AANYA RAO</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="#" class="brand" data-nav="home">
+    <span class="brand-mark">≈</span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#" data-nav="home">Latest</a>
+    <a href="#" data-nav="home">Topics</a>
+    <a href="#" data-nav="home">Archive</a>
+    <a href="https://dugong.live" class="nav-cta">← back to product</a>
+  </nav>
+</header>
+
+<article class="article">
+
+  <a href="#" class="article-back" data-nav="home">← back to field notes</a>
+
+  <div class="article-meta">
+    <span class="tag tag-research">research</span>
+    <span style="color: var(--cream-dim);">DISPATCH Nº 47</span>
+    <span style="color: var(--line-2);">·</span>
+    <span style="color: var(--cream-dim);">MAY 28, 2026</span>
+    <span style="color: var(--line-2);">·</span>
+    <span style="color: var(--cream-dim);">14 MIN READ</span>
+  </div>
+
+  <h1 class="article-title">
+    The death of the <em>drag-and-drop</em> builder.
+  </h1>
+
+  <p class="article-dek">
+    For fifteen years, workflow automation looked like a canvas
+    of rectangles connected by lines. After watching three
+    million runs across twelve thousand teams, we're convinced
+    the canvas was always the problem.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--sand);">AR</span>
+    <span class="byline-name">Aanya Rao</span>
+    <span class="byline-divider">·</span>
+    <span class="byline-role">Head of Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      There is a particular kind of fatigue that sets in around the
+      twentieth node of a Zapier zap. You know the one. The connecting
+      lines start to cross. The error-handling branch you added last
+      week now has its own error-handling branch. Someone on the team
+      named a step "Step 7 (FINAL) (USE THIS ONE)." You open it on a
+      Monday morning, stare at the canvas for forty seconds, and quietly
+      close the tab.
+    </p>
+
+    <p>
+      We've spent the past eighteen months instrumenting that moment.
+      What we found surprised us: the canvas isn't failing because the
+      workflows got more complex. The workflows got more complex
+      <em>because the canvas required them to be.</em>
+    </p>
+
+    <h2>The canvas tax</h2>
+
+    <p>
+      Every drag-and-drop builder shares an unspoken bargain: in exchange
+      for a visual representation of your logic, you agree to express
+      that logic in nodes. One node, one action. Two actions, two nodes
+      and a line. A branch becomes a diamond and three lines. A retry
+      becomes a node that points back at itself in a way that looks
+      vaguely alarming.
+    </p>
+
+    <blockquote>
+      The canvas didn't help us think clearly about workflows. It
+      forced us to think about <em>nodes.</em>
+    </blockquote>
+
+    <p>
+      The cost shows up in our data. Across the 12,000 teams we studied,
+      median Zapier zaps grew 31% in node count year over year — but
+      the work they accomplished grew by only 9%. The rest was
+      <strong>scaffolding</strong>: wrapper nodes, formatter steps,
+      lookup nodes, glue. The canvas was eating itself.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">◆ DATA</span>
+      <span>
+        Of 8,400 workflows audited, <strong>43% of nodes existed only
+        to translate data between two other nodes.</strong> They did no
+        real work; they were grammar. The canvas charged a tax in
+        rectangles.
+      </span>
+    </div>
+
+    <h2>The natural-language alternative</h2>
+
+    <p>
+      What happens if you stop drawing the workflow and start
+      <em>describing</em> it? We thought we knew. We assumed natural
+      language would be a thin layer over the same model — a different
+      input method for the same canvas. It is not.
+    </p>
+
+    <p>
+      Here is a workflow our customer Anika at Resend wrote on a Tuesday
+      afternoon, in plain prose, in our editor:
+    </p>
+
+    <pre><code><span class="c"># trigger</span>
+<span class="k">When</span> a new customer signs up on our website
+
+<span class="c"># steps</span>
+1. <span class="k">Look up</span> their company info using Clearbit
+2. <span class="k">Score</span> the lead with AI: company size, industry, role
+3. <span class="k">If</span> score &gt; 80, create a Salesforce deal + assign rep
+4. <span class="k">Send</span> a welcome email via Gmail with their name
+5. <span class="k">Log</span> to Google Sheets and post to Slack #signups</code></pre>
+
+    <p>
+      What the compiler produced from this prose was an 8-node playbook
+      with one branch, five API integrations, and — critically — an
+      error shield Anika never asked for, because the AI knew Clearbit
+      sometimes times out and Salesforce sometimes rate-limits.
+    </p>
+
+    <p>
+      In a drag-and-drop tool, Anika would have spent the next two hours
+      adding retry logic, formatter steps, and conditional fallbacks.
+      In ours, she spent six minutes describing what the workflow
+      should <em>do</em>, and the compiler handled what it should
+      <em>be.</em>
+    </p>
+
+    <h2>The compiler is the product</h2>
+
+    <p>
+      The interesting work, it turns out, isn't the editor. It's the
+      compiler. Translating "if the score is high" into a branching
+      condition is the easy part — what's hard is knowing that the
+      score might be missing, that the field might be a string instead
+      of a number, that the Salesforce API will occasionally return
+      a duplicate-key error and you should treat that as success.
+    </p>
+
+    <p>
+      That kind of knowledge isn't visible in the editor. It lives
+      in the compiler. And once you accept that the compiler is doing
+      the real work, the editor stops needing to look like a canvas.
+      It can look like writing.
+    </p>
+
+    <hr />
+
+    <h2>Three predictions</h2>
+
+    <p>
+      We think the next three years of workflow automation will be
+      shaped by three forces:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Workflows will be read more than written.</strong>
+        The unit of authorship becomes the prose, not the diagram.
+        Reviewing a teammate's workflow becomes reading a paragraph
+        instead of tracing arrows.
+      </li>
+      <li>
+        <strong>Error handling moves below the line.</strong>
+        Retries, fallbacks, and rate-limit logic will be invisible
+        unless you ask to see them. The compiler will assume you
+        want them; you'll opt out, not opt in.
+      </li>
+      <li>
+        <strong>Integrations stop being a menu.</strong> "Send to
+        Slack" is enough. "Update the CRM" is enough. The resolver
+        picks the tool. You don't browse a directory of 4,000 apps;
+        you mention what you need.
+      </li>
+    </ul>
+
+    <p>
+      None of this means the canvas disappears overnight. There are
+      workflows where a diagram is genuinely the right representation —
+      complex state machines, multi-week orchestrations, anything
+      with significant parallel branches. But those are a minority.
+      For the long tail of "when X happens, do Y and Z," prose is
+      better. It always was. We just didn't have the compiler.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">◆ READING</span>
+      <span>
+        If this argument interests you, three pieces to follow it up
+        with: our <a href="#">post-mortem on the retry-loop incident</a>,
+        the <a href="#">interview with Kira Hartman</a> on consolidating
+        400 zaps, and Mei's <a href="#">essay on naming things the AI
+        will read later.</a>
+      </span>
+    </div>
+
+    <p>
+      We'll keep writing as the data accumulates. If you're building
+      workflows — in any tool — and you want to share what you're
+      seeing, the inbox is open: <code>field-notes@dugong.live</code>.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share · copy link · ✦</span>
+  </div>
+
+</article>
+
+<section class="related">
+  <div class="section-head">
+    <span class="section-eyebrow">◆ READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+    <article class="card" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-essay">essay</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">Triggers are the new APIs</h3>
+        <p class="card-dek">
+          When every step is natural language, the trigger becomes
+          the only thing you really design.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 24</span>
+          <span class="card-author">M. Chen</span>
+        </div>
+      </div>
+    </article>
+    <article class="card" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-essay">essay</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">Branching is a writing problem</h3>
+        <p class="card-dek">
+          Why "if," "unless," and "when" are the three most
+          undervalued words in automation.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 16</span>
+          <span class="card-author">A. Rao</span>
+        </div>
+      </div>
+    </article>
+    <article class="card" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-interview">interview</span>
+          <span class="post-read">22&nbsp;min</span>
+        </div>
+        <h3 class="card-title">"We deleted 400 Zapier zaps in a weekend."</h3>
+        <p class="card-dek">
+          A 600-person fintech consolidates four years of brittle
+          no-code into eleven playbooks.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 13</span>
+          <span class="card-author">w/ K. Hartman</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big">≈</span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="#" data-nav="home">Latest</a>
+        <a href="#">Essays</a>
+        <a href="#">Post-mortems</a>
+        <a href="#">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="#">Pricing</a>
+        <a href="#">AI Engine</a>
+        <a href="#">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Privacy</a>
+        <a href="#">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>© 2026 Dugong AI Inc.</span>
+    <span>Set in Fraunces &amp; JetBrains Mono. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+</div>
+
+<script>
+// ============ VIEW NAVIGATION ============
+function showView(name) {
+  document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+  const target = document.getElementById("view-" + name);
+  if (target) target.classList.add("active");
+  window.scrollTo({ top: 0, behavior: "instant" });
+  // Re-run reveal observer for the newly shown content
+  attachReveals();
+}
+
+document.addEventListener("click", (e) => {
+  const trigger = e.target.closest("[data-nav]");
+  if (!trigger) return;
+  e.preventDefault();
+  showView(trigger.getAttribute("data-nav"));
+});
+
+// ============ SCROLL REVEALS ============
+let io;
+function attachReveals() {
+  if (io) io.disconnect();
+  io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+  document.querySelectorAll(".view.active .featured-card, .view.active .card, .view.active .archive-list li, .view.active .section-head, .view.active .signup-inner, .view.active .topic-cloud, .view.active .foot")
+    .forEach((el) => {
+      el.classList.remove("in");
+      el.classList.add("reveal");
+      io.observe(el);
+    });
+}
+attachReveals();
+
+// ============ FILTER PILLS ============
+document.querySelectorAll(".pill").forEach((pill) => {
+  pill.addEventListener("click", () => {
+    document.querySelectorAll(".pill").forEach((p) => p.classList.remove("pill-active"));
+    pill.classList.add("pill-active");
+  });
+});
+
+// ============ HERO PARALLAX ============
+const heroTitle = document.querySelector(".hero-title");
+if (heroTitle && window.matchMedia("(min-width: 720px)").matches) {
+  window.addEventListener("scroll", () => {
+    const y = window.scrollY;
+    if (y < 800 && document.getElementById("view-home").classList.contains("active")) {
+      heroTitle.style.transform = `translateY(${y * 0.08}px)`;
+    }
+  }, { passive: true });
+}
+</script>
+</body>
+</html>
