@@ -1,0 +1,46 @@
+# robots.txt — blog.dugong.live
+
+# Search + AI crawlers welcome. Generative engines are explicitly allowed
+# so Dugong Field Notes can be cited in AI answers (GEO).
+
+User-agent: *
+Allow: /
+
+# Major AI / answer-engine crawlers (explicit allow)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://blog.dugong.live/sitemap.xml

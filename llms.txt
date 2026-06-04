@@ -1,0 +1,16 @@
+# Dugong Field Notes
+
+> A working journal from the team building Dugong, AI-native workflow automation. Essays, post-mortems, and field research on the playbooks that quietly run modern ecommerce and operations teams. Dugong lets you describe a workflow in plain language and compiles it into a running automation.
+
+Site: https://blog.dugong.live
+Publisher: Dugong (https://dugong.live)
+Topics: workflow automation, AI agents, Shopify automation, ecommerce operations, support-ticket deflection, no-code/natural-language automation.
+
+## Articles
+
+- [The "where is my order?" tickets that eat your afternoon](https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html): WISMO ("where is my order?") is the single most common ecommerce support ticket — ~18% of inbox volume on a normal week, over 50% during a sale. Fully-loaded cost is $5–$25 per interaction. Covers why canned auto-replies fail and how an AI playbook answers tracking questions automatically, often before the customer asks. By Priya Singh, 2026-06-04.
+- [The Shopify automations no one builds](https://blog.dugong.live/the-shopify-automations-no-one-builds.html): A field study of 1,374 Shopify automation workflows. Tagging is 14% of everything merchants automate; returns and refunds — the work that actually scales with order volume — are under 1%. The gap between what's easy to automate and what's worth automating. By Priya Singh, 2026-05-28.
+
+## About Dugong
+
+- [Dugong product site](https://dugong.live): AI-native automation platform. Describe a playbook in natural language; Dugong's compiler turns it into a running workflow with triggers, branching logic, and integrations.
