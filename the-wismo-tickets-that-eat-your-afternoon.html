@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dugong Field Notes — Workflow Automation, Thought Through</title>
-<meta name="description" content="Field notes on workflow automation, AI agents, and the playbooks that run modern teams. From Dugong." />
+<title>The "where is my order?" tickets that eat your afternoon — Dugong Field Notes</title>
+<meta name="description" content="WISMO — 'where is my order?' — is the single most common ecommerce support ticket, averaging ~18% of inbox volume and spiking past 50% on Black Friday. Why Shopify merchants still answer them by hand, and the AI playbook that finally closes the loop." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -426,725 +426,295 @@ em { font-style: italic; }
 
 <div class="grain" aria-hidden="true"></div>
 
-<!-- ============ HOME VIEW ============ -->
-<div class="view home active" id="view-home">
-
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>◆ FIELD NOTES VOL. 04 — 2026</span>
-    <span>◆ FROM THE DUGONG RESEARCH DESK</span>
-    <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
-    <span>◆ 13 NEW DISPATCHES THIS MONTH</span>
-    <span>◆ FIELD NOTES VOL. 04 — 2026</span>
-    <span>◆ FROM THE DUGONG RESEARCH DESK</span>
-    <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
-    <span>◆ 13 NEW DISPATCHES THIS MONTH</span>
+    <span>◆ DISPATCH Nº 49 — JUN 4, 2026</span>
+    <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
+    <span>◆ 9 MIN READ · 2,040 WORDS</span>
+    <span>◆ BY PRIYA SINGH</span>
+    <span>◆ DISPATCH Nº 49 — JUN 4, 2026</span>
+    <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
+    <span>◆ 9 MIN READ · 2,040 WORDS</span>
+    <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
 
 <header class="nav">
-  <a href="#" class="brand" data-nav="home">
+  <a href="index.html" class="brand">
     <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
     <span class="brand-name">dugong</span>
     <span class="brand-slash">/</span>
     <span class="brand-section">field&nbsp;notes</span>
   </a>
   <nav class="nav-links">
-    <a href="#latest">Latest</a>
-    <a href="#tags">Topics</a>
-    <a href="#archive">Archive</a>
-    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div class="hero-meta">
-    <span class="hero-issue">ISSUE Nº 49</span>
-    <span class="hero-divider">·</span>
-    <span class="hero-date">JUN 4 · 2026</span>
-    <span class="hero-divider">·</span>
-    <span class="hero-pulse"><span class="dot"></span>NEW THIS WEEK</span>
-  </div>
-
-  <h1 class="hero-title">
-    Workflows,<br />
-    <em>thought</em> through.
-  </h1>
-
-  <p class="hero-lede">
-    A working journal from the team building AI-native automation.
-    Essays, post-mortems, and field experiments on the playbooks
-    that quietly run the modern company.
-  </p>
-  <div class="hero-cta">
-    <a href="https://dugong.live" class="btn btn-primary btn-lg">Try Dugong free &rarr;</a>
-    <a href="#latest" class="btn btn-ghost btn-lg">Browse the dispatches &darr;</a>
-  </div>
-
-
-  <div class="hero-stats">
-    <div class="stat">
-      <span class="stat-num">48</span>
-      <span class="stat-label">dispatches&nbsp;published</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">3.2M</span>
-      <span class="stat-label">runs&nbsp;observed</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">94%</span>
-      <span class="stat-label">first-compile&nbsp;accuracy</span>
-    </div>
-  </div>
-</section>
-
-<section class="featured" id="latest">
-  <div class="section-head">
-    <span class="section-eyebrow">◆ DISPATCH OF THE WEEK</span>
-    <span class="section-rule"></span>
-  </div>
-
-  <a href="#post" class="featured-card" data-nav="post">
-    <div class="featured-visual">
-      <div class="playbook-mock">
-        <div class="pb-header">
-          <span class="pb-dot"></span>
-          <span class="pb-dot"></span>
-          <span class="pb-dot"></span>
-          <span class="pb-file">onboarding-flow.playbook</span>
-          <span class="pb-status">▶ live</span>
-        </div>
-        <div class="pb-node">
-          <span class="pb-icon">⚡</span>
-          <div class="pb-node-body">
-            <div class="pb-node-title">Trigger · new signup</div>
-            <div class="pb-node-sub">POST /webhooks/signup</div>
-          </div>
-          <span class="pb-tag">ai-detected</span>
-        </div>
-        <div class="pb-line"></div>
-        <div class="pb-node">
-          <span class="pb-icon">🧠</span>
-          <div class="pb-node-body">
-            <div class="pb-node-title">AI lead scoring</div>
-            <div class="pb-node-sub">dugong-scorer-v3</div>
-          </div>
-          <span class="pb-tag">ai-generated</span>
-        </div>
-        <div class="pb-line"></div>
-        <div class="pb-branch">
-          <div class="pb-branch-arm">IF score &gt; 80 → 💼 Salesforce</div>
-          <div class="pb-branch-arm">ELSE → 📧 nurture sequence</div>
-        </div>
-        <div class="pb-line"></div>
-        <div class="pb-node muted">
-          <span class="pb-icon">🛡️</span>
-          <div class="pb-node-body">
-            <div class="pb-node-title">Error shield · 3× retry</div>
-            <div class="pb-node-sub">fallback → #ops alert</div>
-          </div>
-          <span class="pb-tag">ai-injected</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="featured-body">
-      <div class="post-meta">
-        <span class="tag tag-research">research</span>
-        <span class="post-read">14&nbsp;min&nbsp;read</span>
-      </div>
-      <h2 class="featured-title">
-        The death of the drag-and-drop builder
-      </h2>
-      <p class="featured-dek">
-        For fifteen years, workflow automation looked like a
-        canvas full of rectangles connected by lines. We argue the
-        canvas is the problem — and natural language plus an AI
-        compiler is what comes next. With evidence from 3.2M runs.
-      </p>
-      <div class="post-byline">
-        <span class="byline-avatar" style="background:#c47a55;">AR</span>
-        <span class="byline-name">Aanya Rao</span>
-        <span class="byline-divider">·</span>
-        <span class="byline-role">Head of Research</span>
-      </div>
-      <span class="featured-arrow">read the dispatch →</span>
-    </div>
-  </a>
-</section>
-
-<section class="grid-section">
-  <div class="section-head">
-    <span class="section-eyebrow">◆ RECENT DISPATCHES</span>
-    <span class="section-rule"></span>
-    <div class="filter-pills">
-      <button class="pill pill-active">all</button>
-      <button class="pill">essays</button>
-      <button class="pill">post-mortems</button>
-      <button class="pill">tactics</button>
-      <button class="pill">interviews</button>
-    </div>
-  </div>
-
-  <div class="article-grid">
-
-    <a class="card card-tall" href="the-wismo-tickets-that-eat-your-afternoon.html" style="text-decoration:none;">
-      <div class="card-art card-art-1">
-        <span class="art-glyph">📦</span>
-        <span class="art-coord">18%&nbsp;OF&nbsp;ALL&nbsp;TICKETS</span>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The <em>"where is my order?"</em> tickets that eat your afternoon</h3>
-        <p class="card-dek">
-          WISMO is the most common message in ecommerce — ~18% of
-          support tickets, over half during a sale. Why the canned
-          auto-reply never worked, and the AI playbook that answers
-          before customers even ask.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 4</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="card" href="the-shopify-automations-no-one-builds.html" style="text-decoration:none;">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The Shopify automations <em>no&nbsp;one</em> builds</h3>
-        <p class="card-dek">
-          Tagging is 14% of every Shopify workflow merchants ship.
-          Returns and refunds — the work that actually scales with
-          order volume — are under 1%. The gap between what's easy
-          and what's worth it.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 28</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-    <article class="card" data-nav="post">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-essay">essay</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">Triggers are the new APIs</h3>
-        <p class="card-dek">
-          When every step is natural language, the trigger becomes
-          the only thing you really design. Here's what we learned
-          watching 12,000 teams write their first one.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 24</span>
-          <span class="card-author">M. Chen</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card" data-nav="post">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-postmortem">post-mortem</span>
-          <span class="post-read">6&nbsp;min</span>
-        </div>
-        <h3 class="card-title">
-          The night our retry logic ate <em>itself</em>
-        </h3>
-        <p class="card-dek">
-          A Slack notification fired every 4 seconds for 11 hours.
-          The blameless story of how we found it, what the AI
-          shield missed, and the fix.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 21</span>
-          <span class="card-author">J. Okafor</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card card-accent" data-nav="post">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-tactics">tactics</span>
-          <span class="post-read">4&nbsp;min</span>
-        </div>
-        <h3 class="card-title">
-          Seven prompts that compile cleaner playbooks
-        </h3>
-        <p class="card-dek">
-          Small wording changes that shift our compiler from
-          "good enough" to first-try perfect. Steal them.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 19</span>
-          <span class="card-author">L. Park</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card" data-nav="post">
-      <div class="card-art card-art-2">
-        <span class="art-glyph">🔀</span>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-essay">essay</span>
-          <span class="post-read">11&nbsp;min</span>
-        </div>
-        <h3 class="card-title">
-          Branching is a writing problem
-        </h3>
-        <p class="card-dek">
-          Why "if," "unless," and "when" are the three most
-          undervalued words in automation — and how clearer
-          prose produces cleaner conditional logic.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 16</span>
-          <span class="card-author">A. Rao</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card card-wide" data-nav="post">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-interview">interview</span>
-          <span class="post-read">22&nbsp;min</span>
-        </div>
-        <h3 class="card-title">
-          "We deleted 400 Zapier zaps in a weekend."
-        </h3>
-        <p class="card-dek">
-          A conversation with the ops lead at a 600-person fintech
-          on consolidating four years of brittle no-code automation
-          into eleven AI-compiled playbooks. Plus the spreadsheet
-          they used to audit everything.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 13</span>
-          <span class="card-author">w/&nbsp;K.&nbsp;Hartman</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card" data-nav="post">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-tactics">tactics</span>
-          <span class="post-read">3&nbsp;min</span>
-        </div>
-        <h3 class="card-title">
-          A taxonomy of "the workflow broke"
-        </h3>
-        <p class="card-dek">
-          Six failure modes we see in support tickets, ranked by
-          how often the AI shield catches them before you do.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 09</span>
-          <span class="card-author">R. Diaz</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card" data-nav="post">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-essay">essay</span>
-          <span class="post-read">8&nbsp;min</span>
-        </div>
-        <h3 class="card-title">
-          On naming things the AI will read later
-        </h3>
-        <p class="card-dek">
-          Variable names, channel names, sheet tabs — they're
-          all prompts now. A small style guide for teams whose
-          workflows write themselves.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 06</span>
-          <span class="card-author">M. Chen</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card card-quote">
-      <div class="card-body">
-        <span class="quote-mark">"</span>
-        <h3 class="card-title card-title-quote">
-          The best playbook is the one your replacement can read
-          on a Tuesday afternoon and understand by lunch.
-        </h3>
-        <div class="card-foot">
-          <span class="card-date">FROM ISSUE 46</span>
-          <span class="card-author">— A. Rao</span>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<section class="topics" id="tags">
-  <div class="section-head">
-    <span class="section-eyebrow">◆ BROWSE BY TOPIC</span>
-    <span class="section-rule"></span>
-  </div>
-  <div class="topic-cloud">
-    <a href="#" class="topic" style="--topic-size:1.8rem;">natural language</a>
-    <a href="#" class="topic" style="--topic-size:1.2rem;">retries</a>
-    <a href="#" class="topic" style="--topic-size:2.4rem;">playbooks</a>
-    <a href="#" class="topic" style="--topic-size:1rem;">salesforce</a>
-    <a href="#" class="topic" style="--topic-size:1.5rem;">branching</a>
-    <a href="#" class="topic" style="--topic-size:1.1rem;">slack</a>
-    <a href="#" class="topic" style="--topic-size:2rem;">AI&nbsp;agents</a>
-    <a href="#" class="topic" style="--topic-size:1rem;">stripe</a>
-    <a href="the-shopify-automations-no-one-builds.html" class="topic" style="--topic-size:1.9rem;">shopify</a>
-    <a href="the-wismo-tickets-that-eat-your-afternoon.html" class="topic" style="--topic-size:1.3rem;">wismo</a>
-    <a href="the-wismo-tickets-that-eat-your-afternoon.html" class="topic" style="--topic-size:1.1rem;">support</a>
-    <a href="#" class="topic" style="--topic-size:1.1rem;">refunds</a>
-    <a href="#" class="topic" style="--topic-size:1.4rem;">triggers</a>
-    <a href="#" class="topic" style="--topic-size:1.2rem;">notion</a>
-    <a href="#" class="topic" style="--topic-size:1.6rem;">post-mortems</a>
-    <a href="#" class="topic" style="--topic-size:1rem;">hubspot</a>
-    <a href="#" class="topic" style="--topic-size:1.3rem;">error&nbsp;shields</a>
-    <a href="#" class="topic" style="--topic-size:1.7rem;">prompt&nbsp;craft</a>
-    <a href="#" class="topic" style="--topic-size:1.1rem;">gmail</a>
-    <a href="#" class="topic" style="--topic-size:1.3rem;">integrations</a>
-    <a href="#" class="topic" style="--topic-size:1rem;">sheets</a>
-    <a href="#" class="topic" style="--topic-size:1.4rem;">self-healing</a>
-  </div>
-</section>
-
-<section class="signup">
-  <div class="signup-inner">
-    <div class="signup-left">
-      <span class="signup-eyebrow">◆ THE WEEKLY DISPATCH</span>
-      <h2 class="signup-title">
-        One letter,<br />
-        every <em>Sunday.</em>
-      </h2>
-      <p class="signup-lede">
-        Three essays. One post-mortem. A workflow worth stealing.
-        Sent the morning before you start the week.
-      </p>
-    </div>
-    <form class="signup-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='subscribed ✓'; this.querySelector('input').value='';">
-      <label class="signup-label" for="email">your email</label>
-      <div class="signup-row">
-        <input id="email" type="email" placeholder="name@company.com" required />
-        <button type="submit">subscribe →</button>
-      </div>
-      <span class="signup-fine">free · unsubscribe anytime · 4,200 readers</span>
-    </form>
-  </div>
-</section>
-
-<section class="archive" id="archive">
-  <div class="section-head">
-    <span class="section-eyebrow">◆ FROM THE ARCHIVE</span>
-    <span class="section-rule"></span>
-  </div>
-  <ul class="archive-list">
-    <li data-nav="post"><span class="arch-num">041</span><span class="arch-title">When automation stops being a tool and starts being a teammate</span><span class="arch-date">APR&nbsp;28</span></li>
-    <li data-nav="post"><span class="arch-num">040</span><span class="arch-title">Counting the hidden cost of a single Zap</span><span class="arch-date">APR&nbsp;21</span></li>
-    <li data-nav="post"><span class="arch-num">039</span><span class="arch-title">The case for boring workflows</span><span class="arch-date">APR&nbsp;14</span></li>
-    <li data-nav="post"><span class="arch-num">038</span><span class="arch-title">Composable triggers: a half-baked manifesto</span><span class="arch-date">APR&nbsp;07</span></li>
-    <li data-nav="post"><span class="arch-num">037</span><span class="arch-title">Why your ops team is secretly a compiler</span><span class="arch-date">MAR&nbsp;31</span></li>
-    <li data-nav="post"><span class="arch-num">036</span><span class="arch-title">A short history of if-this-then-that</span><span class="arch-date">MAR&nbsp;24</span></li>
-  </ul>
-  <a href="#" class="archive-more">browse all 48 dispatches →</a>
-</section>
-
-<section class="cta-band">
-  <div class="cta-band-inner">
-    <div class="cta-band-copy">
-      <span class="cta-eyebrow">&#9670; Ready when you are</span>
-      <h2 class="cta-title">Stop configuring. <em>Start describing.</em></h2>
-      <p class="cta-sub">Write your workflow in plain English and an AI agent runs it &mdash; calling your apps directly. Your first automation takes under five minutes.</p>
-    </div>
-    <div class="cta-actions">
-      <a href="https://dugong.live" class="btn btn-primary btn-lg">Try Dugong now &rarr;</a>
-      <span class="cta-fine">free &middot; no credit card required</span>
-    </div>
-  </div>
-</section>
-
-<footer class="foot">
-  <div class="foot-top">
-    <div class="foot-brand">
-      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
-      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
-    </div>
-    <div class="foot-cols">
-      <div>
-        <span class="foot-h">read</span>
-        <a href="#">Latest</a>
-        <a href="#">Essays</a>
-        <a href="#">Post-mortems</a>
-        <a href="#">Interviews</a>
-      </div>
-      <div>
-        <span class="foot-h">product</span>
-        <a href="https://dugong.live">Dugong</a>
-        <a href="#">Pricing</a>
-        <a href="#">AI Engine</a>
-        <a href="#">Docs</a>
-      </div>
-      <div>
-        <span class="foot-h">company</span>
-        <a href="#">About</a>
-        <a href="#">Careers</a>
-        <a href="#">Privacy</a>
-        <a href="#">RSS</a>
-      </div>
-    </div>
-  </div>
-  <div class="foot-bot">
-    <span>© 2026 Dugong AI Inc.</span>
-    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
-  </div>
-</footer>
-
-</div>
-
-<!-- ============ POST VIEW ============ -->
-<div class="view post" id="view-post">
-
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span>◆ DISPATCH Nº 47 — MAY 28, 2026</span>
-    <span>◆ FILED UNDER: RESEARCH</span>
-    <span>◆ 14 MIN READ · 3,420 WORDS</span>
-    <span>◆ BY AANYA RAO</span>
-    <span>◆ DISPATCH Nº 47 — MAY 28, 2026</span>
-    <span>◆ FILED UNDER: RESEARCH</span>
-    <span>◆ 14 MIN READ · 3,420 WORDS</span>
-    <span>◆ BY AANYA RAO</span>
-  </div>
-</div>
-
-<header class="nav">
-  <a href="#" class="brand" data-nav="home">
-    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
-    <span class="brand-name">dugong</span>
-    <span class="brand-slash">/</span>
-    <span class="brand-section">field&nbsp;notes</span>
-  </a>
-  <nav class="nav-links">
-    <a href="#" data-nav="home">Latest</a>
-    <a href="#" data-nav="home">Topics</a>
-    <a href="#" data-nav="home">Archive</a>
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
     <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
   </nav>
 </header>
 
 <article class="article">
 
-  <a href="#" class="article-back" data-nav="home">← back to field notes</a>
+  <a href="index.html" class="article-back">← back to field notes</a>
 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH Nº 47</span>
+    <span style="color: var(--cream-dim);">DISPATCH Nº 49</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">MAY 28, 2026</span>
+    <span style="color: var(--cream-dim);">JUN 4, 2026</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">14 MIN READ</span>
+    <span style="color: var(--cream-dim);">9 MIN READ</span>
   </div>
 
   <h1 class="article-title">
-    The death of the <em>drag-and-drop</em> builder.
+    The <em>"where is my order?"</em> tickets that eat your afternoon.
   </h1>
 
   <p class="article-dek">
-    For fifteen years, workflow automation looked like a canvas
-    of rectangles connected by lines. After watching three
-    million runs across twelve thousand teams, we're convinced
-    the canvas was always the problem.
+    "Where is my order?" is the most common message in ecommerce —
+    roughly 18% of all support tickets on a normal week, more than
+    half of them during a sale. Most Shopify merchants still answer
+    each one by hand. Here's why the canned auto-reply never worked,
+    and what an AI playbook does instead.
   </p>
 
   <div class="article-byline">
-    <span class="byline-avatar" style="background: var(--sand);">AR</span>
-    <span class="byline-name">Aanya Rao</span>
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name">Priya Singh</span>
     <span class="byline-divider">·</span>
-    <span class="byline-role">Head of Research, Dugong</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
   </div>
 
   <div class="article-body">
 
     <p>
-      There is a particular kind of fatigue that sets in around the
-      twentieth node of a Zapier zap. You know the one. The connecting
-      lines start to cross. The error-handling branch you added last
-      week now has its own error-handling branch. Someone on the team
-      named a step "Step 7 (FINAL) (USE THIS ONE)." You open it on a
-      Monday morning, stare at the canvas for forty seconds, and quietly
-      close the tab.
+      There is a thread that resurfaces on r/shopify every few weeks,
+      almost word for word. A solo founder ran a good ad. Orders
+      tripled. And then the inbox did too — not with new sales, but
+      with four words, over and over: <em>where is my order?</em>
+      One merchant described spending more time answering tracking
+      emails than packing the things people were asking about. The
+      replies are all the same: hire a VA, set up a canned response,
+      add a tracking app. None of them make the question go away.
     </p>
 
     <p>
-      We've spent the past eighteen months instrumenting that moment.
-      What we found surprised us: the canvas isn't failing because the
-      workflows got more complex. The workflows got more complex
-      <em>because the canvas required them to be.</em>
-    </p>
-
-    <h2>The canvas tax</h2>
-
-    <p>
-      Every drag-and-drop builder shares an unspoken bargain: in exchange
-      for a visual representation of your logic, you agree to express
-      that logic in nodes. One node, one action. Two actions, two nodes
-      and a line. A branch becomes a diamond and three lines. A retry
-      becomes a node that points back at itself in a way that looks
-      vaguely alarming.
+      The acronym for this is WISMO — "where is my order?" — and it
+      is the single most common message in ecommerce. Gorgias, which
+      sees support volume across tens of thousands of stores, puts it
+      at roughly <strong>18% of all incoming tickets on an average
+      week</strong>. ShippyPro and Salesforce both report it climbing
+      past <strong>50% during peak periods</strong> like Black Friday.
+      It is the most predictable flood in the entire business, and
+      most Shopify merchants still bail the water out by hand.
     </p>
 
     <blockquote>
-      The canvas didn't help us think clearly about workflows. It
-      forced us to think about <em>nodes.</em>
+      WISMO is the only support category where the customer, the
+      merchant, and the carrier all already know the answer. It's
+      sitting in the tracking API. Nobody's asking it.
     </blockquote>
 
+    <h2>What a single "where is my order?" actually costs</h2>
+
     <p>
-      The cost shows up in our data. Across the 12,000 teams we studied,
-      median Zapier zaps grew 31% in node count year over year — but
-      the work they accomplished grew by only 9%. The rest was
-      <strong>scaffolding</strong>: wrapper nodes, formatter steps,
-      lookup nodes, glue. The canvas was eating itself.
+      The reason WISMO hurts isn't any one ticket. It's the volume,
+      and the fact that each one looks trivial right up until you
+      multiply it. Industry estimates put the fully-loaded cost of
+      handling one support interaction at <strong>$5 to $25</strong>,
+      depending on channel and labor. A store doing 3,000 of these a
+      month is spending somewhere between fifteen and sixty thousand
+      dollars answering a question the carrier could answer for free.
+    </p>
+
+    <p>
+      For a solo merchant the cost isn't dollars, it's attention.
+      Every WISMO email is a context switch away from the work that
+      grows the store — sourcing, marketing, product. The Reddit
+      complaint is never "this is hard." It's "this is endless, and
+      it's drowning everything else."
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ DATA</span>
       <span>
-        Of 8,400 workflows audited, <strong>43% of nodes existed only
-        to translate data between two other nodes.</strong> They did no
-        real work; they were grammar. The canvas charged a tax in
-        rectangles.
+        ShippyPro estimates <strong>70–90% of shipping inquiries are
+        pure WISMO</strong> — questions that a proactive notification
+        would have prevented entirely. The ticket isn't a support
+        problem. It's an information-timing problem wearing a support
+        problem's clothes.
       </span>
     </div>
 
-    <h2>The natural-language alternative</h2>
+    <h2>Why the canned auto-reply never fixed it</h2>
 
     <p>
-      What happens if you stop drawing the workflow and start
-      <em>describing</em> it? We thought we knew. We assumed natural
-      language would be a thin layer over the same model — a different
-      input method for the same canvas. It is not.
+      Every merchant eventually rigs up some version of a fix. A
+      Shopify Flow rule. A help-desk macro. A tracking app that adds
+      a "track your order" page. They help a little. They never close
+      the loop. Here's why.
     </p>
 
     <p>
-      Here is a workflow our customer Anika at Resend wrote on a Tuesday
-      afternoon, in plain prose, in our editor:
+      A real WISMO message is rarely just "where is my order?" It's
+      <em>"hi, I ordered the navy one last Tuesday for my dad's
+      birthday on Saturday, the tracking hasn't moved in three days,
+      is it going to make it?"</em> A canned reply with a tracking
+      link answers none of what was actually asked. It doesn't know
+      the package is stuck in a carrier scan gap. It doesn't know
+      Saturday is a hard deadline. It doesn't know whether to
+      apologize, reassure, or proactively offer a reship. So the
+      customer replies again, and now you're in the thread anyway —
+      except annoyed, because the robot wasted a round trip.
+    </p>
+
+    <p>
+      In a node-based builder this is unwinnable. You'd need a branch
+      for "tracking stalled," a branch for "delivered but says
+      missing," a branch for "still in pre-transit," a branch for
+      "international customs hold," each with its own tone and its own
+      decision about whether to escalate. Nobody draws that graph. So
+      they don't, and the inbox wins.
+    </p>
+
+    <h2>What the automation actually has to do</h2>
+
+    <p>
+      The job isn't "auto-reply with a link." The job is: read the
+      message, figure out what the customer is really worried about,
+      pull the live carrier status, compare it against the promised
+      delivery window, and decide — case by case — whether to
+      reassure, escalate to a human, or get ahead of the problem with
+      a reship before the customer even asks for one.
+    </p>
+
+    <p>
+      That is a conversation, not a rule. Written as a Dugong
+      playbook, in plain prose, it looks like this:
     </p>
 
     <pre><code><span class="c"># trigger</span>
-<span class="k">When</span> a new customer signs up on our website
+<span class="k">When</span> a support email mentions an order or tracking
 
 <span class="c"># steps</span>
-1. <span class="k">Look up</span> their company info using Clearbit
-2. <span class="k">Score</span> the lead with AI: company size, industry, role
-3. <span class="k">If</span> score &gt; 80, create a Salesforce deal + assign rep
-4. <span class="k">Send</span> a welcome email via Gmail with their name
-5. <span class="k">Log</span> to Google Sheets and post to Slack #signups</code></pre>
+1. <span class="k">Find</span> the order in Shopify from their email or order number
+2. <span class="k">Pull</span> live tracking from the carrier
+3. <span class="k">Compare</span> status against the promised delivery date
+4. <span class="k">If</span> on track → reply warmly with the real ETA, no link dump
+5. <span class="k">If</span> stalled &gt; 48h or past due → apologize, offer a
+   reship or refund, and flag it to me in Slack
+6. <span class="k">If</span> marked delivered but they say missing →
+   route to a human with the delivery scan attached
+7. <span class="k">Match</span> the brand voice; sign off as the team, not a bot</code></pre>
 
     <p>
-      What the compiler produced from this prose was an 8-node playbook
-      with one branch, five API integrations, and — critically — an
-      error shield Anika never asked for, because the AI knew Clearbit
-      sometimes times out and Salesforce sometimes rate-limits.
+      Seven lines. The compiler fills in everything underneath: the
+      Shopify lookup, the carrier API call, the date math, the
+      retry logic when the tracking endpoint times out, the
+      brand-voice pass on the reply. The merchant named none of those
+      services. They described what they wanted to happen, and the
+      compiler decided what it needed to <em>be</em>.
+    </p>
+
+    <h2>The real win: answering before they ask</h2>
+
+    <p>
+      The reframing that matters most is in that ShippyPro number —
+      70 to 90% of these are preventable. The same playbook that
+      answers a WISMO email can run the other direction: watch every
+      in-flight order, and the moment one stalls or slips past its
+      window, reach out <em>first</em>.
+    </p>
+
+    <pre><code><span class="c"># trigger</span>
+<span class="k">Every</span> few hours, check all orders shipped but not delivered
+
+<span class="c"># steps</span>
+1. <span class="k">Flag</span> any order stalled in transit or past its ETA
+2. <span class="k">Email</span> the customer proactively: here's where it is,
+   here's what we're doing, no action needed from you
+3. <span class="k">If</span> it's a gift or time-sensitive order → offer a reship now
+4. <span class="k">Log</span> the at-risk orders to a sheet so I can see patterns</code></pre>
+
+    <p>
+      A customer who gets "hey, your order's running a day late,
+      we're on it" before they think to ask never opens a ticket.
+      The flood doesn't get handled faster — it never forms. That is
+      the difference between a tracking app and an automation that
+      understands the order: one answers the question, the other
+      removes it.
+    </p>
+
+    <div class="callout callout-sand">
+      <span class="callout-mark">◆ NOTE</span>
+      <span>
+        The economics are blunt. If WISMO is 18% of your tickets at,
+        say, $7 each, and a proactive playbook prevents 70% of them,
+        a store fielding 1,000 support contacts a month saves roughly
+        <strong>$880 a month</strong> — before counting the replies
+        you no longer write at 11pm, or the refunds you avoid because
+        you caught the late package first.
+      </span>
+    </div>
+
+    <h2>Why this is a compiler problem, not an app problem</h2>
+
+    <p>
+      There are dozens of WISMO apps in the Shopify App Store, and
+      they all do roughly the same thing: a branded tracking page and
+      a templated notification. They're fine. They also can't read an
+      angry email, weigh a birthday deadline, or decide that
+      <em>this</em> customer should get a reship and <em>that</em> one
+      should get an apology. That decision is a judgement call, and
+      judgement calls don't fit in a settings panel.
     </p>
 
     <p>
-      In a drag-and-drop tool, Anika would have spent the next two hours
-      adding retry logic, formatter steps, and conditional fallbacks.
-      In ours, she spent six minutes describing what the workflow
-      should <em>do</em>, and the compiler handled what it should
-      <em>be.</em>
-    </p>
-
-    <h2>The compiler is the product</h2>
-
-    <p>
-      The interesting work, it turns out, isn't the editor. It's the
-      compiler. Translating "if the score is high" into a branching
-      condition is the easy part — what's hard is knowing that the
-      score might be missing, that the field might be a string instead
-      of a number, that the Salesforce API will occasionally return
-      a duplicate-key error and you should treat that as success.
-    </p>
-
-    <p>
-      That kind of knowledge isn't visible in the editor. It lives
-      in the compiler. And once you accept that the compiler is doing
-      the real work, the editor stops needing to look like a canvas.
-      It can look like writing.
+      A natural-language compiler is the unlock precisely because the
+      hard part of WISMO was never the tracking lookup — it was the
+      hundred small decisions about tone, timing, and escalation that
+      sit on top of it. You can describe those decisions in a
+      paragraph. You could never draw them in a node graph. That gap,
+      between what merchants can describe and what the old tools could
+      compile, is exactly where the unbuilt automations live.
     </p>
 
     <hr />
 
-    <h2>Three predictions</h2>
+    <h2>The workflow worth building this week</h2>
 
     <p>
-      We think the next three years of workflow automation will be
-      shaped by three forces:
+      If you run a Shopify store and you've ever typed the same
+      tracking-status reply twice in one afternoon, this is the
+      automation to build before any tag rule, any cart email, any
+      analytics dashboard. It's the one that's been quietly eating
+      your time the whole while you were building the easy ones.
     </p>
 
-    <ul>
-      <li>
-        <strong>Workflows will be read more than written.</strong>
-        The unit of authorship becomes the prose, not the diagram.
-        Reviewing a teammate's workflow becomes reading a paragraph
-        instead of tracing arrows.
-      </li>
-      <li>
-        <strong>Error handling moves below the line.</strong>
-        Retries, fallbacks, and rate-limit logic will be invisible
-        unless you ask to see them. The compiler will assume you
-        want them; you'll opt out, not opt in.
-      </li>
-      <li>
-        <strong>Integrations stop being a menu.</strong> "Send to
-        Slack" is enough. "Update the CRM" is enough. The resolver
-        picks the tool. You don't browse a directory of 4,000 apps;
-        you mention what you need.
-      </li>
-    </ul>
-
     <p>
-      None of this means the canvas disappears overnight. There are
-      workflows where a diagram is genuinely the right representation —
-      complex state machines, multi-week orchestrations, anything
-      with significant parallel branches. But those are a minority.
-      For the long tail of "when X happens, do Y and Z," prose is
-      better. It always was. We just didn't have the compiler.
+      Describe it the way you'd explain it to a new hire: when someone
+      asks where their order is, find it, check the carrier, and
+      answer like a human who actually looked. Then let it watch your
+      in-flight orders and get ahead of the ones going wrong. That's
+      the whole brief. The compiler handles the rest.
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ READING</span>
       <span>
-        If this argument interests you, three pieces to follow it up
-        with: our <a href="#">post-mortem on the retry-loop incident</a>,
-        the <a href="#">interview with Kira Hartman</a> on consolidating
-        400 zaps, and Mei's <a href="#">essay on naming things the AI
-        will read later.</a>
+        If this resonates, two companion pieces: our field study on
+        <a href="the-shopify-automations-no-one-builds.html">the Shopify
+        automations no one builds</a>, and the essay on
+        <a href="index.html">the death of the drag-and-drop builder</a>.
       </span>
     </div>
 
     <p>
-      We'll keep writing as the data accumulates. If you're building
-      workflows — in any tool — and you want to share what you're
-      seeing, the inbox is open: <code>field-notes@dugong.live</code>.
+      If you're a Shopify merchant drowning in "where is my order?" —
+      or you've built a WISMO playbook that actually works — the inbox
+      is open: <code>field-notes@dugong.live</code>. We're collecting
+      case studies for issue 50.
     </p>
 
   </div>
@@ -1165,41 +735,24 @@ em { font-style: italic; }
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
-    <article class="card" data-nav="post">
+    <a href="the-shopify-automations-no-one-builds.html" class="card">
       <div class="card-body">
         <div class="post-meta">
-          <span class="tag tag-essay">essay</span>
-          <span class="post-read">9&nbsp;min</span>
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">Triggers are the new APIs</h3>
+        <h3 class="card-title">The Shopify automations no one builds</h3>
         <p class="card-dek">
-          When every step is natural language, the trigger becomes
-          the only thing you really design.
+          Tagging is 14% of every Shopify workflow merchants ship.
+          The work that actually scales is under 1%.
         </p>
         <div class="card-foot">
-          <span class="card-date">MAY 24</span>
-          <span class="card-author">M. Chen</span>
+          <span class="card-date">MAY 28</span>
+          <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </article>
-    <article class="card" data-nav="post">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-essay">essay</span>
-          <span class="post-read">11&nbsp;min</span>
-        </div>
-        <h3 class="card-title">Branching is a writing problem</h3>
-        <p class="card-dek">
-          Why "if," "unless," and "when" are the three most
-          undervalued words in automation.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 16</span>
-          <span class="card-author">A. Rao</span>
-        </div>
-      </div>
-    </article>
-    <article class="card" data-nav="post">
+    </a>
+    <a href="index.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-interview">interview</span>
@@ -1215,7 +768,24 @@ em { font-style: italic; }
           <span class="card-author">w/ K. Hartman</span>
         </div>
       </div>
-    </article>
+    </a>
+    <a href="index.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-tactics">tactics</span>
+          <span class="post-read">3&nbsp;min</span>
+        </div>
+        <h3 class="card-title">A taxonomy of "the workflow broke"</h3>
+        <p class="card-dek">
+          Six failure modes we see in support tickets, ranked by
+          how often the AI shield catches them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 09</span>
+          <span class="card-author">R. Diaz</span>
+        </div>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -1242,24 +812,24 @@ em { font-style: italic; }
     <div class="foot-cols">
       <div>
         <span class="foot-h">read</span>
-        <a href="#" data-nav="home">Latest</a>
-        <a href="#">Essays</a>
-        <a href="#">Post-mortems</a>
-        <a href="#">Interviews</a>
+        <a href="index.html">Latest</a>
+        <a href="index.html">Essays</a>
+        <a href="index.html">Post-mortems</a>
+        <a href="index.html">Interviews</a>
       </div>
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="#">Pricing</a>
-        <a href="#">AI Engine</a>
-        <a href="#">Docs</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
       </div>
       <div>
         <span class="foot-h">company</span>
-        <a href="#">About</a>
-        <a href="#">Careers</a>
-        <a href="#">Privacy</a>
-        <a href="#">RSS</a>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="https://dugong.live">RSS</a>
       </div>
     </div>
   </div>
@@ -1269,66 +839,14 @@ em { font-style: italic; }
   </div>
 </footer>
 
-</div>
-
 <script>
-// ============ VIEW NAVIGATION ============
-function showView(name) {
-  document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
-  const target = document.getElementById("view-" + name);
-  if (target) target.classList.add("active");
-  window.scrollTo({ top: 0, behavior: "instant" });
-  // Re-run reveal observer for the newly shown content
-  attachReveals();
-}
-
-document.addEventListener("click", (e) => {
-  const trigger = e.target.closest("[data-nav]");
-  if (!trigger) return;
-  e.preventDefault();
-  showView(trigger.getAttribute("data-nav"));
-});
-
-// ============ SCROLL REVEALS ============
-let io;
-function attachReveals() {
-  if (io) io.disconnect();
-  io = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) {
-        e.target.classList.add("in");
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-
-  document.querySelectorAll(".view.active .featured-card, .view.active .card, .view.active .archive-list li, .view.active .section-head, .view.active .signup-inner, .view.active .topic-cloud, .view.active .foot")
-    .forEach((el) => {
-      el.classList.remove("in");
-      el.classList.add("reveal");
-      io.observe(el);
-    });
-}
-attachReveals();
-
-// ============ FILTER PILLS ============
-document.querySelectorAll(".pill").forEach((pill) => {
-  pill.addEventListener("click", () => {
-    document.querySelectorAll(".pill").forEach((p) => p.classList.remove("pill-active"));
-    pill.classList.add("pill-active");
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
   });
-});
-
-// ============ HERO PARALLAX ============
-const heroTitle = document.querySelector(".hero-title");
-if (heroTitle && window.matchMedia("(min-width: 720px)").matches) {
-  window.addEventListener("scroll", () => {
-    const y = window.scrollY;
-    if (y < 800 && document.getElementById("view-home").classList.contains("active")) {
-      heroTitle.style.transform = `translateY(${y * 0.08}px)`;
-    }
-  }, { passive: true });
-}
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
 </script>
 </body>
 </html>
