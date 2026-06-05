@@ -3,20 +3,23 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dugong Field Notes — Workflow Automation, Thought Through</title>
-<meta name="description" content="Field notes on workflow automation, AI agents, and the playbooks that run modern teams. From Dugong." />
-<link rel="canonical" href="https://blog.dugong.live/" />
-<meta name="author" content="Dugong" />
+<title>The overselling problem no one automates — Dugong Field Notes</title>
+<meta name="description" content="Overselling — selling stock you no longer have — is one of the most-complained-about pain points for Shopify merchants running more than one sales channel. Why manual inventory sync always breaks during a sale, and the AI playbook that keeps your stock honest in real time." />
+<link rel="canonical" href="https://blog.dugong.live/the-overselling-problem-no-one-automates.html" />
+<meta name="author" content="Priya Singh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="keywords" content="workflow automation, AI agents, AI-native automation, playbooks, Shopify automation, ecommerce operations, no-code automation, Dugong" />
+<meta name="keywords" content="Shopify overselling, inventory sync, multichannel inventory, out of stock automation, prevent overselling Shopify, real-time stock sync, ecommerce inventory automation, oversold orders, Dugong" />
 <meta name="theme-color" content="#c6fe1e" />
+<meta property="article:published_time" content="2026-06-05" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
 
 <!-- Open Graph -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
-<meta property="og:title" content="Dugong Field Notes — Workflow Automation, Thought Through" />
-<meta property="og:description" content="A working journal from the team building AI-native automation. Essays, post-mortems, and field experiments on the playbooks that quietly run the modern company." />
-<meta property="og:url" content="https://blog.dugong.live/" />
+<meta property="og:title" content="The overselling problem no one automates" />
+<meta property="og:description" content="Overselling is one of the most-complained-about Shopify pain points — and the hardest to recover from. Why manual stock sync breaks during a sale, and the AI playbook that keeps inventory honest in real time." />
+<meta property="og:url" content="https://blog.dugong.live/the-overselling-problem-no-one-automates.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -24,8 +27,8 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Dugong Field Notes — Workflow Automation, Thought Through" />
-<meta name="twitter:description" content="A working journal from the team building AI-native automation. Essays, post-mortems, and field experiments on the playbooks that quietly run the modern company." />
+<meta name="twitter:title" content="The overselling problem no one automates" />
+<meta name="twitter:description" content="Overselling is the Shopify pain point that's hardest to recover from. Why manual stock sync breaks during a sale, and the AI playbook that keeps inventory honest in real time." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
 
 <script type="application/ld+json">
@@ -33,58 +36,68 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebSite",
-      "@id": "https://blog.dugong.live/#website",
-      "url": "https://blog.dugong.live/",
-      "name": "Dugong Field Notes",
-      "description": "Field notes on workflow automation, AI agents, and the playbooks that run modern teams.",
-      "publisher": { "@id": "https://blog.dugong.live/#organization" },
-      "inLanguage": "en"
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://blog.dugong.live/#organization",
-      "name": "Dugong",
-      "url": "https://dugong.live",
-      "description": "AI-native workflow automation. Describe a playbook in plain language and Dugong compiles it into a running automation.",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://blog.dugong.live/og-image.png"
-      },
-      "sameAs": ["https://dugong.live"]
-    },
-    {
-      "@type": "Blog",
-      "@id": "https://blog.dugong.live/#blog",
-      "url": "https://blog.dugong.live/",
-      "name": "Dugong Field Notes",
-      "description": "A working journal from the team building AI-native automation. Essays, post-mortems, and field experiments on the playbooks that quietly run the modern company.",
-      "publisher": { "@id": "https://blog.dugong.live/#organization" },
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html#article",
+      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "mainEntityOfPage": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html",
+      "url": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html",
+      "headline": "The overselling problem no one automates",
+      "description": "Overselling — selling stock you no longer have — is one of the most-complained-about pain points for Shopify merchants running more than one sales channel. Why manual inventory sync always breaks during a sale, and the AI playbook that keeps your stock honest in real time.",
+      "datePublished": "2026-06-05",
+      "dateModified": "2026-06-05",
+      "articleSection": "Research",
+      "keywords": "Shopify overselling, inventory sync, multichannel inventory, prevent overselling, real-time stock sync, ecommerce inventory automation",
+      "wordCount": 1600,
+      "timeRequired": "PT8M",
       "inLanguage": "en",
-      "blogPost": [
+      "image": "https://blog.dugong.live/og-image.png",
+      "author": {
+        "@type": "Person",
+        "name": "Priya Singh",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png" }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
+        { "@type": "ListItem", "position": 2, "name": "The overselling problem no one automates", "item": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
         {
-          "@type": "BlogPosting",
-          "@id": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html#article",
-          "headline": "The overselling problem no one automates",
-          "url": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html",
-          "datePublished": "2026-06-05",
-          "author": { "@type": "Person", "name": "Priya Singh" }
+          "@type": "Question",
+          "name": "What is overselling on Shopify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Overselling is accepting an order for a product you can no longer fulfil — the stock sold out somewhere else before your store's inventory count caught up. It usually happens when two or more channels (your Shopify store, a marketplace, a POS, a wholesale order) draw from one physical stock pool with nothing keeping the numbers in sync in real time."
+          }
         },
         {
-          "@type": "BlogPosting",
-          "@id": "https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html#article",
-          "headline": "The \"where is my order?\" tickets that eat your afternoon",
-          "url": "https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html",
-          "datePublished": "2026-06-04",
-          "author": { "@type": "Person", "name": "Priya Singh" }
+          "@type": "Question",
+          "name": "Why is overselling worse than running out of stock?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Running out of stock means a customer can't buy. Overselling means a customer already bought, paid, and got a confirmation — and then you have to take it back. That cancellation costs you the refund, the trust, often a negative review, and on Shopify it can raise your dispute and chargeback rate, which puts payment processing itself at risk."
+          }
         },
         {
-          "@type": "BlogPosting",
-          "@id": "https://blog.dugong.live/the-shopify-automations-no-one-builds.html#article",
-          "headline": "The Shopify automations no one builds",
-          "url": "https://blog.dugong.live/the-shopify-automations-no-one-builds.html",
-          "datePublished": "2026-05-28",
-          "author": { "@type": "Person", "name": "Priya Singh" }
+          "@type": "Question",
+          "name": "Can overselling be prevented with automation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The fix is real-time inventory sync: the moment a unit sells on any channel, every other channel's available count is updated, and low-stock items are buffered or hidden before they can be oversold. An AI playbook can do this continuously, reconcile mismatches, and flag the edge cases — partial stock, bundles, pre-orders — that simple sync rules miss."
+          }
         }
       ]
     }
@@ -512,746 +525,310 @@ em { font-style: italic; }
 
 <div class="grain" aria-hidden="true"></div>
 
-<!-- ============ HOME VIEW ============ -->
-<div class="view home active" id="view-home">
-
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>◆ FIELD NOTES VOL. 04 — 2026</span>
-    <span>◆ FROM THE DUGONG RESEARCH DESK</span>
-    <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
-    <span>◆ 13 NEW DISPATCHES THIS MONTH</span>
-    <span>◆ FIELD NOTES VOL. 04 — 2026</span>
-    <span>◆ FROM THE DUGONG RESEARCH DESK</span>
-    <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
-    <span>◆ 13 NEW DISPATCHES THIS MONTH</span>
+    <span>◆ DISPATCH Nº 50 — JUN 5, 2026</span>
+    <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
+    <span>◆ 8 MIN READ · 1,600 WORDS</span>
+    <span>◆ BY PRIYA SINGH</span>
+    <span>◆ DISPATCH Nº 50 — JUN 5, 2026</span>
+    <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
+    <span>◆ 8 MIN READ · 1,600 WORDS</span>
+    <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
 
 <header class="nav">
-  <a href="#" class="brand" data-nav="home">
+  <a href="index.html" class="brand">
     <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
     <span class="brand-name">dugong</span>
     <span class="brand-slash">/</span>
     <span class="brand-section">field&nbsp;notes</span>
   </a>
   <nav class="nav-links">
-    <a href="#latest">Latest</a>
-    <a href="#tags">Topics</a>
-    <a href="#archive">Archive</a>
-    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div class="hero-meta">
-    <span class="hero-issue">ISSUE Nº 49</span>
-    <span class="hero-divider">·</span>
-    <span class="hero-date">JUN 4 · 2026</span>
-    <span class="hero-divider">·</span>
-    <span class="hero-pulse"><span class="dot"></span>NEW THIS WEEK</span>
-  </div>
-
-  <h1 class="hero-title">
-    Workflows,<br />
-    <em>thought</em> through.
-  </h1>
-
-  <p class="hero-lede">
-    A working journal from the team building AI-native automation.
-    Essays, post-mortems, and field experiments on the playbooks
-    that quietly run the modern company.
-  </p>
-  <div class="hero-cta">
-    <a href="https://dugong.live" class="btn btn-primary btn-lg">Try Dugong free &rarr;</a>
-    <a href="#latest" class="btn btn-ghost btn-lg">Browse the dispatches &darr;</a>
-  </div>
-
-
-  <div class="hero-stats">
-    <div class="stat">
-      <span class="stat-num">48</span>
-      <span class="stat-label">dispatches&nbsp;published</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">3.2M</span>
-      <span class="stat-label">runs&nbsp;observed</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">94%</span>
-      <span class="stat-label">first-compile&nbsp;accuracy</span>
-    </div>
-  </div>
-</section>
-
-<section class="featured" id="latest">
-  <div class="section-head">
-    <span class="section-eyebrow">◆ DISPATCH OF THE WEEK</span>
-    <span class="section-rule"></span>
-  </div>
-
-  <a href="#post" class="featured-card" data-nav="post">
-    <div class="featured-visual">
-      <div class="playbook-mock">
-        <div class="pb-header">
-          <span class="pb-dot"></span>
-          <span class="pb-dot"></span>
-          <span class="pb-dot"></span>
-          <span class="pb-file">onboarding-flow.playbook</span>
-          <span class="pb-status">▶ live</span>
-        </div>
-        <div class="pb-node">
-          <span class="pb-icon">⚡</span>
-          <div class="pb-node-body">
-            <div class="pb-node-title">Trigger · new signup</div>
-            <div class="pb-node-sub">POST /webhooks/signup</div>
-          </div>
-          <span class="pb-tag">ai-detected</span>
-        </div>
-        <div class="pb-line"></div>
-        <div class="pb-node">
-          <span class="pb-icon">🧠</span>
-          <div class="pb-node-body">
-            <div class="pb-node-title">AI lead scoring</div>
-            <div class="pb-node-sub">dugong-scorer-v3</div>
-          </div>
-          <span class="pb-tag">ai-generated</span>
-        </div>
-        <div class="pb-line"></div>
-        <div class="pb-branch">
-          <div class="pb-branch-arm">IF score &gt; 80 → 💼 Salesforce</div>
-          <div class="pb-branch-arm">ELSE → 📧 nurture sequence</div>
-        </div>
-        <div class="pb-line"></div>
-        <div class="pb-node muted">
-          <span class="pb-icon">🛡️</span>
-          <div class="pb-node-body">
-            <div class="pb-node-title">Error shield · 3× retry</div>
-            <div class="pb-node-sub">fallback → #ops alert</div>
-          </div>
-          <span class="pb-tag">ai-injected</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="featured-body">
-      <div class="post-meta">
-        <span class="tag tag-research">research</span>
-        <span class="post-read">14&nbsp;min&nbsp;read</span>
-      </div>
-      <h2 class="featured-title">
-        The death of the drag-and-drop builder
-      </h2>
-      <p class="featured-dek">
-        For fifteen years, workflow automation looked like a
-        canvas full of rectangles connected by lines. We argue the
-        canvas is the problem — and natural language plus an AI
-        compiler is what comes next. With evidence from 3.2M runs.
-      </p>
-      <div class="post-byline">
-        <span class="byline-avatar" style="background:#c47a55;">AR</span>
-        <span class="byline-name">Aanya Rao</span>
-        <span class="byline-divider">·</span>
-        <span class="byline-role">Head of Research</span>
-      </div>
-      <span class="featured-arrow">read the dispatch →</span>
-    </div>
-  </a>
-</section>
-
-<section class="grid-section">
-  <div class="section-head">
-    <span class="section-eyebrow">◆ RECENT DISPATCHES</span>
-    <span class="section-rule"></span>
-    <div class="filter-pills">
-      <button class="pill pill-active">all</button>
-      <button class="pill">essays</button>
-      <button class="pill">post-mortems</button>
-      <button class="pill">tactics</button>
-      <button class="pill">interviews</button>
-    </div>
-  </div>
-
-  <div class="article-grid">
-
-    <a class="card card-tall" href="the-overselling-problem-no-one-automates.html" style="text-decoration:none;">
-      <div class="card-art card-art-1">
-        <span class="art-glyph">📦</span>
-        <span class="art-coord">1&nbsp;IN&nbsp;10&nbsp;ORDERS&nbsp;CANCELLED</span>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">8&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The overselling problem <em>no&nbsp;one</em> automates</h3>
-        <p class="card-dek">
-          Selling stock you no longer have is the Shopify pain point
-          merchants dread most — because it's the hardest to take
-          back. Why manual sync breaks during a sale, and the AI
-          playbook that keeps inventory honest in real&nbsp;time.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 5</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="card" href="the-wismo-tickets-that-eat-your-afternoon.html" style="text-decoration:none;">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The <em>"where is my order?"</em> tickets that eat your afternoon</h3>
-        <p class="card-dek">
-          WISMO is the most common message in ecommerce — ~18% of
-          support tickets, over half during a sale. The AI playbook
-          that answers before customers even ask.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 4</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="card" href="the-shopify-automations-no-one-builds.html" style="text-decoration:none;">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The Shopify automations <em>no&nbsp;one</em> builds</h3>
-        <p class="card-dek">
-          Tagging is 14% of every Shopify workflow merchants ship.
-          Returns and refunds — the work that actually scales with
-          order volume — are under 1%. The gap between what's easy
-          and what's worth it.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 28</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-    <article class="card" data-nav="post">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-essay">essay</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">Triggers are the new APIs</h3>
-        <p class="card-dek">
-          When every step is natural language, the trigger becomes
-          the only thing you really design. Here's what we learned
-          watching 12,000 teams write their first one.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 24</span>
-          <span class="card-author">M. Chen</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card" data-nav="post">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-postmortem">post-mortem</span>
-          <span class="post-read">6&nbsp;min</span>
-        </div>
-        <h3 class="card-title">
-          The night our retry logic ate <em>itself</em>
-        </h3>
-        <p class="card-dek">
-          A Slack notification fired every 4 seconds for 11 hours.
-          The blameless story of how we found it, what the AI
-          shield missed, and the fix.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 21</span>
-          <span class="card-author">J. Okafor</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card card-accent" data-nav="post">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-tactics">tactics</span>
-          <span class="post-read">4&nbsp;min</span>
-        </div>
-        <h3 class="card-title">
-          Seven prompts that compile cleaner playbooks
-        </h3>
-        <p class="card-dek">
-          Small wording changes that shift our compiler from
-          "good enough" to first-try perfect. Steal them.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 19</span>
-          <span class="card-author">L. Park</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card" data-nav="post">
-      <div class="card-art card-art-2">
-        <span class="art-glyph">🔀</span>
-      </div>
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-essay">essay</span>
-          <span class="post-read">11&nbsp;min</span>
-        </div>
-        <h3 class="card-title">
-          Branching is a writing problem
-        </h3>
-        <p class="card-dek">
-          Why "if," "unless," and "when" are the three most
-          undervalued words in automation — and how clearer
-          prose produces cleaner conditional logic.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 16</span>
-          <span class="card-author">A. Rao</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card card-wide" data-nav="post">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-interview">interview</span>
-          <span class="post-read">22&nbsp;min</span>
-        </div>
-        <h3 class="card-title">
-          "We deleted 400 Zapier zaps in a weekend."
-        </h3>
-        <p class="card-dek">
-          A conversation with the ops lead at a 600-person fintech
-          on consolidating four years of brittle no-code automation
-          into eleven AI-compiled playbooks. Plus the spreadsheet
-          they used to audit everything.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 13</span>
-          <span class="card-author">w/&nbsp;K.&nbsp;Hartman</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card" data-nav="post">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-tactics">tactics</span>
-          <span class="post-read">3&nbsp;min</span>
-        </div>
-        <h3 class="card-title">
-          A taxonomy of "the workflow broke"
-        </h3>
-        <p class="card-dek">
-          Six failure modes we see in support tickets, ranked by
-          how often the AI shield catches them before you do.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 09</span>
-          <span class="card-author">R. Diaz</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card" data-nav="post">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-essay">essay</span>
-          <span class="post-read">8&nbsp;min</span>
-        </div>
-        <h3 class="card-title">
-          On naming things the AI will read later
-        </h3>
-        <p class="card-dek">
-          Variable names, channel names, sheet tabs — they're
-          all prompts now. A small style guide for teams whose
-          workflows write themselves.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 06</span>
-          <span class="card-author">M. Chen</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card card-quote">
-      <div class="card-body">
-        <span class="quote-mark">"</span>
-        <h3 class="card-title card-title-quote">
-          The best playbook is the one your replacement can read
-          on a Tuesday afternoon and understand by lunch.
-        </h3>
-        <div class="card-foot">
-          <span class="card-date">FROM ISSUE 46</span>
-          <span class="card-author">— A. Rao</span>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<section class="topics" id="tags">
-  <div class="section-head">
-    <span class="section-eyebrow">◆ BROWSE BY TOPIC</span>
-    <span class="section-rule"></span>
-  </div>
-  <div class="topic-cloud">
-    <a href="#" class="topic" style="--topic-size:1.8rem;">natural language</a>
-    <a href="#" class="topic" style="--topic-size:1.2rem;">retries</a>
-    <a href="#" class="topic" style="--topic-size:2.4rem;">playbooks</a>
-    <a href="#" class="topic" style="--topic-size:1rem;">salesforce</a>
-    <a href="#" class="topic" style="--topic-size:1.5rem;">branching</a>
-    <a href="#" class="topic" style="--topic-size:1.1rem;">slack</a>
-    <a href="#" class="topic" style="--topic-size:2rem;">AI&nbsp;agents</a>
-    <a href="#" class="topic" style="--topic-size:1rem;">stripe</a>
-    <a href="the-shopify-automations-no-one-builds.html" class="topic" style="--topic-size:1.9rem;">shopify</a>
-    <a href="the-wismo-tickets-that-eat-your-afternoon.html" class="topic" style="--topic-size:1.3rem;">wismo</a>
-    <a href="the-overselling-problem-no-one-automates.html" class="topic" style="--topic-size:1.6rem;">inventory&nbsp;sync</a>
-    <a href="the-overselling-problem-no-one-automates.html" class="topic" style="--topic-size:1.2rem;">overselling</a>
-    <a href="the-wismo-tickets-that-eat-your-afternoon.html" class="topic" style="--topic-size:1.1rem;">support</a>
-    <a href="#" class="topic" style="--topic-size:1.1rem;">refunds</a>
-    <a href="#" class="topic" style="--topic-size:1.4rem;">triggers</a>
-    <a href="#" class="topic" style="--topic-size:1.2rem;">notion</a>
-    <a href="#" class="topic" style="--topic-size:1.6rem;">post-mortems</a>
-    <a href="#" class="topic" style="--topic-size:1rem;">hubspot</a>
-    <a href="#" class="topic" style="--topic-size:1.3rem;">error&nbsp;shields</a>
-    <a href="#" class="topic" style="--topic-size:1.7rem;">prompt&nbsp;craft</a>
-    <a href="#" class="topic" style="--topic-size:1.1rem;">gmail</a>
-    <a href="#" class="topic" style="--topic-size:1.3rem;">integrations</a>
-    <a href="#" class="topic" style="--topic-size:1rem;">sheets</a>
-    <a href="#" class="topic" style="--topic-size:1.4rem;">self-healing</a>
-  </div>
-</section>
-
-<section class="signup">
-  <div class="signup-inner">
-    <div class="signup-left">
-      <span class="signup-eyebrow">◆ THE WEEKLY DISPATCH</span>
-      <h2 class="signup-title">
-        One letter,<br />
-        every <em>Sunday.</em>
-      </h2>
-      <p class="signup-lede">
-        Three essays. One post-mortem. A workflow worth stealing.
-        Sent the morning before you start the week.
-      </p>
-    </div>
-    <form class="signup-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='subscribed ✓'; this.querySelector('input').value='';">
-      <label class="signup-label" for="email">your email</label>
-      <div class="signup-row">
-        <input id="email" type="email" placeholder="name@company.com" required />
-        <button type="submit">subscribe →</button>
-      </div>
-      <span class="signup-fine">free · unsubscribe anytime · 4,200 readers</span>
-    </form>
-  </div>
-</section>
-
-<section class="archive" id="archive">
-  <div class="section-head">
-    <span class="section-eyebrow">◆ FROM THE ARCHIVE</span>
-    <span class="section-rule"></span>
-  </div>
-  <ul class="archive-list">
-    <li data-nav="post"><span class="arch-num">041</span><span class="arch-title">When automation stops being a tool and starts being a teammate</span><span class="arch-date">APR&nbsp;28</span></li>
-    <li data-nav="post"><span class="arch-num">040</span><span class="arch-title">Counting the hidden cost of a single Zap</span><span class="arch-date">APR&nbsp;21</span></li>
-    <li data-nav="post"><span class="arch-num">039</span><span class="arch-title">The case for boring workflows</span><span class="arch-date">APR&nbsp;14</span></li>
-    <li data-nav="post"><span class="arch-num">038</span><span class="arch-title">Composable triggers: a half-baked manifesto</span><span class="arch-date">APR&nbsp;07</span></li>
-    <li data-nav="post"><span class="arch-num">037</span><span class="arch-title">Why your ops team is secretly a compiler</span><span class="arch-date">MAR&nbsp;31</span></li>
-    <li data-nav="post"><span class="arch-num">036</span><span class="arch-title">A short history of if-this-then-that</span><span class="arch-date">MAR&nbsp;24</span></li>
-  </ul>
-  <a href="#" class="archive-more">browse all 48 dispatches →</a>
-</section>
-
-<section class="cta-band">
-  <div class="cta-band-inner">
-    <div class="cta-band-copy">
-      <span class="cta-eyebrow">&#9670; Ready when you are</span>
-      <h2 class="cta-title">Stop configuring. <em>Start describing.</em></h2>
-      <p class="cta-sub">Write your workflow in plain English and an AI agent runs it &mdash; calling your apps directly. Your first automation takes under five minutes.</p>
-    </div>
-    <div class="cta-actions">
-      <a href="https://dugong.live" class="btn btn-primary btn-lg">Try Dugong now &rarr;</a>
-      <span class="cta-fine">free &middot; no credit card required</span>
-    </div>
-  </div>
-</section>
-
-<footer class="foot">
-  <div class="foot-top">
-    <div class="foot-brand">
-      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
-      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
-    </div>
-    <div class="foot-cols">
-      <div>
-        <span class="foot-h">read</span>
-        <a href="#">Latest</a>
-        <a href="#">Essays</a>
-        <a href="#">Post-mortems</a>
-        <a href="#">Interviews</a>
-      </div>
-      <div>
-        <span class="foot-h">product</span>
-        <a href="https://dugong.live">Dugong</a>
-        <a href="#">Pricing</a>
-        <a href="#">AI Engine</a>
-        <a href="#">Docs</a>
-      </div>
-      <div>
-        <span class="foot-h">company</span>
-        <a href="#">About</a>
-        <a href="#">Careers</a>
-        <a href="#">Privacy</a>
-        <a href="#">RSS</a>
-      </div>
-    </div>
-  </div>
-  <div class="foot-bot">
-    <span>© 2026 Dugong AI Inc.</span>
-    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
-  </div>
-</footer>
-
-</div>
-
-<!-- ============ POST VIEW ============ -->
-<div class="view post" id="view-post">
-
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span>◆ DISPATCH Nº 47 — MAY 28, 2026</span>
-    <span>◆ FILED UNDER: RESEARCH</span>
-    <span>◆ 14 MIN READ · 3,420 WORDS</span>
-    <span>◆ BY AANYA RAO</span>
-    <span>◆ DISPATCH Nº 47 — MAY 28, 2026</span>
-    <span>◆ FILED UNDER: RESEARCH</span>
-    <span>◆ 14 MIN READ · 3,420 WORDS</span>
-    <span>◆ BY AANYA RAO</span>
-  </div>
-</div>
-
-<header class="nav">
-  <a href="#" class="brand" data-nav="home">
-    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
-    <span class="brand-name">dugong</span>
-    <span class="brand-slash">/</span>
-    <span class="brand-section">field&nbsp;notes</span>
-  </a>
-  <nav class="nav-links">
-    <a href="#" data-nav="home">Latest</a>
-    <a href="#" data-nav="home">Topics</a>
-    <a href="#" data-nav="home">Archive</a>
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
     <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
   </nav>
 </header>
 
 <article class="article">
 
-  <a href="#" class="article-back" data-nav="home">← back to field notes</a>
+  <a href="index.html" class="article-back">← back to field notes</a>
 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH Nº 47</span>
+    <span style="color: var(--cream-dim);">DISPATCH Nº 50</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">MAY 28, 2026</span>
+    <span style="color: var(--cream-dim);">JUN 5, 2026</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">14 MIN READ</span>
+    <span style="color: var(--cream-dim);">8 MIN READ</span>
   </div>
 
   <h1 class="article-title">
-    The death of the <em>drag-and-drop</em> builder.
+    The overselling problem <em>no one automates.</em>
   </h1>
 
   <p class="article-dek">
-    For fifteen years, workflow automation looked like a canvas
-    of rectangles connected by lines. After watching three
-    million runs across twelve thousand teams, we're convinced
-    the canvas was always the problem.
+    Overselling — taking money for a unit you no longer have — is the
+    Shopify pain point merchants dread most, because it's the one
+    that's hardest to take back. It almost always starts the same way:
+    two channels, one stock pool, and a human trying to keep the
+    numbers in sync by hand. Here's why that breaks exactly when it
+    matters, and what an AI playbook does instead.
   </p>
 
   <div class="article-byline">
-    <span class="byline-avatar" style="background: var(--sand);">AR</span>
-    <span class="byline-name">Aanya Rao</span>
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name">Priya Singh</span>
     <span class="byline-divider">·</span>
-    <span class="byline-role">Head of Research, Dugong</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
   </div>
 
   <div class="article-body">
 
     <p>
-      There is a particular kind of fatigue that sets in around the
-      twentieth node of a Zapier zap. You know the one. The connecting
-      lines start to cross. The error-handling branch you added last
-      week now has its own error-handling branch. Someone on the team
-      named a step "Step 7 (FINAL) (USE THIS ONE)." You open it on a
-      Monday morning, stare at the canvas for forty seconds, and quietly
-      close the tab.
+      The r/shopify thread is almost a genre at this point. A store
+      has its best day in months — a TikTok lands, a marketplace
+      listing takes off, a flash sale clears the homepage — and then,
+      a day later, the founder is writing the same email to a dozen
+      customers: <em>I'm so sorry, but the item you ordered is
+      actually out of stock.</em> The product page still said
+      "available." The checkout still took the money. The number was
+      just wrong, and nobody knew until it was time to pack the box.
     </p>
 
     <p>
-      We've spent the past eighteen months instrumenting that moment.
-      What we found surprised us: the canvas isn't failing because the
-      workflows got more complex. The workflows got more complex
-      <em>because the canvas required them to be.</em>
-    </p>
-
-    <h2>The canvas tax</h2>
-
-    <p>
-      Every drag-and-drop builder shares an unspoken bargain: in exchange
-      for a visual representation of your logic, you agree to express
-      that logic in nodes. One node, one action. Two actions, two nodes
-      and a line. A branch becomes a diamond and three lines. A retry
-      becomes a node that points back at itself in a way that looks
-      vaguely alarming.
+      That's overselling: selling a unit you no longer have. And of
+      all the operational pain points merchants complain about
+      publicly, it's the one they describe in the angriest terms —
+      not because it's the most frequent, but because it's the
+      <strong>hardest to take back</strong>. Running out of stock
+      means a customer couldn't buy. Overselling means they
+      <em>already did</em>, got the confirmation email, told their
+      kid the present was coming — and now you have to walk it back.
     </p>
 
     <blockquote>
-      The canvas didn't help us think clearly about workflows. It
-      forced us to think about <em>nodes.</em>
+      Out-of-stock is a missed sale. Overselling is a broken promise.
+      One costs you a customer you never had; the other costs you a
+      customer you already won.
     </blockquote>
 
+    <h2>Where the number goes wrong</h2>
+
     <p>
-      The cost shows up in our data. Across the 12,000 teams we studied,
-      median Zapier zaps grew 31% in node count year over year — but
-      the work they accomplished grew by only 9%. The rest was
-      <strong>scaffolding</strong>: wrapper nodes, formatter steps,
-      lookup nodes, glue. The canvas was eating itself.
+      Overselling is almost never a counting mistake inside Shopify
+      itself. It's a sync problem. The moment a store sells in more
+      than one place — Shopify plus a physical POS, plus Amazon or
+      eBay, plus the occasional wholesale order, plus a "DM me to
+      buy" Instagram channel — there is one pile of physical stock
+      and several systems each keeping their own tally of it. Nothing
+      moves the number in all of them at once.
+    </p>
+
+    <p>
+      So the last three of a popular SKU sell on Amazon at 2:14pm,
+      and Shopify doesn't find out until the nightly export runs at
+      midnight. For ten hours, the store cheerfully sells inventory
+      that's already gone. Industry surveys put the scale of this
+      bluntly: roughly <strong>40% of retailers</strong> say they
+      cancel at least one in every ten orders because of inaccurate
+      inventory data, and average retail inventory accuracy sits
+      famously low — often cited in the <strong>60–65%</strong> range
+      for stores without real-time sync. The merchant isn't careless.
+      The architecture is just lying to them on a delay.
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ DATA</span>
       <span>
-        Of 8,400 workflows audited, <strong>43% of nodes existed only
-        to translate data between two other nodes.</strong> They did no
-        real work; they were grammar. The canvas charged a tax in
-        rectangles.
+        The danger window scales with success. On an ordinary day a
+        ten-hour sync gap might oversell nothing. During a sale —
+        when a single SKU can clear its last twenty units in
+        minutes — that same gap is exactly when the most orders pour
+        in against stock that no longer exists. Overselling punishes
+        you hardest on your best days.
       </span>
     </div>
 
-    <h2>The natural-language alternative</h2>
+    <h2>Why the manual fixes quietly fail</h2>
 
     <p>
-      What happens if you stop drawing the workflow and start
-      <em>describing</em> it? We thought we knew. We assumed natural
-      language would be a thin layer over the same model — a different
-      input method for the same canvas. It is not.
+      Every merchant eventually rigs up a defense. A spreadsheet they
+      reconcile on Sunday nights. A "safety buffer" where they hide
+      the last five units so the count can be wrong by up to five
+      before it hurts. A Shopify Flow rule that hides a product when
+      it hits zero. A cheap sync app bolted between two channels.
+      Each helps. None of them hold under load.
     </p>
 
     <p>
-      Here is a workflow our customer Anika at Resend wrote on a Tuesday
-      afternoon, in plain prose, in our editor:
+      The spreadsheet is stale the moment a sale comes in. The safety
+      buffer is a guess — too small and you still oversell, too large
+      and you're sitting on unsellable stock and killing your own
+      conversion. Flow rules fire on Shopify events only, so they're
+      blind to the Amazon sale that actually caused the problem. And
+      the basic sync app handles the happy path — one sells here,
+      decrement there — but falls over on everything real: a bundle
+      that draws from three SKUs, a pre-order that <em>should</em>
+      oversell on purpose, a return that puts a unit back, a
+      warehouse recount that contradicts every channel at once.
+    </p>
+
+    <p>
+      In a node-based builder, covering those cases means drawing a
+      graph nobody has the patience to draw: a branch for bundles, a
+      branch for pre-orders, a branch for partial restocks, a branch
+      for the channel that's down for maintenance and can't be
+      updated right now. So merchants build the simple version, it
+      works in the demo, and it oversells the first time a SKU gets
+      popular on two channels at once.
+    </p>
+
+    <h2>What the automation actually has to do</h2>
+
+    <p>
+      The real job isn't "decrement a number." It's: watch every
+      channel continuously, treat the lowest trustworthy count as the
+      truth, push that truth everywhere within seconds, hold a smart
+      buffer on fast-movers, and — when two systems genuinely
+      disagree — know which one to believe and who to wake up. That's
+      a set of judgement calls, not a single rule. Written as a
+      Dugong playbook, in plain prose, it reads like this:
     </p>
 
     <pre><code><span class="c"># trigger</span>
-<span class="k">When</span> a new customer signs up on our website
+<span class="k">When</span> stock changes on any channel, or every 2 minutes
 
 <span class="c"># steps</span>
-1. <span class="k">Look up</span> their company info using Clearbit
-2. <span class="k">Score</span> the lead with AI: company size, industry, role
-3. <span class="k">If</span> score &gt; 80, create a Salesforce deal + assign rep
-4. <span class="k">Send</span> a welcome email via Gmail with their name
-5. <span class="k">Log</span> to Google Sheets and post to Slack #signups</code></pre>
+1. <span class="k">Read</span> the live available count for each SKU on every channel
+2. <span class="k">Reconcile</span> to a single source of truth (lowest verified count)
+3. <span class="k">Push</span> that number to Shopify, Amazon, eBay, and POS at once
+4. <span class="k">Hold</span> a dynamic buffer on fast-movers during a sale
+5. <span class="k">If</span> a SKU is about to hit zero → hide it or flip to
+   "notify me" before it can be oversold
+6. <span class="k">If</span> two channels disagree by more than a unit →
+   pause sales on that SKU and ping me in Slack with both numbers
+7. <span class="k">Account</span> for bundles, pre-orders, and returns correctly,
+   not as plain decrements</code></pre>
 
     <p>
-      What the compiler produced from this prose was an 8-node playbook
-      with one branch, five API integrations, and — critically — an
-      error shield Anika never asked for, because the AI knew Clearbit
-      sometimes times out and Salesforce sometimes rate-limits.
+      Seven lines. The compiler fills in everything underneath: the
+      per-channel API calls, the reconciliation logic, the rate
+      limits, the retry when Amazon's endpoint times out, the bundle
+      math that maps one sale to three component SKUs. The merchant
+      named the outcome — <em>never sell what we don't have</em> — and
+      let the compiler decide what it had to <em>be</em> to deliver it.
+    </p>
+
+    <h2>The real win: catching the order before it ships</h2>
+
+    <p>
+      Even perfect sync has a seam — the few seconds between two
+      simultaneous checkouts on different channels. So the second
+      half of the playbook isn't prevention, it's graceful recovery.
+      The same automation that keeps counts honest can watch new
+      orders and catch the rare oversell <em>before</em> it becomes a
+      broken promise.
+    </p>
+
+    <pre><code><span class="c"># trigger</span>
+<span class="k">When</span> a new order comes in for a SKU at or below zero
+
+<span class="c"># steps</span>
+1. <span class="k">Check</span> real stock across the warehouse and all channels
+2. <span class="k">If</span> it can still be fulfilled → let it through, resync counts
+3. <span class="k">If</span> truly oversold → hold the order before fulfilment and
+   offer the customer a backorder ETA, a swap, or an instant refund
+4. <span class="k">Email</span> them warmly within minutes, not a day later
+5. <span class="k">Log</span> the SKU and channel so I can see what keeps overselling</code></pre>
+
+    <p>
+      A customer who hears "heads up — that one just sold out, want
+      us to ship the navy instead or refund you today?" within
+      minutes of ordering is mildly disappointed. A customer who
+      hears it three days later, after they've been waiting, leaves
+      a one-star review. Same shortfall, completely different
+      outcome — and the difference is entirely about whether anything
+      was watching.
+    </p>
+
+    <div class="callout callout-sand">
+      <span class="callout-mark">◆ NOTE</span>
+      <span>
+        The hidden cost isn't just the refund. On Shopify, cancelled
+        and disputed orders feed your chargeback and dispute rate —
+        and a rate that climbs too high can get Shopify Payments
+        throttled or disabled. Overselling, left unmanaged, doesn't
+        just annoy customers; it can quietly threaten your ability to
+        take payment at all.
+      </span>
+    </div>
+
+    <h2>Why this is a compiler problem, not an app problem</h2>
+
+    <p>
+      There are plenty of inventory-sync apps in the Shopify App
+      Store, and the good ones genuinely help. But they sync the way
+      a thermostat works: one number, one rule, applied everywhere.
+      They don't know that this SKU is a bundle, that one is a
+      planned pre-order, that the spike at 9pm is a sale and the
+      buffer should tighten, or that when the warehouse count and the
+      channel count disagree, a human should look before more units
+      go out the door. Those are decisions, and decisions don't fit
+      in a settings panel.
     </p>
 
     <p>
-      In a drag-and-drop tool, Anika would have spent the next two hours
-      adding retry logic, formatter steps, and conditional fallbacks.
-      In ours, she spent six minutes describing what the workflow
-      should <em>do</em>, and the compiler handled what it should
-      <em>be.</em>
-    </p>
-
-    <h2>The compiler is the product</h2>
-
-    <p>
-      The interesting work, it turns out, isn't the editor. It's the
-      compiler. Translating "if the score is high" into a branching
-      condition is the easy part — what's hard is knowing that the
-      score might be missing, that the field might be a string instead
-      of a number, that the Salesforce API will occasionally return
-      a duplicate-key error and you should treat that as success.
-    </p>
-
-    <p>
-      That kind of knowledge isn't visible in the editor. It lives
-      in the compiler. And once you accept that the compiler is doing
-      the real work, the editor stops needing to look like a canvas.
-      It can look like writing.
+      A natural-language compiler is the unlock because the hard part
+      of overselling was never the subtraction — it was the dozen
+      exceptions stacked on top of it. You can describe those
+      exceptions in a paragraph to a new operations hire. You could
+      never draw them in a node graph and keep it maintainable. That
+      gap, between what a merchant can describe and what the old tools
+      could compile, is exactly where the unbuilt automations live.
     </p>
 
     <hr />
 
-    <h2>Three predictions</h2>
+    <h2>The workflow worth building this week</h2>
 
     <p>
-      We think the next three years of workflow automation will be
-      shaped by three forces:
+      If you sell in more than one place and you've ever sent a
+      "so sorry, it's actually out of stock" email, this is the
+      automation to build before any tag rule, any cart-recovery
+      sequence, any analytics dashboard. It protects the two things
+      that are hardest to win back — customer trust and your payment
+      processing — and it does it on exactly the days you most want
+      to be celebrating instead of apologizing.
     </p>
 
-    <ul>
-      <li>
-        <strong>Workflows will be read more than written.</strong>
-        The unit of authorship becomes the prose, not the diagram.
-        Reviewing a teammate's workflow becomes reading a paragraph
-        instead of tracing arrows.
-      </li>
-      <li>
-        <strong>Error handling moves below the line.</strong>
-        Retries, fallbacks, and rate-limit logic will be invisible
-        unless you ask to see them. The compiler will assume you
-        want them; you'll opt out, not opt in.
-      </li>
-      <li>
-        <strong>Integrations stop being a menu.</strong> "Send to
-        Slack" is enough. "Update the CRM" is enough. The resolver
-        picks the tool. You don't browse a directory of 4,000 apps;
-        you mention what you need.
-      </li>
-    </ul>
-
     <p>
-      None of this means the canvas disappears overnight. There are
-      workflows where a diagram is genuinely the right representation —
-      complex state machines, multi-week orchestrations, anything
-      with significant parallel branches. But those are a minority.
-      For the long tail of "when X happens, do Y and Z," prose is
-      better. It always was. We just didn't have the compiler.
+      Describe it the way you'd brief a careful operations manager:
+      never sell what we don't have, keep every channel telling the
+      same truth, and if something slips through, catch it in minutes
+      and make it right before the customer is even annoyed. That's
+      the whole brief. The compiler handles the rest.
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ READING</span>
       <span>
-        If this argument interests you, three pieces to follow it up
-        with: our <a href="#">post-mortem on the retry-loop incident</a>,
-        the <a href="#">interview with Kira Hartman</a> on consolidating
-        400 zaps, and Mei's <a href="#">essay on naming things the AI
-        will read later.</a>
+        If this resonates, two companion pieces: our field study on
+        <a href="the-shopify-automations-no-one-builds.html">the Shopify
+        automations no one builds</a>, and the dispatch on
+        <a href="the-wismo-tickets-that-eat-your-afternoon.html">the
+        "where is my order?" tickets that eat your afternoon</a>.
       </span>
     </div>
 
     <p>
-      We'll keep writing as the data accumulates. If you're building
-      workflows — in any tool — and you want to share what you're
-      seeing, the inbox is open: <code>field-notes@dugong.live</code>.
+      If you're a Shopify merchant who's been burned by overselling —
+      or you've built a sync playbook that finally holds during a
+      sale — the inbox is open: <code>field-notes@dugong.live</code>.
+      We're collecting case studies for the next issue.
     </p>
 
   </div>
@@ -1272,41 +849,41 @@ em { font-style: italic; }
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
-    <article class="card" data-nav="post">
+    <a href="the-wismo-tickets-that-eat-your-afternoon.html" class="card">
       <div class="card-body">
         <div class="post-meta">
-          <span class="tag tag-essay">essay</span>
+          <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">Triggers are the new APIs</h3>
+        <h3 class="card-title">The "where is my order?" tickets that eat your afternoon</h3>
         <p class="card-dek">
-          When every step is natural language, the trigger becomes
-          the only thing you really design.
+          WISMO is ~18% of support tickets, over half during a sale.
+          The AI playbook that answers before customers ask.
         </p>
         <div class="card-foot">
-          <span class="card-date">MAY 24</span>
-          <span class="card-author">M. Chen</span>
+          <span class="card-date">JUN 4</span>
+          <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </article>
-    <article class="card" data-nav="post">
+    </a>
+    <a href="the-shopify-automations-no-one-builds.html" class="card">
       <div class="card-body">
         <div class="post-meta">
-          <span class="tag tag-essay">essay</span>
-          <span class="post-read">11&nbsp;min</span>
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">Branching is a writing problem</h3>
+        <h3 class="card-title">The Shopify automations no one builds</h3>
         <p class="card-dek">
-          Why "if," "unless," and "when" are the three most
-          undervalued words in automation.
+          Tagging is 14% of every Shopify workflow merchants ship.
+          The work that actually scales is under 1%.
         </p>
         <div class="card-foot">
-          <span class="card-date">MAY 16</span>
-          <span class="card-author">A. Rao</span>
+          <span class="card-date">MAY 28</span>
+          <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </article>
-    <article class="card" data-nav="post">
+    </a>
+    <a href="index.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-interview">interview</span>
@@ -1322,7 +899,7 @@ em { font-style: italic; }
           <span class="card-author">w/ K. Hartman</span>
         </div>
       </div>
-    </article>
+    </a>
   </div>
 </section>
 
@@ -1349,24 +926,24 @@ em { font-style: italic; }
     <div class="foot-cols">
       <div>
         <span class="foot-h">read</span>
-        <a href="#" data-nav="home">Latest</a>
-        <a href="#">Essays</a>
-        <a href="#">Post-mortems</a>
-        <a href="#">Interviews</a>
+        <a href="index.html">Latest</a>
+        <a href="index.html">Essays</a>
+        <a href="index.html">Post-mortems</a>
+        <a href="index.html">Interviews</a>
       </div>
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="#">Pricing</a>
-        <a href="#">AI Engine</a>
-        <a href="#">Docs</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
       </div>
       <div>
         <span class="foot-h">company</span>
-        <a href="#">About</a>
-        <a href="#">Careers</a>
-        <a href="#">Privacy</a>
-        <a href="#">RSS</a>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="https://dugong.live">RSS</a>
       </div>
     </div>
   </div>
@@ -1376,66 +953,14 @@ em { font-style: italic; }
   </div>
 </footer>
 
-</div>
-
 <script>
-// ============ VIEW NAVIGATION ============
-function showView(name) {
-  document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
-  const target = document.getElementById("view-" + name);
-  if (target) target.classList.add("active");
-  window.scrollTo({ top: 0, behavior: "instant" });
-  // Re-run reveal observer for the newly shown content
-  attachReveals();
-}
-
-document.addEventListener("click", (e) => {
-  const trigger = e.target.closest("[data-nav]");
-  if (!trigger) return;
-  e.preventDefault();
-  showView(trigger.getAttribute("data-nav"));
-});
-
-// ============ SCROLL REVEALS ============
-let io;
-function attachReveals() {
-  if (io) io.disconnect();
-  io = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) {
-        e.target.classList.add("in");
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-
-  document.querySelectorAll(".view.active .featured-card, .view.active .card, .view.active .archive-list li, .view.active .section-head, .view.active .signup-inner, .view.active .topic-cloud, .view.active .foot")
-    .forEach((el) => {
-      el.classList.remove("in");
-      el.classList.add("reveal");
-      io.observe(el);
-    });
-}
-attachReveals();
-
-// ============ FILTER PILLS ============
-document.querySelectorAll(".pill").forEach((pill) => {
-  pill.addEventListener("click", () => {
-    document.querySelectorAll(".pill").forEach((p) => p.classList.remove("pill-active"));
-    pill.classList.add("pill-active");
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
   });
-});
-
-// ============ HERO PARALLAX ============
-const heroTitle = document.querySelector(".hero-title");
-if (heroTitle && window.matchMedia("(min-width: 720px)").matches) {
-  window.addEventListener("scroll", () => {
-    const y = window.scrollY;
-    if (y < 800 && document.getElementById("view-home").classList.contains("active")) {
-      heroTitle.style.transform = `translateY(${y * 0.08}px)`;
-    }
-  }, { passive: true });
-}
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
 </script>
 </body>
 </html>
