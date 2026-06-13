@@ -343,6 +343,12 @@ em { font-style: italic; }
 .article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
 
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
 .related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
 .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
 @media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
@@ -721,6 +727,27 @@ available, and the count is actually synced
   </div>
 
 </article>
+
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">◆ COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h2 class="faq-q">Does Shopify send back-in-stock notifications automatically?</h2>
+      <p class="faq-a">No, not in any real sense. Shopify has no built-in feature that emails or texts customers when an out-of-stock product is restocked. Some themes offer a basic notify me form, but it is too limited for most stores: it collects interest without reliably sending alerts, and it has no segmentation, no SMS, no priority order, and no throttle to stop the restock from selling out to the wrong people. The standard workaround is to export the requests and notify customers by hand, or to bolt on a third-party app. The native gap is why so many waitlists are quietly never answered.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">How much revenue do stockouts actually cost a store?</h2>
+      <p class="faq-a">More than most merchants track. Stockouts account for roughly 40 percent of lost sales, and the lost sales ratio, the share of potential revenue missed because items were unavailable, averages around 20 to 30 percent in ecommerce. When a product is out of stock, about 69 percent of online shoppers will go buy from a competitor rather than wait, and a stocked-out product stays unavailable for an average of around 35 days. Every one of those is a customer who would have bought from you if the alert had reached them in time.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Why does blasting the whole waitlist at once cause problems?</h2>
+      <p class="faq-a">Because a single restock rarely covers everyone who asked. If two hundred people are waiting and forty units land, one mass email sends all two hundred to the page at the same moment, the forty units sell to whoever clicks fastest, and the other hundred and sixty arrive to find it gone again. You can also oversell if the alert fires before inventory is truly synced. A good restock automation notifies in priority order, usually first-requested first, throttled to the units actually available, per variant, across email and SMS, so the people who waited longest get the real chance to buy.</p>
+    </div>
+  </div>
+</section>
 
 <section class="related">
   <div class="section-head">
