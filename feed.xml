@@ -15,7 +15,17 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Sat, 13 Jun 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 12:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The sold-out products that sink your collection</title>
+      <link>https://blog.dugong.live/the-sold-out-products-that-sink-your-collection.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/the-sold-out-products-that-sink-your-collection.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Sat, 13 Jun 2026 12:00:00 +0000</pubDate>
+      <description>Shopify has no reliable way to push sold-out products to the bottom of a collection, so empty shelves greet your best traffic and drag down the conversion of everything in stock behind them. The native sort breaks across pagination and hiding the product kills its SEO and waitlist. The AI playbook that re-merchandises the storefront the moment stock moves.</description>
+    </item>
 
     <item>
       <title>The restock alert that never fires</title>
