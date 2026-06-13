@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The bad address that ships anyway — Dugong Field Notes</title>
-<meta name="description" content="Shopify warns about a bad address, you ship anyway, and the package bounces back. The AI playbook that catches undeliverable addresses before the label prints." />
-<link rel="canonical" href="https://blog.dugong.live/the-bad-address-that-ships-anyway.html" />
-<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
+<title>The order change that races your warehouse — Dugong Field Notes</title>
+<meta name="description" content="A customer emails to change their Shopify order, and the edit locks the moment you fulfil. The AI playbook that resolves it before the label prints." />
+<link rel="canonical" href="https://blog.dugong.live/the-order-change-that-races-your-warehouse.html" />
 <meta name="author" content="Priya Singh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="keywords" content="Shopify address validation, returned to sender, failed delivery, wrong shipping address, address verification automation, undeliverable package, re-shipping cost, Shopify Flow address, ecommerce fulfillment automation, Dugong" />
+<meta name="keywords" content="Shopify order editing, change order after purchase, edit shipping address Shopify, order change request automation, self-serve order editing, cancel order Shopify, post-purchase support tickets, fulfillment lock, ecommerce support automation, Dugong" />
 <meta name="theme-color" content="#c6fe1e" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<meta property="article:published_time" content="2026-06-06" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
+<meta property="article:published_time" content="2026-06-08" />
     <meta property="article:modified_time" content="2026-06-11" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
@@ -22,9 +22,9 @@
 <!-- Open Graph -->
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
-<meta property="og:title" content="The bad address that ships anyway" />
-<meta property="og:description" content="Shopify warns you an address looks wrong, you ship anyway, and the package returns two weeks later. The AI playbook that fixes or verifies a bad address before the label ever prints." />
-<meta property="og:url" content="https://blog.dugong.live/the-bad-address-that-ships-anyway.html" />
+<meta property="og:title" content="The order change that races your warehouse" />
+<meta property="og:description" content="A customer asks to change their order an hour after checkout, and Shopify locks the edit the moment you fulfil. Why &quot;just reply fast&quot; never scales, and the AI playbook that resolves order-change requests before the label prints." />
+<meta property="og:url" content="https://blog.dugong.live/the-order-change-that-races-your-warehouse.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -33,8 +33,8 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="The bad address that ships anyway" />
-<meta name="twitter:description" content="A bad shipping address costs you a return-to-sender fee, a re-ship, and a WISMO ticket — and Shopify only warns you. The AI playbook that resolves it before fulfillment." />
+<meta name="twitter:title" content="The order change that races your warehouse" />
+<meta name="twitter:description" content="Wrong size, wrong address, one more item: the &quot;can you change my order?&quot; email always lands at a bad time and locks when you fulfil. The AI playbook that handles it." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
     <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 
@@ -44,17 +44,17 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html#article",
+      "@id": "https://blog.dugong.live/the-order-change-that-races-your-warehouse.html#article",
       "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
-      "mainEntityOfPage": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html",
-      "url": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html",
-      "headline": "The bad address that ships anyway",
-      "description": "Shopify shows an address warning, you click past it, and the package bounces back two weeks later — return-to-sender fees, a re-ship, and an angry 'where is my order?' ticket. Why bad-address handling is the Shopify pain merchants only notice after it costs them, and the AI playbook that catches it before the label prints.",
-      "datePublished": "2026-06-06",
+      "mainEntityOfPage": "https://blog.dugong.live/the-order-change-that-races-your-warehouse.html",
+      "url": "https://blog.dugong.live/the-order-change-that-races-your-warehouse.html",
+      "headline": "The order change that races your warehouse",
+      "description": "A customer asks to swap a size, fix an address, or add an item minutes after checkout, and Shopify locks the edit the second you fulfil. Why bad-address handling, manual replies, and the cancel-and-recreate dance all fail, and the AI playbook that resolves order-change requests before the label prints.",
+      "datePublished": "2026-06-08",
       "dateModified": "2026-06-11",
       "articleSection": "Research",
-      "keywords": "Shopify address validation, returned to sender, failed delivery, wrong shipping address, address verification automation, undeliverable package, re-shipping cost, ecommerce fulfillment automation",
-      "wordCount": 1780,
+      "keywords": "Shopify order editing, change order after purchase, edit shipping address Shopify, order change request automation, self-serve order editing, cancel order Shopify, post-purchase support tickets, fulfillment lock",
+      "wordCount": 1700,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "image": "https://blog.dugong.live/og-image.png",
@@ -76,7 +76,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The bad address that ships anyway", "item": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html" }
+        { "@type": "ListItem", "position": 2, "name": "The order change that races your warehouse", "item": "https://blog.dugong.live/the-order-change-that-races-your-warehouse.html" }
       ]
     },
     {
@@ -84,26 +84,26 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What does an address warning mean on a Shopify order?",
+          "name": "Can customers edit their own order after checkout on Shopify?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Shopify runs address validation automatically on online orders. A yellow warning means the address looks incomplete or slightly off and might result in a delayed or failed delivery; a red error means the address is very likely undeliverable and can't be marked valid. Both are advisory — Shopify flags the risk, but it still lets you fulfil the order, so a bad address can ship anyway if no one acts on the warning."
+            "text": "Not by default. Once checkout is complete, Shopify does not give the customer any way to change items, quantities, variants, or the shipping address themselves. Every change request has to be handled by the merchant in the admin, and only while the order is still unfulfilled. The moment you click Fulfil items, most edit options lock, and the billing address can never be edited for fraud reasons."
           }
         },
         {
           "@type": "Question",
-          "name": "Why are bad shipping addresses so expensive for merchants?",
+          "name": "Why are post-purchase order changes such a common support ticket?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A bad address usually isn't caught until the package fails to deliver and gets returned to sender, which can take one to three delivery attempts and a week or more. By then the merchant pays return shipping, a re-ship to the corrected address, support time on a 'where is my order?' ticket, and often a refund or goodwill credit — several times the original shipping cost, on an order that was already paid and packed."
+            "text": "People buy fast and notice mistakes a few minutes later: the wrong size, a typo in the address, a quantity of one when they meant two, or an item they forgot to add. Because Shopify gives them no self-serve way to fix it, every one of those realisations becomes an inbound email, DM, or chat. Industry data shows roughly 60 to 80 percent of ecommerce tickets fall into automatable categories, and order changes are one of the largest, with about 69 percent of customers saying they would rather resolve the issue themselves if they could."
           }
         },
         {
           "@type": "Question",
-          "name": "Can bad-address handling on Shopify be automated?",
+          "name": "Can Shopify order-change requests be automated?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. An AI playbook can check every new order against an address-verification service before fulfilment, auto-correct unambiguous fixes like a missing ZIP or a standardised street format, hold fulfilment and email the customer a suggested correction when the address is ambiguous, and only escalate the genuinely unresolvable ones to a person — so the package never ships to an address that's going to bounce."
+            "text": "Yes. An AI playbook can read the incoming request in plain language, identify what the customer wants to change, check whether fulfilment has already started, apply the safe changes automatically before the order locks, recalculate any price or shipping difference, charge or refund the delta, confirm with the customer, and escalate only the genuinely risky cases to a person. Self-serve and automated order editing typically cuts order-change tickets by 40 to 60 percent."
           }
         }
       ]
@@ -380,13 +380,13 @@ em { font-style: italic; }
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>◆ DISPATCH Nº 52 — JUN 6, 2026</span>
+    <span>◆ DISPATCH Nº 53 — JUN 8, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 1,780 WORDS</span>
+    <span>◆ 9 MIN READ · 1,700 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
-    <span>◆ DISPATCH Nº 52 — JUN 6, 2026</span>
+    <span>◆ DISPATCH Nº 53 — JUN 8, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 1,780 WORDS</span>
+    <span>◆ 9 MIN READ · 1,700 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -412,25 +412,25 @@ em { font-style: italic; }
 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH Nº 52</span>
+    <span style="color: var(--cream-dim);">DISPATCH Nº 53</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">JUN 6, 2026</span>
+    <span style="color: var(--cream-dim);">JUN 8, 2026</span>
     <span style="color: var(--line-2);">·</span>
     <span style="color: var(--cream-dim);">9 MIN READ</span>
   </div>
 
   <h1 class="article-title">
-    The bad address that <em>ships anyway.</em>
+    The order change that <em>races your warehouse.</em>
   </h1>
 
   <p class="article-dek">
-    Shopify shows you a little yellow triangle next to the shipping
-    address, you're in a hurry, and you click "fulfil" anyway. Two
-    weeks later the package comes back stamped <em>return to sender</em>
-    — and now you owe a return fee, a re-ship, a refund, and an apology.
-    Bad-address handling is the Shopify pain merchants only feel after
-    it's already cost them. Here's why a warning isn't an automation —
-    and what a playbook that actually fixes the address does instead.
+    A customer checks out, then notices the mistake ninety seconds later:
+    wrong size, wrong apartment number, meant to buy two. They fire off a
+    quick "hey, can you change my order?" and assume it's handled. On your
+    side it lands in an inbox you check between other things, and it's now
+    in a footrace against your own warehouse. Whoever gets there first wins.
+    Here's why that race is rigged against you, and the playbook that wins
+    it automatically.
   </p>
 
   <div class="article-byline">
@@ -443,207 +443,212 @@ em { font-style: italic; }
   <div class="article-body">
 
     <p>
-      Here's a complaint that shows up in the Shopify community forums in
-      a dozen slightly different costumes. A customer checks out, fat-fingers
-      their apartment number or drops the ZIP entirely, and the order
-      sails through. Shopify quietly tags the address with a warning, but
-      nobody's watching the orders one by one during a busy week, so the
-      label prints, the package ships, and everything looks fine — until
-      the carrier can't find the door. The box bounces around for ten
-      days, comes home, and the merchant discovers the problem at the
-      worst possible moment: when the customer emails to ask
-      <em>where their order is.</em>
+      Scroll the Shopify community forums or any merchant subreddit for a
+      few minutes and you'll find the same thread rewritten over and over:
+      a customer wants to change something about an order they just placed,
+      and the merchant is trying to figure out how to do it without
+      blowing up fulfilment. Sometimes it's a swapped size. Sometimes it's
+      a typo in the street address. Sometimes they want to add the thing
+      they forgot, or drop a quantity from three to one, or move the whole
+      order to a different shipping address because it's a gift. The
+      details vary. The shape never does.
     </p>
 
     <p>
-      That's the quiet cruelty of a bad address. It doesn't fail at
-      checkout, where it'd be cheap to fix. It fails in transit, after
-      you've paid to pick, pack, and ship — and the bill for catching it
-      late is several times what it would've cost to catch it early.
+      What makes this one quietly brutal is the timing. The request almost
+      never arrives at a convenient moment. It shows up mid-afternoon when
+      you're packing, or overnight while the order is already syncing to
+      your 3PL, or twenty minutes before the carrier pickup. And the one
+      thing Shopify is very good at, getting orders out the door fast, is
+      exactly what turns a tiny edit into a lost race.
     </p>
 
     <blockquote>
-      A warning isn't an automation. It tells you something might be
-      wrong and then leaves the actual work — and the cost of skipping
-      it — entirely to you.
+      A change request isn't a problem with the order. It's a problem with
+      <em>time</em>. The fix is usually trivial. Getting to it before the
+      order locks is the hard part.
     </blockquote>
 
-    <h2>What Shopify actually does (and doesn't)</h2>
+    <h2>What Shopify lets you do, and when it stops</h2>
 
     <p>
-      To be fair to the platform: Shopify does run address validation
-      automatically on online orders, for every merchant on every plan.
-      You'll see a <strong>yellow warning</strong> when an address looks
-      incomplete or slightly off — a missing unit number, a ZIP that
-      doesn't match the city — and a <strong>red error</strong> when the
-      address is very likely undeliverable. The red ones you can't even
-      mark as valid.
+      Here's the part that surprises new merchants: the customer has no
+      self-serve way to change anything. Once checkout completes, Shopify
+      gives the buyer zero controls over their own order. They can't fix a
+      typo, swap a variant, or update the address. Every single change has
+      to route through you.
     </p>
 
     <p>
-      But here's the gap: those flags are <em>advisory</em>. Shopify will
-      still happily let you fulfil an order with a yellow warning on it.
-      The validation surfaces the risk; it doesn't resolve it, and it
-      doesn't stop the label from printing. So during a sale, or any week
-      where orders outpace attention, the warnings scroll right past. The
-      system did its job — it told you — and the package shipped to a
-      house number that doesn't exist anyway.
-    </p>
-
-    <h2>Why a late catch is so expensive</h2>
-
-    <p>
-      Address errors are not a rounding error in fulfilment. By common
-      industry estimates, somewhere around <strong>5–10% of all
-      packages</strong> are returned to sender, and incorrect or
-      incomplete addresses are the single biggest cause. Most carriers
-      make one to three delivery attempts before giving up, so a single
-      bad address can sit in limbo for a week or more before you even
-      know it failed.
+      And your window to make that change is narrower than it looks. While
+      an order is unfulfilled you can edit it from the admin: add items,
+      remove items, change quantities, apply or remove a discount, and
+      update the shipping address. But the moment you click
+      <strong>Fulfil items</strong>, most of those options lock. The
+      billing address can't be edited at all, ever, for fraud-prevention
+      reasons. So the practical reality is a short, invisible countdown
+      that starts the instant the order is placed and ends whenever
+      fulfilment begins, which during a busy week might be minutes.
     </p>
 
     <p>
-      And when it fails, you pay for it more than once:
+      That's the race. The customer's email and your fulfilment process
+      are both sprinting toward the same order, and you only win if a
+      human happens to be watching the inbox at the right second. Most of
+      the time, nobody is.
     </p>
 
-    <ul>
-      <li>
-        <strong>The return-to-sender fee</strong> — the carrier charges
-        to haul the undeliverable package back to you.
-      </li>
-      <li>
-        <strong>The re-ship</strong> — a second outbound label, often
-        expedited because the customer is now annoyed and waiting.
-      </li>
-      <li>
-        <strong>The support time</strong> — this almost always becomes a
-        "where is my order?" ticket, and a tense one, because from the
-        customer's side <em>you</em> lost their package.
-      </li>
-      <li>
-        <strong>The refund or goodwill credit</strong> — a meaningful
-        share of these end in a partial refund just to keep the customer,
-        or a full one if the item's now out of stock.
-      </li>
-    </ul>
+    <h2>Why this is so much more common than it should be</h2>
+
+    <p>
+      People buy fast now, often on a phone, often distracted, and they
+      catch their own mistakes a beat too late. Because there's no
+      self-serve fix, each of those realisations converts directly into an
+      inbound message: an email, a DM, a chat, a "reply to your
+      confirmation." None of it is hard to resolve. All of it has to be
+      resolved by hand.
+    </p>
+
+    <p>
+      The volume adds up faster than people expect. Industry analyses put
+      roughly <strong>60 to 80 percent of ecommerce support tickets</strong>
+      in automatable categories, and post-purchase order changes are one
+      of the biggest after order tracking. They're also the kind of ticket
+      customers most resent having to send: about <strong>69 percent of
+      shoppers</strong> say they'd rather solve an issue themselves than
+      contact support, and "let me fix my own typo" is the most reasonable
+      self-serve request imaginable. When stores do add structured
+      self-serve or automated editing, order-change tickets typically drop
+      by <strong>40 to 60 percent</strong>.
+    </p>
 
     <div class="callout">
       <span class="callout-mark">◆ DATA</span>
       <span>
-        The original shipping charge is usually the <em>smallest</em>
-        number in this story. A bad address quietly turns one paid order
-        into two shipping legs, a return fee, a support conversation, and
-        a dent in trust — on a customer who, from their chair, did
-        nothing wrong but mistype a digit. The cheapest moment to fix the
-        address was before the label ever printed.
+        Every order-change request is a small bill paid three times: the
+        support minutes to read and reply, the admin clicks to actually
+        edit the order, and the follow-up to confirm the change went
+        through. Multiply by a few dozen a week and it's a part-time job
+        nobody applied for. The cheapest version of this work is the one
+        that happens before a person ever opens the message.
       </span>
     </div>
 
-    <h2>Why the manual fixes don't hold</h2>
+    <h2>Why the usual fixes don't hold</h2>
 
     <p>
-      Once you've felt this a few times, the usual responses are some
-      version of "watch the orders more carefully" or a Shopify Flow rule
-      that tags orders with an address warning and holds them. Both are
-      better than nothing, and both quietly break.
+      Once a store feels this pain a few times, three coping strategies
+      tend to show up. Each helps a little and each breaks in a
+      predictable way.
     </p>
 
     <p>
-      "Watch more carefully" is a tax on attention that evaporates the
-      first busy week — which is, of course, exactly when order volume
-      and address typos both spike. And tag-and-hold just builds a pile:
-      Flow can detect that an address is risky, but it can't go
-      <em>fix</em> it. It can't standardise the street format, look up
-      the correct ZIP, recognise that "123 Man St" is almost certainly
-      "123 Main St," or email the customer a specific suggested
-      correction and wait for a yes. So the held orders sit there until a
-      human works through them by hand — which is the original problem,
-      now with a label that says "automated" on it.
+      <strong>"Just reply fast."</strong> The whole plan rests on a human
+      catching the message before fulfilment. It works on a slow Tuesday
+      and collapses on launch day, which is precisely when both order
+      volume and change requests spike together. Speed is not a process;
+      it's a hope.
     </p>
 
     <p>
-      There's a related trap, too: even when someone <em>does</em> fix an
-      address in the admin, Shopify doesn't recalculate shipping for the
-      new destination, so a correction across a zone can silently eat
-      your margin. The native tools see the address as a field to flag,
-      not a thing to resolve.
+      <strong>The cancel-and-recreate dance.</strong> When an edit won't
+      go through cleanly, the fallback is to refund or cancel the original
+      order and ask the customer to place a new one. That technically
+      works, and it quietly costs you: you lose the original order's
+      timestamp and analytics, you risk the discount code no longer being
+      valid, the customer has to re-enter everything and re-trust you with
+      their card, and if anything was already picked you've now created
+      reconciliation work in two places. A one-line change becomes a
+      multi-step cleanup.
+    </p>
+
+    <p>
+      <strong>A Shopify Flow rule.</strong> Flow is great at reacting to
+      structured events, but a change request isn't one. It arrives as a
+      sentence a human wrote, in an inbox, in plain language. Flow can't
+      read "can you make that a medium instead and ship it to my office?",
+      figure out which order it refers to, decide whether it's safe, and
+      apply it. The trigger it needs doesn't exist, because the input was
+      never a field. It was a paragraph.
     </p>
 
     <h2>What the automation actually has to do</h2>
 
     <p>
-      The real job isn't "flag bad addresses." It's "make sure nothing
-      ships to an address that's going to bounce" — which means checking,
-      correcting, confirming, and only escalating the genuinely
-      unresolvable ones to a person, all before fulfilment. Written as a
-      Dugong playbook, in plain prose, it reads like this:
+      The real job isn't "let people edit orders." It's "catch a change
+      request the moment it lands, understand it, and resolve the safe
+      ones before the order locks, while escalating the few that genuinely
+      need a human." That means reading natural language, looking at the
+      order's real state, and acting inside the fulfilment window. Written
+      as a Dugong playbook, in plain prose, it reads like this:
     </p>
 
     <pre><code><span class="c"># trigger</span>
-<span class="k">When</span> a new order comes in, before it's fulfilled
+<span class="k">When</span> a customer message asks to change or cancel an order
 
 <span class="c"># steps</span>
-1. <span class="k">Check</span> the shipping address against an
-   address-verification service (USPS/global)
-2. <span class="k">If</span> it's valid as-is → let it flow straight to
-   fulfilment, no one touched it
-3. <span class="k">If</span> there's a confident standard correction
-   (ZIP, street format, missing direction) → apply it, note the change,
-   and continue
-4. <span class="k">If</span> it's ambiguous (missing apt #, two possible
-   matches) → hold fulfilment and email the customer the exact suggested
-   address: "Did you mean __? Confirm and we'll ship today."
-5. <span class="k">If</span> they confirm → update the order and release
-   it; <span class="k">if</span> no reply in 48h → queue it for me
-6. <span class="k">If</span> it's unresolvable (PO box for a freight
-   item, nonexistent street) → flag for review with the reason attached</code></pre>
+1. <span class="k">Match</span> the message to the order (by email, order
+   number, or recent purchase) and read what they want changed
+2. <span class="k">Check</span> whether fulfilment has started yet
+3. <span class="k">If</span> it's already shipped → tell them honestly,
+   offer a return or address-correction path, and stop
+4. <span class="k">If</span> it's still open and the change is safe
+   (size/variant swap, quantity, address, add a forgotten item) →
+   apply it, recalculate the price and shipping difference
+5. <span class="k">If</span> they owe more → send a quick secure payment
+   link; <span class="k">if</span> we owe them → refund the difference
+6. <span class="k">Confirm</span> back in plain language: "Done, updated
+   to a medium, shipping to your office, $4 refunded."
+7. <span class="k">If</span> anything is risky (high-value, flagged,
+   address looks off, partial refund) → hold it and queue it for me
+   with the full context attached</code></pre>
 
     <p>
-      Six lines. The compiler fills in everything underneath: the call to
-      the verification service, the conditional correction logic, the
-      customer email with the specific suggestion, the wait-and-follow-up
-      timer, the order update, the review queue. The merchant didn't draw
-      a flowchart of address edge cases — they described how they'd want
-      a careful fulfilment lead to treat every order, and let the
-      compiler decide what it had to <em>be</em> to deliver that.
+      Seven lines. The compiler fills in everything underneath: parsing
+      the message, matching it to the right order, reading fulfilment
+      status through the Shopify API, editing line items, recalculating
+      totals, generating the payment link or the refund, sending the
+      confirmation, and routing the exceptions. The merchant never drew a
+      flowchart of every change type. They described how they'd want a
+      sharp support lead to handle the inbox, and let the compiler build
+      what it takes to deliver that.
     </p>
 
     <div class="callout callout-sand">
       <span class="callout-mark">◆ NOTE</span>
       <span>
-        The win isn't catching <em>every</em> bad address — it's moving
-        the catch from <strong>after</strong> the package ships to
-        <strong>before</strong>. Most address problems are either a
-        trivial standardisation the machine can do silently, or a quick
-        "did you mean?" the customer can confirm in one tap. Automate
-        those two and the return-to-sender pile shrinks to the rare
-        genuinely-broken address — caught while it's still cheap to fix.
+        The goal isn't to let customers rewrite any order at any time.
+        It's to win the common, low-risk cases automatically, a size swap
+        on an unfulfilled order, an address fix before the label prints,
+        and to put a clear guardrail around the rest. Automate the safe
+        majority and your team's attention is freed for the handful of
+        requests that actually deserve a judgement call.
       </span>
     </div>
 
     <h2>Why this is a compiler problem, not an app problem</h2>
 
     <p>
-      There are good address-validation apps in the Shopify store, and
-      for some stores they're the right call. But many merchants don't
-      want yet another app that only does one thing and bolts a checkout
-      pop-up onto their funnel. What they want is to encode <em>their</em>
-      shipping policy: silently fix obvious typos, always confirm before
-      shipping anything over $200, never ship a fragile item to a flagged
-      address without a human look, and recalculate the rate if a
-      correction crosses a zone. Those are sentences, not settings — and
-      they're specific to how <em>your</em> store ships.
+      There are self-serve order-editing apps in the Shopify store, and
+      for plenty of stores they're a fine choice. But an app gives you its
+      author's idea of an edit policy, exposed as a settings page. What
+      most merchants actually want is to encode <em>their</em> policy:
+      allow free edits for the first hour, never change an order once it's
+      tagged for the wholesale pick line, always require confirmation for
+      anything over $250, auto-approve address fixes but route variant
+      swaps on final-sale items to a person. Those are sentences, not
+      toggles, and they're specific to how your store ships.
     </p>
 
     <p>
-      A natural-language compiler is the unlock because address handling
-      was never really a validation problem — it was a
-      <em>workflow</em> problem wearing a validation problem's clothes.
-      The check is the easy part. The hard part is what happens next:
-      correct or ask, ship or hold, who gets emailed and when, and what
-      counts as "close enough." You can write that down in a paragraph.
-      You could never maintain it as a sprawling Flow with a branch for
-      every edge case.
+      A natural-language compiler is the unlock because order changes were
+      never really an editing problem. They were a <em>workflow</em>
+      problem wearing an editing problem's clothes. Changing the line item
+      is the easy part. The hard part is everything around it: read the
+      request, decide if it's allowed, beat the fulfilment clock, settle
+      the money, tell the customer, and know when to stop and ask a human.
+      You can write that down in a paragraph. You could never maintain it
+      as a sprawling rule tree with a branch for every edge case.
     </p>
 
     <hr />
@@ -651,44 +656,45 @@ em { font-style: italic; }
     <h2>The workflow worth building this week</h2>
 
     <p>
-      If you've ever eaten a return-to-sender fee, re-shipped an order out
-      of your own pocket, or opened a WISMO ticket only to realise the
-      address was wrong the whole time, this is the automation to build
-      before any upsell or win-back flow. It sits right at the seam
-      between two pains we've written about already — it stops the
+      If your inbox has a steady drip of "wrong size," "wrong address,"
+      "can you add one more," and "please cancel," this is the automation
+      to build before any upsell or win-back flow. It sits right next to
+      two pains we've written about already: it stops a whole class of
       <a href="the-wismo-tickets-that-eat-your-afternoon.html">"where is
-      my order?" tickets</a> before they start, and it's exactly the kind
-      of unglamorous, high-leverage work that lands in
-      <a href="the-shopify-automations-no-one-builds.html">the automations
-      no one builds</a>.
+      my order?" tickets</a> from ever forming, and when the change is an
+      address fix, it overlaps directly with
+      <a href="the-bad-address-that-ships-anyway.html">the bad address
+      that ships anyway</a>, catching the correction while it's still free
+      to make.
     </p>
 
     <p>
-      Describe it the way you'd brief a sharp fulfilment hire on their
-      first day: here's how we know an address is good, here's when you
-      fix it yourself, here's when you ask the customer, and here's when
-      you stop and flag it for me. That's the whole brief. The compiler
-      does the checking and the chasing; you keep your attention for the
-      handful of orders that genuinely need a human.
+      Describe it the way you'd brief a careful support hire on day one:
+      here's how to find the right order, here's what you're allowed to
+      change and for how long, here's how to settle the difference, here's
+      what you confirm, and here's when you stop and flag it for me.
+      That's the entire brief. The compiler does the reading, the editing,
+      and the chasing; you keep your attention for the orders that truly
+      need it.
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ READING</span>
       <span>
-        If this resonates, two companion pieces: the dispatch on
-        <a href="the-high-risk-flag-that-makes-you-guess.html">the
-        high-risk flag that makes you guess</a>, and our field study on
+        If this resonates, two companion pieces: our field study on
+        <a href="the-shopify-automations-no-one-builds.html">the Shopify
+        automations no one builds</a>, and the dispatch on
         <a href="the-overselling-problem-no-one-automates.html">the
         overselling problem no one automates</a>.
       </span>
     </div>
 
     <p>
-      If you're a Shopify merchant who's built an address-resolution
-      playbook that finally stopped the bounce-backs — or you've got a
-      return-to-sender horror story that cost you a customer — the inbox
-      is open: <code>field-notes@dugong.live</code>. We're collecting case
-      studies for the next issue.
+      If you're a Shopify merchant who's built an order-change playbook
+      that finally tamed the inbox, or you've got a cancel-and-recreate
+      horror story that cost you an afternoon, the inbox is open:
+      <code>field-notes@dugong.live</code>. We're collecting case studies
+      for the next issue.
     </p>
 
   </div>
@@ -725,6 +731,22 @@ em { font-style: italic; }
         </div>
       </div>
     </a>
+    <a href="the-shopify-automations-no-one-builds.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The Shopify automations no one builds</h3>
+        <p class="card-dek">
+          Tagging is 14% of every Shopify workflow merchants ship. The work that actually scales is under 1%.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 28</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
     <a href="the-return-that-wont-approve-itself.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -741,18 +763,34 @@ em { font-style: italic; }
         </div>
       </div>
     </a>
-    <a href="the-order-change-that-races-your-warehouse.html" class="card">
+    <a href="the-bad-address-that-ships-anyway.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The order change that races your warehouse</h3>
+        <h3 class="card-title">The bad address that ships anyway</h3>
         <p class="card-dek">
-          The "can you change my order?" email lands at a bad time and locks the second you fulfil. The AI playbook that resolves it before the label prints.
+          Shopify warns the address looks wrong, you ship anyway, and the package bounces back. The AI playbook that fixes it before the label prints.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 8</span>
+          <span class="card-date">JUN 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-high-risk-flag-that-makes-you-guess.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The high-risk flag that makes you guess</h3>
+        <p class="card-dek">
+          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 6</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -785,38 +823,6 @@ em { font-style: italic; }
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 5</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-high-risk-flag-that-makes-you-guess.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The high-risk flag that makes you guess</h3>
-        <p class="card-dek">
-          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 6</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-shopify-automations-no-one-builds.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The Shopify automations no one builds</h3>
-        <p class="card-dek">
-          Tagging is 14% of every Shopify workflow merchants ship. The work that actually scales is under 1%.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 28</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>

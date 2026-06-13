@@ -2,37 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://blog.dugong.live/</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://blog.dugong.live/the-chargeback-you-lose-by-default.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://blog.dugong.live/the-return-that-wont-approve-itself.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://blog.dugong.live/the-order-change-that-races-your-warehouse.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://blog.dugong.live/the-bad-address-that-ships-anyway.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/the-high-risk-flag-that-makes-you-guess.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/the-overselling-problem-no-one-automates.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/the-shopify-automations-no-one-builds.html</loc>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>

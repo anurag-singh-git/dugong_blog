@@ -24,7 +24,6 @@
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 <meta property="og:locale" content="en_US" />
 
 <!-- Twitter -->
@@ -32,7 +31,6 @@
 <meta name="twitter:title" content="Dugong Field Notes — Workflow Automation, Thought Through" />
 <meta name="twitter:description" content="A working journal from the team building AI-native automation. Essays, post-mortems, and field experiments on the playbooks that quietly run the modern company." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
-    <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 
 <script type="application/ld+json">
 {
@@ -80,30 +78,6 @@
           "publisher": { "@id": "https://blog.dugong.live/#organization" },
           "image": "https://blog.dugong.live/og-image.png",
           "inLanguage": "en"
-        },
-        {
-          "@type": "BlogPosting",
-          "@id": "https://blog.dugong.live/the-chargeback-you-lose-by-default.html#article",
-          "headline": "The chargeback you lose by default",
-          "url": "https://blog.dugong.live/the-chargeback-you-lose-by-default.html",
-          "datePublished": "2026-06-11",
-          "author": { "@type": "Person", "name": "Priya Singh" }
-        },
-        {
-          "@type": "BlogPosting",
-          "@id": "https://blog.dugong.live/the-return-that-wont-approve-itself.html#article",
-          "headline": "The return that won't approve itself",
-          "url": "https://blog.dugong.live/the-return-that-wont-approve-itself.html",
-          "datePublished": "2026-06-09",
-          "author": { "@type": "Person", "name": "Priya Singh" }
-        },
-        {
-          "@type": "BlogPosting",
-          "@id": "https://blog.dugong.live/the-order-change-that-races-your-warehouse.html#article",
-          "headline": "The order change that races your warehouse",
-          "url": "https://blog.dugong.live/the-order-change-that-races-your-warehouse.html",
-          "datePublished": "2026-06-08",
-          "author": { "@type": "Person", "name": "Priya Singh" }
         },
         {
           "@type": "BlogPosting",
@@ -605,9 +579,9 @@ em { font-style: italic; }
 
 <section class="hero">
   <div class="hero-meta">
-    <span class="hero-issue">ISSUE Nº 55</span>
+    <span class="hero-issue">ISSUE Nº 52</span>
     <span class="hero-divider">·</span>
-    <span class="hero-date">JUN 11 · 2026</span>
+    <span class="hero-date">JUN 6 · 2026</span>
     <span class="hero-divider">·</span>
     <span class="hero-pulse"><span class="dot"></span>NEW THIS WEEK</span>
   </div>
@@ -630,7 +604,7 @@ em { font-style: italic; }
 
   <div class="hero-stats">
     <div class="stat">
-      <span class="stat-num">55</span>
+      <span class="stat-num">48</span>
       <span class="stat-label">dispatches&nbsp;published</span>
     </div>
     <div class="stat">
@@ -734,71 +708,11 @@ em { font-style: italic; }
 
   <div class="article-grid">
 
-    <a class="card card-tall" href="the-chargeback-you-lose-by-default.html" style="text-decoration:none;">
+    <a class="card card-tall" href="the-bad-address-that-ships-anyway.html" style="text-decoration:none;">
       <div class="card-art card-art-1">
-        <span class="art-glyph">💳</span>
-        <span class="art-coord">$315&nbsp;PER&nbsp;DISPUTE</span>
+        <span class="art-glyph">📦</span>
+        <span class="art-coord">~5–10%&nbsp;OF&nbsp;PACKAGES&nbsp;RETURN&nbsp;TO&nbsp;SENDER</span>
       </div>
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The chargeback you <em>lose&nbsp;by</em> default</h3>
-        <p class="card-dek">
-          Shopify attaches the basic order data and files a thin response on
-          the deadline, so you lose disputes you should win, even with the
-          tracking in hand. The AI playbook that reads the reason code, builds
-          the evidence, and fights it before the clock runs out.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 11</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="card" href="the-return-that-wont-approve-itself.html" style="text-decoration:none;">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The return that <em>won't&nbsp;approve</em> itself</h3>
-        <p class="card-dek">
-          Every return waits on you to click approve, and Shopify can't run
-          a real exchange, so refunds quietly leak the revenue you already
-          earned. The AI playbook that reads the request, runs the swap, and
-          settles the money on its own.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 9</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="card" href="the-order-change-that-races-your-warehouse.html" style="text-decoration:none;">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The order change that <em>races&nbsp;your</em> warehouse</h3>
-        <p class="card-dek">
-          Wrong size, wrong address, one more item: the "can you change my
-          order?" email always lands at a bad time and locks the second you
-          fulfil. The AI playbook that reads the request and resolves it
-          before the label prints.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 8</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="card" href="the-bad-address-that-ships-anyway.html" style="text-decoration:none;">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1080,14 +994,11 @@ em { font-style: italic; }
     <a href="the-overselling-problem-no-one-automates.html" class="topic" style="--topic-size:1.6rem;">inventory&nbsp;sync</a>
     <a href="the-overselling-problem-no-one-automates.html" class="topic" style="--topic-size:1.2rem;">overselling</a>
     <a href="the-high-risk-flag-that-makes-you-guess.html" class="topic" style="--topic-size:1.7rem;">fraud&nbsp;review</a>
-    <a href="the-chargeback-you-lose-by-default.html" class="topic" style="--topic-size:1.5rem;">chargebacks</a>
-    <a href="the-chargeback-you-lose-by-default.html" class="topic" style="--topic-size:1.1rem;">disputes</a>
+    <a href="the-high-risk-flag-that-makes-you-guess.html" class="topic" style="--topic-size:1.2rem;">chargebacks</a>
     <a href="the-bad-address-that-ships-anyway.html" class="topic" style="--topic-size:1.5rem;">address&nbsp;validation</a>
     <a href="the-bad-address-that-ships-anyway.html" class="topic" style="--topic-size:1.1rem;">fulfillment</a>
     <a href="the-wismo-tickets-that-eat-your-afternoon.html" class="topic" style="--topic-size:1.1rem;">support</a>
-    <a href="the-return-that-wont-approve-itself.html" class="topic" style="--topic-size:1.6rem;">returns</a>
-    <a href="the-return-that-wont-approve-itself.html" class="topic" style="--topic-size:1.2rem;">exchanges</a>
-    <a href="the-return-that-wont-approve-itself.html" class="topic" style="--topic-size:1.1rem;">refunds</a>
+    <a href="#" class="topic" style="--topic-size:1.1rem;">refunds</a>
     <a href="#" class="topic" style="--topic-size:1.4rem;">triggers</a>
     <a href="#" class="topic" style="--topic-size:1.2rem;">notion</a>
     <a href="#" class="topic" style="--topic-size:1.6rem;">post-mortems</a>
@@ -1138,7 +1049,7 @@ em { font-style: italic; }
     <li data-nav="post"><span class="arch-num">037</span><span class="arch-title">Why your ops team is secretly a compiler</span><span class="arch-date">MAR&nbsp;31</span></li>
     <li data-nav="post"><span class="arch-num">036</span><span class="arch-title">A short history of if-this-then-that</span><span class="arch-date">MAR&nbsp;24</span></li>
   </ul>
-  <a href="#" class="archive-more">browse all 55 dispatches →</a>
+  <a href="#" class="archive-more">browse all 48 dispatches →</a>
 </section>
 
 <section class="cta-band">

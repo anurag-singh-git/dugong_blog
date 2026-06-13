@@ -15,7 +15,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta property="article:published_time" content="2026-06-06" />
-    <meta property="article:modified_time" content="2026-06-11" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -28,7 +27,6 @@
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 <meta property="og:locale" content="en_US" />
 
 <!-- Twitter -->
@@ -36,7 +34,6 @@
 <meta name="twitter:title" content="The bad address that ships anyway" />
 <meta name="twitter:description" content="A bad shipping address costs you a return-to-sender fee, a re-ship, and a WISMO ticket — and Shopify only warns you. The AI playbook that resolves it before fulfillment." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
-    <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 
 <script type="application/ld+json">
 {
@@ -51,7 +48,7 @@
       "headline": "The bad address that ships anyway",
       "description": "Shopify shows an address warning, you click past it, and the package bounces back two weeks later — return-to-sender fees, a re-ship, and an angry 'where is my order?' ticket. Why bad-address handling is the Shopify pain merchants only notice after it costs them, and the AI playbook that catches it before the label prints.",
       "datePublished": "2026-06-06",
-      "dateModified": "2026-06-11",
+      "dateModified": "2026-06-07",
       "articleSection": "Research",
       "keywords": "Shopify address validation, returned to sender, failed delivery, wrong shipping address, address verification automation, undeliverable package, re-shipping cost, ecommerce fulfillment automation",
       "wordCount": 1780,
@@ -709,54 +706,6 @@ em { font-style: italic; }
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
-    <a href="the-chargeback-you-lose-by-default.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The chargeback you lose by default</h3>
-        <p class="card-dek">
-          Shopify files a thin dispute response on the deadline, so you lose chargebacks you should win even with the tracking in hand. The AI playbook that reads the reason code and builds the evidence.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 11</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-return-that-wont-approve-itself.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The return that won't approve itself</h3>
-        <p class="card-dek">
-          Shopify makes you approve every return by hand and can't run a real exchange, so refunds quietly leak revenue you already earned. The AI playbook that fixes it.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 9</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-order-change-that-races-your-warehouse.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The order change that races your warehouse</h3>
-        <p class="card-dek">
-          The "can you change my order?" email lands at a bad time and locks the second you fulfil. The AI playbook that resolves it before the label prints.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 8</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
     <a href="the-wismo-tickets-that-eat-your-afternoon.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -864,7 +813,7 @@ em { font-style: italic; }
         <a href="https://dugong.live">About</a>
         <a href="https://dugong.live">Careers</a>
         <a href="https://dugong.live">Privacy</a>
-        <a href="/feed.xml">RSS</a>
+        <a href="https://dugong.live">RSS</a>
       </div>
     </div>
   </div>

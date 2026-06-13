@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The bad address that ships anyway — Dugong Field Notes</title>
-<meta name="description" content="Shopify warns about a bad address, you ship anyway, and the package bounces back. The AI playbook that catches undeliverable addresses before the label prints." />
-<link rel="canonical" href="https://blog.dugong.live/the-bad-address-that-ships-anyway.html" />
-<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
+<title>The return that won't approve itself — Dugong Field Notes</title>
+<meta name="description" content="Shopify makes you approve every return by hand and won't run a true exchange, so refunds leak revenue you already earned. The AI playbook that automates it." />
+<link rel="canonical" href="https://blog.dugong.live/the-return-that-wont-approve-itself.html" />
 <meta name="author" content="Priya Singh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="keywords" content="Shopify address validation, returned to sender, failed delivery, wrong shipping address, address verification automation, undeliverable package, re-shipping cost, Shopify Flow address, ecommerce fulfillment automation, Dugong" />
+<meta name="keywords" content="Shopify returns automation, automate return approval, Shopify exchanges, return management, exchanges vs refunds, store credit Shopify, self-serve returns, RMA automation, return policy automation, ecommerce returns, Dugong" />
 <meta name="theme-color" content="#c6fe1e" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<meta property="article:published_time" content="2026-06-06" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
+<meta property="article:published_time" content="2026-06-09" />
     <meta property="article:modified_time" content="2026-06-11" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
@@ -22,9 +22,9 @@
 <!-- Open Graph -->
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
-<meta property="og:title" content="The bad address that ships anyway" />
-<meta property="og:description" content="Shopify warns you an address looks wrong, you ship anyway, and the package returns two weeks later. The AI playbook that fixes or verifies a bad address before the label ever prints." />
-<meta property="og:url" content="https://blog.dugong.live/the-bad-address-that-ships-anyway.html" />
+<meta property="og:title" content="The return that won't approve itself" />
+<meta property="og:description" content="Shopify makes you approve every single return by hand and never runs a true exchange, so one in five orders comes back as a manual job and a refund instead of a swap. Why &quot;just process it faster&quot; never scales, and the AI playbook that handles returns and exchanges end to end." />
+<meta property="og:url" content="https://blog.dugong.live/the-return-that-wont-approve-itself.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -33,8 +33,8 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="The bad address that ships anyway" />
-<meta name="twitter:description" content="A bad shipping address costs you a return-to-sender fee, a re-ship, and a WISMO ticket — and Shopify only warns you. The AI playbook that resolves it before fulfillment." />
+<meta name="twitter:title" content="The return that won't approve itself" />
+<meta name="twitter:description" content="Every return waits on you to click approve, and Shopify can't run an exchange, so refunds walk out with revenue you already earned. The AI playbook that fixes it." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
     <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 
@@ -44,17 +44,17 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html#article",
+      "@id": "https://blog.dugong.live/the-return-that-wont-approve-itself.html#article",
       "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
-      "mainEntityOfPage": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html",
-      "url": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html",
-      "headline": "The bad address that ships anyway",
-      "description": "Shopify shows an address warning, you click past it, and the package bounces back two weeks later — return-to-sender fees, a re-ship, and an angry 'where is my order?' ticket. Why bad-address handling is the Shopify pain merchants only notice after it costs them, and the AI playbook that catches it before the label prints.",
-      "datePublished": "2026-06-06",
+      "mainEntityOfPage": "https://blog.dugong.live/the-return-that-wont-approve-itself.html",
+      "url": "https://blog.dugong.live/the-return-that-wont-approve-itself.html",
+      "headline": "The return that won't approve itself",
+      "description": "Shopify's native returns make you approve every request by hand and never run a true exchange, so roughly one in five orders comes back as manual work and a refund instead of a swap. Why faster processing, store-credit workarounds, and Shopify Flow all fail, and the AI playbook that reads the request, applies your policy, runs the exchange, and settles the money automatically.",
+      "datePublished": "2026-06-09",
       "dateModified": "2026-06-11",
       "articleSection": "Research",
-      "keywords": "Shopify address validation, returned to sender, failed delivery, wrong shipping address, address verification automation, undeliverable package, re-shipping cost, ecommerce fulfillment automation",
-      "wordCount": 1780,
+      "keywords": "Shopify returns automation, automate return approval, Shopify exchanges, return management, exchanges vs refunds, store credit Shopify, self-serve returns, return policy automation",
+      "wordCount": 1720,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "image": "https://blog.dugong.live/og-image.png",
@@ -76,7 +76,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The bad address that ships anyway", "item": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html" }
+        { "@type": "ListItem", "position": 2, "name": "The return that won't approve itself", "item": "https://blog.dugong.live/the-return-that-wont-approve-itself.html" }
       ]
     },
     {
@@ -84,26 +84,26 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What does an address warning mean on a Shopify order?",
+          "name": "Can Shopify approve returns automatically?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Shopify runs address validation automatically on online orders. A yellow warning means the address looks incomplete or slightly off and might result in a delayed or failed delivery; a red error means the address is very likely undeliverable and can't be marked valid. Both are advisory — Shopify flags the risk, but it still lets you fulfil the order, so a bad address can ship anyway if no one acts on the warning."
+            "text": "Not on its own. Shopify's native self-serve returns let a customer request a return from their order page, but you still have to manually approve or decline each request in the admin. There is no built-in rule that auto-approves a return that meets your policy, and even Shopify Flow cannot fully automate the approval step. On a store with a normal return rate, that means clicking through a steady queue of requests by hand every single day."
           }
         },
         {
           "@type": "Question",
-          "name": "Why are bad shipping addresses so expensive for merchants?",
+          "name": "Does Shopify support exchanges?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A bad address usually isn't caught until the package fails to deliver and gets returned to sender, which can take one to three delivery attempts and a week or more. By then the merchant pays return shipping, a re-ship to the corrected address, support time on a 'where is my order?' ticket, and often a refund or goodwill credit — several times the original shipping cost, on an order that was already paid and packed."
+            "text": "Only in a limited way. Customers cannot request an exchange through self-serve returns, and you cannot set exchange-specific return rules. To give someone a different size or colour you generally have to refund or cancel the original order and manually create a new one, or reach for a third-party app. Because the easy path is a refund, a request that could have stayed a sale often walks out as money returned instead."
           }
         },
         {
           "@type": "Question",
-          "name": "Can bad-address handling on Shopify be automated?",
+          "name": "Why do returns cost so much more than the refund itself?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. An AI playbook can check every new order against an address-verification service before fulfilment, auto-correct unambiguous fixes like a missing ZIP or a standardised street format, hold fulfilment and email the customer a suggested correction when the address is ambiguous, and only escalate the genuinely unresolvable ones to a person — so the package never ships to an address that's going to bounce."
+            "text": "The refund is only one line of the bill. Around one in five online orders is returned, and roughly 45 percent of returns trace back to sizing, fit, or colour, the kind that an exchange could have saved. Each return also carries support minutes to read and reply, admin clicks to approve and refund, return shipping, inspection and restocking, and the lost margin when a swap becomes a refund. Returns automation typically cuts return-related support tickets sharply and speeds processing, while a smooth return experience makes customers far more likely to buy again."
           }
         }
       ]
@@ -380,13 +380,13 @@ em { font-style: italic; }
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>◆ DISPATCH Nº 52 — JUN 6, 2026</span>
+    <span>◆ DISPATCH Nº 54 — JUN 9, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 1,780 WORDS</span>
+    <span>◆ 9 MIN READ · 1,720 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
-    <span>◆ DISPATCH Nº 52 — JUN 6, 2026</span>
+    <span>◆ DISPATCH Nº 54 — JUN 9, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 1,780 WORDS</span>
+    <span>◆ 9 MIN READ · 1,720 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -412,25 +412,24 @@ em { font-style: italic; }
 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH Nº 52</span>
+    <span style="color: var(--cream-dim);">DISPATCH Nº 54</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">JUN 6, 2026</span>
+    <span style="color: var(--cream-dim);">JUN 9, 2026</span>
     <span style="color: var(--line-2);">·</span>
     <span style="color: var(--cream-dim);">9 MIN READ</span>
   </div>
 
   <h1 class="article-title">
-    The bad address that <em>ships anyway.</em>
+    The return that <em>won't approve</em> itself.
   </h1>
 
   <p class="article-dek">
-    Shopify shows you a little yellow triangle next to the shipping
-    address, you're in a hurry, and you click "fulfil" anyway. Two
-    weeks later the package comes back stamped <em>return to sender</em>
-    — and now you owe a return fee, a re-ship, a refund, and an apology.
-    Bad-address handling is the Shopify pain merchants only feel after
-    it's already cost them. Here's why a warning isn't an automation —
-    and what a playbook that actually fixes the address does instead.
+    A customer wants a different size. The request lands in your returns
+    queue and just sits there, waiting for someone to read it, decide it,
+    and click approve. Then it gets worse: Shopify can't actually swap the
+    item, so the easy path is a refund, and the sale you already made walks
+    back out the door. Here is why returns quietly become a daily job, and
+    the playbook that handles them on their own.
   </p>
 
   <div class="article-byline">
@@ -443,207 +442,218 @@ em { font-style: italic; }
   <div class="article-body">
 
     <p>
-      Here's a complaint that shows up in the Shopify community forums in
-      a dozen slightly different costumes. A customer checks out, fat-fingers
-      their apartment number or drops the ZIP entirely, and the order
-      sails through. Shopify quietly tags the address with a warning, but
-      nobody's watching the orders one by one during a busy week, so the
-      label prints, the package ships, and everything looks fine — until
-      the carrier can't find the door. The box bounces around for ten
-      days, comes home, and the merchant discovers the problem at the
-      worst possible moment: when the customer emails to ask
-      <em>where their order is.</em>
+      Open any merchant subreddit or the Shopify community forums and you
+      will find the same quiet complaint about returns, written a hundred
+      different ways. It is rarely about the money going back. It is about
+      the work. Every return request has to be read, judged against a
+      policy that lives mostly in someone's head, approved by hand, and
+      then turned into a refund or, if you are willing to do the extra
+      steps, into a brand new order for the size they actually wanted. None
+      of it is hard. All of it is manual. And it never stops, because
+      returns scale with sales.
     </p>
 
     <p>
-      That's the quiet cruelty of a bad address. It doesn't fail at
-      checkout, where it'd be cheap to fix. It fails in transit, after
-      you've paid to pick, pack, and ship — and the bill for catching it
-      late is several times what it would've cost to catch it early.
+      That last part is what makes returns different from most support
+      pains. A good week makes them worse. The more you sell, the more
+      comes back, and the bigger the queue you wade through every morning.
+      For a store doing real volume, returns stop being an occasional
+      chore and become a standing line item on someone's day.
     </p>
 
     <blockquote>
-      A warning isn't an automation. It tells you something might be
-      wrong and then leaves the actual work — and the cost of skipping
-      it — entirely to you.
+      Returns are the one workflow that grows in exact proportion to your
+      success. The better the month, the longer the queue. Anything you do
+      by hand here, you have signed up to do <em>forever</em>.
     </blockquote>
 
-    <h2>What Shopify actually does (and doesn't)</h2>
+    <h2>How big the pile actually is</h2>
 
     <p>
-      To be fair to the platform: Shopify does run address validation
-      automatically on online orders, for every merchant on every plan.
-      You'll see a <strong>yellow warning</strong> when an address looks
-      incomplete or slightly off — a missing unit number, a ZIP that
-      doesn't match the city — and a <strong>red error</strong> when the
-      address is very likely undeliverable. The red ones you can't even
-      mark as valid.
+      The volume is not a rounding error. Across online retail, roughly
+      one in five orders comes back. The National Retail Federation's 2025
+      returns work pegs the ecommerce return rate at about 19 to 20
+      percent, and in apparel, where size and fit are a guess until the box
+      arrives, it runs much higher, commonly 20 to 40 percent of orders.
+      Around 45 percent of all returns trace back to sizing, fit, or
+      colour. Hold onto that number, because it is the whole argument for
+      exchanges.
     </p>
 
     <p>
-      But here's the gap: those flags are <em>advisory</em>. Shopify will
-      still happily let you fulfil an order with a yellow warning on it.
-      The validation surfaces the risk; it doesn't resolve it, and it
-      doesn't stop the label from printing. So during a sale, or any week
-      where orders outpace attention, the warnings scroll right past. The
-      system did its job — it told you — and the package shipped to a
-      house number that doesn't exist anyway.
+      A return that is really a sizing problem is not a customer who
+      changed their mind. It is a customer who still wants the product,
+      just in a medium. If you can hand them the medium, you keep the sale.
+      If all you can do is refund, you lose it, and you pay for the privilege
+      of losing it: return shipping, inspection, restocking, and the support
+      time to push it all through.
     </p>
 
-    <h2>Why a late catch is so expensive</h2>
+    <h2>What Shopify actually does, and where it stops</h2>
 
     <p>
-      Address errors are not a rounding error in fulfilment. By common
-      industry estimates, somewhere around <strong>5–10% of all
-      packages</strong> are returned to sender, and incorrect or
-      incomplete addresses are the single biggest cause. Most carriers
-      make one to three delivery attempts before giving up, so a single
-      bad address can sit in limbo for a week or more before you even
-      know it failed.
+      Shopify has native returns, and on paper it looks handled. A customer
+      can request a return from their order page, you can generate a return
+      label, and you can issue the refund from the admin. The trouble is in
+      the gaps between those steps, and the gaps are where the work lives.
     </p>
 
     <p>
-      And when it fails, you pay for it more than once:
+      First, <strong>nothing auto-approves</strong>. Even with self-serve
+      returns turned on, every request waits for you to manually approve or
+      decline it. There is no native rule that says "if it is within thirty
+      days and not a final-sale item, approve it." You are the rule, and you
+      run it by hand, one request at a time. Shopify Flow, the usual escape
+      hatch, cannot fully automate the approval either.
     </p>
 
-    <ul>
-      <li>
-        <strong>The return-to-sender fee</strong> — the carrier charges
-        to haul the undeliverable package back to you.
-      </li>
-      <li>
-        <strong>The re-ship</strong> — a second outbound label, often
-        expedited because the customer is now annoyed and waiting.
-      </li>
-      <li>
-        <strong>The support time</strong> — this almost always becomes a
-        "where is my order?" ticket, and a tense one, because from the
-        customer's side <em>you</em> lost their package.
-      </li>
-      <li>
-        <strong>The refund or goodwill credit</strong> — a meaningful
-        share of these end in a partial refund just to keep the customer,
-        or a full one if the item's now out of stock.
-      </li>
-    </ul>
+    <p>
+      Second, and this is the one that costs real money,
+      <strong>Shopify does not run true exchanges</strong>. A customer
+      cannot request an exchange through self-serve returns, and you cannot
+      write exchange-specific rules. To get someone a different size you
+      generally refund or cancel the original order and create a new one by
+      hand, or you bolt on a third-party app. Because the refund is the path
+      of least resistance, the request that should have stayed a sale
+      becomes money handed back.
+    </p>
+
+    <p>
+      Third, the policy controls are thin. Shopify lets you set return
+      windows based on delivery date and product, and not much else. If your
+      real policy depends on order tags, customer type, fulfilment date, or
+      whether the item was discounted, the platform cannot express it, so
+      you enforce it in your head while clicking through the queue. And
+      refunds go back only to the original payment method, so offering store
+      credit, which keeps the money in your store, is another manual
+      workaround.
+    </p>
 
     <div class="callout">
       <span class="callout-mark">◆ DATA</span>
       <span>
-        The original shipping charge is usually the <em>smallest</em>
-        number in this story. A bad address quietly turns one paid order
-        into two shipping legs, a return fee, a support conversation, and
-        a dent in trust — on a customer who, from their chair, did
-        nothing wrong but mistype a digit. The cheapest moment to fix the
-        address was before the label ever printed.
+        A single return is a bill paid five or six times: the support
+        minutes to read and reply, the admin clicks to approve and refund,
+        the return shipping, the inspection and restock, and the lost
+        margin whenever a swap collapses into a refund. The refunded amount
+        is just the line you happen to see. The rest is quietly billed to
+        someone's afternoon.
       </span>
     </div>
 
-    <h2>Why the manual fixes don't hold</h2>
+    <h2>Why the usual fixes don't hold</h2>
 
     <p>
-      Once you've felt this a few times, the usual responses are some
-      version of "watch the orders more carefully" or a Shopify Flow rule
-      that tags orders with an address warning and holds them. Both are
-      better than nothing, and both quietly break.
+      Once the queue starts to hurt, three coping strategies show up. Each
+      buys a little relief and each breaks in a familiar way.
     </p>
 
     <p>
-      "Watch more carefully" is a tax on attention that evaporates the
-      first busy week — which is, of course, exactly when order volume
-      and address typos both spike. And tag-and-hold just builds a pile:
-      Flow can detect that an address is risky, but it can't go
-      <em>fix</em> it. It can't standardise the street format, look up
-      the correct ZIP, recognise that "123 Man St" is almost certainly
-      "123 Main St," or email the customer a specific suggested
-      correction and wait for a yes. So the held orders sit there until a
-      human works through them by hand — which is the original problem,
-      now with a label that says "automated" on it.
+      <strong>"Just process them faster."</strong> The plan is to keep the
+      queue short by clearing it more often. It works on a slow week and
+      falls apart right after a sale or a launch, which is exactly when
+      returns spike, because that is when you shipped the most. Speed is not
+      a process. It is a person volunteering to be the process.
     </p>
 
     <p>
-      There's a related trap, too: even when someone <em>does</em> fix an
-      address in the admin, Shopify doesn't recalculate shipping for the
-      new destination, so a correction across a zone can silently eat
-      your margin. The native tools see the address as a field to flag,
-      not a thing to resolve.
+      <strong>"Push store credit in the replies."</strong> Nudging people
+      toward credit or an exchange does retain revenue, and it is the right
+      instinct. But done by hand it means writing the same persuasive reply
+      over and over, then manually issuing the credit or building the
+      replacement order, on top of everything else. The good idea dies of
+      tedium.
+    </p>
+
+    <p>
+      <strong>A Shopify Flow rule.</strong> Flow is genuinely useful for
+      reacting to structured events. A return request is not really one. It
+      arrives as a sentence a person wrote, "the large was too big, can I
+      swap for a medium," and the decision underneath it needs judgement:
+      is it in window, is the item eligible, is this a serial returner, do
+      we exchange or refund. Flow can tag and route, but it cannot read the
+      request, weigh it against your policy, run the exchange, and settle the
+      money. The trigger it would need does not exist, because the input was
+      never a field. It was a paragraph.
     </p>
 
     <h2>What the automation actually has to do</h2>
 
     <p>
-      The real job isn't "flag bad addresses." It's "make sure nothing
-      ships to an address that's going to bounce" — which means checking,
-      correcting, confirming, and only escalating the genuinely
-      unresolvable ones to a person, all before fulfilment. Written as a
-      Dugong playbook, in plain prose, it reads like this:
+      The real job is not "let people start returns." It is "take a return
+      request, decide it against our policy, turn it into the best outcome
+      for the store, and settle everything, while flagging only the cases
+      that genuinely need a human." That means reading natural language,
+      checking the order's real state, and acting end to end. As a Dugong
+      playbook, in plain prose, it reads like this:
     </p>
 
     <pre><code><span class="c"># trigger</span>
-<span class="k">When</span> a new order comes in, before it's fulfilled
+<span class="k">When</span> a customer asks to return or exchange an item
 
 <span class="c"># steps</span>
-1. <span class="k">Check</span> the shipping address against an
-   address-verification service (USPS/global)
-2. <span class="k">If</span> it's valid as-is → let it flow straight to
-   fulfilment, no one touched it
-3. <span class="k">If</span> there's a confident standard correction
-   (ZIP, street format, missing direction) → apply it, note the change,
-   and continue
-4. <span class="k">If</span> it's ambiguous (missing apt #, two possible
-   matches) → hold fulfilment and email the customer the exact suggested
-   address: "Did you mean __? Confirm and we'll ship today."
-5. <span class="k">If</span> they confirm → update the order and release
-   it; <span class="k">if</span> no reply in 48h → queue it for me
-6. <span class="k">If</span> it's unresolvable (PO box for a freight
-   item, nonexistent street) → flag for review with the reason attached</code></pre>
+1. <span class="k">Match</span> the message to the order and read what
+   they want back, and why
+2. <span class="k">Check</span> eligibility: in window, not final-sale,
+   item condition claimed, customer history
+3. <span class="k">If</span> it's a size or colour swap and the new
+   variant is in stock → offer the exchange first
+4. <span class="k">If</span> they accept → create the replacement order,
+   send the return label, settle any price difference
+5. <span class="k">If</span> they want money back and it meets policy →
+   approve, offer store credit with a small bonus, else refund
+6. <span class="k">Confirm</span> in plain language: "Approved. Medium is
+   on its way, return label attached, no charge."
+7. <span class="k">If</span> anything is off (out of window, high-value,
+   repeat returner, item flagged) → hold it and queue it for me with
+   the full context</code></pre>
 
     <p>
-      Six lines. The compiler fills in everything underneath: the call to
-      the verification service, the conditional correction logic, the
-      customer email with the specific suggestion, the wait-and-follow-up
-      timer, the order update, the review queue. The merchant didn't draw
-      a flowchart of address edge cases — they described how they'd want
-      a careful fulfilment lead to treat every order, and let the
-      compiler decide what it had to <em>be</em> to deliver that.
+      Seven lines. The compiler fills in everything underneath: parsing the
+      message, matching the order, reading return eligibility and fulfilment
+      status through the Shopify API, creating the exchange order, generating
+      the label, issuing credit or a refund, sending the confirmation, and
+      routing the exceptions. The merchant never drew a flowchart for every
+      return type. They described how they would want a sharp returns lead to
+      work the queue, and let the compiler build what it takes.
     </p>
 
     <div class="callout callout-sand">
       <span class="callout-mark">◆ NOTE</span>
       <span>
-        The win isn't catching <em>every</em> bad address — it's moving
-        the catch from <strong>after</strong> the package ships to
-        <strong>before</strong>. Most address problems are either a
-        trivial standardisation the machine can do silently, or a quick
-        "did you mean?" the customer can confirm in one tap. Automate
-        those two and the return-to-sender pile shrinks to the rare
-        genuinely-broken address — caught while it's still cheap to fix.
+        The goal is not to rubber-stamp every return. It is to clear the
+        easy, in-policy majority automatically, the size swap, the unworn
+        item inside the window, and to put a clear guardrail around the
+        rest. Automate the safe cases and your team's attention is freed for
+        the judgement calls: the repeat returner, the high-value claim, the
+        item that came back damaged.
       </span>
     </div>
 
     <h2>Why this is a compiler problem, not an app problem</h2>
 
     <p>
-      There are good address-validation apps in the Shopify store, and
-      for some stores they're the right call. But many merchants don't
-      want yet another app that only does one thing and bolts a checkout
-      pop-up onto their funnel. What they want is to encode <em>their</em>
-      shipping policy: silently fix obvious typos, always confirm before
-      shipping anything over $200, never ship a fragile item to a flagged
-      address without a human look, and recalculate the rate if a
-      correction crosses a zone. Those are sentences, not settings — and
-      they're specific to how <em>your</em> store ships.
+      There are excellent returns apps in the Shopify ecosystem, and for
+      many stores they are the right call. But an app hands you its author's
+      idea of a returns policy, exposed as a settings page. What most
+      merchants actually want is to encode <em>their</em> policy: free
+      exchanges for the first thirty days, store credit with a five percent
+      bonus instead of a refund, no returns on final-sale items, always
+      flag a third return from the same customer in a quarter, auto-approve
+      anything under twenty dollars rather than pay to ship it back. Those
+      are sentences, not toggles, and they are specific to how your store
+      makes money.
     </p>
 
     <p>
-      A natural-language compiler is the unlock because address handling
-      was never really a validation problem — it was a
-      <em>workflow</em> problem wearing a validation problem's clothes.
-      The check is the easy part. The hard part is what happens next:
-      correct or ask, ship or hold, who gets emailed and when, and what
-      counts as "close enough." You can write that down in a paragraph.
-      You could never maintain it as a sprawling Flow with a branch for
-      every edge case.
+      A natural-language compiler is the unlock because returns were never
+      really a forms problem. They were a <em>judgement</em> problem wearing
+      a forms problem's clothes. Issuing the refund is the easy part. The
+      hard part is everything around it: read the request, decide if it
+      qualifies, choose exchange over refund when you can, settle the money,
+      tell the customer, and know when to stop and ask a person. You can
+      write that down in a paragraph. You could never maintain it as a
+      sprawling rule tree with a branch for every edge case.
     </p>
 
     <hr />
@@ -651,44 +661,51 @@ em { font-style: italic; }
     <h2>The workflow worth building this week</h2>
 
     <p>
-      If you've ever eaten a return-to-sender fee, re-shipped an order out
-      of your own pocket, or opened a WISMO ticket only to realise the
-      address was wrong the whole time, this is the automation to build
-      before any upsell or win-back flow. It sits right at the seam
-      between two pains we've written about already — it stops the
-      <a href="the-wismo-tickets-that-eat-your-afternoon.html">"where is
-      my order?" tickets</a> before they start, and it's exactly the kind
-      of unglamorous, high-leverage work that lands in
-      <a href="the-shopify-automations-no-one-builds.html">the automations
-      no one builds</a>.
+      If your returns queue has become a standing item on someone's
+      morning, this is the automation to build before any upsell or
+      win-back flow, because it pays you twice: it removes the manual
+      clicking, and it turns a chunk of refunds back into kept sales. It
+      sits right next to two pains we have written about already. When the
+      request is really a post-purchase change of mind, it overlaps with
+      <a href="the-order-change-that-races-your-warehouse.html">the order
+      change that races your warehouse</a>, and every return that resolves
+      cleanly is one less
+      <a href="the-wismo-tickets-that-eat-your-afternoon.html">"where is my
+      order?" follow-up</a> later.
     </p>
 
     <p>
-      Describe it the way you'd brief a sharp fulfilment hire on their
-      first day: here's how we know an address is good, here's when you
-      fix it yourself, here's when you ask the customer, and here's when
-      you stop and flag it for me. That's the whole brief. The compiler
-      does the checking and the chasing; you keep your attention for the
-      handful of orders that genuinely need a human.
+      Describe it the way you would brief a careful returns hire on day
+      one: here is how to find the order, here is what we will and will not
+      take back and for how long, here is when to offer an exchange or
+      credit instead of a refund, here is how to settle the difference, and
+      here is when to stop and flag it for me. That is the whole brief. The
+      compiler does the reading, the approving, and the swapping. You keep
+      your attention for the returns that truly need it. A smooth returns
+      experience is also what brings people back: shoppers who have an easy
+      return are far more likely to buy again, which is the quiet upside of
+      getting this right.
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ READING</span>
       <span>
-        If this resonates, two companion pieces: the dispatch on
-        <a href="the-high-risk-flag-that-makes-you-guess.html">the
-        high-risk flag that makes you guess</a>, and our field study on
+        If this resonates, two companion pieces: our field study on
+        <a href="the-shopify-automations-no-one-builds.html">the Shopify
+        automations no one builds</a> (where returns are under 1 percent of
+        what merchants automate, despite scaling with every sale), and the
+        dispatch on
         <a href="the-overselling-problem-no-one-automates.html">the
         overselling problem no one automates</a>.
       </span>
     </div>
 
     <p>
-      If you're a Shopify merchant who's built an address-resolution
-      playbook that finally stopped the bounce-backs — or you've got a
-      return-to-sender horror story that cost you a customer — the inbox
-      is open: <code>field-notes@dugong.live</code>. We're collecting case
-      studies for the next issue.
+      If you are a Shopify merchant who has built a returns playbook that
+      finally tamed the queue, or you have a refund-instead-of-exchange
+      story that still stings, the inbox is open:
+      <code>field-notes@dugong.live</code>. We are collecting case studies
+      for the next issue.
     </p>
 
   </div>
@@ -725,18 +742,34 @@ em { font-style: italic; }
         </div>
       </div>
     </a>
-    <a href="the-return-that-wont-approve-itself.html" class="card">
+    <a href="the-shopify-automations-no-one-builds.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The Shopify automations no one builds</h3>
+        <p class="card-dek">
+          Tagging is 14% of every Shopify workflow merchants ship. The work that actually scales is under 1%.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 28</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-high-risk-flag-that-makes-you-guess.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The return that won't approve itself</h3>
+        <h3 class="card-title">The high-risk flag that makes you guess</h3>
         <p class="card-dek">
-          Shopify makes you approve every return by hand and can't run a real exchange, so refunds quietly leak revenue you already earned. The AI playbook that fixes it.
+          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 9</span>
+          <span class="card-date">JUN 6</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -753,6 +786,22 @@ em { font-style: italic; }
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 8</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-bad-address-that-ships-anyway.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The bad address that ships anyway</h3>
+        <p class="card-dek">
+          Shopify warns the address looks wrong, you ship anyway, and the package bounces back. The AI playbook that fixes it before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 6</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -785,38 +834,6 @@ em { font-style: italic; }
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 5</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-high-risk-flag-that-makes-you-guess.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The high-risk flag that makes you guess</h3>
-        <p class="card-dek">
-          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 6</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-shopify-automations-no-one-builds.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The Shopify automations no one builds</h3>
-        <p class="card-dek">
-          Tagging is 14% of every Shopify workflow merchants ship. The work that actually scales is under 1%.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 28</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>

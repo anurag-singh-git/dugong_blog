@@ -3,40 +3,37 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Shopify automations no one builds — Dugong Field Notes</title>
-<meta name="description" content="A field study of 1,374 Shopify playbooks: tagging is 14% of automations, returns under 1%. The gap between what's easy to automate and what's worth automating." />
-<link rel="canonical" href="https://blog.dugong.live/the-shopify-automations-no-one-builds.html" />
+<title>The overselling problem no one automates — Dugong Field Notes</title>
+<meta name="description" content="Overselling is the top pain for multichannel Shopify merchants. Why manual inventory sync breaks during a sale, and the AI playbook that keeps stock honest." />
+<link rel="canonical" href="https://blog.dugong.live/the-overselling-problem-no-one-automates.html" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
 <meta name="author" content="Priya Singh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="keywords" content="Shopify automation, Shopify Flow, ecommerce returns automation, order tagging, refund automation, workflow automation, ecommerce operations, Dugong" />
+<meta name="keywords" content="Shopify overselling, inventory sync, multichannel inventory, out of stock automation, prevent overselling Shopify, real-time stock sync, ecommerce inventory automation, oversold orders, Dugong" />
 <meta name="theme-color" content="#c6fe1e" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<meta property="article:published_time" content="2026-05-28" />
-    <meta property="article:modified_time" content="2026-06-11" />
+<meta property="article:published_time" content="2026-06-05" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
-<meta property="og:title" content="The Shopify automations no one builds" />
-<meta property="og:description" content="Tagging is 14% of every Shopify workflow merchants ship. Returns and refunds — the work that scales with order volume — are under 1%. The gap between what's easy to automate and what's worth automating." />
-<meta property="og:url" content="https://blog.dugong.live/the-shopify-automations-no-one-builds.html" />
+<meta property="og:title" content="The overselling problem no one automates" />
+<meta property="og:description" content="Overselling is one of the most-complained-about Shopify pain points — and the hardest to recover from. Why manual stock sync breaks during a sale, and the AI playbook that keeps inventory honest in real time." />
+<meta property="og:url" content="https://blog.dugong.live/the-overselling-problem-no-one-automates.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 <meta property="og:locale" content="en_US" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="The Shopify automations no one builds" />
-<meta name="twitter:description" content="Tagging is 14% of every Shopify workflow merchants ship. Returns and refunds are under 1%. The gap between what's easy to automate and what's worth automating." />
+<meta name="twitter:title" content="The overselling problem no one automates" />
+<meta name="twitter:description" content="Overselling is the Shopify pain point that's hardest to recover from. Why manual stock sync breaks during a sale, and the AI playbook that keeps inventory honest in real time." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
-    <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 
 <script type="application/ld+json">
 {
@@ -44,18 +41,18 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/the-shopify-automations-no-one-builds.html#article",
+      "@id": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html#article",
       "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
-      "mainEntityOfPage": "https://blog.dugong.live/the-shopify-automations-no-one-builds.html",
-      "url": "https://blog.dugong.live/the-shopify-automations-no-one-builds.html",
-      "headline": "The Shopify automations no one builds",
-      "description": "Tagging is 14% of every Shopify workflow merchants ship. Returns and refunds — the work that actually scales with order volume — are under 1%. A field study of 1,374 playbooks and the gap between what's easy to automate and what's worth automating.",
-      "datePublished": "2026-05-28",
-      "dateModified": "2026-06-11",
+      "mainEntityOfPage": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html",
+      "url": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html",
+      "headline": "The overselling problem no one automates",
+      "description": "Overselling — selling stock you no longer have — is one of the most-complained-about pain points for Shopify merchants running more than one sales channel. Why manual inventory sync always breaks during a sale, and the AI playbook that keeps your stock honest in real time.",
+      "datePublished": "2026-06-05",
+      "dateModified": "2026-06-07",
       "articleSection": "Research",
-      "keywords": "Shopify automation, Shopify Flow, ecommerce returns, order tagging, refund automation",
-      "wordCount": 2180,
-      "timeRequired": "PT10M",
+      "keywords": "Shopify overselling, inventory sync, multichannel inventory, prevent overselling, real-time stock sync, ecommerce inventory automation",
+      "wordCount": 1600,
+      "timeRequired": "PT8M",
       "inLanguage": "en",
       "image": "https://blog.dugong.live/og-image.png",
       "author": {
@@ -76,7 +73,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The Shopify automations no one builds", "item": "https://blog.dugong.live/the-shopify-automations-no-one-builds.html" }
+        { "@type": "ListItem", "position": 2, "name": "The overselling problem no one automates", "item": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html" }
       ]
     },
     {
@@ -84,26 +81,26 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What are the most common Shopify automations merchants build?",
+          "name": "What is overselling on Shopify?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "In a field study of 1,374 Shopify automation workflows, tagging was the single largest category at 14% of everything merchants automate — automatically labelling orders, customers, and products. It dominates because it is cheap to set up and low-risk, not because it saves the most work."
+            "text": "Overselling is accepting an order for a product you can no longer fulfil — the stock sold out somewhere else before your store's inventory count caught up. It usually happens when two or more channels (your Shopify store, a marketplace, a POS, a wholesale order) draw from one physical stock pool with nothing keeping the numbers in sync in real time."
           }
         },
         {
           "@type": "Question",
-          "name": "Which high-value Shopify automations do merchants almost never build?",
+          "name": "Why is overselling worse than running out of stock?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Returns and refunds — the work that actually scales with order volume — make up under 1% of automated workflows. The tasks that consume the most staff time, such as returns, refunds, and exception handling, are the least automated because they are harder to express in rigid rule-based builders."
+            "text": "Running out of stock means a customer can't buy. Overselling means a customer already bought, paid, and got a confirmation — and then you have to take it back. That cancellation costs you the refund, the trust, often a negative review, and on Shopify it can raise your dispute and chargeback rate, which puts payment processing itself at risk."
           }
         },
         {
           "@type": "Question",
-          "name": "Why is there a gap between easy-to-automate and worth-automating Shopify tasks?",
+          "name": "Can overselling be prevented with automation?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Traditional drag-and-drop automation rewards tasks that fit neat if-this-then-that rules, so merchants automate simple tagging and notifications. The high-value work — returns, refunds, support exceptions — involves judgement and branching that rule builders handle poorly. An AI playbook closes the gap by letting merchants describe the messy workflow in plain language and compiling it into a running automation."
+            "text": "Yes. The fix is real-time inventory sync: the moment a unit sells on any channel, every other channel's available count is updated, and low-stock items are buffered or hidden before they can be oversold. An AI playbook can do this continuously, reconcile mismatches, and flag the edge cases — partial stock, bundles, pre-orders — that simple sync rules miss."
           }
         }
       ]
@@ -535,13 +532,13 @@ em { font-style: italic; }
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>◆ DISPATCH Nº 48 — MAY 28, 2026</span>
+    <span>◆ DISPATCH Nº 50 — JUN 5, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 10 MIN READ · 2,180 WORDS</span>
+    <span>◆ 8 MIN READ · 1,600 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
-    <span>◆ DISPATCH Nº 48 — MAY 28, 2026</span>
+    <span>◆ DISPATCH Nº 50 — JUN 5, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 10 MIN READ · 2,180 WORDS</span>
+    <span>◆ 8 MIN READ · 1,600 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -567,22 +564,24 @@ em { font-style: italic; }
 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH Nº 48</span>
+    <span style="color: var(--cream-dim);">DISPATCH Nº 50</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">MAY 28, 2026</span>
+    <span style="color: var(--cream-dim);">JUN 5, 2026</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
+    <span style="color: var(--cream-dim);">8 MIN READ</span>
   </div>
 
   <h1 class="article-title">
-    The Shopify automations <em>no one</em> builds.
+    The overselling problem <em>no one automates.</em>
   </h1>
 
   <p class="article-dek">
-    Tagging is 14% of every Shopify workflow merchants ship.
-    Returns and refunds — the work that actually scales with order
-    volume — are under 1%. A field study of 1,374 playbooks and the
-    gap between what's easy to automate and what's worth automating.
+    Overselling — taking money for a unit you no longer have — is the
+    Shopify pain point merchants dread most, because it's the one
+    that's hardest to take back. It almost always starts the same way:
+    two channels, one stock pool, and a human trying to keep the
+    numbers in sync by hand. Here's why that breaks exactly when it
+    matters, and what an AI playbook does instead.
   </p>
 
   <div class="article-byline">
@@ -595,326 +594,246 @@ em { font-style: italic; }
   <div class="article-body">
 
     <p>
-      There is a merchant we'll call Imani. She runs a forty-SKU
-      candle brand out of a converted garage in Brooklyn. By her own
-      count, her Shopify backend has nineteen tag rules — <em>VIP</em>,
-      <em>repeat</em>, <em>fragrance-preference-vanilla</em>,
-      <em>fragrance-preference-citrus</em>, and on. She built every
-      one of them inside Shopify Flow. They run silently in the
-      background. She has not opened the Flow editor in four months.
+      The r/shopify thread is almost a genre at this point. A store
+      has its best day in months — a TikTok lands, a marketplace
+      listing takes off, a flash sale clears the homepage — and then,
+      a day later, the founder is writing the same email to a dozen
+      customers: <em>I'm so sorry, but the item you ordered is
+      actually out of stock.</em> The product page still said
+      "available." The checkout still took the money. The number was
+      just wrong, and nobody knew until it was time to pack the box.
     </p>
 
     <p>
-      What still sits open on her laptop, at 11pm on a Tuesday: an
-      email from a customer named Marcus. The candle arrived broken.
-      He's attached three photos. He'd like a refund, but he'd also
-      like the same candle reshipped — but please not packed the same
-      way. Imani writes back. She refunds in Shopify. She creates a
-      new order with a discount code that bypasses inventory
-      deduction, because she's already short on that SKU. She emails
-      her 3PL to please use the extra bubble wrap. She tags the
-      customer <code>broken-shipment-feb</code> so she can find them
-      later.
-    </p>
-
-    <p>
-      Forty-five minutes. One customer. Imani has nineteen tag rules
-      and zero return-handling automation.
-    </p>
-
-    <p>
-      She is not unusual.
-    </p>
-
-    <h2>The 14% / 0.8% gap</h2>
-
-    <p>
-      We pulled telemetry from <strong>1,374 Shopify automation
-      workflows</strong> shipped on third-party tools in Q1 2026.
-      Tagging — adding a label to an order or a customer — was
-      <strong>14% of every workflow built</strong>. Returns and
-      refunds, combined, were 0.8%. Abandoned-checkout flows were
-      1.4%. Fraud screening was below 1%.
-    </p>
-
-    <p>
-      That asymmetry doesn't track with where the work is. Talk to
-      any Shopify merchant doing more than fifty orders a day and
-      they'll tell you the same thing: returns eat their afternoons.
-      Fraud reviews eat their mornings. Tagging? Tagging happens
-      once, in the background, forever.
-    </p>
-
-    <p>
-      So why does everyone build the tag and not the return?
+      That's overselling: selling a unit you no longer have. And of
+      all the operational pain points merchants complain about
+      publicly, it's the one they describe in the angriest terms —
+      not because it's the most frequent, but because it's the
+      <strong>hardest to take back</strong>. Running out of stock
+      means a customer couldn't buy. Overselling means they
+      <em>already did</em>, got the confirmation email, told their
+      kid the present was coming — and now you have to walk it back.
     </p>
 
     <blockquote>
-      The unbuilt automations aren't unbuilt because no one wants
-      them. They're unbuilt because the tools can't compile them.
+      Out-of-stock is a missed sale. Overselling is a broken promise.
+      One costs you a customer you never had; the other costs you a
+      customer you already won.
     </blockquote>
 
-    <h2>Easy doesn't mean valuable</h2>
+    <h2>Where the number goes wrong</h2>
 
     <p>
-      Tagging is one line of prose. <em>"When a customer's lifetime
-      value crosses $500, tag them VIP."</em> The automation is the
-      rule. The work is done.
+      Overselling is almost never a counting mistake inside Shopify
+      itself. It's a sync problem. The moment a store sells in more
+      than one place — Shopify plus a physical POS, plus Amazon or
+      eBay, plus the occasional wholesale order, plus a "DM me to
+      buy" Instagram channel — there is one pile of physical stock
+      and several systems each keeping their own tally of it. Nothing
+      moves the number in all of them at once.
     </p>
 
     <p>
-      A return is a conversation. <em>"When a customer requests a
-      refund, ask for a photo, decide whether to require return
-      shipping, issue the refund or a partial, restock if applicable,
-      update the 3PL, decide whether to send a replacement, write a
-      brand-appropriate response, tag the customer accordingly, and
-      surface it in a weekly report if it's the third return from
-      the same buyer."</em> That is not one line. That is twelve lines,
-      three judgement calls, and a tone-of-voice problem.
-    </p>
-
-    <p>
-      In a node-based builder, this is roughly impossible. You end
-      up with a Flow chart that has nineteen branches and still hands
-      off to a human four times. So you don't build it. You answer
-      the email instead.
+      So the last three of a popular SKU sell on Amazon at 2:14pm,
+      and Shopify doesn't find out until the nightly export runs at
+      midnight. For ten hours, the store cheerfully sells inventory
+      that's already gone. Industry surveys put the scale of this
+      bluntly: roughly <strong>40% of retailers</strong> say they
+      cancel at least one in every ten orders because of inaccurate
+      inventory data, and average retail inventory accuracy sits
+      famously low — often cited in the <strong>60–65%</strong> range
+      for stores without real-time sync. The merchant isn't careless.
+      The architecture is just lying to them on a delay.
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ DATA</span>
       <span>
-        Across the 1,374 workflows we studied, <strong>67% had four
-        or fewer steps</strong>. The median workflow length on
-        natural-language tools was eleven steps. The work merchants
-        actually have lives in the gap between those numbers.
+        The danger window scales with success. On an ordinary day a
+        ten-hour sync gap might oversell nothing. During a sale —
+        when a single SKU can clear its last twenty units in
+        minutes — that same gap is exactly when the most orders pour
+        in against stock that no longer exists. Overselling punishes
+        you hardest on your best days.
       </span>
     </div>
 
-    <h2>Four Shopify automations that pay back faster than tagging</h2>
+    <h2>Why the manual fixes quietly fail</h2>
 
     <p>
-      We sat with twelve merchants over two weeks and asked the same
-      question: of everything you do manually, what would you most
-      like to hand off? Four answers came up again and again. None
-      of them were tagging.
-    </p>
-
-    <h2>1. VIP detection that actually means something</h2>
-
-    <p>
-      The tag-by-LTV pattern is a blunt instrument. A customer who
-      spent $600 once is not a VIP. A customer who's spent $400
-      across nine orders, refers two friends a quarter, and writes
-      five-star reviews — that's a VIP. Detecting them takes three
-      signals braided together, not one threshold.
+      Every merchant eventually rigs up a defense. A spreadsheet they
+      reconcile on Sunday nights. A "safety buffer" where they hide
+      the last five units so the count can be wrong by up to five
+      before it hurts. A Shopify Flow rule that hides a product when
+      it hits zero. A cheap sync app bolted between two channels.
+      Each helps. None of them hold under load.
     </p>
 
     <p>
-      We've watched merchants try to build this in Flow and give up
-      after twelve nodes. The same logic in prose:
-    </p>
-
-    <pre><code><span class="c"># trigger</span>
-<span class="k">When</span> an order is paid
-
-<span class="c"># condition</span>
-<span class="k">Tag</span> as <span class="s">"VIP"</span> if all are true:
-  · customer's order count is &gt; 4
-  · their average review score is &gt; 4.5
-  · their lifetime value is in the top 20% of the cohort
-    that joined the same month they did
-
-<span class="c"># action</span>
-<span class="k">Send</span> a Slack ping to the founders' channel
-<span class="k">Email</span> a hand-written note offer (template: brand-voice)</code></pre>
-
-    <p>
-      Six lines. Compiled. One fashion brand in our cohort saw a
-      <strong>34% lift in repeat purchase rates</strong> from
-      customers who received VIP recognition inside twenty-four hours
-      of qualifying. The threshold isn't magic; the <em>timeliness</em>
-      is. And timeliness is what manual review costs you.
-    </p>
-
-    <h2>2. Refund triage with evidence parsing</h2>
-
-    <p>
-      The merchant doesn't need the refund to issue itself. They
-      need the email-plus-photos to arrive on a pre-decided path:
-      low-value damage gets auto-approved with a restock skip;
-      high-value damage routes to a human review with the photos
-      already extracted into a shared sheet; a suspected serial
-      returner gets flagged and routed to the founder.
+      The spreadsheet is stale the moment a sale comes in. The safety
+      buffer is a guess — too small and you still oversell, too large
+      and you're sitting on unsellable stock and killing your own
+      conversion. Flow rules fire on Shopify events only, so they're
+      blind to the Amazon sale that actually caused the problem. And
+      the basic sync app handles the happy path — one sells here,
+      decrement there — but falls over on everything real: a bundle
+      that draws from three SKUs, a pre-order that <em>should</em>
+      oversell on purpose, a return that puts a unit back, a
+      warehouse recount that contradicts every channel at once.
     </p>
 
     <p>
-      This is one prose paragraph. It is also four years of opt-in
-      scaffolding in any drag-and-drop tool — because the photos
-      need vision, the LTV check needs a Shopify lookup, the tone
-      of the reply needs a brand-voice file, and the routing needs
-      a fork that no one ever wants to draw.
+      In a node-based builder, covering those cases means drawing a
+      graph nobody has the patience to draw: a branch for bundles, a
+      branch for pre-orders, a branch for partial restocks, a branch
+      for the channel that's down for maintenance and can't be
+      updated right now. So merchants build the simple version, it
+      works in the demo, and it oversells the first time a SKU gets
+      popular on two channels at once.
     </p>
 
+    <h2>What the automation actually has to do</h2>
+
     <p>
-      Written as prose, it looks like this:
+      The real job isn't "decrement a number." It's: watch every
+      channel continuously, treat the lowest trustworthy count as the
+      truth, push that truth everywhere within seconds, hold a smart
+      buffer on fast-movers, and — when two systems genuinely
+      disagree — know which one to believe and who to wake up. That's
+      a set of judgement calls, not a single rule. Written as a
+      Dugong playbook, in plain prose, it reads like this:
     </p>
 
     <pre><code><span class="c"># trigger</span>
-<span class="k">When</span> a refund request email lands in support@
+<span class="k">When</span> stock changes on any channel, or every 2 minutes
 
 <span class="c"># steps</span>
-1. <span class="k">Read</span> the message and attached photos
-2. <span class="k">If</span> damage looks under $50 → approve refund, skip restock
-3. <span class="k">Else</span> → route to me with photos in Sheets
-4. <span class="k">If</span> this is the customer's 3rd return in 60 days →
-   flag for review, do not auto-approve
-5. <span class="k">Reply</span> with a brand-appropriate message (warm if
-   first return, firm if pattern)</code></pre>
+1. <span class="k">Read</span> the live available count for each SKU on every channel
+2. <span class="k">Reconcile</span> to a single source of truth (lowest verified count)
+3. <span class="k">Push</span> that number to Shopify, Amazon, eBay, and POS at once
+4. <span class="k">Hold</span> a dynamic buffer on fast-movers during a sale
+5. <span class="k">If</span> a SKU is about to hit zero → hide it or flip to
+   "notify me" before it can be oversold
+6. <span class="k">If</span> two channels disagree by more than a unit →
+   pause sales on that SKU and ping me in Slack with both numbers
+7. <span class="k">Account</span> for bundles, pre-orders, and returns correctly,
+   not as plain decrements</code></pre>
 
     <p>
-      The compiler calls Shopify's <code>refunds</code> API, calls
-      a vision model on the attached image, looks up the customer's
-      return history, checks the brand-voice file, and writes the
-      draft reply — all without the merchant naming any of those
-      services. The merchant described what they wanted; the
-      compiler picked the tools.
+      Seven lines. The compiler fills in everything underneath: the
+      per-channel API calls, the reconciliation logic, the rate
+      limits, the retry when Amazon's endpoint times out, the bundle
+      math that maps one sale to three component SKUs. The merchant
+      named the outcome — <em>never sell what we don't have</em> — and
+      let the compiler decide what it had to <em>be</em> to deliver it.
     </p>
 
-    <h2>3. Chargeback evidence assembly</h2>
+    <h2>The real win: catching the order before it ships</h2>
 
     <p>
-      When a dispute lands, the merchant has seventy-two hours to
-      ship a defense packet: order details, IP logs, shipping
-      confirmations, prior conversations, proof of delivery,
-      AVS&nbsp;match, the customer's order history. Manually
-      collected, that's two to three hours per case. ChargePay
-      reports their customers save <strong>ten-plus hours a week</strong>
-      on this exact task.
+      Even perfect sync has a seam — the few seconds between two
+      simultaneous checkouts on different channels. So the second
+      half of the playbook isn't prevention, it's graceful recovery.
+      The same automation that keeps counts honest can watch new
+      orders and catch the rare oversell <em>before</em> it becomes a
+      broken promise.
     </p>
 
+    <pre><code><span class="c"># trigger</span>
+<span class="k">When</span> a new order comes in for a SKU at or below zero
+
+<span class="c"># steps</span>
+1. <span class="k">Check</span> real stock across the warehouse and all channels
+2. <span class="k">If</span> it can still be fulfilled → let it through, resync counts
+3. <span class="k">If</span> truly oversold → hold the order before fulfilment and
+   offer the customer a backorder ETA, a swap, or an instant refund
+4. <span class="k">Email</span> them warmly within minutes, not a day later
+5. <span class="k">Log</span> the SKU and channel so I can see what keeps overselling</code></pre>
+
     <p>
-      The work isn't analytical. It's clerical. But it lives in
-      five systems. Shopify holds the order; Stripe holds the auth
-      log; Gorgias holds the conversation; ShipStation holds the
-      tracking; the 3PL holds the proof-of-delivery scan. A
-      compiled playbook stitches the packet together while the
-      merchant is asleep, drops the PDF into a folder, and posts a
-      one-line summary to Slack with a "submit / hold" button.
+      A customer who hears "heads up — that one just sold out, want
+      us to ship the navy instead or refund you today?" within
+      minutes of ordering is mildly disappointed. A customer who
+      hears it three days later, after they've been waiting, leaves
+      a one-star review. Same shortfall, completely different
+      outcome — and the difference is entirely about whether anything
+      was watching.
     </p>
 
     <div class="callout callout-sand">
       <span class="callout-mark">◆ NOTE</span>
       <span>
-        The economics here are unusually clean. The average disputed
-        order is $80–$120. The merchant fee for a lost dispute is
-        $15. A compiled response packet has a 65–70% win rate. Every
-        hour spent assembling one returns $50–$80 in recovered
-        revenue. Most merchants don't bother — not because the math
-        is wrong, but because the assembly is awful.
+        The hidden cost isn't just the refund. On Shopify, cancelled
+        and disputed orders feed your chargeback and dispute rate —
+        and a rate that climbs too high can get Shopify Payments
+        throttled or disabled. Overselling, left unmanaged, doesn't
+        just annoy customers; it can quietly threaten your ability to
+        take payment at all.
       </span>
     </div>
 
-    <h2>4. Abandoned-checkout intent classification</h2>
+    <h2>Why this is a compiler problem, not an app problem</h2>
 
     <p>
-      The native Shopify abandoned-cart email goes to everyone. It
-      treats the customer who bounced because their card was declined
-      the same as the customer who bounced because they're
-      price-shopping — and the same as the customer who put a $400
-      item in the cart at 2am and woke up reconsidering.
+      There are plenty of inventory-sync apps in the Shopify App
+      Store, and the good ones genuinely help. But they sync the way
+      a thermostat works: one number, one rule, applied everywhere.
+      They don't know that this SKU is a bundle, that one is a
+      planned pre-order, that the spike at 9pm is a sale and the
+      buffer should tighten, or that when the warehouse count and the
+      channel count disagree, a human should look before more units
+      go out the door. Those are decisions, and decisions don't fit
+      in a settings panel.
     </p>
 
     <p>
-      An AI compiler can read the cart contents, the time of day,
-      the customer's prior history, and the exit pattern, and send
-      a different message — or no message — accordingly. A declined
-      card gets a "your card didn't go through, here's a one-tap
-      retry" email in six minutes. A price-shopper gets a different
-      treatment at twenty-four hours, with a soft discount only if
-      they've never bought before. A 2am cart gets nothing for ten
-      hours, then a warm "still thinking about this?" — not a
-      discount, because they almost certainly weren't price-sensitive.
-    </p>
-
-    <p>
-      Most merchants run the default flow not because they don't
-      know about this — they read the same blog posts you do — but
-      because the cost of <em>building</em> it exceeded the value.
-      In a node graph, that's an eighteen-branch tree. In prose,
-      it's eleven lines.
-    </p>
-
-    <h2>The compiler is the unlock</h2>
-
-    <p>
-      What ties these four workflows together is that they are all
-      conversations, not rules. Each one requires the automation to
-      know something the prose doesn't explicitly state — the
-      appropriate tone for a refund denial, the heuristics for
-      "high-value damage," the difference between a price-shopping
-      bounce and an abandoned-by-distraction bounce.
-    </p>
-
-    <p>
-      This is exactly where a natural-language compiler earns its
-      keep. The merchant describes what they want. The compiler
-      handles what it should <em>be</em> — the retry logic, the
-      timeout, the AVS lookup, the brand-voice pass on the reply.
-      The merchant never writes a node, never picks an integration
-      from a menu of four thousand, never draws a line between two
-      rectangles.
-    </p>
-
-    <p>
-      The Shopify ecosystem has spent a decade optimizing the easy
-      automations. There are entire SaaS companies whose product is
-      "Shopify Flow but with one more trigger type." Tagging,
-      tagging, tagging. The next decade is about the hard ones —
-      the ones that require an automation to <em>think</em> about
-      a refund instead of just <em>route</em> it.
+      A natural-language compiler is the unlock because the hard part
+      of overselling was never the subtraction — it was the dozen
+      exceptions stacked on top of it. You can describe those
+      exceptions in a paragraph to a new operations hire. You could
+      never draw them in a node graph and keep it maintainable. That
+      gap, between what a merchant can describe and what the old tools
+      could compile, is exactly where the unbuilt automations live.
     </p>
 
     <hr />
 
-    <h2>Stop building tags</h2>
+    <h2>The workflow worth building this week</h2>
 
     <p>
-      Tagging isn't bad. It's just done. If you're a Shopify
-      merchant looking at your automation backlog and the next item
-      on it is "auto-tag customers who buy from the candle line" —
-      consider skipping it.
+      If you sell in more than one place and you've ever sent a
+      "so sorry, it's actually out of stock" email, this is the
+      automation to build before any tag rule, any cart-recovery
+      sequence, any analytics dashboard. It protects the two things
+      that are hardest to win back — customer trust and your payment
+      processing — and it does it on exactly the days you most want
+      to be celebrating instead of apologizing.
     </p>
 
     <p>
-      The next workflow worth building is the one that's been
-      sitting in your inbox for four months. The one where you wrote
-      <em>"ugh, I should automate this"</em> in the margin of a
-      Notion doc and never came back to it. The one you can
-      describe in two paragraphs but couldn't draw in a node graph
-      if your fund-raise depended on it.
-    </p>
-
-    <p>
-      That's the one. Build that one.
+      Describe it the way you'd brief a careful operations manager:
+      never sell what we don't have, keep every channel telling the
+      same truth, and if something slips through, catch it in minutes
+      and make it right before the customer is even annoyed. That's
+      the whole brief. The compiler handles the rest.
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ READING</span>
       <span>
-        If this resonates, three pieces to follow it up with: our
-        essay on <a href="index.html">the death of the drag-and-drop
-        builder</a>, the <a href="index.html">interview with Kira
-        Hartman</a> on consolidating 400 zaps, and the post-mortem
-        on <a href="index.html">the night our retry logic ate
-        itself.</a>
+        If this resonates, two companion pieces: our field study on
+        <a href="the-shopify-automations-no-one-builds.html">the Shopify
+        automations no one builds</a>, and the dispatch on
+        <a href="the-wismo-tickets-that-eat-your-afternoon.html">the
+        "where is my order?" tickets that eat your afternoon</a>.
       </span>
     </div>
 
     <p>
-      If you're a Shopify merchant building one of the workflows
-      above — or stuck on one — the inbox is open:
-      <code>field-notes@dugong.live</code>. We're collecting case
-      studies for issue 50.
+      If you're a Shopify merchant who's been burned by overselling —
+      or you've built a sync playbook that finally holds during a
+      sale — the inbox is open: <code>field-notes@dugong.live</code>.
+      We're collecting case studies for the next issue.
     </p>
 
   </div>
@@ -935,54 +854,6 @@ em { font-style: italic; }
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
-    <a href="the-chargeback-you-lose-by-default.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The chargeback you lose by default</h3>
-        <p class="card-dek">
-          Shopify files a thin dispute response on the deadline, so you lose chargebacks you should win even with the tracking in hand. The AI playbook that reads the reason code and builds the evidence.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 11</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-return-that-wont-approve-itself.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The return that won't approve itself</h3>
-        <p class="card-dek">
-          Shopify makes you approve every return by hand and can't run a real exchange, so refunds quietly leak revenue you already earned. The AI playbook that fixes it.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 9</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-order-change-that-races-your-warehouse.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The order change that races your warehouse</h3>
-        <p class="card-dek">
-          The "can you change my order?" email lands at a bad time and locks the second you fulfil. The AI playbook that resolves it before the label prints.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 8</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
     <a href="the-bad-address-that-ships-anyway.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1015,22 +886,6 @@ em { font-style: italic; }
         </div>
       </div>
     </a>
-    <a href="the-overselling-problem-no-one-automates.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">8&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The overselling problem no one automates</h3>
-        <p class="card-dek">
-          Selling stock you no longer have is the pain merchants dread most. The AI playbook that keeps inventory honest in real time.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 5</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
     <a href="the-wismo-tickets-that-eat-your-afternoon.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1043,6 +898,22 @@ em { font-style: italic; }
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 4</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-shopify-automations-no-one-builds.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The Shopify automations no one builds</h3>
+        <p class="card-dek">
+          Tagging is 14% of every Shopify workflow merchants ship. The work that actually scales is under 1%.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 28</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -1090,7 +961,7 @@ em { font-style: italic; }
         <a href="https://dugong.live">About</a>
         <a href="https://dugong.live">Careers</a>
         <a href="https://dugong.live">Privacy</a>
-        <a href="/feed.xml">RSS</a>
+        <a href="https://dugong.live">RSS</a>
       </div>
     </div>
   </div>

@@ -3,40 +3,37 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Shopify automations no one builds — Dugong Field Notes</title>
-<meta name="description" content="A field study of 1,374 Shopify playbooks: tagging is 14% of automations, returns under 1%. The gap between what's easy to automate and what's worth automating." />
-<link rel="canonical" href="https://blog.dugong.live/the-shopify-automations-no-one-builds.html" />
+<title>The "where is my order?" tickets that eat your afternoon — Dugong Field Notes</title>
+<meta name="description" content="WISMO ('where is my order?') is the most common ecommerce support ticket — ~18% of inbox volume. The AI playbook that answers tracking questions automatically." />
+<link rel="canonical" href="https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
 <meta name="author" content="Priya Singh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="keywords" content="Shopify automation, Shopify Flow, ecommerce returns automation, order tagging, refund automation, workflow automation, ecommerce operations, Dugong" />
+<meta name="keywords" content="WISMO, where is my order, ecommerce support tickets, order tracking automation, Shopify customer support, AI support automation, support ticket deflection, Dugong" />
 <meta name="theme-color" content="#c6fe1e" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<meta property="article:published_time" content="2026-05-28" />
-    <meta property="article:modified_time" content="2026-06-11" />
+<meta property="article:published_time" content="2026-06-04" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
-<meta property="og:title" content="The Shopify automations no one builds" />
-<meta property="og:description" content="Tagging is 14% of every Shopify workflow merchants ship. Returns and refunds — the work that scales with order volume — are under 1%. The gap between what's easy to automate and what's worth automating." />
-<meta property="og:url" content="https://blog.dugong.live/the-shopify-automations-no-one-builds.html" />
+<meta property="og:title" content="The &quot;where is my order?&quot; tickets that eat your afternoon" />
+<meta property="og:description" content="WISMO is the single most common ecommerce support ticket — ~18% of inbox volume, over 50% during a sale. Why merchants still answer by hand, and the AI playbook that closes the loop." />
+<meta property="og:url" content="https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 <meta property="og:locale" content="en_US" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="The Shopify automations no one builds" />
-<meta name="twitter:description" content="Tagging is 14% of every Shopify workflow merchants ship. Returns and refunds are under 1%. The gap between what's easy to automate and what's worth automating." />
+<meta name="twitter:title" content="The &quot;where is my order?&quot; tickets that eat your afternoon" />
+<meta name="twitter:description" content="WISMO is the single most common ecommerce support ticket — ~18% of inbox volume, over 50% during a sale. The AI playbook that answers before customers ask." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
-    <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 
 <script type="application/ld+json">
 {
@@ -44,18 +41,18 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/the-shopify-automations-no-one-builds.html#article",
+      "@id": "https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html#article",
       "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
-      "mainEntityOfPage": "https://blog.dugong.live/the-shopify-automations-no-one-builds.html",
-      "url": "https://blog.dugong.live/the-shopify-automations-no-one-builds.html",
-      "headline": "The Shopify automations no one builds",
-      "description": "Tagging is 14% of every Shopify workflow merchants ship. Returns and refunds — the work that actually scales with order volume — are under 1%. A field study of 1,374 playbooks and the gap between what's easy to automate and what's worth automating.",
-      "datePublished": "2026-05-28",
-      "dateModified": "2026-06-11",
+      "mainEntityOfPage": "https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html",
+      "url": "https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html",
+      "headline": "The \"where is my order?\" tickets that eat your afternoon",
+      "description": "WISMO — 'where is my order?' — is the single most common ecommerce support ticket, averaging ~18% of inbox volume and spiking past 50% on Black Friday. Why Shopify merchants still answer them by hand, and the AI playbook that finally closes the loop.",
+      "datePublished": "2026-06-04",
+      "dateModified": "2026-06-07",
       "articleSection": "Research",
-      "keywords": "Shopify automation, Shopify Flow, ecommerce returns, order tagging, refund automation",
-      "wordCount": 2180,
-      "timeRequired": "PT10M",
+      "keywords": "WISMO, where is my order, order tracking automation, ecommerce support, Shopify customer support",
+      "wordCount": 2040,
+      "timeRequired": "PT9M",
       "inLanguage": "en",
       "image": "https://blog.dugong.live/og-image.png",
       "author": {
@@ -76,7 +73,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The Shopify automations no one builds", "item": "https://blog.dugong.live/the-shopify-automations-no-one-builds.html" }
+        { "@type": "ListItem", "position": 2, "name": "The \"where is my order?\" tickets that eat your afternoon", "item": "https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html" }
       ]
     },
     {
@@ -84,26 +81,26 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What are the most common Shopify automations merchants build?",
+          "name": "What is WISMO?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "In a field study of 1,374 Shopify automation workflows, tagging was the single largest category at 14% of everything merchants automate — automatically labelling orders, customers, and products. It dominates because it is cheap to set up and low-risk, not because it saves the most work."
+            "text": "WISMO stands for \"where is my order?\" — the single most common message in ecommerce support. It accounts for roughly 18% of all incoming tickets on an average week and can climb past 50% during peak periods like Black Friday."
           }
         },
         {
           "@type": "Question",
-          "name": "Which high-value Shopify automations do merchants almost never build?",
+          "name": "How much does answering a \"where is my order?\" ticket cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Returns and refunds — the work that actually scales with order volume — make up under 1% of automated workflows. The tasks that consume the most staff time, such as returns, refunds, and exception handling, are the least automated because they are harder to express in rigid rule-based builders."
+            "text": "Industry estimates put the fully-loaded cost of handling one support interaction at $5 to $25 depending on channel and labor. A store fielding 3,000 WISMO tickets a month spends roughly $15,000 to $60,000 answering a question the carrier's tracking data could answer for free."
           }
         },
         {
           "@type": "Question",
-          "name": "Why is there a gap between easy-to-automate and worth-automating Shopify tasks?",
+          "name": "Why doesn't a canned auto-reply fix WISMO?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Traditional drag-and-drop automation rewards tasks that fit neat if-this-then-that rules, so merchants automate simple tagging and notifications. The high-value work — returns, refunds, support exceptions — involves judgement and branching that rule builders handle poorly. An AI playbook closes the gap by letting merchants describe the messy workflow in plain language and compiling it into a running automation."
+            "text": "A static auto-reply still makes the customer do the work — find the tracking link, click through, interpret the carrier status. It deflects nothing and often increases follow-ups. The fix is a playbook that reads the order and tracking data and answers the specific question automatically, ideally before the customer asks."
           }
         }
       ]
@@ -535,13 +532,13 @@ em { font-style: italic; }
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>◆ DISPATCH Nº 48 — MAY 28, 2026</span>
+    <span>◆ DISPATCH Nº 49 — JUN 4, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 10 MIN READ · 2,180 WORDS</span>
+    <span>◆ 9 MIN READ · 2,040 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
-    <span>◆ DISPATCH Nº 48 — MAY 28, 2026</span>
+    <span>◆ DISPATCH Nº 49 — JUN 4, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 10 MIN READ · 2,180 WORDS</span>
+    <span>◆ 9 MIN READ · 2,040 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -567,22 +564,23 @@ em { font-style: italic; }
 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH Nº 48</span>
+    <span style="color: var(--cream-dim);">DISPATCH Nº 49</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">MAY 28, 2026</span>
+    <span style="color: var(--cream-dim);">JUN 4, 2026</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
+    <span style="color: var(--cream-dim);">9 MIN READ</span>
   </div>
 
   <h1 class="article-title">
-    The Shopify automations <em>no one</em> builds.
+    The <em>"where is my order?"</em> tickets that eat your afternoon.
   </h1>
 
   <p class="article-dek">
-    Tagging is 14% of every Shopify workflow merchants ship.
-    Returns and refunds — the work that actually scales with order
-    volume — are under 1%. A field study of 1,374 playbooks and the
-    gap between what's easy to automate and what's worth automating.
+    "Where is my order?" is the most common message in ecommerce —
+    roughly 18% of all support tickets on a normal week, more than
+    half of them during a sale. Most Shopify merchants still answer
+    each one by hand. Here's why the canned auto-reply never worked,
+    and what an AI playbook does instead.
   </p>
 
   <div class="article-byline">
@@ -595,326 +593,232 @@ em { font-style: italic; }
   <div class="article-body">
 
     <p>
-      There is a merchant we'll call Imani. She runs a forty-SKU
-      candle brand out of a converted garage in Brooklyn. By her own
-      count, her Shopify backend has nineteen tag rules — <em>VIP</em>,
-      <em>repeat</em>, <em>fragrance-preference-vanilla</em>,
-      <em>fragrance-preference-citrus</em>, and on. She built every
-      one of them inside Shopify Flow. They run silently in the
-      background. She has not opened the Flow editor in four months.
+      There is a thread that resurfaces on r/shopify every few weeks,
+      almost word for word. A solo founder ran a good ad. Orders
+      tripled. And then the inbox did too — not with new sales, but
+      with four words, over and over: <em>where is my order?</em>
+      One merchant described spending more time answering tracking
+      emails than packing the things people were asking about. The
+      replies are all the same: hire a VA, set up a canned response,
+      add a tracking app. None of them make the question go away.
     </p>
 
     <p>
-      What still sits open on her laptop, at 11pm on a Tuesday: an
-      email from a customer named Marcus. The candle arrived broken.
-      He's attached three photos. He'd like a refund, but he'd also
-      like the same candle reshipped — but please not packed the same
-      way. Imani writes back. She refunds in Shopify. She creates a
-      new order with a discount code that bypasses inventory
-      deduction, because she's already short on that SKU. She emails
-      her 3PL to please use the extra bubble wrap. She tags the
-      customer <code>broken-shipment-feb</code> so she can find them
-      later.
-    </p>
-
-    <p>
-      Forty-five minutes. One customer. Imani has nineteen tag rules
-      and zero return-handling automation.
-    </p>
-
-    <p>
-      She is not unusual.
-    </p>
-
-    <h2>The 14% / 0.8% gap</h2>
-
-    <p>
-      We pulled telemetry from <strong>1,374 Shopify automation
-      workflows</strong> shipped on third-party tools in Q1 2026.
-      Tagging — adding a label to an order or a customer — was
-      <strong>14% of every workflow built</strong>. Returns and
-      refunds, combined, were 0.8%. Abandoned-checkout flows were
-      1.4%. Fraud screening was below 1%.
-    </p>
-
-    <p>
-      That asymmetry doesn't track with where the work is. Talk to
-      any Shopify merchant doing more than fifty orders a day and
-      they'll tell you the same thing: returns eat their afternoons.
-      Fraud reviews eat their mornings. Tagging? Tagging happens
-      once, in the background, forever.
-    </p>
-
-    <p>
-      So why does everyone build the tag and not the return?
+      The acronym for this is WISMO — "where is my order?" — and it
+      is the single most common message in ecommerce. Gorgias, which
+      sees support volume across tens of thousands of stores, puts it
+      at roughly <strong>18% of all incoming tickets on an average
+      week</strong>. ShippyPro and Salesforce both report it climbing
+      past <strong>50% during peak periods</strong> like Black Friday.
+      It is the most predictable flood in the entire business, and
+      most Shopify merchants still bail the water out by hand.
     </p>
 
     <blockquote>
-      The unbuilt automations aren't unbuilt because no one wants
-      them. They're unbuilt because the tools can't compile them.
+      WISMO is the only support category where the customer, the
+      merchant, and the carrier all already know the answer. It's
+      sitting in the tracking API. Nobody's asking it.
     </blockquote>
 
-    <h2>Easy doesn't mean valuable</h2>
+    <h2>What a single "where is my order?" actually costs</h2>
 
     <p>
-      Tagging is one line of prose. <em>"When a customer's lifetime
-      value crosses $500, tag them VIP."</em> The automation is the
-      rule. The work is done.
+      The reason WISMO hurts isn't any one ticket. It's the volume,
+      and the fact that each one looks trivial right up until you
+      multiply it. Industry estimates put the fully-loaded cost of
+      handling one support interaction at <strong>$5 to $25</strong>,
+      depending on channel and labor. A store doing 3,000 of these a
+      month is spending somewhere between fifteen and sixty thousand
+      dollars answering a question the carrier could answer for free.
     </p>
 
     <p>
-      A return is a conversation. <em>"When a customer requests a
-      refund, ask for a photo, decide whether to require return
-      shipping, issue the refund or a partial, restock if applicable,
-      update the 3PL, decide whether to send a replacement, write a
-      brand-appropriate response, tag the customer accordingly, and
-      surface it in a weekly report if it's the third return from
-      the same buyer."</em> That is not one line. That is twelve lines,
-      three judgement calls, and a tone-of-voice problem.
-    </p>
-
-    <p>
-      In a node-based builder, this is roughly impossible. You end
-      up with a Flow chart that has nineteen branches and still hands
-      off to a human four times. So you don't build it. You answer
-      the email instead.
+      For a solo merchant the cost isn't dollars, it's attention.
+      Every WISMO email is a context switch away from the work that
+      grows the store — sourcing, marketing, product. The Reddit
+      complaint is never "this is hard." It's "this is endless, and
+      it's drowning everything else."
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ DATA</span>
       <span>
-        Across the 1,374 workflows we studied, <strong>67% had four
-        or fewer steps</strong>. The median workflow length on
-        natural-language tools was eleven steps. The work merchants
-        actually have lives in the gap between those numbers.
+        ShippyPro estimates <strong>70–90% of shipping inquiries are
+        pure WISMO</strong> — questions that a proactive notification
+        would have prevented entirely. The ticket isn't a support
+        problem. It's an information-timing problem wearing a support
+        problem's clothes.
       </span>
     </div>
 
-    <h2>Four Shopify automations that pay back faster than tagging</h2>
+    <h2>Why the canned auto-reply never fixed it</h2>
 
     <p>
-      We sat with twelve merchants over two weeks and asked the same
-      question: of everything you do manually, what would you most
-      like to hand off? Four answers came up again and again. None
-      of them were tagging.
-    </p>
-
-    <h2>1. VIP detection that actually means something</h2>
-
-    <p>
-      The tag-by-LTV pattern is a blunt instrument. A customer who
-      spent $600 once is not a VIP. A customer who's spent $400
-      across nine orders, refers two friends a quarter, and writes
-      five-star reviews — that's a VIP. Detecting them takes three
-      signals braided together, not one threshold.
+      Every merchant eventually rigs up some version of a fix. A
+      Shopify Flow rule. A help-desk macro. A tracking app that adds
+      a "track your order" page. They help a little. They never close
+      the loop. Here's why.
     </p>
 
     <p>
-      We've watched merchants try to build this in Flow and give up
-      after twelve nodes. The same logic in prose:
-    </p>
-
-    <pre><code><span class="c"># trigger</span>
-<span class="k">When</span> an order is paid
-
-<span class="c"># condition</span>
-<span class="k">Tag</span> as <span class="s">"VIP"</span> if all are true:
-  · customer's order count is &gt; 4
-  · their average review score is &gt; 4.5
-  · their lifetime value is in the top 20% of the cohort
-    that joined the same month they did
-
-<span class="c"># action</span>
-<span class="k">Send</span> a Slack ping to the founders' channel
-<span class="k">Email</span> a hand-written note offer (template: brand-voice)</code></pre>
-
-    <p>
-      Six lines. Compiled. One fashion brand in our cohort saw a
-      <strong>34% lift in repeat purchase rates</strong> from
-      customers who received VIP recognition inside twenty-four hours
-      of qualifying. The threshold isn't magic; the <em>timeliness</em>
-      is. And timeliness is what manual review costs you.
-    </p>
-
-    <h2>2. Refund triage with evidence parsing</h2>
-
-    <p>
-      The merchant doesn't need the refund to issue itself. They
-      need the email-plus-photos to arrive on a pre-decided path:
-      low-value damage gets auto-approved with a restock skip;
-      high-value damage routes to a human review with the photos
-      already extracted into a shared sheet; a suspected serial
-      returner gets flagged and routed to the founder.
+      A real WISMO message is rarely just "where is my order?" It's
+      <em>"hi, I ordered the navy one last Tuesday for my dad's
+      birthday on Saturday, the tracking hasn't moved in three days,
+      is it going to make it?"</em> A canned reply with a tracking
+      link answers none of what was actually asked. It doesn't know
+      the package is stuck in a carrier scan gap. It doesn't know
+      Saturday is a hard deadline. It doesn't know whether to
+      apologize, reassure, or proactively offer a reship. So the
+      customer replies again, and now you're in the thread anyway —
+      except annoyed, because the robot wasted a round trip.
     </p>
 
     <p>
-      This is one prose paragraph. It is also four years of opt-in
-      scaffolding in any drag-and-drop tool — because the photos
-      need vision, the LTV check needs a Shopify lookup, the tone
-      of the reply needs a brand-voice file, and the routing needs
-      a fork that no one ever wants to draw.
+      In a node-based builder this is unwinnable. You'd need a branch
+      for "tracking stalled," a branch for "delivered but says
+      missing," a branch for "still in pre-transit," a branch for
+      "international customs hold," each with its own tone and its own
+      decision about whether to escalate. Nobody draws that graph. So
+      they don't, and the inbox wins.
+    </p>
+
+    <h2>What the automation actually has to do</h2>
+
+    <p>
+      The job isn't "auto-reply with a link." The job is: read the
+      message, figure out what the customer is really worried about,
+      pull the live carrier status, compare it against the promised
+      delivery window, and decide — case by case — whether to
+      reassure, escalate to a human, or get ahead of the problem with
+      a reship before the customer even asks for one.
     </p>
 
     <p>
-      Written as prose, it looks like this:
+      That is a conversation, not a rule. Written as a Dugong
+      playbook, in plain prose, it looks like this:
     </p>
 
     <pre><code><span class="c"># trigger</span>
-<span class="k">When</span> a refund request email lands in support@
+<span class="k">When</span> a support email mentions an order or tracking
 
 <span class="c"># steps</span>
-1. <span class="k">Read</span> the message and attached photos
-2. <span class="k">If</span> damage looks under $50 → approve refund, skip restock
-3. <span class="k">Else</span> → route to me with photos in Sheets
-4. <span class="k">If</span> this is the customer's 3rd return in 60 days →
-   flag for review, do not auto-approve
-5. <span class="k">Reply</span> with a brand-appropriate message (warm if
-   first return, firm if pattern)</code></pre>
+1. <span class="k">Find</span> the order in Shopify from their email or order number
+2. <span class="k">Pull</span> live tracking from the carrier
+3. <span class="k">Compare</span> status against the promised delivery date
+4. <span class="k">If</span> on track → reply warmly with the real ETA, no link dump
+5. <span class="k">If</span> stalled &gt; 48h or past due → apologize, offer a
+   reship or refund, and flag it to me in Slack
+6. <span class="k">If</span> marked delivered but they say missing →
+   route to a human with the delivery scan attached
+7. <span class="k">Match</span> the brand voice; sign off as the team, not a bot</code></pre>
 
     <p>
-      The compiler calls Shopify's <code>refunds</code> API, calls
-      a vision model on the attached image, looks up the customer's
-      return history, checks the brand-voice file, and writes the
-      draft reply — all without the merchant naming any of those
-      services. The merchant described what they wanted; the
-      compiler picked the tools.
+      Seven lines. The compiler fills in everything underneath: the
+      Shopify lookup, the carrier API call, the date math, the
+      retry logic when the tracking endpoint times out, the
+      brand-voice pass on the reply. The merchant named none of those
+      services. They described what they wanted to happen, and the
+      compiler decided what it needed to <em>be</em>.
     </p>
 
-    <h2>3. Chargeback evidence assembly</h2>
+    <h2>The real win: answering before they ask</h2>
 
     <p>
-      When a dispute lands, the merchant has seventy-two hours to
-      ship a defense packet: order details, IP logs, shipping
-      confirmations, prior conversations, proof of delivery,
-      AVS&nbsp;match, the customer's order history. Manually
-      collected, that's two to three hours per case. ChargePay
-      reports their customers save <strong>ten-plus hours a week</strong>
-      on this exact task.
+      The reframing that matters most is in that ShippyPro number —
+      70 to 90% of these are preventable. The same playbook that
+      answers a WISMO email can run the other direction: watch every
+      in-flight order, and the moment one stalls or slips past its
+      window, reach out <em>first</em>.
     </p>
 
+    <pre><code><span class="c"># trigger</span>
+<span class="k">Every</span> few hours, check all orders shipped but not delivered
+
+<span class="c"># steps</span>
+1. <span class="k">Flag</span> any order stalled in transit or past its ETA
+2. <span class="k">Email</span> the customer proactively: here's where it is,
+   here's what we're doing, no action needed from you
+3. <span class="k">If</span> it's a gift or time-sensitive order → offer a reship now
+4. <span class="k">Log</span> the at-risk orders to a sheet so I can see patterns</code></pre>
+
     <p>
-      The work isn't analytical. It's clerical. But it lives in
-      five systems. Shopify holds the order; Stripe holds the auth
-      log; Gorgias holds the conversation; ShipStation holds the
-      tracking; the 3PL holds the proof-of-delivery scan. A
-      compiled playbook stitches the packet together while the
-      merchant is asleep, drops the PDF into a folder, and posts a
-      one-line summary to Slack with a "submit / hold" button.
+      A customer who gets "hey, your order's running a day late,
+      we're on it" before they think to ask never opens a ticket.
+      The flood doesn't get handled faster — it never forms. That is
+      the difference between a tracking app and an automation that
+      understands the order: one answers the question, the other
+      removes it.
     </p>
 
     <div class="callout callout-sand">
       <span class="callout-mark">◆ NOTE</span>
       <span>
-        The economics here are unusually clean. The average disputed
-        order is $80–$120. The merchant fee for a lost dispute is
-        $15. A compiled response packet has a 65–70% win rate. Every
-        hour spent assembling one returns $50–$80 in recovered
-        revenue. Most merchants don't bother — not because the math
-        is wrong, but because the assembly is awful.
+        The economics are blunt. If WISMO is 18% of your tickets at,
+        say, $7 each, and a proactive playbook prevents 70% of them,
+        a store fielding 1,000 support contacts a month saves roughly
+        <strong>$880 a month</strong> — before counting the replies
+        you no longer write at 11pm, or the refunds you avoid because
+        you caught the late package first.
       </span>
     </div>
 
-    <h2>4. Abandoned-checkout intent classification</h2>
+    <h2>Why this is a compiler problem, not an app problem</h2>
 
     <p>
-      The native Shopify abandoned-cart email goes to everyone. It
-      treats the customer who bounced because their card was declined
-      the same as the customer who bounced because they're
-      price-shopping — and the same as the customer who put a $400
-      item in the cart at 2am and woke up reconsidering.
+      There are dozens of WISMO apps in the Shopify App Store, and
+      they all do roughly the same thing: a branded tracking page and
+      a templated notification. They're fine. They also can't read an
+      angry email, weigh a birthday deadline, or decide that
+      <em>this</em> customer should get a reship and <em>that</em> one
+      should get an apology. That decision is a judgement call, and
+      judgement calls don't fit in a settings panel.
     </p>
 
     <p>
-      An AI compiler can read the cart contents, the time of day,
-      the customer's prior history, and the exit pattern, and send
-      a different message — or no message — accordingly. A declined
-      card gets a "your card didn't go through, here's a one-tap
-      retry" email in six minutes. A price-shopper gets a different
-      treatment at twenty-four hours, with a soft discount only if
-      they've never bought before. A 2am cart gets nothing for ten
-      hours, then a warm "still thinking about this?" — not a
-      discount, because they almost certainly weren't price-sensitive.
-    </p>
-
-    <p>
-      Most merchants run the default flow not because they don't
-      know about this — they read the same blog posts you do — but
-      because the cost of <em>building</em> it exceeded the value.
-      In a node graph, that's an eighteen-branch tree. In prose,
-      it's eleven lines.
-    </p>
-
-    <h2>The compiler is the unlock</h2>
-
-    <p>
-      What ties these four workflows together is that they are all
-      conversations, not rules. Each one requires the automation to
-      know something the prose doesn't explicitly state — the
-      appropriate tone for a refund denial, the heuristics for
-      "high-value damage," the difference between a price-shopping
-      bounce and an abandoned-by-distraction bounce.
-    </p>
-
-    <p>
-      This is exactly where a natural-language compiler earns its
-      keep. The merchant describes what they want. The compiler
-      handles what it should <em>be</em> — the retry logic, the
-      timeout, the AVS lookup, the brand-voice pass on the reply.
-      The merchant never writes a node, never picks an integration
-      from a menu of four thousand, never draws a line between two
-      rectangles.
-    </p>
-
-    <p>
-      The Shopify ecosystem has spent a decade optimizing the easy
-      automations. There are entire SaaS companies whose product is
-      "Shopify Flow but with one more trigger type." Tagging,
-      tagging, tagging. The next decade is about the hard ones —
-      the ones that require an automation to <em>think</em> about
-      a refund instead of just <em>route</em> it.
+      A natural-language compiler is the unlock precisely because the
+      hard part of WISMO was never the tracking lookup — it was the
+      hundred small decisions about tone, timing, and escalation that
+      sit on top of it. You can describe those decisions in a
+      paragraph. You could never draw them in a node graph. That gap,
+      between what merchants can describe and what the old tools could
+      compile, is exactly where the unbuilt automations live.
     </p>
 
     <hr />
 
-    <h2>Stop building tags</h2>
+    <h2>The workflow worth building this week</h2>
 
     <p>
-      Tagging isn't bad. It's just done. If you're a Shopify
-      merchant looking at your automation backlog and the next item
-      on it is "auto-tag customers who buy from the candle line" —
-      consider skipping it.
+      If you run a Shopify store and you've ever typed the same
+      tracking-status reply twice in one afternoon, this is the
+      automation to build before any tag rule, any cart email, any
+      analytics dashboard. It's the one that's been quietly eating
+      your time the whole while you were building the easy ones.
     </p>
 
     <p>
-      The next workflow worth building is the one that's been
-      sitting in your inbox for four months. The one where you wrote
-      <em>"ugh, I should automate this"</em> in the margin of a
-      Notion doc and never came back to it. The one you can
-      describe in two paragraphs but couldn't draw in a node graph
-      if your fund-raise depended on it.
-    </p>
-
-    <p>
-      That's the one. Build that one.
+      Describe it the way you'd explain it to a new hire: when someone
+      asks where their order is, find it, check the carrier, and
+      answer like a human who actually looked. Then let it watch your
+      in-flight orders and get ahead of the ones going wrong. That's
+      the whole brief. The compiler handles the rest.
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ READING</span>
       <span>
-        If this resonates, three pieces to follow it up with: our
-        essay on <a href="index.html">the death of the drag-and-drop
-        builder</a>, the <a href="index.html">interview with Kira
-        Hartman</a> on consolidating 400 zaps, and the post-mortem
-        on <a href="index.html">the night our retry logic ate
-        itself.</a>
+        If this resonates, two companion pieces: our field study on
+        <a href="the-shopify-automations-no-one-builds.html">the Shopify
+        automations no one builds</a>, and the essay on
+        <a href="index.html">the death of the drag-and-drop builder</a>.
       </span>
     </div>
 
     <p>
-      If you're a Shopify merchant building one of the workflows
-      above — or stuck on one — the inbox is open:
-      <code>field-notes@dugong.live</code>. We're collecting case
-      studies for issue 50.
+      If you're a Shopify merchant drowning in "where is my order?" —
+      or you've built a WISMO playbook that actually works — the inbox
+      is open: <code>field-notes@dugong.live</code>. We're collecting
+      case studies for issue 50.
     </p>
 
   </div>
@@ -935,54 +839,6 @@ em { font-style: italic; }
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
-    <a href="the-chargeback-you-lose-by-default.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The chargeback you lose by default</h3>
-        <p class="card-dek">
-          Shopify files a thin dispute response on the deadline, so you lose chargebacks you should win even with the tracking in hand. The AI playbook that reads the reason code and builds the evidence.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 11</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-return-that-wont-approve-itself.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The return that won't approve itself</h3>
-        <p class="card-dek">
-          Shopify makes you approve every return by hand and can't run a real exchange, so refunds quietly leak revenue you already earned. The AI playbook that fixes it.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 9</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-order-change-that-races-your-warehouse.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The order change that races your warehouse</h3>
-        <p class="card-dek">
-          The "can you change my order?" email lands at a bad time and locks the second you fulfil. The AI playbook that resolves it before the label prints.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 8</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
     <a href="the-bad-address-that-ships-anyway.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -992,22 +848,6 @@ em { font-style: italic; }
         <h3 class="card-title">The bad address that ships anyway</h3>
         <p class="card-dek">
           Shopify flags a bad address, you click past the warning, and the package bounces. The AI playbook that catches it before the label prints.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 6</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-high-risk-flag-that-makes-you-guess.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The high-risk flag that makes you guess</h3>
-        <p class="card-dek">
-          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 6</span>
@@ -1031,18 +871,34 @@ em { font-style: italic; }
         </div>
       </div>
     </a>
-    <a href="the-wismo-tickets-that-eat-your-afternoon.html" class="card">
+    <a href="the-high-risk-flag-that-makes-you-guess.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The &ldquo;where is my order?&rdquo; tickets that eat your afternoon</h3>
+        <h3 class="card-title">The high-risk flag that makes you guess</h3>
         <p class="card-dek">
-          WISMO is ~18% of support tickets, over half during a sale. The AI playbook that answers before customers ask.
+          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 4</span>
+          <span class="card-date">JUN 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-shopify-automations-no-one-builds.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The Shopify automations no one builds</h3>
+        <p class="card-dek">
+          Tagging is 14% of every Shopify workflow merchants ship. The work that actually scales is under 1%.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 28</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -1090,7 +946,7 @@ em { font-style: italic; }
         <a href="https://dugong.live">About</a>
         <a href="https://dugong.live">Careers</a>
         <a href="https://dugong.live">Privacy</a>
-        <a href="/feed.xml">RSS</a>
+        <a href="https://dugong.live">RSS</a>
       </div>
     </div>
   </div>
