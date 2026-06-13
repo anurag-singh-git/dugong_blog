@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta property="article:published_time" content="2026-06-05" />
-    <meta property="article:modified_time" content="2026-06-11" />
+    <meta property="article:modified_time" content="2026-06-13" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -51,7 +51,7 @@
       "headline": "The overselling problem no one automates",
       "description": "Overselling — selling stock you no longer have — is one of the most-complained-about pain points for Shopify merchants running more than one sales channel. Why manual inventory sync always breaks during a sale, and the AI playbook that keeps your stock honest in real time.",
       "datePublished": "2026-06-05",
-      "dateModified": "2026-06-11",
+      "dateModified": "2026-06-13",
       "articleSection": "Research",
       "keywords": "Shopify overselling, inventory sync, multichannel inventory, prevent overselling, real-time stock sync, ecommerce inventory automation",
       "wordCount": 1600,
@@ -488,6 +488,12 @@ em { font-style: italic; }
 .article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
 
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
 .related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
 .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
 @media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
@@ -850,6 +856,27 @@ em { font-style: italic; }
   </div>
 
 </article>
+
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">◆ COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h2 class="faq-q">What is overselling on Shopify?</h2>
+      <p class="faq-a">Overselling is accepting an order for a product you can no longer fulfil — the stock sold out somewhere else before your store&#x27;s inventory count caught up. It usually happens when two or more channels (your Shopify store, a marketplace, a POS, a wholesale order) draw from one physical stock pool with nothing keeping the numbers in sync in real time.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Why is overselling worse than running out of stock?</h2>
+      <p class="faq-a">Running out of stock means a customer can&#x27;t buy. Overselling means a customer already bought, paid, and got a confirmation — and then you have to take it back. That cancellation costs you the refund, the trust, often a negative review, and on Shopify it can raise your dispute and chargeback rate, which puts payment processing itself at risk.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Can overselling be prevented with automation?</h2>
+      <p class="faq-a">Yes. The fix is real-time inventory sync: the moment a unit sells on any channel, every other channel&#x27;s available count is updated, and low-stock items are buffered or hidden before they can be oversold. An AI playbook can do this continuously, reconcile mismatches, and flag the edge cases — partial stock, bundles, pre-orders — that simple sync rules miss.</p>
+    </div>
+  </div>
+</section>
 
 <section class="related">
   <div class="section-head">

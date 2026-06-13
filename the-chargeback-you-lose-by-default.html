@@ -15,7 +15,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
 <meta property="article:published_time" content="2026-06-11" />
-    <meta property="article:modified_time" content="2026-06-11" />
+    <meta property="article:modified_time" content="2026-06-13" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -51,7 +51,7 @@
       "headline": "The chargeback you lose by default",
       "description": "Shopify auto-populates a thin transaction summary and submits it on the deadline, so most disputes are lost before anyone reads them. Why merchants lose chargebacks even with tracking, why friendly fraud keeps rising, and the AI playbook that assembles a reason-code-specific rebuttal and files it before the clock runs out.",
       "datePublished": "2026-06-11",
-      "dateModified": "2026-06-11",
+      "dateModified": "2026-06-13",
       "articleSection": "Research",
       "keywords": "Shopify chargeback automation, dispute representment, fight chargebacks Shopify, friendly fraud, chargeback evidence, Shopify Payments disputes, representment automation, ecommerce chargebacks",
       "wordCount": 1760,
@@ -343,6 +343,12 @@ em { font-style: italic; }
 .article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
 
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
 .related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
 .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
 @media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
@@ -725,6 +731,27 @@ em { font-style: italic; }
   </div>
 
 </article>
+
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">◆ COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h2 class="faq-q">Does Shopify fight chargebacks for you?</h2>
+      <p class="faq-a">Only in the thinnest sense. If you use Shopify Payments, Shopify automatically populates the basic transaction data and submits a response to the card issuer on the deadline date. It does not investigate the dispute, match the evidence to the reason code, or write a rebuttal. You have a short window, usually 7 to 21 days, to add the evidence that actually wins, and once the deadline passes or the response is sent you cannot submit more. There is no appeal after the bank decides.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Why do merchants lose chargebacks even with tracking and proof of delivery?</h2>
+      <p class="faq-a">Because a generic packet rarely answers the specific claim. US merchants win only about 54 percent of the disputes they actually fight, and for chargebacks coded as fraud the win rate is roughly 17 percent. Winning means matching the evidence to the reason code: an AVS and CVV match and the device and IP history for a fraud claim, signed delivery and usage logs for an item-not-received claim, the refund policy the customer accepted for a not-as-described claim. Tracking alone, dropped into a one-shot form, often does not address what the issuer is asking.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">What does a single chargeback actually cost?</h2>
+      <p class="faq-a">Far more than the order. The average disputed transaction is around 84 dollars, but the all-in cost of a single dispute reaches roughly 315 dollars once you add the chargeback fee, the lost goods, the shipping, and the staff time to respond. Friendly fraud, where a real customer disputes a real purchase, now makes up about three quarters of chargebacks and is rising sharply. Across ecommerce, chargebacks are projected to cost around 33.8 billion dollars in 2025, which is why the unanswered dispute is one of the most expensive things a busy store quietly ignores.</p>
+    </div>
+  </div>
+</section>
 
 <section class="related">
   <div class="section-head">

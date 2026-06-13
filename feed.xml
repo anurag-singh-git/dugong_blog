@@ -15,7 +15,17 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Thu, 11 Jun 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The restock alert that never fires</title>
+      <link>https://blog.dugong.live/the-restock-alert-that-never-fires.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/the-restock-alert-that-never-fires.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Sat, 13 Jun 2026 09:00:00 +0000</pubDate>
+      <description>Shopify has no real back-in-stock automation, so the customer who clicked notify me never hears the item return and the restock sells out to strangers. The AI playbook that watches real inventory, ranks the waitlist, and notifies in fair order without overselling.</description>
+    </item>
 
     <item>
       <title>The chargeback you lose by default</title>

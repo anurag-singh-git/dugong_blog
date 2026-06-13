@@ -84,26 +84,26 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Does Shopify fight chargebacks for you?",
+          "name": "Does Shopify send back-in-stock notifications automatically?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Only in the thinnest sense. If you use Shopify Payments, Shopify automatically populates the basic transaction data and submits a response to the card issuer on the deadline date. It does not investigate the dispute, match the evidence to the reason code, or write a rebuttal. You have a short window, usually 7 to 21 days, to add the evidence that actually wins, and once the deadline passes or the response is sent you cannot submit more. There is no appeal after the bank decides."
+            "text": "No, not in any real sense. Shopify has no built-in feature that emails or texts customers when an out-of-stock product is restocked. Some themes offer a basic notify me form, but it is too limited for most stores: it collects interest without reliably sending alerts, and it has no segmentation, no SMS, no priority order, and no throttle to stop the restock from selling out to the wrong people. The standard workaround is to export the requests and notify customers by hand, or to bolt on a third-party app. The native gap is why so many waitlists are quietly never answered."
           }
         },
         {
           "@type": "Question",
-          "name": "Why do merchants lose chargebacks even with tracking and proof of delivery?",
+          "name": "How much revenue do stockouts actually cost a store?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because a generic packet rarely answers the specific claim. US merchants win only about 54 percent of the disputes they actually fight, and for chargebacks coded as fraud the win rate is roughly 17 percent. Winning means matching the evidence to the reason code: an AVS and CVV match and the device and IP history for a fraud claim, signed delivery and usage logs for an item-not-received claim, the refund policy the customer accepted for a not-as-described claim. Tracking alone, dropped into a one-shot form, often does not address what the issuer is asking."
+            "text": "More than most merchants track. Stockouts account for roughly 40 percent of lost sales, and the lost sales ratio, the share of potential revenue missed because items were unavailable, averages around 20 to 30 percent in ecommerce. When a product is out of stock, about 69 percent of online shoppers will go buy from a competitor rather than wait, and a stocked-out product stays unavailable for an average of around 35 days. Every one of those is a customer who would have bought from you if the alert had reached them in time."
           }
         },
         {
           "@type": "Question",
-          "name": "What does a single chargeback actually cost?",
+          "name": "Why does blasting the whole waitlist at once cause problems?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Far more than the order. The average disputed transaction is around 84 dollars, but the all-in cost of a single dispute reaches roughly 315 dollars once you add the chargeback fee, the lost goods, the shipping, and the staff time to respond. Friendly fraud, where a real customer disputes a real purchase, now makes up about three quarters of chargebacks and is rising sharply. Across ecommerce, chargebacks are projected to cost around 33.8 billion dollars in 2025, which is why the unanswered dispute is one of the most expensive things a busy store quietly ignores."
+            "text": "Because a single restock rarely covers everyone who asked. If two hundred people are waiting and forty units land, one mass email sends all two hundred to the page at the same moment, the forty units sell to whoever clicks fastest, and the other hundred and sixty arrive to find it gone again. You can also oversell if the alert fires before inventory is truly synced. A good restock automation notifies in priority order, usually first-requested first, throttled to the units actually available, per variant, across email and SMS, so the people who waited longest get the real chance to buy."
           }
         }
       ]
@@ -380,13 +380,13 @@ em { font-style: italic; }
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>◆ DISPATCH Nº 55 — JUN 11, 2026</span>
+    <span>◆ DISPATCH Nº 56 — JUN 13, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 1,760 WORDS</span>
+    <span>◆ 9 MIN READ · 1,790 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
-    <span>◆ DISPATCH Nº 55 — JUN 11, 2026</span>
+    <span>◆ DISPATCH Nº 56 — JUN 13, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 1,760 WORDS</span>
+    <span>◆ 9 MIN READ · 1,790 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -412,24 +412,24 @@ em { font-style: italic; }
 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH Nº 55</span>
+    <span style="color: var(--cream-dim);">DISPATCH Nº 56</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">JUN 11, 2026</span>
+    <span style="color: var(--cream-dim);">JUN 13, 2026</span>
     <span style="color: var(--line-2);">·</span>
     <span style="color: var(--cream-dim);">9 MIN READ</span>
   </div>
 
   <h1 class="article-title">
-    The chargeback you <em>lose by default</em>.
+    The restock alert that <em>never fires</em>.
   </h1>
 
   <p class="article-dek">
-    A dispute lands in your admin. Shopify quietly attaches the basic order
-    data and, on the deadline, files it for you. You did nothing wrong, and
-    you still lose, because nobody read the claim, matched it to your proof,
-    or wrote the rebuttal. Here is why the dispute is lost the moment it
-    arrives, and the playbook that builds the case and fights it before the
-    clock runs out.
+    A customer clicks notify me when this is back. The item comes back. And
+    nothing happens, because Shopify does almost nothing with that request.
+    The restock sells out to whoever happens to land on the page, while the
+    people who actually waited never hear a word. Here is why the back-in-stock
+    request quietly dies, and the playbook that turns a waitlist into recovered
+    revenue.
   </p>
 
   <div class="article-byline">
@@ -442,228 +442,223 @@ em { font-style: italic; }
   <div class="article-body">
 
     <p>
-      Spend an hour in the Shopify community forums or the merchant
-      subreddits and you will read the same defeated sentence over and over.
-      I had the tracking. I had the signature. I uploaded everything, and I
-      still lost. Chargebacks are the rare Shopify pain where merchants are
-      not confused about what to do. They are doing it, carefully, and losing
-      anyway. The frustration is not ignorance. It is the feeling of fighting
-      with one hand tied and a stopwatch running.
+      Spend an evening in the Shopify community forums or the merchant
+      subreddits and you will find the same quiet question asked a hundred
+      different ways. How do I let customers know when something is back in
+      stock? People expect the answer to be a setting. It is not. The thread
+      that follows is always the same shape: someone explains that the
+      built-in notify me form only collects an email, that it does not
+      actually send anything, that you have to export the list and message
+      people yourself, and that by the time you do, the restock is already
+      gone. The disappointment is not that the feature is hard. It is that
+      everyone assumed it existed.
     </p>
 
     <p>
-      The trap is that doing nothing feels almost the same as doing
-      something. When a dispute is filed and you use Shopify Payments,
-      Shopify automatically gathers the basic transaction record and submits
-      a response to the issuing bank on your behalf. That sounds like
-      protection. It is closer to a default form letter mailed on the last
-      possible day. The data is generic, it is not matched to the reason the
-      customer gave, and once it goes out, or once the deadline passes, you
-      cannot add anything else. The bank decides, and that decision is final.
-      There is no appeal.
+      Here is the part that makes it expensive. A customer who clicks notify
+      me when this is available has done the single most valuable thing a
+      shopper can do. They have told you exactly what they want and handed you
+      a way to reach them. They are not a cold lead. They are a warm,
+      self-identified buyer waiting with their wallet out. And in most Shopify
+      stores, that request lands in a void. The item comes back, the page goes
+      live, and the people who raised their hands hear nothing.
     </p>
 
     <blockquote>
-      A chargeback is the only support ticket that answers itself if you
-      ignore it, and the answer it gives is usually <em>you lose</em>.
+      A back-in-stock request is the only lead that asks you to sell to it,
+      and most stores answer it with <em>silence</em>.
     </blockquote>
 
-    <h2>How big the bill actually is</h2>
+    <h2>How big the leak actually is</h2>
 
     <p>
-      This is not a rounding error you can wave off. The average disputed
-      transaction is around eighty four dollars, but the true cost of a
-      single dispute lands near three hundred and fifteen dollars once you
-      count the chargeback fee, the merchandise you already shipped, the
-      shipping itself, and the staff time to respond. You lose the sale, you
-      lose the goods, and you pay a penalty for the privilege. Across
-      ecommerce, chargebacks are projected to cost roughly thirty four
-      billion dollars in 2025.
+      Stockouts are not a small tax on a store. They account for roughly forty
+      percent of lost sales, and the lost sales ratio, the share of revenue a
+      store misses because items were not available to buy, runs around twenty
+      to thirty percent in ecommerce. That is not a rounding error. That is a
+      fifth of the top line walking out the door because the shelf was empty
+      at the moment of intent.
     </p>
 
     <p>
-      The win rates are the part that stings. US merchants win only about
-      fifty four percent of the disputes they actually fight through
-      representment, and for chargebacks coded as fraud the win rate falls to
-      roughly seventeen percent. And the category that is growing fastest is
-      the one that hurts honest stores most: friendly fraud, where a real
-      customer disputes a real, delivered purchase, now makes up around three
-      quarters of all chargebacks and has been climbing at a double digit
-      annual rate. These are not stolen cards. They are buyers who forgot the
-      charge, regretted it, or learned that the bank is faster than your
-      refund policy.
+      And shoppers do not wait politely. When a product is out of stock, about
+      sixty nine percent of online shoppers will go buy it from a competitor
+      rather than come back later. A stocked-out product stays unavailable for
+      an average of around thirty five days, which is more than a month of a
+      page that converts visitors into a shrug. The back-in-stock list is the
+      one tool that fights all of this directly, because it captures the
+      intent at the exact moment it is highest and gives you a way to act on
+      it the instant supply returns. Leaving that list unworked is leaving the
+      most recoverable revenue a store has on the table.
     </p>
 
     <h2>What Shopify actually does, and where it stops</h2>
 
     <p>
-      Shopify has a real disputes flow, and on paper it looks handled. The
-      chargeback appears in your admin, there is an evidence form, and if you
-      are on Shopify Payments the obvious fields are pre filled and sent
-      automatically. The trouble, as always, is in the gap between the form
-      and the win, and the gap is where the actual work lives.
+      Shopify is excellent at the things adjacent to this and silent on the
+      thing itself. It tracks inventory, it knows the moment a variant crosses
+      from zero back to one, and many themes will even show a notify me form
+      on a sold-out product. What it does not do is close the loop. There is
+      no native feature that emails or texts the people who asked when the item
+      returns. The gap is real, and it shows up in three ways.
     </p>
 
     <p>
-      First, <strong>the auto response is thin</strong>. Shopify populates
-      the available transaction data and submits it, but it does not read the
-      reason code and assemble the specific evidence that beats it. A fraud
-      claim is won with an address and card verification match plus the
-      device and IP history. An item not received claim is won with carrier
-      tracking and a delivery signature. A product not as described claim is
-      won with the listing, the photos, and the refund policy the customer
-      agreed to at checkout. Drop the same generic packet into all three and
-      you answer none of them.
+      First, <strong>the request goes nowhere</strong>. The theme-level notify
+      me form, where it exists at all, collects an email into a list. It does
+      not watch inventory and it does not send. The standard advice in the
+      forums is to export the addresses and email them yourself, which means
+      the restock alert only fires when a human remembers to fire it, and only
+      as fast as that human can work a spreadsheet.
     </p>
 
     <p>
-      Second, <strong>you are racing a hard deadline</strong>. The window to
-      add evidence is short, usually somewhere between seven and twenty one
-      days, and it is one shot. Shopify sends everything on the due date, and
-      after that you cannot submit more. Miss the window because the alert got
-      buried under a hundred order notifications, and the thin default is all
-      the bank ever sees.
+      Second, <strong>the blast sells out to the wrong people</strong>. Say
+      two hundred people are waiting and forty units land. The moment you do
+      send, one undifferentiated email pushes all two hundred to the page at
+      once, the forty units go to whoever clicks fastest, and the other one
+      hundred and sixty arrive to find it sold out again. The customers who
+      waited longest are no more likely to get one than a bot refreshing the
+      page. You have turned a goodwill gesture into a second disappointment.
     </p>
 
     <p>
-      Third, <strong>the evidence is scattered across systems</strong>. The
-      proof that wins a dispute is never in one place. The card and address
-      verification results sit with the payment record, the delivery
-      confirmation sits with the carrier, the conversation where the customer
-      said they loved the product sits in your help desk, the refund policy
-      sits on a page, and the customer's order history sits in the admin. To
-      respond well, someone has to go gather all of it, by hand, against the
-      clock, for every single dispute.
+      Third, <strong>the alert can fire into thin air</strong>. If the
+      notification triggers off a number that is not truly synced, a return
+      that gets restocked and then cancelled, a supplier feed that flickers, a
+      warehouse count that has not settled, you send people to buy something
+      that is not really there, and you oversell. The alert that was supposed
+      to recover a sale now creates a refund and a support ticket instead.
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ DATA</span>
       <span>
-        A single chargeback is a bill paid four times over: the
-        <strong>refunded sale</strong>, the <strong>lost goods</strong> you
-        already shipped, the <strong>fee</strong> the processor adds on top,
-        and the <strong>staff time</strong> to chase the evidence. The
-        eighty four dollar transaction quietly becomes a three hundred dollar
-        loss, and that is before you count the disputes you never answered at
-        all.
+        The math is brutal in the store's favor and against it at the same
+        time. Stockouts cause roughly <strong>40% of lost sales</strong>,
+        about <strong>69% of shoppers</strong> defect to a competitor when an
+        item is unavailable, and a sold-out product sits dark for around
+        <strong>35 days</strong> on average. A worked back-in-stock list is
+        the cheapest revenue a store can recover, because the buyer already
+        told you what they want.
       </span>
     </div>
 
     <h2>Why the usual fixes don't hold</h2>
 
     <p>
-      Once disputes start to bite, merchants reach for three coping
-      strategies. Each buys a little relief and each breaks in a predictable
-      way.
+      Once a store feels the leak, merchants reach for three coping
+      strategies. Each helps a little and each breaks in a predictable place.
     </p>
 
     <p>
-      <strong>"Just let Shopify handle it."</strong> The auto response feels
-      like the system has your back, so the dispute gets ignored. But the
-      auto response is the floor, not the case. Leaning on it is how a store
-      ends up with a win rate that tracks the seventeen percent fraud number
-      instead of beating it. You did not fight and lose. You never really
-      fought.
+      <strong>"I'll email the list myself when it's back."</strong> This works
+      until it is the fourth restock of a busy week. The notify happens
+      whenever someone has a free minute, not when the stock lands, so the
+      fastest-moving products, the exact ones with the longest waitlists, are
+      the ones that sell out before the email ever goes out. The manual path
+      scales inversely to how much you need it.
     </p>
 
     <p>
-      <strong>"Refund anything that looks risky."</strong> To dodge the fee
-      and the hassle, some merchants pre emptively refund any order that
-      smells like a dispute. That trains the worst behavior, eats margin on
-      orders that were perfectly good, and hands money back to the exact
-      friendly fraud pattern that is already growing fastest. You cannot
-      refund your way out of a problem that rewards the customer for filing.
+      <strong>"I'll just send one big announcement."</strong> The mass blast
+      ignores who asked first and how many units exist, so it manufactures a
+      stampede and three more disappointed customers for every one it
+      satisfies. Worse, people learn that your restock email is a lie they
+      can't act on fast enough, and they stop opening it. The tool that should
+      build loyalty quietly burns it.
     </p>
 
     <p>
-      <strong>A Shopify Flow rule or a one-off macro.</strong> Flow is great
-      at reacting to clean events, but a chargeback is not a clean event. It
-      arrives as a reason code attached to a story, and the winning response
-      depends on facts spread across your processor, your carrier, and your
-      inbox. Flow can tag the order or send you a Slack ping, but it cannot
-      read the reason code, pull the matching evidence from five systems,
-      write the rebuttal, and file it before the deadline. The trigger exists.
-      The judgement does not.
+      <strong>A Shopify Flow rule or a basic app.</strong> Flow can react to
+      an inventory event and an app can hold a waitlist, but the thing that
+      actually matters is the judgement in the middle: how many units really
+      landed, who has been waiting longest, which variant they wanted, whether
+      to reach them by email or text, how to stagger the sends so the units
+      last, and when to stop because supply is gone. A simple trigger fires
+      all at once or not at all. The decision about who to tell, in what order,
+      throttled to real stock, is the part neither one can hold.
     </p>
 
     <h2>What the automation actually has to do</h2>
 
     <p>
-      The real job is not "notify me about disputes." It is "when a
-      chargeback arrives, decide whether it is worth fighting, gather the
-      exact evidence its reason code calls for, write the rebuttal, and file
-      it in time, while flagging the ones a human should weigh in on." That
-      means reading the claim, pulling data from several systems, and acting
-      end to end. As a Dugong playbook, in plain prose, it reads like this:
+      The real job is not "collect emails on the product page." It is "when an
+      item is genuinely back, reach the people who asked, in a fair order,
+      only as many as there are units for, on the channel they will actually
+      see, and stop before you oversell." That means watching real inventory,
+      ranking the waitlist, and sending with restraint. As a Dugong playbook,
+      in plain prose, it reads like this:
     </p>
 
     <pre><code><span class="c"># trigger</span>
-<span class="k">When</span> a chargeback or inquiry is filed on an order
+<span class="k">When</span> a product or variant goes from out of stock to
+available, and the count is actually synced
 
 <span class="c"># steps</span>
-1. <span class="k">Read</span> the reason code and the disputed amount, and
-   pull up the full order
-2. <span class="k">Decide</span> if it's winnable: is there delivery proof,
-   an AVS/CVV match, a clean customer history?
-3. <span class="k">If</span> it's clearly unwinnable or below the fee →
-   accept it and log why, don't waste the hours
-4. <span class="k">Gather</span> the evidence the reason code needs:
-   verification results, tracking + signature, the chat where they
-   confirmed receipt, the policy they accepted
-5. <span class="k">Write</span> a rebuttal that answers that specific claim,
-   point by point, with the evidence attached
-6. <span class="k">File</span> it well before the deadline, never on the
-   last day, and confirm it was submitted
-7. <span class="k">If</span> it's high-value, ambiguous, or a repeat
-   disputer → assemble the packet and hand it to me to approve</code></pre>
+1. <span class="k">Pull</span> the waitlist for that exact variant and how
+   long each person has been waiting
+2. <span class="k">Check</span> how many units truly landed, not the raw
+   number on a flickering feed
+3. <span class="k">Notify</span> in priority order, first-requested first,
+   only as many people as there are units, with a little headroom
+4. <span class="k">Send</span> on the channel they chose, SMS for the
+   fast movers, email otherwise, with a link straight to the variant
+5. <span class="k">Throttle</span> the next wave only if more stock lands,
+   so you never point more buyers at fewer units
+6. <span class="k">Stop</span> and close the list when it sells through,
+   and tell the people who missed it they're still in line
+7. <span class="k">If</span> it's a hyped drop or a tiny restock →
+   assemble the plan and hand it to me before anything sends</code></pre>
 
     <p>
-      Seven lines. The compiler fills in everything underneath: reading the
-      reason code, querying the payment record for the verification results,
-      pulling tracking and the delivery signature from the carrier, searching
-      the help desk for the relevant thread, attaching the policy, drafting
-      the argument, and submitting through the disputes form with days to
-      spare. The merchant never built a branch for every reason code. They
-      described how a sharp disputes analyst would work the queue, and let the
-      compiler do the gathering and the writing.
+      Seven lines. The compiler fills in everything underneath: subscribing to
+      the inventory change, confirming the count is real before it trusts it,
+      sorting the waitlist by wait time and variant, metering the sends to the
+      units available, picking SMS or email per subscriber, deep-linking to
+      the right variant, and holding the rest of the list in reserve instead of
+      dumping it. The merchant never built a rule for every product. They
+      described how a careful store would work a waitlist, and let the compiler
+      handle the watching and the sending.
     </p>
 
     <div class="callout callout-sand">
       <span class="callout-mark">◆ NOTE</span>
       <span>
-        Winning is not the only goal. Knowing fast which disputes to
-        <strong>concede</strong> is half the value, because an hour spent
-        building a doomed packet for a sub-fee dispute is an hour lost. The
-        automation should fight the winnable ones hard and let the rest go on
-        purpose, with a reason logged, so your team's attention goes to the
-        cases where judgement actually moves the outcome.
+        Speed is not the only goal. <strong>Fairness</strong> is half the
+        value, because a restock alert that rewards the fastest refresher
+        instead of the longest waiter teaches your best customers that the
+        list is pointless. Notify in the order people asked, meter to the
+        units you actually have, and the same restock that used to create
+        three disappointments now creates a sale and a little loyalty.
       </span>
     </div>
 
     <h2>Why this is a compiler problem, not an app problem</h2>
 
     <p>
-      There are solid chargeback apps in the Shopify ecosystem, and for many
-      stores they are worth it. But an app hands you its author's idea of how
-      to fight a dispute, wrapped in a settings page and a monthly fee that
-      often scales with your dispute volume. What most merchants actually want
-      is to encode <em>their</em> rules: always fight anything over a hundred
-      dollars with a delivery signature, never contest a dispute from a
-      customer we already refunded, auto-concede anything below the fee,
-      always pull the Gorgias thread before filing, treat a second dispute
-      from the same email as a fraud pattern and flag it. Those are sentences,
-      not toggles, and they are specific to how your store loses money.
+      There are good back-in-stock apps in the Shopify ecosystem, and for many
+      stores they are worth installing. But an app hands you its author's idea
+      of how to work a waitlist, wrapped in a settings page and a monthly fee
+      that often scales with the number of alerts you send. What most merchants
+      actually want is to encode <em>their</em> rules: text the people waiting
+      on sneakers but email everyone else, never alert more buyers than units
+      in stock, give VIP customers a thirty minute head start, hold the list if
+      a restock is under ten units and ping me instead, suppress anyone who
+      already bought it elsewhere in the meantime. Those are sentences, not
+      toggles, and they are specific to how your store actually sells.
     </p>
 
     <p>
-      A natural-language compiler is the unlock because representment was
-      never really a forms problem. It was an <em>evidence and judgement</em>
-      problem wearing a forms problem's clothes. Filing the response is the
-      easy part. The hard part is everything before it: read the claim, decide
-      if it is worth the fight, gather proof from five systems, write the
-      argument that answers this exact reason code, and file it with time to
-      spare. You can write that brief in a paragraph. You could never maintain
-      it as a rule tree with a branch for every reason code and edge case.
+      A natural-language compiler is the unlock because back-in-stock was never
+      really a form problem. It was an <em>inventory and timing</em> problem
+      wearing a form problem's clothes. Collecting the email is the easy part,
+      which is exactly why every theme can do it. The hard part is everything
+      after: know when stock is genuinely there, decide who to tell and in what
+      order, meter it to real units, choose the channel, and stop before you
+      oversell. You can write that brief in a paragraph. You could never
+      maintain it as a rule tree with a branch for every product, variant, and
+      restock size.
     </p>
 
     <hr />
@@ -671,25 +666,26 @@ em { font-style: italic; }
     <h2>The workflow worth building this week</h2>
 
     <p>
-      If you are quietly eating chargebacks because the deadline always beats
-      you, this is the automation to build before any upsell or win-back flow,
-      because it pays you back in recovered revenue you had already written
-      off. It sits right next to a pain we have written about already. The
-      checkout-time cousin of the lost dispute is
-      <a href="the-high-risk-flag-that-makes-you-guess.html">the high-risk
-      flag that makes you guess</a>: catch the bad order before it ships and
-      you never fight the chargeback at all, and answer the chargeback well
-      when one slips through and you stop paying for the ones you should win.
+      If you have products that sell out and come back, this is the automation
+      to build before the next discount or win-back flow, because it recovers
+      revenue you have already earned the right to. It sits right next to a
+      pain we have written about already. The mirror image of the alert that
+      never fires is
+      <a href="the-overselling-problem-no-one-automates.html">the overselling
+      problem no one automates</a>: the same shaky inventory count that lets
+      you sell stock you no longer have is what makes a restock alert fire into
+      thin air, so the store that keeps its counts honest is the one that can
+      trust its waitlist to sell.
     </p>
 
     <p>
-      Describe it the way you would brief a careful disputes hire on day one:
-      here is how to read a reason code, here is the proof that wins each
-      kind, here is where each piece lives, here is when a dispute is not
-      worth fighting, and here is when to stop and bring it to me. That is the
-      whole brief. The compiler does the gathering, the writing, and the
-      filing. You keep your attention for the disputes that genuinely need a
-      person, and you stop losing the ones you were always going to win.
+      Describe it the way you would brief a sharp ecommerce hire on day one:
+      here is how to tell when stock is really back, here is the order to
+      notify people in, here is how many to tell, here is the channel for each,
+      and here is when to stop and check with me first. That is the whole
+      brief. The compiler does the watching, the ranking, and the sending. You
+      keep your attention for the drops that need a human plan, and you stop
+      letting the warmest leads in your store cool off in silence.
     </p>
 
     <div class="callout">
@@ -697,19 +693,19 @@ em { font-style: italic; }
       <span>
         If this resonates, two companion pieces: our field study on
         <a href="the-shopify-automations-no-one-builds.html">the Shopify
-        automations no one builds</a> (where post-purchase money work like
-        disputes is a fraction of what merchants automate, despite costing the
-        most per incident), and the dispatch on
-        <a href="the-return-that-wont-approve-itself.html">the return that
-        won't approve itself</a>, the other workflow where the easy path
-        quietly hands your revenue back.
+        automations no one builds</a> (where revenue-recovery work like this
+        is a sliver of what merchants automate, despite paying back the most),
+        and the dispatch on
+        <a href="the-overselling-problem-no-one-automates.html">the
+        overselling problem no one automates</a>, the inventory pain that
+        decides whether your restock alert can be trusted at all.
       </span>
     </div>
 
     <p>
-      If you are a Shopify merchant who has built a disputes playbook that
-      finally lifted your win rate, or you have a lost-it-with-the-tracking
-      story that still stings, the inbox is open:
+      If you are a Shopify merchant who has built a back-in-stock flow that
+      actually recovers sales, or you have a restock that sold out before your
+      own email went out and still stings, the inbox is open:
       <code>field-notes@dugong.live</code>. We are collecting case studies for
       the next issue.
     </p>
@@ -840,6 +836,22 @@ em { font-style: italic; }
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 4</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-chargeback-you-lose-by-default.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The chargeback you lose by default</h3>
+        <p class="card-dek">
+          Shopify files a thin dispute response on the deadline and you lose, even with the proof. The AI playbook that builds the evidence and fights it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 11</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>

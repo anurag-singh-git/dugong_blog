@@ -43,4 +43,37 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
+User-agent: PerplexityBot-User
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: cohere-training-data-crawler
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Google-CloudVertexBot
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
 Sitemap: https://blog.dugong.live/sitemap.xml

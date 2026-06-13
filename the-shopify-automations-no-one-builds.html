@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta property="article:published_time" content="2026-05-28" />
-    <meta property="article:modified_time" content="2026-06-11" />
+    <meta property="article:modified_time" content="2026-06-13" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -51,7 +51,7 @@
       "headline": "The Shopify automations no one builds",
       "description": "Tagging is 14% of every Shopify workflow merchants ship. Returns and refunds — the work that actually scales with order volume — are under 1%. A field study of 1,374 playbooks and the gap between what's easy to automate and what's worth automating.",
       "datePublished": "2026-05-28",
-      "dateModified": "2026-06-11",
+      "dateModified": "2026-06-13",
       "articleSection": "Research",
       "keywords": "Shopify automation, Shopify Flow, ecommerce returns, order tagging, refund automation",
       "wordCount": 2180,
@@ -488,6 +488,12 @@ em { font-style: italic; }
 .article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
 
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
 .related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
 .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
 @media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
@@ -928,6 +934,27 @@ em { font-style: italic; }
   </div>
 
 </article>
+
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">◆ COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h2 class="faq-q">What are the most common Shopify automations merchants build?</h2>
+      <p class="faq-a">In a field study of 1,374 Shopify automation workflows, tagging was the single largest category at 14% of everything merchants automate — automatically labelling orders, customers, and products. It dominates because it is cheap to set up and low-risk, not because it saves the most work.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Which high-value Shopify automations do merchants almost never build?</h2>
+      <p class="faq-a">Returns and refunds — the work that actually scales with order volume — make up under 1% of automated workflows. The tasks that consume the most staff time, such as returns, refunds, and exception handling, are the least automated because they are harder to express in rigid rule-based builders.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Why is there a gap between easy-to-automate and worth-automating Shopify tasks?</h2>
+      <p class="faq-a">Traditional drag-and-drop automation rewards tasks that fit neat if-this-then-that rules, so merchants automate simple tagging and notifications. The high-value work — returns, refunds, support exceptions — involves judgement and branching that rule builders handle poorly. An AI playbook closes the gap by letting merchants describe the messy workflow in plain language and compiling it into a running automation.</p>
+    </div>
+  </div>
+</section>
 
 <section class="related">
   <div class="section-head">

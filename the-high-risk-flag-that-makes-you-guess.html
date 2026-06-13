@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta property="article:published_time" content="2026-06-06" />
-    <meta property="article:modified_time" content="2026-06-11" />
+    <meta property="article:modified_time" content="2026-06-13" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -51,7 +51,7 @@
       "headline": "The high-risk flag that makes you guess",
       "description": "Shopify flags an order 'high-risk' and hands you a coin-flip: cancel a real customer or fulfil a fraudster — with the reasons hidden. Why the fraud-review flag is a blackbox merchants hate, and the AI playbook that decides each one with evidence instead of a guess.",
       "datePublished": "2026-06-06",
-      "dateModified": "2026-06-11",
+      "dateModified": "2026-06-13",
       "articleSection": "Research",
       "keywords": "Shopify high-risk order, fraud analysis, fraud review automation, chargeback prevention, false decline, manual order review, ecommerce fraud automation",
       "wordCount": 1750,
@@ -488,6 +488,12 @@ em { font-style: italic; }
 .article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
 
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
 .related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
 .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
 @media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
@@ -847,6 +853,27 @@ em { font-style: italic; }
   </div>
 
 </article>
+
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">◆ COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h2 class="faq-q">What does &#x27;high-risk&#x27; mean on a Shopify order?</h2>
+      <p class="faq-a">Shopify&#x27;s fraud analysis scores each order low, medium, or high risk based on signals like address mismatches, proxy/VPN use, card-verification results, and how closely the order resembles past fraud. A &#x27;high-risk&#x27; flag is a warning that the order has fraud-like characteristics — but Shopify doesn&#x27;t show you all the data behind it, so it&#x27;s a prompt to investigate, not a verdict.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Why do merchants find Shopify&#x27;s fraud flag frustrating?</h2>
+      <p class="faq-a">Because it&#x27;s a blackbox that pushes the decision back onto the merchant. The reason often reads only &#x27;characteristics similar to fraudulent orders observed in the past,&#x27; without saying which characteristics. That leaves the merchant to manually research each flagged order and choose between two bad outcomes: cancel a legitimate customer (a false decline) or fulfil and risk a chargeback.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Can fraud review on Shopify be automated?</h2>
+      <p class="faq-a">Yes. An AI playbook can enrich each flagged order with the signals a human would check — order history, email and address age, device and geolocation, AVS/CVV results, order velocity — then approve clearly-good orders, hold or cancel clearly-bad ones, and escalate only the genuine grey-area cases to a person with the evidence already gathered. That cuts the manual queue without blindly cancelling good customers.</p>
+    </div>
+  </div>
+</section>
 
 <section class="related">
   <div class="section-head">

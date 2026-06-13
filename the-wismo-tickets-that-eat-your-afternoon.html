@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta property="article:published_time" content="2026-06-04" />
-    <meta property="article:modified_time" content="2026-06-11" />
+    <meta property="article:modified_time" content="2026-06-13" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -51,7 +51,7 @@
       "headline": "The \"where is my order?\" tickets that eat your afternoon",
       "description": "WISMO — 'where is my order?' — is the single most common ecommerce support ticket, averaging ~18% of inbox volume and spiking past 50% on Black Friday. Why Shopify merchants still answer them by hand, and the AI playbook that finally closes the loop.",
       "datePublished": "2026-06-04",
-      "dateModified": "2026-06-11",
+      "dateModified": "2026-06-13",
       "articleSection": "Research",
       "keywords": "WISMO, where is my order, order tracking automation, ecommerce support, Shopify customer support",
       "wordCount": 2040,
@@ -488,6 +488,12 @@ em { font-style: italic; }
 .article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
 
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
 .related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
 .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
 @media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
@@ -835,6 +841,27 @@ em { font-style: italic; }
   </div>
 
 </article>
+
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">◆ COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h2 class="faq-q">What is WISMO?</h2>
+      <p class="faq-a">WISMO stands for &quot;where is my order?&quot; — the single most common message in ecommerce support. It accounts for roughly 18% of all incoming tickets on an average week and can climb past 50% during peak periods like Black Friday.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">How much does answering a &quot;where is my order?&quot; ticket cost?</h2>
+      <p class="faq-a">Industry estimates put the fully-loaded cost of handling one support interaction at $5 to $25 depending on channel and labor. A store fielding 3,000 WISMO tickets a month spends roughly $15,000 to $60,000 answering a question the carrier&#x27;s tracking data could answer for free.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Why doesn&#x27;t a canned auto-reply fix WISMO?</h2>
+      <p class="faq-a">A static auto-reply still makes the customer do the work — find the tracking link, click through, interpret the carrier status. It deflects nothing and often increases follow-ups. The fix is a playbook that reads the order and tracking data and answers the specific question automatically, ideally before the customer asks.</p>
+    </div>
+  </div>
+</section>
 
 <section class="related">
   <div class="section-head">
