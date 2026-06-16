@@ -15,7 +15,37 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Sat, 13 Jun 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The sale you have to start by hand</title>
+      <link>https://blog.dugong.live/the-sale-you-start-by-hand.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/the-sale-you-start-by-hand.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Tue, 16 Jun 2026 09:00:00 +0000</pubDate>
+      <description>Shopify has no native way to schedule a sale to start and end on its own. The price edit applies the instant you save, Shopify Flow cannot schedule a price change, and nothing remembers the original price to revert to, so merchants flip prices by hand at midnight, babysit the promotion, and a forgotten reset bleeds margin for days. Discount codes can be scheduled but show no struck-through sale price while customers browse. The AI playbook that selects the products by rule, records each original price, sets the discount and compare-at strikethrough above a margin floor, and reverts every price exactly when the sale ends.</description>
+    </item>
+
+    <item>
+      <title>The reorder you always make too late</title>
+      <link>https://blog.dugong.live/the-reorder-you-always-make-too-late.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/the-reorder-you-always-make-too-late.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 +0000</pubDate>
+      <description>Shopify tracks inventory but has no native way to reorder from suppliers for you, and its purchase orders are too basic to set a reorder point per SKU, forecast demand, or auto-fill the cost and supplier SKU. So merchants reorder from a stale spreadsheet and a gut feel, bestsellers go out of stock for ~35 days while cash sits frozen in slow movers, and ~43% of shoppers leave for a competitor. The AI playbook that projects days of cover per SKU, subtracts each supplier's lead time, right-sizes the buy, groups it by vendor to clear minimums, and drafts the purchase order for approval on time.</description>
+    </item>
+
+    <item>
+      <title>The abandoned cart that gets one email</title>
+      <link>https://blog.dugong.live/the-abandoned-cart-that-gets-one-email.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/the-abandoned-cart-that-gets-one-email.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Sun, 14 Jun 2026 09:00:00 +0000</pubDate>
+      <description>Shopify's native abandoned checkout recovery is one generic email on a preset timer, with no follow-up sequence and no personalization, and one-page checkout often loses the email and phone before any reminder can send. Roughly 70% of carts are abandoned and a single reminder recovers only about 3 to 8 percent. The AI playbook that sequences, personalizes across email and SMS, recovers the contact where it can, and stops the moment the shopper buys.</description>
+    </item>
 
     <item>
       <title>The sold-out products that sink your collection</title>
