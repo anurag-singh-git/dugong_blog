@@ -116,6 +116,65 @@
           }
         }
       ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html#howto",
+      "name": "The overselling problem no one automates",
+      "description": "The AI-run playbook behind the overselling problem no one automates.",
+      "inLanguage": "en",
+      "totalTime": "PT8M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Read the live available count for each SKU on every channel",
+          "text": "Read the live available count for each SKU on every channel",
+          "url": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Reconcile to a single source of truth (lowest verified count)",
+          "text": "Reconcile to a single source of truth (lowest verified count)",
+          "url": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Push that number to Shopify",
+          "text": "Push that number to Shopify, Amazon, eBay, and POS at once",
+          "url": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Hold a dynamic buffer on fast-movers during a sale",
+          "text": "Hold a dynamic buffer on fast-movers during a sale",
+          "url": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "If a SKU is about to hit zero",
+          "text": "If a SKU is about to hit zero → hide it or flip to \"notify me\" before it can be oversold",
+          "url": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "If two channels disagree by more than a unit",
+          "text": "If two channels disagree by more than a unit → pause sales on that SKU and ping me in Slack with both numbers",
+          "url": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Account for bundles",
+          "text": "Account for bundles, pre-orders, and returns correctly, not as plain decrements",
+          "url": "https://blog.dugong.live/the-overselling-problem-no-one-automates.html#playbook"
+        }
+      ]
     }
   ]
 }
@@ -722,7 +781,7 @@ em { font-style: italic; }
       Dugong playbook, in plain prose, it reads like this:
     </p>
 
-    <pre><code><span class="c"># trigger</span>
+    <pre id="playbook"><code><span class="c"># trigger</span>
 <span class="k">When</span> stock changes on any channel, or every 2 minutes
 
 <span class="c"># steps</span>

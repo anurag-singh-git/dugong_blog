@@ -116,6 +116,65 @@
           }
         }
       ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/the-restock-alert-that-never-fires.html#howto",
+      "name": "The restock alert that never fires",
+      "description": "The AI-run playbook behind the restock alert that never fires.",
+      "inLanguage": "en",
+      "totalTime": "PT9M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Pull the waitlist for that exact variant and how long each person has",
+          "text": "Pull the waitlist for that exact variant and how long each person has been waiting",
+          "url": "https://blog.dugong.live/the-restock-alert-that-never-fires.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Check how many units truly landed",
+          "text": "Check how many units truly landed, not the raw number on a flickering feed",
+          "url": "https://blog.dugong.live/the-restock-alert-that-never-fires.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Notify in priority order",
+          "text": "Notify in priority order, first-requested first, only as many people as there are units, with a little headroom",
+          "url": "https://blog.dugong.live/the-restock-alert-that-never-fires.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Send on the channel they chose",
+          "text": "Send on the channel they chose, SMS for the fast movers, email otherwise, with a link straight to the variant",
+          "url": "https://blog.dugong.live/the-restock-alert-that-never-fires.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Throttle the next wave only if more stock lands",
+          "text": "Throttle the next wave only if more stock lands, so you never point more buyers at fewer units",
+          "url": "https://blog.dugong.live/the-restock-alert-that-never-fires.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Stop and close the list when it sells through",
+          "text": "Stop and close the list when it sells through, and tell the people who missed it they're still in line",
+          "url": "https://blog.dugong.live/the-restock-alert-that-never-fires.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "If it's a hyped drop or a tiny restock",
+          "text": "If it's a hyped drop or a tiny restock → assemble the plan and hand it to me before anything sends",
+          "url": "https://blog.dugong.live/the-restock-alert-that-never-fires.html#playbook"
+        }
+      ]
     }
   ]
 }
@@ -606,7 +665,7 @@ em { font-style: italic; }
       in plain prose, it reads like this:
     </p>
 
-    <pre><code><span class="c"># trigger</span>
+    <pre id="playbook"><code><span class="c"># trigger</span>
 <span class="k">When</span> a product or variant goes from out of stock to
 available, and the count is actually synced
 

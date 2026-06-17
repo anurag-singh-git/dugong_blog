@@ -116,6 +116,65 @@
           }
         }
       ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html#howto",
+      "name": "The \"where is my order?\" tickets that eat your afternoon",
+      "description": "The AI-run playbook behind the \"where is my order?\" tickets that eat your afternoon.",
+      "inLanguage": "en",
+      "totalTime": "PT9M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Find the order in Shopify from their email or order number",
+          "text": "Find the order in Shopify from their email or order number",
+          "url": "https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Pull live tracking from the carrier",
+          "text": "Pull live tracking from the carrier",
+          "url": "https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Compare status against the promised delivery date",
+          "text": "Compare status against the promised delivery date",
+          "url": "https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "If on track",
+          "text": "If on track → reply warmly with the real ETA, no link dump",
+          "url": "https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "If stalled > 48h or past due",
+          "text": "If stalled > 48h or past due → apologize, offer a reship or refund, and flag it to me in Slack",
+          "url": "https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "If marked delivered but they say missing",
+          "text": "If marked delivered but they say missing → route to a human with the delivery scan attached",
+          "url": "https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Match the brand voice; sign off as the team",
+          "text": "Match the brand voice; sign off as the team, not a bot",
+          "url": "https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html#playbook"
+        }
+      ]
     }
   ]
 }
@@ -716,7 +775,7 @@ em { font-style: italic; }
       playbook, in plain prose, it looks like this:
     </p>
 
-    <pre><code><span class="c"># trigger</span>
+    <pre id="playbook"><code><span class="c"># trigger</span>
 <span class="k">When</span> a support email mentions an order or tracking
 
 <span class="c"># steps</span>

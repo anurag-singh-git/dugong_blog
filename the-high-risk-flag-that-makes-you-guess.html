@@ -116,6 +116,58 @@
           }
         }
       ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/the-high-risk-flag-that-makes-you-guess.html#howto",
+      "name": "The high-risk flag that makes you guess",
+      "description": "The AI-run playbook behind the high-risk flag that makes you guess.",
+      "inLanguage": "en",
+      "totalTime": "PT9M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Pull the signals a human would check",
+          "text": "Pull the signals a human would check: AVS/CVV result, billing vs. shipping match, email + address age, IP geolocation vs. shipping country, proxy/VPN, order velocity",
+          "url": "https://blog.dugong.live/the-high-risk-flag-that-makes-you-guess.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Look up this customer's history with us — prior approved orders",
+          "text": "Look up this customer's history with us, prior approved orders, past chargebacks, lifetime value",
+          "url": "https://blog.dugong.live/the-high-risk-flag-that-makes-you-guess.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "If clearly legitimate (known good customer",
+          "text": "If clearly legitimate (known good customer, everything matches) → approve and fulfil, no human needed",
+          "url": "https://blog.dugong.live/the-high-risk-flag-that-makes-you-guess.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "If clearly fraudulent (mismatched everything",
+          "text": "If clearly fraudulent (mismatched everything, card testing, disposable email) → cancel, refund, blocklist",
+          "url": "https://blog.dugong.live/the-high-risk-flag-that-makes-you-guess.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "If genuinely grey",
+          "text": "If genuinely grey → hold, send the customer a light verification step, and queue it for me with the full dossier already attached",
+          "url": "https://blog.dugong.live/the-high-risk-flag-that-makes-you-guess.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Log every decision so the line between approve and cancel keeps getting",
+          "text": "Log every decision so the line between approve and cancel keeps getting sharper",
+          "url": "https://blog.dugong.live/the-high-risk-flag-that-makes-you-guess.html#playbook"
+        }
+      ]
     }
   ]
 }
@@ -741,7 +793,7 @@ em { font-style: italic; }
       in plain prose, it reads like this:
     </p>
 
-    <pre><code><span class="c"># trigger</span>
+    <pre id="playbook"><code><span class="c"># trigger</span>
 <span class="k">When</span> an order is flagged medium- or high-risk
 
 <span class="c"># steps</span>

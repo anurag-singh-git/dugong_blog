@@ -116,6 +116,65 @@
           }
         }
       ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/the-order-change-that-races-your-warehouse.html#howto",
+      "name": "The order change that races your warehouse",
+      "description": "The AI-run playbook behind the order change that races your warehouse.",
+      "inLanguage": "en",
+      "totalTime": "PT9M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Match the message to the order (by email",
+          "text": "Match the message to the order (by email, order number, or recent purchase) and read what they want changed",
+          "url": "https://blog.dugong.live/the-order-change-that-races-your-warehouse.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Check whether fulfilment has started yet",
+          "text": "Check whether fulfilment has started yet",
+          "url": "https://blog.dugong.live/the-order-change-that-races-your-warehouse.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "If it's already shipped",
+          "text": "If it's already shipped → tell them honestly, offer a return or address-correction path, and stop",
+          "url": "https://blog.dugong.live/the-order-change-that-races-your-warehouse.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "If it's still open and the change is safe (size/variant swap",
+          "text": "If it's still open and the change is safe (size/variant swap, quantity, address, add a forgotten item) → apply it, recalculate the price and shipping difference",
+          "url": "https://blog.dugong.live/the-order-change-that-races-your-warehouse.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "If they owe more",
+          "text": "If they owe more → send a quick secure payment link; if we owe them → refund the difference",
+          "url": "https://blog.dugong.live/the-order-change-that-races-your-warehouse.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Confirm back in plain language",
+          "text": "Confirm back in plain language: \"Done, updated to a medium, shipping to your office, $4 refunded.\"",
+          "url": "https://blog.dugong.live/the-order-change-that-races-your-warehouse.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "If anything is risky (high-value",
+          "text": "If anything is risky (high-value, flagged, address looks off, partial refund) → hold it and queue it for me with the full context attached",
+          "url": "https://blog.dugong.live/the-order-change-that-races-your-warehouse.html#playbook"
+        }
+      ]
     }
   ]
 }
@@ -598,7 +657,7 @@ em { font-style: italic; }
       as a Dugong playbook, in plain prose, it reads like this:
     </p>
 
-    <pre><code><span class="c"># trigger</span>
+    <pre id="playbook"><code><span class="c"># trigger</span>
 <span class="k">When</span> a customer message asks to change or cancel an order
 
 <span class="c"># steps</span>

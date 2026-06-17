@@ -116,6 +116,65 @@
           }
         }
       ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/the-reorder-you-always-make-too-late.html#howto",
+      "name": "The reorder you always make too late",
+      "description": "The AI-run playbook behind the reorder you always make too late.",
+      "inLanguage": "en",
+      "totalTime": "PT9M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Project days of cover left for each SKU from its recent sales pace",
+          "text": "Project days of cover left for each SKU from its recent sales pace, trend, and any seasonality",
+          "url": "https://blog.dugong.live/the-reorder-you-always-make-too-late.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Subtract that supplier's real lead time to find the date each item must",
+          "text": "Subtract that supplier's real lead time to find the date each item must be reordered by",
+          "url": "https://blog.dugong.live/the-reorder-you-always-make-too-late.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Size the order to cover demand through the next cycle",
+          "text": "Size the order to cover demand through the next cycle, not a flat number, and not so much that cash sits idle",
+          "url": "https://blog.dugong.live/the-reorder-you-always-make-too-late.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Group the items by supplier so each PO clears the order minimum instead",
+          "text": "Group the items by supplier so each PO clears the order minimum instead of shipping in dribs",
+          "url": "https://blog.dugong.live/the-reorder-you-always-make-too-late.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Draft the purchase order with the right cost",
+          "text": "Draft the purchase order with the right cost, supplier SKU, and quantities filled in",
+          "url": "https://blog.dugong.live/the-reorder-you-always-make-too-late.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Flag anything unusual",
+          "text": "Flag anything unusual: a sudden spike, a stockout already imminent, a price that moved",
+          "url": "https://blog.dugong.live/the-reorder-you-always-make-too-late.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Hand me the drafted POs to approve",
+          "text": "Hand me the drafted POs to approve, and only send on my okay",
+          "url": "https://blog.dugong.live/the-reorder-you-always-make-too-late.html#playbook"
+        }
+      ]
     }
   ]
 }
@@ -613,7 +672,7 @@ em { font-style: italic; }
       prose, it reads like this:
     </p>
 
-    <pre><code><span class="c"># trigger</span>
+    <pre id="playbook"><code><span class="c"># trigger</span>
 <span class="k">Every</span> morning, and whenever a product's sales pace
 shifts sharply
 

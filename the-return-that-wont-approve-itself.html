@@ -116,6 +116,65 @@
           }
         }
       ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/the-return-that-wont-approve-itself.html#howto",
+      "name": "The return that won't approve itself",
+      "description": "The AI-run playbook behind the return that won't approve itself.",
+      "inLanguage": "en",
+      "totalTime": "PT9M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Match the message to the order and read what they want back",
+          "text": "Match the message to the order and read what they want back, and why",
+          "url": "https://blog.dugong.live/the-return-that-wont-approve-itself.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Check eligibility",
+          "text": "Check eligibility: in window, not final-sale, item condition claimed, customer history",
+          "url": "https://blog.dugong.live/the-return-that-wont-approve-itself.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "If it's a size or colour swap and the new variant is in stock",
+          "text": "If it's a size or colour swap and the new variant is in stock → offer the exchange first",
+          "url": "https://blog.dugong.live/the-return-that-wont-approve-itself.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "If they accept",
+          "text": "If they accept → create the replacement order, send the return label, settle any price difference",
+          "url": "https://blog.dugong.live/the-return-that-wont-approve-itself.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "If they want money back and it meets policy",
+          "text": "If they want money back and it meets policy → approve, offer store credit with a small bonus, else refund",
+          "url": "https://blog.dugong.live/the-return-that-wont-approve-itself.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Confirm in plain language",
+          "text": "Confirm in plain language: \"Approved. Medium is on its way, return label attached, no charge.\"",
+          "url": "https://blog.dugong.live/the-return-that-wont-approve-itself.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "If anything is off (out of window",
+          "text": "If anything is off (out of window, high-value, repeat returner, item flagged) → hold it and queue it for me with the full context",
+          "url": "https://blog.dugong.live/the-return-that-wont-approve-itself.html#playbook"
+        }
+      ]
     }
   ]
 }
@@ -603,7 +662,7 @@ em { font-style: italic; }
       playbook, in plain prose, it reads like this:
     </p>
 
-    <pre><code><span class="c"># trigger</span>
+    <pre id="playbook"><code><span class="c"># trigger</span>
 <span class="k">When</span> a customer asks to return or exchange an item
 
 <span class="c"># steps</span>

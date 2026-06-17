@@ -15,7 +15,17 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Tue, 16 Jun 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The meta description you write one at a time</title>
+      <link>https://blog.dugong.live/the-meta-description-you-write-one-at-a-time.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/the-meta-description-you-write-one-at-a-time.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Wed, 17 Jun 2026 09:00:00 +0000</pubDate>
+      <description>Shopify can edit the meta description field in bulk, but only by writing the same text onto every selected product, which is exactly the duplicate, boilerplate text Google tells you to avoid. So a unique, search-intent meta for each product has to be written in its search engine listing one product at a time, and past the first few dozen SKUs most stores leave it blank, which makes Shopify auto-fill the search snippet with the generic, often truncated opening of the product description. Collection pages, the homepage, the standard pages, and every blog post each need their own, edited individually. The meta description does not move ranking directly, but it decides the click-through on traffic you already rank for, and answer engines lean on a concise, distinct line to summarize and quote a page. The AI playbook that finds every missing, duplicated, or wrong-length description across products, collections, and pages, reads each page to write a distinct line in the store's voice that fits the ~155-character window and matches search intent, checks the whole set so no two are identical, fixes weak meta titles in the same pass, writes the field back through the API without touching anything else, and re-checks new products so the field never drifts back to blank.</description>
+    </item>
 
     <item>
       <title>The sale you have to start by hand</title>
