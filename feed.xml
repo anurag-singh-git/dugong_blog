@@ -15,7 +15,27 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Wed, 17 Jun 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The product descriptions you'll never finish writing</title>
+      <link>https://blog.dugong.live/the-product-descriptions-youll-never-finish-writing.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/the-product-descriptions-youll-never-finish-writing.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Fri, 19 Jun 2026 09:00:00 +0000</pubDate>
+      <description>Writing product copy is the Shopify job that looks solved and is half-solved. Shopify Magic is built into the admin and drafts a description from a few keywords you type, but it works one product at a time inside the editor, writes from the keywords you hand it rather than reading the product's variants, spec sheet, and images, and tends to come out generic enough that you edit every one, so the work moves from writing to editing without the catalog getting any shorter. There is no native bulk button; the known workaround is to export products to a CSV, add a prompt column, run it through an AI tool, and re-import, which is brittle on a large file, and app-store generators run in bulk but, fed thin inputs, produce a large pile of near-duplicate copy you still have to audit. The stakes are SEO and conversion: a blank description gives search engines nothing to rank, a line pasted from the supplier is already live word-for-word on every other store running the same feed so yours has no reason to surface, and ten near-identical variants come out as ten pages that compete with each other instead of each earning its own ranking. The AI playbook reads each product whole (title, type and tags, every variant and option, the existing copy, the supplier spec, and the images), writes in one defined brand voice applied the same way across every product, differentiates near-identical SKUs so each page is distinct, structures each line for SEO and scanning without keyword stuffing, writes the descriptions back across the whole catalog through the Admin API, backfills the products that ship blank or with placeholder copy and refreshes when the product or spec changes, and flags the products too thin to describe well while logging every description with the inputs it was written from.</description>
+    </item>
+
+    <item>
+      <title>The order tag you set by hand</title>
+      <link>https://blog.dugong.live/the-order-tag-you-set-by-hand.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/the-order-tag-you-set-by-hand.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Thu, 18 Jun 2026 09:00:00 +0000</pubDate>
+      <description>Shopify Flow is free on every plan and tags an order well when one condition is true, like a total over a threshold or a specific product in the cart. The tags merchants actually set by hand depend on several signals at once: a high-value order, going to a slow-ship destination, from a repeat customer, with a free-text gift note. Flow checks conditions one at a time and cannot read a free-text order note the way a person does, so multi-signal tags get set by hand or split across a brittle stack of single-condition workflows. The tags themselves also drift and break: nothing keeps the vocabulary clean, so vip, VIP, and Vip can coexist and a segment built on one silently misses the others, and a tag built from a variable can hit invalid characters or the length limit and throw an order-tags-is-invalid error that fails silently. Tags are the connective tissue for fulfillment routing, downstream flows, customer segments, exports, and email platforms, so a wrong tag misroutes an order or drops a customer from a sequence. The AI playbook that reads the whole order at once, decides the tags from plain-language rules across product, value, customer, destination, and note signals, normalizes every tag against one controlled vocabulary, writes them back at the order level without touching anything else, triggers the routing or hold the tag is for, backfills the orders that predate the rule, and logs every tag with its reason.</description>
+    </item>
 
     <item>
       <title>The meta description you write one at a time</title>

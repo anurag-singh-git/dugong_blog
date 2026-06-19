@@ -57,7 +57,7 @@
       "wordCount": 1880,
       "timeRequired": "PT9M",
       "inLanguage": "en",
-      "image": "https://blog.dugong.live/og-image.png",
+      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
       "about": [
         { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
         { "@type": "Thing", "name": "Meta element", "sameAs": "https://en.wikipedia.org/wiki/Meta_element" },
@@ -78,7 +78,7 @@
         "@id": "https://blog.dugong.live/#organization",
         "name": "Dugong",
         "url": "https://dugong.live",
-        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png" }
+        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
       }
     },
     {
@@ -114,6 +114,65 @@
             "@type": "Answer",
             "text": "Aim for roughly 150 to 160 characters. That is about how much shows on a desktop search result before it gets cut off, and mobile shows a little less. Google does not penalize you for going longer, it simply truncates the overflow, so anything past about 160 characters is unlikely to be seen. More important than the exact count is that each description is unique, reads naturally, leads with what the searcher is looking for, and includes a light reason to click. A description that fits the length but says nothing specific still loses to one that answers the query."
           }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/the-meta-description-you-write-one-at-a-time.html#howto",
+      "name": "The meta description you write one at a time",
+      "description": "The AI playbook that writes a distinct, in-range meta description for every product, collection, and page, guarantees no two are identical, and re-checks new products so it never drifts.",
+      "inLanguage": "en",
+      "totalTime": "PT9M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Find every product",
+          "text": "Find every product, collection, and page whose meta description is missing, duplicated, too long, or too short",
+          "url": "https://blog.dugong.live/the-meta-description-you-write-one-at-a-time.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Read the page itself",
+          "text": "Read the page itself: title, description, key attributes, price band, and what the buyer is actually searching for",
+          "url": "https://blog.dugong.live/the-meta-description-you-write-one-at-a-time.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Write a unique description in the store's voice that leads with the",
+          "text": "Write a unique description in the store's voice that leads with the intent and fits the ~155-character window",
+          "url": "https://blog.dugong.live/the-meta-description-you-write-one-at-a-time.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Check it against every other description so no two are identical",
+          "text": "Check it against every other description so no two are identical, and so none reads like a template",
+          "url": "https://blog.dugong.live/the-meta-description-you-write-one-at-a-time.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Fix the weak meta title in the same pass when it is blank or generic",
+          "text": "Fix the weak meta title in the same pass when it is blank or generic",
+          "url": "https://blog.dugong.live/the-meta-description-you-write-one-at-a-time.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Write the field back through the API in batches",
+          "text": "Write the field back through the API in batches, touching nothing else on the product",
+          "url": "https://blog.dugong.live/the-meta-description-you-write-one-at-a-time.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Log every change for a quick human spot-check",
+          "text": "Log every change for a quick human spot-check, and flag the handful that need a real decision",
+          "url": "https://blog.dugong.live/the-meta-description-you-write-one-at-a-time.html#playbook"
         }
       ]
     }
@@ -610,7 +669,7 @@ em { font-style: italic; }
       prose, it reads like this:
     </p>
 
-    <pre><code><span class="c"># trigger</span>
+    <pre id="playbook"><code><span class="c"># trigger</span>
 <span class="k">On</span> a catalog audit, and again whenever a product or page is created or edited
 
 <span class="c"># steps</span>
@@ -770,6 +829,38 @@ em { font-style: italic; }
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+    <a href="the-product-descriptions-youll-never-finish-writing.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The product descriptions you'll never finish writing</h3>
+        <p class="card-dek">
+          The body copy is the same chore as the meta description, one level up. Shopify Magic writes one product at a time from keywords you type, so the catalog never gets done. The AI playbook that writes it whole.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-order-tag-you-set-by-hand.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order tag you set by hand</h3>
+        <p class="card-dek">
+          Order tags route fulfillment, segments, and downstream flows, but Shopify Flow tags on one condition and cannot read the note, so they get set by hand. The AI playbook that reads the whole order and tags it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
     <a href="the-sale-you-start-by-hand.html" class="card">
       <div class="card-body">
         <div class="post-meta">

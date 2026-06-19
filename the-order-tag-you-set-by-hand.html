@@ -3,28 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The sale you have to start by hand — Dugong Field Notes</title>
-<meta name="description" content="Shopify can't schedule a sale to start, revert, or run by rule, so you flip prices by hand at midnight and forget to undo them. The AI playbook that runs it." />
-<link rel="canonical" href="https://blog.dugong.live/the-sale-you-start-by-hand.html" />
+<title>The order tag you set by hand — Dugong Field Notes</title>
+<meta name="description" content="Shopify Flow tags an order when one thing is true, but real tagging reads the whole order at once, so the tags that route fulfillment get set by hand. The AI fix." />
+<link rel="canonical" href="https://blog.dugong.live/the-order-tag-you-set-by-hand.html" />
 <meta name="author" content="Priya Singh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="keywords" content="Shopify schedule sale, scheduled price change Shopify, flash sale automation, compare at price, bulk price edit, sale scheduler Shopify, timed discount, automatic price revert, promotion automation, Dugong" />
+<meta name="keywords" content="Shopify order tags, auto tag orders Shopify, Shopify Flow order tagging, tag orders for fulfillment, order tagging automation, Shopify Flow multiple conditions, order tags invalid, tag orders by note, AI order tagging, Dugong" />
 <meta name="theme-color" content="#c6fe1e" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
-<meta property="article:published_time" content="2026-06-16" />
-    <meta property="article:modified_time" content="2026-06-16" />
+<meta property="article:published_time" content="2026-06-18" />
+    <meta property="article:modified_time" content="2026-06-18" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
-<meta property="og:title" content="The sale you have to start by hand" />
-<meta property="og:description" content="Shopify has no native way to schedule a sale. You change prices by hand, often at midnight, then have to remember to put them back. It can't run by rule, it won't auto-revert, and a forgotten reset bleeds margin for days. The AI playbook that schedules the sale, sets the strikethrough, guards the floor, and reverts on time." />
-<meta property="og:url" content="https://blog.dugong.live/the-sale-you-start-by-hand.html" />
+<meta property="og:title" content="The order tag you set by hand" />
+<meta property="og:description" content="Shopify Flow will tag an order when one simple condition is true. The real tagging job is never one condition: it is the product, the order value, the customer's history, the destination, and the line a buyer typed into the note, all read together. So the tags that route fulfillment, fire your flows, and build your segments still get set by hand, one order at a time. The AI playbook that reads the whole order and tags it from a clean, consistent vocabulary." />
+<meta property="og:url" content="https://blog.dugong.live/the-order-tag-you-set-by-hand.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -33,8 +33,8 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="The sale you have to start by hand" />
-<meta name="twitter:description" content="Shopify won't schedule a sale, won't revert it, and won't run it by rule, so you flip prices by hand at midnight. The AI playbook that runs the whole promotion." />
+<meta name="twitter:title" content="The order tag you set by hand" />
+<meta name="twitter:description" content="Shopify Flow tags an order on one condition. Real tagging reads the whole order at once, so routing tags get set by hand. The AI playbook that finishes the job." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
     <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 
@@ -44,24 +44,24 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/the-sale-you-start-by-hand.html#article",
+      "@id": "https://blog.dugong.live/the-order-tag-you-set-by-hand.html#article",
       "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
-      "mainEntityOfPage": "https://blog.dugong.live/the-sale-you-start-by-hand.html",
-      "url": "https://blog.dugong.live/the-sale-you-start-by-hand.html",
-      "headline": "The sale you have to start by hand",
-      "description": "Shopify has no native way to schedule a sale to start and end on its own. You edit prices by hand, set the compare-at strikethrough, then have to remember to put every price back when the promotion is over. It cannot target by rule, it will not auto-revert, and a forgotten reset quietly bleeds margin for days. The AI playbook that schedules the sale, sets the strikethrough, guards the margin floor, and reverts on time.",
-      "datePublished": "2026-06-16",
-      "dateModified": "2026-06-16",
+      "mainEntityOfPage": "https://blog.dugong.live/the-order-tag-you-set-by-hand.html",
+      "url": "https://blog.dugong.live/the-order-tag-you-set-by-hand.html",
+      "headline": "The order tag you set by hand",
+      "description": "Shopify Flow will tag an order when one simple condition is true, like a total over a threshold or a specific product in the cart. The real tagging job is never one condition: it is the product, the order value, the customer's history, the shipping destination, and the free-text line a buyer typed into the order note, all read together. So the tags that route fulfillment, fire downstream flows, and build customer segments still get set by hand, one order at a time, or split across a brittle stack of single-condition workflows. The AI playbook that reads the whole order, tags it from one clean vocabulary, backfills the orders that predate the rule, and never ships an invalid or near-duplicate tag.",
+      "datePublished": "2026-06-18",
+      "dateModified": "2026-06-18",
       "articleSection": "Research",
-      "keywords": "Shopify schedule sale, scheduled price change, flash sale automation, compare at price, bulk price edit, sale scheduler, timed discount, automatic price revert",
-      "wordCount": 1870,
+      "keywords": "Shopify order tags, auto tag orders, Shopify Flow order tagging, tag orders for fulfillment, order tagging automation, Shopify Flow multiple conditions, order tags invalid, tag orders by note",
+      "wordCount": 1880,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
       "about": [
         { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "Promotion (marketing)", "sameAs": "https://en.wikipedia.org/wiki/Promotion_(marketing)" },
-        { "@type": "Thing", "name": "Business process automation", "sameAs": "https://en.wikipedia.org/wiki/Business_process_automation" }
+        { "@type": "Thing", "name": "Order fulfillment", "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment" },
+        { "@type": "Thing", "name": "Tag (metadata)", "sameAs": "https://en.wikipedia.org/wiki/Tag_(metadata)" }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
@@ -85,7 +85,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The sale you have to start by hand", "item": "https://blog.dugong.live/the-sale-you-start-by-hand.html" }
+        { "@type": "ListItem", "position": 2, "name": "The order tag you set by hand", "item": "https://blog.dugong.live/the-order-tag-you-set-by-hand.html" }
       ]
     },
     {
@@ -93,86 +93,86 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Can Shopify schedule a sale to start and end automatically?",
+          "name": "Can Shopify automatically tag orders?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Not natively. Shopify lets you change a product's price and set a compare-at price for the strikethrough, but there is no built-in setting to say start this sale at midnight Friday and put the prices back on Monday. Shopify Flow cannot schedule a price change either; the community answer to that exact request has been no. So merchants either edit the prices by hand at the moment the sale should start and again when it ends, import a sale CSV at the start and a revert CSV at the end, or install a third-party sale-scheduler app. Discount codes and automatic discounts can be scheduled, but they do not show a struck-through sale price on the product, which is the look most storewide and collection sales want."
+            "text": "Partly. Shopify Flow is free on every plan and can add a tag when one condition is true, such as an order total over a threshold or a specific product in the cart. That covers the simple cases well. Where it runs out of room is the tag that depends on several things at once, like a high-value order going to a country you ship slowly, placed by a repeat customer, with a gift note in the order. Flow checks conditions one at a time and cannot read a free-text note the way a person does, so the multi-signal tags that actually drive fulfillment routing and customer segments tend to get set by hand, or split across a stack of single-condition workflows that are hard to keep in sync."
           }
         },
         {
           "@type": "Question",
-          "name": "Why not just use a discount code instead of changing prices?",
+          "name": "Why do my Shopify order tags come out inconsistent or invalid?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Discount codes and automatic discounts are scheduleable and they are the right tool for a coupon or a cart-level offer. But a code does not put a struck-through was-price on the product card and the product page, which is the visual a real sale relies on to signal value and urgency. A code also lives at checkout, so the browsing experience still shows full price, and codes invite their own problems: forgotten codes, codes shared on coupon sites, and stacking you did not intend. For a storewide or by-collection sale where you want every eligible product to visibly show the lower price, you are back to editing the actual price and compare-at, which Shopify will not schedule for you."
+            "text": "Two reasons show up again and again. The first is the controlled-vocabulary problem: nothing stops vip, VIP, and Vip from all existing as separate tags, so a segment built on one of them quietly misses the orders tagged with the others. The second is mechanical: a tag built from a variable can contain characters Shopify rejects or run past the length limit, which produces an order-tags-is-invalid error and a workflow that fails silently. Tags are case-sensitive enough to fracture a report and strict enough to break a write, which is why a tagging system needs one normalized vocabulary rather than whatever each workflow happened to type."
           }
         },
         {
           "@type": "Question",
-          "name": "What goes wrong when you run a timed sale by hand?",
+          "name": "Can Shopify Flow tag an order based on the order note or line item properties?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Three things, reliably. First, timing: the price edit applies the instant you save, so to start a sale at a specific hour someone has to be awake and at a keyboard at that hour, and a timezone mix-up starts or ends it in the wrong place. Second, the revert: the original price has to be put back by hand on every product, and a forgotten reset leaves bestsellers on sale for days, giving away margin with no campaign behind it. Third, targeting and margins: deciding which products are in, holding a minimum margin so a markdown does not sell below cost, and excluding items already on clearance is fiddly to do across hundreds of SKUs, so the safe move is to under-scope the sale or skip it."
+            "text": "Only in a limited way. Flow can reference note attributes and line item custom attributes inside a condition, so structured key-value data set at checkout can be used. What it cannot do is read a free-text order note the way a human does and decide what it means, so a buyer who types please ship before Friday or no invoice in the box is invisible to the rule. There is also a separate limit worth knowing: Shopify's Admin API does not let you change line item properties on an order that already exists, only order-level tags and notes, so anything you correct after the fact lives at the order level, not on the line."
           }
         }
       ]
     },
     {
       "@type": "HowTo",
-      "@id": "https://blog.dugong.live/the-sale-you-start-by-hand.html#howto",
-      "name": "The sale you have to start by hand",
-      "description": "The AI playbook that schedules the sale, sets the strikethrough, guards the margin floor, and reverts on time.",
+      "@id": "https://blog.dugong.live/the-order-tag-you-set-by-hand.html#howto",
+      "name": "The order tag you set by hand",
+      "description": "The AI playbook that reads the whole order, tags it from one clean vocabulary, routes what the tag is for, backfills the orders that predate the rule, and never ships an invalid or near-duplicate tag.",
       "inLanguage": "en",
       "totalTime": "PT9M",
       "step": [
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Select the products in scope by rule",
-          "text": "Select the products in scope by rule: collection, tag, or vendor, minus anything already on clearance",
-          "url": "https://blog.dugong.live/the-sale-you-start-by-hand.html#playbook"
+          "name": "Read the whole order",
+          "text": "Read the whole order at once: line items and their properties, the note and note attributes, the discount and source, the destination, and the customer's history",
+          "url": "https://blog.dugong.live/the-order-tag-you-set-by-hand.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Record each product's current price so it can be restored exactly later",
-          "text": "Record each product's current price so it can be restored exactly later",
-          "url": "https://blog.dugong.live/the-sale-you-start-by-hand.html#playbook"
+          "name": "Decide the tags from plain-language rules",
+          "text": "Decide the tags from rules written in plain language, combining product, value, customer, destination, and free-text note signals instead of one condition at a time",
+          "url": "https://blog.dugong.live/the-order-tag-you-set-by-hand.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Apply the discount",
-          "text": "Apply the discount, set the compare-at to the old price so the strikethrough shows, and never price below the margin floor",
-          "url": "https://blog.dugong.live/the-sale-you-start-by-hand.html#playbook"
+          "name": "Normalize against one vocabulary",
+          "text": "Normalize every tag against one controlled vocabulary, so no invalid characters, no near-duplicate casing, and nothing past the length limit",
+          "url": "https://blog.dugong.live/the-order-tag-you-set-by-hand.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Skip and flag anything the rule would push below cost",
-          "text": "Skip and flag anything the rule would push below cost, or that is already discounted deeper",
-          "url": "https://blog.dugong.live/the-sale-you-start-by-hand.html#playbook"
+          "name": "Write the tags back",
+          "text": "Write the tags back at the order level through the API, touching nothing else on the order",
+          "url": "https://blog.dugong.live/the-order-tag-you-set-by-hand.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Confirm the sale is live on a sample product",
-          "text": "Confirm the sale is live on a sample product, then report what changed and what was held back",
-          "url": "https://blog.dugong.live/the-sale-you-start-by-hand.html#playbook"
+          "name": "Trigger what the tag is for",
+          "text": "Trigger what the tag is for: route to the right location, place a hold, set a priority, or hand the order to the third-party logistics provider",
+          "url": "https://blog.dugong.live/the-order-tag-you-set-by-hand.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Revert every price to the recorded original at the end time",
-          "text": "Revert every price to the recorded original at the end time, with nothing left behind",
-          "url": "https://blog.dugong.live/the-sale-you-start-by-hand.html#playbook"
+          "name": "Backfill the past orders",
+          "text": "Backfill the orders that predate the rule, so segments and reports are not half-blind",
+          "url": "https://blog.dugong.live/the-order-tag-you-set-by-hand.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Log the whole run so the next sale is a one-line repeat",
-          "text": "Log the whole run so the next sale is a one-line repeat, not a from-scratch scramble",
-          "url": "https://blog.dugong.live/the-sale-you-start-by-hand.html#playbook"
+          "name": "Log every tag with its reason",
+          "text": "Log every tag set with the reason, and flag the orders too ambiguous to tag with confidence",
+          "url": "https://blog.dugong.live/the-order-tag-you-set-by-hand.html#playbook"
         }
       ]
     }
@@ -454,13 +454,13 @@ em { font-style: italic; }
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>◆ DISPATCH Nº 60 — JUN 16, 2026</span>
+    <span>◆ DISPATCH Nº 62 — JUN 18, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 1,870 WORDS</span>
+    <span>◆ 9 MIN READ · 1,880 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
-    <span>◆ DISPATCH Nº 60 — JUN 16, 2026</span>
+    <span>◆ DISPATCH Nº 62 — JUN 18, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 1,870 WORDS</span>
+    <span>◆ 9 MIN READ · 1,880 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -486,24 +486,25 @@ em { font-style: italic; }
 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH Nº 60</span>
+    <span style="color: var(--cream-dim);">DISPATCH Nº 62</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">JUN 16, 2026</span>
+    <span style="color: var(--cream-dim);">JUN 18, 2026</span>
     <span style="color: var(--line-2);">·</span>
     <span style="color: var(--cream-dim);">9 MIN READ</span>
   </div>
 
   <h1 class="article-title">
-    The sale you have to start <em>by hand</em>.
+    The order tag you set <em>by hand</em>.
   </h1>
 
   <p class="article-dek">
-    Shopify will happily let you drop a price. What it will not do is start
-    the sale at midnight, put the prices back on Monday, or run it by rule.
-    So a real person sits up to flip prices when the clock strikes, babysits
-    the promotion, and prays they remember to undo it. Here is why the timed
-    sale is the chore Shopify never automated, and the playbook that runs it
-    start to finish.
+    Shopify Flow will tag an order the moment one simple thing is true. The
+    trouble is that real tagging is never one simple thing. It is the product,
+    the order value, who the customer is, where it ships, and the line a buyer
+    typed into the note, all read together. So the tags that route fulfillment,
+    fire your flows, and build your segments still get set by hand, one order at
+    a time. Here is why order tagging is the chore Shopify half-automated, and
+    the playbook that finishes it.
   </p>
 
   <div class="article-byline">
@@ -516,238 +517,225 @@ em { font-style: italic; }
   <div class="article-body">
 
     <p>
-      Spend a week in the Shopify community forums around any big shopping
-      weekend and you will watch the same question arrive in a dozen costumes.
-      Someone wants to set a sale to start Friday at midnight and end Monday
-      night, without sitting at the keyboard for either edge. Someone else
-      asks whether Shopify Flow can schedule a price change. The answer that
-      comes back, again and again, is the one nobody wants: Shopify will let
-      you change a price, but it will not schedule the change for you. The
-      edit takes effect the instant you hit save. If you want a sale to begin
-      at a specific hour, a human has to be the one to begin it.
+      Look in any operations channel for a busy Shopify store and you will find
+      the same small ritual. Every morning someone opens the orders list and
+      starts adding tags. This one is a wholesale account, tag it. This one is
+      going to a country we ship by a slower carrier, tag it. This one has a note
+      that says it is a gift and please leave out the invoice, tag it so the
+      packer sees it. None of these is hard. There are just a lot of them, and
+      they arrive forever, and the person doing it knows the whole thing should
+      have been automated months ago.
     </p>
 
     <p>
-      It sounds like a small thing until you have lived it. The price drop
-      itself is one click. The campaign around it is not. You decide which
-      products are in and which are held back. You set a struck-through
-      was-price on each one so the discount actually reads as a discount. You
-      stay up to flip everything on at the start, you watch it through the
-      weekend, and then, when it is over, you go back and put every original
-      price where it was. Miss that last step and your bestseller is quietly
-      on sale on a random Wednesday with no campaign behind it, handing away
-      margin to anyone who happens to look.
+      They are right, and they are also stuck, because order tagging is one of
+      those jobs that looks completely solved from a distance and turns out to be
+      half-solved up close. Shopify Flow, which is free on every plan now, will
+      cheerfully tag an order for you. It will just only do it when the rule is
+      simple enough to fit on one line. The tags people actually set by hand are
+      the ones that depend on five things at once, and that is exactly where the
+      built-in tool runs out of room.
     </p>
 
     <blockquote>
-      Shopify will let you drop a price in one click. It will never tell you
-      when to <em>put it back</em>.
+      A tag looks like a sticky note. It is really the wiring that decides
+      where an order <em>goes</em>.
     </blockquote>
 
-    <h2>Why the timed sale matters more than it looks</h2>
+    <h2>Why a tag is never just a tag</h2>
 
     <p>
-      A sale is not a soft lever. Done well it is one of the sharpest tools a
-      store has. Flash sales lift transaction rates by roughly a third on
-      average, and they convert markedly better on mobile, where the urgency
-      of a countdown meets a thumb that is already scrolling. Online retail
-      is a multi-trillion-dollar arena now, and a large slice of that volume
-      moves on promotion: launches, seasonal events, clearance, the weekend
-      push to hit a number. The store that can spin up a clean, well-targeted
-      sale on short notice has a real edge over the one that cannot.
+      It is worth being clear about what an order tag is for, because the word
+      makes it sound decorative. It is not. In a working store the tag is the
+      connective tissue between the order and everything that happens to it.
+      Fulfillment routing reads the tag to decide which location or third-party
+      warehouse gets the order. Other automations trigger off it, so a tag is
+      often the thing that starts the next flow. Customer and order segments are
+      built on tags, which is how marketing finds the wholesale buyers or the
+      first-time customers. Exports and reports group by tag. Downstream tools
+      like your email platform read the tag to decide which sequence someone
+      enters.
     </p>
 
     <p>
-      The catch is the other direction. Run sales sloppily, or constantly, and
-      you train your own customers to wait for the next markdown, and you give
-      away margin you did not need to. So the timed sale is a precision
-      instrument: the right products, at the right discount, starting and
-      ending exactly when you said, and never a minute longer. That precision
-      is exactly what doing it by hand cannot reliably deliver, because the
-      precision lives in the timing and the cleanup, and those are the two
-      parts Shopify leaves entirely to you.
+      So a missing or wrong tag is not a cosmetic slip. It is an order that
+      shipped from the wrong warehouse, a flow that never fired, a customer who
+      landed in the wrong email sequence, a revenue report that quietly
+      undercounts a segment. The tag is small and the blast radius is not, which
+      is why people guard it by doing it themselves, and why doing it themselves
+      never ends.
     </p>
 
     <h2>What Shopify actually does, and where it stops</h2>
 
     <p>
-      Shopify is fluent in the part it owns and silent on the part that takes
-      the work. You can edit a product's price whenever you like, and you can
-      set a compare-at price, which is the field that draws the line through
-      the old number and signals a sale on the card and the product page. You
-      can also build discount codes and automatic discounts, and those can be
-      scheduled with a start and an end. What you cannot do is schedule the
-      actual price-and-compare-at change that a storewide or by-collection
-      sale relies on. The gap shows up in three places merchants hit fast.
+      Shopify Flow handles the clean cases genuinely well, and it is the right
+      first tool. The gap is not that it cannot tag. The gap is in three places
+      that show up the moment your tagging logic grows past a single condition.
     </p>
 
     <p>
-      First, <strong>there is no scheduled start or end on a price</strong>.
-      The price edit applies the moment you save it, full stop. To launch a
-      sale at midnight in your customers' timezone, someone is awake at
-      midnight, and a single timezone slip starts or ends the event in the
-      wrong place. There is no native "go live at this time, revert at that
-      time" anywhere on the product.
+      First, <strong>it checks one thing at a time, and real rules are
+      compound</strong>. Tagging an order over a set amount, or one that contains
+      a specific product, is the textbook Flow example and it works. But the tag
+      you reach for by hand is usually a combination: a high-value order, going to
+      a slow-ship destination, from a customer who has ordered before, that also
+      has a gift note. Expressing that means stacking conditions and branches, and
+      when you want a dozen such tags you end up maintaining a dozen overlapping
+      workflows that are hard to reason about and easy to break when one of them
+      changes.
     </p>
 
     <p>
-      Second, <strong>nothing puts the prices back</strong>. Shopify does not
-      remember what the price was before the sale, so the revert is a manual
-      pass over every product you touched. On a catalog of hundreds of SKUs
-      that is its own small project, done while tired on a Monday, and the one
-      product you miss keeps bleeding margin until a customer or a colleague
-      notices.
+      Second, <strong>it cannot read the order note like a person</strong>. Flow
+      can reference structured note attributes and line item properties set at
+      checkout, so clean key-value data is usable. What it cannot do is read the
+      free-text note a customer types and understand it. A buyer who writes
+      "please deliver after the 20th" or "no invoice, it is a present" is invisible
+      to a condition builder, so the one signal that most needs a human to notice
+      it is the one Flow cannot act on. That is precisely the note someone is
+      scanning the orders list for every morning.
     </p>
 
     <p>
-      Third, <strong>there is no targeting by rule</strong>. A good sale is
-      "everything in summer, except the three styles already on clearance, and
-      never below a margin floor." Shopify has no native way to express that
-      as a rule and apply it in one move. You select products by hand, you
-      eyeball which ones are already discounted, and you do the margin math per
-      item in your head or in a side spreadsheet. The bigger the catalog, the
-      more the safe move becomes to under-scope the sale, or skip it.
+      Third, <strong>the tags themselves drift and break</strong>. Nothing keeps
+      your vocabulary clean, so <code>vip</code>, <code>VIP</code>, and
+      <code>Vip</code> can all exist as separate tags, and a segment built on one
+      silently misses the orders tagged with the others. And a tag assembled from
+      a variable can contain characters Shopify rejects or run past the length
+      limit, which throws an order-tags-is-invalid error and a workflow that fails
+      without telling anyone. The system is strict enough to break a write and
+      loose enough to fracture a report, at the same time.
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ DATA</span>
       <span>
-        Sales are a sharp instrument, not a soft one. Flash sales lift
-        transaction rates by about <strong>35%</strong> on average and convert
-        roughly <strong>48% better on mobile</strong> than desktop, where a
-        countdown meets an impulse. But overuse cuts the other way: lean on
-        markdowns too often and you <strong>train customers to wait</strong>
-        for the next one. The whole value is in precision, the exact products
-        for the exact window, which is the part doing it by hand cannot keep.
+        Two failure modes worth knowing before you trust a tag. Tags are
+        <strong>case-sensitive enough to split a segment</strong>: a report built
+        on <code>VIP</code> will not see orders tagged <code>vip</code>. And a
+        tag built from order data can be <strong>rejected outright</strong> for
+        invalid characters or excess length, surfacing as an
+        order-tags-is-invalid error on an automation that then quietly does
+        nothing. Neither is loud. Both are why a tagging system needs one
+        normalized vocabulary rather than whatever each workflow happened to type.
       </span>
     </div>
 
     <h2>Why the usual fixes don't hold</h2>
 
     <p>
-      Once a merchant feels this, they reach for one of a few workarounds. Each
-      buys a little control and each breaks in a familiar spot.
+      Once a merchant feels this, they reach for one of three workarounds. Each
+      buys some ground and each gives it back in a familiar spot.
     </p>
 
     <p>
-      <strong>"I just change the prices when the sale starts."</strong> The
-      honest default, and it works for a tiny catalog and a forgiving
-      schedule. It falls apart on timing and on cleanup. You are the cron job:
-      the sale starts when you click and ends when you remember, which means
-      late nights, odd hours, and the standing risk of a price left on sale for
-      days. The more products in the event, the more clicks at both edges, and
-      the more chances to miss one.
+      <strong>"I will just tag them by hand each morning."</strong> The instinct
+      of someone who has been burned by a bad tag, and fine at low volume. It
+      stops scaling the day order count climbs, which is the same day the tags
+      matter most, during a sale or a launch. The work is never wrong, it is just
+      never finished, and it is the first thing dropped when the day gets busy,
+      which is exactly when a mis-routed order costs the most.
     </p>
 
     <p>
-      <strong>"I import a CSV to start it and another to revert."</strong> A
-      step up, and free, but a CSV applies the moment you import it, not at a
-      future time. So you still have to be present to run the sale file at the
-      start and the revert file at the end. Build the revert file wrong, or
-      import it after the catalog has drifted, and you push stale prices over
-      live ones. It is bulk, but it is not scheduled, and it is not safe
-      without a careful human at the keyboard on both ends.
+      <strong>"I will build a Flow for each tag."</strong> The correct next step,
+      and the right tool for the simple half. But a tag that needs several signals
+      becomes a tree of conditions, and a catalog of such tags becomes a pile of
+      workflows that overlap, contradict, and quietly fail. You have automated the
+      typing and inherited a maintenance problem, and you still cannot express the
+      rule that hinges on reading the note.
     </p>
 
     <p>
-      <strong>"I use a discount code instead."</strong> Codes and automatic
-      discounts can be scheduled, and for a coupon or a cart-level offer they
-      are the right tool. But a code does not show a struck-through price while
-      people browse; the storefront still reads full price until checkout, so
-      you lose the visual urgency a real sale runs on. Codes also bring their
-      own leaks: forgotten codes, codes posted to coupon sites, and stacking
-      you never intended. For a sale where every eligible product should
-      visibly show the lower price, the code is the wrong shape.
-    </p>
-
-    <p>
-      <strong>A sale-scheduler app.</strong> The app store is full of them,
-      which by itself tells you the native gap is real. A good one will
-      schedule and auto-revert, and for many stores it earns its fee. But it
-      ships with its author's idea of how a sale should work, wrapped in a
-      settings screen and a monthly bill that often climbs with your SKU count,
-      and the rules you care about, the margin floor, the exclusions, the odd
-      product that should never go on sale, have to be squeezed into someone
-      else's toggles.
+      <strong>"I will install a tagging app."</strong> There are good ones, and
+      for rule sets that are complex but still structured they earn their keep.
+      Where they stall is the same wall Flow hits from a different side: they
+      operate on the fields they can match against, so the free-text note and the
+      judgement call ("this looks like a reseller buying to flip") remain outside
+      what a rule can see. You have bought more conditions, not a reader.
     </p>
 
     <h2>What the automation actually has to do</h2>
 
     <p>
-      The real job is not "drop these prices." It is "at the minute I name,
-      put this set of products on sale with a clean struck-through price, hold
-      what they used to cost, keep me above my margin floor, and put every
-      price back exactly when the sale ends." That is scheduling, targeting,
-      a little margin judgement, and a guaranteed cleanup. As a Dugong
-      playbook, in plain prose, it reads like this:
+      The real job is not "add a tag when X is true." It is "read this whole
+      order the way an experienced ops person would, decide every tag it should
+      carry, write them from one clean vocabulary, and then do the thing the tag
+      exists for." That is reading, judgement, and bookkeeping on every order as
+      it lands. As a Dugong playbook, in plain prose, it reads like this:
     </p>
 
     <pre id="playbook"><code><span class="c"># trigger</span>
-<span class="k">At</span> the sale's start time, and again at its end time
+<span class="k">On</span> every order created or updated, and on a one-time backfill of past orders
 
 <span class="c"># steps</span>
-1. <span class="k">Select</span> the products in scope by rule: collection,
-   tag, or vendor, minus anything already on clearance
-2. <span class="k">Record</span> each product's current price so it can be
-   restored exactly later
-3. <span class="k">Apply</span> the discount, set the compare-at to the old
-   price so the strikethrough shows, and never price below the margin floor
-4. <span class="k">Skip</span> and flag anything the rule would push below
-   cost, or that is already discounted deeper
-5. <span class="k">Confirm</span> the sale is live on a sample product, then
-   report what changed and what was held back
-6. <span class="k">Revert</span> every price to the recorded original at the
-   end time, with nothing left behind
-7. <span class="k">Log</span> the whole run so the next sale is a one-line
-   repeat, not a from-scratch scramble</code></pre>
+1. <span class="k">Read</span> the whole order at once: line items and their
+   properties, the note and note attributes, the discount and source, the
+   destination, and the customer's history
+2. <span class="k">Decide</span> the tags from rules in plain language,
+   combining product, value, customer, destination, and free-text note
+   signals, not one condition at a time
+3. <span class="k">Normalize</span> every tag against one controlled
+   vocabulary: no invalid characters, no near-duplicate casing, nothing
+   past the length limit
+4. <span class="k">Write</span> the tags back at the order level through the
+   API, touching nothing else on the order
+5. <span class="k">Trigger</span> what the tag is for: route to the right
+   location, place a hold, set a priority, or hand off to the 3PL
+6. <span class="k">Backfill</span> the orders that predate the rule so
+   segments and reports are not half-blind
+7. <span class="k">Log</span> every tag with the reason, and flag the orders
+   too ambiguous to tag with confidence</code></pre>
 
     <p>
-      Seven lines. The compiler fills in everything beneath: resolving the
-      product set from the rule, storing the original prices so the revert is
-      exact, setting price and compare-at together so the strikethrough reads
-      right, holding the margin floor on every item, running at the scheduled
-      minute in the timezone you meant, and reverting on time whether or not
-      anyone is awake. The merchant never babysat a clock or kept a spreadsheet
-      of old prices. They described how a careful promotions manager runs a
-      sale, and let the compiler do the timing and the cleanup.
+      Seven lines. The compiler fills in everything beneath: pulling each order
+      whole rather than one field at a time, weighing several signals together
+      the way a person does, reading the free-text note and acting on what it
+      means, holding a single clean vocabulary so nothing comes out a near-twin or
+      an invalid string, writing back only the tags and nothing else, kicking off
+      the routing or hold the tag stands for, and going back over the old orders
+      so a new segment is not blind to its own history. The ops person never sat
+      in the orders list adding the same five tags again. They described how a
+      careful colleague would read an order, and let the compiler do the volume.
     </p>
 
     <div class="callout callout-sand">
       <span class="callout-mark">◆ NOTE</span>
       <span>
-        The forgotten revert is the quiet one. A sale that never gets turned
-        off is not a generous gesture, it is a <strong>margin leak with no
-        campaign attached</strong>: the urgency is gone, the email went out
-        days ago, and you are simply selling below your normal price to whoever
-        wanders in. The goal is not "a lower price," it is the right price for
-        the exact window you chose, and then your real price back, which is
-        precisely the discipline a manual flip cannot guarantee.
+        The tag is the cheap part. <strong>The reading is the job.</strong> Most
+        of what makes order tagging hard is not writing the tag, it is looking at
+        an order and knowing which tags it deserves, including the one that lives
+        in a sentence the customer typed. A rule engine can apply tags faster than
+        you can; it still cannot read. The goal is not "more conditions," it is a
+        system that reads each order the way your best packer does and tags it the
+        same way every time.
       </span>
     </div>
 
     <h2>Why this is a compiler problem, not an app problem</h2>
 
     <p>
-      There are capable sale-scheduler apps, and for plenty of stores they are
-      a fine answer. But a sale is rarely just "20% off everything." It is your
-      rules: this collection but not those three styles, never below this
-      margin, leave the new arrivals at full price, exclude anything already on
-      clearance, and double the discount on the dead stock I actually want
-      gone. Those are sentences about your business and your inventory, not
-      switches in someone else's interface, and they change with every
-      campaign.
+      There are capable tagging apps, and for plenty of stores they are a fine
+      start. But a good tag is a small act of judgement about a specific order:
+      what is unusual here, what does the warehouse need to know, which bucket
+      does this customer belong in, what did the buyer actually ask for in their
+      own words. That changes with your catalog, your shipping setup, and your
+      segments, and a chunk of it lives in free text that no condition can match.
+      Those are judgements about your operation, not tokens in someone else's
+      template.
     </p>
 
     <p>
-      A natural-language compiler fits because the timed sale was never really
-      a pricing problem. It is a <em>scheduling and bookkeeping</em> problem
-      wearing a pricing problem's clothes. Dropping a number is the easy part,
-      which is why Shopify lets you do it. The hard part is everything around
-      it: start and stop on time, remember the original of every price you
-      touched, apply your exclusions and your floor, and guarantee the cleanup.
-      You can write that brief in a paragraph. You could never hold it as a
-      stack of manual edits across hundreds of SKUs, twice, for every sale you
-      run.
+      A natural-language compiler fits because tagging was never really a
+      matching problem. It is a <em>reading and judgement</em> problem wearing a
+      matching problem's clothes. Storing and applying a tag is the easy part,
+      which is why Shopify and the apps do it. The hard part is everything around
+      it: read the whole order, weigh several things at once, understand the note,
+      keep the vocabulary clean, do the thing the tag is for, and keep doing it on
+      every order forever. You can write that brief in a paragraph. You could
+      never hold it as a hand-tagging ritual every morning, or as a dozen brittle
+      workflows you are scared to touch.
     </p>
 
     <hr />
@@ -755,49 +743,49 @@ em { font-style: italic; }
     <h2>The workflow worth building this week</h2>
 
     <p>
-      If you run promotions of any kind, this is the automation to set up before
-      your next launch or seasonal push, because it protects both the revenue
-      a clean sale brings in and the margin a forgotten one gives away. It sits
-      right next to pains we have written about already. A sale moves stock
-      fast, which is exactly when
-      <a href="the-overselling-problem-no-one-automates.html">the overselling
-      problem no one automates</a> bites hardest, so honest counts have to hold
-      under the rush. And the moment items start selling out mid-sale, you are
-      straight into
-      <a href="the-sold-out-products-that-sink-your-collection.html">the
-      sold-out products that sink your collection</a>, where dead tiles drag
-      down the conversion of everything still in stock behind them.
+      If tags drive any part of how your orders get routed, fulfilled, or
+      marketed to, this is the automation to set up before your next busy week,
+      because the tag you forget under pressure is the one that misroutes an
+      order or drops a customer from a sequence. It also sits at the center of a
+      pattern we keep returning to. Our field study found that
+      <a href="the-shopify-automations-no-one-builds.html">tagging is about
+      fourteen percent of every Shopify workflow merchants ship</a>, while the
+      work that actually scales is under one percent, and order tagging is the
+      clearest case of that gap: enormous volume, mostly automated badly. The same
+      "read the whole order before you act" logic is what powers
+      <a href="the-high-risk-flag-that-makes-you-guess.html">the high-risk flag
+      that makes you guess</a>, where the answer is in the order detail Shopify
+      will not read for you.
     </p>
 
     <p>
-      Describe it the way you would brief a sharp promotions manager: here is
-      what goes on sale and what stays out, here is the discount and the floor I
-      will not cross, here is when it starts and when it ends, and here is the
-      promise that every price goes back exactly as it was. That is the whole
-      brief. The compiler does the scheduling, the strikethrough, the margin
-      guard, and the revert. You keep your attention for the offer itself, and
-      you stop finding out the sale never turned off because a customer told
-      you.
+      Describe it the way you would brief a sharp operations hire: here is what
+      each tag means and what it is for, read every order whole, set the tags it
+      deserves including anything the customer wrote in the note, keep the
+      vocabulary clean, route what needs routing, and go back and fix the orders
+      from before we had the rule. That is the whole brief. The compiler does the
+      reading, the deciding, the normalizing, and the write-back. You keep your
+      attention for the orders that genuinely need a human, and you stop opening
+      the orders list every morning to do the same five tags by hand.
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ READING</span>
       <span>
-        If this resonates, two companion pieces: our field study on
-        <a href="the-shopify-automations-no-one-builds.html">the Shopify
-        automations no one builds</a> (where the work that scales with the
-        business is a sliver of what merchants actually automate), and the
-        dispatch on
-        <a href="the-abandoned-cart-that-gets-one-email.html">the abandoned
-        cart that gets one email</a>, the other side of a promotion, recovering
-        the demand the sale created but did not close.
+        If this resonates, two companion pieces: our dispatch on
+        <a href="the-order-change-that-races-your-warehouse.html">the order
+        change that races your warehouse</a>, the other place where reading an
+        order in time decides whether the right thing ships, and the field study
+        on <a href="the-shopify-automations-no-one-builds.html">the Shopify
+        automations no one builds</a>, where tagging is the headline example of
+        effort spent on the easy half of the work.
       </span>
     </div>
 
     <p>
-      If you are a Shopify merchant who has wired up a sale flow that starts and
-      reverts on its own, or you have a story about the markdown that ran four
-      days too long and still stings, the inbox is open:
+      If you are a Shopify merchant who has wired up order tagging that reads the
+      whole order and keeps one clean vocabulary, or you have a story about the
+      tag that misrouted a shipment or hid a segment, the inbox is open:
       <code>field-notes@dugong.live</code>. We are collecting case studies for
       the next issue.
     </p>
@@ -821,16 +809,16 @@ em { font-style: italic; }
   </div>
   <div class="faq-list">
     <div class="faq-item">
-      <h2 class="faq-q">Can Shopify schedule a sale to start and end automatically?</h2>
-      <p class="faq-a">Not natively. Shopify lets you change a product's price and set a compare-at price for the strikethrough, but there is no built-in setting to say start this sale at midnight Friday and put the prices back on Monday. Shopify Flow cannot schedule a price change either; the community answer to that exact request has been no. So merchants either edit the prices by hand at the moment the sale should start and again when it ends, import a sale CSV at the start and a revert CSV at the end, or install a third-party sale-scheduler app. Discount codes and automatic discounts can be scheduled, but they do not show a struck-through sale price on the product, which is the look most storewide and collection sales want.</p>
+      <h2 class="faq-q">Can Shopify automatically tag orders?</h2>
+      <p class="faq-a">Partly. Shopify Flow is free on every plan and can add a tag when one condition is true, such as an order total over a threshold or a specific product in the cart. That covers the simple cases well. Where it runs out of room is the tag that depends on several things at once, like a high-value order going to a country you ship slowly, placed by a repeat customer, with a gift note in the order. Flow checks conditions one at a time and cannot read a free-text note the way a person does, so the multi-signal tags that actually drive fulfillment routing and customer segments tend to get set by hand, or split across a stack of single-condition workflows that are hard to keep in sync.</p>
     </div>
     <div class="faq-item">
-      <h2 class="faq-q">Why not just use a discount code instead of changing prices?</h2>
-      <p class="faq-a">Discount codes and automatic discounts are scheduleable and they are the right tool for a coupon or a cart-level offer. But a code does not put a struck-through was-price on the product card and the product page, which is the visual a real sale relies on to signal value and urgency. A code also lives at checkout, so the browsing experience still shows full price, and codes invite their own problems: forgotten codes, codes shared on coupon sites, and stacking you did not intend. For a storewide or by-collection sale where you want every eligible product to visibly show the lower price, you are back to editing the actual price and compare-at, which Shopify will not schedule for you.</p>
+      <h2 class="faq-q">Why do my Shopify order tags come out inconsistent or invalid?</h2>
+      <p class="faq-a">Two reasons show up again and again. The first is the controlled-vocabulary problem: nothing stops vip, VIP, and Vip from all existing as separate tags, so a segment built on one of them quietly misses the orders tagged with the others. The second is mechanical: a tag built from a variable can contain characters Shopify rejects or run past the length limit, which produces an order-tags-is-invalid error and a workflow that fails silently. Tags are case-sensitive enough to fracture a report and strict enough to break a write, which is why a tagging system needs one normalized vocabulary rather than whatever each workflow happened to type.</p>
     </div>
     <div class="faq-item">
-      <h2 class="faq-q">What goes wrong when you run a timed sale by hand?</h2>
-      <p class="faq-a">Three things, reliably. First, timing: the price edit applies the instant you save, so to start a sale at a specific hour someone has to be awake and at a keyboard at that hour, and a timezone mix-up starts or ends it in the wrong place. Second, the revert: the original price has to be put back by hand on every product, and a forgotten reset leaves bestsellers on sale for days, giving away margin with no campaign behind it. Third, targeting and margins: deciding which products are in, holding a minimum margin so a markdown does not sell below cost, and excluding items already on clearance is fiddly to do across hundreds of SKUs, so the safe move is to under-scope the sale or skip it.</p>
+      <h2 class="faq-q">Can Shopify Flow tag an order based on the order note or line item properties?</h2>
+      <p class="faq-a">Only in a limited way. Flow can reference note attributes and line item custom attributes inside a condition, so structured key-value data set at checkout can be used. What it cannot do is read a free-text order note the way a human does and decide what it means, so a buyer who types please ship before Friday or no invoice in the box is invisible to the rule. There is also a separate limit worth knowing: Shopify's Admin API does not let you change line item properties on an order that already exists, only order-level tags and notes, so anything you correct after the fact lives at the order level, not on the line.</p>
     </div>
   </div>
 </section>
@@ -841,23 +829,23 @@ em { font-style: italic; }
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
-        <a href="the-order-tag-you-set-by-hand.html" class="card">
+    <a href="the-shopify-automations-no-one-builds.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
+          <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The order tag you set by hand</h3>
+        <h3 class="card-title">The Shopify automations no one builds</h3>
         <p class="card-dek">
-          Order tags route fulfillment, segments, and downstream flows, but Shopify Flow tags on one condition and cannot read the note, so they get set by hand. The AI playbook that reads the whole order and tags it.
+          Tagging is 14% of every Shopify workflow merchants ship. The work that actually scales is under 1%.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 18</span>
+          <span class="card-date">MAY 28</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
-        <a href="the-meta-description-you-write-one-at-a-time.html" class="card">
+    <a href="the-meta-description-you-write-one-at-a-time.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -865,10 +853,58 @@ em { font-style: italic; }
         </div>
         <h3 class="card-title">The meta description you write one at a time</h3>
         <p class="card-dek">
-          Shopify bulk edits meta descriptions only by setting them all identical, so unique ones get written one at a time, or left blank and auto-filled with generic page text. The AI playbook that writes a distinct meta for every page.
+          Shopify bulk edits meta descriptions only by making them identical, so unique ones get written one at a time or left blank. The AI playbook that fixes it.
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-order-change-that-races-your-warehouse.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order change that races your warehouse</h3>
+        <p class="card-dek">
+          The "can you change my order?" email lands at a bad time and locks the second you fulfil. The AI playbook that resolves it before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 8</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-high-risk-flag-that-makes-you-guess.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The high-risk flag that makes you guess</h3>
+        <p class="card-dek">
+          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-bad-address-that-ships-anyway.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The bad address that ships anyway</h3>
+        <p class="card-dek">
+          Shopify warns the address looks wrong, you ship anyway, and the package bounces back. The AI playbook that fixes it before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 6</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -881,10 +917,26 @@ em { font-style: italic; }
         </div>
         <h3 class="card-title">The sold-out products that sink your collection</h3>
         <p class="card-dek">
-          Shopify leaves sold-out products at the top of your collection page, dragging down the conversion of everything in stock behind them. The AI playbook that re-merchandises the storefront as stock moves.
+          Shopify leaves sold-out products at the top of your collection page, dragging down the conversion of everything in stock behind them. The AI playbook that re-merchandises as stock moves.
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 13</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-sale-you-start-by-hand.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The sale you have to start by hand</h3>
+        <p class="card-dek">
+          Shopify won't schedule a sale to start, won't revert it, and won't run it by rule, so you flip prices by hand at midnight. The AI playbook that runs the whole promotion.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 16</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -901,22 +953,6 @@ em { font-style: italic; }
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 14</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-overselling-problem-no-one-automates.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">8&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The overselling problem no one automates</h3>
-        <p class="card-dek">
-          Selling stock you no longer have is the pain merchants dread most. The AI playbook that keeps inventory honest in real time, which is exactly what a sale stress-tests.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 5</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -953,18 +989,18 @@ em { font-style: italic; }
         </div>
       </div>
     </a>
-    <a href="the-shopify-automations-no-one-builds.html" class="card">
+    <a href="the-overselling-problem-no-one-automates.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
+          <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The Shopify automations no one builds</h3>
+        <h3 class="card-title">The overselling problem no one automates</h3>
         <p class="card-dek">
-          Tagging is 14% of every Shopify workflow merchants ship. The work that actually scales is under 1%.
+          Selling stock you no longer have is the pain merchants dread most. The AI playbook that keeps inventory honest in real time across every channel.
         </p>
         <div class="card-foot">
-          <span class="card-date">MAY 28</span>
+          <span class="card-date">JUN 5</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -981,54 +1017,6 @@ em { font-style: italic; }
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 9</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-high-risk-flag-that-makes-you-guess.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The high-risk flag that makes you guess</h3>
-        <p class="card-dek">
-          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 6</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-order-change-that-races-your-warehouse.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The order change that races your warehouse</h3>
-        <p class="card-dek">
-          The "can you change my order?" email lands at a bad time and locks the second you fulfil. The AI playbook that resolves it before the label prints.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 8</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-bad-address-that-ships-anyway.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The bad address that ships anyway</h3>
-        <p class="card-dek">
-          Shopify warns the address looks wrong, you ship anyway, and the package bounces back. The AI playbook that fixes it before the label prints.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 6</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
