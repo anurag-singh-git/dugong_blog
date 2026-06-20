@@ -15,7 +15,17 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Fri, 19 Jun 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jun 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The image alt text no one writes</title>
+      <link>https://blog.dugong.live/the-image-alt-text-no-one-writes.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/the-image-alt-text-no-one-writes.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Sat, 20 Jun 2026 09:00:00 +0000</pubDate>
+      <description>Image alt text is the Shopify accessibility-and-SEO chore everyone assumes is handled and is not. Shopify stores an alt text on every image but never writes one, has no bulk editor and no audit view to show which images are blank, and does not generate a description from the image (the file name is not alt text), so the field starts empty and stays empty until a human opens each product, clicks into the media, and types a line. A store with a few hundred products at several photos each is thousands of empty alt fields with no native path to fill them. The blank field fails two jobs at once: a shopper using a screen reader hears nothing or hears the file name read aloud instead of the product, and missing alt text is the most common accessibility failure cited in the demand letters now landing on ecommerce stores; and a search engine cannot read the contents of a photo, so a blank alt keeps your product images out of image search and gives the page one less signal. The usual workarounds all break: writing them by hand is right but never finishes past a small catalog and is the first thing dropped on a launch week; the product CSV has an Image Alt Text column but only moves the data (you still describe every image), covers only product images, and risks a re-import overwriting neighboring fields; and a cheap bulk app templates the line from the product title plus variant, so the front, the back, and the detail shot all read the same and none of them describes the actual photo. The AI playbook finds every product, variant, collection, and content image whose alt is missing, duplicated, or just the file name, looks at the image itself plus the product context (title, type, variant, color, material), writes a concise accurate line under about 125 characters in the store's voice, keeps near-identical variant and angle shots distinct, leaves genuinely decorative images with an empty alt so screen readers skip them, writes the alt text back through the Admin API without touching anything else, re-checks new uploads so it never drifts back to blank, and logs every line while flagging the images too generic or low-quality to describe well.</description>
+    </item>
 
     <item>
       <title>The product descriptions you'll never finish writing</title>
