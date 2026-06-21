@@ -15,7 +15,17 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Sat, 20 Jun 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jun 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The repeat customer your store treats like a stranger</title>
+      <link>https://blog.dugong.live/the-repeat-customer-your-store-treats-like-a-stranger.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/the-repeat-customer-your-store-treats-like-a-stranger.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Sun, 21 Jun 2026 09:00:00 +0000</pubDate>
+      <description>Customer segmentation is the growth lever most Shopify stores never actually pull. After a couple of years of trading the admin holds a flat list of names, an order count, and an amount spent, with nothing that marks a loyal regular worth protecting, a lapsing customer worth winning back, or a one-time discount hunter not worth another code. Shopify has no native rule that watches behavior and tags a customer when it changes: tagging is manual by default, the one automated path is Shopify Flow adding a tag when a single blunt thing becomes true (like total spend over a number), and the segments feature is a filter you read rather than a durable label the rest of your stack can act on. So the same email, sale, and audience go to everyone, your VIPs get nothing for being VIPs, your lapsing regulars drift away in silence, your discount hunters get trained to wait for the next code, and support treats a first-time buyer and an eleven-order regular with the same urgency. The workarounds break: hand-tagging captures a snapshot that rots (a customer tagged vip in March still wears it in December), a Flow rule on spend cannot reason across recency, frequency, products, returns, and discount use at once, and a segmentation app mostly runs the same rigid thresholds in a second system you have to keep in sync. The AI playbook reads each customer's full history, weighs the pattern instead of a single threshold, assigns one clear lifecycle tag from a clean vocabulary and removes the ones that no longer fit, re-evaluates as new orders, returns, and cancellations land so a VIP who goes quiet becomes at-risk instead of a stale VIP forever, writes the tags back through the Admin API without touching anything else on the profile, hands the segment to the systems that act on it (email, discounts, support priority, ad audiences), and logs every change with the reason while flagging the edge cases a human should eyeball.</description>
+    </item>
 
     <item>
       <title>The image alt text no one writes</title>
