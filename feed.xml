@@ -15,7 +15,17 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Sun, 21 Jun 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>The review request you never send</title>
+      <link>https://blog.dugong.live/the-review-request-you-never-send.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/the-review-request-you-never-send.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Mon, 22 Jun 2026 09:00:00 +0000</pubDate>
+      <description>Asking happy customers for a review is the highest-leverage Shopify chore most stores never get to, because the platform gives them no native way to do it. Shopify retired its own product reviews app and never replaced it, so an out-of-the-box store has nothing that collects a product review and nothing that emails a customer to ask for one; the Shop channel gathers a store review, not a review of the item someone just bought, and everything merchants actually use (the request email, the on-page star widget, the photo upload) lives in a third-party app they install and wire in. Shopify Flow can react to an order being marked delivered, which is the right trigger, but it cannot write a personalized message, does not know skincare needs a longer wait than snacks, does not check whether the customer just opened a return, and has nowhere of its own to store the rating that comes back, so the real work still lives in the app and the app still has to be told exactly what to do. The result is that the request either never goes out, or it goes out as one untimed blast to the whole list: people whose order has not arrived, people mid-return, people asked three times for the same purchase, and a one-star rating that lands in public before anyone on the merchant's side could have fixed the problem. The cost is real, because a product page stacked with recent, specific, photographed reviews converts the shopper on the fence and a blank one asks them to go first on faith, and sending nothing yields the low-single-digit fraction of reviews that arrive on their own, skewed toward the angry, while a timed request after delivery lifts response into double digits from the satisfied majority. The usual fixes break: emailing customers yourself stops by the second busy week, a Flow rule on delivered needs a review app bolted on and still fires the same blunt action for everyone, and an app on default settings sends a generic how-did-we-do to everyone on one timer. The AI playbook waits for the right window after delivery tuned to the product, reads the order to skip anyone mid-complaint, names the actual item in the ask, sends once and follows up at most once, routes a high rating to the storefront and a low rating privately to support before it goes public, remembers who was asked so no one is asked twice and a multi-item order is one ask, and logs every send, response, and rating while flagging the edge cases a human should eyeball.</description>
+    </item>
 
     <item>
       <title>The repeat customer your store treats like a stranger</title>
