@@ -3,28 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The bad address that ships anyway — Dugong Field Notes</title>
-<meta name="description" content="Shopify warns about a bad address, you ship anyway, and the package bounces back. The AI playbook that catches undeliverable addresses before the label prints." />
-<link rel="canonical" href="https://blog.dugong.live/the-bad-address-that-ships-anyway.html" />
-<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
+<title>The unpaid order that never cancels itself — Dugong Field Notes</title>
+<meta name="description" content="Shopify won't auto-cancel an unpaid order, so it sits there holding your stock for days. The AI playbook that chases payment, then cancels and restocks on time." />
+<link rel="canonical" href="https://blog.dugong.live/the-unpaid-order-that-never-cancels-itself.html" />
 <meta name="author" content="Priya Singh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="keywords" content="Shopify address validation, returned to sender, failed delivery, wrong shipping address, address verification automation, undeliverable package, re-shipping cost, Shopify Flow address, ecommerce fulfillment automation, Dugong" />
+<meta name="keywords" content="Shopify auto cancel unpaid orders, cancel pending orders Shopify, automatically cancel unpaid orders release inventory, manual payment orders Shopify, bank transfer order Shopify, draft order cancel, pending payment holding inventory, cancel unpaid orders after x days, AI order automation, Dugong" />
 <meta name="theme-color" content="#c6fe1e" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<meta property="article:published_time" content="2026-06-06" />
-    <meta property="article:modified_time" content="2026-06-13" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
+<meta property="article:published_time" content="2026-06-24" />
+    <meta property="article:modified_time" content="2026-06-24" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
-<meta property="og:title" content="The bad address that ships anyway" />
-<meta property="og:description" content="Shopify warns you an address looks wrong, you ship anyway, and the package returns two weeks later. The AI playbook that fixes or verifies a bad address before the label ever prints." />
-<meta property="og:url" content="https://blog.dugong.live/the-bad-address-that-ships-anyway.html" />
+<meta property="og:title" content="The unpaid order that never cancels itself" />
+<meta property="og:description" content="Shopify has no native way to auto-cancel an unpaid order, so a pending bank transfer, COD, or draft order sits in your admin for days holding the stock a paying customer wanted. The AI playbook that reads each pending order, chases payment the right number of times, then cancels and restocks the ones that go cold, without ever cancelling the customer who paid an hour late." />
+<meta property="og:url" content="https://blog.dugong.live/the-unpaid-order-that-never-cancels-itself.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -33,8 +33,8 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="The bad address that ships anyway" />
-<meta name="twitter:description" content="A bad shipping address costs you a return-to-sender fee, a re-ship, and a WISMO ticket, and Shopify only warns you. The AI playbook that resolves it before fulfillment." />
+<meta name="twitter:title" content="The unpaid order that never cancels itself" />
+<meta name="twitter:description" content="Shopify won't auto-cancel an unpaid order, so it sits there holding your stock for days. The AI playbook that chases payment, then cancels and restocks on time." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
     <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 
@@ -44,24 +44,24 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html#article",
+      "@id": "https://blog.dugong.live/the-unpaid-order-that-never-cancels-itself.html#article",
       "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
-      "mainEntityOfPage": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html",
-      "url": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html",
-      "headline": "The bad address that ships anyway",
-      "description": "Shopify shows an address warning, you click past it, and the package bounces back two weeks later, return-to-sender fees, a re-ship, and an angry 'where is my order?' ticket. Why bad-address handling is the Shopify pain merchants only notice after it costs them, and the AI playbook that catches it before the label prints.",
-      "datePublished": "2026-06-06",
-      "dateModified": "2026-06-13",
+      "mainEntityOfPage": "https://blog.dugong.live/the-unpaid-order-that-never-cancels-itself.html",
+      "url": "https://blog.dugong.live/the-unpaid-order-that-never-cancels-itself.html",
+      "headline": "The unpaid order that never cancels itself",
+      "description": "Shopify has no native way to auto-cancel an unpaid order. A pending bank transfer, a cash-on-delivery order, an unpaid invoice, a stale draft order: each one sits in your admin holding the inventory a paying customer wanted, and the only way to clear it is to remember it, open it, cancel it, and tick restock by hand. Shopify Flow cannot cancel an order at all, and the native cancel is a one-at-a-time manual action with no timer and no reminder. The AI playbook that reads each pending order, sends the right number of payment nudges, then cancels and restocks the ones that go cold while never touching the customer who paid an hour late.",
+      "datePublished": "2026-06-24",
+      "dateModified": "2026-06-24",
       "articleSection": "Research",
-      "keywords": "Shopify address validation, returned to sender, failed delivery, wrong shipping address, address verification automation, undeliverable package, re-shipping cost, ecommerce fulfillment automation",
-      "wordCount": 1780,
+      "keywords": "Shopify auto cancel unpaid orders, cancel pending orders Shopify, automatically cancel unpaid orders release inventory, manual payment orders Shopify, bank transfer order Shopify, draft order cancel, cancel unpaid orders after x days, AI order automation",
+      "wordCount": 2240,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
       "about": [
         { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "E-commerce", "sameAs": "https://en.wikipedia.org/wiki/E-commerce" },
-        { "@type": "Thing", "name": "Business process automation", "sameAs": "https://en.wikipedia.org/wiki/Business_process_automation" }
+        { "@type": "Thing", "name": "Order management", "sameAs": "https://en.wikipedia.org/wiki/Order_management_system" },
+        { "@type": "Thing", "name": "Inventory", "sameAs": "https://en.wikipedia.org/wiki/Inventory" }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
@@ -85,7 +85,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The bad address that ships anyway", "item": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html" }
+        { "@type": "ListItem", "position": 2, "name": "The unpaid order that never cancels itself", "item": "https://blog.dugong.live/the-unpaid-order-that-never-cancels-itself.html" }
       ]
     },
     {
@@ -93,79 +93,86 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What does an address warning mean on a Shopify order?",
+          "name": "Can Shopify automatically cancel unpaid orders?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Shopify runs address validation automatically on online orders. A yellow warning means the address looks incomplete or slightly off and might result in a delayed or failed delivery; a red error means the address is very likely undeliverable and can't be marked valid. Both are advisory, Shopify flags the risk, but it still lets you fulfil the order, so a bad address can ship anyway if no one acts on the warning."
+            "text": "No. Shopify has no native setting that cancels an unpaid or pending order after a set time. Cancelling an order is a manual action you take one order at a time from the admin, and even Shopify Flow, the free automation tool, cannot cancel an order at all. So orders placed with manual payment methods like bank transfer, cash on delivery, or an unpaid invoice, plus stale draft orders, sit in pending payment until someone notices them and clears them by hand. Auto-cancellation only exists if you install a third-party app or build it yourself."
           }
         },
         {
           "@type": "Question",
-          "name": "Why are bad shipping addresses so expensive for merchants?",
+          "name": "Do unpaid orders hold inventory on Shopify?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A bad address usually isn't caught until the package fails to deliver and gets returned to sender, which can take one to three delivery attempts and a week or more. By then the merchant pays return shipping, a re-ship to the corrected address, support time on a 'where is my order?' ticket, and often a refund or goodwill credit, several times the original shipping cost, on an order that was already paid and packed."
+            "text": "Yes. When an order is placed, Shopify commits the inventory to it, and that stock stays committed while the order sits in pending payment. A pending bank transfer or an unpaid cash-on-delivery order can therefore hold units off the shelf for days, which is how a store shows sold out while real, paying customers are turned away. The committed stock is only released when the order is cancelled with the restock option, which on a plain store is a manual click per order, so the inventory leaks quietly until a human gets to it."
           }
         },
         {
           "@type": "Question",
-          "name": "Can bad-address handling on Shopify be automated?",
+          "name": "How long should you wait before cancelling an unpaid order?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. An AI playbook can check every new order against an address-verification service before fulfilment, auto-correct unambiguous fixes like a missing ZIP or a standardised street format, hold fulfilment and email the customer a suggested correction when the address is ambiguous, and only escalate the genuinely unresolvable ones to a person, so the package never ships to an address that's going to bounce."
+            "text": "It depends on the payment method and the customer, which is exactly why one global timer is wrong. A bank transfer that clears in two business days needs a different window than a cash-on-delivery order or a wholesale invoice with agreed terms. The sound approach is to nudge the customer once or twice with a clear way to pay, give a window that fits how that payment method actually settles, then cancel and restock only the orders that stay cold, while leaving alone the one that just paid an hour late. A flat rule that cancels everything at forty-eight hours will cancel orders that were about to pay."
           }
         }
       ]
     },
     {
       "@type": "HowTo",
-      "@id": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html#howto",
-      "name": "The bad address that ships anyway",
-      "description": "The AI-run playbook behind the bad address that ships anyway.",
+      "@id": "https://blog.dugong.live/the-unpaid-order-that-never-cancels-itself.html#howto",
+      "name": "The unpaid order that never cancels itself",
+      "description": "The AI playbook that watches pending orders, chases payment the right number of times, then cancels and restocks the ones that go cold without ever cancelling a customer who just paid.",
       "inLanguage": "en",
       "totalTime": "PT9M",
       "step": [
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Check the shipping address against an address-verification service",
-          "text": "Check the shipping address against an address-verification service (USPS/global)",
-          "url": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html#playbook"
+          "name": "Watch every pending order",
+          "text": "Trigger on an order sitting in pending payment, and read the payment method, the order value, and who the customer is",
+          "url": "https://blog.dugong.live/the-unpaid-order-that-never-cancels-itself.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "If it's valid as-is",
-          "text": "If it's valid as-is → let it flow straight to fulfilment, no one touched it",
-          "url": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html#playbook"
+          "name": "Set the window by payment method",
+          "text": "Pick a wait that fits how that method settles: longer for a bank transfer or an agreed invoice, shorter for an abandoned manual checkout",
+          "url": "https://blog.dugong.live/the-unpaid-order-that-never-cancels-itself.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "If there's a confident standard correction (ZIP",
-          "text": "If there's a confident standard correction (ZIP, street format, missing direction) → apply it, note the change, and continue",
-          "url": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html#playbook"
+          "name": "Nudge the customer to pay",
+          "text": "Send a clear payment reminder with the amount and a way to complete it, once or twice, instead of going straight to cancel",
+          "url": "https://blog.dugong.live/the-unpaid-order-that-never-cancels-itself.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "If it's ambiguous (missing apt #",
-          "text": "If it's ambiguous (missing apt #, two possible matches) → hold fulfilment and email the customer the exact suggested address: \"Did you mean __? Confirm and we'll ship today.\"",
-          "url": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html#playbook"
+          "name": "Recheck before you cancel",
+          "text": "Confirm the order is still unpaid at the moment of cancelling, so a customer who just paid is never cancelled by a stale timer",
+          "url": "https://blog.dugong.live/the-unpaid-order-that-never-cancels-itself.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "If they confirm",
-          "text": "If they confirm → update the order and release it; if no reply in 48h → queue it for me",
-          "url": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html#playbook"
+          "name": "Cancel and restock together",
+          "text": "Cancel the cold order, release the held inventory back to the shelf, and record the reason as unpaid so reporting stays clean",
+          "url": "https://blog.dugong.live/the-unpaid-order-that-never-cancels-itself.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "If it's unresolvable (PO box for a freight item",
-          "text": "If it's unresolvable (PO box for a freight item, nonexistent street) → flag for review with the reason attached",
-          "url": "https://blog.dugong.live/the-bad-address-that-ships-anyway.html#playbook"
+          "name": "Tell the customer it lapsed",
+          "text": "Send a short, friendly note that the order was cancelled for non-payment with a link to reorder, so the door stays open",
+          "url": "https://blog.dugong.live/the-unpaid-order-that-never-cancels-itself.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Flag the edge cases",
+          "text": "Hold high-value or known wholesale orders for a human, and log every nudge, cancel, and restock so nothing clears silently",
+          "url": "https://blog.dugong.live/the-unpaid-order-that-never-cancels-itself.html#playbook"
         }
       ]
     }
@@ -447,13 +454,13 @@ em { font-style: italic; }
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>◆ DISPATCH Nº 52 — JUN 6, 2026</span>
+    <span>◆ DISPATCH Nº 67 — JUN 24, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 1,780 WORDS</span>
+    <span>◆ 9 MIN READ · 2,240 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
-    <span>◆ DISPATCH Nº 52 — JUN 6, 2026</span>
+    <span>◆ DISPATCH Nº 67 — JUN 24, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 1,780 WORDS</span>
+    <span>◆ 9 MIN READ · 2,240 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -479,23 +486,25 @@ em { font-style: italic; }
 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH Nº 52</span>
+    <span style="color: var(--cream-dim);">DISPATCH Nº 67</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">JUN 6, 2026</span>
+    <span style="color: var(--cream-dim);">JUN 24, 2026</span>
     <span style="color: var(--line-2);">·</span>
     <span style="color: var(--cream-dim);">9 MIN READ</span>
   </div>
 
   <h1 class="article-title">
-    The bad address that <em>ships anyway.</em>
+    The unpaid order that <em>never cancels itself</em>.
   </h1>
 
   <p class="article-dek">
-    Shopify shows you a little yellow triangle next to the shipping
-    address, you're in a hurry, and you click "fulfil" anyway. Two
-    weeks later the package comes back stamped <em>return to sender</em>, and now you owe a return fee, a re-ship, a refund, and an apology.
-    Bad-address handling is the Shopify pain merchants only feel after
-    it's already cost them. Here's why a warning isn't an automation, and what a playbook that actually fixes the address does instead.
+    A customer places an order, picks bank transfer or cash on delivery, and
+    then goes quiet. The money never lands, but the order does not go away. It
+    sits in your admin marked pending, holding the stock a paying customer
+    wanted, until you remember it, open it, cancel it, and tick restock by hand.
+    Shopify will not do any of that for you. Here is why unpaid orders are the
+    quiet leak Shopify never plugged, and the playbook that chases payment, then
+    clears the cold ones on time.
   </p>
 
   <div class="article-byline">
@@ -508,207 +517,234 @@ em { font-style: italic; }
   <div class="article-body">
 
     <p>
-      Here's a complaint that shows up in the Shopify community forums in
-      a dozen slightly different costumes. A customer checks out, fat-fingers
-      their apartment number or drops the ZIP entirely, and the order
-      sails through. Shopify quietly tags the address with a warning, but
-      nobody's watching the orders one by one during a busy week, so the
-      label prints, the package ships, and everything looks fine, until
-      the carrier can't find the door. The box bounces around for ten
-      days, comes home, and the merchant discovers the problem at the
-      worst possible moment: when the customer emails to ask
-      <em>where their order is.</em>
+      Every store that takes a manual payment method ends up with a drawer full
+      of orders that were never paid for. Someone checks out with bank transfer
+      and forgets. A cash-on-delivery order is placed by a browser who is not
+      really going to be home. A draft order you sent a wholesale buyer sits open
+      for a week. Each one looks like a sale in your dashboard, each one is
+      holding inventory, and not one of them will clear itself. The order just
+      waits, pending, until a human notices it and decides what to do, and on a
+      busy store that human notices late, if at all.
     </p>
 
     <p>
-      That's the quiet cruelty of a bad address. It doesn't fail at
-      checkout, where it'd be cheap to fix. It fails in transit, after
-      you've paid to pick, pack, and ship, and the bill for catching it
-      late is several times what it would've cost to catch it early.
+      This is one of the most repeated requests in the merchant communities, and
+      it always arrives the same way: someone asks how to automatically cancel
+      and archive unpaid orders after a set number of days, or how to cancel a
+      pending order and unblock the inventory it is sitting on. The early answers
+      are some version of "Shopify cannot do that, you will need an app or a
+      script." The merchant is not asking for anything exotic. They want the one
+      thing a checkout that takes delayed payment obviously needs: a rule that
+      gives the customer a fair chance to pay, then tidies up the order that does
+      not. The platform running their whole business has no built-in way to apply
+      it.
     </p>
 
     <blockquote>
-      A warning isn't an automation. It tells you something might be
-      wrong and then leaves the actual work, and the cost of skipping
-      it, entirely to you.
+      The sale was never real. The only thing that is real is the stock it is
+      holding, and Shopify <em>will not let it go</em> on its own.
     </blockquote>
 
-    <h2>What Shopify actually does (and doesn't)</h2>
+    <h2>Why an unpaid order quietly costs you a real one</h2>
 
     <p>
-      To be fair to the platform: Shopify does run address validation
-      automatically on online orders, for every merchant on every plan.
-      You'll see a <strong>yellow warning</strong> when an address looks
-      incomplete or slightly off, a missing unit number, a ZIP that
-      doesn't match the city, and a <strong>red error</strong> when the
-      address is very likely undeliverable. The red ones you can't even
-      mark as valid.
+      The damage is not the pending order itself. It is the inventory underneath
+      it. When an order is placed, Shopify commits the stock to that order, and
+      that commitment holds while the order waits in pending payment. So a unit
+      that nobody has actually paid for is off the shelf, unavailable to the next
+      customer who has their card out and ready. On a low-stock product, or
+      during a launch, a handful of stale unpaid orders is enough to show a
+      product as sold out while real, paying demand bounces off it.
     </p>
 
     <p>
-      But here's the gap: those flags are <em>advisory</em>. Shopify will
-      still happily let you fulfil an order with a yellow warning on it.
-      The validation surfaces the risk; it doesn't resolve it, and it
-      doesn't stop the label from printing. So during a sale, or any week
-      where orders outpace attention, the warnings scroll right past. The
-      system did its job, it told you, and the package shipped to a
-      house number that doesn't exist anyway.
+      The second cost is your own clarity. An orders list padded with sales that
+      will never settle makes every number you glance at slightly wrong. Your
+      revenue looks higher than it is, your bestseller list includes things
+      nobody bought, and your fulfilment queue has phantom rows you have to read
+      past. The work of telling a real order from a dead one falls on you, every
+      day, by eye. It is exactly the kind of repetitive, judgement-light tidying
+      that never gets done in a busy week, and the unpaid orders pile up behind
+      everything else.
     </p>
 
-    <h2>Why a late catch is so expensive</h2>
+    <h2>What Shopify actually does, and where it stops</h2>
 
     <p>
-      Address errors are not a rounding error in fulfilment. By common
-      industry estimates, somewhere around <strong>5-10% of all
-      packages</strong> are returned to sender, and incorrect or
-      incomplete addresses are the single biggest cause. Most carriers
-      make one to three delivery attempts before giving up, so a single
-      bad address can sit in limbo for a week or more before you even
-      know it failed.
+      Shopify is happy to take an order that is not yet paid. What it does not do
+      is manage the waiting. The gap is the whole middle of the job: noticing the
+      order has gone cold, nudging the customer to pay, deciding the wait is over,
+      cancelling cleanly, and putting the stock back. It shows up in three places
+      merchants hit fast.
     </p>
 
     <p>
-      And when it fails, you pay for it more than once:
+      First, <strong>there is no auto-cancel for unpaid orders</strong>. Shopify
+      has no native setting that says "cancel any order still unpaid after N
+      days." Cancelling is a manual action you perform one order at a time from
+      the admin, choosing whether to restock and whether to notify the customer
+      on each one. There is no timer, no batch, and no rule. If you have fifty
+      pending orders, clearing the dead ones is fifty trips through the same menu.
     </p>
 
-    <ul>
-      <li>
-        <strong>The return-to-sender fee</strong>, the carrier charges
-        to haul the undeliverable package back to you.
-      </li>
-      <li>
-        <strong>The re-ship</strong>, a second outbound label, often
-        expedited because the customer is now annoyed and waiting.
-      </li>
-      <li>
-        <strong>The support time</strong>, this almost always becomes a
-        "where is my order?" ticket, and a tense one, because from the
-        customer's side <em>you</em> lost their package.
-      </li>
-      <li>
-        <strong>The refund or goodwill credit</strong>, a meaningful
-        share of these end in a partial refund just to keep the customer,
-        or a full one if the item's now out of stock.
-      </li>
-    </ul>
+    <p>
+      Second, <strong>Flow can watch but cannot cancel</strong>. Shopify Flow,
+      free on every plan, can react to an order being created and can tag it or
+      send an internal note. But Flow has no action that cancels an order, so the
+      one step that actually matters is the step it cannot take. You can build a
+      Flow that flags an order as unpaid; you cannot build one that cancels it
+      when the flag has been true for three days and restocks what it was holding.
+    </p>
+
+    <p>
+      Third, <strong>the timing and the judgement are on you</strong>. Even once
+      you decide to keep on top of it, you are the one choosing how long to wait
+      for a bank transfer versus a cash-on-delivery order, whether to chase the
+      customer first, which orders are too valuable to cancel on a timer, and what
+      to say when you do. Cancel too eagerly and you kill an order that was about
+      to pay; cancel too late and the stock has been frozen for a week. The
+      platform hands you the raw pending status and leaves every decision that
+      makes the cleanup safe to a person and a calendar reminder.
+    </p>
 
     <div class="callout">
       <span class="callout-mark">◆ DATA</span>
       <span>
-        The original shipping charge is usually the <em>smallest</em>
-        number in this story. A bad address quietly turns one paid order
-        into two shipping legs, a return fee, a support conversation, and
-        a dent in trust, on a customer who, from their chair, did
-        nothing wrong but mistype a digit. The cheapest moment to fix the
-        address was before the label ever printed.
+        The single biggest mistake here is a flat global timer. A
+        <strong>bank transfer, a cash-on-delivery order, and an agreed wholesale
+        invoice settle on completely different clocks</strong>, so a rule that
+        cancels everything at forty-eight hours will cancel the transfer that was
+        always going to land on day three. The right window is a per-method,
+        sometimes per-customer judgement: long enough to be fair to how that
+        payment actually clears, short enough to free the stock before it costs
+        you a sale.
       </span>
     </div>
 
-    <h2>Why the manual fixes don't hold</h2>
+    <h2>Why the usual fixes don't hold</h2>
 
     <p>
-      Once you've felt this a few times, the usual responses are some
-      version of "watch the orders more carefully" or a Shopify Flow rule
-      that tags orders with an address warning and holds them. Both are
-      better than nothing, and both quietly break.
+      Once a merchant feels the pile growing, they reach for one of a few
+      workarounds. Each gets you partway and each breaks in a familiar spot.
     </p>
 
     <p>
-      "Watch more carefully" is a tax on attention that evaporates the
-      first busy week, which is, of course, exactly when order volume
-      and address typos both spike. And tag-and-hold just builds a pile:
-      Flow can detect that an address is risky, but it can't go
-      <em>fix</em> it. It can't standardise the street format, look up
-      the correct ZIP, recognise that "123 Man St" is almost certainly
-      "123 Main St," or email the customer a specific suggested
-      correction and wait for a yes. So the held orders sit there until a
-      human works through them by hand, which is the original problem,
-      now with a label that says "automated" on it.
+      <strong>"I will just clear them out every Monday."</strong> Fine for the
+      first month, when you remember and the list is short. It collapses the
+      moment volume climbs, because now you are scanning the orders list,
+      separating the paid from the pending, checking which of the pending ones are
+      genuinely dead, and cancelling each by hand with restock ticked. It is slow,
+      it is dull, and it is the first chore to slip when the week gets busy, so
+      the stock stays frozen and the list keeps growing.
     </p>
 
     <p>
-      There's a related trap, too: even when someone <em>does</em> fix an
-      address in the admin, Shopify doesn't recalculate shipping for the
-      new destination, so a correction across a zone can silently eat
-      your margin. The native tools see the address as a field to flag,
-      not a thing to resolve.
+      <strong>"I will set a Flow rule for it."</strong> A reasonable instinct, and
+      Flow can genuinely help you spot the orders by tagging them. But Flow cannot
+      cancel an order or restock its inventory, which is the entire point, so the
+      rule gets you a tidy tag and leaves the actual cleanup exactly where it was:
+      in your hands, one order at a time. You have automated the noticing and none
+      of the doing.
+    </p>
+
+    <p>
+      <strong>"I will install an auto-cancel app."</strong> There are apps for
+      precisely this, and for many stores they are a fair answer, which by itself
+      proves the native gap is real. But most run on a single blunt rule: cancel
+      anything unpaid after X hours, optionally restock. That is better than
+      nothing and still misses the judgement. A flat timer treats a first-time
+      bank transfer the same as a repeat wholesale buyer on net terms, fires off a
+      cold cancellation with no attempt to collect the money first, and cannot
+      tell the order that just paid sixty seconds ago from the one that is truly
+      dead.
     </p>
 
     <h2>What the automation actually has to do</h2>
 
     <p>
-      The real job isn't "flag bad addresses." It's "make sure nothing
-      ships to an address that's going to bounce", which means checking,
-      correcting, confirming, and only escalating the genuinely
-      unresolvable ones to a person, all before fulfilment. Written as a
-      Dugong playbook, in plain prose, it reads like this:
+      The real job is not "cancel everything unpaid after two days." It is "for
+      each pending order, give the customer a fair, method-appropriate window and
+      a clear way to pay, nudge them once or twice, then cancel and restock only
+      the ones that stay cold, while never touching the order that just settled or
+      the wholesale account you do business with." That is reading, timing, and
+      routing, run per order across everything sitting unpaid. As a Dugong
+      playbook, in plain prose, it reads like this:
     </p>
 
     <pre id="playbook"><code><span class="c"># trigger</span>
-<span class="k">When</span> a new order comes in, before it's fulfilled
+<span class="k">On</span> each order sitting in pending payment
 
 <span class="c"># steps</span>
-1. <span class="k">Check</span> the shipping address against an
-   address-verification service (USPS/global)
-2. <span class="k">If</span> it's valid as-is → let it flow straight to
-   fulfilment, no one touched it
-3. <span class="k">If</span> there's a confident standard correction
-   (ZIP, street format, missing direction) → apply it, note the change,
-   and continue
-4. <span class="k">If</span> it's ambiguous (missing apt #, two possible
-   matches) → hold fulfilment and email the customer the exact suggested
-   address: "Did you mean __? Confirm and we'll ship today."
-5. <span class="k">If</span> they confirm → update the order and release
-   it; <span class="k">if</span> no reply in 48h → queue it for me
-6. <span class="k">If</span> it's unresolvable (PO box for a freight
-   item, nonexistent street) → flag for review with the reason attached</code></pre>
+1. <span class="k">Read</span> the order: payment method, value, and whether the
+   customer is new, repeat, or a known wholesale account
+2. <span class="k">Set</span> the window to fit the method: longer for a bank
+   transfer or agreed invoice, shorter for an abandoned manual checkout
+3. <span class="k">Nudge</span> the customer to pay, once or twice, with the
+   amount and a clear way to complete it
+4. <span class="k">Recheck</span> at the deadline that it is still unpaid, so a
+   late payer is never cancelled by a stale timer
+5. <span class="k">Cancel</span> the cold ones and restock the held inventory in
+   the same step, with the reason logged as unpaid
+6. <span class="k">Tell</span> the customer it lapsed, kindly, with a link to
+   reorder so the door stays open
+7. <span class="k">Hold</span> high-value and wholesale orders for a human, and
+   log every nudge, cancel, and restock</code></pre>
 
     <p>
-      Six lines. The compiler fills in everything underneath: the call to
-      the verification service, the conditional correction logic, the
-      customer email with the specific suggestion, the wait-and-follow-up
-      timer, the order update, the review queue. The merchant didn't draw
-      a flowchart of address edge cases, they described how they'd want
-      a careful fulfilment lead to treat every order, and let the
-      compiler decide what it had to <em>be</em> to deliver that.
+      Seven lines. The compiler fills in everything beneath: watching the pending
+      status on every order, holding each for a window that fits how its payment
+      method settles, sending a real reminder with a way to pay instead of going
+      straight to the axe, rechecking the payment state at the last moment so the
+      customer who paid late is left alone, then cancelling the genuinely dead
+      ones and releasing their stock back to the shelf in one clean move, with a
+      friendly note out to the customer and the high-value exceptions parked for a
+      person. The merchant never sat in the orders list on a Monday sorting paid
+      from pending. They described how a careful shop owner would handle a slow
+      payer, and let the compiler do the volume and keep the timing fair.
     </p>
 
     <div class="callout callout-sand">
       <span class="callout-mark">◆ NOTE</span>
       <span>
-        The win isn't catching <em>every</em> bad address, it's moving
-        the catch from <strong>after</strong> the package ships to
-        <strong>before</strong>. Most address problems are either a
-        trivial standardisation the machine can do silently, or a quick
-        "did you mean?" the customer can confirm in one tap. Automate
-        those two and the return-to-sender pile shrinks to the rare
-        genuinely-broken address, caught while it's still cheap to fix.
+        The cancellation that does damage is the one that skips the customer.
+        Cancelling an unpaid order <strong>without ever asking for the money
+        first</strong> throws away sales that a single reminder would have closed,
+        and cancelling on a stale timer can kill an order the customer paid for
+        minutes ago. The point is not "cancel unpaid orders," it is collect first,
+        recheck at the deadline, and cancel only what is genuinely cold, with the
+        stock released and the door left open.
       </span>
     </div>
 
     <h2>Why this is a compiler problem, not an app problem</h2>
 
     <p>
-      There are good address-validation apps in the Shopify store, and
-      for some stores they're the right call. But many merchants don't
-      want yet another app that only does one thing and bolts a checkout
-      pop-up onto their funnel. What they want is to encode <em>their</em>
-      shipping policy: silently fix obvious typos, always confirm before
-      shipping anything over $200, never ship a fragile item to a flagged
-      address without a human look, and recalculate the rate if a
-      correction crosses a zone. Those are sentences, not settings, and
-      they're specific to how <em>your</em> store ships.
+      There are capable auto-cancel apps, and for many stores they are a fine
+      answer. But the thing that makes this safe is not a single timer, it is a
+      read of the specific order in front of you: how its payment method actually
+      settles, whether this is a one-off browser or an account you invoice every
+      month, whether a reminder has gone out yet, and whether the money quietly
+      arrived while the clock was running. Those are judgements about a particular
+      situation, weighed together, and the right move changes with each order,
+      which means the work is never set-and-forget. It is decided fresh every time.
     </p>
 
     <p>
-      A natural-language compiler is the unlock because address handling
-      was never really a validation problem, it was a
-      <em>workflow</em> problem wearing a validation problem's clothes.
-      The check is the easy part. The hard part is what happens next:
-      correct or ask, ship or hold, who gets emailed and when, and what
-      counts as "close enough." You can write that down in a paragraph.
-      You could never maintain it as a sprawling Flow with a branch for
-      every edge case.
+      A natural-language compiler fits because unpaid-order cleanup was never
+      really a cancel-button problem. It is a <em>timing and judgement</em>
+      problem wearing a cancel button's clothes. Firing a blunt cancellation on a
+      timer is the easy part, which is why apps do it. The hard part is everything
+      around it: wait the right amount for this method, ask for the money first,
+      confirm it is still unpaid, restock as you cancel, and keep your hands off
+      the orders that deserve a human. You can write that brief in a paragraph.
+      You could never hold it in your head across every pending order this week.
+      It sits in the same family as
+      <a href="the-overselling-problem-no-one-automates.html">the overselling
+      problem no one automates</a>, where the stock count has to stay honest in
+      real time, and as
+      <a href="the-order-change-that-races-your-warehouse.html">the order change
+      that races your warehouse</a>, where the right move depends on reading the
+      live state of the order before you act.
     </p>
 
     <hr />
@@ -716,43 +752,50 @@ em { font-style: italic; }
     <h2>The workflow worth building this week</h2>
 
     <p>
-      If you've ever eaten a return-to-sender fee, re-shipped an order out
-      of your own pocket, or opened a WISMO ticket only to realise the
-      address was wrong the whole time, this is the automation to build
-      before any upsell or win-back flow. It sits right at the seam
-      between two pains we've written about already, it stops the
-      <a href="the-wismo-tickets-that-eat-your-afternoon.html">"where is
-      my order?" tickets</a> before they start, and it's exactly the kind
-      of unglamorous, high-leverage work that lands in
-      <a href="the-shopify-automations-no-one-builds.html">the automations
-      no one builds</a>.
+      If you take bank transfer, cash on delivery, manual invoices, or you send
+      draft orders, this is the automation to set up before your next restock,
+      because every pending order is a unit of stock frozen on a sale that may
+      never settle, and the only thing between you and clean inventory is a
+      cleanup you keep not getting to. It pairs naturally with the inventory work
+      we have written about, like
+      <a href="the-restock-alert-that-never-fires.html">the restock alert that
+      never fires</a>, where freeing held stock means the next waiting customer
+      can actually buy it, and it feeds the same flywheel as
+      <a href="the-shopify-automations-no-one-builds.html">the Shopify automations
+      no one builds</a>, where the work that compounds is the part merchants never
+      get to.
     </p>
 
     <p>
-      Describe it the way you'd brief a sharp fulfilment hire on their
-      first day: here's how we know an address is good, here's when you
-      fix it yourself, here's when you ask the customer, and here's when
-      you stop and flag it for me. That's the whole brief. The compiler
-      does the checking and the chasing; you keep your attention for the
-      handful of orders that genuinely need a human.
+      Describe it the way you would brief a careful shop owner: when an order sits
+      unpaid, give the customer a fair window for how they chose to pay, remind
+      them once or twice with an easy way to settle, and if it stays cold, cancel
+      it, put the stock back, send a kind note with a link to reorder, and bring
+      me anything big or wholesale before you touch it. That is the whole brief.
+      The compiler does the watching, the waiting, the chasing, and the
+      restocking. You keep your attention for the orders that are real, and you
+      stop letting paying customers bounce off stock that a dead order was sitting
+      on.
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ READING</span>
       <span>
-        If this resonates, two companion pieces: the dispatch on
-        <a href="the-high-risk-flag-that-makes-you-guess.html">the
-        high-risk flag that makes you guess</a>, and our field study on
-        <a href="the-overselling-problem-no-one-automates.html">the
-        overselling problem no one automates</a>.
+        If this resonates, two companion pieces: our dispatch on
+        <a href="the-overselling-problem-no-one-automates.html">the overselling
+        problem no one automates</a>, where keeping the stock count honest is the
+        whole game, and the field study on
+        <a href="the-shopify-automations-no-one-builds.html">the Shopify
+        automations no one builds</a>, where the work that actually compounds is a
+        sliver of what merchants wire up.
       </span>
     </div>
 
     <p>
-      If you're a Shopify merchant who's built an address-resolution
-      playbook that finally stopped the bounce-backs, or you've got a
-      return-to-sender horror story that cost you a customer, the inbox
-      is open: <code>field-notes@dugong.live</code>. We're collecting case
+      If you are a Shopify merchant who has wired up an unpaid-order cleanup that
+      chases payment first and restocks as it cancels, or you have a story about
+      the launch that showed sold out while half the orders were dead, the inbox
+      is open: <code>field-notes@dugong.live</code>. We are collecting case
       studies for the next issue.
     </p>
 
@@ -775,16 +818,16 @@ em { font-style: italic; }
   </div>
   <div class="faq-list">
     <div class="faq-item">
-      <h2 class="faq-q">What does an address warning mean on a Shopify order?</h2>
-      <p class="faq-a">Shopify runs address validation automatically on online orders. A yellow warning means the address looks incomplete or slightly off and might result in a delayed or failed delivery; a red error means the address is very likely undeliverable and can&#x27;t be marked valid. Both are advisory, Shopify flags the risk, but it still lets you fulfil the order, so a bad address can ship anyway if no one acts on the warning.</p>
+      <h2 class="faq-q">Can Shopify automatically cancel unpaid orders?</h2>
+      <p class="faq-a">No. Shopify has no native setting that cancels an unpaid or pending order after a set time. Cancelling an order is a manual action you take one order at a time from the admin, and even Shopify Flow, the free automation tool, cannot cancel an order at all. So orders placed with manual payment methods like bank transfer, cash on delivery, or an unpaid invoice, plus stale draft orders, sit in pending payment until someone notices them and clears them by hand. Auto-cancellation only exists if you install a third-party app or build it yourself.</p>
     </div>
     <div class="faq-item">
-      <h2 class="faq-q">Why are bad shipping addresses so expensive for merchants?</h2>
-      <p class="faq-a">A bad address usually isn&#x27;t caught until the package fails to deliver and gets returned to sender, which can take one to three delivery attempts and a week or more. By then the merchant pays return shipping, a re-ship to the corrected address, support time on a &#x27;where is my order?&#x27; ticket, and often a refund or goodwill credit, several times the original shipping cost, on an order that was already paid and packed.</p>
+      <h2 class="faq-q">Do unpaid orders hold inventory on Shopify?</h2>
+      <p class="faq-a">Yes. When an order is placed, Shopify commits the inventory to it, and that stock stays committed while the order sits in pending payment. A pending bank transfer or an unpaid cash-on-delivery order can therefore hold units off the shelf for days, which is how a store shows sold out while real, paying customers are turned away. The committed stock is only released when the order is cancelled with the restock option, which on a plain store is a manual click per order, so the inventory leaks quietly until a human gets to it.</p>
     </div>
     <div class="faq-item">
-      <h2 class="faq-q">Can bad-address handling on Shopify be automated?</h2>
-      <p class="faq-a">Yes. An AI playbook can check every new order against an address-verification service before fulfilment, auto-correct unambiguous fixes like a missing ZIP or a standardised street format, hold fulfilment and email the customer a suggested correction when the address is ambiguous, and only escalate the genuinely unresolvable ones to a person, so the package never ships to an address that&#x27;s going to bounce.</p>
+      <h2 class="faq-q">How long should you wait before cancelling an unpaid order?</h2>
+      <p class="faq-a">It depends on the payment method and the customer, which is exactly why one global timer is wrong. A bank transfer that clears in two business days needs a different window than a cash-on-delivery order or a wholesale invoice with agreed terms. The sound approach is to nudge the customer once or twice with a clear way to pay, give a window that fits how that payment method actually settles, then cancel and restock only the orders that stay cold, while leaving alone the one that just paid an hour late. A flat rule that cancels everything at forty-eight hours will cancel orders that were about to pay.</p>
     </div>
   </div>
 </section>
@@ -811,226 +854,18 @@ em { font-style: italic; }
         </div>
       </div>
     </a>
-    <a href="the-unpaid-order-that-never-cancels-itself.html" class="card">
+    <a href="the-overselling-problem-no-one-automates.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
+          <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The unpaid order that never cancels itself</h3>
+        <h3 class="card-title">The overselling problem no one automates</h3>
         <p class="card-dek">
-          Shopify won't auto-cancel an unpaid order, so it sits there holding your stock for days. The AI playbook that chases payment, then cancels and restocks on time.
+          Selling stock you no longer have is the pain merchants dread most, and unpaid orders freezing inventory feed straight into it. The AI playbook that keeps inventory honest in real time across every channel.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 24</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-review-request-you-never-send.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The review request you never send</h3>
-        <p class="card-dek">
-          Shopify has no native way to ask for a review, so it never goes out or it blasts everyone at the wrong time. The AI playbook that requests reviews after delivery.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 22</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-repeat-customer-your-store-treats-like-a-stranger.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The repeat customer your store treats like a stranger</h3>
-        <p class="card-dek">
-          The same read-the-whole-record problem, at the customer level. A loyal regular and a one-time discount hunter look identical in the admin, so they get the same blast. The AI playbook that segments customers by real behavior and keeps it current.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 21</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-image-alt-text-no-one-writes.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The image alt text no one writes</h3>
-        <p class="card-dek">
-          The same on-page SEO chore, on your photos instead of the snippet. Shopify never writes alt text and has no bulk field, so it sits blank across the catalog. The AI playbook that reads each image and writes the line.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 20</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-product-descriptions-youll-never-finish-writing.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The product descriptions you'll never finish writing</h3>
-        <p class="card-dek">
-          The body copy is the same chore as the meta description, one level up. Shopify Magic writes one product at a time from keywords you type, so the catalog never gets done. The AI playbook that writes it whole.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 19</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-        <a href="the-order-tag-you-set-by-hand.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The order tag you set by hand</h3>
-        <p class="card-dek">
-          Order tags route fulfillment, segments, and downstream flows, but Shopify Flow tags on one condition and cannot read the note, so they get set by hand. The AI playbook that reads the whole order and tags it.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 18</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-        <a href="the-meta-description-you-write-one-at-a-time.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The meta description you write one at a time</h3>
-        <p class="card-dek">
-          Shopify bulk edits meta descriptions only by setting them all identical, so unique ones get written one at a time, or left blank and auto-filled with generic page text. The AI playbook that writes a distinct meta for every page.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 17</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-        <a href="the-sale-you-start-by-hand.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The sale you have to start by hand</h3>
-        <p class="card-dek">
-          Shopify won't schedule a sale to start, won't revert the prices when it ends, and won't run it by rule. The AI playbook that schedules the sale, sets the strikethrough, guards the margin floor, and reverts on time.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 16</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-        <a href="the-reorder-you-always-make-too-late.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The reorder you always make too late</h3>
-        <p class="card-dek">
-          Shopify tracks every unit but never reorders for you, and its purchase orders are too basic to know what to buy or when. The AI playbook that forecasts demand per SKU and drafts the PO on time.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 15</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-abandoned-cart-that-gets-one-email.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The abandoned cart that gets one email</h3>
-        <p class="card-dek">
-          Seven in ten carts get filled and left, and Shopify sends one generic reminder, then goes quiet. The AI playbook that sequences, personalizes, and recovers the demand you already paid for.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 14</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-sold-out-products-that-sink-your-collection.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The sold-out products that sink your collection</h3>
-        <p class="card-dek">
-          Shopify leaves sold-out products at the top of your collection page, dragging down the conversion of everything in stock behind them. The AI playbook that re-merchandises the storefront as stock moves.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 13</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-restock-alert-that-never-fires.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The restock alert that never fires</h3>
-        <p class="card-dek">
-          Shopify only collects emails on a back in stock request, so the restock sells out to strangers while the people who waited never hear. The AI playbook that turns a waitlist into recovered revenue.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 13</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-chargeback-you-lose-by-default.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The chargeback you lose by default</h3>
-        <p class="card-dek">
-          Shopify files a thin dispute response on the deadline, so you lose chargebacks you should win even with the tracking in hand. The AI playbook that reads the reason code and builds the evidence.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 11</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="the-return-that-wont-approve-itself.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The return that won't approve itself</h3>
-        <p class="card-dek">
-          Shopify makes you approve every return by hand and can't run a real exchange, so refunds quietly leak revenue you already earned. The AI playbook that fixes it.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 9</span>
+          <span class="card-date">JUN 5</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -1051,34 +886,34 @@ em { font-style: italic; }
         </div>
       </div>
     </a>
-    <a href="the-wismo-tickets-that-eat-your-afternoon.html" class="card">
+    <a href="the-restock-alert-that-never-fires.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The &ldquo;where is my order?&rdquo; tickets that eat your afternoon</h3>
+        <h3 class="card-title">The restock alert that never fires</h3>
         <p class="card-dek">
-          WISMO is ~18% of support tickets, over half during a sale. The AI playbook that answers before customers ask.
+          A customer clicks notify me, the item comes back, and Shopify does nothing with the request. The AI playbook that turns a waitlist into recovered revenue, in fair order and without overselling.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 4</span>
+          <span class="card-date">JUN 13</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
-    <a href="the-overselling-problem-no-one-automates.html" class="card">
+    <a href="the-abandoned-cart-that-gets-one-email.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">8&nbsp;min</span>
+          <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The overselling problem no one automates</h3>
+        <h3 class="card-title">The abandoned cart that gets one email</h3>
         <p class="card-dek">
-          Selling stock you no longer have is the pain merchants dread most. The AI playbook that keeps inventory honest in real time.
+          Seven in ten carts get filled and left, and Shopify sends one generic reminder, then goes quiet. The AI playbook that sequences, personalizes, and recovers the demand you already paid for.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 5</span>
+          <span class="card-date">JUN 14</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -1095,6 +930,214 @@ em { font-style: italic; }
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-return-that-wont-approve-itself.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The return that won't approve itself</h3>
+        <p class="card-dek">
+          Every return waits on you to click approve, and Shopify can't run a real exchange, so refunds leak revenue you already earned. The AI playbook that fixes it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 9</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-bad-address-that-ships-anyway.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The bad address that ships anyway</h3>
+        <p class="card-dek">
+          Shopify warns the address looks wrong, you ship anyway, and the package bounces back. The AI playbook that fixes it before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-chargeback-you-lose-by-default.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The chargeback you lose by default</h3>
+        <p class="card-dek">
+          Shopify files a thin dispute response on the deadline and you lose, even with the proof. The AI playbook that builds the evidence and fights it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 11</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-order-tag-you-set-by-hand.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order tag you set by hand</h3>
+        <p class="card-dek">
+          Shopify Flow tags an order on one condition and can't read the note, so the tags that route everything downstream get set by hand. The AI playbook that reads the whole order and tags it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-review-request-you-never-send.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The review request you never send</h3>
+        <p class="card-dek">
+          Shopify retired its own reviews app and never replaced it, so the ask either never goes out or blasts everyone at the wrong time. The AI playbook that requests reviews after delivery.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 22</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-repeat-customer-your-store-treats-like-a-stranger.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The repeat customer your store treats like a stranger</h3>
+        <p class="card-dek">
+          A loyal repeat buyer, a one-time discount hunter, and a customer about to leave all look identical without a manual tag. The AI playbook that segments customers by behavior.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-wismo-tickets-that-eat-your-afternoon.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The &ldquo;where is my order?&rdquo; tickets that eat your afternoon</h3>
+        <p class="card-dek">
+          WISMO is ~18% of support tickets, over half during a sale. The AI playbook that reads the order and answers before customers ask.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 4</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-reorder-you-always-make-too-late.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The reorder you always make too late</h3>
+        <p class="card-dek">
+          Shopify tracks every unit but never buys more, and its purchase orders are too basic to know what to reorder or when. The AI playbook that forecasts demand per SKU and drafts the PO on time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 15</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-sale-you-start-by-hand.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The sale you have to start by hand</h3>
+        <p class="card-dek">
+          Shopify won't schedule a sale to start, won't revert it, and won't run it by rule, so you flip prices by hand at midnight. The AI playbook that runs the whole promotion.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 16</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-sold-out-products-that-sink-your-collection.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The sold-out products that sink your collection</h3>
+        <p class="card-dek">
+          Shopify leaves sold-out products at the top of your collection page, dragging down the conversion of everything in stock behind them. The AI playbook that re-merchandises as stock moves.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 13</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-meta-description-you-write-one-at-a-time.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The meta description you write one at a time</h3>
+        <p class="card-dek">
+          The on-page SEO field Shopify stores but won't write. Bulk edit and they all come out identical, the one thing you must not do. The AI playbook that writes a distinct line for every page.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-product-descriptions-youll-never-finish-writing.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The product descriptions you'll never finish writing</h3>
+        <p class="card-dek">
+          Shopify Magic writes one product at a time from keywords you type, so the catalog never gets done. The AI playbook that writes it whole, in one voice.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="the-image-alt-text-no-one-writes.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The image alt text no one writes</h3>
+        <p class="card-dek">
+          Shopify stores an alt text on every image but never writes one and has no bulk way to add it, so it sits blank across the catalog. The AI playbook that reads each photo and writes it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 20</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
