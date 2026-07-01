@@ -15,12 +15,22 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Tue, 30 Jun 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 09:00:00 +0000</lastBuildDate>
 
     <item>
-      <title>The pre-order that holds your whole order hostage</title>
-      <link>https://blog.dugong.live/the-preorder-that-holds-your-order-hostage.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-preorder-that-holds-your-order-hostage.html</guid>
+      <title>How to stop card testing attacks on Shopify</title>
+      <link>https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Wed, 01 Jul 2026 09:00:00 +0000</pubDate>
+      <description>Card testing, also called carding, is one of the loudest complaints in every Shopify merchant community, and it arrives all at once: a merchant wakes to hundreds of tiny orders overnight, each a few dollars on one or two cheap products, each a different name, email, billing address, and card, most declined and a few approved, none of them real customers. A bot has found the checkout and is running a list of stolen card numbers through it to learn which ones still work, because your store is a public page that will attempt a real charge for a small amount and a low-value charge is less likely to be noticed by the true cardholder; the bot does not want the product, it wants the one bit of information, this card works or this card is dead, to sell or spend elsewhere. Three concrete walls: the native CAPTCHA fires on Shopify's read, not yours, because for Shopify Payments stores Shopify runs machine-learning models that can show a CAPTCHA when a session looks automated, which blocks some crude bots but is bypassed by one that rotates IPs and spaces out attempts, so waves of card-testing orders and fake abandoned checkouts still get through; the cleanup is entirely manual, since every test order that landed is a real order on a stolen card you must find, cancel, refund before it ships, and restock, one order at a time against a clock, because the small slice that approved becomes chargebacks; and the rule engine is behind a paywall and cannot read the pattern, because auto-cancel and auto-flag live in Shopify Flow on the Advanced and Plus plans, and even there Flow reacts one order at a time and cannot see that forty orders in four minutes share a fingerprint and respond to the burst as a burst. Why it matters: a declined attempt is not free because your processor charges for the attempt, so a flood racks up fees even when nearly all fail, the few approvals become chargebacks with their own dispute fees, and a spike in dispute rate can put your payment account under review, while the flood buries real orders and poisons conversion and fraud metrics. The usual workarounds break: raising the price does not deter a fraudster spending someone else's money, cranking every fraud filter up starts declining real customers, cancelling by hand cannot keep pace with an attack, and waiting only moves tonight's fees, chargebacks, and poisoned metrics into next month. The AI playbook triggers on a burst of orders or checkouts that spikes above the store's normal rate, reads the whole burst (values, card and email spread, IPs, products, decline rate, window) and decides attack versus real spike from the pattern rather than any single order, cancels and refunds the test orders before they ship and restocks the units, tags every test order and checkout so it drops out of revenue, conversion, and fraud metrics, throttles or blocks the offending IPs and sessions and tightens checkout only while the attack runs, alerts a human once with the window, count, and fee exposure with the cleanup already done, and stands down when it stops while surfacing any real customer caught in the net for review. By Priya Singh, 2026-07-01.</description>
+    </item>
+
+    <item>
+      <title>How to set up pre-orders on Shopify without holding in-stock items</title>
+      <link>https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Tue, 30 Jun 2026 09:00:00 +0000</pubDate>
@@ -28,9 +38,9 @@
     </item>
 
     <item>
-      <title>The payout that never matches your sales</title>
-      <link>https://blog.dugong.live/the-payout-that-never-matches-your-sales.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-payout-that-never-matches-your-sales.html</guid>
+      <title>How to reconcile Shopify payouts with your sales</title>
+      <link>https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Mon, 29 Jun 2026 09:00:00 +0000</pubDate>
@@ -38,9 +48,9 @@
     </item>
 
     <item>
-      <title>The price change you make one product at a time</title>
-      <link>https://blog.dugong.live/the-price-change-you-make-one-product-at-a-time.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-price-change-you-make-one-product-at-a-time.html</guid>
+      <title>How to bulk edit product prices on Shopify</title>
+      <link>https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Sun, 28 Jun 2026 09:00:00 +0000</pubDate>
@@ -48,9 +58,9 @@
     </item>
 
     <item>
-      <title>The tracking number you paste in by hand</title>
-      <link>https://blog.dugong.live/the-tracking-number-you-paste-by-hand.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-tracking-number-you-paste-by-hand.html</guid>
+      <title>How to automatically add tracking numbers to Shopify orders</title>
+      <link>https://blog.dugong.live/how-to-automatically-add-tracking-numbers-to-shopify-orders.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-automatically-add-tracking-numbers-to-shopify-orders.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Sat, 27 Jun 2026 09:00:00 +0000</pubDate>
@@ -58,9 +68,9 @@
     </item>
 
     <item>
-      <title>The deleted product that 404s your customers</title>
-      <link>https://blog.dugong.live/the-deleted-product-that-404s-your-customers.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-deleted-product-that-404s-your-customers.html</guid>
+      <title>How to fix 404 errors from deleted products on Shopify</title>
+      <link>https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Thu, 25 Jun 2026 09:00:00 +0000</pubDate>
@@ -68,9 +78,9 @@
     </item>
 
     <item>
-      <title>The unpaid order that never cancels itself</title>
-      <link>https://blog.dugong.live/the-unpaid-order-that-never-cancels-itself.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-unpaid-order-that-never-cancels-itself.html</guid>
+      <title>How to automatically cancel unpaid orders on Shopify</title>
+      <link>https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Wed, 24 Jun 2026 09:00:00 +0000</pubDate>
@@ -78,9 +88,9 @@
     </item>
 
     <item>
-      <title>The review request you never send</title>
-      <link>https://blog.dugong.live/the-review-request-you-never-send.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-review-request-you-never-send.html</guid>
+      <title>How to automatically request product reviews on Shopify</title>
+      <link>https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Mon, 22 Jun 2026 09:00:00 +0000</pubDate>
@@ -88,9 +98,9 @@
     </item>
 
     <item>
-      <title>The repeat customer your store treats like a stranger</title>
-      <link>https://blog.dugong.live/the-repeat-customer-your-store-treats-like-a-stranger.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-repeat-customer-your-store-treats-like-a-stranger.html</guid>
+      <title>How to segment repeat customers on Shopify</title>
+      <link>https://blog.dugong.live/how-to-segment-repeat-customers-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-segment-repeat-customers-on-shopify.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Sun, 21 Jun 2026 09:00:00 +0000</pubDate>
@@ -98,9 +108,9 @@
     </item>
 
     <item>
-      <title>The image alt text no one writes</title>
-      <link>https://blog.dugong.live/the-image-alt-text-no-one-writes.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-image-alt-text-no-one-writes.html</guid>
+      <title>How to add alt text to Shopify product images in bulk</title>
+      <link>https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Sat, 20 Jun 2026 09:00:00 +0000</pubDate>
@@ -108,9 +118,9 @@
     </item>
 
     <item>
-      <title>The product descriptions you'll never finish writing</title>
-      <link>https://blog.dugong.live/the-product-descriptions-youll-never-finish-writing.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-product-descriptions-youll-never-finish-writing.html</guid>
+      <title>How to generate Shopify product descriptions with AI</title>
+      <link>https://blog.dugong.live/how-to-generate-shopify-product-descriptions-with-ai.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-generate-shopify-product-descriptions-with-ai.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Fri, 19 Jun 2026 09:00:00 +0000</pubDate>
@@ -118,9 +128,9 @@
     </item>
 
     <item>
-      <title>The order tag you set by hand</title>
-      <link>https://blog.dugong.live/the-order-tag-you-set-by-hand.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-order-tag-you-set-by-hand.html</guid>
+      <title>How to automatically tag orders on Shopify</title>
+      <link>https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Thu, 18 Jun 2026 09:00:00 +0000</pubDate>
@@ -128,9 +138,9 @@
     </item>
 
     <item>
-      <title>The meta description you write one at a time</title>
-      <link>https://blog.dugong.live/the-meta-description-you-write-one-at-a-time.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-meta-description-you-write-one-at-a-time.html</guid>
+      <title>How to bulk edit meta descriptions on Shopify</title>
+      <link>https://blog.dugong.live/how-to-bulk-edit-meta-descriptions-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-bulk-edit-meta-descriptions-on-shopify.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Wed, 17 Jun 2026 09:00:00 +0000</pubDate>
@@ -138,9 +148,9 @@
     </item>
 
     <item>
-      <title>The sale you have to start by hand</title>
-      <link>https://blog.dugong.live/the-sale-you-start-by-hand.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-sale-you-start-by-hand.html</guid>
+      <title>How to schedule a sale on Shopify</title>
+      <link>https://blog.dugong.live/how-to-schedule-a-sale-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-schedule-a-sale-on-shopify.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Tue, 16 Jun 2026 09:00:00 +0000</pubDate>
@@ -148,9 +158,9 @@
     </item>
 
     <item>
-      <title>The reorder you always make too late</title>
-      <link>https://blog.dugong.live/the-reorder-you-always-make-too-late.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-reorder-you-always-make-too-late.html</guid>
+      <title>How to set inventory reorder points on Shopify</title>
+      <link>https://blog.dugong.live/how-to-set-inventory-reorder-points-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-set-inventory-reorder-points-on-shopify.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Mon, 15 Jun 2026 09:00:00 +0000</pubDate>
@@ -158,9 +168,9 @@
     </item>
 
     <item>
-      <title>The abandoned cart that gets one email</title>
-      <link>https://blog.dugong.live/the-abandoned-cart-that-gets-one-email.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-abandoned-cart-that-gets-one-email.html</guid>
+      <title>How to set up an abandoned cart email sequence on Shopify</title>
+      <link>https://blog.dugong.live/how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Sun, 14 Jun 2026 09:00:00 +0000</pubDate>
@@ -168,9 +178,9 @@
     </item>
 
     <item>
-      <title>The sold-out products that sink your collection</title>
-      <link>https://blog.dugong.live/the-sold-out-products-that-sink-your-collection.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-sold-out-products-that-sink-your-collection.html</guid>
+      <title>How to push sold-out products to the bottom of a Shopify collection</title>
+      <link>https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Sat, 13 Jun 2026 12:00:00 +0000</pubDate>
@@ -178,9 +188,9 @@
     </item>
 
     <item>
-      <title>The restock alert that never fires</title>
-      <link>https://blog.dugong.live/the-restock-alert-that-never-fires.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-restock-alert-that-never-fires.html</guid>
+      <title>How to set up back-in-stock notifications on Shopify</title>
+      <link>https://blog.dugong.live/how-to-set-up-back-in-stock-notifications-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-set-up-back-in-stock-notifications-on-shopify.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Sat, 13 Jun 2026 09:00:00 +0000</pubDate>
@@ -188,9 +198,9 @@
     </item>
 
     <item>
-      <title>The chargeback you lose by default</title>
-      <link>https://blog.dugong.live/the-chargeback-you-lose-by-default.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-chargeback-you-lose-by-default.html</guid>
+      <title>How to win chargeback disputes on Shopify</title>
+      <link>https://blog.dugong.live/how-to-win-chargeback-disputes-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-win-chargeback-disputes-on-shopify.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Thu, 11 Jun 2026 09:00:00 +0000</pubDate>
@@ -198,9 +208,9 @@
     </item>
 
     <item>
-      <title>The return that won't approve itself</title>
-      <link>https://blog.dugong.live/the-return-that-wont-approve-itself.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-return-that-wont-approve-itself.html</guid>
+      <title>How to automate returns and exchanges on Shopify</title>
+      <link>https://blog.dugong.live/how-to-automate-returns-and-exchanges-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-automate-returns-and-exchanges-on-shopify.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Tue, 09 Jun 2026 09:00:00 +0000</pubDate>
@@ -208,9 +218,9 @@
     </item>
 
     <item>
-      <title>The order change that races your warehouse</title>
-      <link>https://blog.dugong.live/the-order-change-that-races-your-warehouse.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-order-change-that-races-your-warehouse.html</guid>
+      <title>How to edit a Shopify order after it's been placed</title>
+      <link>https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Mon, 08 Jun 2026 09:00:00 +0000</pubDate>
@@ -218,9 +228,9 @@
     </item>
 
     <item>
-      <title>The bad address that ships anyway</title>
-      <link>https://blog.dugong.live/the-bad-address-that-ships-anyway.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-bad-address-that-ships-anyway.html</guid>
+      <title>How to validate shipping addresses on Shopify</title>
+      <link>https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Sat, 06 Jun 2026 09:00:00 +0000</pubDate>
@@ -228,9 +238,9 @@
     </item>
 
     <item>
-      <title>The high-risk flag that makes you guess</title>
-      <link>https://blog.dugong.live/the-high-risk-flag-that-makes-you-guess.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-high-risk-flag-that-makes-you-guess.html</guid>
+      <title>How to handle high-risk orders on Shopify</title>
+      <link>https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Sat, 06 Jun 2026 08:00:00 +0000</pubDate>
@@ -238,9 +248,9 @@
     </item>
 
     <item>
-      <title>The overselling problem no one automates</title>
-      <link>https://blog.dugong.live/the-overselling-problem-no-one-automates.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-overselling-problem-no-one-automates.html</guid>
+      <title>How to prevent overselling on Shopify across channels</title>
+      <link>https://blog.dugong.live/how-to-prevent-overselling-on-shopify-across-channels.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-prevent-overselling-on-shopify-across-channels.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Fri, 05 Jun 2026 09:00:00 +0000</pubDate>
@@ -248,9 +258,9 @@
     </item>
 
     <item>
-      <title>The &#8220;where is my order?&#8221; tickets that eat your afternoon</title>
-      <link>https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-wismo-tickets-that-eat-your-afternoon.html</guid>
+      <title>How to reduce 'where is my order?' (WISMO) tickets on Shopify</title>
+      <link>https://blog.dugong.live/how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Thu, 04 Jun 2026 09:00:00 +0000</pubDate>
@@ -258,9 +268,9 @@
     </item>
 
     <item>
-      <title>The Shopify automations no one builds</title>
-      <link>https://blog.dugong.live/the-shopify-automations-no-one-builds.html</link>
-      <guid isPermaLink="true">https://blog.dugong.live/the-shopify-automations-no-one-builds.html</guid>
+      <title>The best Shopify automations to set up</title>
+      <link>https://blog.dugong.live/best-shopify-automations-to-set-up.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/best-shopify-automations-to-set-up.html</guid>
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Wed, 28 May 2026 09:00:00 +0000</pubDate>
