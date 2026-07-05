@@ -3,28 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to edit a Shopify order after it's been placed — Dugong Field Notes</title>
-<meta name="description" content="A customer emails to change their Shopify order, and the edit locks the moment you fulfil. The AI playbook that resolves it before the label prints." />
-<link rel="canonical" href="https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html" />
+<title>How to automatically hide sold-out variants on Shopify — Dugong Field Notes</title>
+<meta name="description" content="A shopper picks their size, hits Sold Out, and leaves, because Shopify keeps out-of-stock variants sitting in the dropdown. There is no native setting to hide them, only brittle theme code or an app. The AI playbook that hides sold-out variants and brings them back the moment stock returns." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html" />
 <meta name="author" content="Priya Singh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="keywords" content="Shopify order editing, change order after purchase, edit shipping address Shopify, order change request automation, self-serve order editing, cancel order Shopify, post-purchase support tickets, fulfillment lock, ecommerce support automation, Dugong" />
+<meta name="keywords" content="Shopify hide sold out variants, hide out of stock variants Shopify, Shopify hide unavailable variants, hide sold out options Shopify, Shopify variant dropdown sold out, hide grayed out variants Shopify, remove sold out sizes Shopify, Shopify sold out swatch, hide out of stock variant automatically Shopify, AI Shopify catalog automation, Dugong" />
 <meta name="theme-color" content="#c6fe1e" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
-<meta property="article:published_time" content="2026-06-08" />
-    <meta property="article:modified_time" content="2026-06-13" />
+<meta property="article:published_time" content="2026-07-03" />
+    <meta property="article:modified_time" content="2026-07-03" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
-<meta property="og:title" content="How to edit a Shopify order after it's been placed" />
-<meta property="og:description" content="A customer asks to change their order an hour after checkout, and Shopify locks the edit the moment you fulfil. Why &quot;just reply fast&quot; never scales, and the AI playbook that resolves order-change requests before the label prints." />
-<meta property="og:url" content="https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html" />
+<meta property="og:title" content="How to automatically hide sold-out variants on Shopify" />
+<meta property="og:description" content="A shopper opens your product page, picks their size or color, and the button says Sold Out. Shopify still shows the variant they cannot buy, grayed out or crossed off, sitting in the dropdown next to the ones that are in stock. There is no native switch to hide it. You either edit the theme's Liquid by hand, which breaks on the next theme update and gets ugly the moment size and color combine, or you install an app and hope it keeps up. Meanwhile the shopper reads Sold Out, assumes the whole product is gone, and closes the tab. The AI playbook that hides the sold-out variant, keeps the in-stock ones live, and brings it back the moment inventory returns." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -33,8 +33,8 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="How to edit a Shopify order after it's been placed" />
-<meta name="twitter:description" content="Wrong size, wrong address, one more item: the &quot;can you change my order?&quot; email always lands at a bad time and locks when you fulfil. The AI playbook that handles it." />
+<meta name="twitter:title" content="How to automatically hide sold-out variants on Shopify" />
+<meta name="twitter:description" content="A shopper picks their size, hits Sold Out, and leaves, because Shopify keeps out-of-stock variants in the dropdown. No native hide setting, only brittle theme code. The AI playbook that hides them and brings them back on restock." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
     <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 
@@ -44,24 +44,25 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html#article",
+      "@id": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#article",
       "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
-      "mainEntityOfPage": "https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html",
-      "url": "https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html",
-      "headline": "How to edit a Shopify order after it's been placed",
-      "description": "A customer asks to swap a size, fix an address, or add an item minutes after checkout, and Shopify locks the edit the second you fulfil. Why bad-address handling, manual replies, and the cancel-and-recreate dance all fail, and the AI playbook that resolves order-change requests before the label prints.",
-      "datePublished": "2026-06-08",
-      "dateModified": "2026-06-13",
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html",
+      "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html",
+      "headline": "How to automatically hide sold-out variants on Shopify",
+      "description": "When a size or color sells out, Shopify keeps the variant on the product page, shown as Sold Out or Unavailable and often grayed out, sitting right next to the variants that are in stock. Shoppers who select it read Sold Out, assume the whole product is unavailable, and leave, which quietly costs conversion on the items you can still sell. Shopify has no native setting to hide unavailable variants: disabling continue selling stops the purchase but still displays the variant, and the only real options are editing the theme's Liquid by hand, which is brittle and breaks on theme updates and gets much harder once size and color combine, or installing a third-party app. This is one of the most-repeated requests in Shopify merchant communities. The AI playbook that detects a variant hitting zero, hides it from the storefront without unpublishing the product, keeps the in-stock variants and the product page live, captures the demand on the hidden ones, and brings the variant back the moment stock returns.",
+      "datePublished": "2026-07-03",
+      "dateModified": "2026-07-03",
       "articleSection": "Research",
-      "keywords": "Shopify order editing, change order after purchase, edit shipping address Shopify, order change request automation, self-serve order editing, cancel order Shopify, post-purchase support tickets, fulfillment lock",
-      "wordCount": 1700,
+      "keywords": "Shopify hide sold out variants, hide out of stock variants Shopify, Shopify hide unavailable variants, hide sold out options Shopify, Shopify variant dropdown sold out, remove sold out sizes Shopify, hide out of stock variant automatically Shopify",
+      "wordCount": 2108,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
       "about": [
         { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "E-commerce", "sameAs": "https://en.wikipedia.org/wiki/E-commerce" },
-        { "@type": "Thing", "name": "Business process automation", "sameAs": "https://en.wikipedia.org/wiki/Business_process_automation" }
+        { "@type": "Thing", "name": "Stock keeping unit", "sameAs": "https://en.wikipedia.org/wiki/Stock_keeping_unit" },
+        { "@type": "Thing", "name": "Merchandising", "sameAs": "https://en.wikipedia.org/wiki/Merchandising" },
+        { "@type": "Thing", "name": "E-commerce", "sameAs": "https://en.wikipedia.org/wiki/E-commerce" }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
@@ -85,7 +86,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The order change that races your warehouse", "item": "https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html" }
+        { "@type": "ListItem", "position": 2, "name": "The sold-out variant Shopify still shows", "item": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html" }
       ]
     },
     {
@@ -93,86 +94,86 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Can customers edit their own order after checkout on Shopify?",
+          "name": "Can Shopify hide out-of-stock variants automatically?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Not by default. Once checkout is complete, Shopify does not give the customer any way to change items, quantities, variants, or the shipping address themselves. Every change request has to be handled by the merchant in the admin, and only while the order is still unfulfilled. The moment you click Fulfil items, most edit options lock, and the billing address can never be edited for fraud reasons."
+            "text": "Not with a built-in setting. Shopify has no native switch that hides a variant when it sells out. Turning off continue selling when out of stock stops the shopper from buying the variant, but the variant still appears on the product page, usually shown as Sold Out or Unavailable and often grayed out or crossed off. To actually hide it you either edit your theme's Liquid code so the option value stops rendering when its inventory is zero, or you install a third-party app that hides and restores variants for you. There is no toggle in admin that does it."
           }
         },
         {
           "@type": "Question",
-          "name": "Why are post-purchase order changes such a common support ticket?",
+          "name": "Why does Shopify still show a variant I marked as sold out?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "People buy fast and notice mistakes a few minutes later: the wrong size, a typo in the address, a quantity of one when they meant two, or an item they forgot to add. Because Shopify gives them no self-serve way to fix it, every one of those realisations becomes an inbound email, DM, or chat. Industry data shows roughly 60 to 80 percent of ecommerce tickets fall into automatable categories, and order changes are one of the largest, with about 69 percent of customers saying they would rather resolve the issue themselves if they could."
+            "text": "Because Shopify treats the variant list as part of the product's structure, not as a live view of what is buyable right now. Every size and color you created stays on the product as an option value regardless of its stock level, and the theme renders all of them. Marking a variant sold out only changes whether it can be added to cart, not whether it appears. So a shopper sees the full grid of sizes, selects the one they want, and only then learns it is gone, which reads as the product being unavailable rather than one size being out."
           }
         },
         {
           "@type": "Question",
-          "name": "Can Shopify order-change requests be automated?",
+          "name": "Should you hide sold-out variants or just show them as unavailable?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. An AI playbook can read the incoming request in plain language, identify what the customer wants to change, check whether fulfilment has already started, apply the safe changes automatically before the order locks, recalculate any price or shipping difference, charge or refund the delta, confirm with the customer, and escalate only the genuinely risky cases to a person. Self-serve and automated order editing typically cuts order-change tickets by 40 to 60 percent."
+            "text": "It depends on the case, which is exactly why a fixed rule struggles. A size that is briefly out and restocking next week is often better shown as unavailable with a back-in-stock signup, so you capture the demand instead of pretending the size never existed. A size that is discontinued, or a color that is gone for the season, is usually better hidden so it stops drawing clicks that dead-end. Hiding everything blindly loses waitlist demand, and showing everything blindly buries your in-stock options behind dead ones. The right move is per variant and changes over time, so the useful thing is judgement about which sold-out variants to hide, which to keep with a signup, and which to bring straight back when stock returns."
           }
         }
       ]
     },
     {
       "@type": "HowTo",
-      "@id": "https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html#howto",
-      "name": "The order change that races your warehouse",
-      "description": "The AI-run playbook behind the order change that races your warehouse.",
+      "@id": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#howto",
+      "name": "The sold-out variant Shopify still shows",
+      "description": "The AI playbook that hides a variant the moment it sells out and restores it when stock returns: watching inventory per variant, deciding hide versus keep with a signup, hiding the option value without unpublishing the product, keeping the in-stock variants and the page live, capturing demand on the hidden ones, restoring on restock, and surfacing the judgement calls for a human.",
       "inLanguage": "en",
       "totalTime": "PT9M",
       "step": [
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Match the message to the order (by email",
-          "text": "Match the message to the order (by email, order number, or recent purchase) and read what they want changed",
-          "url": "https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html#playbook"
+          "name": "Watch inventory at the variant level",
+          "text": "Notice the moment a single variant's available quantity hits zero, per size, per color, per location, not just when a whole product sells out",
+          "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Check whether fulfilment has started yet",
-          "text": "Check whether fulfilment has started yet",
-          "url": "https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html#playbook"
+          "name": "Decide hide versus keep with a signup",
+          "text": "Judge whether the variant is briefly out and restocking, so it should stay visible with a back-in-stock capture, or gone for good, so it should be hidden",
+          "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "If it's already shipped",
-          "text": "If it's already shipped → tell them honestly, offer a return or address-correction path, and stop",
-          "url": "https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html#playbook"
+          "name": "Hide the variant without unpublishing the product",
+          "text": "Remove the sold-out option value from the storefront so it stops rendering in the dropdown or swatch, while the product and its in-stock variants stay live and buyable",
+          "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "If it's still open and the change is safe (size/variant swap",
-          "text": "If it's still open and the change is safe (size/variant swap, quantity, address, add a forgotten item) → apply it, recalculate the price and shipping difference",
-          "url": "https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html#playbook"
+          "name": "Collapse an option only when every value is gone",
+          "text": "If all values of an option have sold out, collapse the whole option cleanly instead of leaving an empty selector, and hold the case where every variant is gone",
+          "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "If they owe more",
-          "text": "If they owe more → send a quick secure payment link; if we owe them → refund the difference",
-          "url": "https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html#playbook"
+          "name": "Capture demand on the hidden variants",
+          "text": "Keep the demand for a hidden or unavailable variant with a back-in-stock signup so the interest is recorded instead of lost",
+          "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Confirm back in plain language",
-          "text": "Confirm back in plain language: \"Done, updated to a medium, shipping to your office, $4 refunded.\"",
-          "url": "https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html#playbook"
+          "name": "Restore the variant the moment stock returns",
+          "text": "Bring the variant back into the dropdown as soon as its inventory goes above zero, and notify the waitlist, without anyone re-editing the theme",
+          "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "If anything is risky (high-value",
-          "text": "If anything is risky (high-value, flagged, address looks off, partial refund) → hold it and queue it for me with the full context attached",
-          "url": "https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html#playbook"
+          "name": "Surface the judgement calls for a human",
+          "text": "Hold for review a variant that is discontinued, a core size that keeps flickering in and out, or a product where hiding would leave nothing to buy, so a person makes the merchandising call",
+          "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#playbook"
         }
       ]
     }
@@ -454,13 +455,13 @@ em { font-style: italic; }
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>◆ DISPATCH Nº 53 — JUN 8, 2026</span>
+    <span>◆ DISPATCH Nº 75 — JUL 3, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 1,700 WORDS</span>
+    <span>◆ 9 MIN READ · 2,100 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
-    <span>◆ DISPATCH Nº 53 — JUN 8, 2026</span>
+    <span>◆ DISPATCH Nº 75 — JUL 3, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 1,700 WORDS</span>
+    <span>◆ 9 MIN READ · 2,100 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -486,23 +487,25 @@ em { font-style: italic; }
 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH Nº 53</span>
+    <span style="color: var(--cream-dim);">DISPATCH Nº 75</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">JUN 8, 2026</span>
+    <span style="color: var(--cream-dim);">JUL 3, 2026</span>
     <span style="color: var(--line-2);">·</span>
     <span style="color: var(--cream-dim);">9 MIN READ</span>
   </div>
 
-  <h1 class="article-title">How to <em>edit a Shopify order</em> after it's been placed</h1>
+  <h1 class="article-title">
+    How to automatically <em>hide sold-out variants</em> on Shopify
+  </h1>
 
   <p class="article-dek">
-    A customer checks out, then notices the mistake ninety seconds later:
-    wrong size, wrong apartment number, meant to buy two. They fire off a
-    quick "hey, can you change my order?" and assume it's handled. On your
-    side it lands in an inbox you check between other things, and it's now
-    in a footrace against your own warehouse. Whoever gets there first wins.
-    Here's why that race is rigged against you, and the playbook that wins
-    it automatically.
+    A shopper lands on your product page, picks their size or their color, and
+    the button flips to Sold Out. Shopify kept the variant they cannot buy right
+    there in the dropdown, grayed out next to the ones in stock. They read
+    Sold Out, decide the product is gone, and close the tab, even though the size
+    beside it was available the whole time. There is no native switch to hide it.
+    Here is why the sold-out variant stays on the page, and the playbook that
+    hides it and brings it back the moment stock returns.
   </p>
 
   <div class="article-byline">
@@ -515,212 +518,230 @@ em { font-style: italic; }
   <div class="article-body">
 
     <p>
-      Scroll the Shopify community forums or any merchant subreddit for a
-      few minutes and you'll find the same thread rewritten over and over:
-      a customer wants to change something about an order they just placed,
-      and the merchant is trying to figure out how to do it without
-      blowing up fulfilment. Sometimes it's a swapped size. Sometimes it's
-      a typo in the street address. Sometimes they want to add the thing
-      they forgot, or drop a quantity from three to one, or move the whole
-      order to a different shipping address because it's a gift. The
-      details vary. The shape never does.
+      Watch someone shop a product with sizes. They do not read the whole grid.
+      They look for their size, tap it, and wait for the price and the Add to
+      Cart button to confirm they can buy it. When the button instead says Sold
+      Out, the message they take is not "this one size is out." It is "this
+      product is not available," and they leave. The cruel part is that the two
+      sizes on either side of theirs were in stock and ready to ship. Shopify
+      just showed the shopper the one thing they could not have and let them draw
+      the wrong conclusion.
     </p>
 
     <p>
-      What makes this one quietly brutal is the timing. The request almost
-      never arrives at a convenient moment. It shows up mid-afternoon when
-      you're packing, or overnight while the order is already syncing to
-      your 3PL, or twenty minutes before the carrier pickup. And the one
-      thing Shopify is very good at, getting orders out the door fast, is
-      exactly what turns a tiny edit into a lost race.
+      This is one of the most-repeated requests in every Shopify merchant
+      community, and the threads all read the same. "Hide specific variants when
+      sold out." "Hide out of stock product variants." "How do I stop showing a
+      size once it hits zero." Merchants are not asking for anything exotic. They
+      want the obvious thing: when a variant is gone, take it off the page, and
+      when it comes back, put it back. Shopify does not have a button for that,
+      and the answers underneath the threads are always some mix of edit your
+      theme code or install an app.
     </p>
 
     <blockquote>
-      A change request isn't a problem with the order. It's a problem with
-      <em>time</em>. The fix is usually trivial. Getting to it before the
-      order locks is the hard part.
+      The shopper looked for their size, found it, and it was gone. <em>The two
+      sizes that were in stock never got a look, because Sold Out reads as the
+      whole product being over.</em>
     </blockquote>
 
-    <h2>What Shopify lets you do, and when it stops</h2>
+    <h2>Why Shopify keeps showing a variant you can't buy</h2>
 
     <p>
-      Here's the part that surprises new merchants: the customer has no
-      self-serve way to change anything. Once checkout completes, Shopify
-      gives the buyer zero controls over their own order. They can't fix a
-      typo, swap a variant, or update the address. Every single change has
-      to route through you.
+      Shopify treats the list of variants as part of the product's structure, not
+      as a live view of what is buyable right now. Every size and color you
+      created lives on the product as an option value, and the theme faithfully
+      renders all of them whether they have stock or not. Selling out changes one
+      thing only: whether that variant can be added to cart. It does not change
+      whether the variant appears. So the grid you built when everything was in
+      stock is the grid the shopper sees when half of it is gone, with the empty
+      ones marked Sold Out or Unavailable and often grayed out or struck through.
     </p>
 
     <p>
-      And your window to make that change is narrower than it looks. While
-      an order is unfulfilled you can edit it from the admin: add items,
-      remove items, change quantities, apply or remove a discount, and
-      update the shipping address. But the moment you click
-      <strong>Fulfil items</strong>, most of those options lock. The
-      billing address can't be edited at all, ever, for fraud-prevention
-      reasons. So the practical reality is a short, invisible countdown
-      that starts the instant the order is placed and ends whenever
-      fulfilment begins, which during a busy week might be minutes.
+      There is a setting that looks like it should help and does not. Turning off
+      <strong>continue selling when out of stock</strong> stops a shopper from
+      buying a variant past zero, which is the right call for most stores, but it
+      only disables the variant. It still shows. And Shopify's newer
+      <strong>unlisted</strong> product status hides a whole product from the
+      storefront, not a single variant, so it is the wrong tool the moment the
+      rest of the product is still selling. There simply is no admin toggle that
+      says hide this variant while it is out and restore it when it returns. The
+      platform stores the variant as a fixed fact and leaves the display of it to
+      the theme.
+    </p>
+
+    <h2>What the "official" fix actually costs you</h2>
+
+    <p>
+      Go looking for how to hide sold-out variants and you land on two roads, both
+      with a toll. The first is <strong>editing the theme's Liquid</strong>. You
+      open the product template, find where the option values render, and wrap
+      them in logic that skips a value when its inventory is zero. On a simple
+      product with one option it is a tidy afternoon. The trouble starts with two
+      options. Once size and color combine, "hide the sold-out ones" stops being a
+      single check, because a color is only truly gone when every size in it is
+      out, and hiding a value without breaking the selector for the combinations
+      that remain is genuinely fiddly Liquid. And whatever you write is tied to
+      this theme. Switch themes, or take a theme update, and the customization is
+      gone or broken, and you are back in the code.
     </p>
 
     <p>
-      That's the race. The customer's email and your fulfilment process
-      are both sprinting toward the same order, and you only win if a
-      human happens to be watching the inbox at the right second. Most of
-      the time, nobody is.
-    </p>
-
-    <h2>Why this is so much more common than it should be</h2>
-
-    <p>
-      People buy fast now, often on a phone, often distracted, and they
-      catch their own mistakes a beat too late. Because there's no
-      self-serve fix, each of those realisations converts directly into an
-      inbound message: an email, a DM, a chat, a "reply to your
-      confirmation." None of it is hard to resolve. All of it has to be
-      resolved by hand.
-    </p>
-
-    <p>
-      The volume adds up faster than people expect. Industry analyses put
-      roughly <strong>60 to 80 percent of ecommerce support tickets</strong>
-      in automatable categories, and post-purchase order changes are one
-      of the biggest after order tracking. They're also the kind of ticket
-      customers most resent having to send: about <strong>69 percent of
-      shoppers</strong> say they'd rather solve an issue themselves than
-      contact support, and "let me fix my own typo" is the most reasonable
-      self-serve request imaginable. When stores do add structured
-      self-serve or automated editing, order-change tickets typically drop
-      by <strong>40 to 60 percent</strong>.
+      The second road is <strong>a third-party app</strong> that scans your
+      catalog and hides or restyles sold-out variants for you. Good ones exist,
+      and a store that lives with this pattern should look at one, which is itself
+      proof the native gap is real. But an app is one more subscription, one more
+      thing touching your theme, and it hides on a fixed rule: everything at zero,
+      off. That rule cannot tell the difference between a size that is out until
+      Friday and a color you are discontinuing, and it does not decide when hiding
+      a variant would be a mistake. It just applies the switch.
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ DATA</span>
       <span>
-        Every order-change request is a small bill paid three times: the
-        support minutes to read and reply, the admin clicks to actually
-        edit the order, and the follow-up to confirm the change went
-        through. Multiply by a few dozen a week and it's a part-time job
-        nobody applied for. The cheapest version of this work is the one
-        that happens before a person ever opens the message.
+        The reason this is worth fixing is that it hits the exact moment of intent.
+        A shopper who selects a variant has already chosen, mentally, to buy. That
+        is the highest-converting second on the whole page, and a Sold Out on their
+        pick is the worst possible thing to show them, because it does not just lose
+        that variant, it casts doubt on the product. They rarely go back and try
+        another size. They read the page as unavailable and bounce. Every in-stock
+        variant sitting behind a sold-out one is carrying a tax it did nothing to
+        earn, and it is the size that sells best that goes out first.
       </span>
     </div>
 
     <h2>Why the usual fixes don't hold</h2>
 
     <p>
-      Once a store feels this pain a few times, three coping strategies
-      tend to show up. Each helps a little and each breaks in a
-      predictable way.
+      Faced with the sold-out size on the page, merchants reach for a handful of
+      moves. Each one gives something back that you did not want to lose.
     </p>
 
     <p>
-      <strong>"Just reply fast."</strong> The whole plan rests on a human
-      catching the message before fulfilment. It works on a slow Tuesday
-      and collapses on launch day, which is precisely when both order
-      volume and change requests spike together. Speed is not a process;
-      it's a hope.
+      <strong>"I will just leave it showing as Sold Out."</strong> The default, and
+      the one quietly costing you the most. It looks harmless because nothing is
+      broken, but every shopper who picks that size gets a dead end at the moment of
+      intent, and a share of them decide the product is gone. You never see the
+      lost sale. It shows up only as a conversion rate that is a little lower than
+      it should be, on the products that sell best.
     </p>
 
     <p>
-      <strong>The cancel-and-recreate dance.</strong> When an edit won't
-      go through cleanly, the fallback is to refund or cancel the original
-      order and ask the customer to place a new one. That technically
-      works, and it quietly costs you: you lose the original order's
-      timestamp and analytics, you risk the discount code no longer being
-      valid, the customer has to re-enter everything and re-trust you with
-      their card, and if anything was already picked you've now created
-      reconciliation work in two places. A one-line change becomes a
-      multi-step cleanup.
+      <strong>"I will edit the theme to hide them."</strong> The correct instinct,
+      and the one that does not stay fixed. It works until size and color combine,
+      until you change themes, until a theme update lands, or until a variant comes
+      back in stock and nobody remembers to make sure the code lets it reappear. A
+      hide that does not reliably un-hide is its own trap: now you have an in-stock
+      size that no one can see and no one can buy.
     </p>
 
     <p>
-      <strong>A Shopify Flow rule.</strong> Flow is great at reacting to
-      structured events, but a change request isn't one. It arrives as a
-      sentence a human wrote, in an inbox, in plain language. Flow can't
-      read "can you make that a medium instead and ship it to my office?",
-      figure out which order it refers to, decide whether it's safe, and
-      apply it. The trigger it needs doesn't exist, because the input was
-      never a field. It was a paragraph.
+      <strong>"I will unpublish the product until it is fully back."</strong> This
+      throws out the baby with the bathwater. One size out of stock takes the whole
+      product off the storefront, so the four sizes that are in stock stop selling
+      too. You have traded a small display problem for a real revenue one, and lost
+      the page's search ranking while it is dark, the same
+      <a href="how-to-fix-404-errors-from-deleted-products-on-shopify.html">dead-URL
+      problem</a> that follows any product you pull without a plan.
+    </p>
+
+    <p>
+      <strong>"I will delete the sold-out variant and re-add it later."</strong>
+      Now you are destroying data to change a display. Delete the variant and you
+      lose its SKU history, its barcode, its cost, and any waitlist attached to it,
+      and re-adding it later is manual and error-prone. It also silently breaks
+      <a href="how-to-set-up-back-in-stock-notifications-on-shopify.html">the
+      restock alert that never fires</a>, because there is nothing left for a
+      back-in-stock signup to point at.
     </p>
 
     <h2>What the automation actually has to do</h2>
 
     <p>
-      The real job isn't "let people edit orders." It's "catch a change
-      request the moment it lands, understand it, and resolve the safe
-      ones before the order locks, while escalating the few that genuinely
-      need a human." That means reading natural language, looking at the
-      order's real state, and acting inside the fulfilment window. Written
-      as a Dugong playbook, in plain prose, it reads like this:
+      The real job is not "hide everything at zero." It is "watch each variant,
+      decide whether a sold-out one should disappear or stay with a signup, hide it
+      cleanly without touching the rest of the product, capture the demand you are
+      hiding, and put it back the second stock returns, while pulling in a human for
+      the calls that are actually merchandising decisions." That is detection,
+      judgement, and a reversible action that has to run both ways. As a Dugong
+      playbook, in plain prose, it reads like this:
     </p>
 
     <pre id="playbook"><code><span class="c"># trigger</span>
-<span class="k">When</span> a customer message asks to change or cancel an order
+<span class="k">On</span> a variant's available quantity crossing zero
+   (or back above it), per size, color, and location
 
 <span class="c"># steps</span>
-1. <span class="k">Match</span> the message to the order (by email, order
-   number, or recent purchase) and read what they want changed
-2. <span class="k">Check</span> whether fulfilment has started yet
-3. <span class="k">If</span> it's already shipped → tell them honestly,
-   offer a return or address-correction path, and stop
-4. <span class="k">If</span> it's still open and the change is safe
-   (size/variant swap, quantity, address, add a forgotten item) →
-   apply it, recalculate the price and shipping difference
-5. <span class="k">If</span> they owe more → send a quick secure payment
-   link; <span class="k">if</span> we owe them → refund the difference
-6. <span class="k">Confirm</span> back in plain language: "Done, updated
-   to a medium, shipping to your office, $4 refunded."
-7. <span class="k">If</span> anything is risky (high-value, flagged,
-   address looks off, partial refund) → hold it and queue it for me
-   with the full context attached</code></pre>
+1. <span class="k">Read</span> the variant: is it briefly out and restocking,
+   or discontinued and gone for good
+2. <span class="k">Hide</span> the sold-out value from the storefront so it
+   drops out of the dropdown or swatch, product still live
+3. <span class="k">Collapse</span> the whole option only if every value in it
+   is gone, never leave an empty selector
+4. <span class="k">Keep</span> the demand: attach a back-in-stock signup to
+   the hidden or unavailable variant
+5. <span class="k">Restore</span> the variant the moment inventory returns
+   and notify the waitlist
+6. <span class="k">Hold</span> for review a discontinued line, a core size
+   that keeps flickering, or a page left with nothing to buy</code></pre>
 
     <p>
-      Seven lines. The compiler fills in everything underneath: parsing
-      the message, matching it to the right order, reading fulfilment
-      status through the Shopify API, editing line items, recalculating
-      totals, generating the payment link or the refund, sending the
-      confirmation, and routing the exceptions. The merchant never drew a
-      flowchart of every change type. They described how they'd want a
-      sharp support lead to handle the inbox, and let the compiler build
-      what it takes to deliver that.
+      Six lines. The compiler fills in the rest: reading inventory per variant and
+      per location rather than per product, telling a temporary stockout apart from
+      a discontinuation so it hides the right ones, keeping the selector clean when
+      only some values in an option are gone, holding the demand on a hidden variant
+      instead of throwing it away, and reversing the whole thing automatically the
+      instant a restock lands so an in-stock size is never left invisible. The
+      merchant never opened the theme editor. They described how a sharp
+      merchandiser would keep a product page honest, and let the compiler run it at
+      the speed inventory actually moves.
     </p>
 
     <div class="callout callout-sand">
       <span class="callout-mark">◆ NOTE</span>
       <span>
-        The goal isn't to let customers rewrite any order at any time.
-        It's to win the common, low-risk cases automatically, a size swap
-        on an unfulfilled order, an address fix before the label prints,
-        and to put a clear guardrail around the rest. Automate the safe
-        majority and your team's attention is freed for the handful of
-        requests that actually deserve a judgement call.
+        The trap here is hiding on too blunt a rule. Not every sold-out variant
+        should vanish. A popular size that is out until the weekend is usually better
+        left visible with a back-in-stock capture, so you keep the waitlist instead of
+        pretending the size never existed; a color that is discontinued is better
+        hidden so it stops drawing dead-end clicks; and a product where hiding would
+        leave nothing buyable should never be stripped to an empty page. Blind hiding
+        loses demand and can black out a whole product; blind showing buries your
+        best sellers behind dead options. Knowing which sold-out variant to hide,
+        which to keep with a signup, and which to escalate is as much the point as the
+        hiding itself.
       </span>
     </div>
 
     <h2>Why this is a compiler problem, not an app problem</h2>
 
     <p>
-      There are self-serve order-editing apps in the Shopify store, and
-      for plenty of stores they're a fine choice. But an app gives you its
-      author's idea of an edit policy, exposed as a settings page. What
-      most merchants actually want is to encode <em>their</em> policy:
-      allow free edits for the first hour, never change an order once it's
-      tagged for the wholesale pick line, always require confirmation for
-      anything over $250, auto-approve address fixes but route variant
-      swaps on final-sale items to a person. Those are sentences, not
-      toggles, and they're specific to how your store ships.
+      There are decent variant-hiding apps on the Shopify App Store, and a store
+      that sees this constantly should evaluate one. But the thing that makes
+      hiding safe is not one more toggle. It is judgement about a specific variant
+      at a specific moment: is this out for a week or gone for the season, does
+      hiding it leave a clean selector or an empty one, is there demand worth
+      capturing before it disappears, and would hiding this one leave the shopper
+      with nothing to buy. Those answers change per variant, per product, and per
+      day, which is exactly what a fixed rule handles badly and a person handles
+      too slowly to keep up with a moving catalog.
     </p>
 
     <p>
-      A natural-language compiler is the unlock because order changes were
-      never really an editing problem. They were a <em>workflow</em>
-      problem wearing an editing problem's clothes. Changing the line item
-      is the easy part. The hard part is everything around it: read the
-      request, decide if it's allowed, beat the fulfilment clock, settle
-      the money, tell the customer, and know when to stop and ask a human.
-      You can write that down in a paragraph. You could never maintain it
-      as a sprawling rule tree with a branch for every edge case.
+      A natural-language compiler fits because hiding a sold-out variant was never a
+      single action. It is detection, a judgement call, a reversible change to the
+      storefront, and a demand-capture step, and it has to run in both directions as
+      stock moves in and out. You can describe the whole behavior in a paragraph.
+      You could never keep up with it by hand across a catalog that changes hourly.
+      It sits in the same family as
+      <a href="how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html">the
+      sold-out products that sink your collection</a>, where the fix is to
+      re-merchandise as stock moves rather than freeze the page, and
+      <a href="how-to-prevent-overselling-on-shopify-across-channels.html">the
+      overselling problem no one automates</a>, where the same live inventory signal
+      has to drive what the store does next.
     </p>
 
     <hr />
@@ -728,45 +749,50 @@ em { font-style: italic; }
     <h2>The workflow worth building this week</h2>
 
     <p>
-      If your inbox has a steady drip of "wrong size," "wrong address,"
-      "can you add one more," and "please cancel," this is the automation
-      to build before any upsell or win-back flow. It sits right next to
-      two pains we've written about already: it stops a whole class of
-      <a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html">"where is
-      my order?" tickets</a> from ever forming, and when the change is an
-      address fix, it overlaps directly with
-      <a href="how-to-validate-shipping-addresses-on-shopify.html">the bad address
-      that ships anyway</a>, catching the correction while it's still free
-      to make.
+      If your best-selling size is the first to go out, and it sits on the page as
+      Sold Out for days while the sizes around it quietly under-convert, this is the
+      automation to set up now, because the cost is invisible and continuous and lands
+      on the products you can least afford to lose. It pairs naturally with the
+      inventory and merchandising work we have written about, like
+      <a href="how-to-set-up-back-in-stock-notifications-on-shopify.html">the restock
+      alert that never fires</a>, which captures the demand on a hidden variant, and
+      <a href="how-to-set-inventory-reorder-points-on-shopify.html">the reorder you
+      always make too late</a>, which keeps the size from going out in the first place,
+      and it feeds the same flywheel as
+      <a href="best-shopify-automations-to-set-up.html">the Shopify automations no one
+      builds</a>, where the work that compounds is the part merchants never get to.
     </p>
 
     <p>
-      Describe it the way you'd brief a careful support hire on day one:
-      here's how to find the right order, here's what you're allowed to
-      change and for how long, here's how to settle the difference, here's
-      what you confirm, and here's when you stop and flag it for me.
-      That's the entire brief. The compiler does the reading, the editing,
-      and the chasing; you keep your attention for the orders that truly
-      need it.
+      Describe it the way you would brief a sharp merchandiser: when a variant sells
+      out, decide whether to hide it or keep it with a back-in-stock signup, take it
+      off the page cleanly without touching the sizes still in stock, hold onto the
+      demand, and put it straight back the moment it returns, and bring me anything
+      that is really a merchandising call. That is the whole brief. The compiler does
+      the watching, the judgement, the hide, the capture, and the restore. Your
+      in-stock sizes stop carrying a dead one, and the shopper who came for a size that
+      is gone still sees a page full of ones they can buy.
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ READING</span>
       <span>
-        If this resonates, two companion pieces: our field study on
-        <a href="best-shopify-automations-to-set-up.html">the Shopify
-        automations no one builds</a>, and the dispatch on
-        <a href="how-to-prevent-overselling-on-shopify-across-channels.html">the
-        overselling problem no one automates</a>.
+        If this resonates, two companion pieces: our dispatch on
+        <a href="how-to-set-up-back-in-stock-notifications-on-shopify.html">the restock
+        alert that never fires</a>, where a hidden variant's demand becomes recovered
+        revenue, and
+        <a href="how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html">the
+        sold-out products that sink your collection</a>, where the same stock signal has to
+        re-merchandise the page as inventory moves.
       </span>
     </div>
 
     <p>
-      If you're a Shopify merchant who's built an order-change playbook
-      that finally tamed the inbox, or you've got a cancel-and-recreate
-      horror story that cost you an afternoon, the inbox is open:
-      <code>field-notes@dugong.live</code>. We're collecting case studies
-      for the next issue.
+      If you are a Shopify merchant who has built something that hides sold-out
+      variants and reliably brings them back, or you have a story about the best-selling
+      size that sat on the page as Sold Out and dragged the whole product down, the inbox
+      is open: <code>field-notes@dugong.live</code>. We are collecting case studies for
+      the next issue.
     </p>
 
   </div>
@@ -788,16 +814,16 @@ em { font-style: italic; }
   </div>
   <div class="faq-list">
     <div class="faq-item">
-      <h2 class="faq-q">Can customers edit their own order after checkout on Shopify?</h2>
-      <p class="faq-a">Not by default. Once checkout is complete, Shopify does not give the customer any way to change items, quantities, variants, or the shipping address themselves. Every change request has to be handled by the merchant in the admin, and only while the order is still unfulfilled. The moment you click Fulfil items, most edit options lock, and the billing address can never be edited for fraud reasons.</p>
+      <h2 class="faq-q">Can Shopify hide out-of-stock variants automatically?</h2>
+      <p class="faq-a">Not with a built-in setting. Shopify has no native switch that hides a variant when it sells out. Turning off continue selling when out of stock stops the shopper from buying the variant, but the variant still appears on the product page, usually shown as Sold Out or Unavailable and often grayed out or crossed off. To actually hide it you either edit your theme's Liquid code so the option value stops rendering when its inventory is zero, or you install a third-party app that hides and restores variants for you. There is no toggle in admin that does it.</p>
     </div>
     <div class="faq-item">
-      <h2 class="faq-q">Why are post-purchase order changes such a common support ticket?</h2>
-      <p class="faq-a">People buy fast and notice mistakes a few minutes later: the wrong size, a typo in the address, a quantity of one when they meant two, or an item they forgot to add. Because Shopify gives them no self-serve way to fix it, every one of those realisations becomes an inbound email, DM, or chat. Industry data shows roughly 60 to 80 percent of ecommerce tickets fall into automatable categories, and order changes are one of the largest, with about 69 percent of customers saying they would rather resolve the issue themselves if they could.</p>
+      <h2 class="faq-q">Why does Shopify still show a variant I marked as sold out?</h2>
+      <p class="faq-a">Because Shopify treats the variant list as part of the product's structure, not as a live view of what is buyable right now. Every size and color you created stays on the product as an option value regardless of its stock level, and the theme renders all of them. Marking a variant sold out only changes whether it can be added to cart, not whether it appears. So a shopper sees the full grid of sizes, selects the one they want, and only then learns it is gone, which reads as the product being unavailable rather than one size being out.</p>
     </div>
     <div class="faq-item">
-      <h2 class="faq-q">Can Shopify order-change requests be automated?</h2>
-      <p class="faq-a">Yes. An AI playbook can read the incoming request in plain language, identify what the customer wants to change, check whether fulfilment has already started, apply the safe changes automatically before the order locks, recalculate any price or shipping difference, charge or refund the delta, confirm with the customer, and escalate only the genuinely risky cases to a person. Self-serve and automated order editing typically cuts order-change tickets by 40 to 60 percent.</p>
+      <h2 class="faq-q">Should you hide sold-out variants or just show them as unavailable?</h2>
+      <p class="faq-a">It depends on the case, which is exactly why a fixed rule struggles. A size that is briefly out and restocking next week is often better shown as unavailable with a back-in-stock signup, so you capture the demand instead of pretending the size never existed. A size that is discontinued, or a color that is gone for the season, is usually better hidden so it stops drawing clicks that dead-end. Hiding everything blindly loses waitlist demand, and showing everything blindly buries your in-stock options behind dead ones. The right move is per variant and changes over time, so the useful thing is judgement about which sold-out variants to hide, which to keep with a signup, and which to bring straight back when stock returns.</p>
     </div>
   </div>
 </section>
@@ -808,290 +834,18 @@ em { font-style: italic; }
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
-    <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" class="card">
+    <a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
+          <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The second order that arrives before the first ships</h3>
+        <h3 class="card-title">The overselling problem no one automates</h3>
         <p class="card-dek">
-          A customer orders again before the first order ships and pays delivery twice, and Shopify has no merge button, only a manual draft-order routine. The AI playbook that catches the pair and ships one box.
+          Selling stock you no longer have is the pain merchants dread most. The AI playbook that keeps inventory honest in real time across every channel.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUL 2</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-stop-card-testing-attacks-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The card-testing attack that floods your store overnight</h3>
-        <p class="card-dek">
-          A bot runs stolen cards through your checkout in a flood of tiny orders overnight, and Shopify bills you a fee for every attempt. The AI playbook that reads the burst, cancels the junk, and shuts the source down.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUL 1</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The pre-order that holds your whole order hostage</h3>
-        <p class="card-dek">
-          A customer buys one in-stock item and one pre-order item in the same cart, and Shopify holds the whole order until the late one is ready. The AI playbook that ships what is ready and runs the pre-order to the day stock lands.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 30</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-reconcile-shopify-payouts-with-your-sales.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The payout that never matches your sales</h3>
-        <p class="card-dek">
-          Shopify nets every payout down by fees, refunds, chargebacks, and a held reserve, then pays it in a batch, so the deposit never matches your sales and the connector double counts it. The AI playbook that ties each payout back to its orders.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 29</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-bulk-edit-product-prices-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The price change you make one product at a time</h3>
-        <p class="card-dek">
-          Shopify's bulk editor caps at fifty products, has no math, and Flow cannot reprice at all, so you retype every price by hand. The AI playbook that reprices the catalog by rule.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 28</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The tracking number you paste in by hand</h3>
-        <p class="card-dek">
-          Shopify makes you mark each order fulfilled and paste in its tracking number one at a time, and Flow cannot do it for you. The AI playbook that reads supplier tracking and fulfills every order with the right number and carrier.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 27</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-fix-404-errors-from-deleted-products-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The deleted product that 404s your customers</h3>
-        <p class="card-dek">
-          Delete a product and its old URL just 404s, with no redirect, so the ranking drains and the customer bounces. The AI playbook that catches every dead link and sends it to the right live page.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 25</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The unpaid order that never cancels itself</h3>
-        <p class="card-dek">
-          Shopify won't auto-cancel an unpaid order, so it sits there holding your stock for days. The AI playbook that chases payment, then cancels and restocks on time.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 24</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-automatically-request-product-reviews-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The review request you never send</h3>
-        <p class="card-dek">
-          Shopify has no native way to ask for a review, so it never goes out or it blasts everyone at the wrong time. The AI playbook that requests reviews after delivery.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 22</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-segment-repeat-customers-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The repeat customer your store treats like a stranger</h3>
-        <p class="card-dek">
-          The same read-the-whole-record problem, at the customer level. A loyal regular and a one-time discount hunter look identical in the admin, so they get the same blast. The AI playbook that segments customers by real behavior and keeps it current.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 21</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The image alt text no one writes</h3>
-        <p class="card-dek">
-          The same on-page SEO chore, on your photos instead of the snippet. Shopify never writes alt text and has no bulk field, so it sits blank across the catalog. The AI playbook that reads each image and writes the line.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 20</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-generate-shopify-product-descriptions-with-ai.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The product descriptions you'll never finish writing</h3>
-        <p class="card-dek">
-          The body copy is the same chore as the meta description, one level up. Shopify Magic writes one product at a time from keywords you type, so the catalog never gets done. The AI playbook that writes it whole.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 19</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-        <a href="how-to-automatically-tag-orders-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The order tag you set by hand</h3>
-        <p class="card-dek">
-          The same "read the whole order before you act" logic, one step earlier: the tags that route fulfillment get set by hand because Flow tags on one condition and cannot read the note. The AI playbook that reads the whole order and tags it.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 18</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-        <a href="how-to-bulk-edit-meta-descriptions-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The meta description you write one at a time</h3>
-        <p class="card-dek">
-          Shopify bulk edits meta descriptions only by setting them all identical, so unique ones get written one at a time, or left blank and auto-filled with generic page text. The AI playbook that writes a distinct meta for every page.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 17</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-        <a href="how-to-schedule-a-sale-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The sale you have to start by hand</h3>
-        <p class="card-dek">
-          Shopify won't schedule a sale to start, won't revert the prices when it ends, and won't run it by rule. The AI playbook that schedules the sale, sets the strikethrough, guards the margin floor, and reverts on time.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 16</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-        <a href="how-to-set-inventory-reorder-points-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The reorder you always make too late</h3>
-        <p class="card-dek">
-          Shopify tracks every unit but never reorders for you, and its purchase orders are too basic to know what to buy or when. The AI playbook that forecasts demand per SKU and drafts the PO on time.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 15</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The abandoned cart that gets one email</h3>
-        <p class="card-dek">
-          Seven in ten carts get filled and left, and Shopify sends one generic reminder, then goes quiet. The AI playbook that sequences, personalizes, and recovers the demand you already paid for.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 14</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The sold-out products that sink your collection</h3>
-        <p class="card-dek">
-          Shopify leaves sold-out products at the top of your collection page, dragging down the conversion of everything in stock behind them. The AI playbook that re-merchandises the storefront as stock moves.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 13</span>
+          <span class="card-date">JUN 5</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -1104,7 +858,7 @@ em { font-style: italic; }
         </div>
         <h3 class="card-title">The restock alert that never fires</h3>
         <p class="card-dek">
-          Shopify only collects emails on a back in stock request, so the restock sells out to strangers while the people who waited never hear. The AI playbook that turns a waitlist into recovered revenue.
+          A customer clicks notify me, the item comes back, and Shopify does nothing with the request. The AI playbook that turns a waitlist into recovered revenue.
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 13</span>
@@ -1112,66 +866,82 @@ em { font-style: italic; }
         </div>
       </div>
     </a>
-    <a href="how-to-win-chargeback-disputes-on-shopify.html" class="card">
+    <a href="how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The chargeback you lose by default</h3>
+        <h3 class="card-title">The sold-out products that sink your collection</h3>
         <p class="card-dek">
-          Shopify files a thin dispute response on the deadline, so you lose chargebacks you should win even with the tracking in hand. The AI playbook that reads the reason code and builds the evidence.
+          Shopify leaves sold-out products at the top of your collection page, dragging down the conversion of everything in stock behind them. The AI playbook that re-merchandises as stock moves.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 11</span>
+          <span class="card-date">JUN 13</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
-    <a href="best-shopify-automations-to-set-up.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The Shopify automations no one builds</h3>
-        <p class="card-dek">
-          Tagging is 14% of every Shopify workflow merchants ship. The work that actually scales is under 1%.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">MAY 28</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-automate-returns-and-exchanges-on-shopify.html" class="card">
+    <a href="how-to-set-inventory-reorder-points-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The return that won't approve itself</h3>
+        <h3 class="card-title">The reorder you always make too late</h3>
         <p class="card-dek">
-          Shopify makes you approve every return by hand and can't run a real exchange, so refunds quietly leak revenue you already earned. The AI playbook that fixes it.
+          Shopify tracks every unit but never buys more, and its purchase orders are too basic to know what to reorder or when. The AI playbook that forecasts demand per SKU and drafts the PO on time.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 9</span>
+          <span class="card-date">JUN 15</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
-    <a href="how-to-validate-shipping-addresses-on-shopify.html" class="card">
+    <a href="how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The bad address that ships anyway</h3>
+        <h3 class="card-title">The pre-order that holds your whole order hostage</h3>
         <p class="card-dek">
-          Shopify warns the address looks wrong, you ship anyway, and the package bounces back. The AI playbook that fixes it before the label prints.
+          A customer buys one in-stock item and one pre-order item in the same cart, and Shopify holds the whole order until the late one is ready. The AI playbook that ships what is ready now.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 6</span>
+          <span class="card-date">JUN 30</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The second order that arrives before the first ships</h3>
+        <p class="card-dek">
+          A customer orders again before the first order ships and pays delivery twice, and Shopify has no merge button. The AI playbook that catches the pair and ships one box.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 2</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-fix-404-errors-from-deleted-products-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The deleted product that 404s your customers</h3>
+        <p class="card-dek">
+          Delete a product on Shopify and its old URL just 404s, with no redirect. The AI playbook that catches every dead link and sends it to the right live page.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 25</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -1192,6 +962,102 @@ em { font-style: italic; }
         </div>
       </div>
     </a>
+    <a href="how-to-win-chargeback-disputes-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The chargeback you lose by default</h3>
+        <p class="card-dek">
+          Shopify files a thin dispute response on the deadline and you lose, even with the proof. The AI playbook that builds the evidence and fights it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 11</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The unpaid order that never cancels itself</h3>
+        <p class="card-dek">
+          A customer picks bank transfer or cash on delivery, then goes quiet, and the dead order sits in your admin holding stock. The AI playbook that chases payment, then cancels and restocks on time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-edit-a-shopify-order-after-its-been-placed.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order change that races your warehouse</h3>
+        <p class="card-dek">
+          The "can you change my order?" email lands at a bad time and locks the second you fulfil. The AI playbook that resolves it before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 8</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-validate-shipping-addresses-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The bad address that ships anyway</h3>
+        <p class="card-dek">
+          Shopify warns the address looks wrong, you ship anyway, and the package bounces back. The AI playbook that fixes it before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-reconcile-shopify-payouts-with-your-sales.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The payout that never matches your sales</h3>
+        <p class="card-dek">
+          Shopify nets every payout down by fees, refunds, and reserves, then pays it in a batch days later, so the deposit never matches your sales. The AI playbook that ties each payout back to its orders.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 29</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automate-returns-and-exchanges-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The return that won't approve itself</h3>
+        <p class="card-dek">
+          Every return waits on you to click approve, and Shopify can't run a real exchange, so refunds leak revenue you already earned. The AI playbook that fixes it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 9</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
     <a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1200,7 +1066,7 @@ em { font-style: italic; }
         </div>
         <h3 class="card-title">The &ldquo;where is my order?&rdquo; tickets that eat your afternoon</h3>
         <p class="card-dek">
-          WISMO is ~18% of support tickets, over half during a sale. The AI playbook that answers before customers ask.
+          WISMO is ~18% of support tickets, over half during a sale. The AI playbook that reads the order and answers before customers ask.
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 4</span>
@@ -1208,18 +1074,194 @@ em { font-style: italic; }
         </div>
       </div>
     </a>
-    <a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="card">
+    <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">8&nbsp;min</span>
+          <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The overselling problem no one automates</h3>
+        <h3 class="card-title">The tracking number you paste in by hand</h3>
         <p class="card-dek">
-          Selling stock you no longer have is the pain merchants dread most. The AI playbook that keeps inventory honest in real time.
+          Most orders don't fulfill themselves on Shopify, bulk fulfill still leaves the tracking to you, and Flow has no action that adds one. The AI playbook that reads what suppliers send and fulfills with the right number.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 5</span>
+          <span class="card-date">JUN 27</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-tag-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order tag you set by hand</h3>
+        <p class="card-dek">
+          Shopify Flow tags an order on one condition and can't read the note, so the tags that route everything downstream get set by hand. The AI playbook that reads the whole order and tags it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The abandoned cart that gets one email</h3>
+        <p class="card-dek">
+          Seven in ten carts get filled and left, and Shopify sends one generic reminder, then goes quiet. The AI playbook that sequences, personalizes, and recovers the demand you already paid for.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-schedule-a-sale-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The sale you have to start by hand</h3>
+        <p class="card-dek">
+          Shopify won't schedule a sale to start, won't revert it, and won't run it by rule, so you flip prices by hand at midnight. The AI playbook that runs the whole promotion.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 16</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-bulk-edit-meta-descriptions-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The meta description you write one at a time</h3>
+        <p class="card-dek">
+          The on-page SEO field Shopify stores but won't write. Bulk edit and they all come out identical, the one thing you must not do. The AI playbook that writes a distinct line for every page.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-generate-shopify-product-descriptions-with-ai.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The product descriptions you'll never finish writing</h3>
+        <p class="card-dek">
+          Shopify Magic writes one product at a time from keywords you type, so the catalog never gets done. The AI playbook that writes it whole, in one voice.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The image alt text no one writes</h3>
+        <p class="card-dek">
+          Shopify stores an alt text on every image but never writes one and has no bulk way to add it, so it sits blank across the catalog. The AI playbook that reads each photo and writes it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-segment-repeat-customers-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The repeat customer your store treats like a stranger</h3>
+        <p class="card-dek">
+          A loyal repeat buyer, a one-time discount hunter, and a customer about to leave all look identical without a manual tag. The AI playbook that segments customers by behavior.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-request-product-reviews-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The review request you never send</h3>
+        <p class="card-dek">
+          Shopify retired its own reviews app and never replaced it, so the ask either never goes out or blasts everyone at the wrong time. The AI playbook that requests reviews after delivery.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 22</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-bulk-edit-product-prices-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The price change you make one product at a time</h3>
+        <p class="card-dek">
+          Shopify's bulk editor caps at fifty products, has no math, and Flow cannot reprice at all, so you retype every price by hand. The AI playbook that reprices the catalog by rule.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 28</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-stop-card-testing-attacks-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The card-testing attack that floods your store overnight</h3>
+        <p class="card-dek">
+          You wake up to two hundred tiny orders you never made, most declined, a few approved on stolen cards. The AI playbook that reads the burst, cancels the junk, and shuts the source down.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 1</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="best-shopify-automations-to-set-up.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The Shopify automations no one builds</h3>
+        <p class="card-dek">
+          Tagging is 14% of every Shopify workflow merchants ship. The work that actually scales is under 1%.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 28</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>

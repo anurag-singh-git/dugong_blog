@@ -15,7 +15,27 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Wed, 01 Jul 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>How to automatically hide sold-out variants on Shopify</title>
+      <link>https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Fri, 03 Jul 2026 09:00:00 +0000</pubDate>
+      <description>A shopper opens a product page, picks their size or color, and the button flips to Sold Out, because Shopify keeps the out-of-stock variant sitting in the dropdown right next to the ones that are in stock, usually grayed out or crossed off. They read Sold Out as the whole product being gone and leave, even though the sizes on either side were available, which quietly drags down conversion on the items you can still sell, and it is the best-selling size that goes out first. This is one of the most-repeated requests in Shopify merchant communities. Shopify has no native setting to hide unavailable variants: turning off continue selling when out of stock stops the purchase but still shows the variant, and the newer unlisted status hides a whole product, not one variant. The only real options are editing the theme's Liquid by hand, which is brittle, breaks on theme updates, and gets much harder once size and color combine because a color is only truly gone when every size in it is out, or installing a third-party app that hides on a fixed everything-at-zero rule it cannot reason about. The usual workarounds each cost something: leaving it as Sold Out bleeds conversion invisibly; editing the theme does not stay fixed and a hide that fails to un-hide leaves an in-stock size no one can buy; unpublishing the whole product takes the in-stock sizes down with it and loses the page's ranking; and deleting the variant destroys its SKU history and breaks any back-in-stock signup. The Dugong playbook treats it as detection plus judgement plus a reversible action that runs both ways: watch inventory per variant and location, decide whether a sold-out one should be hidden or kept with a back-in-stock signup, hide the value cleanly without unpublishing the product, collapse an option only when every value is gone, capture the demand on the hidden ones, restore the variant the moment stock returns and notify the waitlist, and hold discontinued lines, flickering core sizes, and pages that would be left with nothing to buy for a human. Framed as a compiler problem, not one more toggle, because the safe call shifts per variant and per day. By Priya Singh, 2026-07-03.</description>
+    </item>
+
+    <item>
+      <title>How to combine multiple orders from the same customer on Shopify</title>
+      <link>https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Thu, 02 Jul 2026 09:00:00 +0000</pubDate>
+      <description>A repeat customer places a second order before the first one ships, so what should have gone in one box is now two orders, two shipping labels, and two delivery charges the customer paid twice. It is one of the longest-running requests in Shopify merchant communities, and Shopify still has no native merge: every order is a fixed financial record with its own payment, tax, discount, and fulfillment history, so combining two would risk corrupting reporting and reconciliation, and Shopify keeps them immutable on purpose. The official workaround is a manual draft-order routine: rebuild the line items of both orders into one draft, finalize it as the order you ship, buy one label, add the tracking back onto the originals, refund the customer for the duplicate shipping, and cancel the originals while restocking so inventory is not double-counted, all of it by hand and only if you catch the pair before either ships. Shopify Flow cannot merge orders either. The usual fixes each cost something: shipping two boxes wastes a label and a delivery; refunding the second shipping fixes the bill but still packs and sends twice; asking the customer to cancel and re-order adds friction to a repeat purchase; and the draft-order dance is a race the warehouse usually wins. The Dugong playbook treats it as detection plus judgement plus cleanup inside the pre-fulfillment window: match the pair by customer, email, and address while both are unfulfilled; confirm they can safely combine and are not a shared building, a gift, or a paid express upgrade; build one shipment; refund the fair combined shipping; cancel or link the originals with inventory and books kept straight; tell the customer once; and hold anything ambiguous for a human. Framed as a compiler problem, not one more button, because the safe merge depends on shifting per-pair judgement a fixed rule makes badly.</description>
+    </item>
 
     <item>
       <title>How to stop card testing attacks on Shopify</title>
