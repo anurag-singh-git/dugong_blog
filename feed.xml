@@ -15,7 +15,27 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Fri, 03 Jul 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jul 2026 12:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>How to automatically schedule product publishing on Shopify</title>
+      <link>https://blog.dugong.live/how-to-schedule-product-publishing-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-schedule-product-publishing-on-shopify.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Sun, 05 Jul 2026 12:00:00 +0000</pubDate>
+      <description>You plan a drop for midnight, set the product to publish on a future date, and go to bed, and it goes live on the online store and nowhere else, because Shopify's built-in future publishing only reaches the Online Store sales channel and never touches POS, the Buy Button, or your other channels. It also no-ops if the product is still in Draft at the scheduled minute, cannot bulk-schedule across channels, and most tellingly will only ever schedule a product going live, never coming down. This is one of the most-repeated requests in Shopify merchant communities: half of running a catalog is taking things off the shelf on time, a flash-sale product when the sale closes, a collab at the end of its window, a seasonal line the day the season ends, and Shopify has no native scheduled unpublish. The workarounds each cost something: publishing by hand ties a person to a midnight clock; the native future-publish date lulls you into thinking the launch is handled while other channels sit empty; Shopify Flow can run on a schedule and unpublish but is gated to Plus and is a build; and a scheduling app applies its calendar mechanically without checking whether a product is actually ready, whether the drop has stock, or whether the timing clashes with another promotion. The Dugong playbook treats it as a readiness check plus a timed publish across every channel plus a timed take-down that runs both ways: read the whole launch by tag or collection, confirm each product is active, priced, and in stock before it goes live, publish at the exact minute everywhere it belongs, unpublish the set the moment its window closes, redirect the retired URL instead of leaving a dead link, keep the set in sync as products are added or removed, and hold a still-draft product, a stockless drop, or a clashing launch time for a human. Framed as a compiler problem, not one more date picker, because the safe call shifts per launch and per channel. By Priya Singh, 2026-07-05.</description>
+    </item>
+
+    <item>
+      <title>How to set a minimum order amount on Shopify</title>
+      <link>https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Sun, 05 Jul 2026 09:00:00 +0000</pubDate>
+      <description>A customer adds one low-price item, checks out for a few dollars, and Shopify accepts the order even though the transaction fee, the pick and pack, and the shipping label cost more than the order earns. You want a floor, a cart has to reach some amount before it can check out, and Shopify has no native setting for it on standard plans. This is one of the most-repeated requests in Shopify merchant communities. The minimum purchase field you see lives on discounts and only decides when a discount applies, it never blocks a checkout; Shopify Plus can enforce a minimum at checkout with Functions, and B2B quantity rules apply only to company profiles, not the retail storefront. The two workarounds each cost something: cart-page JavaScript that disables the checkout button is bypassed the moment a customer checks out through a wallet button like Shop Pay or Apple Pay, a saved cart link, or a checkout permalink that never touches the cart page; and most apps enforce one flat number for everyone, unable to tell a retail shopper from a wholesale buyer or to exempt a gift-card order. The usual moves fall short too: a note in the cart is documentation without enforcement; a free-shipping threshold only rewards bigger carts, it never blocks small ones; cart-page code covers one path and misses the rest; and a single store-wide minimum blocks the wholesale customer, the gift-card top-up, and the loyal repeat buyer you wanted to let through. The Dugong playbook treats it as detection plus judgement plus enforcement that holds on every path: read the cart on every route into checkout, decide the floor that fits retail or wholesale, signal the shortfall early on the cart, enforce at checkout itself so wallet buttons cannot slip under it, exempt the carts that should always pass, nudge the borderline cart over the line rather than only blocking it, and hold the real policy calls for a human. Framed as a compiler problem, not one more flat number, because the safe call shifts per cart and per customer. By Priya Singh, 2026-07-05.</description>
+    </item>
 
     <item>
       <title>How to automatically hide sold-out variants on Shopify</title>
