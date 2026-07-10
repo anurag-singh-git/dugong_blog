@@ -3,28 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to combine multiple orders from the same customer on Shopify — Dugong Field Notes</title>
-<meta name="description" content="A customer orders again before the first order ships, pays delivery twice, and Shopify gives you no merge button, only a draft-order workaround you run by hand. The AI playbook that catches the pair and ships one box." />
-<link rel="canonical" href="https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" />
+<title>How to automatically split and route Shopify orders to multiple suppliers — Dugong Field Notes</title>
+<meta name="description" content="One order holds items from three different suppliers, and Shopify has no rules engine to route each line to the right vendor, no way to email each one a purchase order with only their items, and no button to split the fulfillment by who makes what, so you sort every order by hand. The AI playbook that reads each order, splits it by supplier, sends each their PO, and fulfills the right lines when tracking comes back." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html" />
 <meta name="author" content="Priya Singh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="keywords" content="Shopify combine orders, merge orders Shopify, Shopify merge multiple orders, combine shipping Shopify, Shopify duplicate orders same customer, consolidate orders Shopify, Shopify order merging app, second order before first ships, combine orders one shipment Shopify, refund duplicate shipping Shopify, Shopify draft order merge, cancel and recreate order Shopify, AI Shopify order automation, Dugong" />
+<meta name="keywords" content="Shopify split order by vendor, Shopify route order to supplier, Shopify multi-vendor fulfillment, Shopify split order multiple suppliers, Shopify dropship order routing, Shopify send purchase order to supplier, Shopify vendor split, Shopify split fulfillment, Shopify 3PL order routing, automatic order routing Shopify, AI Shopify fulfillment automation, Dugong" />
 <meta name="theme-color" content="#c6fe1e" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
-<meta property="article:published_time" content="2026-07-02" />
-    <meta property="article:modified_time" content="2026-07-02" />
+<meta property="article:published_time" content="2026-07-07" />
+    <meta property="article:modified_time" content="2026-07-07" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
-<meta property="og:title" content="How to combine multiple orders from the same customer on Shopify" />
-<meta property="og:description" content="A customer buys, then remembers one more thing and buys again an hour later, before the first order ships. Now you have two orders, two labels, two boxes, and a customer who paid delivery twice for what should have been one parcel. Shopify has no merge button, treats every order as a locked record, and its own advice is a draft-order dance: rebuild both orders as one draft, refund the extra shipping, cancel the originals, restock the units, by hand, every time. The AI playbook that spots the pair the moment the second order lands and ships one box." />
-<meta property="og:url" content="https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" />
+<meta property="og:title" content="How to automatically split and route Shopify orders to multiple suppliers" />
+<meta property="og:description" content="A single order arrives holding items from three different suppliers, and Shopify treats it as one thing to fulfill from one place. There is no rules engine that routes each line item to the vendor, dropshipper, or warehouse that makes it, no way to email each supplier a purchase order with only their items, and no action in Shopify Flow that splits a cart by supplier, so you read every order, work out who makes what, copy the right lines into an email or spreadsheet for each vendor, send them off, then wait for tracking and paste it back onto the order by hand. Shopify can split fulfillment across your own locations when stock is short and split shipping at checkout, which covers a slice of the need, but neither routes a line to a specific supplier or sends them the order. The AI playbook that reads each order, splits it by who fulfills what, sends every supplier their own purchase order, and fulfills the right line items when the tracking comes back." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -33,8 +33,8 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="How to combine multiple orders from the same customer on Shopify" />
-<meta name="twitter:description" content="A customer orders again before the first ships and pays delivery twice, and Shopify has no merge button. The AI playbook that catches the pair and ships one box." />
+<meta name="twitter:title" content="How to automatically split and route Shopify orders to multiple suppliers" />
+<meta name="twitter:description" content="One order, three suppliers, and Shopify has no way to route each line to the right vendor or email each one a PO with just their items, so you sort every order by hand. The AI playbook that splits the order by supplier and fulfills the right lines automatically." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
     <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 
@@ -44,24 +44,24 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#article",
+      "@id": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#article",
       "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
-      "mainEntityOfPage": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html",
-      "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html",
-      "headline": "How to combine multiple orders from the same customer on Shopify",
-      "description": "A repeat customer places a second order before the first one ships, so what should have gone in one box is now two orders, two shipping labels, and two delivery charges the customer paid twice. Combining orders is one of the most-requested things Shopify still does not do natively, because it treats every order as a fixed financial record and merging would break payment, tax, analytics, and fulfillment history. The official workaround is a manual draft-order routine: rebuild the line items of both orders into a single draft, prepare one label, add the tracking to the originals, refund the duplicate shipping, and cancel the originals so inventory stays accurate. Shopify Flow cannot merge orders either. The AI playbook that notices two unfulfilled orders from the same customer to the same address, confirms they can safely combine, ships one parcel, refunds the extra shipping, keeps inventory and records straight, and tells the customer once.",
-      "datePublished": "2026-07-02",
-      "dateModified": "2026-07-02",
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html",
+      "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html",
+      "headline": "How to automatically split and route Shopify orders to multiple suppliers",
+      "description": "A single order arrives holding items from three different suppliers, and Shopify treats it as one thing to fulfill from one place. There is no native rules engine that routes each line item to the vendor, dropshipper, warehouse, or 3PL that fulfills it, no way to email each supplier a purchase order with only their items in the format they accept, and no action in Shopify Flow that splits a cart by supplier or assigns line items to one, so the merchant reads every order, works out who makes what, copies the right lines into an email or spreadsheet for each vendor, sends them off, then waits for tracking and pastes it back onto the order and fulfills the matching lines by hand. Shopify can split fulfillment across the store's own locations when one lacks stock, and split shipping at checkout, which covers a slice of the need, but neither routes a line to a specific supplier nor sends them the order, and the product vendor field is only a label. This is one of the most-repeated requests in Shopify merchant communities running multi-supplier and dropship catalogs. The AI playbook that reads each paid order, groups line items by who fulfills each, builds and sends a purchase order per supplier in their format, fulfills only their lines at the right location when tracking returns, tells the customer once what ships from where, and holds the edge cases for a human.",
+      "datePublished": "2026-07-07",
+      "dateModified": "2026-07-07",
       "articleSection": "Research",
-      "keywords": "Shopify combine orders, merge orders Shopify, Shopify merge multiple orders, combine shipping Shopify, Shopify duplicate orders same customer, consolidate orders Shopify, second order before first ships, refund duplicate shipping Shopify, Shopify draft order merge",
-      "wordCount": 2054,
+      "keywords": "Shopify split order by vendor, Shopify route order to supplier, Shopify multi-vendor fulfillment, Shopify split order multiple suppliers, Shopify dropship order routing, Shopify send purchase order to supplier, Shopify vendor split, Shopify split fulfillment, Shopify 3PL order routing",
+      "wordCount": 2456,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
       "about": [
         { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
         { "@type": "Thing", "name": "Order fulfillment", "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment" },
-        { "@type": "Thing", "name": "Freight consolidation", "sameAs": "https://en.wikipedia.org/wiki/Consolidation_(business)" },
+        { "@type": "Thing", "name": "Drop shipping", "sameAs": "https://en.wikipedia.org/wiki/Drop_shipping" },
         { "@type": "Thing", "name": "E-commerce", "sameAs": "https://en.wikipedia.org/wiki/E-commerce" }
       ],
       "speakable": {
@@ -86,7 +86,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The second order that arrives before the first ships", "item": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" }
+        { "@type": "ListItem", "position": 2, "name": "The order you split across vendors by hand", "item": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html" }
       ]
     },
     {
@@ -94,86 +94,86 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Can you merge two orders on Shopify?",
+          "name": "Can Shopify automatically split an order between multiple suppliers or vendors?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Not with a built-in merge button. Shopify has no native feature that combines two existing orders into one, and Shopify Flow cannot do it either. The workaround Shopify itself points to is manual: create a draft order that contains the line items from both original orders, finalize that draft as the single order you will actually ship, prepare one shipping label for it, add the tracking number back onto the original orders, refund the customer for the shipping they paid twice, and then cancel the original orders while restocking their items so your inventory is not double-counted. It works, but it is several careful steps per pair of orders, and you have to catch the pair before either one ships."
+            "text": "Not by supplier. Shopify can split fulfillment across your own stocking locations when one location does not have enough inventory, and it can split shipping at checkout when items ship from different locations, but it has no rules engine that routes a line item to a specific supplier, dropshipper, or 3PL by vendor, product type, SKU, or weight, and no native way to email each supplier a purchase order containing only their items. Deciding who fulfills what, and sending each of them the order, is manual or done through a third-party app."
           }
         },
         {
           "@type": "Question",
-          "name": "Why doesn't Shopify let you combine orders natively?",
+          "name": "Does the Shopify vendor field send the order to that vendor?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because Shopify treats every order as a fixed financial record. Each order has its own payment capture, tax calculation, discount, fulfillment history, and audit trail, and merging two of them would mean deciding what happens to two separate charges, two tax lines, and two sets of analytics, which is exactly the kind of thing that goes wrong quietly and shows up later as broken reporting or reconciliation. Shopify's answer is to keep orders immutable and leave consolidation to a manual draft-order process or a third-party app. The safety of not corrupting the ledger is real, but the cost is that a very common, very reasonable request, ship these two together, becomes a chore you do by hand."
+            "text": "No. The vendor field on a product is a text label used for filtering the catalog and grouping reports. Setting it does not notify the vendor, generate a purchase order, assign the line item to a supplier location, or route anything anywhere. An order can carry items from five vendors and Shopify will still treat it as one order to fulfill from one place unless you split it yourself."
           }
         },
         {
           "@type": "Question",
-          "name": "How do I refund a customer for duplicate shipping when I combine orders?",
+          "name": "Can Shopify Flow split an order by vendor and email each supplier?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "When you merge two orders into one shipment, the customer has paid delivery on both, so you owe them the difference between what they paid and what one combined shipment should have cost. In practice that means issuing a partial refund on one of the orders for its shipping charge, or refunding both shipping charges and re-collecting one on the combined order. Shopify lets you refund a shipping line, but it does not calculate the fair combined rate for you or tie the refund to the merge, so the amount and the record-keeping are on you. This is the same seam that makes payouts hard to reconcile: a shipping refund on one order against a combined shipment on another has to be matched back by hand unless something does it for you."
+            "text": "Only partly. Shopify Flow can react when an order is created, tag it, and send an internal notification, and on higher plans it can move line items between locations, but it has no action that groups line items by supplier, builds a purchase order with just that supplier's items, and emails or posts it to each one in the format they accept, then fulfills only their lines when the tracking returns. It can tell you a multi-supplier order came in. It cannot carry it from order to fulfilled across each vendor."
           }
         }
       ]
     },
     {
       "@type": "HowTo",
-      "@id": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#howto",
-      "name": "The second order that arrives before the first ships",
-      "description": "The AI playbook that catches two unfulfilled orders from the same customer and combines them into one shipment: spotting the pair, confirming they can safely combine, building one shipment, refunding the duplicate shipping, cancelling or linking the originals with inventory kept accurate, telling the customer once, and surfacing the edge cases for a human.",
+      "@id": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#howto",
+      "name": "The order you split across vendors by hand",
+      "description": "The AI playbook that splits and routes each Shopify order to the right suppliers: reading the whole order, grouping line items by who fulfills each, building a purchase order per supplier, sending it in the format they accept, fulfilling only their lines when tracking returns, telling the customer once, and surfacing the judgement calls for a human.",
       "inLanguage": "en",
       "totalTime": "PT9M",
       "step": [
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Watch for a repeat order before fulfillment",
-          "text": "Notice when a customer places a second order while an earlier one is still unfulfilled, matched by customer, email, and shipping address, before either label prints",
-          "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#playbook"
+          "name": "Read the whole order",
+          "text": "On a paid order, take every line item with its vendor, SKU, product type, and weight, the destination, and the shipping speed the customer paid for, not just the order total",
+          "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Confirm the orders can safely combine",
-          "text": "Check that both orders ship to the same address, are unfulfilled and unshipped, use compatible shipping and payment, and are not blocked by risk, and stop if any of that fails",
-          "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#playbook"
+          "name": "Decide the split by who fulfills each line",
+          "text": "Group the line items by the supplier, dropshipper, warehouse, or 3PL that makes each one, honoring which location actually has stock, the destination region, and cost",
+          "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Build one combined shipment",
-          "text": "Assemble the line items from both orders into a single shipment or draft, generate one label, and route it to the warehouse as one pick and pack",
-          "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#playbook"
+          "name": "Build a purchase order per supplier",
+          "text": "Assemble one purchase order for each supplier containing only their line items, the shipping address, and your reference, in the format that supplier accepts",
+          "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Refund the duplicate shipping",
-          "text": "Work out the fair combined shipping cost and refund the customer the delivery they paid twice, then record the refund against the right order",
-          "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#playbook"
+          "name": "Send each supplier their order automatically",
+          "text": "Deliver each purchase order to its supplier by email, CSV, or portal without a person copying line items, and record the split against the Shopify order so nothing is sent twice",
+          "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Reconcile the originals and keep inventory accurate",
-          "text": "Cancel or link the original orders so nothing ships twice, restock or move units correctly, and keep the payment, tax, and analytics records straight",
-          "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#playbook"
+          "name": "Fulfill the right lines when tracking returns",
+          "text": "As each supplier ships, match their tracking to their line items and fulfill only those at the correct location, so the order closes part by part instead of all at once",
+          "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Tell the customer once",
-          "text": "Send a single message that says the orders are combining into one parcel, the shipping was refunded, and here is the tracking, instead of two separate shipping emails",
-          "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#playbook"
+          "name": "Tell the customer once, clearly",
+          "text": "Send the buyer a single clear picture of what ships from where and when, rather than a confusing string of separate confirmations for one order",
+          "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Surface the edge cases for a human",
-          "text": "Hold for review any pair with mismatched addresses, a paid express upgrade, a partly shipped order, or a risk flag, so a person decides the calls a rule should not make",
-          "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#playbook"
+          "name": "Hold the edge cases for a human",
+          "text": "Surface an item no supplier covers, a backordered line, a split that would ship one item from two places, or a supplier that has gone silent, so a person makes the call",
+          "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#playbook"
         }
       ]
     }
@@ -455,13 +455,13 @@ em { font-style: italic; }
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>◆ DISPATCH Nº 74 — JUL 2, 2026</span>
+    <span>◆ DISPATCH Nº 79 — JUL 7, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,050 WORDS</span>
+    <span>◆ 9 MIN READ · 2,450 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
-    <span>◆ DISPATCH Nº 74 — JUL 2, 2026</span>
+    <span>◆ DISPATCH Nº 79 — JUL 7, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,050 WORDS</span>
+    <span>◆ 9 MIN READ · 2,450 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -487,25 +487,26 @@ em { font-style: italic; }
 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH Nº 74</span>
+    <span style="color: var(--cream-dim);">DISPATCH Nº 79</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">JUL 2, 2026</span>
+    <span style="color: var(--cream-dim);">JUL 7, 2026</span>
     <span style="color: var(--line-2);">·</span>
     <span style="color: var(--cream-dim);">9 MIN READ</span>
   </div>
 
   <h1 class="article-title">
-    How to <em>combine multiple orders</em> from the same customer on Shopify
+    How to automatically <em>split and route</em> Shopify orders to multiple suppliers
   </h1>
 
   <p class="article-dek">
-    A customer buys, then remembers one more thing and buys again an hour
-    later, before the first order has shipped. Now you have two orders, two
-    shipping labels, two boxes, and a customer who paid for delivery twice on
-    what should have been one parcel. Shopify has no button that merges them.
-    Its own advice is a draft-order routine you run by hand, one careful pair
-    at a time. Here is why combining orders is still a manual chore on Shopify,
-    and the playbook that catches the pair and ships one box.
+    One order lands with a mug from your ceramics supplier, a candle from a dropshipper,
+    and a tote your own warehouse ships, and Shopify treats it as a single thing to
+    fulfill from one place. There is no rule that sends each line to the vendor who makes
+    it, no way to email each supplier a purchase order with just their items, and no
+    button that splits the order by who ships what. So you read every order, work out who
+    makes each line, and paste the right items into a separate email for each supplier,
+    all day. Here is why Shopify leaves the split to you, and the playbook that routes
+    each order to the right suppliers automatically.
   </p>
 
   <div class="article-byline">
@@ -518,233 +519,238 @@ em { font-style: italic; }
   <div class="article-body">
 
     <p>
-      It is one of the most ordinary things a happy customer does. They check
-      out, then a few minutes or a few hours later they think of one more item,
-      or they spot the free-shipping threshold, or a discount lands in their
-      inbox, and they place a second order. Nothing has shipped yet. Both orders
-      are sitting in your admin, same name, same address, both unfulfilled. Any
-      sane person looking at the two would say the obvious thing: put them in one
-      box. Shopify will not let you.
+      There is a particular kind of order that turns a good sales day into an afternoon of
+      copy and paste. The customer filled one cart, paid once, and to them it is a single
+      purchase. But the items inside it come from three different places: one your own
+      warehouse holds, one a supplier makes to order, one a dropshipper ships direct. Now
+      someone has to take that one order apart, decide which line belongs to which vendor,
+      write out a separate order for each of them with only their items and the customer's
+      address, send those off, and then, days later, gather the tracking numbers back and
+      mark the right pieces of the order shipped. Shopify shows you the order. It does not
+      split it, route it, or send it anywhere.
     </p>
 
     <p>
-      This is one of the longest-running requests in every Shopify merchant
-      community, and the threads all say the same thing. "How can I merge orders
-      for a specific customer to consolidate shipping." "Easier way to combine
-      multiple orders into a single shipping label." "How to combine multiple
-      orders into one or more shipments." Merchants describe the exact scenario
-      every time: a customer places a second order before the first one ships,
-      and there is no native way to bring the two together. The frustration is
-      not exotic fraud or a rare edge case. It is that the platform makes you do
-      by hand the single most obvious favor you could do a customer and your own
-      shipping budget.
+      This is the quiet reality of running any store that fulfills from more than one
+      source, and the merchant communities are full of the same question asked a hundred
+      ways. How do I automatically send each supplier only their part of the order. Can
+      Shopify split an order by vendor. Is there a way to email a purchase order to my
+      dropshipper the moment a sale comes in. The answers underneath are always some
+      version of not natively, use an app, or build it in a middleware tool. The merchant
+      is not asking for anything unusual. They want the obvious thing: an order arrives,
+      and each supplier automatically gets the slice of it they are responsible for.
     </p>
 
     <blockquote>
-      Two orders, same customer, same address, nothing shipped. Everyone can see
-      they should ship together. <em>Shopify is the only one in the room that
-      cannot merge them.</em>
+      To the customer it was one cart and one payment. <em>To your back office it is three
+      orders wearing a trench coat, and Shopify hands you all three stitched together and
+      leaves the unpicking to you.</em>
     </blockquote>
 
-    <h2>Why Shopify won't combine orders for you</h2>
+    <h2>What Shopify does and does not do about splitting orders</h2>
 
     <p>
-      Shopify does not have a merge feature, and that is a deliberate choice
-      rather than an oversight. Under the hood, an order is a fixed financial
-      record. It carries its own payment capture, its own tax calculation, its
-      own discounts, its own fulfillment history, and its own audit trail, and
-      Shopify treats that record as something you do not get to rewrite after the
-      fact. Merging two orders would mean deciding what happens to two separate
-      charges, two tax lines, two sets of analytics, and two fulfillment
-      histories, and every one of those is a place where a quiet mistake becomes
-      a reporting or reconciliation problem weeks later.
+      Give Shopify credit for the part it does, because it is real and it confuses the
+      conversation. Shopify does split fulfillment across your own stocking locations: if
+      one warehouse does not have enough of an item, it can split that item's quantity
+      across locations, and if a cart holds items that live in different locations it can
+      create more than one fulfillment and offer split shipping at checkout. If your whole
+      operation is a couple of your own warehouses, that machinery covers a genuine slice
+      of the need, and it is worth setting your location priorities well. The trouble
+      starts the moment a supplier who is not one of your own locations enters the picture,
+      and for most multi-vendor and dropship catalogs that is every day.
     </p>
 
     <p>
-      So Shopify keeps orders immutable and pushes the job of consolidating them
-      out to you or to an app. You can see the logic. The ledger stays clean, and
-      nothing silently corrupts your tax or payout data. But the customer does not
-      care about your ledger. They see one shop, one address, and two boxes on the
-      way, and they wonder why they paid shipping twice. The safety of the fixed
-      record is real. The cost of it is that a completely reasonable request,
-      ship these together, has no button and lands on your desk as manual work.
+      The split it does is <strong>by location, not by supplier</strong>. Shopify decides
+      where to fulfill from based on which of your locations has stock and how you ordered
+      their priority, not on the rule you actually care about, which is that this brand of
+      item is always made by that vendor and this other one always ships from the
+      dropshipper. There is <strong>no rules engine for routing</strong>: you cannot tell
+      Shopify to send anything tagged one way to supplier A and anything over a certain
+      weight to the freight partner, and have it group the lines and act. Most tellingly,
+      the <strong>vendor field is only a label</strong>. You can set a vendor on every
+      product, and it is useful for filtering the catalog and grouping reports, but setting
+      it notifies no one, generates no purchase order, and routes nothing. And there is
+      <strong>no way to send a supplier the order</strong>: Shopify has no native action
+      that emails or posts each vendor a document containing only their line items in the
+      format they accept, so even after you decide the split, the sending is on you.
     </p>
 
-    <h2>What the "official" workaround actually is</h2>
+    <h2>The purchase order Shopify never sends</h2>
 
     <p>
-      When you go looking for how to combine orders on Shopify, the answer you
-      find is not a setting. It is a procedure, and it has more steps than it
-      looks. To merge two orders into one shipment the accepted way, you
-      <strong>create a draft order</strong> and add the line items from both
-      original orders into it. You <strong>finalize that draft</strong> as the
-      order you will actually pick, pack, and ship. You <strong>buy one shipping
-      label</strong> for the combined draft. You <strong>add that tracking number
-      back onto the two original orders</strong> so the customer's order pages are
-      not left blank. You <strong>refund the customer</strong> for the shipping
-      they paid twice. And you <strong>cancel the original orders and restock
-      their items</strong>, so your inventory is not double-counted and you do not
-      accidentally ship them again.
+      The heart of multi-vendor fulfillment is a document Shopify does not produce: a clean
+      purchase order per supplier, listing only that supplier's items, the ship-to address,
+      and your reference, so they can pick, pack, and ship without seeing the rest of the
+      order or the customer's payment details. Every supplier wants it a little differently,
+      one takes a plain email, one wants a CSV, one has a portal, one still asks for
+      something that looks like EDI, and reconciling those formats is exactly the work that
+      does not scale. So the merchant becomes the router: read the order, split it in their
+      head, build each supplier's version by hand, and send it. It is the same shape of
+      problem as <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html">the
+      tracking number you paste in by hand</a>, only upstream. There, a supplier's message
+      has to be read and matched back to the order; here, the order has to be read and split
+      out to the suppliers. Both are reading and matching that Shopify treats as clerical
+      and hands to a person.
     </p>
 
     <p>
-      Read that back. It is six or seven deliberate steps, across three or four
-      different screens, and every one of them is a chance to get it slightly
-      wrong: forget to restock and your stock count drifts, forget the tracking
-      and the customer files a "where is my order" ticket, forget the shipping
-      refund and they feel overcharged, cancel the wrong order and you have a
-      real mess. It is the same shape as
-      <a href="how-to-edit-a-shopify-order-after-its-been-placed.html">the order
-      change that races your warehouse</a>: a small, reasonable adjustment that
-      Shopify treats as a rebuild, done against the clock before fulfillment
-      locks it in.
+      And it does not end when the purchase orders go out. Each supplier ships on their own
+      clock, so the order comes back to you in pieces: the warehouse tote today, the candle
+      in three days, the made-to-order mug next week. Each piece is a partial fulfillment
+      you have to record against the right line items at the right location, with the right
+      tracking, so the customer sees an order closing part by part rather than one confusing
+      dump of confirmations. Miss the matching and you either mark the whole order shipped
+      before two thirds of it exists, or you leave lines open that were delivered a week ago.
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ DATA</span>
       <span>
-        The reason this is worth automating is that it is not rare and it is not
-        free. Shipping is one of the largest variable costs a store carries, and
-        a second box for a customer who is already at your door is pure waste:
-        another label, another dunnage, another pick, another delivery that can
-        go wrong, and a shipping charge you often end up eating to keep the
-        customer happy. Combining two same-address orders removes a whole
-        shipment from the cost line and a whole package from the customer's
-        doorstep. The catch is that the saving only exists in the short window
-        before either order ships, which is exactly the window a busy merchant is
-        least likely to be watching.
+        The reason this is worth fixing is that the pain scales with your range, not your
+        volume. Add one supplier to your catalog and you have not added one step, you have
+        added a new destination that every future multi-item order might now have to be
+        split toward, a new format to send in, and a new stream of tracking to match back.
+        A store with six suppliers and a healthy mix of multi-vendor carts is doing this
+        split-and-route dance on a large share of its orders, every one by hand, and because
+        each order looks like a five-minute job it never gets prioritised into an
+        automation, it just quietly becomes someone's whole morning.
       </span>
     </div>
 
-    <h2>Why the usual fixes don't hold</h2>
+    <h2>Why the usual workarounds don't hold</h2>
 
     <p>
-      Faced with the two orders, merchants reach for a handful of moves. Each one
-      trades away something you did not want to give up.
+      Faced with a platform that shows the order but will not split it, merchants reach for
+      a handful of moves, and each one gives back something you did not want to lose.
     </p>
 
     <p>
-      <strong>"I will just ship two boxes."</strong> The path of least resistance,
-      and the most expensive one. You pay to send two parcels to one doorstep, the
-      customer gets two tracking numbers and two delivery days for one purchase,
-      and if you refunded the second shipping to be nice, you are now out the label
-      cost with nothing to show for it. Do this a few dozen times a month and it is
-      a real number, quietly leaking out of margin nobody is watching.
+      <strong>"I will just email each supplier by hand."</strong> The honest starting point,
+      and the one that caps your growth. Reading every order, deciding the split, and
+      building a separate message for each vendor works when there are ten orders a day and
+      collapses at a hundred, and it is the first thing that breaks during a sale or a launch,
+      exactly when the orders are busiest and a missed split becomes a customer who never gets
+      half their box. You are the router, and a router that has to sleep is a bottleneck.
     </p>
 
     <p>
-      <strong>"I will refund the second shipping and leave the orders alone."</strong>
-      This fixes the customer's bill but not the boxes. You still pick and pack
-      twice, still buy two labels, and still send two parcels. You have paid to feel
-      generous without capturing the actual saving, which was combining the
-      shipment, not just discounting it.
+      <strong>"I will use Shopify's multi-location split."</strong> The right tool for your
+      own warehouses, and the wrong shape for suppliers. It splits by which location has
+      stock, so it can hand a line to a location, but a location is not a vendor you can
+      email a purchase order to, and it cannot route by the rules that actually decide who
+      makes an item. You have automated the part that was already close and left the
+      supplier routing, the hard part, untouched.
     </p>
 
     <p>
-      <strong>"I will ask the customer to cancel and re-order everything
-      together."</strong> Now you have handed your convenience problem to the person
-      who was kind enough to buy twice. Some will do it, annoyed. Some will just
-      cancel the second order and not bother. Either way you have added friction to a
-      repeat purchase, which is the last place you want friction, the loyal buyer we
-      wrote about in
-      <a href="how-to-segment-repeat-customers-on-shopify.html">the repeat customer
-      your store treats like a stranger</a>.
+      <strong>"I will set the vendor field and build a Flow."</strong> Reasonable, and it
+      stops halfway. <a href="how-to-automatically-tag-orders-on-shopify.html">Shopify Flow
+      can react to a new order and tag it</a>, and on higher plans it can move line items
+      between locations, but it has no action that groups the lines by supplier, builds a
+      purchase order with just that supplier's items, and sends it to each one, then fulfills
+      only their lines when tracking returns. Flow can notice that a multi-supplier order
+      arrived. It cannot carry it across each vendor to done.
     </p>
 
     <p>
-      <strong>"I will do the draft-order dance when I get to it."</strong> The
-      correct answer, and the one that does not scale and does not wait. It works
-      only if you catch the pair before either order is fulfilled, and on a busy day
-      orders get picked in minutes. Miss the window and the first order ships, and
-      now merging is off the table entirely: you are back to two boxes, or a partial
-      shipment and a refund, which is more manual work, not less. The workaround is
-      real, but it is a race, and the warehouse usually wins.
+      <strong>"I will install an order-routing app."</strong> Often the right call, and still
+      a fixed rulebook bolted to your store. The good ones do split by vendor and send
+      purchase orders, which is real progress and proof the native gap exists. But an app
+      applies the rules you set in advance to every order the same way: it does not notice
+      that this supplier has gone silent for two days, that this item is backordered and
+      should wait rather than route, that this destination makes the usual dropshipper the
+      wrong choice on cost, or that a rule would ship one item split absurdly across two
+      places. It routes. It does not judge.
     </p>
 
     <h2>What the automation actually has to do</h2>
 
     <p>
-      The real job is not "merge orders." It is "notice that the same customer just
-      ordered again to the same address before anything shipped, decide whether the
-      two can safely combine, ship one parcel, make the customer whole on the extra
-      shipping, keep the books straight, and only pull in a human for the cases that
-      genuinely need one." That is detection, judgement, and a careful multi-step
-      cleanup, all inside the short window before fulfillment. As a Dugong playbook,
-      in plain prose, it reads like this:
+      The real job is not "email supplier A their stuff." It is "take each order, group its
+      line items by who actually fulfills each one, build the right purchase order for each
+      supplier in the format they accept, send them automatically, then fulfill only their
+      lines when their tracking comes back, keeping the customer informed once and pulling in
+      a human only for the calls that are genuinely judgement." That is a read, a
+      classification, a document build per supplier, a send, and a set of partial
+      fulfillments that close over time. As a Dugong playbook, in plain prose, it reads like
+      this:
     </p>
 
     <pre id="playbook"><code><span class="c"># trigger</span>
-<span class="k">On</span> a new order from a customer who has another
-   unfulfilled order to the same address
+<span class="k">On</span> an order being paid
 
 <span class="c"># steps</span>
-1. <span class="k">Match</span> the pair by customer, email, and shipping
-   address, both still unfulfilled and unshipped
-2. <span class="k">Check</span> they can safely combine: compatible shipping
-   and payment, no risk flag, no paid express upgrade
-3. <span class="k">Build</span> one shipment with the line items of both,
-   generate a single label for the warehouse
-4. <span class="k">Refund</span> the duplicate shipping at the fair
-   combined rate, recorded against the right order
-5. <span class="k">Cancel</span> or link the originals, restock correctly,
-   keep payment, tax, and analytics straight
-6. <span class="k">Tell</span> the customer once: combining into one parcel,
-   shipping refunded, here is the tracking
-7. <span class="k">Hold</span> for review any mismatch, express upgrade,
-   or partly shipped order a human should judge</code></pre>
+1. <span class="k">Read</span> the order: line items with vendor, SKU, type,
+   weight, the destination, and the shipping speed paid for
+2. <span class="k">Group</span> the lines by who fulfills each, honoring which
+   location has stock, the destination region, and cost
+3. <span class="k">Build</span> one purchase order per supplier with only
+   their items, the ship-to address, and your reference
+4. <span class="k">Send</span> each supplier their PO in the format they
+   accept, and record the split against the order
+5. <span class="k">Fulfill</span> only a supplier's lines when their tracking
+   returns, at the right location, as a partial
+6. <span class="k">Tell</span> the customer once what ships from where and
+   when, not a confirmation per fragment
+7. <span class="k">Hold</span> an uncovered item, a backordered line, a bad
+   split, or a silent supplier for a human</code></pre>
 
     <p>
-      Seven lines. The compiler fills in the rest: matching orders on more than a
-      name so two different people at one apartment building do not get merged,
-      reading whether a rush upgrade on the second order means the customer wants it
-      sooner and separately, assembling the combined shipment, working out what one
-      fair shipping charge should be and refunding the difference, cancelling and
-      restocking without double-counting inventory, and writing the single message
-      that replaces two confusing shipping emails. The merchant never opened the
-      draft-order screen at all. They described how a sharp fulfillment lead would
-      handle a customer who ordered twice, and let the compiler run it at the speed
-      orders actually arrive.
+      Seven lines. The compiler fills in the rest: reading the whole order rather than a
+      single field, knowing which vendor owns each line even when the rule is a mix of vendor,
+      type, weight, and destination, assembling each supplier's document in the exact format
+      that supplier accepts, sending it the moment payment clears instead of when someone gets
+      to it, and then patiently closing the order in pieces as each supplier ships, matching
+      tracking to the right lines at the right location. The merchant never opened three
+      windows to fulfill one order. They described how a careful operations lead would split
+      the work, and let the compiler do it on every order, in the background.
     </p>
 
     <div class="callout callout-sand">
       <span class="callout-mark">◆ NOTE</span>
       <span>
-        The trap here is merging on too little. "Same name" is not enough, and even
-        "same address" needs care: a shared building, a gift going to the same place,
-        or a second order the customer deliberately wants shipped express are all
-        cases where combining is wrong. The job is not "glue together anything that
-        looks similar," it is "recognize the true duplicate-shipment case, act on it,
-        and route everything ambiguous to a person." An automation that merges
-        aggressively will eventually ship someone the wrong parcel or strip a paid
-        upgrade, which is worse than the two boxes it was trying to save. Judgement
-        about when not to merge is as much the point as the merge itself.
+        The trap here is treating routing as pure mechanics. Who makes an item is usually a
+        rule, but whether to route it right now is a judgement: a backordered line should wait,
+        not fire a purchase order the supplier cannot fill; a supplier that has not confirmed
+        yesterday's orders should not be sent ten more into the void; a split that would send a
+        single low-value item on its own freight leg may be worse than holding it for the next
+        shipment. A router that only knows the rules ships all of those wrong. Knowing which
+        orders to split cleanly and which to escalate is as much the point as the split itself.
       </span>
     </div>
 
     <h2>Why this is a compiler problem, not an app problem</h2>
 
     <p>
-      There are good order-merging apps on the Shopify App Store, and a store that
-      sees this pattern often should look at one, which again is proof the native
-      gap is real. But the thing that makes a merge safe is not one more button. It
-      is judgement about a specific pair of orders: are these really the same
-      shipment, is the second one a rush the customer wants kept separate, what is
-      the fair combined shipping to refund, and which of these do I not touch because
-      something is off. Those calls shift with every pair and every store, which is
-      exactly the kind of decision a fixed rule makes badly and a person makes slowly.
+      There are capable order-routing and dropship apps on the Shopify App Store, and a store
+      that fulfills from many suppliers should look at one. But the thing that makes automatic
+      splitting safe is not one more rules table. It is judgement about each specific order:
+      does this line have stock at the location the rule points to, has this supplier been
+      responsive this week, is this backordered item better held than routed, does this
+      destination change the cheapest source, and would this split leave the customer with a
+      needlessly fragmented delivery. Those answers change per order, per supplier, and per
+      day, which is exactly what a fixed rulebook handles badly and a person handles too slowly
+      to keep up with a growing catalog of vendors. It is the same reason
+      <a href="how-to-set-inventory-reorder-points-on-shopify.html">knowing when to reorder from
+      a supplier</a> resists a single threshold: the right call lives in the specifics, not in
+      one rule.
     </p>
 
     <p>
-      A natural-language compiler fits because combining orders was never one action.
-      It is a small chain of dependent steps with a judgement call at the front and a
-      cleanup at the back, and it has to run inside the window before either order
-      ships. You can describe the whole thing in a paragraph. You could never keep up
-      with it by hand on a busy day. It sits in the same family as
-      <a href="how-to-validate-shipping-addresses-on-shopify.html">the bad address
-      that ships anyway</a>, where the fix has to happen before the label prints, and
-      <a href="how-to-reconcile-shopify-payouts-with-your-sales.html">the payout that
-      never matches your sales</a>, where a shipping refund on one order against a
-      combined shipment on another is one more thing nobody tied back together.
+      A natural-language compiler fits because multi-vendor fulfillment was never a single
+      action. It is a read, a classification into supplier groups, a document build for each,
+      an automatic send, and a chain of partial fulfillments that has to close cleanly as each
+      supplier ships. You can describe the whole behavior in a paragraph. You could never keep
+      up with it by hand across every multi-item order, every supplier format, and every stream
+      of returning tracking. It sits in the same family as
+      <a href="how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html">the
+      pre-order that holds your whole order hostage</a>, where one order carries two timelines
+      that have to be pulled apart and shipped on their own clocks, and
+      <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html">the second
+      order that arrives before the first ships</a>, where the right move depends on reading the
+      specific orders rather than firing one blunt rule.
     </p>
 
     <hr />
@@ -752,48 +758,49 @@ em { font-style: italic; }
     <h2>The workflow worth building this week</h2>
 
     <p>
-      If you have ever shipped two boxes to one doorstep, refunded a shipping charge
-      to smooth over a double order, or run the draft-order routine against the clock
-      before the warehouse picked the first one, this is the automation to set up now,
-      because the saving lives entirely in the minutes before fulfillment and that is
-      the window you are least able to watch. It pairs naturally with the order and
-      fulfillment work we have written about, like
-      <a href="how-to-edit-a-shopify-order-after-its-been-placed.html">the order change
-      that races your warehouse</a> and
-      <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html">the
-      tracking number you paste in by hand</a>, and it feeds the same flywheel as
-      <a href="best-shopify-automations-to-set-up.html">the Shopify automations no one
-      builds</a>, where the work that compounds is the part merchants never get to.
+      If you fulfill from more than one supplier, warehouse, or dropshipper, and you have ever
+      taken a single order apart to send its pieces to three different places, this is the
+      automation to set up now, because the work scales with the range of your catalog and
+      grows silently every time you add a vendor. It pairs naturally with the fulfillment work
+      we have written about, like
+      <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html">the tracking
+      number you paste in by hand</a>, which is the return leg of this same flow, and
+      <a href="how-to-validate-shipping-addresses-on-shopify.html">the bad address that ships
+      anyway</a>, since a split order sent to a broken address multiplies the mess across every
+      supplier, and it feeds the same flywheel as
+      <a href="best-shopify-automations-to-set-up.html">the Shopify automations no one builds</a>,
+      where the work that compounds is the part merchants never get to.
     </p>
 
     <p>
-      Describe it the way you would brief a sharp fulfillment lead: when the same
-      customer orders again to the same address before either order ships, tell me if
-      they can safely go in one box, combine them, refund the extra shipping, keep the
-      inventory and the books straight, tell the customer once, and bring me anything
-      that looks off. That is the whole brief. The compiler does the matching, the
-      judgement, the merge, the refund, and the cleanup. You keep the shipping cost you
-      would have thrown away, and the customer gets one parcel instead of two.
+      Describe it the way you would brief a careful operations lead: for every order, work out
+      which supplier makes each line, send each of them a clean purchase order with just their
+      items in the format they use, and as each one ships, fulfill only their lines and keep the
+      customer in the loop, and bring me anything where an item has no supplier, a line is
+      backordered, or a vendor has gone quiet. That is the whole brief. The compiler does the
+      reading, the grouping, the document, the send, and the partial fulfillments, on every
+      order. Your suppliers get exactly their part of each order the moment it is paid, and your
+      customers get one clear picture of what is arriving from where, without anyone copying line
+      items into an email again.
     </p>
 
     <div class="callout">
       <span class="callout-mark">◆ READING</span>
       <span>
         If this resonates, two companion pieces: our dispatch on
-        <a href="how-to-edit-a-shopify-order-after-its-been-placed.html">the order
-        change that races your warehouse</a>, where a reasonable change locks the
-        second you fulfil, and
-        <a href="how-to-reconcile-shopify-payouts-with-your-sales.html">the payout that
-        never matches your sales</a>, where refunds and adjustments on one order have to
-        be tied back to another by hand.
+        <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html">the tracking
+        number you paste in by hand</a>, the return leg where each supplier's tracking is matched
+        back to the right lines, and
+        <a href="how-to-automatically-tag-orders-on-shopify.html">the order tag you set by hand</a>,
+        where reading the whole order and acting on it beats a single blunt rule.
       </span>
     </div>
 
     <p>
-      If you are a Shopify merchant who has built something that catches the second
-      order before the first ships and merges them cleanly, or you have a story about
-      the two-box customer and the shipping you ate, the inbox is open:
-      <code>field-notes@dugong.live</code>. We are collecting case studies for the next
+      If you are a Shopify merchant who has built something that splits every order to the right
+      suppliers and closes it out cleanly as each one ships without anyone copying line items, or
+      you have a story about a multi-vendor order you have unpicked one too many times, the inbox
+      is open: <code>field-notes@dugong.live</code>. We are collecting case studies for the next
       issue.
     </p>
 
@@ -816,16 +823,16 @@ em { font-style: italic; }
   </div>
   <div class="faq-list">
     <div class="faq-item">
-      <h2 class="faq-q">Can you merge two orders on Shopify?</h2>
-      <p class="faq-a">Not with a built-in merge button. Shopify has no native feature that combines two existing orders into one, and Shopify Flow cannot do it either. The workaround Shopify itself points to is manual: create a draft order that contains the line items from both original orders, finalize that draft as the single order you will actually ship, prepare one shipping label for it, add the tracking number back onto the original orders, refund the customer for the shipping they paid twice, and then cancel the original orders while restocking their items so your inventory is not double-counted. It works, but it is several careful steps per pair of orders, and you have to catch the pair before either one ships.</p>
+      <h2 class="faq-q">Can Shopify automatically split an order between multiple suppliers or vendors?</h2>
+      <p class="faq-a">Not by supplier. Shopify can split fulfillment across your own stocking locations when one location does not have enough inventory, and it can split shipping at checkout when items ship from different locations, but it has no rules engine that routes a line item to a specific supplier, dropshipper, or 3PL by vendor, product type, SKU, or weight, and no native way to email each supplier a purchase order containing only their items. Deciding who fulfills what, and sending each of them the order, is manual or done through a third-party app.</p>
     </div>
     <div class="faq-item">
-      <h2 class="faq-q">Why doesn't Shopify let you combine orders natively?</h2>
-      <p class="faq-a">Because Shopify treats every order as a fixed financial record. Each order has its own payment capture, tax calculation, discount, fulfillment history, and audit trail, and merging two of them would mean deciding what happens to two separate charges, two tax lines, and two sets of analytics, which is exactly the kind of thing that goes wrong quietly and shows up later as broken reporting or reconciliation. Shopify's answer is to keep orders immutable and leave consolidation to a manual draft-order process or a third-party app. The safety of not corrupting the ledger is real, but the cost is that a very common, very reasonable request, ship these two together, becomes a chore you do by hand.</p>
+      <h2 class="faq-q">Does the Shopify vendor field send the order to that vendor?</h2>
+      <p class="faq-a">No. The vendor field on a product is a text label used for filtering the catalog and grouping reports. Setting it does not notify the vendor, generate a purchase order, assign the line item to a supplier location, or route anything anywhere. An order can carry items from five vendors and Shopify will still treat it as one order to fulfill from one place unless you split it yourself.</p>
     </div>
     <div class="faq-item">
-      <h2 class="faq-q">How do I refund a customer for duplicate shipping when I combine orders?</h2>
-      <p class="faq-a">When you merge two orders into one shipment, the customer has paid delivery on both, so you owe them the difference between what they paid and what one combined shipment should have cost. In practice that means issuing a partial refund on one of the orders for its shipping charge, or refunding both shipping charges and re-collecting one on the combined order. Shopify lets you refund a shipping line, but it does not calculate the fair combined rate for you or tie the refund to the merge, so the amount and the record-keeping are on you. This is the same seam that makes payouts hard to reconcile: a shipping refund on one order against a combined shipment on another has to be matched back by hand unless something does it for you.</p>
+      <h2 class="faq-q">Can Shopify Flow split an order by vendor and email each supplier?</h2>
+      <p class="faq-a">Only partly. Shopify Flow can react when an order is created, tag it, and send an internal notification, and on higher plans it can move line items between locations, but it has no action that groups line items by supplier, builds a purchase order with just that supplier's items, and emails or posts it to each one in the format they accept, then fulfills only their lines when the tracking returns. It can tell you a multi-supplier order came in. It cannot carry it from order to fulfilled across each vendor.</p>
     </div>
   </div>
 </section>
@@ -836,114 +843,66 @@ em { font-style: italic; }
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
-    <a href="how-to-automatically-send-invoices-on-shopify.html" class="card">
+    <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The invoice you send by hand</h3>
+        <h3 class="card-title">The tracking number you paste in by hand</h3>
         <p class="card-dek">
-          Shopify emails a receipt, not an invoice, has no field for a customer's VAT number, and no way to auto-send a proper tax invoice, so every business buyer asks and you build it by hand. The AI playbook that invoices every order and cuts a credit note on refunds.
+          Most orders don't fulfill themselves on Shopify, bulk fulfill still leaves the tracking to you, and Flow has no action that adds one. The AI playbook that reads what suppliers send and fulfills with the right number.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUL 6</span>
+          <span class="card-date">JUN 27</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
-    <a href="how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html" class="card">
+    <a href="how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The order you split across vendors by hand</h3>
+        <h3 class="card-title">The pre-order that holds your whole order hostage</h3>
         <p class="card-dek">
-          One order holds items from three suppliers, and Shopify has no way to route each line to the right vendor or email each one a purchase order with just their items. The AI playbook that splits the order by supplier and fulfills the right lines when tracking returns.
+          A customer buys one in-stock item and one pre-order item in the same cart, and Shopify holds the whole order until the late one is ready. The AI playbook that ships what is ready now.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUL 7</span>
+          <span class="card-date">JUN 30</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
-    <a href="how-to-automatically-hide-sold-out-variants-on-shopify.html" class="card">
+    <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The sold-out variant Shopify still shows</h3>
+        <h3 class="card-title">The second order that arrives before the first ships</h3>
         <p class="card-dek">
-          A shopper picks their size, hits Sold Out, and leaves, because Shopify keeps the out-of-stock variant in the dropdown with no native way to hide it. The AI playbook that hides it and brings it back on restock.
+          A customer orders again before the first order ships and pays delivery twice, and Shopify has no merge button. The AI playbook that catches the pair and ships one box.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUL 3</span>
+          <span class="card-date">JUL 2</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
-    <a href="how-to-handle-high-risk-orders-on-shopify.html" class="card">
+    <a href="how-to-set-inventory-reorder-points-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The high-risk flag that makes you guess</h3>
+        <h3 class="card-title">The reorder you always make too late</h3>
         <p class="card-dek">
-          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
+          Shopify tracks every unit but never buys more, and its purchase orders are too basic to know what to reorder or when. The AI playbook that forecasts demand per SKU and drafts the PO on time.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 6</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-win-chargeback-disputes-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The chargeback you lose by default</h3>
-        <p class="card-dek">
-          Shopify files a thin dispute response on the deadline and you lose, even with the proof. The AI playbook that builds the evidence and fights it.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 11</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The unpaid order that never cancels itself</h3>
-        <p class="card-dek">
-          A customer picks bank transfer or cash on delivery, then goes quiet, and the dead order sits in your admin holding stock. The AI playbook that chases payment, then cancels and restocks on time.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 24</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-edit-a-shopify-order-after-its-been-placed.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The order change that races your warehouse</h3>
-        <p class="card-dek">
-          The "can you change my order?" email lands at a bad time and locks the second you fulfil. The AI playbook that resolves it before the label prints.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 8</span>
+          <span class="card-date">JUN 15</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -964,18 +923,82 @@ em { font-style: italic; }
         </div>
       </div>
     </a>
-    <a href="how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html" class="card">
+    <a href="how-to-automatically-tag-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The pre-order that holds your whole order hostage</h3>
+        <h3 class="card-title">The order tag you set by hand</h3>
         <p class="card-dek">
-          A customer buys one in-stock item and one pre-order item in the same cart, and Shopify holds the whole order until the late one is ready. The AI playbook that ships what is ready now.
+          Shopify Flow tags an order on one condition and can't read the note, so the tags that route everything downstream get set by hand. The AI playbook that reads the whole order and tags it.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 30</span>
+          <span class="card-date">JUN 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-edit-a-shopify-order-after-its-been-placed.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order change that races your warehouse</h3>
+        <p class="card-dek">
+          The "can you change my order?" email lands at a bad time and locks the second you fulfil. The AI playbook that resolves it before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 8</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The unpaid order that never cancels itself</h3>
+        <p class="card-dek">
+          A customer picks bank transfer or cash on delivery, then goes quiet, and the dead order sits in your admin holding stock. The AI playbook that chases payment, then cancels and restocks on time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The overselling problem no one automates</h3>
+        <p class="card-dek">
+          Selling stock you no longer have is the pain merchants dread most. The AI playbook that keeps inventory honest in real time across every channel.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-send-invoices-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The invoice you send by hand</h3>
+        <p class="card-dek">
+          Shopify emails a receipt, not an invoice, and has no field for a customer's tax number, so business buyers ask and you build it by hand. The AI playbook that sends the right invoice after every order.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 6</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -1012,22 +1035,6 @@ em { font-style: italic; }
         </div>
       </div>
     </a>
-    <a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">8&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The overselling problem no one automates</h3>
-        <p class="card-dek">
-          Selling stock you no longer have is the pain merchants dread most. The AI playbook that keeps inventory honest in real time across every channel.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 5</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
     <a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1044,66 +1051,98 @@ em { font-style: italic; }
         </div>
       </div>
     </a>
-    <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html" class="card">
+    <a href="how-to-handle-high-risk-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The tracking number you paste in by hand</h3>
+        <h3 class="card-title">The high-risk flag that makes you guess</h3>
         <p class="card-dek">
-          Most orders don't fulfill themselves on Shopify, bulk fulfill still leaves the tracking to you, and Flow has no action that adds one. The AI playbook that reads what suppliers send and fulfills with the right number.
+          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 27</span>
+          <span class="card-date">JUN 6</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
-    <a href="how-to-automatically-tag-orders-on-shopify.html" class="card">
+    <a href="how-to-win-chargeback-disputes-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The order tag you set by hand</h3>
+        <h3 class="card-title">The chargeback you lose by default</h3>
         <p class="card-dek">
-          Shopify Flow tags an order on one condition and can't read the note, so the tags that route everything downstream get set by hand. The AI playbook that reads the whole order and tags it.
+          Shopify files a thin dispute response on the deadline and you lose, even with the proof. The AI playbook that builds the evidence and fights it.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 18</span>
+          <span class="card-date">JUN 11</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
-    <a href="how-to-set-inventory-reorder-points-on-shopify.html" class="card">
+    <a href="how-to-stop-card-testing-attacks-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The reorder you always make too late</h3>
+        <h3 class="card-title">The card-testing attack that floods your store overnight</h3>
         <p class="card-dek">
-          Shopify tracks every unit but never buys more, and its purchase orders are too basic to know what to reorder or when. The AI playbook that forecasts demand per SKU and drafts the PO on time.
+          You wake up to two hundred tiny orders you never made, most declined, a few approved on stolen cards. The AI playbook that reads the burst, cancels the junk, and shuts the source down.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 15</span>
+          <span class="card-date">JUL 1</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
-    <a href="how-to-set-up-back-in-stock-notifications-on-shopify.html" class="card">
+    <a href="how-to-set-a-minimum-order-amount-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The restock alert that never fires</h3>
+        <h3 class="card-title">The minimum order Shopify won't enforce</h3>
         <p class="card-dek">
-          A customer clicks notify me, the item comes back, and Shopify does nothing with the request. The AI playbook that turns a waitlist into recovered revenue.
+          A customer checks out for a few dollars and Shopify waves it through, even though the order costs more to fulfil than it earns. The AI playbook that sets a real floor on every checkout path.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 13</span>
+          <span class="card-date">JUL 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-schedule-product-publishing-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The product drop that won't go live on time</h3>
+        <p class="card-dek">
+          Shopify's future publishing goes live on the online store only, no-ops if the product is still a draft, and cannot bulk-schedule. The AI playbook that launches on time across every channel.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-hide-sold-out-variants-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The sold-out variant Shopify still shows</h3>
+        <p class="card-dek">
+          A shopper picks their size, hits Sold Out, and leaves, because Shopify keeps the variant in the dropdown with no native way to hide it. The AI playbook that hides it and brings it back on restock.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 3</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -1117,6 +1156,38 @@ em { font-style: italic; }
         <h3 class="card-title">The sold-out products that sink your collection</h3>
         <p class="card-dek">
           Shopify leaves sold-out products at the top of your collection page, dragging down the conversion of everything in stock behind them. The AI playbook that re-merchandises as stock moves.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 13</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-fix-404-errors-from-deleted-products-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The deleted product that 404s your customers</h3>
+        <p class="card-dek">
+          Delete a product on Shopify and its old URL just 404s, with no redirect. The AI playbook that catches every dead link and sends it to the right live page.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 25</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-set-up-back-in-stock-notifications-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The restock alert that never fires</h3>
+        <p class="card-dek">
+          A customer clicks notify me, the item comes back, and Shopify does nothing with the request. The AI playbook that turns a waitlist into recovered revenue.
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 13</span>
@@ -1156,50 +1227,18 @@ em { font-style: italic; }
         </div>
       </div>
     </a>
-    <a href="how-to-bulk-edit-meta-descriptions-on-shopify.html" class="card">
+    <a href="how-to-bulk-edit-product-prices-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The meta description you write one at a time</h3>
+        <h3 class="card-title">The price change you make one product at a time</h3>
         <p class="card-dek">
-          The on-page SEO field Shopify stores but won't write. Bulk edit and they all come out identical, the one thing you must not do. The AI playbook that writes a distinct line for every page.
+          Shopify's bulk editor caps at fifty products, has no math, and Flow cannot reprice at all, so you retype every price by hand. The AI playbook that reprices the catalog by rule.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 17</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-generate-shopify-product-descriptions-with-ai.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The product descriptions you'll never finish writing</h3>
-        <p class="card-dek">
-          Shopify Magic writes one product at a time from keywords you type, so the catalog never gets done. The AI playbook that writes it whole, in one voice.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 19</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The image alt text no one writes</h3>
-        <p class="card-dek">
-          Shopify stores an alt text on every image but never writes one and has no bulk way to add it, so it sits blank across the catalog. The AI playbook that reads each photo and writes it.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 20</span>
+          <span class="card-date">JUN 28</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -1236,50 +1275,50 @@ em { font-style: italic; }
         </div>
       </div>
     </a>
-    <a href="how-to-bulk-edit-product-prices-on-shopify.html" class="card">
+    <a href="how-to-generate-shopify-product-descriptions-with-ai.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The price change you make one product at a time</h3>
+        <h3 class="card-title">The product descriptions you'll never finish writing</h3>
         <p class="card-dek">
-          Shopify's bulk editor caps at fifty products, has no math, and Flow cannot reprice at all, so you retype every price by hand. The AI playbook that reprices the catalog by rule.
+          Shopify Magic writes one product at a time from keywords you type, so the catalog never gets done. The AI playbook that writes it whole, in one voice.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 28</span>
+          <span class="card-date">JUN 19</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
-    <a href="how-to-fix-404-errors-from-deleted-products-on-shopify.html" class="card">
+    <a href="how-to-bulk-edit-meta-descriptions-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The deleted product that 404s your customers</h3>
+        <h3 class="card-title">The meta description you write one at a time</h3>
         <p class="card-dek">
-          Delete a product on Shopify and its old URL just 404s, with no redirect. The AI playbook that catches every dead link and sends it to the right live page.
+          The on-page SEO field Shopify stores but won't write. Bulk edit and they all come out identical, the one thing you must not do. The AI playbook that writes a distinct line for every page.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 25</span>
+          <span class="card-date">JUN 17</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
-    <a href="how-to-stop-card-testing-attacks-on-shopify.html" class="card">
+    <a href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The card-testing attack that floods your store overnight</h3>
+        <h3 class="card-title">The image alt text no one writes</h3>
         <p class="card-dek">
-          You wake up to two hundred tiny orders you never made, most declined, a few approved on stolen cards. The AI playbook that reads the burst, cancels the junk, and shuts the source down.
+          Shopify stores an alt text on every image but never writes one and has no bulk way to add it, so it sits blank across the catalog. The AI playbook that reads each photo and writes it.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUL 1</span>
+          <span class="card-date">JUN 20</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
