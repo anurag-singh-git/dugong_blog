@@ -2,211 +2,223 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://blog.dugong.live/</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://blog.dugong.live/how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-schedule-product-publishing-on-shopify.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-automatically-add-tracking-numbers-to-shopify-orders.html</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-segment-repeat-customers-on-shopify.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-generate-shopify-product-descriptions-with-ai.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-bulk-edit-meta-descriptions-on-shopify.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-schedule-a-sale-on-shopify.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-set-inventory-reorder-points-on-shopify.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-set-up-back-in-stock-notifications-on-shopify.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-win-chargeback-disputes-on-shopify.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-automate-returns-and-exchanges-on-shopify.html</loc>
-    <lastmod>2026-06-13</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html</loc>
-    <lastmod>2026-06-13</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html</loc>
-    <lastmod>2026-06-13</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-prevent-overselling-on-shopify-across-channels.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://blog.dugong.live/best-shopify-automations-to-set-up.html</loc>
-    <lastmod>2026-06-13</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
