@@ -647,6 +647,9 @@ em { font-style: italic; }
 .card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
 .card:hover .card-title { color: var(--lime-deep); }
 .card-tall { grid-column: span 4; grid-row: span 2; }
+.card-tall .card-art { height: auto; flex: 1 1 200px; min-height: 200px; }
+.card-tall .card-body { flex: 0 0 auto; }
+.card-tall .card-dek { flex: 0 0 auto; }
 .card-wide { grid-column: span 8; }
 .card-accent { background: linear-gradient(180deg, rgba(198,254,30,.16), var(--surface)); border-color: var(--lime-line); }
 .card-quote { background: var(--surface-2); border-color: var(--border-strong); }
