@@ -435,7 +435,7 @@
 
   --text:         #11110e;
   --text-dim:     #56564e;
-  --text-faint:   #8b8b80;
+  --text-faint:   #71716a;
 
   --lime:         #c6fe1e;
   --lime-deep:    #4f7000;
@@ -667,9 +667,10 @@ em { font-style: italic; }
 .pill-active { color: #11110e; background: var(--lime); border-color: var(--lime); }
 
 .article-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; }
-.card { grid-column: span 4; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
-.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
-.card:hover .card-title { color: var(--lime-deep); }
+.card { grid-column: span 4; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+a.card, .card[data-nav] { cursor: pointer; }
+a.card:hover, .card[data-nav]:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+a.card:hover .card-title, .card[data-nav]:hover .card-title { color: var(--lime-deep); }
 .card-tall { grid-column: span 4; grid-row: span 2; }
 .card-tall .card-art { height: auto; flex: 1 1 200px; min-height: 200px; }
 .card-tall .card-body { flex: 0 0 auto; }
@@ -693,7 +694,8 @@ em { font-style: italic; }
 .card-title em { font-style: normal; color: var(--text-faint); }
 .card-title-quote { font-family: var(--display); font-style: normal; font-weight: 700; font-size: 1.3rem !important; line-height: 1.3; color: var(--text); letter-spacing: -0.02em; }
 .quote-mark { font-family: var(--display); font-size: 3.25rem; line-height: 0.6; color: var(--lime-deep); display: block; margin-bottom: 0.85rem; font-weight: 800; }
-.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; overflow: hidden; }
+.card-tall .card-dek, .card-wide .card-dek { -webkit-line-clamp: 8; }
 .card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
 .card-date { color: var(--text-faint); }
 .card-author { color: var(--text-dim); }
@@ -705,6 +707,7 @@ em { font-style: italic; }
 .topic-cloud { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem 1.25rem; font-family: var(--display); font-weight: 700; }
 .topic { font-size: var(--topic-size); color: var(--text-dim); line-height: 1; transition: color 0.2s, transform 0.2s; letter-spacing: -0.02em; }
 .topic:hover { color: var(--lime-deep); transform: translateY(-2px); }
+@media (max-width: 640px) { .topic { font-size: min(var(--topic-size), 1.3rem); } }
 
 /* NEWSLETTER */
 .signup { position: relative; z-index: 2; margin: clamp(2.5rem, 6vw, 4.5rem) auto; max-width: var(--maxw); padding: 0 var(--gutter); }
@@ -731,10 +734,11 @@ em { font-style: italic; }
 /* ARCHIVE */
 .archive { position: relative; z-index: 2; max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
 .archive-list { list-style: none; border-top: 1px solid var(--border); }
-.archive-list li { display: grid; grid-template-columns: auto 1fr auto; gap: 2rem; align-items: baseline; padding: 1.35rem 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.2s, padding 0.3s; position: relative; }
-.archive-list li:hover { padding-left: 1rem; background: linear-gradient(to right, var(--lime-tint), transparent 55%); }
-.archive-list li:hover .arch-title { color: var(--text); }
-.archive-list li:hover::before { content: "→"; position: absolute; left: -0.4rem; color: var(--lime-deep); font-weight: 700; }
+.archive-list li { display: grid; grid-template-columns: auto 1fr auto; gap: 2rem; align-items: baseline; padding: 1.35rem 0; border-bottom: 1px solid var(--border); transition: background 0.2s, padding 0.3s; position: relative; }
+.archive-list li[data-nav] { cursor: pointer; }
+.archive-list li[data-nav]:hover { padding-left: 1rem; background: linear-gradient(to right, var(--lime-tint), transparent 55%); }
+.archive-list li[data-nav]:hover .arch-title { color: var(--text); }
+.archive-list li[data-nav]:hover::before { content: "→"; position: absolute; left: -0.4rem; color: var(--lime-deep); font-weight: 700; }
 .arch-num { font-family: var(--mono); font-size: 0.76rem; color: var(--text-faint); letter-spacing: 0.04em; }
 .arch-title { font-family: var(--display); font-size: 1.1rem; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; color: var(--text-dim); transition: color 0.2s; }
 .arch-date { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--text-faint); }
@@ -836,6 +840,20 @@ em { font-style: italic; }
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
+/* mobile: let highlighted title phrases wrap (nowrap em overflows small screens) */
+@media (max-width: 640px) {
+  .article-title em { white-space: normal; background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .article-title em::after { display: none; }
+}
+
+/* ACCESSIBILITY */
+a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
 </style>
 </head>
 <body>
@@ -900,7 +918,7 @@ em { font-style: italic; }
 
   <div class="hero-stats">
     <div class="stat">
-      <span class="stat-num">87</span>
+      <span class="stat-num">88</span>
       <span class="stat-label">dispatches&nbsp;published</span>
     </div>
     <div class="stat">
@@ -993,12 +1011,13 @@ em { font-style: italic; }
   <div class="section-head">
     <span class="section-eyebrow">◆ RECENT DISPATCHES</span>
     <span class="section-rule"></span>
-    <div class="filter-pills">
-      <button class="pill pill-active">all</button>
-      <button class="pill">essays</button>
-      <button class="pill">post-mortems</button>
-      <button class="pill">tactics</button>
-      <button class="pill">interviews</button>
+    <div class="filter-pills" role="group" aria-label="Filter dispatches by type">
+      <button type="button" class="pill pill-active" data-filter="" aria-pressed="true">all</button>
+      <button type="button" class="pill" data-filter="tag-research" aria-pressed="false">research</button>
+      <button type="button" class="pill" data-filter="tag-essay" aria-pressed="false">essays</button>
+      <button type="button" class="pill" data-filter="tag-postmortem" aria-pressed="false">post-mortems</button>
+      <button type="button" class="pill" data-filter="tag-tactics" aria-pressed="false">tactics</button>
+      <button type="button" class="pill" data-filter="tag-interview" aria-pressed="false">interviews</button>
     </div>
   </div>
 
@@ -1939,7 +1958,7 @@ em { font-style: italic; }
       </div>
     </a>
 
-    <article class="card" data-nav="post">
+    <article class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-essay">essay</span>
@@ -1958,7 +1977,7 @@ em { font-style: italic; }
       </div>
     </article>
 
-    <article class="card" data-nav="post">
+    <article class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-postmortem">post-mortem</span>
@@ -1979,7 +1998,7 @@ em { font-style: italic; }
       </div>
     </article>
 
-    <article class="card card-accent" data-nav="post">
+    <article class="card card-accent">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-tactics">tactics</span>
@@ -1999,7 +2018,7 @@ em { font-style: italic; }
       </div>
     </article>
 
-    <article class="card" data-nav="post">
+    <article class="card">
       <div class="card-art card-art-2">
         <span class="art-glyph">🔀</span>
       </div>
@@ -2023,7 +2042,7 @@ em { font-style: italic; }
       </div>
     </article>
 
-    <article class="card card-wide" data-nav="post">
+    <article class="card card-wide">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-interview">interview</span>
@@ -2045,7 +2064,7 @@ em { font-style: italic; }
       </div>
     </article>
 
-    <article class="card" data-nav="post">
+    <article class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-tactics">tactics</span>
@@ -2065,7 +2084,7 @@ em { font-style: italic; }
       </div>
     </article>
 
-    <article class="card" data-nav="post">
+    <article class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-essay">essay</span>
@@ -2109,15 +2128,7 @@ em { font-style: italic; }
     <span class="section-rule"></span>
   </div>
   <div class="topic-cloud">
-    <a href="#" class="topic" style="--topic-size:1.8rem;">natural language</a>
-    <a href="#" class="topic" style="--topic-size:1.2rem;">retries</a>
-    <a href="#" class="topic" style="--topic-size:2.4rem;">playbooks</a>
-    <a href="#" class="topic" style="--topic-size:1rem;">salesforce</a>
-    <a href="#" class="topic" style="--topic-size:1.5rem;">branching</a>
-    <a href="#" class="topic" style="--topic-size:1.1rem;">slack</a>
-    <a href="#" class="topic" style="--topic-size:2rem;">AI&nbsp;agents</a>
-    <a href="#" class="topic" style="--topic-size:1rem;">stripe</a>
-    <a href="best-shopify-automations-to-set-up.html" class="topic" style="--topic-size:1.9rem;">shopify</a>
+    <a href="best-shopify-automations-to-set-up.html" class="topic" style="--topic-size:2.4rem;">shopify</a>
     <a href="how-to-notify-customers-of-shipping-delays-on-shopify.html" class="topic" style="--topic-size:2.3rem;">shipping&nbsp;delay&nbsp;emails</a>
     <a href="how-to-notify-customers-of-shipping-delays-on-shopify.html" class="topic" style="--topic-size:1.4rem;">delayed&nbsp;order&nbsp;notifications</a>
     <a href="how-to-merge-duplicate-customer-profiles-on-shopify.html" class="topic" style="--topic-size:2.3rem;">merge&nbsp;duplicate&nbsp;customers</a>
@@ -2196,16 +2207,6 @@ em { font-style: italic; }
     <a href="how-to-automate-returns-and-exchanges-on-shopify.html" class="topic" style="--topic-size:1.6rem;">returns</a>
     <a href="how-to-automate-returns-and-exchanges-on-shopify.html" class="topic" style="--topic-size:1.2rem;">exchanges</a>
     <a href="how-to-automate-returns-and-exchanges-on-shopify.html" class="topic" style="--topic-size:1.1rem;">refunds</a>
-    <a href="#" class="topic" style="--topic-size:1.4rem;">triggers</a>
-    <a href="#" class="topic" style="--topic-size:1.2rem;">notion</a>
-    <a href="#" class="topic" style="--topic-size:1.6rem;">post-mortems</a>
-    <a href="#" class="topic" style="--topic-size:1rem;">hubspot</a>
-    <a href="#" class="topic" style="--topic-size:1.3rem;">error&nbsp;shields</a>
-    <a href="#" class="topic" style="--topic-size:1.7rem;">prompt&nbsp;craft</a>
-    <a href="#" class="topic" style="--topic-size:1.1rem;">gmail</a>
-    <a href="#" class="topic" style="--topic-size:1.3rem;">integrations</a>
-    <a href="#" class="topic" style="--topic-size:1rem;">sheets</a>
-    <a href="#" class="topic" style="--topic-size:1.4rem;">self-healing</a>
   </div>
 </section>
 
@@ -2239,14 +2240,14 @@ em { font-style: italic; }
     <span class="section-rule"></span>
   </div>
   <ul class="archive-list">
-    <li data-nav="post"><span class="arch-num">041</span><span class="arch-title">When automation stops being a tool and starts being a teammate</span><span class="arch-date">APR&nbsp;28</span></li>
-    <li data-nav="post"><span class="arch-num">040</span><span class="arch-title">Counting the hidden cost of a single Zap</span><span class="arch-date">APR&nbsp;21</span></li>
-    <li data-nav="post"><span class="arch-num">039</span><span class="arch-title">The case for boring workflows</span><span class="arch-date">APR&nbsp;14</span></li>
-    <li data-nav="post"><span class="arch-num">038</span><span class="arch-title">Composable triggers: a half-baked manifesto</span><span class="arch-date">APR&nbsp;07</span></li>
-    <li data-nav="post"><span class="arch-num">037</span><span class="arch-title">Why your ops team is secretly a compiler</span><span class="arch-date">MAR&nbsp;31</span></li>
-    <li data-nav="post"><span class="arch-num">036</span><span class="arch-title">A short history of if-this-then-that</span><span class="arch-date">MAR&nbsp;24</span></li>
+    <li><span class="arch-num">041</span><span class="arch-title">When automation stops being a tool and starts being a teammate</span><span class="arch-date">APR&nbsp;28</span></li>
+    <li><span class="arch-num">040</span><span class="arch-title">Counting the hidden cost of a single Zap</span><span class="arch-date">APR&nbsp;21</span></li>
+    <li><span class="arch-num">039</span><span class="arch-title">The case for boring workflows</span><span class="arch-date">APR&nbsp;14</span></li>
+    <li><span class="arch-num">038</span><span class="arch-title">Composable triggers: a half-baked manifesto</span><span class="arch-date">APR&nbsp;07</span></li>
+    <li><span class="arch-num">037</span><span class="arch-title">Why your ops team is secretly a compiler</span><span class="arch-date">MAR&nbsp;31</span></li>
+    <li><span class="arch-num">036</span><span class="arch-title">A short history of if-this-then-that</span><span class="arch-date">MAR&nbsp;24</span></li>
   </ul>
-  <a href="#" class="archive-more">browse all 88 dispatches →</a>
+  <a href="#latest" class="archive-more">browse the recent dispatches ↑</a>
 </section>
 
 <section class="cta-band">
@@ -2272,23 +2273,23 @@ em { font-style: italic; }
     <div class="foot-cols">
       <div>
         <span class="foot-h">read</span>
-        <a href="#">Latest</a>
-        <a href="#">Essays</a>
-        <a href="#">Post-mortems</a>
-        <a href="#">Interviews</a>
+        <a href="#latest">Latest</a>
+        <a href="#latest" data-filter-link="tag-essay">Essays</a>
+        <a href="#latest" data-filter-link="tag-postmortem">Post-mortems</a>
+        <a href="#latest" data-filter-link="tag-interview">Interviews</a>
       </div>
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="#">Pricing</a>
-        <a href="#">AI Engine</a>
-        <a href="#">Docs</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
       </div>
       <div>
         <span class="foot-h">company</span>
-        <a href="#">About</a>
-        <a href="#">Careers</a>
-        <a href="#">Privacy</a>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
         <a href="/feed.xml">RSS</a>
       </div>
     </div>
@@ -2516,10 +2517,10 @@ em { font-style: italic; }
       <span class="callout-mark">◆ READING</span>
       <span>
         If this argument interests you, three pieces to follow it up
-        with: our <a href="#">post-mortem on the retry-loop incident</a>,
-        the <a href="#">interview with Kira Hartman</a> on consolidating
-        400 zaps, and Mei's <a href="#">essay on naming things the AI
-        will read later.</a>
+        with: our post-mortem on the retry-loop incident,
+        the interview with Kira Hartman on consolidating
+        400 zaps, and Mei's essay on naming things the AI
+        will read later.
       </span>
     </div>
 
@@ -2547,57 +2548,57 @@ em { font-style: italic; }
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
-    <article class="card" data-nav="post">
+    <a class="card" href="how-to-notify-customers-of-shipping-delays-on-shopify.html">
       <div class="card-body">
         <div class="post-meta">
-          <span class="tag tag-essay">essay</span>
-          <span class="post-read">9&nbsp;min</span>
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">Triggers are the new APIs</h3>
+        <h3 class="card-title">How to notify customers of shipping delays on Shopify automatically</h3>
         <p class="card-dek">
-          When every step is natural language, the trigger becomes
-          the only thing you really design.
+          The stretch where an order is late is the stretch where your
+          store is silent. The playbook that catches the slip early.
         </p>
         <div class="card-foot">
-          <span class="card-date">MAY 24</span>
-          <span class="card-author">M. Chen</span>
+          <span class="card-date">JUL 22</span>
+          <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </article>
-    <article class="card" data-nav="post">
+    </a>
+    <a class="card" href="how-to-merge-duplicate-customer-profiles-on-shopify.html">
       <div class="card-body">
         <div class="post-meta">
-          <span class="tag tag-essay">essay</span>
-          <span class="post-read">11&nbsp;min</span>
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">Branching is a writing problem</h3>
+        <h3 class="card-title">How to merge duplicate customer profiles on Shopify in bulk</h3>
         <p class="card-dek">
-          Why "if," "unless," and "when" are the three most
-          undervalued words in automation.
+          One loyal customer, four stranger profiles. Sweeping the whole
+          list for duplicates and merging what Shopify will not.
         </p>
         <div class="card-foot">
-          <span class="card-date">MAY 16</span>
-          <span class="card-author">A. Rao</span>
+          <span class="card-date">JUL 22</span>
+          <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </article>
-    <article class="card" data-nav="post">
+    </a>
+    <a class="card" href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html">
       <div class="card-body">
         <div class="post-meta">
-          <span class="tag tag-interview">interview</span>
-          <span class="post-read">22&nbsp;min</span>
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">"We deleted 400 Zapier zaps in a weekend."</h3>
+        <h3 class="card-title">How to stop discount codes from applying to sale items on Shopify</h3>
         <p class="card-dek">
-          A 600-person fintech consolidates four years of brittle
-          no-code into eleven playbooks.
+          Codes stack on top of markdowns and your 40 percent sale
+          quietly becomes 46. Scoping every code at creation.
         </p>
         <div class="card-foot">
-          <span class="card-date">MAY 13</span>
-          <span class="card-author">w/ K. Hartman</span>
+          <span class="card-date">JUL 20</span>
+          <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </article>
+    </a>
   </div>
 </section>
 
@@ -2625,22 +2626,22 @@ em { font-style: italic; }
       <div>
         <span class="foot-h">read</span>
         <a href="#" data-nav="home">Latest</a>
-        <a href="#">Essays</a>
-        <a href="#">Post-mortems</a>
-        <a href="#">Interviews</a>
+        <a href="#" data-nav="home">Essays</a>
+        <a href="#" data-nav="home">Post-mortems</a>
+        <a href="#" data-nav="home">Interviews</a>
       </div>
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="#">Pricing</a>
-        <a href="#">AI Engine</a>
-        <a href="#">Docs</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
       </div>
       <div>
         <span class="foot-h">company</span>
-        <a href="#">About</a>
-        <a href="#">Careers</a>
-        <a href="#">Privacy</a>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
         <a href="/feed.xml">RSS</a>
       </div>
     </div>
@@ -2694,23 +2695,26 @@ function attachReveals() {
 attachReveals();
 
 // ============ FILTER PILLS ============
-document.querySelectorAll(".pill").forEach((pill) => {
-  pill.addEventListener("click", () => {
-    document.querySelectorAll(".pill").forEach((p) => p.classList.remove("pill-active"));
-    pill.classList.add("pill-active");
+function applyFilter(tagClass) {
+  document.querySelectorAll(".pill").forEach((p) => {
+    const active = (p.dataset.filter || "") === tagClass;
+    p.classList.toggle("pill-active", active);
+    p.setAttribute("aria-pressed", String(active));
   });
+  document.querySelectorAll(".article-grid .card").forEach((card) => {
+    const show = !tagClass || card.querySelector("." + tagClass);
+    card.style.display = show ? "" : "none";
+    if (show) card.classList.add("in");
+  });
+}
+document.querySelectorAll(".pill").forEach((pill) => {
+  pill.addEventListener("click", () => applyFilter(pill.dataset.filter || ""));
 });
 
-// ============ HERO PARALLAX ============
-const heroTitle = document.querySelector(".hero-title");
-if (heroTitle && window.matchMedia("(min-width: 720px)").matches) {
-  window.addEventListener("scroll", () => {
-    const y = window.scrollY;
-    if (y < 800 && document.getElementById("view-home").classList.contains("active")) {
-      heroTitle.style.transform = `translateY(${y * 0.08}px)`;
-    }
-  }, { passive: true });
-}
+// footer "read" links pre-select the matching filter
+document.querySelectorAll("[data-filter-link]").forEach((link) => {
+  link.addEventListener("click", () => applyFilter(link.dataset.filterLink));
+});
 </script>
 </body>
 </html>
