@@ -54,8 +54,8 @@
       "dateModified": "2026-06-13",
       "articleSection": "Research",
       "keywords": "Shopify address validation, returned to sender, failed delivery, wrong shipping address, address verification automation, undeliverable package, re-shipping cost, ecommerce fulfillment automation",
-      "wordCount": 1780,
-      "timeRequired": "PT9M",
+      "wordCount": 1500,
+      "timeRequired": "PT7M",
       "inLanguage": "en",
       "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
       "about": [
@@ -96,7 +96,7 @@
           "name": "What does an address warning mean on a Shopify order?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Shopify runs address validation automatically on online orders. A yellow warning means the address looks incomplete or slightly off and might result in a delayed or failed delivery; a red error means the address is very likely undeliverable and can't be marked valid. Both are advisory, Shopify flags the risk, but it still lets you fulfil the order, so a bad address can ship anyway if no one acts on the warning."
+            "text": "Shopify runs address validation automatically on online orders. A yellow warning means the address looks incomplete or slightly off and might result in a delayed or failed delivery; a red error means the address is very likely undeliverable and can't be marked valid. Both are advisory, Shopify flags the risk, but it still lets you fulfill the order, so a bad address can ship anyway if no one acts on the warning."
           }
         },
         {
@@ -112,7 +112,7 @@
           "name": "Can bad-address handling on Shopify be automated?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. An AI playbook can check every new order against an address-verification service before fulfilment, auto-correct unambiguous fixes like a missing ZIP or a standardised street format, hold fulfilment and email the customer a suggested correction when the address is ambiguous, and only escalate the genuinely unresolvable ones to a person, so the package never ships to an address that's going to bounce."
+            "text": "Yes. An AI playbook can check every new order against an address-verification service before fulfillment, auto-correct unambiguous fixes like a missing ZIP or a standardised street format, hold fulfillment and email the customer a suggested correction when the address is ambiguous, and only escalate the genuinely unresolvable ones to a person, so the package never ships to an address that's going to bounce."
           }
         }
       ]
@@ -123,7 +123,7 @@
       "name": "The bad address that ships anyway",
       "description": "The AI-run playbook behind the bad address that ships anyway.",
       "inLanguage": "en",
-      "totalTime": "PT9M",
+      "totalTime": "PT7M",
       "step": [
         {
           "@type": "HowToStep",
@@ -136,7 +136,7 @@
           "@type": "HowToStep",
           "position": 2,
           "name": "If it's valid as-is",
-          "text": "If it's valid as-is → let it flow straight to fulfilment, no one touched it",
+          "text": "If it's valid as-is → let it flow straight to fulfillment, no one touched it",
           "url": "https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html#playbook"
         },
         {
@@ -150,7 +150,7 @@
           "@type": "HowToStep",
           "position": 4,
           "name": "If it's ambiguous (missing apt #",
-          "text": "If it's ambiguous (missing apt #, two possible matches) → hold fulfilment and email the customer the exact suggested address: \"Did you mean __? Confirm and we'll ship today.\"",
+          "text": "If it's ambiguous (missing apt #, two possible matches) → hold fulfillment and email the customer the exact suggested address: \"Did you mean __? Confirm and we'll ship today.\"",
           "url": "https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html#playbook"
         },
         {
@@ -449,11 +449,11 @@ em { font-style: italic; }
   <div class="ticker-track">
     <span>◆ DISPATCH Nº 52 — JUN 6, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 1,780 WORDS</span>
+    <span>◆ 7 MIN READ · 1,500 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
     <span>◆ DISPATCH Nº 52 — JUN 6, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 1,780 WORDS</span>
+    <span>◆ 7 MIN READ · 1,500 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -483,14 +483,14 @@ em { font-style: italic; }
     <span style="color: var(--line-2);">·</span>
     <span style="color: var(--cream-dim);">JUN 6, 2026</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">9 MIN READ</span>
+    <span style="color: var(--cream-dim);">7 MIN READ</span>
   </div>
 
   <h1 class="article-title">How to <em>validate shipping addresses</em> on Shopify</h1>
 
   <p class="article-dek">
     Shopify shows you a little yellow triangle next to the shipping
-    address, you're in a hurry, and you click "fulfil" anyway. Two
+    address, you're in a hurry, and you click "fulfill" anyway. Two
     weeks later the package comes back stamped <em>return to sender</em>, and now you owe a return fee, a re-ship, a refund, and an apology.
     Bad-address handling is the Shopify pain merchants only feel after
     it's already cost them. Here's why a warning isn't an automation, and what a playbook that actually fixes the address does instead.
@@ -545,7 +545,7 @@ em { font-style: italic; }
 
     <p>
       But here's the gap: those flags are <em>advisory</em>. Shopify will
-      still happily let you fulfil an order with a yellow warning on it.
+      still happily let you fulfill an order with a yellow warning on it.
       The validation surfaces the risk; it doesn't resolve it, and it
       doesn't stop the label from printing. So during a sale, or any week
       where orders outpace attention, the warnings scroll right past. The
@@ -556,7 +556,7 @@ em { font-style: italic; }
     <h2>Why a late catch is so expensive</h2>
 
     <p>
-      Address errors are not a rounding error in fulfilment. By common
+      Address errors are not a rounding error in fulfillment. By common
       industry estimates, somewhere around <strong>5-10% of all
       packages</strong> are returned to sender, and incorrect or
       incomplete addresses are the single biggest cause. Most carriers
@@ -638,7 +638,7 @@ em { font-style: italic; }
       The real job isn't "flag bad addresses." It's "make sure nothing
       ships to an address that's going to bounce", which means checking,
       correcting, confirming, and only escalating the genuinely
-      unresolvable ones to a person, all before fulfilment. Written as a
+      unresolvable ones to a person, all before fulfillment. Written as a
       Dugong playbook, in plain prose, it reads like this:
     </p>
 
@@ -649,12 +649,12 @@ em { font-style: italic; }
 1. <span class="k">Check</span> the shipping address against an
    address-verification service (USPS/global)
 2. <span class="k">If</span> it's valid as-is → let it flow straight to
-   fulfilment, no one touched it
+   fulfillment, no one touched it
 3. <span class="k">If</span> there's a confident standard correction
    (ZIP, street format, missing direction) → apply it, note the change,
    and continue
 4. <span class="k">If</span> it's ambiguous (missing apt #, two possible
-   matches) → hold fulfilment and email the customer the exact suggested
+   matches) → hold fulfillment and email the customer the exact suggested
    address: "Did you mean __? Confirm and we'll ship today."
 5. <span class="k">If</span> they confirm → update the order and release
    it; <span class="k">if</span> no reply in 48h → queue it for me
@@ -667,7 +667,7 @@ em { font-style: italic; }
       customer email with the specific suggestion, the wait-and-follow-up
       timer, the order update, the review queue. The merchant didn't draw
       a flowchart of address edge cases, they described how they'd want
-      a careful fulfilment lead to treat every order, and let the
+      a careful fulfillment lead to treat every order, and let the
       compiler decide what it had to <em>be</em> to deliver that.
     </p>
 
@@ -727,7 +727,7 @@ em { font-style: italic; }
     </p>
 
     <p>
-      Describe it the way you'd brief a sharp fulfilment hire on their
+      Describe it the way you'd brief a sharp fulfillment hire on their
       first day: here's how we know an address is good, here's when you
       fix it yourself, here's when you ask the customer, and here's when
       you stop and flag it for me. That's the whole brief. The compiler
@@ -774,7 +774,7 @@ em { font-style: italic; }
   <div class="faq-list">
     <div class="faq-item">
       <h2 class="faq-q">What does an address warning mean on a Shopify order?</h2>
-      <p class="faq-a">Shopify runs address validation automatically on online orders. A yellow warning means the address looks incomplete or slightly off and might result in a delayed or failed delivery; a red error means the address is very likely undeliverable and can&#x27;t be marked valid. Both are advisory, Shopify flags the risk, but it still lets you fulfil the order, so a bad address can ship anyway if no one acts on the warning.</p>
+      <p class="faq-a">Shopify runs address validation automatically on online orders. A yellow warning means the address looks incomplete or slightly off and might result in a delayed or failed delivery; a red error means the address is very likely undeliverable and can&#x27;t be marked valid. Both are advisory, Shopify flags the risk, but it still lets you fulfill the order, so a bad address can ship anyway if no one acts on the warning.</p>
     </div>
     <div class="faq-item">
       <h2 class="faq-q">Why are bad shipping addresses so expensive for merchants?</h2>
@@ -782,7 +782,7 @@ em { font-style: italic; }
     </div>
     <div class="faq-item">
       <h2 class="faq-q">Can bad-address handling on Shopify be automated?</h2>
-      <p class="faq-a">Yes. An AI playbook can check every new order against an address-verification service before fulfilment, auto-correct unambiguous fixes like a missing ZIP or a standardised street format, hold fulfilment and email the customer a suggested correction when the address is ambiguous, and only escalate the genuinely unresolvable ones to a person, so the package never ships to an address that&#x27;s going to bounce.</p>
+      <p class="faq-a">Yes. An AI playbook can check every new order against an address-verification service before fulfillment, auto-correct unambiguous fixes like a missing ZIP or a standardised street format, hold fulfillment and email the customer a suggested correction when the address is ambiguous, and only escalate the genuinely unresolvable ones to a person, so the package never ships to an address that&#x27;s going to bounce.</p>
     </div>
   </div>
 </section>
@@ -793,6 +793,23 @@ em { font-style: italic; }
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+    <a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The discount code that double-dips your sale</h3>
+        <p class="card-dek">
+          A shopper stacks the welcome code on your 40 percent markdowns and Shopify allows it, because a markdown is not a discount to the engine. The AI playbook that keeps every code off your sale prices.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
     <a href="how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -866,7 +883,7 @@ em { font-style: italic; }
         </div>
         <h3 class="card-title">The minimum order Shopify won't enforce</h3>
         <p class="card-dek">
-          A customer checks out for a few dollars and Shopify waves it through, even though the order costs more to fulfil than it earns. The AI playbook that sets a real floor on every checkout path.
+          A customer checks out for a few dollars and Shopify waves it through, even though the order costs more to fulfill than it earns. The AI playbook that sets a real floor on every checkout path.
         </p>
         <div class="card-foot">
           <span class="card-date">JUL 5</span>
@@ -1266,7 +1283,7 @@ em { font-style: italic; }
         </div>
         <h3 class="card-title">The order change that races your warehouse</h3>
         <p class="card-dek">
-          The "can you change my order?" email lands at a bad time and locks the second you fulfil. The AI playbook that resolves it before the label prints.
+          The "can you change my order?" email lands at a bad time and locks the second you fulfill. The AI playbook that resolves it before the label prints.
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 8</span>

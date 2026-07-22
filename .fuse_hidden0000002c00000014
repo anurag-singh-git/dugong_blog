@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to limit purchase quantity per customer on Shopify — Dugong Field Notes</title>
+<meta name="description" content="Shopify's add-to-cart limit is per cart, not per customer, so one buyer clears your drop. The AI playbook that enforces a real per-customer limit on every path."> />
+<link rel="canonical" href="https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="Shopify limit quantity per customer, Shopify purchase limit per customer, Shopify max quantity per order, Shopify limit one per customer, Shopify order limit app, Shopify limit quantity per variant, Shopify prevent bulk buying, Shopify per customer purchase limit, Shopify add to cart limit, AI Shopify order limit automation, Dugong" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
+<meta property="article:published_time" content="2026-07-11" />
+    <meta property="article:modified_time" content="2026-07-11" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to limit purchase quantity per customer on Shopify" />
+<meta property="og:description" content="You cap a hot product at two per person, the drop sells out in minutes, and the orders list shows one buyer took forty units across twenty small orders, because Shopify's native add-to-cart limit is per variant and per cart, not per customer. It caps how many of a single variant fit in one cart, but it resets the moment that cart checks out, it never recognizes the same buyer placing order after order, and it counts each color or size separately, so a reseller or a bot clears your launch two units at a time and the real customers bounce off a Sold Out page. A theme or cart-page limit is skipped by the Shop Pay, Apple Pay, and Google Pay wallet buttons, a buy-it-now click, and a checkout permalink. The AI playbook that identifies the buyer across orders by email, address, payment, and device, enforces a real per-customer limit on every path into checkout, cancels and restocks the units that slipped past, and holds the genuine household order or wholesale exception for a human." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to limit purchase quantity per customer on Shopify" />
+<meta name="twitter:description" content="You cap a product at two per person and one buyer still clears the drop, because Shopify's add-to-cart limit is per variant and per cart, not per customer, so it resets on every order. The AI playbook that enforces a real per-customer limit on every checkout path and cleans up what slipped." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+    <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#article",
+      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html",
+      "url": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html",
+      "headline": "How to limit purchase quantity per customer on Shopify",
+      "description": "You cap a hot product at two per person, the drop sells out in minutes, and the orders list shows one buyer took forty units across twenty small orders, because Shopify's native add-to-cart limit is per variant and per cart, not per customer. It caps how many of a single variant fit in one cart, but it resets the moment that cart checks out, it never recognizes the same buyer placing order after order, and it counts each color or size separately, so a reseller or a bot clears your launch two units at a time while real customers bounce off a Sold Out page. There is no native per-customer limit across orders on standard plans, no per-collection cap, and no limit that spans a launch window. A theme or cart-page limit is skipped by the Shop Pay, Apple Pay, and Google Pay wallet buttons, a buy-it-now click, and a checkout permalink, and the identity problem underneath (guests, new emails, second accounts, cleared cookies) means only a server-side check that recognizes the buyer across signals actually holds. This is one of the most-repeated requests in Shopify merchant communities running drops, flash sales, and allocation-limited products. The AI playbook that identifies the buyer across orders by email, address, payment, and device, decides the real per-customer limit for this product and this window, enforces it on every path into checkout, cancels and restocks the units that slipped past, tells the customer clearly, and holds the genuine household order or wholesale exception for a human.",
+      "datePublished": "2026-07-11",
+      "dateModified": "2026-07-11",
+      "articleSection": "Research",
+      "keywords": "Shopify limit quantity per customer, Shopify purchase limit per customer, Shopify max quantity per order, Shopify limit one per customer, Shopify order limit app, Shopify limit quantity per variant, Shopify prevent bulk buying, Shopify per customer purchase limit, Shopify add to cart limit",
+      "wordCount": 2697,
+      "timeRequired": "PT10M",
+      "inLanguage": "en",
+      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+      "about": [
+        { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
+        { "@type": "Thing", "name": "Inventory", "sameAs": "https://en.wikipedia.org/wiki/Inventory" },
+        { "@type": "Thing", "name": "Reseller", "sameAs": "https://en.wikipedia.org/wiki/Reseller" },
+        { "@type": "Thing", "name": "E-commerce", "sameAs": "https://en.wikipedia.org/wiki/E-commerce" }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".article-title", ".faq"]
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Priya Singh",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
+        { "@type": "ListItem", "position": 2, "name": "The buyer who clears your whole drop", "item": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can Shopify limit purchase quantity per customer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not natively across orders on standard plans. Shopify has an add-to-cart limit that caps how many of a single variant can go into one cart, but it resets every order and never recognizes the same buyer coming back for more, so it is a per-cart limit, not a per-customer one. There is no native setting that says two per customer for this launch and enforces it across separate checkouts. A real per-customer limit takes a checkout validation on Shopify Plus with Functions, a third-party app, or a custom automation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does Shopify's add-to-cart limit not stop bulk buying?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because it works on the cart, not the customer. The native limit caps a single variant per cart, but it counts each variant separately, so a shopper can take the maximum of every color and size in one order, and it resets the moment the cart checks out, so the same person can place order after order with a new cart each time. It also does not apply in Shopify POS, on draft orders, or for B2B profiles. A reseller or a bot simply checks out repeatedly, two units at a time, and clears the drop while your real customers hit a Sold Out page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you enforce a limit of one per customer on Shopify during a drop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You have to recognize the buyer across orders and enforce the limit at checkout, not only in the cart. That means matching a new order against past ones by email, shipping and billing address, payment fingerprint, and account, deciding whether this order pushes the buyer over the limit, and either blocking it server-side so a wallet button or a checkout link cannot slip past, or catching the excess after the fact and cancelling, refunding, and restocking it. The hard part is identity, because resellers use new emails, second accounts, and cleared cookies, so a cart-based or account-based rule alone will miss them."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#howto",
+      "name": "The buyer who clears your whole drop",
+      "description": "The AI playbook that enforces a real per-customer purchase limit on Shopify: identifying the buyer across orders, deciding the limit for this product and window, enforcing it on every checkout path, cancelling and restocking what slipped, telling the customer, and surfacing the judgement calls for a human.",
+      "inLanguage": "en",
+      "totalTime": "PT10M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Read the order and the limit",
+          "text": "On a new order or checkout, read the items and quantities, and the per-customer limit that applies to this product, collection, and launch window",
+          "url": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Identify the buyer across orders",
+          "text": "Match this order against past ones by email, shipping and billing address, payment fingerprint, account, and device, not just the cart in front of you",
+          "url": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Decide whether it breaches the limit",
+          "text": "Add this order's quantity to what the same buyer already took in the window and decide whether it goes over the limit for this product or collection",
+          "url": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Enforce on every path into checkout",
+          "text": "Block the over-limit order at checkout itself, so the wallet buttons, buy-it-now, saved cart links, and checkout permalinks cannot slip a bulk order past the cart-page rule",
+          "url": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Clean up what slipped through",
+          "text": "For an over-limit order that already landed, cancel or trim the excess units, refund them, restock the inventory, and free it for real customers",
+          "url": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Tell the customer clearly",
+          "text": "Explain the per-customer limit at the point it applies, and confirm kindly when an order was trimmed to the cap so it never looks like a silent failure",
+          "url": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Hold the edge cases for a human",
+          "text": "Surface a genuine household or shared-address order, a wholesale buyer who should be exempt, a gift order, or a near-miss where the match is uncertain, so a person makes the call",
+          "url": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#playbook"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES — matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #8b8b80;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0a8f54;
+  --pink:         #c61f93;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #b5882c;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background — lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--gutter); height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+@media (max-width: 820px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+/* GRID (for related cards) */
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+.article-title em { font-style: normal; position: relative; white-space: nowrap; color: var(--text); }
+.article-title em::after { content: ""; position: absolute; left: -.06em; right: -.06em; bottom: .06em; height: .32em; background: var(--lime); z-index: -1; border-radius: 3px; transform: rotate(-.5deg); }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: var(--border-strong); }
+.byline-role { color: var(--text-faint); }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+.article-body pre code { background: none; padding: 0; color: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) — mirrors the site's final card ---- */
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>◆ DISPATCH Nº 81 — JUL 11, 2026</span>
+    <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
+    <span>◆ 10 MIN READ · 2,690 WORDS</span>
+    <span>◆ BY PRIYA SINGH</span>
+    <span>◆ DISPATCH Nº 81 — JUL 11, 2026</span>
+    <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
+    <span>◆ 10 MIN READ · 2,690 WORDS</span>
+    <span>◆ BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+  </nav>
+</header>
+
+<article class="article">
+
+  <a href="index.html" class="article-back">← back to field notes</a>
+
+  <div class="article-meta">
+    <span class="tag tag-research">research</span>
+    <span style="color: var(--cream-dim);">DISPATCH Nº 81</span>
+    <span style="color: var(--line-2);">·</span>
+    <span style="color: var(--cream-dim);">JUL 11, 2026</span>
+    <span style="color: var(--line-2);">·</span>
+    <span style="color: var(--cream-dim);">10 MIN READ</span>
+  </div>
+
+  <h1 class="article-title">
+    How to limit <em>purchase quantity</em> per customer on Shopify
+  </h1>
+
+  <p class="article-dek">
+    You cap a hot product at two per person, the drop sells out in minutes, and the orders
+    list tells the real story: one buyer took forty units across twenty tidy little orders.
+    Shopify's add-to-cart limit is a per-cart rule, not a per-customer one, so it resets on
+    every checkout and never notices the same buyer coming back. It also counts each color and
+    size on its own. Here is why Shopify caps the cart but not the customer, and the playbook
+    that enforces a real per-person limit on every path into checkout.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name">Priya Singh</span>
+    <span class="byline-divider">·</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      A purchase limit is one of the plainest promises a store can make. Two per customer, so
+      everyone gets a fair shot at the drop. One per household, so the allocation you fought your
+      supplier for actually reaches new customers instead of a handful of resellers. It is the
+      kind of rule a shopper reads on the product page and nods at, and the kind of rule a
+      merchant assumes the platform will hold up. So you set the cap, you launch, and the product
+      sells out in the first few minutes exactly as you hoped. Then you open the orders list and
+      the good news curdles: the same name, or the same address, or the same card, over and over,
+      each order neatly at or under your limit, adding up to a stack of units that was supposed to
+      be spread across dozens of people. The cap you advertised did nothing, because Shopify never
+      counted the customer. It only ever counted the cart.
+    </p>
+
+    <p>
+      This is the quiet reality of running any allocation-limited product on Shopify, and the
+      merchant communities are full of the same question asked a dozen ways. How do I limit
+      quantity per customer. How do I stop one person buying all my stock. Why does my two-per-order
+      limit let someone place ten orders. How do I enforce one per customer during a launch. The
+      answers underneath are always some shape of not natively, use an app, or write a checkout
+      function. The merchant is not asking for anything exotic. They want the obvious thing every
+      fair drop depends on: the limit is per person, so the store recognizes the person, and the
+      forty-first unit to the same buyer simply does not go through.
+    </p>
+
+    <blockquote>
+      Shopify can cap how many units fit in one cart. <em>It cannot cap how many carts one
+      customer fills. So the limit you advertised holds for the honest shopper who reads it and
+      does nothing to the reseller who was always going to place ten orders.</em>
+    </blockquote>
+
+    <h2>What Shopify does and does not do about purchase limits</h2>
+
+    <p>
+      Give Shopify credit for the part it does, because it is real and it is where the confusion
+      starts. Shopify has a native <strong>add-to-cart limit</strong>, set under checkout
+      preferences, that caps the maximum quantity of a given product a shopper can put in their
+      cart in one order. If you never want more than one of an item to leave in a single order,
+      you can set it, and the cart will refuse the second. For the narrow case of stopping an
+      obvious over-buy in a single transaction, it works, and it is worth turning on.
+    </p>
+
+    <p>
+      The trouble is that a per-cart limit is not a per-customer limit, and the gap between the two
+      is exactly where every drop leaks. The native limit runs into three walls the moment you are
+      trying to protect a real allocation. First, it is <strong>per variant, not per product or per
+      customer</strong>. The cap applies to each variant independently, so a tee sold in three
+      colors with a limit of two lets one shopper take two red, two blue, and two green in the same
+      cart, six units against a limit that reads like two. Second, it <strong>resets on every
+      order</strong>. The limit lives on the cart, so the instant a checkout completes the counter
+      is gone, and the same person can start a fresh cart and buy again, and again, with nothing
+      tracking the running total across their orders. Third, it <strong>does not know who the
+      customer is</strong>. The rule never looks at email, address, card, or account, so it cannot
+      tell that twenty separate orders are one buyer, and it does not apply at all in Shopify POS,
+      on draft orders, or for B2B profiles.
+    </p>
+
+    <h2>The limit Shopify enforces per cart but never per customer</h2>
+
+    <p>
+      The heart of a purchase limit is a single move Shopify does not make: recognize the buyer
+      across orders, keep a running count of what they have already taken, and refuse the order
+      that pushes them over. That is what makes a limit a limit. Everything Shopify gives you stops
+      one step short of it. The add-to-cart rule can guard a single cart, but the counting resets
+      the moment that cart is paid for, and no native setting ties this order to the last one from
+      the same person. So the merchant, or a theme edit, or an app becomes the thing that has to
+      remember the customer, and that is exactly the work that is fiddly to build and easy to
+      evade. It is the same shape of gap as
+      <a href="how-to-set-a-minimum-order-amount-on-shopify.html">the minimum order Shopify will not
+      enforce</a>: the platform can describe a rule about one cart but has no reliable native hook
+      to enforce it against a customer on every path they take to checkout.
+    </p>
+
+    <p>
+      And that phrase, every path, is where the usual fix quietly fails. The common workaround is
+      code on the product or cart page that blocks the button once the quantity is too high. But a
+      modern Shopify store has many doors into checkout that never touch that page: the Shop Pay,
+      Apple Pay, and Google Pay wallet buttons that jump straight from the product page, a buy-it-now
+      button, a saved cart link, a checkout permalink shared in a group chat where the resellers
+      trade them. A limit enforced by cart-page code is simply absent on all of those, the very
+      paths a determined buyer will use. Underneath even that sits the harder problem, which is
+      identity: a limit that keys off a logged-in account is walked around with a guest checkout or
+      a second email, and one that keys off a browser cookie is beaten by an incognito window or a
+      cleared cache. The people you most want the limit to stop are the ones most willing to open a
+      new tab.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">◆ DATA</span>
+      <span>
+        The reason this is worth fixing well is that a broken limit does its damage at the worst
+        possible moment, on the product you least wanted to lose. Limits exist precisely for the
+        launches, the collabs, the restocks, and the allocation-constrained lines, the products
+        where demand outruns supply and resellers and bots are watching. When the cap fails there,
+        a small number of buyers clear the inventory in minutes, your real customers hit a Sold Out
+        page and remember it, the units you promised would reach new people end up on a resale
+        market at a markup, and the goodwill you were spending the drop to build turns into a wall
+        of "why can't I ever get one" replies. The limit looked set in the admin and was quietly
+        meaningless in reality.
+      </span>
+    </div>
+
+    <h2>Why the usual workarounds don't hold</h2>
+
+    <p>
+      Faced with a platform that can cap a cart but will not cap a customer, merchants reach for a
+      handful of moves, and each one gives back something you did not want to lose.
+    </p>
+
+    <p>
+      <strong>"I will use the add-to-cart limit."</strong> The right tool for stopping an obvious
+      over-buy in one cart, and the wrong shape for protecting a drop. It counts each variant on its
+      own, so a shopper takes the maximum of every size and color at once, and it resets the moment
+      the order is placed, so the same buyer just checks out again. You have capped the cart and left
+      the customer completely uncapped, which on a hyped product is the difference that matters.
+    </p>
+
+    <p>
+      <strong>"I will add cart-page code."</strong> The classic fix, and the one that leaks. A script
+      that blocks the checkout button above a quantity works on the cart page and is invisible on every
+      other path into checkout, so the wallet buttons, the buy-it-now flow, and the shared checkout
+      link all skip it, the same blind spot that undoes
+      <a href="how-to-set-a-minimum-order-amount-on-shopify.html">a cart-page minimum</a>. It also
+      breaks on the next theme update, and because it only sees the cart in front of it, it never
+      counts what the same person bought an hour ago in a different session.
+    </p>
+
+    <p>
+      <strong>"I will require accounts and limit by login."</strong> Reasonable instinct, easily
+      evaded. Forcing shoppers to log in lets you tie a limit to a customer record, but it also adds
+      friction that costs you real conversions, and it does nothing to the reseller who simply signs
+      up with a second email, a third, a burner for each order. An account-based limit stops the
+      honest customer who was never the problem and waves through the practiced buyer who is.
+    </p>
+
+    <p>
+      <strong>"I will build a Flow."</strong> Reasonable instinct, wrong tool for the enforcing part.
+      <a href="how-to-automatically-tag-orders-on-shopify.html">Shopify Flow reacts to an order after
+      it is placed</a>, so it can tag or even cancel an order that looks over the line, but it fires
+      one order at a time and cannot natively hold a running per-customer total across orders or block
+      the checkout before the money moves. It can help clean up afterward, which matters, but it cannot
+      be the thing that stops the over-limit order from going through in the first place, and by the
+      time it acts the unit is already off the shelf.
+    </p>
+
+    <p>
+      <strong>"I will install an order-limit app."</strong> Often the right call, and still a fixed
+      rulebook bolted to your store. The good ones do enforce a per-customer cap, and the best use a
+      server-side checkout validation so the wallet-button paths are covered, which is real progress
+      and proof the native gap exists. But an app applies the rules you set in advance the same way to
+      every order: it does not notice that two orders to the same building are a genuine couple rather
+      than one reseller, that a wholesale account should be exempt from the retail cap, that an order
+      is a gift going to a different address, or that a near-match is too uncertain to cancel on
+      automatically. It enforces. It does not judge.
+    </p>
+
+    <h2>What the automation actually has to do</h2>
+
+    <p>
+      The real job is not "cap the cart." It is "recognize the buyer across their orders, keep a
+      running count against the limit for this product and this window, refuse the order that goes over
+      on whatever path they take to checkout, undo the ones that slipped through by cancelling and
+      restocking the excess, tell the customer plainly, and pull in a human only for the calls that are
+      genuinely judgement." That is a read, an identity match, a decision, an action at checkout, and a
+      set of corrections after the fact. As a Dugong playbook, in plain prose, it reads like this:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">On</span> a new order or checkout
+
+<span class="c"># steps</span>
+1. <span class="k">Read</span> the items and quantities, and the per-customer
+   limit for this product, collection, and launch window
+2. <span class="k">Identify</span> the buyer across orders: email, shipping
+   and billing address, payment fingerprint, account, device
+3. <span class="k">Decide</span> if this order takes them over the limit once
+   you add what they already bought in the window
+4. <span class="k">Enforce</span> at checkout on every path in: cart, wallet
+   buttons, buy-it-now, saved links, checkout permalinks
+5. <span class="k">Clean up</span> what slipped: cancel or trim the excess,
+   refund it, restock the units for real customers
+6. <span class="k">Tell</span> the customer the limit clearly and confirm
+   kindly when an order was trimmed to the cap
+7. <span class="k">Hold</span> a shared-address household, a wholesale exempt,
+   a gift, or an uncertain match for a human</code></pre>
+
+    <p>
+      Seven lines. The compiler fills in the rest: matching a new order to past ones across several
+      weak signals instead of one exact key, holding a running total per customer across a launch
+      rather than resetting each cart, enforcing at the checkout itself so a wallet button cannot slip
+      a bulk order past the cart-page rule, and undoing the over-limit orders that did land by
+      cancelling the excess and putting the units back on the shelf. The merchant never wrote a line of
+      theme code or a checkout function. They described how a careful launch manager would guard the
+      allocation, and let the compiler run it on every order, in real time.
+    </p>
+
+    <div class="callout callout-sand">
+      <span class="callout-mark">◆ NOTE</span>
+      <span>
+        The trap here is treating a purchase limit as pure mechanics. Whether an order is over the cap
+        is arithmetic, but whether to cancel it is a judgement: two orders to the same address can be a
+        couple who both wanted one, or a reseller reusing a drop-off, and getting that wrong either
+        punishes a real customer or waves a reseller through; a wholesale buyer on
+        <a href="how-to-segment-repeat-customers-on-shopify.html">a recognized account</a> should often
+        sit outside the retail limit entirely; a gift order shipping elsewhere is not the buyer
+        stockpiling; and a cancelled order needs its units
+        <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html">put back into stock cleanly</a>
+        so the cap you enforced does not quietly strand inventory. A rule that only knows the number gets
+        all of those wrong.
+      </span>
+    </div>
+
+    <h2>Why this is a compiler problem, not an app problem</h2>
+
+    <p>
+      There are capable order-limit apps on the Shopify App Store, and a store running drops should look
+      at one. But the thing that makes a purchase limit hold is not one more quantity field. It is
+      judgement about each specific order: is this the same buyer as that earlier order or just a
+      coincidence of name, is this second order to the same street a household or a reseller, should this
+      account be exempt because it is wholesale, did this order slip past the cap and need its excess
+      cancelled and restocked, and is the limit landing on the wallet-button path as well as the cart.
+      Those answers change per order, per customer, and per minute of a launch, which is exactly what a
+      fixed rulebook handles badly and a person cannot watch across a flood of orders at once. It is the
+      same reason <a href="how-to-stop-card-testing-attacks-on-shopify.html">reading a burst of orders as
+      an attack</a> resists a single setting: the right call lives in the pattern across orders, not in
+      one threshold on one cart.
+    </p>
+
+    <p>
+      A natural-language compiler fits because a purchase limit was never a single action. It is a read of
+      the order, an identity match against everything the same buyer has done, a decision about whether
+      this one goes over, an action at the checkout on whatever path they took, and a stream of
+      corrections for the orders that got through. You can describe the whole behavior in a paragraph. You
+      could never keep up with it by hand across every order, every checkout path, and every fresh email a
+      reseller invents. It sits in the same family as
+      <a href="how-to-schedule-product-publishing-on-shopify.html">the product drop that will not go live
+      on time</a>, where a launch is only as good as the mechanics running underneath it, and
+      <a href="how-to-prevent-overselling-on-shopify-across-channels.html">the overselling problem no one
+      automates</a>, where the whole point is keeping the true count of a scarce thing honest in real time.
+    </p>
+
+    <hr />
+
+    <h2>The workflow worth building this week</h2>
+
+    <p>
+      If you run drops, flash sales, collabs, or any product where you have promised a limit per customer
+      and later found one buyer took a stack of it, this is the automation to set up now, because a limit
+      that fails does its damage on exactly the products you cared most about protecting. It pairs
+      naturally with the launch and scarcity work we have written about, like
+      <a href="how-to-schedule-product-publishing-on-shopify.html">the product drop that will not go live on
+      time</a>, since a limit and a launch have to fire together, and
+      <a href="how-to-set-a-minimum-order-amount-on-shopify.html">the minimum order Shopify will not
+      enforce</a>, which is the same enforce-on-every-checkout-path problem pointed the other way, and it
+      feeds the same flywheel as
+      <a href="best-shopify-automations-to-set-up.html">the Shopify automations no one builds</a>, where the
+      work that compounds is the part merchants never get to.
+    </p>
+
+    <p>
+      Describe it the way you would brief a careful launch manager: watch every order, figure out who the
+      buyer really is across their orders, keep a running count against the two-per-customer cap for this
+      drop, refuse the order that goes over on whatever path they used, cancel and restock anything that
+      slipped through, tell the customer kindly what the limit is and when an order was trimmed, and bring
+      me anything where a shared address might be a real household, a wholesale account should be let
+      through, or the match is too close to call. That is the whole brief. The compiler does the reading,
+      the matching, the deciding, and the corrections, on every order, in real time. Your real customers get
+      a fair shot at the drop, and the reseller who was going to place ten orders gets one.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">◆ READING</span>
+      <span>
+        If this resonates, two companion pieces: our dispatch on
+        <a href="how-to-set-a-minimum-order-amount-on-shopify.html">the minimum order Shopify will not
+        enforce</a>, the same enforce-on-every-path problem seen from the other side, and
+        <a href="how-to-stop-card-testing-attacks-on-shopify.html">the card-testing attack that floods your
+        store</a>, where reading the pattern across orders beats judging any single one.
+      </span>
+    </div>
+
+    <p>
+      If you are a Shopify merchant who has built something that holds a real per-customer limit through a
+      hyped drop and still lets the genuine household order through, or you have a story about a launch a
+      handful of buyers cleared in minutes, the inbox is open:
+      <code>field-notes@dugong.live</code>. We are collecting case studies for the next issue.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share · copy link · ✦</span>
+  </div>
+
+</article>
+
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">◆ COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h2 class="faq-q">Can Shopify limit purchase quantity per customer?</h2>
+      <p class="faq-a">Not natively across orders on standard plans. Shopify has an add-to-cart limit that caps how many of a single variant can go into one cart, but it resets every order and never recognizes the same buyer coming back for more, so it is a per-cart limit, not a per-customer one. There is no native setting that says two per customer for this launch and enforces it across separate checkouts. A real per-customer limit takes a checkout validation on Shopify Plus with Functions, a third-party app, or a custom automation.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Why does Shopify's add-to-cart limit not stop bulk buying?</h2>
+      <p class="faq-a">Because it works on the cart, not the customer. The native limit caps a single variant per cart, but it counts each variant separately, so a shopper can take the maximum of every color and size in one order, and it resets the moment the cart checks out, so the same person can place order after order with a new cart each time. It also does not apply in Shopify POS, on draft orders, or for B2B profiles. A reseller or a bot simply checks out repeatedly, two units at a time, and clears the drop while your real customers hit a Sold Out page.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">How do you enforce a limit of one per customer on Shopify during a drop?</h2>
+      <p class="faq-a">You have to recognize the buyer across orders and enforce the limit at checkout, not only in the cart. That means matching a new order against past ones by email, shipping and billing address, payment fingerprint, and account, deciding whether this order pushes the buyer over the limit, and either blocking it server-side so a wallet button or a checkout link cannot slip past, or catching the excess after the fact and cancelling, refunding, and restocking it. The hard part is identity, because resellers use new emails, second accounts, and cleared cookies, so a cart-based or account-based rule alone will miss them.</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="section-head">
+    <span class="section-eyebrow">◆ READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+    <a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The discount code that double-dips your sale</h3>
+        <p class="card-dek">
+          A shopper stacks the welcome code on your 40 percent markdowns and Shopify allows it, because a markdown is not a discount to the engine. The AI playbook that keeps every code off your sale prices.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The gift message that never reaches the box</h3>
+        <p class="card-dek">
+          A shopper writes a note and pays for wrap, and the recipient opens a box with the full invoice inside and no message. The AI playbook that runs gifting end to end.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="how-to-set-up-tiered-volume-discounts-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The buy-more-save-more discount Shopify won't tier</h3>
+        <p class="card-dek">
+          You want buy 3 save 10, buy 6 save 20, buy 12 save 30, and Shopify lets you build only one tier per discount. The AI playbook that runs real quantity breaks across your whole catalog.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 16</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The ad budget you burn on sold-out products</h3>
+        <p class="card-dek">
+          A product sells out and your Google and Meta ads keep spending on it, because Shopify syncs a feed on a schedule and never pauses the ad itself. The AI playbook that pauses the exact ad for a sold-out product and turns it back on when stock returns.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 12</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-sync-bundle-inventory-with-component-stock-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The bundle sale that never touches your component stock</h3>
+        <p class="card-dek">
+          You sell a bundle and the products inside it never move, because Shopify counts the bundle as its own SKU. The AI playbook that keeps bundle and component stock in sync in real time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 15</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-set-a-minimum-order-amount-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The minimum order Shopify won't enforce</h3>
+        <p class="card-dek">
+          A customer checks out for a few dollars and Shopify waves it through, even though the order costs more to fulfil than it earns. The AI playbook that sets a real floor on every checkout path.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-stop-card-testing-attacks-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The card-testing attack that floods your store overnight</h3>
+        <p class="card-dek">
+          You wake up to two hundred tiny orders you never made, most declined, a few approved on stolen cards. The AI playbook that reads the burst, cancels the junk, and shuts the source down.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 1</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-schedule-product-publishing-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The product drop that won't go live on time</h3>
+        <p class="card-dek">
+          Shopify's future publishing goes live on the online store only, no-ops if the product is still a draft, and cannot bulk-schedule. The AI playbook that launches on time across every channel.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The overselling problem no one automates</h3>
+        <p class="card-dek">
+          Selling stock you no longer have is the pain merchants dread most. The AI playbook that keeps inventory honest in real time across every channel.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-segment-repeat-customers-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The repeat customer your store treats like a stranger</h3>
+        <p class="card-dek">
+          A loyal repeat buyer, a one-time discount hunter, and a customer about to leave all look identical without a manual tag. The AI playbook that segments customers by behavior.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The unpaid order that never cancels itself</h3>
+        <p class="card-dek">
+          A customer picks bank transfer or cash on delivery, then goes quiet, and the dead order sits in your admin holding stock. The AI playbook that chases payment, then cancels and restocks on time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The free gift that never lands in the cart</h3>
+        <p class="card-dek">
+          You promise a free gift over a threshold and the gift never appears, because a Shopify discount reduces a price but never adds the item. The AI playbook that adds the right gift on every checkout path.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 8</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order you split across vendors by hand</h3>
+        <p class="card-dek">
+          One order, three suppliers, and Shopify has no way to route each line to the right vendor or send them a PO. The AI playbook that splits the order by supplier and fulfills the right lines.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 7</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-send-invoices-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The invoice you send by hand</h3>
+        <p class="card-dek">
+          Shopify emails a receipt, not an invoice, and has no field for a customer's tax number, so business buyers ask and you build it by hand. The AI playbook that sends the right invoice after every order.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The second order that arrives before the first ships</h3>
+        <p class="card-dek">
+          A customer orders again before the first order ships and pays delivery twice, and Shopify has no merge button. The AI playbook that catches the pair and ships one box.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 2</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-hide-sold-out-variants-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The sold-out variant Shopify still shows</h3>
+        <p class="card-dek">
+          A shopper picks their size, hits Sold Out, and leaves, because Shopify keeps the variant in the dropdown with no native way to hide it. The AI playbook that hides it and brings it back on restock.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 3</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-set-inventory-reorder-points-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The reorder you always make too late</h3>
+        <p class="card-dek">
+          Shopify tracks every unit but never buys more, and its purchase orders are too basic to know what to reorder or when. The AI playbook that forecasts demand per SKU and drafts the PO on time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 15</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The pre-order that holds your whole order hostage</h3>
+        <p class="card-dek">
+          A customer buys one in-stock item and one pre-order item in the same cart, and Shopify holds the whole order until the late one is ready. The AI playbook that ships what is ready now.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 30</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-set-up-back-in-stock-notifications-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The restock alert that never fires</h3>
+        <p class="card-dek">
+          A customer clicks notify me, the item comes back, and Shopify does nothing with the request. The AI playbook that turns a waitlist into recovered revenue.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 13</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The sold-out products that sink your collection</h3>
+        <p class="card-dek">
+          Shopify leaves sold-out products at the top of your collection page, dragging down the conversion of everything in stock behind them. The AI playbook that re-merchandises as stock moves.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 13</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-tag-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order tag you set by hand</h3>
+        <p class="card-dek">
+          Shopify Flow tags an order on one condition and can't read the note, so the tags that route everything downstream get set by hand. The AI playbook that reads the whole order and tags it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The tracking number you paste in by hand</h3>
+        <p class="card-dek">
+          Most orders don't fulfill themselves on Shopify, bulk fulfill still leaves the tracking to you, and Flow has no action that adds one. The AI playbook that reads what suppliers send and fulfills with the right number.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 27</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-edit-a-shopify-order-after-its-been-placed.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order change that races your warehouse</h3>
+        <p class="card-dek">
+          The "can you change my order?" email lands at a bad time and locks the second you fulfil. The AI playbook that resolves it before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 8</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-win-chargeback-disputes-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The chargeback you lose by default</h3>
+        <p class="card-dek">
+          Shopify files a thin dispute response on the deadline and you lose, even with the proof. The AI playbook that builds the evidence and fights it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 11</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-handle-high-risk-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The high-risk flag that makes you guess</h3>
+        <p class="card-dek">
+          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The &ldquo;where is my order?&rdquo; tickets that eat your afternoon</h3>
+        <p class="card-dek">
+          WISMO is ~18% of support tickets, over half during a sale. The AI playbook that reads the order and answers before customers ask.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 4</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-reconcile-shopify-payouts-with-your-sales.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The payout that never matches your sales</h3>
+        <p class="card-dek">
+          Shopify nets every payout down by fees, refunds, and reserves, then pays it in a batch days later, so the deposit never matches your sales. The AI playbook that ties each payout back to its orders.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 29</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-bulk-edit-product-prices-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The price change you make one product at a time</h3>
+        <p class="card-dek">
+          Shopify's bulk editor caps at fifty products, has no math, and Flow cannot reprice at all, so you retype every price by hand. The AI playbook that reprices the catalog by rule.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 28</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-schedule-a-sale-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The sale you have to start by hand</h3>
+        <p class="card-dek">
+          Shopify won't schedule a sale to start, won't revert it, and won't run it by rule, so you flip prices by hand at midnight. The AI playbook that runs the whole promotion.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 16</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The abandoned cart that gets one email</h3>
+        <p class="card-dek">
+          Seven in ten carts get filled and left, and Shopify sends one generic reminder, then goes quiet. The AI playbook that sequences, personalizes, and recovers the demand you already paid for.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automate-returns-and-exchanges-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The return that won't approve itself</h3>
+        <p class="card-dek">
+          Every return waits on you to click approve, and Shopify can't run a real exchange, so refunds leak revenue you already earned. The AI playbook that fixes it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 9</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-validate-shipping-addresses-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The bad address that ships anyway</h3>
+        <p class="card-dek">
+          Shopify warns the address looks wrong, you ship anyway, and the package bounces back. The AI playbook that fixes it before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-fix-404-errors-from-deleted-products-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The deleted product that 404s your customers</h3>
+        <p class="card-dek">
+          Delete a product on Shopify and its old URL just 404s, with no redirect. The AI playbook that catches every dead link and sends it to the right live page.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 25</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-bulk-edit-meta-descriptions-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The meta description you write one at a time</h3>
+        <p class="card-dek">
+          The on-page SEO field Shopify stores but won't write. Bulk edit and they all come out identical, the one thing you must not do. The AI playbook that writes a distinct line for every page.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-generate-shopify-product-descriptions-with-ai.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The product descriptions you'll never finish writing</h3>
+        <p class="card-dek">
+          Shopify Magic writes one product at a time from keywords you type, so the catalog never gets done. The AI playbook that writes it whole, in one voice.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-request-product-reviews-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The review request you never send</h3>
+        <p class="card-dek">
+          Shopify retired its own reviews app and never replaced it, so the ask either never goes out or blasts everyone at the wrong time. The AI playbook that requests reviews after delivery.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 22</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The image alt text no one writes</h3>
+        <p class="card-dek">
+          Shopify stores an alt text on every image but never writes one and has no bulk way to add it, so it sits blank across the catalog. The AI playbook that reads each photo and writes it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="best-shopify-automations-to-set-up.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The Shopify automations no one builds</h3>
+        <p class="card-dek">
+          Tagging is 14% of every Shopify workflow merchants ship. The work that actually scales is under 1%.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 28</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cta-band-copy">
+      <span class="cta-eyebrow">&#9670; Ready when you are</span>
+      <h2 class="cta-title">Stop configuring. <em>Start describing.</em></h2>
+      <p class="cta-sub">Write your workflow in plain English and an AI agent runs it &mdash; calling your apps directly. Your first automation takes under five minutes.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="https://dugong.live" class="btn btn-primary btn-lg">Try Dugong now &rarr;</a>
+      <span class="cta-fine">free &middot; no credit card required</span>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html">Latest</a>
+        <a href="index.html">Essays</a>
+        <a href="index.html">Post-mortems</a>
+        <a href="index.html">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>© 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>

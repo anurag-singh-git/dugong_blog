@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to bulk edit product prices on Shopify — Dugong Field Notes</title>
+<meta name="description" content="Shopify's bulk editor caps at 50 products, has no percentage math, and Flow cannot reprice, so you retype prices by hand. The AI playbook that reprices by rule." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="Shopify bulk price change, bulk edit prices Shopify, increase all prices by percentage Shopify, Shopify bulk editor 50 products, change prices in bulk Shopify, repricing Shopify, percentage price increase Shopify, Shopify CSV price update, bulk price editor app, compare at price Shopify, price update automation Shopify, AI pricing automation, Dugong" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
+<meta property="article:published_time" content="2026-06-28" />
+    <meta property="article:modified_time" content="2026-06-28" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to bulk edit product prices on Shopify" />
+<meta property="og:description" content="A supplier cost went up, or a tariff landed, and now every price in the catalog needs to move. Shopify's bulk editor shows 50 products at a time and has no math, so you compute and type each new price by hand. The CSV route turns you into a spreadsheet clerk, the Markets percentage adjustment is all-or-nothing per market, and Flow has no action that edits a price at all. The AI playbook that reprices by rule, applies your rounding, keeps compare-at honest, and holds the outliers for a human." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to bulk edit product prices on Shopify" />
+<meta name="twitter:description" content="Shopify's bulk editor caps at 50 products, has no percentage math, and Flow cannot reprice, so you retype prices by hand. The AI playbook that reprices by rule." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+    <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#article",
+      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html",
+      "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html",
+      "headline": "How to bulk edit product prices on Shopify",
+      "description": "A supplier cost went up, a tariff landed, or you decided to protect your margin, and now every price in the catalog needs to move. Shopify's bulk editor shows 50 products at a time and has no math, so you calculate and type each new price by hand. The CSV export and import route works but turns you into a spreadsheet clerk and risks overwriting fields, the Markets percentage adjustment is all-or-nothing for a whole market rather than a selective reprice of your base catalog, and Shopify Flow has no action that edits a price at all. The AI playbook that reprices by rule, applies your rounding, keeps compare-at honest across variants, and holds the outliers for a human.",
+      "datePublished": "2026-06-28",
+      "dateModified": "2026-06-28",
+      "articleSection": "Research",
+      "keywords": "Shopify bulk price change, bulk edit prices Shopify, increase all prices by percentage Shopify, Shopify bulk editor 50 products, change prices in bulk Shopify, repricing Shopify, percentage price increase Shopify, Shopify CSV price update, bulk price editor app, compare at price Shopify",
+      "wordCount": 2446,
+      "timeRequired": "PT9M",
+      "inLanguage": "en",
+      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+      "about": [
+        { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
+        { "@type": "Thing", "name": "Pricing", "sameAs": "https://en.wikipedia.org/wiki/Pricing" },
+        { "@type": "Thing", "name": "Price", "sameAs": "https://en.wikipedia.org/wiki/Price" },
+        { "@type": "Thing", "name": "Bulk operation", "sameAs": "https://en.wikipedia.org/wiki/Bulk_operation" }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".article-title", ".faq"]
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Priya Singh",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
+        { "@type": "ListItem", "position": 2, "name": "The price change you make one product at a time", "item": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can Shopify increase all prices by a percentage automatically?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not in your base catalog. Shopify's bulk editor lets you edit the price field for many products at once, but it has no formula, so you cannot tell it to add ten percent or round every price to end in .99 and have it compute each new value. You type each number. There is a percentage price adjustment under Markets, but it applies one fixed percentage to an entire market's catalog rather than letting you reprice a selection of products by a rule, and it does not change your home market prices. For anything selective or rule based you are left exporting a CSV and building the math in a spreadsheet, or installing a third-party bulk price app."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is Shopify's bulk price editor limited and slow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The bulk editor shows products a page at a time, commonly fifty, so a catalog of several hundred products means working through it in batches. It edits values you type rather than applying a rule, it has no rounding logic, and it does not let you set variant prices in the same view as the parent product, so a store with size or color variations has to edit each variant separately. None of that is automation. It is a faster way to hand-type a lot of prices, which is why merchants with real catalogs reach for CSV exports or apps almost immediately."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Shopify Flow change product prices in bulk?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Shopify Flow can react to events, tag records, and send notifications, but it has no action that edits a product or variant price, so it cannot raise prices by a percentage, apply a rounding rule, or reprice a vendor or collection. You can use Flow to be told that a cost changed. You cannot use it to act on that change. The repricing itself still happens by hand in the bulk editor, in a spreadsheet, or in a separate paid app."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#howto",
+      "name": "The price change you make one product at a time",
+      "description": "The AI playbook that reprices a Shopify catalog by rule when a cost or policy changes, applies your rounding, keeps compare-at honest across variants, and holds the outliers for a human.",
+      "inLanguage": "en",
+      "totalTime": "PT9M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Trigger on the reason, not the clock",
+          "text": "Start the reprice when a supplier cost changes, a tariff or tax lands, a margin floor is breached, or a planned price update is due, instead of waiting for someone to notice",
+          "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Select the exact scope",
+          "text": "Pick the products and variants the change applies to by vendor, collection, tag, cost band, or margin, rather than the whole store or a page of fifty at a time",
+          "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Compute each new price by rule",
+          "text": "Apply the percentage, fixed amount, or target margin to each item's current price or cost, computing a distinct new value per product and per variant",
+          "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Apply your rounding and compare-at logic",
+          "text": "Round to the price endings you use, like .99 or whole numbers, and set or clear the compare-at price so a raise does not read as a fake discount",
+          "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Hold the outliers for a human",
+          "text": "Stop on anything the rule would push below a margin floor, above a sane ceiling, or into a strange value, and surface it for review instead of writing it",
+          "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Write the prices across every variant",
+          "text": "Update the price on each product and every variant in scope in one pass, without the fifty-per-page batching or the separate variant editing",
+          "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Log the before and after for rollback",
+          "text": "Record the old price, the new price, and the rule that set it for every item, so the change is auditable and reversible if a number was wrong",
+          "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#playbook"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES — matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #8b8b80;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0a8f54;
+  --pink:         #c61f93;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #b5882c;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background — lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--gutter); height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+@media (max-width: 820px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+/* GRID (for related cards) */
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+.article-title em { font-style: normal; position: relative; white-space: nowrap; color: var(--text); }
+.article-title em::after { content: ""; position: absolute; left: -.06em; right: -.06em; bottom: .06em; height: .32em; background: var(--lime); z-index: -1; border-radius: 3px; transform: rotate(-.5deg); }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: var(--border-strong); }
+.byline-role { color: var(--text-faint); }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+.article-body pre code { background: none; padding: 0; color: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) — mirrors the site's final card ---- */
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>◆ DISPATCH Nº 70 — JUN 28, 2026</span>
+    <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
+    <span>◆ 9 MIN READ · 2,446 WORDS</span>
+    <span>◆ BY PRIYA SINGH</span>
+    <span>◆ DISPATCH Nº 70 — JUN 28, 2026</span>
+    <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
+    <span>◆ 9 MIN READ · 2,446 WORDS</span>
+    <span>◆ BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+  </nav>
+</header>
+
+<article class="article">
+
+  <a href="index.html" class="article-back">← back to field notes</a>
+
+  <div class="article-meta">
+    <span class="tag tag-research">research</span>
+    <span style="color: var(--cream-dim);">DISPATCH Nº 70</span>
+    <span style="color: var(--line-2);">·</span>
+    <span style="color: var(--cream-dim);">JUN 28, 2026</span>
+    <span style="color: var(--line-2);">·</span>
+    <span style="color: var(--cream-dim);">9 MIN READ</span>
+  </div>
+
+  <h1 class="article-title">
+    How to <em>bulk edit product prices</em> on Shopify
+  </h1>
+
+  <p class="article-dek">
+    A supplier raised a cost. A tariff landed. You decided to defend your
+    margin. Whatever the reason, every price in the catalog now needs to move,
+    and Shopify hands you a bulk editor that shows fifty products at a time, has
+    no math, and makes you compute and type each new number yourself. The CSV
+    route turns you into a spreadsheet clerk, the Markets percentage tool is all
+    or nothing for a whole market, and Flow cannot touch a price at all. Here is
+    why repricing by hand is a tax that scales with your catalog, and the
+    playbook that reprices it by rule.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name">Priya Singh</span>
+    <span class="byline-divider">·</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      Picture the part of the week no one budgets for. A supplier sends a notice
+      that costs are going up next month. A new tariff lands on a whole category.
+      The accountant points out that a chunk of the catalog is selling below the
+      margin you need. And then a person, often the owner, sits down with the
+      Shopify admin open and starts changing prices one product at a time: filter
+      to a group, open the bulk editor, read the current price, do the math in
+      their head or a calculator, type the new number, tab to the next row, and
+      do it again. Fifty rows later the page ends and they load the next fifty.
+      It is not hard. That is exactly why it is so corrosive. It is easy,
+      repetitive, and error-prone, and it scales with the size of your catalog.
+    </p>
+
+    <p>
+      This is one of the most common operational complaints in the merchant
+      forums, and it almost always sounds the same. Someone needs to raise every
+      price by a set percentage, or add a fixed amount, or push a vendor's
+      products up to protect margin, and they want to know how to do it in bulk
+      without retyping hundreds of numbers. The replies point at a bulk editor
+      that has no formula, a CSV export you edit in a spreadsheet and import back,
+      or a paid app built only to do this one thing. The merchant is not asking
+      for anything exotic. They want the obvious thing a store with more than a
+      handful of products needs: change these prices, by this rule, all at once,
+      and round them the way I always round. The platform that runs the whole
+      store leaves that to a human with a calculator.
+    </p>
+
+    <blockquote>
+      Shopify will store a price on every variant all day long. It just
+      <em>will not do the math</em> to change them all at once.
+    </blockquote>
+
+    <h2>Why repricing by hand is a tax that scales with your catalog</h2>
+
+    <p>
+      Changing one price takes maybe twenty seconds. The damage is not in any
+      single one, it is in the multiplication and in what those seconds crowd
+      out. At three hundred products, often with several variants each, a single
+      across-the-board change is hours of pure arithmetic and typing, done in
+      batches of fifty, and it is the kind of work that gets put off until it is
+      urgent and then done in a hurry. Hurry is where the real cost lives. A
+      percentage gets miscalculated on one line. A digit gets transposed, so a
+      forty dollar product goes out at four dollars. A variant gets missed, so
+      the small is repriced and the large is not. The compare-at price gets left
+      where it was, so a price you just raised now shows as if it were a
+      discount.
+    </p>
+
+    <p>
+      Every one of those small slips lands downstream as something bigger. A
+      price typed too low is real margin given away on every unit until someone
+      notices, and on a popular SKU that can be a lot of orders. A price typed
+      too high quietly kills conversion on a product that was selling fine. A
+      half-finished reprice, where some variants moved and some did not, means
+      customers see the same item at two logics depending on the option they
+      pick. And because the storefront shows whatever is in the field the moment
+      you save it, a mistake in the price box is a mistake shown to every shopper
+      with your name on it. The manual step is not just slow. It is the most
+      financially direct error you can make in the admin, because it is the
+      number people pay you.
+    </p>
+
+    <h2>What Shopify actually does, and where it stops</h2>
+
+    <p>
+      Shopify is glad to store and display prices. Every variant has a price, a
+      compare-at price, and a cost field, and the storefront renders them
+      instantly. What it does not do is change a lot of them by a rule. The gap
+      shows up in three places merchants hit quickly.
+    </p>
+
+    <p>
+      First, <strong>the bulk editor has no math</strong>. From the Products
+      page you can select items and open a bulk editor that puts the price field
+      in a grid, which feels like progress until you realize it only lets you
+      type values. There is no "increase by ten percent," no "add two dollars,"
+      no "round everything to end in .99." You still compute each new price
+      yourself and type it in. It shows a page of products at a time, commonly
+      fifty, so a real catalog means working through it batch after batch. And it
+      does not expose variant prices in the same view as the parent, so a store
+      with sizes or colors edits each variant on its own.
+    </p>
+
+    <p>
+      Second, <strong>the CSV and the Markets tool each solve only half</strong>.
+      You can export products to CSV, open the file in a spreadsheet, write a
+      formula to compute new prices, and import it back. That does the math, but
+      it turns repricing into a careful spreadsheet and re-import job where a
+      wrong column or a stale export can overwrite fields you did not mean to
+      touch. Shopify does have a percentage price adjustment, but it lives under
+      Markets and applies one percentage to an entire market's catalog, a tool
+      for setting international prices, not for selectively repricing your home
+      catalog by vendor, collection, or margin. Neither one is "reprice this
+      group by this rule and round it."
+    </p>
+
+    <p>
+      Third, <strong>Flow cannot change a price</strong>. Shopify Flow, free on
+      every plan, can react when a product is updated, can tag it, and can notify
+      you. But Flow has no action that sets a product or variant price, so it
+      cannot raise prices by a percentage, apply a rounding rule, or reprice
+      anything at all. You can automate a message that a cost changed. You cannot
+      automate the response. The one step that actually moves the number is the
+      step Flow does not have, which is why merchants who need to reprice end up
+      in the bulk editor, in a spreadsheet, or buying a separate app.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">◆ DATA</span>
+      <span>
+        The tell that this is a real gap is the size of the cottage industry
+        built to fill it. There is a whole shelf of bulk price editor apps whose
+        entire job is to apply a percentage or fixed change to a selection of
+        products and variants, round to the endings you use, schedule the change,
+        and roll it back later. They exist, and merchants pay monthly for them,
+        precisely because the native bulk editor stops at a grid of values you
+        type by hand. When an app category exists only to add math to one field,
+        the platform has told you where its automation stops.
+      </span>
+    </div>
+
+    <h2>Why the usual fixes don't hold</h2>
+
+    <p>
+      Once repricing starts to hurt, merchants reach for one of a few
+      workarounds. Each one helps and each one breaks in a predictable spot.
+    </p>
+
+    <p>
+      <strong>"I will just use the bulk editor."</strong> Fine for changing a
+      handful of prices you already know. The moment the change is a rule rather
+      than a list, the editor stops helping, because it cannot compute anything.
+      You are back to a calculator and a grid, fifty rows at a time, and every
+      product with variants multiplies the typing. It is faster than opening each
+      product individually, and that is the whole of what it offers. It is a
+      better way to hand-type prices, not a way to avoid hand-typing them.
+    </p>
+
+    <p>
+      <strong>"I will export a CSV and do it in a spreadsheet."</strong> This is
+      the workaround that quietly turns a merchant into a data-entry clerk with
+      higher stakes. You export, write a formula, sort out the variants, handle
+      the rounding, and import. It works until something in the file is off: a
+      column you did not mean to include overwrites descriptions or inventory, a
+      product added since the export is missing, the handle or variant SKU does
+      not line up, and the import writes confidently over live data. The math is
+      easy in a spreadsheet. The danger is that the spreadsheet is now the source
+      of truth for your storefront, and one bad cell ships to every shopper.
+    </p>
+
+    <p>
+      <strong>"I will install a bulk price editor app."</strong> There are good
+      ones, and for a store that reprices the same way every time they are a fair
+      answer, which again proves the native gap is real. But most work from
+      fixed rules you set up in advance: pick a percentage, pick a scope, run it.
+      They do not read "raise everything from this vendor except the clearance
+      tags, hold anything that would fall under a thirty percent margin, and
+      round to .95," reason about each item, and stop on the ones that look
+      wrong. They apply the rule you encoded, including to the products where the
+      rule should not have applied. The judgement about which products the change
+      is really for is the part that was hard in the first place.
+    </p>
+
+    <h2>What the automation actually has to do</h2>
+
+    <p>
+      The real job is not "edit prices." It is "when a cost or a policy changes,
+      take the products and variants the change is really for, compute a new
+      price for each one by the rule, round it the way this store rounds, keep
+      compare-at honest so a raise does not read as a discount, and stop on
+      anything that would break a margin floor or land on a strange number." That
+      is selection, arithmetic, and judgement, run across the catalog. As a
+      Dugong playbook, in plain prose, it reads like this:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">On</span> a cost change, a tariff or tax, a margin
+   breach, or a planned reprice coming due
+
+<span class="c"># steps</span>
+1. <span class="k">Select</span> the products and variants in scope by vendor,
+   collection, tag, cost, or margin
+2. <span class="k">Compute</span> a new price per item from a percentage,
+   a fixed amount, or a target margin
+3. <span class="k">Round</span> to the price endings you use, like .99
+   or whole numbers
+4. <span class="k">Fix</span> compare-at so a raise does not show as a
+   fake discount
+5. <span class="k">Hold</span> anything below a margin floor, above a
+   ceiling, or on a strange value for review
+6. <span class="k">Write</span> the new price across every variant in one
+   pass, no fifty-per-page batching
+7. <span class="k">Log</span> the old price, the new price, and the rule,
+   so the change is reversible</code></pre>
+
+    <p>
+      Seven lines. The compiler fills in everything underneath: resolving which
+      products a loose description like "this vendor except clearance" really
+      means, reading each item's current price and cost, doing the percentage or
+      margin math per variant, applying the rounding you always use, deciding
+      whether compare-at should move or clear, and writing it all in one pass
+      while pulling the outliers aside. The merchant never sat with a calculator
+      and three hundred rows over a weekend. They described how a careful pricing
+      manager would handle the change, and let the compiler do the volume and
+      catch the exceptions.
+    </p>
+
+    <div class="callout callout-sand">
+      <span class="callout-mark">◆ NOTE</span>
+      <span>
+        The reprice that does damage is the confident wrong one. A percentage
+        applied to <strong>the wrong products</strong> raises prices on items
+        that were meant to stay on promotion, or cuts them on items you needed to
+        protect. A dropped digit prices a product at a tenth of its value to
+        every shopper at once. A rule with no floor pushes a thin-margin item
+        below cost. The job is not "apply the math to everything," it is "move
+        these specific prices by this rule, keep every one of them sane, and when
+        a number looks wrong, stop and ask rather than write it." Automation that
+        cannot tell a reasonable price from a broken one should not be writing to
+        the storefront.
+      </span>
+    </div>
+
+    <h2>Why this is a compiler problem, not an app problem</h2>
+
+    <p>
+      There are capable bulk price editors, and for a store that reprices the
+      same way every time they are a reasonable answer. But the thing that makes
+      repricing safe to automate is not pushing a number into a field, it is the
+      selection and the judgement around it: working out which products a
+      plain-language scope actually covers, computing from cost or from current
+      price depending on what the change is, knowing when compare-at should move
+      with the price and when it should clear, and noticing when the rule would
+      produce a price no sane store would charge. Those are decisions about a
+      particular catalog on a particular day, and the right answer changes with
+      every change, which means a fixed app rule was never going to hold.
+    </p>
+
+    <p>
+      A natural-language compiler fits because repricing was never really a
+      data-entry problem. It is a <em>selection and arithmetic</em> problem
+      wearing a price box's clothes. Typing one new price is the easy part, which
+      is why the shortcuts do it. The hard part is everything around it: decide
+      which products the change is for, compute each new number, round it your
+      way, keep compare-at honest, and pull a human in on anything that looks
+      off. You can write that brief in a paragraph. You could never hold it
+      across three hundred products and their variants by hand. It sits in the
+      same family as
+      <a href="how-to-schedule-a-sale-on-shopify.html">the sale you have to start by
+      hand</a>, which is the temporary version of the same gap, where Shopify
+      will not schedule or revert a promotion by rule, and
+      <a href="how-to-bulk-edit-meta-descriptions-on-shopify.html">the meta
+      description you write one at a time</a>, where bulk editing a field is
+      possible but doing it well, one good value per product, is not something the
+      grid can do.
+    </p>
+
+    <hr />
+
+    <h2>The workflow worth building this week</h2>
+
+    <p>
+      If you carry more than a handful of products and a cost increase, a tariff,
+      or a margin call means retyping prices in batches of fifty, this is the
+      automation to set up before the next change lands, because every price you
+      key in by hand is twenty seconds you will never get back and one
+      transposed digit away from selling at a tenth of the price to everyone at
+      once. It pairs naturally with the merchandising and catalog work we have
+      written about, like
+      <a href="how-to-schedule-a-sale-on-shopify.html">the sale you have to start by
+      hand</a>, the temporary cousin of this same problem, and it feeds the same
+      flywheel as
+      <a href="best-shopify-automations-to-set-up.html">the Shopify
+      automations no one builds</a>, where the work that compounds is the part
+      merchants never get to.
+    </p>
+
+    <p>
+      Describe it the way you would brief a careful pricing manager: when a cost
+      goes up, take these products, move each price by this rule, round them the
+      way we always round, do not let anything fall below our margin, keep the
+      compare-at honest, and bring me anything that looks wrong before you save
+      it. That is the whole brief. The compiler does the selection, the math, the
+      rounding, and the writing. You keep your weekend, and you stop being the
+      slowest, most expensive step between a cost change and a correct price.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">◆ READING</span>
+      <span>
+        If this resonates, two companion pieces: our dispatch on
+        <a href="how-to-schedule-a-sale-on-shopify.html">the sale you have to start by
+        hand</a>, the temporary version of repricing where Shopify will not
+        schedule or revert a promotion, and the field study on
+        <a href="best-shopify-automations-to-set-up.html">the Shopify
+        automations no one builds</a>, where the work that actually compounds is
+        a sliver of what merchants wire up.
+      </span>
+    </div>
+
+    <p>
+      If you are a Shopify merchant who has wired up repricing that runs by rule
+      instead of by calculator, or you have a story about the morning you raised
+      three hundred prices by hand before the supplier increase hit, the inbox is
+      open: <code>field-notes@dugong.live</code>. We are collecting case studies
+      for the next issue.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share · copy link · ✦</span>
+  </div>
+
+</article>
+
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">◆ COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h2 class="faq-q">Can Shopify increase all prices by a percentage automatically?</h2>
+      <p class="faq-a">Not in your base catalog. Shopify's bulk editor lets you edit the price field for many products at once, but it has no formula, so you cannot tell it to add ten percent or round every price to end in .99 and have it compute each new value. You type each number. There is a percentage price adjustment under Markets, but it applies one fixed percentage to an entire market's catalog rather than letting you reprice a selection of products by a rule, and it does not change your home market prices. For anything selective or rule based you are left exporting a CSV and building the math in a spreadsheet, or installing a third-party bulk price app.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Why is Shopify's bulk price editor limited and slow?</h2>
+      <p class="faq-a">The bulk editor shows products a page at a time, commonly fifty, so a catalog of several hundred products means working through it in batches. It edits values you type rather than applying a rule, it has no rounding logic, and it does not let you set variant prices in the same view as the parent product, so a store with size or color variations has to edit each variant separately. None of that is automation. It is a faster way to hand-type a lot of prices, which is why merchants with real catalogs reach for CSV exports or apps almost immediately.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Can Shopify Flow change product prices in bulk?</h2>
+      <p class="faq-a">No. Shopify Flow can react to events, tag records, and send notifications, but it has no action that edits a product or variant price, so it cannot raise prices by a percentage, apply a rounding rule, or reprice a vendor or collection. You can use Flow to be told that a cost changed. You cannot use it to act on that change. The repricing itself still happens by hand in the bulk editor, in a spreadsheet, or in a separate paid app.</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="section-head">
+    <span class="section-eyebrow">◆ READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+    <a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The discount code that double-dips your sale</h3>
+        <p class="card-dek">
+          A shopper stacks the welcome code on your 40 percent markdowns and Shopify allows it, because a markdown is not a discount to the engine. The AI playbook that keeps every code off your sale prices.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The gift message that never reaches the box</h3>
+        <p class="card-dek">
+          A shopper writes a note and pays for wrap, and the recipient opens a box with the full invoice inside and no message. The AI playbook that runs gifting end to end.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="how-to-set-up-tiered-volume-discounts-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The buy-more-save-more discount Shopify won't tier</h3>
+        <p class="card-dek">
+          You want buy 3 save 10, buy 6 save 20, buy 12 save 30, and Shopify lets you build only one tier per discount. The AI playbook that runs real quantity breaks across your whole catalog.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 16</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The ad budget you burn on sold-out products</h3>
+        <p class="card-dek">
+          A product sells out and your Google and Meta ads keep spending on it, because Shopify syncs a feed on a schedule and never pauses the ad itself. The AI playbook that pauses the exact ad for a sold-out product and turns it back on when stock returns.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 12</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-sync-bundle-inventory-with-component-stock-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The bundle sale that never touches your component stock</h3>
+        <p class="card-dek">
+          You sell a bundle and the products inside it never move, because Shopify counts the bundle as its own SKU. The AI playbook that keeps bundle and component stock in sync in real time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 15</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-send-invoices-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The invoice you send by hand</h3>
+        <p class="card-dek">
+          Shopify emails a receipt, not an invoice, and has no field for a customer's tax number, so business buyers ask and you build it by hand. The AI playbook that sends the right invoice after every order.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order you split across vendors by hand</h3>
+        <p class="card-dek">
+          One order, three suppliers, and Shopify has no way to route each line to the right vendor or send them a PO. The AI playbook that splits the order by supplier and fulfills the right lines.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 7</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-limit-purchase-quantity-per-customer-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The buyer who clears your whole drop</h3>
+        <p class="card-dek">
+          You cap a product at two per person and one buyer still takes forty, because Shopify's add-to-cart limit is per cart, not per customer, so it resets every order. The AI playbook that enforces a real per-customer limit on every checkout path.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 11</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-set-a-minimum-order-amount-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The minimum order Shopify won't enforce</h3>
+        <p class="card-dek">
+          A customer checks out for a few dollars and Shopify waves it through, even though the order costs more to fulfil than it earns. The AI playbook that sets a real floor on every checkout path.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-schedule-product-publishing-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The product drop that won't go live on time</h3>
+        <p class="card-dek">
+          Shopify's future publishing goes to the online store only, ignores your other channels, no-ops on a draft, and will not schedule an unpublish. The AI playbook that launches a drop on time everywhere and pulls it when it ends.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The free gift that never lands in the cart</h3>
+        <p class="card-dek">
+          You promise a free gift over a threshold, the customer crosses it, and the gift never shows, because a Shopify discount reduces a price but never adds the item, and a cart-page script skips every wallet-button path. The AI playbook that adds the right gift on every checkout path and pulls it when the cart drops.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 8</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-hide-sold-out-variants-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The sold-out variant Shopify still shows</h3>
+        <p class="card-dek">
+          A shopper picks their size, hits Sold Out, and leaves, because Shopify keeps the out-of-stock variant in the dropdown with no native way to hide it. The AI playbook that hides it and brings it back on restock.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 3</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The second order that arrives before the first ships</h3>
+        <p class="card-dek">
+          A customer orders again before the first order ships and pays delivery twice, and Shopify has no merge button, only a manual draft-order routine. The AI playbook that catches the pair and ships one box.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 2</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-stop-card-testing-attacks-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The card-testing attack that floods your store overnight</h3>
+        <p class="card-dek">
+          A bot runs stolen cards through your checkout in a flood of tiny orders overnight, and Shopify bills you a fee for every attempt. The AI playbook that reads the burst, cancels the junk, and shuts the source down.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 1</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The pre-order that holds your whole order hostage</h3>
+        <p class="card-dek">
+          A customer buys one in-stock item and one pre-order item in the same cart, and Shopify holds the whole order until the late one is ready. The AI playbook that ships what is ready and runs the pre-order to the day stock lands.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 30</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-reconcile-shopify-payouts-with-your-sales.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The payout that never matches your sales</h3>
+        <p class="card-dek">
+          Shopify nets every payout down by fees, refunds, chargebacks, and a held reserve, then pays it in a batch, so the deposit never matches your sales and the connector double counts it. The AI playbook that ties each payout back to its orders.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 29</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-schedule-a-sale-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The sale you have to start by hand</h3>
+        <p class="card-dek">
+          Shopify won't schedule a sale to start, won't revert it, and won't run it by rule, so you flip prices by hand at midnight. The AI playbook that runs the whole promotion.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 16</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The tracking number you paste in by hand</h3>
+        <p class="card-dek">
+          Most orders don't fulfill themselves on Shopify, bulk fulfill still leaves the tracking to you, and Flow has no action that adds one. The AI playbook that reads what suppliers send and fulfills with the right number and carrier.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 27</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-tag-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order tag you set by hand</h3>
+        <p class="card-dek">
+          Shopify Flow tags an order on one condition and can't read the note, so the tags that route everything downstream get set by hand. The AI playbook that reads the whole order and tags it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-edit-a-shopify-order-after-its-been-placed.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order change that races your warehouse</h3>
+        <p class="card-dek">
+          The "can you change my order?" email lands at a bad time and locks the second you fulfil. The AI playbook that resolves it before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 8</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The &ldquo;where is my order?&rdquo; tickets that eat your afternoon</h3>
+        <p class="card-dek">
+          WISMO is ~18% of support tickets, over half during a sale. The AI playbook that reads the order and answers before customers ask.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 4</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-validate-shipping-addresses-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The bad address that ships anyway</h3>
+        <p class="card-dek">
+          Shopify warns the address looks wrong, you ship anyway, and the package bounces back. The AI playbook that fixes it before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The unpaid order that never cancels itself</h3>
+        <p class="card-dek">
+          A customer picks bank transfer or cash on delivery, then goes quiet, and the dead order sits in your admin holding stock. The AI playbook that chases payment, then cancels and restocks on time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The overselling problem no one automates</h3>
+        <p class="card-dek">
+          Selling stock you no longer have is the pain merchants dread most. The AI playbook that keeps inventory honest in real time across every channel.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automate-returns-and-exchanges-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The return that won't approve itself</h3>
+        <p class="card-dek">
+          Every return waits on you to click approve, and Shopify can't run a real exchange, so refunds leak revenue you already earned. The AI playbook that fixes it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 9</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-set-up-back-in-stock-notifications-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The restock alert that never fires</h3>
+        <p class="card-dek">
+          A customer clicks notify me, the item comes back, and Shopify does nothing with the request. The AI playbook that turns a waitlist into recovered revenue.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 13</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-set-inventory-reorder-points-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The reorder you always make too late</h3>
+        <p class="card-dek">
+          Shopify tracks every unit but never buys more, and its purchase orders are too basic to know what to reorder or when. The AI playbook that forecasts demand per SKU and drafts the PO on time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 15</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-fix-404-errors-from-deleted-products-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The deleted product that 404s your customers</h3>
+        <p class="card-dek">
+          Delete a product on Shopify and its old URL just 404s, with no redirect. The AI playbook that catches every dead link and sends it to the right live page.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 25</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The abandoned cart that gets one email</h3>
+        <p class="card-dek">
+          Seven in ten carts get filled and left, and Shopify sends one generic reminder, then goes quiet. The AI playbook that sequences, personalizes, and recovers the demand you already paid for.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-handle-high-risk-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The high-risk flag that makes you guess</h3>
+        <p class="card-dek">
+          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-win-chargeback-disputes-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The chargeback you lose by default</h3>
+        <p class="card-dek">
+          Shopify files a thin dispute response on the deadline and you lose, even with the proof. The AI playbook that builds the evidence and fights it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 11</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-automatically-request-product-reviews-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The review request you never send</h3>
+        <p class="card-dek">
+          Shopify retired its own reviews app and never replaced it, so the ask either never goes out or blasts everyone at the wrong time. The AI playbook that requests reviews after delivery.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 22</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-segment-repeat-customers-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The repeat customer your store treats like a stranger</h3>
+        <p class="card-dek">
+          A loyal repeat buyer, a one-time discount hunter, and a customer about to leave all look identical without a manual tag. The AI playbook that segments customers by behavior.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-bulk-edit-meta-descriptions-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The meta description you write one at a time</h3>
+        <p class="card-dek">
+          The on-page SEO field Shopify stores but won't write. Bulk edit and they all come out identical, the one thing you must not do. The AI playbook that writes a distinct line for every page.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The image alt text no one writes</h3>
+        <p class="card-dek">
+          Shopify stores an alt text on every image but never writes one and has no bulk way to add it, so it sits blank across the catalog. The AI playbook that reads each photo and writes it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-generate-shopify-product-descriptions-with-ai.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The product descriptions you'll never finish writing</h3>
+        <p class="card-dek">
+          Shopify Magic writes one product at a time from keywords you type, so the catalog never gets done. The AI playbook that writes it whole, in one voice.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The sold-out products that sink your collection</h3>
+        <p class="card-dek">
+          Shopify leaves sold-out products at the top of your collection page, dragging down the conversion of everything in stock behind them. The AI playbook that re-merchandises as stock moves.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 13</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+    <a href="best-shopify-automations-to-set-up.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The Shopify automations no one builds</h3>
+        <p class="card-dek">
+          Tagging is 14% of every Shopify workflow merchants ship. The work that actually scales is under 1%.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 28</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cta-band-copy">
+      <span class="cta-eyebrow">&#9670; Ready when you are</span>
+      <h2 class="cta-title">Stop configuring. <em>Start describing.</em></h2>
+      <p class="cta-sub">Write your workflow in plain English and an AI agent runs it &mdash; calling your apps directly. Your first automation takes under five minutes.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="https://dugong.live" class="btn btn-primary btn-lg">Try Dugong now &rarr;</a>
+      <span class="cta-fine">free &middot; no credit card required</span>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html">Latest</a>
+        <a href="index.html">Essays</a>
+        <a href="index.html">Post-mortems</a>
+        <a href="index.html">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>© 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>

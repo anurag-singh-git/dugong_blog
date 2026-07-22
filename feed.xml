@@ -15,7 +15,17 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Sat, 18 Jul 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jul 2026 09:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>How to stop discount codes from applying to sale items on Shopify</title>
+      <link>https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Mon, 20 Jul 2026 09:00:00 +0000</pubDate>
+      <description>Run a store long enough and you end up with two kinds of discounts running at once: the sale you make by marking down prices, and the codes your popup, loyalty program, and support team hand out. The trouble starts when one shopper holds both, because Shopify happily lands the code on top of the markdown and your 40 percent sale quietly becomes 46. There is no exclude sale items setting anywhere in the admin, because a markdown made through price edits is not a discount to the discount engine at all. The AI playbook that keeps every code off your sale prices without killing the codes themselves.</description>
+    </item>
 
     <item>
       <title>How to add a gift message and gift wrap option at checkout on Shopify</title>
@@ -343,7 +353,7 @@
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Mon, 08 Jun 2026 09:00:00 +0000</pubDate>
-      <description>A customer emails to change their Shopify order, and the edit locks the second you fulfil. The AI playbook that processes change requests before the label prints.</description>
+      <description>A customer emails to change their Shopify order, and the edit locks the second you fulfill. The AI playbook that processes change requests before the label prints.</description>
     </item>
 
     <item>
@@ -363,7 +373,7 @@
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Sat, 06 Jun 2026 08:00:00 +0000</pubDate>
-      <description>Shopify's high-risk flag hands you a coin-flip: cancel a real customer or fulfil a fraudster. The AI playbook that decides each flagged order with evidence.</description>
+      <description>Shopify's high-risk flag hands you a coin-flip: cancel a real customer or fulfill a fraudster. The AI playbook that decides each flagged order with evidence.</description>
     </item>
 
     <item>
@@ -383,7 +393,7 @@
       <dc:creator>Priya Singh</dc:creator>
       <category>Research</category>
       <pubDate>Thu, 04 Jun 2026 09:00:00 +0000</pubDate>
-      <description>WISMO ('where is my order?') is the most common ecommerce support ticket — ~18% of inbox volume. The AI playbook that answers tracking questions automatically.</description>
+      <description>WISMO ('where is my order?') is the most common ecommerce support ticket: ~18% of inbox volume. The AI playbook that answers tracking questions automatically.</description>
     </item>
 
     <item>

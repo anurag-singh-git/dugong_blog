@@ -1,0 +1,2641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dugong Field Notes — Workflow Automation, Thought Through</title>
+<meta name="description" content="Field notes on workflow automation, AI agents, and the playbooks that run modern teams. From Dugong." />
+<link rel="canonical" href="https://blog.dugong.live/" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
+<meta name="author" content="Dugong" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="workflow automation, AI agents, AI-native automation, playbooks, Shopify automation, ecommerce operations, no-code automation, Dugong" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="Dugong Field Notes — Workflow Automation, Thought Through" />
+<meta property="og:description" content="A working journal from the team building AI-native automation. Essays, post-mortems, and field experiments on the playbooks that quietly run the modern company." />
+<meta property="og:url" content="https://blog.dugong.live/" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Dugong Field Notes — Workflow Automation, Thought Through" />
+<meta name="twitter:description" content="A working journal from the team building AI-native automation. Essays, post-mortems, and field experiments on the playbooks that quietly run the modern company." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+    <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.dugong.live/#website",
+      "url": "https://blog.dugong.live/",
+      "name": "Dugong Field Notes",
+      "description": "Field notes on workflow automation, AI agents, and the playbooks that run modern teams.",
+      "publisher": { "@id": "https://blog.dugong.live/#organization" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://blog.dugong.live/#organization",
+      "name": "Dugong",
+      "url": "https://dugong.live",
+      "description": "AI-native workflow automation. Describe a playbook in plain language and Dugong compiles it into a running automation.",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "sameAs": ["https://dugong.live"]
+    },
+    {
+      "@type": "Blog",
+      "@id": "https://blog.dugong.live/#blog",
+      "url": "https://blog.dugong.live/",
+      "name": "Dugong Field Notes",
+      "description": "A working journal from the team building AI-native automation. Essays, post-mortems, and field experiments on the playbooks that quietly run the modern company.",
+      "publisher": { "@id": "https://blog.dugong.live/#organization" },
+      "inLanguage": "en",
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/#dispatch-47",
+          "headline": "The death of the drag-and-drop builder",
+          "url": "https://blog.dugong.live/#post",
+          "mainEntityOfPage": { "@id": "https://blog.dugong.live/#website" },
+          "description": "For fifteen years, workflow automation looked like a canvas of rectangles connected by lines. After watching three million runs across twelve thousand teams, we're convinced the canvas was always the problem.",
+          "datePublished": "2026-05-28",
+          "author": { "@type": "Person", "name": "Aanya Rao", "jobTitle": "Head of Research" },
+          "publisher": { "@id": "https://blog.dugong.live/#organization" },
+          "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html#article",
+          "headline": "How to stop discount codes from applying to sale items on Shopify",
+          "url": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html",
+          "datePublished": "2026-07-20",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#article",
+          "headline": "How to add a gift message and gift wrap option at checkout on Shopify",
+          "url": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html",
+          "datePublished": "2026-07-18",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#article",
+          "headline": "How to set up tiered volume discounts (buy more, save more) on Shopify",
+          "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html",
+          "datePublished": "2026-07-16",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#article",
+          "headline": "How to automatically sync bundle inventory with component stock on Shopify",
+          "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html",
+          "datePublished": "2026-07-15",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html#article",
+          "headline": "How to automatically pause ads for out-of-stock products on Shopify",
+          "url": "https://blog.dugong.live/how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html",
+          "datePublished": "2026-07-12",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#article",
+          "headline": "How to limit purchase quantity per customer on Shopify",
+          "url": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html",
+          "datePublished": "2026-07-11",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html#article",
+          "headline": "How to automatically add a free gift to the cart on Shopify",
+          "url": "https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html",
+          "datePublished": "2026-07-08",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#article",
+          "headline": "How to automatically split and route Shopify orders to multiple suppliers",
+          "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html",
+          "datePublished": "2026-07-07",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html#article",
+          "headline": "How to automatically send invoices to Shopify customers",
+          "url": "https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html",
+          "datePublished": "2026-07-06",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-schedule-product-publishing-on-shopify.html#article",
+          "headline": "How to automatically schedule product publishing on Shopify",
+          "url": "https://blog.dugong.live/how-to-schedule-product-publishing-on-shopify.html",
+          "datePublished": "2026-07-05",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html#article",
+          "headline": "How to set a minimum order amount on Shopify",
+          "url": "https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html",
+          "datePublished": "2026-07-05",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#article",
+          "headline": "How to automatically hide sold-out variants on Shopify",
+          "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html",
+          "datePublished": "2026-07-03",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#article",
+          "headline": "How to combine multiple orders from the same customer on Shopify",
+          "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html",
+          "datePublished": "2026-07-02",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html#article",
+          "headline": "How to stop card testing attacks on Shopify",
+          "url": "https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html",
+          "datePublished": "2026-07-01",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html#article",
+          "headline": "How to set up pre-orders on Shopify without holding in-stock items",
+          "url": "https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html",
+          "datePublished": "2026-06-30",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html#article",
+          "headline": "How to reconcile Shopify payouts with your sales",
+          "url": "https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html",
+          "datePublished": "2026-06-29",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#article",
+          "headline": "How to bulk edit product prices on Shopify",
+          "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html",
+          "datePublished": "2026-06-28",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-automatically-add-tracking-numbers-to-shopify-orders.html#article",
+          "headline": "How to automatically add tracking numbers to Shopify orders",
+          "url": "https://blog.dugong.live/how-to-automatically-add-tracking-numbers-to-shopify-orders.html",
+          "datePublished": "2026-06-27",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html#article",
+          "headline": "How to fix 404 errors from deleted products on Shopify",
+          "url": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html",
+          "datePublished": "2026-06-25",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html#article",
+          "headline": "How to automatically cancel unpaid orders on Shopify",
+          "url": "https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html",
+          "datePublished": "2026-06-24",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html#article",
+          "headline": "How to automatically request product reviews on Shopify",
+          "url": "https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html",
+          "datePublished": "2026-06-22",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-segment-repeat-customers-on-shopify.html#article",
+          "headline": "How to segment repeat customers on Shopify",
+          "url": "https://blog.dugong.live/how-to-segment-repeat-customers-on-shopify.html",
+          "datePublished": "2026-06-21",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html#article",
+          "headline": "How to add alt text to Shopify product images in bulk",
+          "url": "https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html",
+          "datePublished": "2026-06-20",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-generate-shopify-product-descriptions-with-ai.html#article",
+          "headline": "How to generate Shopify product descriptions with AI",
+          "url": "https://blog.dugong.live/how-to-generate-shopify-product-descriptions-with-ai.html",
+          "datePublished": "2026-06-19",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html#article",
+          "headline": "How to automatically tag orders on Shopify",
+          "url": "https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html",
+          "datePublished": "2026-06-18",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-bulk-edit-meta-descriptions-on-shopify.html#article",
+          "headline": "How to bulk edit meta descriptions on Shopify",
+          "url": "https://blog.dugong.live/how-to-bulk-edit-meta-descriptions-on-shopify.html",
+          "datePublished": "2026-06-17",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-schedule-a-sale-on-shopify.html#article",
+          "headline": "How to schedule a sale on Shopify",
+          "url": "https://blog.dugong.live/how-to-schedule-a-sale-on-shopify.html",
+          "datePublished": "2026-06-16",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-set-inventory-reorder-points-on-shopify.html#article",
+          "headline": "How to set inventory reorder points on Shopify",
+          "url": "https://blog.dugong.live/how-to-set-inventory-reorder-points-on-shopify.html",
+          "datePublished": "2026-06-15",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html#article",
+          "headline": "How to set up an abandoned cart email sequence on Shopify",
+          "url": "https://blog.dugong.live/how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html",
+          "datePublished": "2026-06-14",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html#article",
+          "headline": "How to push sold-out products to the bottom of a Shopify collection",
+          "url": "https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html",
+          "datePublished": "2026-06-13",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-set-up-back-in-stock-notifications-on-shopify.html#article",
+          "headline": "How to set up back-in-stock notifications on Shopify",
+          "url": "https://blog.dugong.live/how-to-set-up-back-in-stock-notifications-on-shopify.html",
+          "datePublished": "2026-06-13",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-win-chargeback-disputes-on-shopify.html#article",
+          "headline": "How to win chargeback disputes on Shopify",
+          "url": "https://blog.dugong.live/how-to-win-chargeback-disputes-on-shopify.html",
+          "datePublished": "2026-06-11",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-automate-returns-and-exchanges-on-shopify.html#article",
+          "headline": "How to automate returns and exchanges on Shopify",
+          "url": "https://blog.dugong.live/how-to-automate-returns-and-exchanges-on-shopify.html",
+          "datePublished": "2026-06-09",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html#article",
+          "headline": "How to edit a Shopify order after it's been placed",
+          "url": "https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html",
+          "datePublished": "2026-06-08",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html#article",
+          "headline": "How to validate shipping addresses on Shopify",
+          "url": "https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html",
+          "datePublished": "2026-06-06",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html#article",
+          "headline": "How to handle high-risk orders on Shopify",
+          "url": "https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html",
+          "datePublished": "2026-06-06",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-prevent-overselling-on-shopify-across-channels.html#article",
+          "headline": "How to prevent overselling on Shopify across channels",
+          "url": "https://blog.dugong.live/how-to-prevent-overselling-on-shopify-across-channels.html",
+          "datePublished": "2026-06-05",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html#article",
+          "headline": "How to reduce 'where is my order?' (WISMO) tickets on Shopify",
+          "url": "https://blog.dugong.live/how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html",
+          "datePublished": "2026-06-04",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/best-shopify-automations-to-set-up.html#article",
+          "headline": "The best Shopify automations to set up",
+          "url": "https://blog.dugong.live/best-shopify-automations-to-set-up.html",
+          "datePublished": "2026-05-28",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES — matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #8b8b80;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0a8f54;
+  --pink:         #c61f93;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #b5882c;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background — lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--gutter); height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+@media (max-width: 820px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+/* HERO */
+.hero {
+  position: relative; z-index: 2;
+  padding: clamp(3.5rem, 8vw, 6rem) var(--gutter) clamp(2.5rem, 5vw, 4rem);
+  max-width: var(--maxw); margin: 0 auto;
+}
+.hero-meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem;
+  font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.08em;
+  color: var(--text-faint); margin-bottom: 1.75rem;
+}
+.hero-issue { color: var(--lime-deep); font-weight: 500; }
+.hero-divider { color: var(--border-strong); }
+.hero-pulse { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--lime-deep); }
+.dot { width: 6px; height: 6px; background: var(--lime-deep); border-radius: 50%; box-shadow: 0 0 0 4px var(--lime-tint); animation: pulse 1.8s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: 0.45; transform: scale(0.85); } }
+
+.hero-title {
+  font-family: var(--display); font-weight: 800;
+  font-size: clamp(2.8rem, 7vw, 5.4rem);
+  line-height: 1.0; letter-spacing: -0.035em;
+  color: var(--text); margin-bottom: 1.75rem;
+}
+.hero-title em { font-style: normal; position: relative; white-space: nowrap; color: var(--text); }
+.hero-title em::after {
+  content: ""; position: absolute; left: -.06em; right: -.06em; bottom: .08em;
+  height: .34em; background: var(--lime); z-index: -1; border-radius: 3px; transform: rotate(-.6deg);
+}
+.hero-lede {
+  font-family: var(--body); font-weight: 400;
+  font-size: clamp(1.1rem, 1.7vw, 1.25rem);
+  line-height: 1.6; max-width: 40em; color: var(--text-dim); margin-bottom: 2.25rem;
+}
+
+.hero-stats { display: flex; flex-wrap: wrap; gap: clamp(2rem, 5vw, 4rem); padding-top: 2rem; border-top: 1px solid var(--border); }
+.stat { display: flex; flex-direction: column; gap: 0.35rem; }
+.stat-num { font-family: var(--display); font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; letter-spacing: -0.03em; color: var(--text); line-height: 1; }
+.stat-label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); }
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+/* FEATURED */
+.featured { position: relative; z-index: 2; max-width: var(--maxw); margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); }
+.featured-card {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 4vw, 3.5rem); align-items: center;
+  padding: clamp(1.5rem, 3vw, 2.75rem);
+  background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+  position: relative; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 12px 40px -28px rgba(15,15,12,.3);
+}
+.featured-card:hover { border-color: var(--lime-line); transform: translateY(-3px); box-shadow: 0 16px 44px -28px rgba(15,15,12,.4); }
+.featured-card:hover .featured-arrow { color: var(--lime-deep); transform: translateX(8px); }
+@media (max-width: 880px) { .featured-card { grid-template-columns: 1fr; } }
+
+.featured-visual { position: relative; }
+
+.playbook-mock { background: var(--bg-2); border: 1px solid var(--border); border-radius: 16px; padding: 1rem; font-family: var(--mono); font-size: 0.8rem; box-shadow: 0 12px 40px -28px rgba(15,15,12,.3); }
+.pb-header { display: flex; align-items: center; gap: 0.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); margin-bottom: 1rem; }
+.pb-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(15,15,12,.14); }
+.pb-file { color: var(--text-dim); font-size: 0.75rem; margin-left: 0.5rem; font-family: var(--mono); }
+.pb-status { margin-left: auto; color: var(--lime-deep); font-size: 0.7rem; font-weight: 700; font-family: var(--display); display: inline-flex; align-items: center; gap: 0.3rem; }
+.pb-node { display: flex; align-items: center; gap: 0.75rem; padding: 0.65rem 0.75rem; background: var(--surface-2); border: 1px solid var(--border); border-radius: 11px; }
+.pb-node.muted { opacity: 0.72; }
+.pb-icon { font-size: 1.1rem; width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center; background: var(--surface); border: 1px solid var(--border); border-radius: 9px; flex-shrink: 0; }
+.pb-node-body { flex: 1; min-width: 0; }
+.pb-node-title { color: var(--text); font-size: 0.78rem; font-weight: 600; font-family: var(--display); }
+.pb-node-sub { color: var(--text-faint); font-size: 0.68rem; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pb-tag { font-family: var(--display); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--lime-deep); background: rgba(198,254,30,.3); padding: 0.2rem 0.45rem; border-radius: 100px; flex-shrink: 0; }
+.pb-line { width: 2px; height: 14px; background: var(--border-strong); margin: 0.25rem 0 0.25rem 1.95rem; }
+.pb-branch { display: grid; gap: 0.4rem; padding: 0.5rem 0.75rem; border: 1px dashed var(--border-strong); border-radius: 11px; }
+.pb-branch-arm { font-size: 0.7rem; color: var(--text-dim); }
+
+.featured-body { display: flex; flex-direction: column; }
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+.featured-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.85rem, 3.6vw, 2.7rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 1.1rem; }
+.featured-title em { font-style: normal; color: var(--text-faint); }
+.featured-dek { font-family: var(--body); font-weight: 400; font-size: 1.05rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.85rem; max-width: 38em; }
+.post-byline { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.5rem; font-family: var(--mono); font-size: 0.78rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: var(--border-strong); }
+.byline-role { color: var(--text-faint); }
+.featured-arrow { font-family: var(--display); font-weight: 700; font-size: 0.85rem; color: var(--lime-deep); letter-spacing: 0.01em; transition: color 0.3s, transform 0.3s; align-self: flex-start; }
+
+/* GRID */
+.grid-section { position: relative; z-index: 2; max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.filter-pills { display: flex; gap: 0.5rem; margin-left: auto; flex-wrap: wrap; }
+.pill { font-family: var(--display); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.01em; color: var(--text-dim); background: var(--surface); border: 1px solid var(--border); padding: 0.45rem 0.95rem; border-radius: 100px; cursor: pointer; transition: all 0.2s; }
+.pill:hover { color: var(--text); border-color: var(--border-strong); }
+.pill-active { color: #11110e; background: var(--lime); border-color: var(--lime); }
+
+.article-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; }
+.card { grid-column: span 4; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-tall { grid-column: span 4; grid-row: span 2; }
+.card-tall .card-art { height: auto; flex: 1 1 200px; min-height: 200px; }
+.card-tall .card-body { flex: 0 0 auto; }
+.card-tall .card-dek { flex: 0 0 auto; }
+.card-tall .art-glyph { font-size: 5.5rem; }
+.card-wide { grid-column: span 8; }
+.card-accent { background: linear-gradient(180deg, rgba(198,254,30,.16), var(--surface)); border-color: var(--lime-line); }
+.card-quote { background: var(--surface-2); border-color: var(--border-strong); }
+
+.card-art { height: 200px; background: linear-gradient(135deg, var(--surface-2), var(--bg)); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.card-art::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(15,15,12,.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,15,12,.04) 1px, transparent 1px); background-size: 24px 24px; }
+.card-art-1 { background: radial-gradient(circle at 30% 40%, rgba(198,254,30,.4), transparent 55%), linear-gradient(135deg, var(--surface-2), var(--bg)); }
+.card-art-2 { background: radial-gradient(circle at 70% 60%, rgba(198,31,147,.14), transparent 55%), linear-gradient(135deg, var(--surface-2), var(--bg)); }
+.art-glyph { font-size: 3rem; position: relative; z-index: 1; filter: drop-shadow(0 6px 16px rgba(15,15,12,.18)); }
+.art-coord { position: absolute; bottom: 12px; left: 12px; font-family: var(--mono); font-size: 0.65rem; color: var(--text-faint); letter-spacing: 0.05em; }
+
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-tall .card-title { font-size: 1.6rem; }
+.card-wide .card-title { font-size: 1.75rem; }
+.card-title em { font-style: normal; color: var(--text-faint); }
+.card-title-quote { font-family: var(--display); font-style: normal; font-weight: 700; font-size: 1.3rem !important; line-height: 1.3; color: var(--text); letter-spacing: -0.02em; }
+.quote-mark { font-family: var(--display); font-size: 3.25rem; line-height: 0.6; color: var(--lime-deep); display: block; margin-bottom: 0.85rem; font-weight: 800; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+@media (max-width: 960px) { .card, .card-tall, .card-wide { grid-column: span 6; } .card-tall { grid-row: span 1; } }
+@media (max-width: 600px) { .card, .card-tall, .card-wide { grid-column: span 12; } }
+
+/* TOPICS */
+.topics { position: relative; z-index: 2; max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.topic-cloud { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem 1.25rem; font-family: var(--display); font-weight: 700; }
+.topic { font-size: var(--topic-size); color: var(--text-dim); line-height: 1; transition: color 0.2s, transform 0.2s; letter-spacing: -0.02em; }
+.topic:hover { color: var(--lime-deep); transform: translateY(-2px); }
+
+/* NEWSLETTER */
+.signup { position: relative; z-index: 2; margin: clamp(2.5rem, 6vw, 4.5rem) auto; max-width: var(--maxw); padding: 0 var(--gutter); }
+.signup-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); padding: clamp(2.5rem, 5vw, 4.5rem);
+  background: linear-gradient(180deg, rgba(198,254,30,.18), var(--surface)); border: 1px solid var(--lime-line); border-radius: 20px; position: relative; overflow: hidden;
+}
+.signup-inner::before { content: ""; position: absolute; width: 340px; height: 340px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.55), transparent 70%); top: -150px; right: -70px; pointer-events: none; }
+@media (max-width: 760px) { .signup-inner { grid-template-columns: 1fr; } }
+.signup-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 1rem; display: inline-block; position: relative; }
+.signup-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.1rem, 5vw, 3.2rem); line-height: 1.03; letter-spacing: -0.03em; color: var(--text); margin-bottom: 1.1rem; position: relative; }
+.signup-title em { font-style: normal; color: var(--text-faint); }
+.signup-lede { font-family: var(--body); font-weight: 400; font-size: 1.05rem; line-height: 1.55; color: var(--text-dim); position: relative; }
+.signup-form { display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 1; }
+.signup-label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.75rem; }
+.signup-row { display: flex; gap: 0.5rem; margin-bottom: 0.85rem; }
+.signup-row input { flex: 1; background: var(--surface); border: 1px solid var(--border-strong); color: var(--text); padding: 0.9rem 1rem; font-family: var(--body); font-size: 0.95rem; border-radius: 10px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+.signup-row input:focus { border-color: var(--lime-deep); box-shadow: 0 0 0 3px var(--lime-tint); }
+.signup-row input::placeholder { color: var(--text-faint); }
+.signup-row button { font-family: var(--display); font-weight: 700; background: #11110e; color: #fff; border: none; padding: 0.9rem 1.4rem; font-size: 0.9rem; border-radius: 10px; cursor: pointer; transition: transform .15s ease, box-shadow .2s; }
+.signup-row button:hover { transform: translateY(-1px); box-shadow: 0 12px 30px -12px rgba(15,15,12,.5); }
+.signup-fine { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* ARCHIVE */
+.archive { position: relative; z-index: 2; max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.archive-list { list-style: none; border-top: 1px solid var(--border); }
+.archive-list li { display: grid; grid-template-columns: auto 1fr auto; gap: 2rem; align-items: baseline; padding: 1.35rem 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.2s, padding 0.3s; position: relative; }
+.archive-list li:hover { padding-left: 1rem; background: linear-gradient(to right, var(--lime-tint), transparent 55%); }
+.archive-list li:hover .arch-title { color: var(--text); }
+.archive-list li:hover::before { content: "→"; position: absolute; left: -0.4rem; color: var(--lime-deep); font-weight: 700; }
+.arch-num { font-family: var(--mono); font-size: 0.76rem; color: var(--text-faint); letter-spacing: 0.04em; }
+.arch-title { font-family: var(--display); font-size: 1.1rem; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; color: var(--text-dim); transition: color 0.2s; }
+.arch-date { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--text-faint); }
+.archive-more { display: inline-block; margin-top: 2rem; font-family: var(--display); font-weight: 700; font-size: 0.9rem; color: var(--lime-deep); border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.archive-more:hover { border-color: var(--lime-deep); }
+@media (max-width: 600px) { .archive-list li { grid-template-columns: auto 1fr; gap: 1rem; } .arch-date { grid-column: 2; font-size: 0.66rem; } }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+.article-title em { font-style: normal; position: relative; white-space: nowrap; color: var(--text); }
+.article-title em::after { content: ""; position: absolute; left: -.06em; right: -.06em; bottom: .06em; height: .32em; background: var(--lime); z-index: -1; border-radius: 3px; transform: rotate(-.5deg); }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+.article-body pre code { background: none; padding: 0; color: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) — mirrors the site's final card ---- */
+.hero-cta { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-bottom: 3rem; }
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* VIEW TOGGLE + ANIMATIONS */
+.view { display: none; }
+.view.active { display: block; }
+.view.active.home > .hero > * { opacity: 0; animation: rise 0.9s cubic-bezier(0.2,0.7,0.2,1) forwards; }
+.view.active.home > .hero > .hero-meta  { animation-delay: 0.1s; }
+.view.active.home > .hero > .hero-title { animation-delay: 0.25s; }
+.view.active.home > .hero > .hero-lede  { animation-delay: 0.45s; }
+.view.active.home > .hero > .hero-cta   { animation-delay: 0.55s; }
+.view.active.home > .hero > .hero-stats { animation-delay: 0.65s; }
+@keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ HOME VIEW ============ -->
+<div class="view home active" id="view-home">
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>◆ FIELD NOTES VOL. 04 — 2026</span>
+    <span>◆ FROM THE DUGONG RESEARCH DESK</span>
+    <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
+    <span>◆ 14 NEW DISPATCHES THIS MONTH</span>
+    <span>◆ FIELD NOTES VOL. 04 — 2026</span>
+    <span>◆ FROM THE DUGONG RESEARCH DESK</span>
+    <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
+    <span>◆ 14 NEW DISPATCHES THIS MONTH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="#" class="brand" data-nav="home">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#latest">Latest</a>
+    <a href="#tags">Topics</a>
+    <a href="#archive">Archive</a>
+    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-meta">
+    <span class="hero-issue">ISSUE Nº 86</span>
+    <span class="hero-divider">·</span>
+    <span class="hero-date">JUL 20 · 2026</span>
+    <span class="hero-divider">·</span>
+    <span class="hero-pulse"><span class="dot"></span>NEW THIS WEEK</span>
+  </div>
+
+  <h1 class="hero-title">
+    Workflows,<br />
+    <em>thought</em> through.
+  </h1>
+
+  <p class="hero-lede">
+    A working journal from the team building AI-native automation.
+    Essays, post-mortems, and field experiments on the playbooks
+    that quietly run the modern company.
+  </p>
+  <div class="hero-cta">
+    <a href="https://dugong.live" class="btn btn-primary btn-lg">Try Dugong free &rarr;</a>
+    <a href="#latest" class="btn btn-ghost btn-lg">Browse the dispatches &darr;</a>
+  </div>
+
+
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">85</span>
+      <span class="stat-label">dispatches&nbsp;published</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">3.2M</span>
+      <span class="stat-label">runs&nbsp;observed</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">94%</span>
+      <span class="stat-label">first-compile&nbsp;accuracy</span>
+    </div>
+  </div>
+</section>
+
+<section class="featured" id="latest">
+  <div class="section-head">
+    <span class="section-eyebrow">◆ DISPATCH OF THE WEEK</span>
+    <span class="section-rule"></span>
+  </div>
+
+  <a href="#post" class="featured-card" data-nav="post">
+    <div class="featured-visual">
+      <div class="playbook-mock">
+        <div class="pb-header">
+          <span class="pb-dot"></span>
+          <span class="pb-dot"></span>
+          <span class="pb-dot"></span>
+          <span class="pb-file">onboarding-flow.playbook</span>
+          <span class="pb-status">▶ live</span>
+        </div>
+        <div class="pb-node">
+          <span class="pb-icon">⚡</span>
+          <div class="pb-node-body">
+            <div class="pb-node-title">Trigger · new signup</div>
+            <div class="pb-node-sub">POST /webhooks/signup</div>
+          </div>
+          <span class="pb-tag">ai-detected</span>
+        </div>
+        <div class="pb-line"></div>
+        <div class="pb-node">
+          <span class="pb-icon">🧠</span>
+          <div class="pb-node-body">
+            <div class="pb-node-title">AI lead scoring</div>
+            <div class="pb-node-sub">dugong-scorer-v3</div>
+          </div>
+          <span class="pb-tag">ai-generated</span>
+        </div>
+        <div class="pb-line"></div>
+        <div class="pb-branch">
+          <div class="pb-branch-arm">IF score &gt; 80 → 💼 Salesforce</div>
+          <div class="pb-branch-arm">ELSE → 📧 nurture sequence</div>
+        </div>
+        <div class="pb-line"></div>
+        <div class="pb-node muted">
+          <span class="pb-icon">🛡️</span>
+          <div class="pb-node-body">
+            <div class="pb-node-title">Error shield · 3× retry</div>
+            <div class="pb-node-sub">fallback → #ops alert</div>
+          </div>
+          <span class="pb-tag">ai-injected</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="featured-body">
+      <div class="post-meta">
+        <span class="tag tag-research">research</span>
+        <span class="post-read">14&nbsp;min&nbsp;read</span>
+      </div>
+      <h2 class="featured-title">
+        The death of the drag-and-drop builder
+      </h2>
+      <p class="featured-dek">
+        For fifteen years, workflow automation looked like a
+        canvas full of rectangles connected by lines. We argue the
+        canvas is the problem, and natural language plus an AI
+        compiler is what comes next. With evidence from 3.2M runs.
+      </p>
+      <div class="post-byline">
+        <span class="byline-avatar" style="background:#c47a55;">AR</span>
+        <span class="byline-name">Aanya Rao</span>
+        <span class="byline-divider">·</span>
+        <span class="byline-role">Head of Research</span>
+      </div>
+      <span class="featured-arrow">read the dispatch →</span>
+    </div>
+  </a>
+</section>
+
+<section class="grid-section">
+  <div class="section-head">
+    <span class="section-eyebrow">◆ RECENT DISPATCHES</span>
+    <span class="section-rule"></span>
+    <div class="filter-pills">
+      <button class="pill pill-active">all</button>
+      <button class="pill">essays</button>
+      <button class="pill">post-mortems</button>
+      <button class="pill">tactics</button>
+      <button class="pill">interviews</button>
+    </div>
+  </div>
+
+  <div class="article-grid">
+
+        <a class="card card-tall" href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" style="text-decoration:none;">
+      <div class="card-art card-art-1">
+        <span class="art-glyph">🏷️</span>
+        <span class="art-coord">CODES&nbsp;·&nbsp;SALE</span>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to stop <em>discount codes</em> from applying to sale items on Shopify</h3>
+        <p class="card-dek">
+          A shopper finds your 40 percent off sale, adds three marked-down items, then pastes the
+          welcome code from your popup at checkout, and Shopify takes both. There is no exclude sale
+          items setting anywhere in the admin, because a sale you run by editing prices is not a
+          discount to the discount engine at all: the combination rules only govern how discounts
+          combine with other discounts, and a markdown is just a price. So codes stack on top of
+          markdowns, popup and loyalty apps mint sitewide codes you never scoped, and your 40 percent
+          sale quietly becomes 46. The AI playbook that reads your discount policy in plain language,
+          keeps the sale and full-price collections true on every price change, scopes every new code
+          at creation, resolves the single best discount when a code meets a markdown, and holds the
+          exceptions for a human.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a class="card" href="how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to add a <em>gift message</em> and gift wrap option at checkout on Shopify</h3>
+        <p class="card-dek">
+          A shopper buys a present, types a few careful words at checkout, and pays extra to have it
+          wrapped. Then the box lands at the recipient with the sender's full invoice inside and no
+          message anywhere. Shopify has no dedicated gift field: the one native place for a note is the
+          cart order-note box, a single unlabeled field built for delivery instructions, so a gift
+          message shares one box with everything else and never reaches the packing bench. Gift wrap at
+          checkout is native only for Shopify Plus on Checkout Extensibility, and even then it is a bare
+          toggle, not a fee or a bench instruction. Worst of all, the packing slip is one template for
+          every order and it prints prices, with no native switch to hide them for a gift. The AI
+          playbook that captures the gift intent and the message, validates and cleans it, attaches wrap
+          as a real line item, tags the order as a gift, prints a slip with the note in and the prices
+          out, routes it to the bench, and holds the risky calls for a human.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a class="card" href="how-to-set-up-tiered-volume-discounts-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to set up tiered <em>volume discounts</em> (buy more, save more) on Shopify</h3>
+        <p class="card-dek">
+          You want the obvious offer: buy 3 save 10 percent, buy 6 save 20, buy 12 save 30. You open
+          Shopify's discount screen, build the first tier, go to add the second, and there is nowhere
+          to put it, because a Shopify discount holds one rule and only one. Faking it with three
+          separate discounts backfires: a big cart qualifies for all of them, Shopify does not pick the
+          best tier, and the shopper can land on the smaller saving or the discounts refuse to combine.
+          The one native feature that tiers correctly is B2B only, and Shopify Scripts, the old escape
+          hatch, stopped running on June 30, 2026. There is no native buy-more-save-more ladder for
+          regular shoppers. The AI playbook that reads a plain-language tier table, resolves the single
+          right break by quantity or spend on every cart, keeps it from stacking past a margin floor,
+          gives wholesale a deeper ladder than retail, nudges the shopper toward the next rung, and holds
+          the risky calls for a human.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 16</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a class="card" href="how-to-sync-bundle-inventory-with-component-stock-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to automatically sync <em>bundle inventory</em> with component stock on Shopify</h3>
+        <p class="card-dek">
+          You sell a gift set and the candle, soap, and bath bomb inside it never move a single unit,
+          because Shopify counts the bundle as its own product with its own stock number. So the parts
+          oversell on their own pages, the bundle keeps selling after the shelf behind it is empty, and
+          a shared component drifts out of step across every bundle it lives in. The native Bundles app
+          does link a fixed bundle to its components and shows availability from the lowest-stock part,
+          which is real and useful, but it caps components, does not cover mix-and-match cleanly, tracks
+          by overall stock rather than per location, and does nothing for the many bundles built the older
+          way as a standalone product, and an order edit breaks the link entirely. The AI playbook that
+          treats each component as the source of truth, deducts the parts on a bundle sale and the bundle
+          count on a part sale, cascades a shared component across every bundle that uses it, syncs the
+          count to every channel, and holds the judgement calls for a human.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 15</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a class="card" href="how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to automatically <em>pause ads</em> for out-of-stock products on Shopify</h3>
+        <p class="card-dek">
+          A product sells out at two in the afternoon and your Google and Meta ads keep spending on
+          it until past midnight, sending paid clicks to a page where the only button says Sold Out.
+          Shopify never paused the ad, because it does not pause ads at all. Its Google and Meta
+          channels sync a feed on a schedule, so there is always a lag between the sale that empties
+          your shelf and the feed that admits it, and even then the channel updates an availability
+          attribute, never the campaign or ad set, so a Performance Max or Advantage+ run just shifts
+          the spend around. Worse, the feed and the live page disagree during the gap, so Google
+          disapproves the product and drags on the whole account. The waste concentrates exactly
+          where you bid hardest, on the bestsellers that sell out first. The AI playbook that watches
+          inventory per product and variant, matches each to its placements across Google and Meta,
+          pauses only the affected ad against a stock threshold, fixes the feed so it stops getting
+          disapproved, resumes the moment stock returns, and holds the budget calls for a human.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 12</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a class="card" href="how-to-limit-purchase-quantity-per-customer-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to limit <em>purchase quantity</em> per customer on Shopify</h3>
+        <p class="card-dek">
+          You cap a hot product at two per person, the drop sells out in minutes, and the orders list
+          shows one buyer took forty units across twenty tidy little orders, because Shopify's
+          add-to-cart limit is per variant and per cart, not per customer. It resets on every
+          checkout, it counts each color and size on its own, and it never recognizes the same buyer
+          coming back, so a reseller or a bot clears your launch two units at a time while real
+          customers hit a Sold Out page. A theme or cart-page limit is skipped by the wallet buttons,
+          buy-it-now, and a checkout permalink, and the identity underneath (guests, new emails,
+          second accounts, cleared cookies) means only a server-side check that recognizes the buyer
+          actually holds. The AI playbook that identifies the buyer across orders by email, address,
+          payment, and device, enforces a real per-customer limit on every checkout path, cancels and
+          restocks what slipped, and holds the genuine household or wholesale order for a human.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 11</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a class="card" href="how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to automatically add a <em>free gift</em> to the cart on Shopify</h3>
+        <p class="card-dek">
+          You promise a free gift over seventy-five dollars, a customer fills a cart to eighty, and
+          the gift never shows up, because a Shopify discount only makes an item cheaper, it never
+          adds the item. There is no store-wide cart-value trigger, only one gift tier per discount,
+          and a discount that quietly loses to a bigger one, so the gift you advertised either never
+          lands or a shopper who found it can drop below the threshold and keep it. Even a cart-page
+          script skips every wallet-button and checkout-link path. The AI playbook that reads the
+          cart in real time, adds the right gift on every path into checkout, swaps or removes it
+          when the cart changes, honors stock, and holds the edge cases for a human.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 8</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to automatically <em>split and route</em> Shopify orders to multiple suppliers</h3>
+        <p class="card-dek">
+          One order lands with items from three different suppliers, and Shopify treats it as a
+          single thing to fulfill from one place. There is no rule that sends each line to the
+          vendor who makes it, no way to email each supplier a purchase order with just their items,
+          and no button that splits the order by who ships what, so you read every order and paste
+          the right lines into a separate email for each vendor, all day. Shopify can split
+          fulfillment across your own locations, but it never routes a line to a supplier or sends
+          them the order. The AI playbook that reads each order, splits it by supplier, sends every
+          vendor their PO, and fulfills the right lines when the tracking comes back.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 7</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-automatically-send-invoices-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to automatically <em>send invoices</em> to Shopify customers</h3>
+        <p class="card-dek">
+          A business customer buys, then emails: can I get an invoice with our company name and VAT
+          number. Shopify sent them an order confirmation, which is a receipt, not an invoice, with
+          no field that captured their tax number and no button that makes the document they are
+          asking for. So you open a template, retype their details, and email it back by hand, for
+          every business order. Shopify Tax can show a VAT invoice for EU and UK orders, but it is
+          never emailed and covers nowhere else. The AI playbook that sends the right invoice
+          automatically after every order and a credit note on every refund.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-schedule-product-publishing-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to automatically <em>schedule product publishing</em> on Shopify</h3>
+        <p class="card-dek">
+          You set the drop to publish at midnight and go to bed. It goes live on the online store
+          and nowhere else, because Shopify's future publishing skips POS, the Buy Button, and your
+          other channels, no-ops if the product is still a draft, and cannot bulk-schedule. Worse,
+          it will only ever schedule a product going live, never coming down, so a finished sale or
+          a spent drop lingers until someone pulls it by hand. The AI playbook that publishes a
+          launch on time across every channel and unpublishes it the moment its window closes.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-set-a-minimum-order-amount-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to set a <em>minimum order amount</em> on Shopify</h3>
+        <p class="card-dek">
+          A customer adds one small item, checks out for a few dollars, and Shopify waves it
+          through, even though the fee, the pick and pack, and the label cost more than the order
+          earns. There is no native setting for a minimum order amount. You can drop cart-page code
+          that a wallet button or a checkout permalink walks straight past, or install an app that
+          applies one flat number to everyone. The AI playbook that reads the cart on every path,
+          sets a real floor, warns the shopper early, and lets wholesale and gift-card carts through.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-automatically-hide-sold-out-variants-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to automatically <em>hide sold-out variants</em> on Shopify</h3>
+        <p class="card-dek">
+          A shopper picks their size, the button flips to Sold Out, and they leave, because
+          Shopify keeps the variant they cannot buy sitting in the dropdown next to the ones in
+          stock. They read Sold Out as the whole product being gone, even though the sizes on
+          either side were available. There is no native switch to hide it, only brittle theme
+          code that breaks on updates or one more app. The AI playbook that hides the sold-out
+          variant, keeps the in-stock ones live, and brings it back the moment stock returns.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 3</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to <em>combine multiple orders</em> from the same customer on Shopify</h3>
+        <p class="card-dek">
+          A customer buys, then remembers one more thing and buys again an hour later, before the
+          first order ships. Now you have two orders, two labels, two boxes, and a customer who
+          paid delivery twice for what should have been one parcel. Shopify has no merge button,
+          treats every order as a locked record, and its own fix is a draft-order dance you run by
+          hand: rebuild both orders as one draft, refund the extra shipping, cancel the originals,
+          restock, every time. The AI playbook that catches the pair the moment the second order
+          lands and ships one box.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 2</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-stop-card-testing-attacks-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to stop <em>card testing attacks</em> on Shopify</h3>
+        <p class="card-dek">
+          You wake up to two hundred orders of one cheap item, all a few dollars, all different
+          names and cards, most already declined. A bot found your checkout and is running
+          stolen cards through it to see which ones still work, and Shopify billed you a fee for
+          every attempt. Its native defense is a CAPTCHA that fires too late and an auto-cancel
+          rule locked to the pricier plans, and neither one reads the burst or cleans up behind
+          it. The AI playbook that spots the attack, cancels and refunds the junk, and shuts the
+          source down before it costs you the payment account.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 1</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to set up <em>pre-orders</em> on Shopify without holding in-stock items</h3>
+        <p class="card-dek">
+          A customer buys one in-stock hoodie and one pre-order jacket in the same cart, and the
+          hoodie sitting on your shelf does not ship until the jacket lands weeks from now.
+          Shopify has no real pre-order, only a continue selling checkbox that oversells in
+          silence: no ship date, no tag, no Pre-order button. Nothing splits a mixed cart,
+          partial fulfillment is a manual step per order, and Flow cannot ship the ready part,
+          notify on restock, or stop selling when the run is gone. The AI playbook that ships
+          what is ready now, holds the pre-order line, and fulfills the day stock arrives.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 30</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-reconcile-shopify-payouts-with-your-sales.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to <em>reconcile Shopify payouts</em> with your sales</h3>
+        <p class="card-dek">
+          Your dashboard says you sold four thousand dollars, but the deposit that lands in your
+          bank is smaller, days late, and arrives with no breakdown. Shopify nets every payout
+          down by fees, refunds, chargebacks, and a held reserve, then pays it in a batch that
+          crosses days, so the deposit never matches your sales. The Payouts page reports but
+          posts nothing, the QuickBooks and Xero connectors double count or never tie out, and
+          Flow cannot reconcile at all. The AI playbook that decomposes every payout, matches it
+          to the orders and the bank deposit, and posts a clean entry to your books.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 29</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-bulk-edit-product-prices-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to <em>bulk edit product prices</em> on Shopify</h3>
+        <p class="card-dek">
+          A supplier cost went up, a tariff landed, or your margin slipped, and now every
+          price in the catalog needs to move. Shopify's bulk editor shows fifty products at a
+          time and has no math, so you compute and type each new price by hand. The CSV route
+          turns you into a spreadsheet clerk, the Markets percentage tool is all or nothing
+          for a whole market, and Flow cannot touch a price at all. The AI playbook that
+          reprices by rule, applies your rounding, keeps compare-at honest across variants,
+          and holds the outliers for a human.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 28</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to <em>automatically add tracking numbers</em> to Shopify orders</h3>
+        <p class="card-dek">
+          Most orders don't fulfill themselves on Shopify, bulk fulfill still leaves the
+          tracking to you, and Flow has no action that adds a number. The AI playbook that
+          reads what suppliers send and fulfills with the right number and carrier.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 27</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-fix-404-errors-from-deleted-products-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to fix <em>404 errors</em> from deleted products on Shopify</h3>
+        <p class="card-dek">
+          You discontinue a product and delete it, and the job feels done. It is not. The
+          old URL is still indexed by Google, still sitting in an ad you forgot to pause,
+          and every click on it now lands on a Shopify page that says the page does not
+          exist. Shopify created no redirect, so the ranking drains and the customer
+          bounces, and Flow cannot create a redirect at all. The AI playbook that catches
+          every URL a delete, unpublish, or handle change just broke, and sends each one to
+          the closest live page instead of a dead end.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 25</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to <em>automatically cancel unpaid orders</em> on Shopify</h3>
+        <p class="card-dek">
+          A customer picks bank transfer or cash on delivery, then goes quiet. The money
+          never lands, but the order does not go away. It sits in your admin marked
+          pending, holding the stock a paying customer wanted, until you clear it by hand.
+          The AI playbook that reads each pending order, chases payment the right number of
+          times, then cancels and restocks the ones that go cold.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-automatically-request-product-reviews-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to <em>automatically request product reviews</em> on Shopify</h3>
+        <p class="card-dek">
+          Every happy customer is a five-star review you have not asked for, and the
+          next buyer reads those reviews before they trust you. Shopify retired its own
+          reviews app and never replaced it, so there is no native way to collect a
+          single one. The ask either never goes out or goes out as one untimed blast to
+          the whole list. The AI playbook that waits for delivery, reads the order, and
+          asks for the right product at the right moment.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 22</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-segment-repeat-customers-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to <em>segment repeat customers</em> on Shopify</h3>
+        <p class="card-dek">
+          You have customers who have bought from you five times. Shopify knows it
+          and does nothing with it. Without a tag set by hand, a loyal regular, a
+          one-time discount hunter, and a customer about to leave for good all look
+          identical in the admin, so they all get the same generic blast. The AI
+          playbook that reads each customer's whole history, tags them by what they
+          actually do, and keeps the segment current.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to add <em>alt text</em> to Shopify product images in bulk</h3>
+        <p class="card-dek">
+          Shopify will store an alt text on every image. What it will not do is
+          write one, show you which images are blank, or fix them in bulk. So the
+          line a screen reader reads aloud, and the line Google ranks your photos
+          on, sits empty on nearly every image in the catalog. The AI playbook that
+          looks at each picture, writes an accurate line, leaves the decorative ones
+          empty, and keeps it current as you add products.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-generate-shopify-product-descriptions-with-ai.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to <em>generate Shopify product descriptions</em> with AI</h3>
+        <p class="card-dek">
+          Shopify Magic will write a product description, one product at a time,
+          from a few keywords you type in. A real catalog is hundreds of products,
+          each with its own variants, a spec sheet, images, and a brand voice the
+          generator never sees. So the copy gets written one SKU at a time, pasted
+          from the supplier, or left blank. The AI playbook that reads each product
+          whole and writes the entire catalog in one consistent voice.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-automatically-tag-orders-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to <em>automatically tag orders</em> on Shopify</h3>
+        <p class="card-dek">
+          Shopify Flow will tag an order the moment one simple thing is true. The
+          trouble is that real tagging is never one simple thing: it is the
+          product, the order value, who the customer is, where it ships, and the
+          line a buyer typed into the note, all read together. So the tags that
+          route fulfillment, fire your flows, and build your segments still get
+          set by hand. The AI playbook that reads the whole order and tags it from
+          one clean vocabulary.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-bulk-edit-meta-descriptions-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to <em>bulk edit meta descriptions</em> on Shopify</h3>
+        <p class="card-dek">
+          Shopify will store a unique meta description for every product, but it
+          will not help you write them. Bulk edit and they all come out
+          identical, which is the one thing you must not do. So you type each one
+          by hand, or leave it blank and let Shopify fill the search result with
+          whatever the page starts with. The AI playbook that writes a distinct,
+          in-range description for every product, collection, and page, and never
+          lets it drift.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-schedule-a-sale-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to <em>schedule a sale</em> on Shopify</h3>
+        <p class="card-dek">
+          Shopify will let you drop a price, but it won't schedule the sale to
+          start, won't put the prices back when it ends, and won't run it by
+          rule. So a real person sits up at midnight to flip prices, babysits
+          the promotion, and hopes they remember to undo it. The AI playbook
+          that schedules the sale, sets the strikethrough, guards the margin
+          floor, and reverts on time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 16</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-set-inventory-reorder-points-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to set <em>inventory reorder points</em> on Shopify</h3>
+        <p class="card-dek">
+          Shopify tracks every unit you own but will never buy more of it, and
+          its purchase orders are too basic to know which SKU to reorder, how
+          many, or when. So bestsellers go dark for weeks while cash sits frozen
+          in slow movers. The AI playbook that forecasts demand per SKU and
+          drafts the purchase order on time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 15</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to set up an <em>abandoned cart email sequence</em> on Shopify</h3>
+        <p class="card-dek">
+          Seven in ten carts get filled and left, and Shopify answers with a
+          single generic reminder on a preset timer, then goes quiet. On
+          one-page checkout it often never learns the email at all. The AI
+          playbook that sequences, personalizes, and brings back the demand you
+          already paid to create.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to push <em>sold-out products</em> to the bottom of a Shopify collection</h3>
+        <p class="card-dek">
+          A product sells out and Shopify leaves it at the top of the collection
+          page, a greyed-out tile greeting your best traffic. The native sort
+          breaks across pagination and hiding it kills the SEO and the waitlist.
+          The AI playbook that re-merchandises the storefront the moment stock
+          moves.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 13</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-set-up-back-in-stock-notifications-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to set up <em>back-in-stock notifications</em> on Shopify</h3>
+        <p class="card-dek">
+          A customer clicks notify me, the item comes back, and Shopify does
+          nothing with the request, so the restock sells out to strangers
+          while the people who waited never hear. The AI playbook that turns a
+          waitlist into recovered revenue, in fair order and without
+          overselling.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 13</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-win-chargeback-disputes-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to win <em>chargeback disputes</em> on Shopify</h3>
+        <p class="card-dek">
+          Shopify attaches the basic order data and files a thin response on
+          the deadline, so you lose disputes you should win, even with the
+          tracking in hand. The AI playbook that reads the reason code, builds
+          the evidence, and fights it before the clock runs out.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 11</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-automate-returns-and-exchanges-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to <em>automate returns and exchanges</em> on Shopify</h3>
+        <p class="card-dek">
+          Every return waits on you to click approve, and Shopify can't run
+          a real exchange, so refunds quietly leak the revenue you already
+          earned. The AI playbook that reads the request, runs the swap, and
+          settles the money on its own.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 9</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-edit-a-shopify-order-after-its-been-placed.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to <em>edit a Shopify order</em> after it's been placed</h3>
+        <p class="card-dek">
+          Wrong size, wrong address, one more item: the "can you change my
+          order?" email always lands at a bad time and locks the second you
+          fulfil. The AI playbook that reads the request and resolves it
+          before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 8</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-validate-shipping-addresses-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">7&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to <em>validate shipping addresses</em> on Shopify</h3>
+        <p class="card-dek">
+          Shopify warns you the address looks wrong, you ship anyway, and
+          the package bounces back two weeks later: return fee, re-ship,
+          refund, angry ticket. The AI playbook that fixes or confirms a
+          bad address before the label ever prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-handle-high-risk-orders-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to handle <em>high-risk orders</em> on Shopify</h3>
+        <p class="card-dek">
+          Shopify stamps an order "high-risk" and hands the call back
+          to you with half the evidence hidden, a coin-flip between a
+          chargeback and a false decline. The AI playbook that
+          investigates each one instead of guessing.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-prevent-overselling-on-shopify-across-channels.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to <em>prevent overselling</em> on Shopify across channels</h3>
+        <p class="card-dek">
+          Selling stock you no longer have is the Shopify pain point
+          merchants dread most, because it's the hardest to take
+          back. Why manual sync breaks during a sale, and the AI
+          playbook that keeps inventory honest in real&nbsp;time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to reduce <em>'where is my order?'</em> (WISMO) tickets on Shopify</h3>
+        <p class="card-dek">
+          WISMO is the most common message in ecommerce: ~18% of
+          support tickets, over half during a sale. The AI playbook
+          that answers before customers even ask.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 4</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="best-shopify-automations-to-set-up.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The <em>best Shopify automations</em> to set up</h3>
+        <p class="card-dek">
+          Tagging is 14% of every Shopify workflow merchants ship.
+          Returns and refunds, the work that actually scales with
+          order volume, are under 1%. The gap between what's easy
+          and what's worth it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 28</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <article class="card" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-essay">essay</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">Triggers are the new APIs</h3>
+        <p class="card-dek">
+          When every step is natural language, the trigger becomes
+          the only thing you really design. Here's what we learned
+          watching 12,000 teams write their first one.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 24</span>
+          <span class="card-author">M. Chen</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-postmortem">post-mortem</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">
+          The night our retry logic ate <em>itself</em>
+        </h3>
+        <p class="card-dek">
+          A Slack notification fired every 4 seconds for 11 hours.
+          The blameless story of how we found it, what the AI
+          shield missed, and the fix.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 21</span>
+          <span class="card-author">J. Okafor</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card card-accent" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-tactics">tactics</span>
+          <span class="post-read">4&nbsp;min</span>
+        </div>
+        <h3 class="card-title">
+          Seven prompts that compile cleaner playbooks
+        </h3>
+        <p class="card-dek">
+          Small wording changes that shift our compiler from
+          "good enough" to first-try perfect. Steal them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 19</span>
+          <span class="card-author">L. Park</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-nav="post">
+      <div class="card-art card-art-2">
+        <span class="art-glyph">🔀</span>
+      </div>
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-essay">essay</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">
+          Branching is a writing problem
+        </h3>
+        <p class="card-dek">
+          Why "if," "unless," and "when" are the three most
+          undervalued words in automation, and how clearer
+          prose produces cleaner conditional logic.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 16</span>
+          <span class="card-author">A. Rao</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card card-wide" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-interview">interview</span>
+          <span class="post-read">22&nbsp;min</span>
+        </div>
+        <h3 class="card-title">
+          "We deleted 400 Zapier zaps in a weekend."
+        </h3>
+        <p class="card-dek">
+          A conversation with the ops lead at a 600-person fintech
+          on consolidating four years of brittle no-code automation
+          into eleven AI-compiled playbooks. Plus the spreadsheet
+          they used to audit everything.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 13</span>
+          <span class="card-author">w/&nbsp;K.&nbsp;Hartman</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-tactics">tactics</span>
+          <span class="post-read">3&nbsp;min</span>
+        </div>
+        <h3 class="card-title">
+          A taxonomy of "the workflow broke"
+        </h3>
+        <p class="card-dek">
+          Six failure modes we see in support tickets, ranked by
+          how often the AI shield catches them before you do.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 09</span>
+          <span class="card-author">R. Diaz</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-essay">essay</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">
+          On naming things the AI will read later
+        </h3>
+        <p class="card-dek">
+          Variable names, channel names, sheet tabs: they're
+          all prompts now. A small style guide for teams whose
+          workflows write themselves.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 06</span>
+          <span class="card-author">M. Chen</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card card-quote">
+      <div class="card-body">
+        <span class="quote-mark">"</span>
+        <h3 class="card-title card-title-quote">
+          The best playbook is the one your replacement can read
+          on a Tuesday afternoon and understand by lunch.
+        </h3>
+        <div class="card-foot">
+          <span class="card-date">FROM ISSUE 46</span>
+          <span class="card-author">— A. Rao</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="topics" id="tags">
+  <div class="section-head">
+    <span class="section-eyebrow">◆ BROWSE BY TOPIC</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="topic-cloud">
+    <a href="#" class="topic" style="--topic-size:1.8rem;">natural language</a>
+    <a href="#" class="topic" style="--topic-size:1.2rem;">retries</a>
+    <a href="#" class="topic" style="--topic-size:2.4rem;">playbooks</a>
+    <a href="#" class="topic" style="--topic-size:1rem;">salesforce</a>
+    <a href="#" class="topic" style="--topic-size:1.5rem;">branching</a>
+    <a href="#" class="topic" style="--topic-size:1.1rem;">slack</a>
+    <a href="#" class="topic" style="--topic-size:2rem;">AI&nbsp;agents</a>
+    <a href="#" class="topic" style="--topic-size:1rem;">stripe</a>
+    <a href="best-shopify-automations-to-set-up.html" class="topic" style="--topic-size:1.9rem;">shopify</a>
+    <a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="topic" style="--topic-size:2.3rem;">discount&nbsp;stacking</a>
+    <a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="topic" style="--topic-size:1.4rem;">exclude&nbsp;sale&nbsp;items</a>
+    <a href="how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html" class="topic" style="--topic-size:2.3rem;">gift&nbsp;messages</a>
+    <a href="how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html" class="topic" style="--topic-size:1.4rem;">gift&nbsp;wrap&nbsp;at&nbsp;checkout</a>
+    <a href="how-to-set-up-tiered-volume-discounts-on-shopify.html" class="topic" style="--topic-size:2.2rem;">tiered&nbsp;volume&nbsp;discounts</a>
+    <a href="how-to-set-up-tiered-volume-discounts-on-shopify.html" class="topic" style="--topic-size:1.3rem;">buy&nbsp;more&nbsp;save&nbsp;more</a>
+    <a href="how-to-sync-bundle-inventory-with-component-stock-on-shopify.html" class="topic" style="--topic-size:2.1rem;">bundle&nbsp;inventory&nbsp;sync</a>
+    <a href="how-to-sync-bundle-inventory-with-component-stock-on-shopify.html" class="topic" style="--topic-size:1.3rem;">component&nbsp;stock</a>
+    <a href="how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html" class="topic" style="--topic-size:2rem;">pause&nbsp;ads&nbsp;out&nbsp;of&nbsp;stock</a>
+    <a href="how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html" class="topic" style="--topic-size:1.2rem;">wasted&nbsp;ad&nbsp;spend</a>
+    <a href="how-to-limit-purchase-quantity-per-customer-on-shopify.html" class="topic" style="--topic-size:2rem;">limit&nbsp;quantity&nbsp;per&nbsp;customer</a>
+    <a href="how-to-limit-purchase-quantity-per-customer-on-shopify.html" class="topic" style="--topic-size:1.3rem;">purchase&nbsp;limits</a>
+    <a href="how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html" class="topic" style="--topic-size:2rem;">free&nbsp;gift&nbsp;with&nbsp;purchase</a>
+    <a href="how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html" class="topic" style="--topic-size:1.3rem;">auto-add&nbsp;to&nbsp;cart</a>
+    <a href="how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html" class="topic" style="--topic-size:1.9rem;">split&nbsp;orders&nbsp;by&nbsp;vendor</a>
+    <a href="how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html" class="topic" style="--topic-size:1.3rem;">multi-vendor&nbsp;fulfillment</a>
+    <a href="how-to-automatically-send-invoices-on-shopify.html" class="topic" style="--topic-size:1.9rem;">order&nbsp;invoices</a>
+    <a href="how-to-automatically-send-invoices-on-shopify.html" class="topic" style="--topic-size:1.3rem;">VAT&nbsp;invoices</a>
+    <a href="how-to-set-a-minimum-order-amount-on-shopify.html" class="topic" style="--topic-size:1.7rem;">minimum&nbsp;order&nbsp;amount</a>
+    <a href="how-to-set-a-minimum-order-amount-on-shopify.html" class="topic" style="--topic-size:1.2rem;">order&nbsp;minimums</a>
+    <a href="how-to-schedule-product-publishing-on-shopify.html" class="topic" style="--topic-size:1.8rem;">scheduled&nbsp;publishing</a>
+    <a href="how-to-schedule-product-publishing-on-shopify.html" class="topic" style="--topic-size:1.2rem;">product&nbsp;drops</a>
+    <a href="how-to-fix-404-errors-from-deleted-products-on-shopify.html" class="topic" style="--topic-size:1.7rem;">404&nbsp;redirects</a>
+    <a href="how-to-fix-404-errors-from-deleted-products-on-shopify.html" class="topic" style="--topic-size:1.2rem;">broken&nbsp;links</a>
+    <a href="how-to-bulk-edit-meta-descriptions-on-shopify.html" class="topic" style="--topic-size:1.7rem;">meta&nbsp;descriptions</a>
+    <a href="how-to-bulk-edit-meta-descriptions-on-shopify.html" class="topic" style="--topic-size:1.2rem;">product&nbsp;SEO</a>
+    <a href="how-to-generate-shopify-product-descriptions-with-ai.html" class="topic" style="--topic-size:1.7rem;">product&nbsp;descriptions</a>
+    <a href="how-to-generate-shopify-product-descriptions-with-ai.html" class="topic" style="--topic-size:1.2rem;">bulk&nbsp;copywriting</a>
+    <a href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html" class="topic" style="--topic-size:1.7rem;">image&nbsp;alt&nbsp;text</a>
+    <a href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html" class="topic" style="--topic-size:1.2rem;">image&nbsp;SEO</a>
+    <a href="how-to-automatically-tag-orders-on-shopify.html" class="topic" style="--topic-size:1.7rem;">order&nbsp;tags</a>
+    <a href="how-to-automatically-tag-orders-on-shopify.html" class="topic" style="--topic-size:1.2rem;">order&nbsp;routing</a>
+    <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html" class="topic" style="--topic-size:1.8rem;">tracking&nbsp;numbers</a>
+    <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html" class="topic" style="--topic-size:1.2rem;">order&nbsp;fulfillment</a>
+    <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="topic" style="--topic-size:1.8rem;">unpaid&nbsp;orders</a>
+    <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="topic" style="--topic-size:1.2rem;">pending&nbsp;payment</a>
+    <a href="how-to-automatically-request-product-reviews-on-shopify.html" class="topic" style="--topic-size:1.9rem;">review&nbsp;requests</a>
+    <a href="how-to-automatically-request-product-reviews-on-shopify.html" class="topic" style="--topic-size:1.2rem;">product&nbsp;reviews</a>
+    <a href="how-to-segment-repeat-customers-on-shopify.html" class="topic" style="--topic-size:1.8rem;">customer&nbsp;segments</a>
+    <a href="how-to-segment-repeat-customers-on-shopify.html" class="topic" style="--topic-size:1.2rem;">VIP&nbsp;tagging</a>
+    <a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" class="topic" style="--topic-size:1.3rem;">wismo</a>
+    <a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="topic" style="--topic-size:1.6rem;">inventory&nbsp;sync</a>
+    <a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="topic" style="--topic-size:1.2rem;">overselling</a>
+    <a href="how-to-set-inventory-reorder-points-on-shopify.html" class="topic" style="--topic-size:1.7rem;">reorder&nbsp;points</a>
+    <a href="how-to-set-inventory-reorder-points-on-shopify.html" class="topic" style="--topic-size:1.2rem;">purchase&nbsp;orders</a>
+    <a href="how-to-schedule-a-sale-on-shopify.html" class="topic" style="--topic-size:1.7rem;">scheduled&nbsp;sales</a>
+    <a href="how-to-schedule-a-sale-on-shopify.html" class="topic" style="--topic-size:1.2rem;">price&nbsp;changes</a>
+    <a href="how-to-bulk-edit-product-prices-on-shopify.html" class="topic" style="--topic-size:1.8rem;">bulk&nbsp;price&nbsp;editing</a>
+    <a href="how-to-bulk-edit-product-prices-on-shopify.html" class="topic" style="--topic-size:1.2rem;">repricing</a>
+    <a href="how-to-set-up-back-in-stock-notifications-on-shopify.html" class="topic" style="--topic-size:1.6rem;">back&nbsp;in&nbsp;stock</a>
+    <a href="how-to-set-up-back-in-stock-notifications-on-shopify.html" class="topic" style="--topic-size:1.1rem;">restock&nbsp;alerts</a>
+    <a href="how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html" class="topic" style="--topic-size:1.5rem;">merchandising</a>
+    <a href="how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html" class="topic" style="--topic-size:1.1rem;">collection&nbsp;sort</a>
+    <a href="how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html" class="topic" style="--topic-size:1.7rem;">abandoned&nbsp;cart</a>
+    <a href="how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html" class="topic" style="--topic-size:1.2rem;">cart&nbsp;recovery</a>
+    <a href="how-to-handle-high-risk-orders-on-shopify.html" class="topic" style="--topic-size:1.7rem;">fraud&nbsp;review</a>
+    <a href="how-to-stop-card-testing-attacks-on-shopify.html" class="topic" style="--topic-size:1.9rem;">card&nbsp;testing</a>
+    <a href="how-to-stop-card-testing-attacks-on-shopify.html" class="topic" style="--topic-size:1.3rem;">bot&nbsp;orders</a>
+    <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" class="topic" style="--topic-size:1.9rem;">combine&nbsp;orders</a>
+    <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" class="topic" style="--topic-size:1.3rem;">order&nbsp;merging</a>
+    <a href="how-to-automatically-hide-sold-out-variants-on-shopify.html" class="topic" style="--topic-size:1.9rem;">hide&nbsp;sold-out&nbsp;variants</a>
+    <a href="how-to-automatically-hide-sold-out-variants-on-shopify.html" class="topic" style="--topic-size:1.3rem;">variant&nbsp;visibility</a>
+    <a href="how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html" class="topic" style="--topic-size:1.8rem;">pre-orders</a>
+    <a href="how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html" class="topic" style="--topic-size:1.2rem;">backorders</a>
+    <a href="how-to-reconcile-shopify-payouts-with-your-sales.html" class="topic" style="--topic-size:1.8rem;">payout&nbsp;reconciliation</a>
+    <a href="how-to-reconcile-shopify-payouts-with-your-sales.html" class="topic" style="--topic-size:1.2rem;">Shopify&nbsp;bookkeeping</a>
+    <a href="how-to-win-chargeback-disputes-on-shopify.html" class="topic" style="--topic-size:1.5rem;">chargebacks</a>
+    <a href="how-to-win-chargeback-disputes-on-shopify.html" class="topic" style="--topic-size:1.1rem;">disputes</a>
+    <a href="how-to-validate-shipping-addresses-on-shopify.html" class="topic" style="--topic-size:1.5rem;">address&nbsp;validation</a>
+    <a href="how-to-validate-shipping-addresses-on-shopify.html" class="topic" style="--topic-size:1.1rem;">fulfillment</a>
+    <a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" class="topic" style="--topic-size:1.1rem;">support</a>
+    <a href="how-to-automate-returns-and-exchanges-on-shopify.html" class="topic" style="--topic-size:1.6rem;">returns</a>
+    <a href="how-to-automate-returns-and-exchanges-on-shopify.html" class="topic" style="--topic-size:1.2rem;">exchanges</a>
+    <a href="how-to-automate-returns-and-exchanges-on-shopify.html" class="topic" style="--topic-size:1.1rem;">refunds</a>
+    <a href="#" class="topic" style="--topic-size:1.4rem;">triggers</a>
+    <a href="#" class="topic" style="--topic-size:1.2rem;">notion</a>
+    <a href="#" class="topic" style="--topic-size:1.6rem;">post-mortems</a>
+    <a href="#" class="topic" style="--topic-size:1rem;">hubspot</a>
+    <a href="#" class="topic" style="--topic-size:1.3rem;">error&nbsp;shields</a>
+    <a href="#" class="topic" style="--topic-size:1.7rem;">prompt&nbsp;craft</a>
+    <a href="#" class="topic" style="--topic-size:1.1rem;">gmail</a>
+    <a href="#" class="topic" style="--topic-size:1.3rem;">integrations</a>
+    <a href="#" class="topic" style="--topic-size:1rem;">sheets</a>
+    <a href="#" class="topic" style="--topic-size:1.4rem;">self-healing</a>
+  </div>
+</section>
+
+<section class="signup">
+  <div class="signup-inner">
+    <div class="signup-left">
+      <span class="signup-eyebrow">◆ THE WEEKLY DISPATCH</span>
+      <h2 class="signup-title">
+        One letter,<br />
+        every <em>Sunday.</em>
+      </h2>
+      <p class="signup-lede">
+        Three essays. One post-mortem. A workflow worth stealing.
+        Sent the morning before you start the week.
+      </p>
+    </div>
+    <form class="signup-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='subscribed ✓'; this.querySelector('input').value='';">
+      <label class="signup-label" for="email">your email</label>
+      <div class="signup-row">
+        <input id="email" type="email" placeholder="name@company.com" required />
+        <button type="submit">subscribe →</button>
+      </div>
+      <span class="signup-fine">free · unsubscribe anytime · 4,200 readers</span>
+    </form>
+  </div>
+</section>
+
+<section class="archive" id="archive">
+  <div class="section-head">
+    <span class="section-eyebrow">◆ FROM THE ARCHIVE</span>
+    <span class="section-rule"></span>
+  </div>
+  <ul class="archive-list">
+    <li data-nav="post"><span class="arch-num">041</span><span class="arch-title">When automation stops being a tool and starts being a teammate</span><span class="arch-date">APR&nbsp;28</span></li>
+    <li data-nav="post"><span class="arch-num">040</span><span class="arch-title">Counting the hidden cost of a single Zap</span><span class="arch-date">APR&nbsp;21</span></li>
+    <li data-nav="post"><span class="arch-num">039</span><span class="arch-title">The case for boring workflows</span><span class="arch-date">APR&nbsp;14</span></li>
+    <li data-nav="post"><span class="arch-num">038</span><span class="arch-title">Composable triggers: a half-baked manifesto</span><span class="arch-date">APR&nbsp;07</span></li>
+    <li data-nav="post"><span class="arch-num">037</span><span class="arch-title">Why your ops team is secretly a compiler</span><span class="arch-date">MAR&nbsp;31</span></li>
+    <li data-nav="post"><span class="arch-num">036</span><span class="arch-title">A short history of if-this-then-that</span><span class="arch-date">MAR&nbsp;24</span></li>
+  </ul>
+  <a href="#" class="archive-more">browse all 86 dispatches →</a>
+</section>
+
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cta-band-copy">
+      <span class="cta-eyebrow">&#9670; Ready when you are</span>
+      <h2 class="cta-title">Stop configuring. <em>Start describing.</em></h2>
+      <p class="cta-sub">Write your workflow in plain English and an AI agent runs it &mdash; calling your apps directly. Your first automation takes under five minutes.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="https://dugong.live" class="btn btn-primary btn-lg">Try Dugong now &rarr;</a>
+      <span class="cta-fine">free &middot; no credit card required</span>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="#">Latest</a>
+        <a href="#">Essays</a>
+        <a href="#">Post-mortems</a>
+        <a href="#">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="#">Pricing</a>
+        <a href="#">AI Engine</a>
+        <a href="#">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>© 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+</div>
+
+<!-- ============ POST VIEW ============ -->
+<div class="view post" id="view-post">
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>◆ DISPATCH Nº 47 — MAY 28, 2026</span>
+    <span>◆ FILED UNDER: RESEARCH</span>
+    <span>◆ 14 MIN READ · 3,420 WORDS</span>
+    <span>◆ BY AANYA RAO</span>
+    <span>◆ DISPATCH Nº 47 — MAY 28, 2026</span>
+    <span>◆ FILED UNDER: RESEARCH</span>
+    <span>◆ 14 MIN READ · 3,420 WORDS</span>
+    <span>◆ BY AANYA RAO</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="#" class="brand" data-nav="home">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#" data-nav="home">Latest</a>
+    <a href="#" data-nav="home">Topics</a>
+    <a href="#" data-nav="home">Archive</a>
+    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+  </nav>
+</header>
+
+<article class="article">
+
+  <a href="#" class="article-back" data-nav="home">← back to field notes</a>
+
+  <div class="article-meta">
+    <span class="tag tag-research">research</span>
+    <span style="color: var(--cream-dim);">DISPATCH Nº 47</span>
+    <span style="color: var(--line-2);">·</span>
+    <span style="color: var(--cream-dim);">MAY 28, 2026</span>
+    <span style="color: var(--line-2);">·</span>
+    <span style="color: var(--cream-dim);">14 MIN READ</span>
+  </div>
+
+  <h2 class="article-title">
+    The death of the <em>drag-and-drop</em> builder.
+  </h2>
+
+  <p class="article-dek">
+    For fifteen years, workflow automation looked like a canvas
+    of rectangles connected by lines. After watching three
+    million runs across twelve thousand teams, we're convinced
+    the canvas was always the problem.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--sand);">AR</span>
+    <span class="byline-name">Aanya Rao</span>
+    <span class="byline-divider">·</span>
+    <span class="byline-role">Head of Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      There is a particular kind of fatigue that sets in around the
+      twentieth node of a Zapier zap. You know the one. The connecting
+      lines start to cross. The error-handling branch you added last
+      week now has its own error-handling branch. Someone on the team
+      named a step "Step 7 (FINAL) (USE THIS ONE)." You open it on a
+      Monday morning, stare at the canvas for forty seconds, and quietly
+      close the tab.
+    </p>
+
+    <p>
+      We've spent the past eighteen months instrumenting that moment.
+      What we found surprised us: the canvas isn't failing because the
+      workflows got more complex. The workflows got more complex
+      <em>because the canvas required them to be.</em>
+    </p>
+
+    <h2>The canvas tax</h2>
+
+    <p>
+      Every drag-and-drop builder shares an unspoken bargain: in exchange
+      for a visual representation of your logic, you agree to express
+      that logic in nodes. One node, one action. Two actions, two nodes
+      and a line. A branch becomes a diamond and three lines. A retry
+      becomes a node that points back at itself in a way that looks
+      vaguely alarming.
+    </p>
+
+    <blockquote>
+      The canvas didn't help us think clearly about workflows. It
+      forced us to think about <em>nodes.</em>
+    </blockquote>
+
+    <p>
+      The cost shows up in our data. Across the 12,000 teams we studied,
+      median Zapier zaps grew 31% in node count year over year, but
+      the work they accomplished grew by only 9%. The rest was
+      <strong>scaffolding</strong>: wrapper nodes, formatter steps,
+      lookup nodes, glue. The canvas was eating itself.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">◆ DATA</span>
+      <span>
+        Of 8,400 workflows audited, <strong>43% of nodes existed only
+        to translate data between two other nodes.</strong> They did no
+        real work; they were grammar. The canvas charged a tax in
+        rectangles.
+      </span>
+    </div>
+
+    <h2>The natural-language alternative</h2>
+
+    <p>
+      What happens if you stop drawing the workflow and start
+      <em>describing</em> it? We thought we knew. We assumed natural
+      language would be a thin layer over the same model, a different
+      input method for the same canvas. It is not.
+    </p>
+
+    <p>
+      Here is a workflow our customer Anika at Resend wrote on a Tuesday
+      afternoon, in plain prose, in our editor:
+    </p>
+
+    <pre><code><span class="c"># trigger</span>
+<span class="k">When</span> a new customer signs up on our website
+
+<span class="c"># steps</span>
+1. <span class="k">Look up</span> their company info using Clearbit
+2. <span class="k">Score</span> the lead with AI: company size, industry, role
+3. <span class="k">If</span> score &gt; 80, create a Salesforce deal + assign rep
+4. <span class="k">Send</span> a welcome email via Gmail with their name
+5. <span class="k">Log</span> to Google Sheets and post to Slack #signups</code></pre>
+
+    <p>
+      What the compiler produced from this prose was an 8-node playbook
+      with one branch, five API integrations, and, critically, an
+      error shield Anika never asked for, because the AI knew Clearbit
+      sometimes times out and Salesforce sometimes rate-limits.
+    </p>
+
+    <p>
+      In a drag-and-drop tool, Anika would have spent the next two hours
+      adding retry logic, formatter steps, and conditional fallbacks.
+      In ours, she spent six minutes describing what the workflow
+      should <em>do</em>, and the compiler handled what it should
+      <em>be.</em>
+    </p>
+
+    <h2>The compiler is the product</h2>
+
+    <p>
+      The interesting work, it turns out, isn't the editor. It's the
+      compiler. Translating "if the score is high" into a branching
+      condition is the easy part; what's hard is knowing that the
+      score might be missing, that the field might be a string instead
+      of a number, that the Salesforce API will occasionally return
+      a duplicate-key error and you should treat that as success.
+    </p>
+
+    <p>
+      That kind of knowledge isn't visible in the editor. It lives
+      in the compiler. And once you accept that the compiler is doing
+      the real work, the editor stops needing to look like a canvas.
+      It can look like writing.
+    </p>
+
+    <hr />
+
+    <h2>Three predictions</h2>
+
+    <p>
+      We think the next three years of workflow automation will be
+      shaped by three forces:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Workflows will be read more than written.</strong>
+        The unit of authorship becomes the prose, not the diagram.
+        Reviewing a teammate's workflow becomes reading a paragraph
+        instead of tracing arrows.
+      </li>
+      <li>
+        <strong>Error handling moves below the line.</strong>
+        Retries, fallbacks, and rate-limit logic will be invisible
+        unless you ask to see them. The compiler will assume you
+        want them; you'll opt out, not opt in.
+      </li>
+      <li>
+        <strong>Integrations stop being a menu.</strong> "Send to
+        Slack" is enough. "Update the CRM" is enough. The resolver
+        picks the tool. You don't browse a directory of 4,000 apps;
+        you mention what you need.
+      </li>
+    </ul>
+
+    <p>
+      None of this means the canvas disappears overnight. There are
+      workflows where a diagram is genuinely the right representation:
+      complex state machines, multi-week orchestrations, anything
+      with significant parallel branches. But those are a minority.
+      For the long tail of "when X happens, do Y and Z," prose is
+      better. It always was. We just didn't have the compiler.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">◆ READING</span>
+      <span>
+        If this argument interests you, three pieces to follow it up
+        with: our <a href="#">post-mortem on the retry-loop incident</a>,
+        the <a href="#">interview with Kira Hartman</a> on consolidating
+        400 zaps, and Mei's <a href="#">essay on naming things the AI
+        will read later.</a>
+      </span>
+    </div>
+
+    <p>
+      We'll keep writing as the data accumulates. If you're building
+      workflows, in any tool, and you want to share what you're
+      seeing, the inbox is open: <code>field-notes@dugong.live</code>.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share · copy link · ✦</span>
+  </div>
+
+</article>
+
+<section class="related">
+  <div class="section-head">
+    <span class="section-eyebrow">◆ READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+    <article class="card" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-essay">essay</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">Triggers are the new APIs</h3>
+        <p class="card-dek">
+          When every step is natural language, the trigger becomes
+          the only thing you really design.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 24</span>
+          <span class="card-author">M. Chen</span>
+        </div>
+      </div>
+    </article>
+    <article class="card" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-essay">essay</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">Branching is a writing problem</h3>
+        <p class="card-dek">
+          Why "if," "unless," and "when" are the three most
+          undervalued words in automation.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 16</span>
+          <span class="card-author">A. Rao</span>
+        </div>
+      </div>
+    </article>
+    <article class="card" data-nav="post">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-interview">interview</span>
+          <span class="post-read">22&nbsp;min</span>
+        </div>
+        <h3 class="card-title">"We deleted 400 Zapier zaps in a weekend."</h3>
+        <p class="card-dek">
+          A 600-person fintech consolidates four years of brittle
+          no-code into eleven playbooks.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 13</span>
+          <span class="card-author">w/ K. Hartman</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cta-band-copy">
+      <span class="cta-eyebrow">&#9670; Ready when you are</span>
+      <h2 class="cta-title">Stop configuring. <em>Start describing.</em></h2>
+      <p class="cta-sub">Write your workflow in plain English and an AI agent runs it &mdash; calling your apps directly. Your first automation takes under five minutes.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="https://dugong.live" class="btn btn-primary btn-lg">Try Dugong now &rarr;</a>
+      <span class="cta-fine">free &middot; no credit card required</span>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="#" data-nav="home">Latest</a>
+        <a href="#">Essays</a>
+        <a href="#">Post-mortems</a>
+        <a href="#">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="#">Pricing</a>
+        <a href="#">AI Engine</a>
+        <a href="#">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>© 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+</div>
+
+<script>
+// ============ VIEW NAVIGATION ============
+function showView(name) {
+  document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+  const target = document.getElementById("view-" + name);
+  if (target) target.classList.add("active");
+  window.scrollTo({ top: 0, behavior: "instant" });
+  // Re-run reveal observer for the newly shown content
+  attachReveals();
+}
+
+document.addEventListener("click", (e) => {
+  const trigger = e.target.closest("[data-nav]");
+  if (!trigger) return;
+  e.preventDefault();
+  showView(trigger.getAttribute("data-nav"));
+});
+
+// ============ SCROLL REVEALS ============
+let io;
+function attachReveals() {
+  if (io) io.disconnect();
+  io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+  document.querySelectorAll(".view.active .featured-card, .view.active .card, .view.active .archive-list li, .view.active .section-head, .view.active .signup-inner, .view.active .topic-cloud, .view.active .foot")
+    .forEach((el) => {
+      el.classList.remove("in");
+      el.classList.add("reveal");
+      io.observe(el);
+    });
+}
+attachReveals();
+
+// ============ FILTER PILLS ============
+document.querySelectorAll(".pill").forEach((pill) => {
+  pill.addEventListener("click", () => {
+    document.querySelectorAll(".pill").forEach((p) => p.classList.remove("pill-active"));
+    pill.classList.add("pill-active");
+  });
+});
+
+// ============ HERO PARALLAX ============
+const heroTitle = document.querySelector(".hero-title");
+if (heroTitle && window.matchMedia("(min-width: 720px)").matches) {
+  window.addEventListener("scroll", () => {
+    const y = window.scrollY;
+    if (y < 800 && document.getElementById("view-home").classList.contains("active")) {
+      heroTitle.style.transform = `translateY(${y * 0.08}px)`;
+    }
+  }, { passive: true });
+}
+</script>
+</body>
+</html>
