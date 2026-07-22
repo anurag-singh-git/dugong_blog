@@ -15,7 +15,27 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Mon, 20 Jul 2026 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jul 2026 15:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>How to notify customers of shipping delays on Shopify automatically</title>
+      <link>https://blog.dugong.live/how-to-notify-customers-of-shipping-delays-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-notify-customers-of-shipping-delays-on-shopify.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Wed, 22 Jul 2026 15:00:00 +0000</pubDate>
+      <description>An order sits unfulfilled on day seven of a two-day promise, and Shopify has sent the customer exactly one email: the confirmation at checkout. The next email the platform knows how to send is the shipping confirmation, which cannot exist until the order ships, so the entire stretch where the order is late is a stretch where the store is silent. There is no delay notice template, no trigger for an order aging past its promise, and no bulk email behind the unfulfilled filter on the Orders page. Shopify Flow can find every paid order still unfulfilled after seven days, then its only email action writes to your own staff, never the customer, and Shopify Email campaigns reach only marketing subscribers, which the anxious guest buyer is not. The silence converts delays into where-is-my-order tickets, item-not-received chargebacks, cancellations, and reviews that name the communication instead of the product. The AI playbook that watches every open order against its real promise, catches the slip early, diagnoses cause and scope, sends the honest per-order delay email with a new date and options when the wait is long, follows up if the new date slips too, and escalates the orders where an apology alone will not do.</description>
+    </item>
+
+    <item>
+      <title>How to merge duplicate customer profiles on Shopify in bulk</title>
+      <link>https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Wed, 22 Jul 2026 09:00:00 +0000</pubDate>
+      <description>Somewhere in your customer list is a person your store has met many times and recognized never: an account with her personal email, a guest checkout under her work address, a wallet checkout that handed you a hide-my-email relay, and a POS sale filed under a phone number. Four profiles, one human, so her lifetime value splits four ways, the VIP segment never sees her, and the welcome discount greets her as new every time she arrives. Shopify's native merge combines exactly two profiles at a time, offers no store-wide duplicate detection, and refuses any pair with a subscription contract, a B2B company link, a vaulted card, or a store credit account, while Shopify Flow has no merge action at all. The AI playbook that sweeps the whole list, decides same person or coincidence from the whole record, merges in bulk safely, and holds the ambiguous matches for a human.</description>
+    </item>
 
     <item>
       <title>How to stop discount codes from applying to sale items on Shopify</title>
