@@ -3,28 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to merge duplicate customer profiles on Shopify in bulk &mdash; Dugong Field Notes</title>
-<meta name="description" content="Shopify merges duplicate customers two at a time and refuses some pairs entirely. The AI playbook that finds and merges duplicate profiles in bulk, safely." />
-<link rel="canonical" href="https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html" />
+<title>How to catch and cancel duplicate orders on Shopify automatically &mdash; Dugong Field Notes</title>
+<meta name="description" content="A double-click on a slow checkout makes two identical orders. Shopify has no duplicate detection. The AI playbook that catches the copy before the label prints." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html" />
 <meta name="author" content="Priya Singh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="keywords" content="Shopify merge duplicate customers in bulk, Shopify duplicate customer profiles, Shopify merge customer accounts, Shopify duplicate customer accounts, Shopify bulk merge customers, Shopify customer merge not working, Shopify POS duplicate customers, Shopify guest checkout duplicate accounts, clean up Shopify customer list, AI Shopify customer deduplication, Dugong" />
+<meta name="keywords" content="Shopify duplicate order, customer ordered twice Shopify, cancel duplicate order Shopify, Shopify double order, automatically cancel duplicate orders Shopify, Shopify Flow duplicate order same SKU, customer placed order twice by mistake, Shopify customer charged twice, duplicate order detection Shopify, prevent duplicate orders Shopify, AI duplicate order cancellation, Dugong" />
 <meta name="theme-color" content="#c6fe1e" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
-<meta property="article:published_time" content="2026-07-22" />
-    <meta property="article:modified_time" content="2026-07-22" />
+<meta property="article:published_time" content="2026-07-24" />
+    <meta property="article:modified_time" content="2026-07-24" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
-<meta property="og:title" content="How to merge duplicate customer profiles on Shopify in bulk" />
-<meta property="og:description" content="One loyal customer checks out as a guest, taps Apple Pay with a relay email, and buys once at your POS counter, and your admin now holds three strangers. Shopify's native merge takes two profiles at a time and refuses some pairs entirely. The AI playbook that finds the duplicates across your whole list, decides which are really the same person, and merges them without welding two real people together." />
-<meta property="og:url" content="https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html" />
+<meta property="og:title" content="How to catch and cancel duplicate orders on Shopify automatically" />
+<meta property="og:description" content="Two identical orders land four minutes apart: same items, same address, same card. A double-click on a slow checkout or a retry after a card error, and your customer has paid twice for one box. Shopify has no duplicate detection anywhere in the admin, orders cannot be deleted, refunds do not return the processing fees, and Shopify Flow's Order created trigger sees each order alone, so it cannot compare the new order to the one placed minutes earlier. The AI playbook that looks back at the customer's recent orders on every new order, compares whole orders instead of single fields, judges duplicate or deliberate, cancels the unfulfilled copy before the label prints, and tells the customer before they find the double charge and dispute it." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -33,8 +33,8 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="How to merge duplicate customer profiles on Shopify in bulk" />
-<meta name="twitter:description" content="Your best customer looks like three strangers in the admin, so every report undercounts them and every welcome code treats them as new. The AI playbook that cleans the whole customer list without merging the wrong people." />
+<meta name="twitter:title" content="How to catch and cancel duplicate orders on Shopify automatically" />
+<meta name="twitter:description" content="Shopify records both orders perfectly. It just has no idea they are the same one. The AI playbook that catches the accidental duplicate before both boxes ship." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
     <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 
@@ -44,25 +44,25 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html#article",
+      "@id": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#article",
       "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
-      "mainEntityOfPage": "https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html",
-      "url": "https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html",
-      "headline": "How to merge duplicate customer profiles on Shopify in bulk",
-      "description": "One person checks out as a guest with a work email, taps a wallet button that hands over a relay address, and buys once at your POS counter with only a phone number, and Shopify now holds three profiles for one human. The native merge combines exactly two profiles at a time, offers no store-wide duplicate detection, and refuses any pair where either profile has a subscription contract, a B2B company link, a vaulted card, a store credit account, or a multipass login, and Shopify Flow has no merge action at all. The duplicates split lifetime value so VIP segments miss their own members, hand welcome discounts to regulars the store thinks are new, and blind support to half a customer's history. The AI playbook that sweeps the whole list for likely duplicates across email variants, shared phones, and matching addresses, decides same person or coincidence from the whole record, picks the surviving profile, merges pair by pair while chaining clusters, queues the pairs Shopify cannot merge with a consolidation plan, and holds the ambiguous matches for a human.",
-      "datePublished": "2026-07-22",
-      "dateModified": "2026-07-22",
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html",
+      "url": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html",
+      "headline": "How to catch and cancel duplicate orders on Shopify automatically",
+      "description": "Two identical orders land in the admin four minutes apart: same items, same quantities, same address, same card. Somebody double-clicked the pay button on a slow checkout, or retried after a card error that had actually gone through, and now one customer has paid twice for one box. Shopify offers no help at any point in this story. There is no duplicate order detection anywhere in the admin, so nothing warns you the two orders match. Orders cannot be deleted, only canceled and refunded, and payment processing fees are generally not returned on refunds, so even the cleanest catch costs money. Shopify Flow cannot make the catch at all: the Order created trigger hands the workflow one order in isolation, and its conditions cannot look sideways at the customer's other recent orders to compare line items, which is exactly the comparison a duplicate requires. If nobody notices in time, the warehouse or 3PL fulfills both copies and two boxes ship, and if the customer notices the double charge before you do, the second order comes back as a chargeback instead of a refund. The AI playbook that looks back at the customer's recent orders on every new order, compares whole orders instead of single fields, judges duplicate or deliberate from the pattern, cancels the unfulfilled copy before the label prints and restocks it, tells the customer plainly before they find the double charge, and holds the genuinely ambiguous case for a human instead of guessing.",
+      "datePublished": "2026-07-24",
+      "dateModified": "2026-07-24",
       "articleSection": "Research",
-      "keywords": "Shopify merge duplicate customers in bulk, Shopify duplicate customer profiles, Shopify merge customer accounts, Shopify duplicate customer accounts, Shopify bulk merge customers, Shopify customer merge not working, Shopify POS duplicate customers, Shopify guest checkout duplicate accounts",
-      "wordCount": 2020,
+      "keywords": "Shopify duplicate order, customer ordered twice Shopify, cancel duplicate order Shopify, Shopify double order, automatically cancel duplicate orders Shopify, Shopify Flow duplicate order same SKU, Shopify customer charged twice, duplicate order detection Shopify",
+      "wordCount": 2200,
       "timeRequired": "PT10M",
       "inLanguage": "en",
       "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
       "about": [
         { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "Customer relationship management", "sameAs": "https://en.wikipedia.org/wiki/Customer_relationship_management" },
-        { "@type": "Thing", "name": "Data deduplication", "sameAs": "https://en.wikipedia.org/wiki/Data_deduplication" },
-        { "@type": "Thing", "name": "Customer lifetime value", "sameAs": "https://en.wikipedia.org/wiki/Customer_lifetime_value" },
+        { "@type": "Thing", "name": "Order fulfillment", "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment" },
+        { "@type": "Thing", "name": "Chargeback", "sameAs": "https://en.wikipedia.org/wiki/Chargeback" },
+        { "@type": "Thing", "name": "Customer service", "sameAs": "https://en.wikipedia.org/wiki/Customer_service" },
         { "@type": "Thing", "name": "E-commerce", "sameAs": "https://en.wikipedia.org/wiki/E-commerce" }
       ],
       "speakable": {
@@ -87,7 +87,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The customer Shopify counts three times", "item": "https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html" }
+        { "@type": "ListItem", "position": 2, "name": "The order your customer placed twice", "item": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html" }
       ]
     },
     {
@@ -95,44 +95,44 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Can I merge duplicate customer profiles in bulk on Shopify?",
+          "name": "Why do duplicate orders happen on Shopify?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Shopify's native merge combines exactly two profiles at a time: you select two customers on the Customers page and choose Merge customers, or open one profile and use More actions, then Merge customer. There is no bulk select, no store-wide duplicate report, and no admin screen that queues thousands of likely pairs for review, so a list that has accumulated years of guest checkouts and POS sales is a two-at-a-time job with no end. Cleaning a real list means detection and judgement first: finding likely pairs across email variants, shared phones, and matching addresses, deciding which pairs are truly the same person, then running the merges pair by pair, which is exactly the part worth automating."
+            "text": "Almost always because of one human and one button. The customer double-clicks or double-taps the pay button on a slow checkout, retries their card after an error message even though the first attempt actually captured, or refreshes the processing page because no confirmation appeared. Occasionally a theme, app, or platform glitch doubles the order on its own. Shopify does not warn you in any of these cases: there is no duplicate order detection anywhere in the admin, so the two identical orders sit in the order list like strangers, and unless a person or an automation compares them, both get fulfilled."
           }
         },
         {
           "@type": "Question",
-          "name": "Why does Shopify keep creating duplicate customer profiles?",
+          "name": "Can Shopify Flow automatically cancel duplicate orders?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because a profile is keyed to contact details, not to a human being. Shopify enforces one profile per email address, but the same person checks out as a guest with a work email, uses a hide-my-email relay address at a wallet checkout, gives your POS counter only a phone number, or simply mistypes their email once, and each new detail mints a fresh profile. POS and online are the classic split: the person your staff knows by face and the person who orders from your site at midnight are two records that never meet. Nothing native watches for the same human arriving under new details, so the list fragments quietly as the store grows."
+            "text": "Not really, and the reason is structural. Flow's Order created trigger hands the workflow exactly one order, and its conditions can only read that order's own fields. There is no condition that looks sideways at the customer's other recent orders and compares line items, which is precisely the comparison a duplicate check needs, so the ask that keeps appearing on the community boards, cancel any order that repeats the same SKUs within 24 hours, cannot be expressed as a stock workflow. Merchants approximate it with customer order counts and tag gymnastics, but a count says second order today, not same order twice. And even a successful cancellation happens after capture, so the processing fees on the duplicate payment are still generally lost."
           }
         },
         {
           "@type": "Question",
-          "name": "Why won't Shopify let me merge two customer profiles?",
+          "name": "Will I get my payment processing fees back if I refund a duplicate order?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The merge is blocked whenever either profile is entangled in something Shopify cannot cleanly combine: a subscription contract, current or past; a link to a B2B company; a vaulted payment card; a store credit account; a multipass login; or a pending customer data request or redaction. Those pairs need a different path than the merge button: consolidate what can move, such as tags, notes, addresses, and a record of which profile is the primary one, point future activity at the survivor, and leave the entangled record intact. That is judgement work per pair, which is why a cleanup that only knows how to press merge stalls the first time it meets a subscriber."
+            "text": "Generally no. When you cancel and refund the duplicate, the customer gets their money back but payment processing fees are typically not returned to you, so every accidental double order costs you the fees on a sale you never made. That is the good outcome. The bad outcome is the customer spotting the double charge on their card statement before you have said anything and disputing it with their bank, which turns the duplicate into a chargeback carrying its own fee and a mark against your store. This asymmetry is why catching the copy fast and telling the customer first, before they discover it themselves, is worth automating."
           }
         }
       ]
     },
     {
       "@type": "HowTo",
-      "@id": "https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html#howto",
-      "name": "The customer Shopify counts three times",
-      "description": "The AI playbook that merges duplicate customer profiles on Shopify in bulk: sweeping the whole list for likely duplicates across email variants, shared phones, and matching addresses, deciding same person or coincidence from the whole record, picking the surviving profile, merging pair by pair while chaining clusters, queueing the pairs Shopify cannot merge with a consolidation plan, and holding ambiguous matches for a human.",
+      "@id": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#howto",
+      "name": "The order your customer placed twice",
+      "description": "The AI playbook that catches accidental duplicate orders on Shopify: looking back at the customer's recent orders on every new order, comparing whole orders instead of single fields, judging duplicate or deliberate from the pattern, canceling the unfulfilled copy before the label prints and restocking, telling the customer before they find the double charge, and holding the ambiguous case for a human.",
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
-        { "@type": "HowToStep", "position": 1, "name": "Sweep the list for likely duplicates", "text": "Scan every profile for email variants and typos, shared phone numbers and addresses, and matching names paired with the same street or postcode, instead of waiting for the admin to flag a pair", "url": "https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 2, "name": "Decide same person or coincidence", "text": "Judge each candidate pair from the whole record, addresses, order cadence, and payment details together, never from the name alone", "url": "https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 3, "name": "Pick the surviving profile", "text": "Keep the profile with the login, the marketing consent, and the cleanest data, and never let a merge upgrade someone who unsubscribed into a subscriber", "url": "https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 4, "name": "Merge pair by pair, chaining clusters", "text": "Run the merges through Shopify's native merge so order history combines safely, chaining clusters of three or more profiles down to one", "url": "https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 5, "name": "Queue what Shopify will not merge", "text": "Route the subscription, B2B, vaulted-card, and store-credit profiles to a consolidation plan around the survivor instead of forcing a blocked merge", "url": "https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 6, "name": "Hold the ambiguous matches for a human", "text": "Escalate the pairs the evidence cannot settle and log every merge with its reasons so the cleanup stays auditable", "url": "https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html#playbook" }
+        { "@type": "HowToStep", "position": 1, "name": "Look back on every new order", "text": "When an order is created, pull the same customer's other orders from the last day and put them side by side", "url": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#playbook" },
+        { "@type": "HowToStep", "position": 2, "name": "Compare whole orders, not single fields", "text": "Match line items, quantities, totals, shipping address, payment method, and the minutes between them", "url": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#playbook" },
+        { "@type": "HowToStep", "position": 3, "name": "Judge duplicate or deliberate", "text": "An identical order minutes later is a misfire; the same product a day later with a gift note is a customer who wants two", "url": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#playbook" },
+        { "@type": "HowToStep", "position": 4, "name": "Cancel the copy before the label prints", "text": "Cancel the unfulfilled duplicate, refund it, restock the inventory, and file the reason on the order", "url": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#playbook" },
+        { "@type": "HowToStep", "position": 5, "name": "Tell the customer before they find the charge", "text": "Send a plain email that says what happened, what was canceled, and when the refund lands, before the statement does", "url": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#playbook" },
+        { "@type": "HowToStep", "position": 6, "name": "Hold the close call for a human", "text": "When the two orders rhyme but do not match, pause fulfillment briefly and ask the customer or the merchant instead of guessing", "url": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#playbook" }
       ]
     }
   ]
@@ -429,13 +429,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>&#9670; DISPATCH N&ordm; 87 &mdash; JUL 22, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 90 &mdash; JUL 24, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,020 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,200 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
-    <span>&#9670; DISPATCH N&ordm; 87 &mdash; JUL 22, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 90 &mdash; JUL 24, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,020 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,200 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -460,23 +460,24 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 87</span>
+    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 90</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">JUL 22, 2026</span>
+    <span style="color: var(--cream-dim);">JUL 24, 2026</span>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">10 MIN READ</span>
   </div>
 
   <h1 class="article-title">
-    How to merge <em>duplicate customer profiles</em> on Shopify in bulk
+    How to catch and <em>cancel duplicate orders</em> on Shopify automatically
   </h1>
 
   <p class="article-dek">
-    One loyal customer checks out as a guest with her work email, taps Apple Pay with a
-    relay address, and buys once at your market stall through the POS, and your admin
-    now holds three strangers. Here is why Shopify only merges profiles two at a time,
-    why some pairs will not merge at all, and the playbook that cleans the whole list
-    without ever welding two real people together.
+    Two orders land four minutes apart: same items, same address, same card.
+    Somebody double-tapped the pay button, or retried after a card error that
+    had already gone through, and now one customer has paid twice for one box.
+    Shopify will not warn you, Flow cannot compare the two orders, and the
+    warehouse is about to ship both. Here is why the platform cannot see a
+    duplicate, and the playbook that catches the copy before the label prints.
   </p>
 
   <div class="article-byline">
@@ -489,204 +490,242 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="article-body">
 
     <p>
-      Somewhere in your customer list right now is a person your store has met many
-      times and recognized never. She created an account two years ago with her
-      personal email. Last spring she checked out as a guest with her work address
-      because she was buying from her desk. In December she tapped a wallet button that
-      handed you a hide-my-email relay address. And when she found you at a weekend
-      market, your POS filed her under a phone number and nothing else. Four profiles,
-      four short histories, one human. To every report, segment, and flow you run, your
-      best kind of customer looks like four unremarkable strangers.
+      It is Friday night and the drop is live. Order #4381 arrives at 9:14:
+      two candles, one wax warmer, $64, shipping to an address on Maple Street.
+      At 9:18, order #4382: two candles, one wax warmer, $64, Maple Street.
+      Same customer, same card, both paid. Nobody wants two of this box. What
+      happened in those four minutes is the oldest small accident in
+      ecommerce: a checkout that felt slow, a pay button that got pressed
+      twice, or a card error screen that convinced the customer their first
+      try had failed when it had actually captured. The customer thinks they
+      bought one. Your admin says they bought two. And nothing anywhere in
+      Shopify is going to mention that the two orders are the same one.
     </p>
 
     <p>
-      The community threads on this are some of the longest-running in Shopify's
-      forums, and the titles barely change from year to year. "Can merging duplicate
-      customers in Shopify really be that complicated?" "Merging duplicate customers in
-      bulk." "Built-in duplicate customer account detection and bulk merge tool."
-      The thread that asks whether it can really be that complicated has been
-      collecting replies across a decade of merchants, page after page of the same
-      request. Nobody is asking for anything exotic. They want the store to know one
-      person as one person, and to fix the thousands of cases where it does not,
-      without doing it one pair at a time.
+      The forums have been asking for exactly this catch for years, in
+      wording so specific it reads like a product spec. "How to automatically
+      cancel duplicate orders with same SKU within 24 hours?" sits on the
+      Shopify Flow board, politely unanswered in the way that means the tool
+      cannot do it. Other threads report customers charged twice after a
+      payment retry, orders doubling out of a glitchy checkout, and one long
+      thread of merchants whose customers received their order twice, with
+      the merchants eating the second box. The stories differ in cause and
+      agree in shape: two records, one intention, and a platform that treats
+      them as strangers.
     </p>
 
     <h2>What Shopify actually does, and where it stops</h2>
 
     <p>
-      Give the platform its due first, because the picture has improved. Shopify
-      enforces one profile per email address, so a logged-in customer cannot fork
-      themselves by accident. The admin will point out similar profiles when you are
-      looking at a customer. And there is now a real merge: open a profile and choose
-      Merge customer under More actions, or select two customers on the Customers page,
-      and Shopify combines them properly, orders, addresses, tags, and notes brought
-      together under one record. For the pair in front of you, it works.
+      Start with detection, because there is none. The orders screen lists
+      #4381 and #4382 the way it lists any two orders. No badge, no warning,
+      no possible duplicate flag, nothing that compares an incoming order to
+      the ones the same customer placed minutes earlier. Shopify's risk
+      analysis looks at each order alone and asks whether the payment looks
+      stolen, which is the question behind <a
+      href="how-to-handle-high-risk-orders-on-shopify.html">the high-risk
+      flag</a>, and a duplicate fails that test perfectly: it is the same
+      legitimate customer using the same legitimate card, so both copies come
+      back low risk. The one system watching every order is structurally
+      unable to notice the only thing wrong with this one.
     </p>
 
     <p>
-      The first wall is arithmetic. The merge takes exactly two profiles at a time,
-      chosen by hand. There is no bulk select, no store-wide duplicate report, no queue
-      of likely pairs to approve. A store that has traded for a few years across web,
-      POS, and a marketplace or two carries duplicates in the thousands, and clusters
-      rather than pairs: the same person as three, four, five records, which even by
-      hand means merging down the chain one join at a time. The detection is shallow
-      too. The admin can notice two profiles sharing a name or a phone number. It
-      cannot notice that <code>j.smith@gmail.com</code> and
-      <code>jsmith+shop@gmail.com</code> are the same inbox, that a relay address and a
-      real one land at the same street, or that the POS profile with no email at all
-      shares a card and a postcode with an online account.
+      Then the cleanup, which is worse than it sounds. Orders cannot be
+      deleted in Shopify, only canceled, so the accident lives in your
+      reports either way. Canceling means refunding, and payment processing
+      fees are generally not returned on refunds, so the cleanest possible
+      outcome of a duplicate still costs you the fees on a sale that never
+      existed. That is the same quiet tax that makes <a
+      href="how-to-block-a-customer-on-shopify.html">the Flow blocklist
+      workaround</a> expensive: react after capture and the toll is already
+      paid. And the cleanup only happens if someone notices. If nobody does,
+      the warehouse or the 3PL pulls both orders in its next sweep, two
+      labels print, two boxes ship, and you are now paying return shipping
+      on your own mistake or writing off the merchandise entirely.
     </p>
 
     <p>
-      The second wall is refusal. The merge is blocked entirely when either profile
-      has a subscription contract, current or past, is linked to a B2B company, holds a
-      vaulted payment card, carries a store credit account, or signs in through
-      multipass. Those are precisely the profiles most worth consolidating, your
-      subscribers and wholesale buyers, and for them the button simply is not there.
-      And the automation escape hatch does not exist: Shopify Flow has no merge
-      customers action, so the platform's own workflow tool can tell you about
-      duplicates at best and can never fix one.
+      The natural move is to automate the catch with Shopify Flow, and this
+      is where the gap turns structural. Flow's Order created trigger hands
+      the workflow exactly one order, and every condition it can evaluate
+      reads from that order alone. There is no condition that looks sideways
+      at the customer's other recent orders and compares line items, which is
+      precisely the comparison a duplicate check is. You can read the
+      customer's order count and learn this is their second order today, but
+      a count cannot tell a duplicate from a customer who came back for more.
+      The community thread asking for same SKU within 24 hours is asking
+      Flow to hold two orders side by side, and Flow has one hand. So
+      merchants bolt on tag gymnastics and scheduled exports, and the honest
+      answer stays what it has been for years: the comparison happens in a
+      human's head or it does not happen.
     </p>
 
     <blockquote>
-      Shopify enforces one profile per email address. Your customer has four email
-      addresses.
+      Shopify keeps a perfect record of both orders. It just has no idea
+      they are the same one.
     </blockquote>
 
     <p>
-      Why it matters is arithmetic of a worse kind. Lifetime value splits across the
-      fragments, so the regular who has spent eight hundred dollars reads as four
-      people who spent two hundred, and never trips the VIP threshold in
-      <a href="how-to-segment-repeat-customers-on-shopify.html">the segments you
-      build on spend</a>. The welcome flow greets her as a new customer, with a new
-      customer's discount, every time she arrives under a new address. Two of her
-      profiles are subscribed to your email list, so campaign sends double up or get
-      flagged as spam by the same person they were meant to delight. Support opens the
-      profile that matches the ticket's email and sees a quarter of the story. And your
-      dashboards quietly inflate: new customer counts include people you have known for
-      years, and repeat rate sags below the truth, so you spend acquisition budget
-      re-acquiring customers you already own.
+      There is one more way to lose, and it is the expensive one. The
+      customer finds the double charge before you do, on a banking app
+      notification or a statement, from a store that has said nothing. Some
+      write in, and that email lands in the same queue as everything else.
+      Some do not write in. They tap dispute instead, and the duplicate you
+      would have refunded with an apology becomes <a
+      href="how-to-win-chargeback-disputes-on-shopify.html">a chargeback
+      carrying its own fee</a> and a strike against your store's record, over
+      an accident a computer could have caught in four seconds.
     </p>
 
     <h2>Why doing it by hand never keeps up</h2>
 
     <p>
-      The by-hand version is not hard, it is endless. Each merge is a minute of
-      clicking once you are sure, and the being sure is the actual work. Two profiles
-      named Maria Garcia are either one woman with two emails or two women in the same
-      city, and the answer is not in the names. It is in the fragments: the same
-      street address spelled two ways, the same phone with and without a country code,
-      orders that alternate like one person shopping, a payment card that repeats. A
-      person can weigh all of that, for about twenty pairs, and then the afternoon is
-      gone and the list has minted new duplicates behind them, because every guest
-      checkout and market day adds more.
+      The manual catch is a morning ritual: scan the overnight orders, watch
+      for a name that appears twice, check whether the carts match. It works
+      on the days it works. But fulfillment is a race you have chosen to run
+      slowly. A 3PL pulls new orders on a schedule measured in minutes, and a
+      duplicate placed at 9:18 on Friday night is picked, packed, and labeled
+      long before Monday's scan, the same race that <a
+      href="how-to-edit-a-shopify-order-after-its-been-placed.html">order
+      edits lose</a> for the same reason. Volume breaks the scan the rest of
+      the way: on a launch weekend, two hundred orders scroll past, and the
+      pair four minutes apart with the same last name is exactly the detail a
+      tired eye skips. The duplicates you catch are the ones that happened to
+      arrive slowly, which is to say the misses are invisible until the
+      support ticket arrives, angry, three weeks later.
     </p>
 
     <p>
-      Getting it wrong is worse than leaving it alone. Merge two profiles that are
-      actually two people and you have joined their order histories, their addresses,
-      and their store activity into one record each of them can see parts of. That is
-      not an untidy database, that is a privacy incident, and there is no unmerge
-      button waiting behind the mistake. The consent question has the same edge:
-      one profile opted into marketing and the other explicitly unsubscribed, and a
-      careless merge that keeps the wrong flag turns an unsubscribe into a
-      subscription, which is the kind of error regulators and spam filters both
-      remember. Caution is why most merchants do nothing, and doing nothing is how a
-      list gets to ten thousand duplicates.
+      And the scan has a false-positive problem that costs real sales. Not
+      every repeated order is a mistake. A customer reorders the same serum
+      the day it runs out. A gift buyer sends the same box to the same
+      address twice on purpose. A customer places a second order twenty
+      minutes after the first because they forgot an item, and that person
+      wants both orders, ideally <a
+      href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html">combined
+      into one shipment</a> rather than either canceled. Cancel a deliberate
+      order on a hunch and you have refunded revenue, confused a customer
+      mid-experience, and taught your team to distrust the process. The
+      manual scan swings between missing true duplicates at speed and
+      executing false ones at leisure.
     </p>
 
     <h2>What the automation actually has to do</h2>
 
     <p>
-      The real job is not a merge button pressed faster. It is a sweep, a judgement,
-      and a safe hand on the button, running continuously: find the likely duplicates
-      across the whole list, decide which are truly the same person from evidence
-      rather than string matching, merge the safe ones through Shopify's own merge so
-      the history combines cleanly, route the blocked ones to a plan instead of a
-      dead end, and bring the genuinely uncertain ones to you. As a Dugong playbook,
-      in plain prose, it reads like this:
+      A duplicate catch that works is not a rule about SKUs and hours. It is
+      a look-back, a comparison, a judgement, and a race: on every new order,
+      pull the same customer's recent orders and hold them side by side;
+      compare the whole order, not one field; decide misfire or intention
+      from the pattern; act inside the window where cancellation is clean;
+      and say something to the customer before their bank does. As a Dugong
+      playbook, in plain prose, it reads like this:
     </p>
 
     <pre id="playbook"><code><span class="c"># trigger</span>
-<span class="k">On</span> a scheduled sweep of the whole customer list, and
-   on every new profile created at checkout, at the
-   POS counter, or by an app
+<span class="k">On</span> every new order
 
 <span class="c"># steps</span>
-1. <span class="k">Find</span> the likely duplicates: email variants and
-   typos, shared phones and addresses, same name at
-   the same street or postcode
-2. <span class="k">Decide</span> same person or coincidence from the whole
-   record, never from the name alone
-3. <span class="k">Pick</span> the survivor: the profile with the login, the
-   marketing consent, and the cleanest data
-4. <span class="k">Merge</span> pair by pair through the native merge,
-   chaining clusters of three or more down to one
-5. <span class="k">Queue</span> what Shopify will not merge, with the
-   subscription, B2B, and store-credit profiles
-   consolidated around the survivor instead
-6. <span class="k">Hold</span> the ambiguous matches for a human, and log
-   every merge so the cleanup is auditable</code></pre>
+1. <span class="k">Look</span> back at the same customer's orders from
+   the last day and put them side by side
+2. <span class="k">Compare</span> whole orders: items, quantities, totals,
+   ship-to, payment, and the minutes between them
+3. <span class="k">Judge</span> duplicate or deliberate: an identical cart
+   minutes later is a misfire, the same product next
+   week is a fan
+4. <span class="k">Cancel</span> the unfulfilled copy before the label
+   prints, refund it, restock, file the reason
+5. <span class="k">Tell</span> the customer plainly, before the double
+   charge finds them on a statement
+6. <span class="k">Hold</span> the close call: pause fulfillment briefly
+   and ask, instead of guessing
+</code></pre>
 
     <p>
-      Six lines. The compiler fills in the rest: sweeping nightly instead of the
-      once-a-year purge, scoring each candidate pair on the evidence a person would
-      use, refusing to act on a name alone, keeping consent conservative so nobody
-      unsubscribed is ever re-subscribed by a merge, carrying tags and notes onto the
-      survivor, working the clusters down join by join in the right order, and writing
-      a log you can audit: which profiles merged, on what evidence, and which pairs
-      were left alone on purpose. The list gets clean once, then stays clean, because
-      the same watcher meets every new profile on the day it is born.
+      Six lines, and the compiler fills in the judgement they imply. Reading
+      a payment retry for what it is, two capture attempts wrapped around one
+      error screen, which is near-certain duplicate territory. Choosing which
+      copy to cancel: the unfulfilled one, and when both are unfulfilled, the
+      later one, so the customer's confirmation email stays true. Beating the
+      warehouse to the label, and when the copy has already been picked,
+      flagging it for intercept instead of pretending. <a
+      href="how-to-automatically-tag-orders-on-shopify.html">Tagging the
+      canceled copy and the survivor</a> so support sees the whole story
+      before answering the confused email. Writing the note that turns the
+      accident into a good story: you appear to have been charged twice, we
+      canceled the extra order, your refund is on its way, your real order
+      ships tomorrow. And noticing the meta-pattern a human would miss,
+      because three duplicates in one week is not three clumsy customers, it
+      is a checkout bug wearing customer clothing, and the playbook should
+      say so.
     </p>
 
     <div class="callout callout-sand">
       <span class="callout-mark">&#9670; NOTE</span>
       <span>
-        The trap is <strong>exact-match dedup</strong>. A bulk tool that merges on
-        same first and last name will eventually weld two real people together, and
-        one bad merge costs more trust than a thousand duplicates. Matching is
-        evidence work: an email variant plus a shared address is a strong yes, a
-        shared name alone is a hard no, and the honest middle belongs in front of a
-        person, not inside a default.
+        The trap is <strong>the SKU-window rule</strong>. Auto-cancel every
+        order that repeats a SKU inside 24 hours and the rule will
+        eventually refund a real sale: the reorder, the second gift, the
+        collector buying two on purpose. A rule cannot ask what the customer
+        meant. A judgement can weigh the identical cart, the four-minute
+        gap, and the card error in the payment log together, and still hand
+        the genuinely unclear case to someone with a name.
       </span>
     </div>
 
     <h2>Why this is a compiler problem, not an app problem</h2>
 
     <p>
-      There are dedup apps, and a store drowning in duplicates should look at them.
-      But the thing that makes a cleanup safe is not a merge executed quickly, it is
-      the judgement about a specific pair: is the relay address her, is the POS
-      profile him, does this pair share an inbox or merely a surname, which record
-      deserves to survive, and is this cluster safe to collapse or is one profile in
-      it a subscriber the merge will refuse. Those answers change per pair and per
-      store, which is exactly what a fixed matching rule handles badly and a person
-      cannot keep up with across fifty thousand profiles.
+      The mechanical part of this, canceling and refunding an order, is one
+      API call, and it was never the hard part. The hard part is the
+      decision attached to the call: are these two orders one intention or
+      two; which copy dies and which survives; is this cancellation safe to
+      make silently or does it need a human glance first; and what does the
+      customer hear, in what tone, how fast. Those calls shift with every
+      pair of orders, and the cost of getting one wrong is asymmetric in
+      both directions. Miss a duplicate and you pay double shipping, lost
+      fees, and maybe a chargeback. Cancel a deliberate order and you have
+      unsold a sale and rattled a customer who did nothing strange. A fixed
+      rule holds neither risk well, which is why this catch has stayed
+      manual at stores that automate nearly everything else.
     </p>
 
     <p>
-      A natural-language compiler fits because identity was never a single setting.
-      It is the foundation under half the automations this desk has written about.
-      <a href="how-to-segment-repeat-customers-on-shopify.html">The repeat customer
-      your store treats like a stranger</a> can only be labeled correctly if she is
-      one record instead of four. <a
-      href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html">The
-      second order that arrives before the first ships</a> can only be caught if both
-      orders resolve to the same buyer. Even <a
-      href="how-to-limit-purchase-quantity-per-customer-on-shopify.html">the buyer who
-      clears your whole drop</a> is, underneath, this problem wearing a mask: a
-      per-customer limit is only as strong as your notion of a customer.
+      It also sits in a web this desk keeps mapping. Its nearest neighbor is
+      <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html">the
+      second order that arrives before the first ships</a>, the mirror-image
+      case where both orders are wanted and the right move is merging boxes
+      instead of canceling one. The identity questions underneath are the
+      same ones that power <a
+      href="how-to-merge-duplicate-customer-profiles-on-shopify.html">merging
+      the customer Shopify counts three times</a>. The race against the
+      warehouse is the race from <a
+      href="how-to-edit-a-shopify-order-after-its-been-placed.html">order
+      edits</a>, the stakes on a miss belong to <a
+      href="how-to-win-chargeback-disputes-on-shopify.html">the chargeback
+      desk</a> and <a
+      href="how-to-automate-returns-and-exchanges-on-shopify.html">the
+      returns desk</a>, and the housekeeping cousin is <a
+      href="how-to-automatically-cancel-unpaid-orders-on-shopify.html">the
+      unpaid order that never cancels itself</a>, another cleanup Shopify
+      leaves to whoever notices.
     </p>
 
     <p>
-      Picture a home goods store, six years in, online plus two retail locations.
-      Fifty thousand profiles, and a sweep finds six thousand that collapse into
-      twenty-three hundred people. The VIP segment grows by a third without a single
-      new order, because its members were hiding in fragments. The welcome code stops
-      going out to regulars twice a month. Support starts seeing whole histories. And
-      the two thousand profiles the merge refuses, the subscribers and the wholesale
-      accounts, arrive as a tidy queue with a consolidation plan instead of a wall.
-      Same customers, finally counted as themselves.
+      Picture a skincare store on serum restock day. A customer's banking
+      app times out at checkout, she gets an error, tries again, and both
+      attempts captured. Orders #2214 and #2215 land eight minutes apart,
+      identical to the cent. Without the playbook, the 3PL pulls both at its
+      next sync and the discovery happens on her statement, followed by an
+      email with a screenshot, or a dispute without one. With the playbook
+      running, #2215 is flagged at creation: same cart, same address, same
+      card, eight minutes, an error in the payment log between them. The
+      copy cancels unfulfilled, stock returns to the shelf on restock day
+      when it matters most, the refund issues, and she gets a two-line note
+      before her bank says anything. She replies with a thank-you. The
+      merchant reads the whole exchange in a morning summary, one line long.
     </p>
 
     <hr />
@@ -694,48 +733,54 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <h2>The workflow worth building this week</h2>
 
     <p>
-      If your store is more than a couple of years old, sells anywhere besides the
-      website, or has ever run guest checkout, which is every store, this cleanup is
-      already costing you money labeled as something else: acquisition spend
-      re-acquiring your own customers, welcome discounts handed to regulars, a repeat
-      rate that reads lower than it is. It pairs naturally with
-      <a href="how-to-segment-repeat-customers-on-shopify.html">the repeat customer
-      your store treats like a stranger</a>, which depends on whole identities to
-      label, and <a href="how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html">the
-      abandoned cart that gets one email</a>, which recovers more when the cart can be
-      matched to a known customer. It feeds the same flywheel as
-      <a href="best-shopify-automations-to-set-up.html">the Shopify automations no one
-      builds</a>, where the compounding work is the housekeeping nobody gets around to.
+      If your traffic is mobile, your checkout ever runs slow, or your
+      payment provider ever shows an error it later regrets, duplicates are
+      already happening to you at some rate, and every one is quietly
+      expensive: fees you do not get back, boxes shipped twice, support
+      threads that start with charged twice, and the occasional dispute from
+      a customer who never wrote in. The catch pairs naturally with <a
+      href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html">the
+      order-combining playbook</a>, since they are two verdicts from the
+      same look-back, and it feeds the same flywheel as <a
+      href="best-shopify-automations-to-set-up.html">the Shopify automations
+      no one builds</a>, where the compounding win is the accident that
+      stops reaching the customer at all.
     </p>
 
     <p>
-      Describe it the way you would brief a careful assistant: sweep the list for
-      people we know under more than one name, merge the ones the evidence proves,
-      keep the profile with the login and respect every unsubscribe, chain the
-      clusters down to one, queue the ones Shopify will not let us merge with a note
-      on what to do instead, and show me anything you are not sure about. That is the
-      whole brief. The compiler does the sweeping, the weighing, the merging, and the
-      logging. Your store finally knows its customers the way your best staff do:
-      one face, one name, one history.
+      Describe it the way you would brief a careful assistant: every time an
+      order comes in, glance at what this customer ordered in the last day;
+      if you find the same cart placed minutes apart, cancel the extra one
+      before the warehouse touches it, put the stock back, refund it, and
+      send a plain note explaining what happened; if the orders rhyme but do
+      not match, hold the new one briefly and ask; and if duplicates start
+      arriving in bunches, tell me, because that is a bug, not a customer.
+      That is the whole brief. The compiler does the look-back, the
+      comparison, the timing, and the tone. Your customer finds out they
+      were charged twice from you, with the refund already moving, which is
+      the only version of this story that ends with a thank-you.
     </p>
 
     <div class="callout">
       <span class="callout-mark">&#9670; READING</span>
       <span>
         If this resonates, two companion pieces: our dispatch on
-        <a href="how-to-segment-repeat-customers-on-shopify.html">the repeat customer
-        your store treats like a stranger</a>, which puts the cleaned-up identities to
-        work, and <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html">the
-        second order that arrives before the first ships</a>, where matching the same
-        buyer across records saves a shipping bill instead of a segment.
+        <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html">the
+        second order that arrives before the first ships</a>, where the
+        repeated order is wanted and the fix is one box instead of one
+        cancellation, and <a
+        href="how-to-edit-a-shopify-order-after-its-been-placed.html">the
+        order change that races your warehouse</a>, which loses to the same
+        clock this playbook is built to beat.
       </span>
     </div>
 
     <p>
-      If you are a Shopify merchant who has cleaned a list of thousands, or you have a
-      story about the merge that went wrong, the inbox is open:
-      <code>field-notes@dugong.live</code>. We are collecting case studies for the
-      next issue.
+      If you are a Shopify merchant with a duplicate-order story, a checkout
+      bug that manufactured them for a week, or a double charge that turned
+      into a chargeback, the inbox is open:
+      <code>field-notes@dugong.live</code>. We are collecting case studies
+      for the next issue.
     </p>
 
   </div>
@@ -757,16 +802,16 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   </div>
   <div class="faq-list">
     <div class="faq-item">
-      <h2 class="faq-q">Can I merge duplicate customer profiles in bulk on Shopify?</h2>
-      <p class="faq-a">No. Shopify's native merge combines exactly two profiles at a time: you select two customers on the Customers page and choose Merge customers, or open one profile and use More actions, then Merge customer. There is no bulk select, no store-wide duplicate report, and no admin screen that queues thousands of likely pairs for review, so a list that has accumulated years of guest checkouts and POS sales is a two-at-a-time job with no end. Cleaning a real list means detection and judgement first: finding likely pairs across email variants, shared phones, and matching addresses, deciding which pairs are truly the same person, then running the merges pair by pair, which is exactly the part worth automating.</p>
+      <h2 class="faq-q">Why do duplicate orders happen on Shopify?</h2>
+      <p class="faq-a">Almost always because of one human and one button. The customer double-clicks or double-taps the pay button on a slow checkout, retries their card after an error message even though the first attempt actually captured, or refreshes the processing page because no confirmation appeared. Occasionally a theme, app, or platform glitch doubles the order on its own. Shopify does not warn you in any of these cases: there is no duplicate order detection anywhere in the admin, so the two identical orders sit in the order list like strangers, and unless a person or an automation compares them, both get fulfilled.</p>
     </div>
     <div class="faq-item">
-      <h2 class="faq-q">Why does Shopify keep creating duplicate customer profiles?</h2>
-      <p class="faq-a">Because a profile is keyed to contact details, not to a human being. Shopify enforces one profile per email address, but the same person checks out as a guest with a work email, uses a hide-my-email relay address at a wallet checkout, gives your POS counter only a phone number, or simply mistypes their email once, and each new detail mints a fresh profile. POS and online are the classic split: the person your staff knows by face and the person who orders from your site at midnight are two records that never meet. Nothing native watches for the same human arriving under new details, so the list fragments quietly as the store grows.</p>
+      <h2 class="faq-q">Can Shopify Flow automatically cancel duplicate orders?</h2>
+      <p class="faq-a">Not really, and the reason is structural. Flow's Order created trigger hands the workflow exactly one order, and its conditions can only read that order's own fields. There is no condition that looks sideways at the customer's other recent orders and compares line items, which is precisely the comparison a duplicate check needs, so the ask that keeps appearing on the community boards, cancel any order that repeats the same SKUs within 24 hours, cannot be expressed as a stock workflow. Merchants approximate it with customer order counts and tag gymnastics, but a count says second order today, not same order twice. And even a successful cancellation happens after capture, so the processing fees on the duplicate payment are still generally lost.</p>
     </div>
     <div class="faq-item">
-      <h2 class="faq-q">Why won't Shopify let me merge two customer profiles?</h2>
-      <p class="faq-a">The merge is blocked whenever either profile is entangled in something Shopify cannot cleanly combine: a subscription contract, current or past; a link to a B2B company; a vaulted payment card; a store credit account; a multipass login; or a pending customer data request or redaction. Those pairs need a different path than the merge button: consolidate what can move, such as tags, notes, addresses, and a record of which profile is the primary one, point future activity at the survivor, and leave the entangled record intact. That is judgement work per pair, which is why a cleanup that only knows how to press merge stalls the first time it meets a subscriber.</p>
+      <h2 class="faq-q">Will I get my payment processing fees back if I refund a duplicate order?</h2>
+      <p class="faq-a">Generally no. When you cancel and refund the duplicate, the customer gets their money back but payment processing fees are typically not returned to you, so every accidental double order costs you the fees on a sale you never made. That is the good outcome. The bad outcome is the customer spotting the double charge on their card statement before you have said anything and disputing it with their bank, which turns the duplicate into a chargeback carrying its own fee and a mark against your store. This asymmetry is why catching the copy fast and telling the customer first, before they discover it themselves, is worth automating.</p>
     </div>
   </div>
 </section>
@@ -794,74 +839,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </div>
     </a>
 
-<a href="how-to-catch-and-cancel-duplicate-orders-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The order your customer placed twice</h3>
-        <p class="card-dek">
-          Two identical orders land four minutes apart, and Shopify has no duplicate detection anywhere in the admin. The AI playbook that cancels the copy before the label prints and tells the customer first.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUL 24</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-<a href="how-to-block-a-customer-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The customer you can&rsquo;t ban</h3>
-        <p class="card-dek">
-          Shopify has no block button: deleting the account leaves guest checkout open, and Flow can only cancel after the money moved. The AI playbook that keeps a real blocklist and makes a block stick.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUL 23</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="how-to-notify-customers-of-shipping-delays-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The delayed order no one tells your customer about</h3>
-        <p class="card-dek">
-          Shopify emails the customer when the order ships, never when it stalls, and Flow can only alert your own staff. The AI playbook that sends the honest delay email before the WISMO ticket arrives.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUL 22</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="how-to-segment-repeat-customers-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The repeat customer your store treats like a stranger</h3>
-        <p class="card-dek">
-          Your best customers get the same generic treatment as first-time visitors, because Shopify does not segment on its own. The AI playbook that spots and rewards them.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 21</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
 <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -870,7 +847,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
         <h3 class="card-title">The second order that arrives before the first ships</h3>
         <p class="card-dek">
-          A customer orders again before the first order ships and pays delivery twice, and Shopify has no merge button, only a manual draft-order routine. The AI playbook that catches the pair and ships one box.
+          A customer places a second order minutes after the first, and Shopify happily ships two boxes with two labels. The AI playbook that spots the pair and merges them into one shipment.
         </p>
         <div class="card-foot">
           <span class="card-date">JUL 2</span>
@@ -879,103 +856,35 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </div>
     </a>
 
-<a href="how-to-limit-purchase-quantity-per-customer-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The buyer who clears your whole drop</h3>
-        <p class="card-dek">
-          You cap a product at two per person and one buyer still takes forty, because Shopify's limit is per cart, not per customer. The AI playbook that enforces a real per-customer limit.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUL 11</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-<a href="how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html" class="card">
+<a href="how-to-edit-a-shopify-order-after-its-been-placed.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The abandoned cart that gets one email</h3>
+        <h3 class="card-title">The order change that races your warehouse</h3>
         <p class="card-dek">
-          Shopify sends a single recovery email and calls it a sequence. The AI playbook that runs a real, well-timed abandoned cart flow that actually recovers revenue.
+          Wrong size, wrong address, one more item: the "can you change my order?" email always lands at a bad time and locks the second you fulfill. The AI playbook that reads the request and resolves it before the label prints.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 14</span>
+          <span class="card-date">JUN 8</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
 
-<a href="how-to-automatically-request-product-reviews-on-shopify.html" class="card">
+<a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The review request you never send</h3>
+        <h3 class="card-title">The unpaid order that never cancels itself</h3>
         <p class="card-dek">
-          Every delivered order is a review you never asked for, because Shopify does not chase them. The AI playbook that requests the review at the right moment.
+          Pending payments sit in your admin holding stock hostage until you cancel them by hand. The AI playbook that waits the right amount of time and closes them out.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 22</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-<a href="how-to-automatically-send-invoices-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The invoice you send by hand</h3>
-        <p class="card-dek">
-          Shopify emails a receipt, not an invoice, and has no field for a customer's tax number, so business buyers ask and you build it by hand. The AI playbook that sends the right invoice after every order.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUL 6</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-<a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">6&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The &ldquo;where is my order?&rdquo; tickets that eat your afternoon</h3>
-        <p class="card-dek">
-          WISMO is ~18% of support tickets, over half during a sale. The AI playbook that reads the order and answers before customers ask.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 4</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-<a href="how-to-handle-high-risk-orders-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The high-risk flag that makes you guess</h3>
-        <p class="card-dek">
-          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 6</span>
+          <span class="card-date">JUN 24</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
@@ -998,6 +907,57 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </div>
     </a>
 
+<a href="how-to-merge-duplicate-customer-profiles-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The customer Shopify counts three times</h3>
+        <p class="card-dek">
+          One loyal customer becomes four strangers across guest checkouts, relay addresses, and POS. The AI playbook that finds the duplicates and merges the whole list.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 22</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-block-a-customer-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The customer you can't ban</h3>
+        <p class="card-dek">
+          The serial returner's tenth order just landed and there is no ban button anywhere in the admin. The AI playbook that keeps an identity blocklist and cancels the match before fulfillment.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 23</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-handle-high-risk-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The high-risk flag that makes you guess</h3>
+        <p class="card-dek">
+          Shopify flags an order as high risk and then leaves the decision to you: ship it and risk a chargeback, or cancel a real customer. The AI playbook that investigates the flag and decides with evidence.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-automatically-tag-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1015,35 +975,35 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </div>
     </a>
 
-<a href="how-to-set-up-back-in-stock-notifications-on-shopify.html" class="card">
+<a href="how-to-automate-returns-and-exchanges-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The restock alert that never fires</h3>
+        <h3 class="card-title">The return that won't approve itself</h3>
         <p class="card-dek">
-          A customer clicks notify me, the item comes back, and Shopify does nothing with the request. The AI playbook that turns a waitlist into recovered revenue.
+          Every return request waits for a human to read it, approve it, and send a label. The AI playbook that resolves the routine ones and flags the ones that deserve a look.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 13</span>
+          <span class="card-date">JUN 9</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
 
-<a href="how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html" class="card">
+<a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
+          <span class="post-read">6&nbsp;min</span>
         </div>
-        <h3 class="card-title">The gift message that never reaches the box</h3>
+        <h3 class="card-title">The wismo tickets that eat your afternoon</h3>
         <p class="card-dek">
-          A shopper writes a note and pays for wrap, and the recipient opens a box with the full invoice inside and no message. The AI playbook that runs gifting end to end.
+          Half your support inbox is one question: where is my order? The AI playbook that answers it before it gets asked.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUL 18</span>
+          <span class="card-date">JUN 4</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>

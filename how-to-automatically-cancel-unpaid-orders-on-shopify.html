@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
 <meta property="og:title" content="How to automatically cancel unpaid orders on Shopify" />
-<meta property="og:description" content="Shopify has no native way to auto-cancel an unpaid order, so a pending bank transfer, COD, or draft order sits in your admin for days holding the stock a paying customer wanted. The AI playbook that reads each pending order, chases payment the right number of times, then cancels and restocks the ones that go cold, without ever cancelling the customer who paid an hour late." />
+<meta property="og:description" content="Shopify has no native way to auto-cancel an unpaid order, so a pending bank transfer, COD, or draft order sits in your admin for days holding the stock a paying customer wanted. The AI playbook that reads each pending order, chases payment the right number of times, then cancels and restocks the ones that go cold, without ever canceling the customer who paid an hour late." />
 <meta property="og:url" content="https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -96,7 +96,7 @@
           "name": "Can Shopify automatically cancel unpaid orders?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Shopify has no native setting that cancels an unpaid or pending order after a set time. Cancelling an order is a manual action you take one order at a time from the admin, and even Shopify Flow, the free automation tool, cannot cancel an order at all. So orders placed with manual payment methods like bank transfer, cash on delivery, or an unpaid invoice, plus stale draft orders, sit in pending payment until someone notices them and clears them by hand. Auto-cancellation only exists if you install a third-party app or build it yourself."
+            "text": "No. Shopify has no native setting that cancels an unpaid or pending order after a set time. Canceling an order is a manual action you take one order at a time from the admin, and even Shopify Flow, the free automation tool, cannot cancel an order at all. So orders placed with manual payment methods like bank transfer, cash on delivery, or an unpaid invoice, plus stale draft orders, sit in pending payment until someone notices them and clears them by hand. Auto-cancellation only exists if you install a third-party app or build it yourself."
           }
         },
         {
@@ -104,12 +104,12 @@
           "name": "Do unpaid orders hold inventory on Shopify?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. When an order is placed, Shopify commits the inventory to it, and that stock stays committed while the order sits in pending payment. A pending bank transfer or an unpaid cash-on-delivery order can therefore hold units off the shelf for days, which is how a store shows sold out while real, paying customers are turned away. The committed stock is only released when the order is cancelled with the restock option, which on a plain store is a manual click per order, so the inventory leaks quietly until a human gets to it."
+            "text": "Yes. When an order is placed, Shopify commits the inventory to it, and that stock stays committed while the order sits in pending payment. A pending bank transfer or an unpaid cash-on-delivery order can therefore hold units off the shelf for days, which is how a store shows sold out while real, paying customers are turned away. The committed stock is only released when the order is canceled with the restock option, which on a plain store is a manual click per order, so the inventory leaks quietly until a human gets to it."
           }
         },
         {
           "@type": "Question",
-          "name": "How long should you wait before cancelling an unpaid order?",
+          "name": "How long should you wait before canceling an unpaid order?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "It depends on the payment method and the customer, which is exactly why one global timer is wrong. A bank transfer that clears in two business days needs a different window than a cash-on-delivery order or a wholesale invoice with agreed terms. The sound approach is to nudge the customer once or twice with a clear way to pay, give a window that fits how that payment method actually settles, then cancel and restock only the orders that stay cold, while leaving alone the one that just paid an hour late. A flat rule that cancels everything at forty-eight hours will cancel orders that were about to pay."
@@ -121,7 +121,7 @@
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html#howto",
       "name": "The unpaid order that never cancels itself",
-      "description": "The AI playbook that watches pending orders, chases payment the right number of times, then cancels and restocks the ones that go cold without ever cancelling a customer who just paid.",
+      "description": "The AI playbook that watches pending orders, chases payment the right number of times, then cancels and restocks the ones that go cold without ever canceling a customer who just paid.",
       "inLanguage": "en",
       "totalTime": "PT9M",
       "step": [
@@ -150,7 +150,7 @@
           "@type": "HowToStep",
           "position": 4,
           "name": "Recheck before you cancel",
-          "text": "Confirm the order is still unpaid at the moment of cancelling, so a customer who just paid is never cancelled by a stale timer",
+          "text": "Confirm the order is still unpaid at the moment of canceling, so a customer who just paid is never canceled by a stale timer",
           "url": "https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html#playbook"
         },
         {
@@ -164,7 +164,7 @@
           "@type": "HowToStep",
           "position": 6,
           "name": "Tell the customer it lapsed",
-          "text": "Send a short, friendly note that the order was cancelled for non-payment with a link to reorder, so the door stays open",
+          "text": "Send a short, friendly note that the order was canceled for non-payment with a link to reorder, so the door stays open",
           "url": "https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html#playbook"
         },
         {
@@ -359,6 +359,8 @@ em { font-style: italic; }
 .foot-brand { display: flex; flex-direction: column; gap: 1rem; }
 .foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
 .foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 560px) { .foot-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; } }
+@media (max-width: 340px) { .foot-cols { grid-template-columns: 1fr; } }
 .foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
 .foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
 .foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
@@ -589,14 +591,14 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       Shopify is happy to take an order that is not yet paid. What it does not do
       is manage the waiting. The gap is the whole middle of the job: noticing the
       order has gone cold, nudging the customer to pay, deciding the wait is over,
-      cancelling cleanly, and putting the stock back. It shows up in three places
+      canceling cleanly, and putting the stock back. It shows up in three places
       merchants hit fast.
     </p>
 
     <p>
       First, <strong>there is no auto-cancel for unpaid orders</strong>. Shopify
       has no native setting that says "cancel any order still unpaid after N
-      days." Cancelling is a manual action you perform one order at a time from
+      days." Canceling is a manual action you perform one order at a time from
       the admin, choosing whether to restock and whether to notify the customer
       on each one. There is no timer, no batch, and no rule. If you have fifty
       pending orders, clearing the dead ones is fifty trips through the same menu.
@@ -648,7 +650,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       first month, when you remember and the list is short. It collapses the
       moment volume climbs, because now you are scanning the orders list,
       separating the paid from the pending, checking which of the pending ones are
-      genuinely dead, and cancelling each by hand with restock ticked. It is slow,
+      genuinely dead, and canceling each by hand with restock ticked. It is slow,
       it is dull, and it is the first chore to slip when the week gets busy, so
       the stock stays frozen and the list keeps growing.
     </p>
@@ -697,7 +699,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 3. <span class="k">Nudge</span> the customer to pay, once or twice, with the
    amount and a clear way to complete it
 4. <span class="k">Recheck</span> at the deadline that it is still unpaid, so a
-   late payer is never cancelled by a stale timer
+   late payer is never canceled by a stale timer
 5. <span class="k">Cancel</span> the cold ones and restock the held inventory in
    the same step, with the reason logged as unpaid
 6. <span class="k">Tell</span> the customer it lapsed, kindly, with a link to
@@ -710,7 +712,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       status on every order, holding each for a window that fits how its payment
       method settles, sending a real reminder with a way to pay instead of going
       straight to the axe, rechecking the payment state at the last moment so the
-      customer who paid late is left alone, then cancelling the genuinely dead
+      customer who paid late is left alone, then canceling the genuinely dead
       ones and releasing their stock back to the shelf in one clean move, with a
       friendly note out to the customer and the high-value exceptions parked for a
       person. The merchant never sat in the orders list on a Monday sorting paid
@@ -722,9 +724,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <span class="callout-mark">◆ NOTE</span>
       <span>
         The cancellation that does damage is the one that skips the customer.
-        Cancelling an unpaid order <strong>without ever asking for the money
+        Canceling an unpaid order <strong>without ever asking for the money
         first</strong> throws away sales that a single reminder would have closed,
-        and cancelling on a stale timer can kill an order the customer paid for
+        and canceling on a stale timer can kill an order the customer paid for
         minutes ago. The point is not "cancel unpaid orders," it is collect first,
         recheck at the deadline, and cancel only what is genuinely cold, with the
         stock released and the door left open.
@@ -834,14 +836,14 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="faq-list">
     <div class="faq-item">
       <h2 class="faq-q">Can Shopify automatically cancel unpaid orders?</h2>
-      <p class="faq-a">No. Shopify has no native setting that cancels an unpaid or pending order after a set time. Cancelling an order is a manual action you take one order at a time from the admin, and even Shopify Flow, the free automation tool, cannot cancel an order at all. So orders placed with manual payment methods like bank transfer, cash on delivery, or an unpaid invoice, plus stale draft orders, sit in pending payment until someone notices them and clears them by hand. Auto-cancellation only exists if you install a third-party app or build it yourself.</p>
+      <p class="faq-a">No. Shopify has no native setting that cancels an unpaid or pending order after a set time. Canceling an order is a manual action you take one order at a time from the admin, and even Shopify Flow, the free automation tool, cannot cancel an order at all. So orders placed with manual payment methods like bank transfer, cash on delivery, or an unpaid invoice, plus stale draft orders, sit in pending payment until someone notices them and clears them by hand. Auto-cancellation only exists if you install a third-party app or build it yourself.</p>
     </div>
     <div class="faq-item">
       <h2 class="faq-q">Do unpaid orders hold inventory on Shopify?</h2>
-      <p class="faq-a">Yes. When an order is placed, Shopify commits the inventory to it, and that stock stays committed while the order sits in pending payment. A pending bank transfer or an unpaid cash-on-delivery order can therefore hold units off the shelf for days, which is how a store shows sold out while real, paying customers are turned away. The committed stock is only released when the order is cancelled with the restock option, which on a plain store is a manual click per order, so the inventory leaks quietly until a human gets to it.</p>
+      <p class="faq-a">Yes. When an order is placed, Shopify commits the inventory to it, and that stock stays committed while the order sits in pending payment. A pending bank transfer or an unpaid cash-on-delivery order can therefore hold units off the shelf for days, which is how a store shows sold out while real, paying customers are turned away. The committed stock is only released when the order is canceled with the restock option, which on a plain store is a manual click per order, so the inventory leaks quietly until a human gets to it.</p>
     </div>
     <div class="faq-item">
-      <h2 class="faq-q">How long should you wait before cancelling an unpaid order?</h2>
+      <h2 class="faq-q">How long should you wait before canceling an unpaid order?</h2>
       <p class="faq-a">It depends on the payment method and the customer, which is exactly why one global timer is wrong. A bank transfer that clears in two business days needs a different window than a cash-on-delivery order or a wholesale invoice with agreed terms. The sound approach is to nudge the customer once or twice with a clear way to pay, give a window that fits how that payment method actually settles, then cancel and restock only the orders that stay cold, while leaving alone the one that just paid an hour late. A flat rule that cancels everything at forty-eight hours will cancel orders that were about to pay.</p>
     </div>
   </div>
@@ -853,6 +855,91 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The discount code that leaked to a coupon site</h3>
+        <p class="card-dek">
+          Your creator code has 900 redemptions from strangers, and one per customer turns out to mean one per email address. The AI playbook that spots the leak and closes it without declining real buyers.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 25</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-catch-and-cancel-duplicate-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order your customer placed twice</h3>
+        <p class="card-dek">
+          Two identical orders land four minutes apart, and Shopify has no duplicate detection anywhere in the admin. The AI playbook that cancels the copy before the label prints and tells the customer first.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="how-to-block-a-customer-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The customer you can&rsquo;t ban</h3>
+        <p class="card-dek">
+          Shopify has no block button: deleting the account leaves guest checkout open, and Flow can only cancel after the money moved. The AI playbook that keeps a real blocklist and makes a block stick.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 23</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="how-to-notify-customers-of-shipping-delays-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The delayed order no one tells your customer about</h3>
+        <p class="card-dek">
+          Shopify emails the customer when the order ships, never when it stalls, and Flow can only alert your own staff. The AI playbook that sends the honest delay email before the WISMO ticket arrives.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 22</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="how-to-merge-duplicate-customer-profiles-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The customer Shopify counts three times</h3>
+        <p class="card-dek">
+          Your best customer looks like three strangers in the admin, so every segment undercounts her. The AI playbook that merges duplicate profiles in bulk without welding two real people together.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 22</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
     <a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1259,7 +1346,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
+          <span class="post-read">7&nbsp;min</span>
         </div>
         <h3 class="card-title">The bad address that ships anyway</h3>
         <p class="card-dek">
@@ -1339,7 +1426,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
+          <span class="post-read">6&nbsp;min</span>
         </div>
         <h3 class="card-title">The &ldquo;where is my order?&rdquo; tickets that eat your afternoon</h3>
         <p class="card-dek">
@@ -1451,7 +1538,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
+          <span class="post-read">8&nbsp;min</span>
         </div>
         <h3 class="card-title">The Shopify automations no one builds</h3>
         <p class="card-dek">

@@ -113,7 +113,7 @@
           "name": "How do you enforce a limit of one per customer on Shopify during a drop?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You have to recognize the buyer across orders and enforce the limit at checkout, not only in the cart. That means matching a new order against past ones by email, shipping and billing address, payment fingerprint, and account, deciding whether this order pushes the buyer over the limit, and either blocking it server-side so a wallet button or a checkout link cannot slip past, or catching the excess after the fact and cancelling, refunding, and restocking it. The hard part is identity, because resellers use new emails, second accounts, and cleared cookies, so a cart-based or account-based rule alone will miss them."
+            "text": "You have to recognize the buyer across orders and enforce the limit at checkout, not only in the cart. That means matching a new order against past ones by email, shipping and billing address, payment fingerprint, and account, deciding whether this order pushes the buyer over the limit, and either blocking it server-side so a wallet button or a checkout link cannot slip past, or catching the excess after the fact and canceling, refunding, and restocking it. The hard part is identity, because resellers use new emails, second accounts, and cleared cookies, so a cart-based or account-based rule alone will miss them."
           }
         }
       ]
@@ -122,7 +122,7 @@
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#howto",
       "name": "The buyer who clears your whole drop",
-      "description": "The AI playbook that enforces a real per-customer purchase limit on Shopify: identifying the buyer across orders, deciding the limit for this product and window, enforcing it on every checkout path, cancelling and restocking what slipped, telling the customer, and surfacing the judgement calls for a human.",
+      "description": "The AI playbook that enforces a real per-customer purchase limit on Shopify: identifying the buyer across orders, deciding the limit for this product and window, enforcing it on every checkout path, canceling and restocking what slipped, telling the customer, and surfacing the judgement calls for a human.",
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
@@ -360,6 +360,8 @@ em { font-style: italic; }
 .foot-brand { display: flex; flex-direction: column; gap: 1rem; }
 .foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
 .foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 560px) { .foot-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; } }
+@media (max-width: 340px) { .foot-cols { grid-template-columns: 1fr; } }
 .foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
 .foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
 .foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
@@ -691,7 +693,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       The real job is not "cap the cart." It is "recognize the buyer across their orders, keep a
       running count against the limit for this product and this window, refuse the order that goes over
-      on whatever path they take to checkout, undo the ones that slipped through by cancelling and
+      on whatever path they take to checkout, undo the ones that slipped through by canceling and
       restocking the excess, tell the customer plainly, and pull in a human only for the calls that are
       genuinely judgement." That is a read, an identity match, a decision, an action at checkout, and a
       set of corrections after the fact. As a Dugong playbook, in plain prose, it reads like this:
@@ -721,7 +723,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       weak signals instead of one exact key, holding a running total per customer across a launch
       rather than resetting each cart, enforcing at the checkout itself so a wallet button cannot slip
       a bulk order past the cart-page rule, and undoing the over-limit orders that did land by
-      cancelling the excess and putting the units back on the shelf. The merchant never wrote a line of
+      canceling the excess and putting the units back on the shelf. The merchant never wrote a line of
       theme code or a checkout function. They described how a careful launch manager would guard the
       allocation, and let the compiler run it on every order, in real time.
     </p>
@@ -735,7 +737,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         punishes a real customer or waves a reseller through; a wholesale buyer on
         <a href="how-to-segment-repeat-customers-on-shopify.html">a recognized account</a> should often
         sit outside the retail limit entirely; a gift order shipping elsewhere is not the buyer
-        stockpiling; and a cancelled order needs its units
+        stockpiling; and a canceled order needs its units
         <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html">put back into stock cleanly</a>
         so the cap you enforced does not quietly strand inventory. A rule that only knows the number gets
         all of those wrong.
@@ -750,7 +752,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       judgement about each specific order: is this the same buyer as that earlier order or just a
       coincidence of name, is this second order to the same street a household or a reseller, should this
       account be exempt because it is wholesale, did this order slip past the cap and need its excess
-      cancelled and restocked, and is the limit landing on the wallet-button path as well as the cart.
+      canceled and restocked, and is the limit landing on the wallet-button path as well as the cart.
       Those answers change per order, per customer, and per minute of a launch, which is exactly what a
       fixed rulebook handles badly and a person cannot watch across a flood of orders at once. It is the
       same reason <a href="how-to-stop-card-testing-attacks-on-shopify.html">reading a burst of orders as
@@ -846,7 +848,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </div>
     <div class="faq-item">
       <h2 class="faq-q">How do you enforce a limit of one per customer on Shopify during a drop?</h2>
-      <p class="faq-a">You have to recognize the buyer across orders and enforce the limit at checkout, not only in the cart. That means matching a new order against past ones by email, shipping and billing address, payment fingerprint, and account, deciding whether this order pushes the buyer over the limit, and either blocking it server-side so a wallet button or a checkout link cannot slip past, or catching the excess after the fact and cancelling, refunding, and restocking it. The hard part is identity, because resellers use new emails, second accounts, and cleared cookies, so a cart-based or account-based rule alone will miss them.</p>
+      <p class="faq-a">You have to recognize the buyer across orders and enforce the limit at checkout, not only in the cart. That means matching a new order against past ones by email, shipping and billing address, payment fingerprint, and account, deciding whether this order pushes the buyer over the limit, and either blocking it server-side so a wallet button or a checkout link cannot slip past, or catching the excess after the fact and canceling, refunding, and restocking it. The hard part is identity, because resellers use new emails, second accounts, and cleared cookies, so a cart-based or account-based rule alone will miss them.</p>
     </div>
   </div>
 </section>
@@ -857,6 +859,91 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The discount code that leaked to a coupon site</h3>
+        <p class="card-dek">
+          Your creator code has 900 redemptions from strangers, and one per customer turns out to mean one per email address. The AI playbook that spots the leak and closes it without declining real buyers.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 25</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-catch-and-cancel-duplicate-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order your customer placed twice</h3>
+        <p class="card-dek">
+          Two identical orders land four minutes apart, and Shopify has no duplicate detection anywhere in the admin. The AI playbook that cancels the copy before the label prints and tells the customer first.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="how-to-block-a-customer-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The customer you can&rsquo;t ban</h3>
+        <p class="card-dek">
+          Shopify has no block button: deleting the account leaves guest checkout open, and Flow can only cancel after the money moved. The AI playbook that keeps a real blocklist and makes a block stick.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 23</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="how-to-notify-customers-of-shipping-delays-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The delayed order no one tells your customer about</h3>
+        <p class="card-dek">
+          Shopify emails the customer when the order ships, never when it stalls, and Flow can only alert your own staff. The AI playbook that sends the honest delay email before the WISMO ticket arrives.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 22</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="how-to-merge-duplicate-customer-profiles-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The customer Shopify counts three times</h3>
+        <p class="card-dek">
+          Your best customer looks like three strangers in the admin, so every segment undercounts her. The AI playbook that merges duplicate profiles in bulk without welding two real people together.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 22</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
     <a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1263,7 +1350,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
+          <span class="post-read">6&nbsp;min</span>
         </div>
         <h3 class="card-title">The &ldquo;where is my order?&rdquo; tickets that eat your afternoon</h3>
         <p class="card-dek">
@@ -1359,7 +1446,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
+          <span class="post-read">7&nbsp;min</span>
         </div>
         <h3 class="card-title">The bad address that ships anyway</h3>
         <p class="card-dek">
@@ -1455,7 +1542,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
+          <span class="post-read">8&nbsp;min</span>
         </div>
         <h3 class="card-title">The Shopify automations no one builds</h3>
         <p class="card-dek">

@@ -3,28 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to set up tiered volume discounts (buy more, save more) on Shopify &mdash; Dugong Field Notes</title>
-<meta name="description" content="Shopify discounts allow one tier each, so buy more save more never works natively. The AI playbook that runs real quantity breaks across your whole catalog." />
-<link rel="canonical" href="https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html" />
+<title>How to block a customer on Shopify from placing orders &mdash; Dugong Field Notes</title>
+<meta name="description" content="Shopify has no ban button: deleting an account leaves guest checkout open, and Flow cancels after the order exists. The AI playbook that makes a block stick." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-block-a-customer-on-shopify.html" />
 <meta name="author" content="Priya Singh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="keywords" content="Shopify tiered discount, Shopify volume discount, Shopify buy more save more, Shopify quantity break discount, Shopify tiered pricing not working, Shopify multiple discount tiers, bulk discount Shopify, Shopify quantity discount native, AI Shopify discount automation, Dugong" />
+<meta name="keywords" content="Shopify block customer, ban customer Shopify, Shopify blacklist customer, block customer from ordering Shopify, Shopify serial returner, Shopify block email address checkout, Shopify IP block customer, stop customer from buying Shopify, Shopify Flow cancel order blocked customer, refund abuse Shopify, AI Shopify customer blocklist, Dugong" />
 <meta name="theme-color" content="#c6fe1e" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
-<meta property="article:published_time" content="2026-07-16" />
-    <meta property="article:modified_time" content="2026-07-16" />
+<meta property="article:published_time" content="2026-07-23" />
+    <meta property="article:modified_time" content="2026-07-23" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
-<meta property="og:title" content="How to set up tiered volume discounts (buy more, save more) on Shopify" />
-<meta property="og:description" content="You want buy 3 save 10%, buy 6 save 20%, buy 12 save 30%, and Shopify lets you build only one tier per discount. Native quantity pricing is B2B only, Scripts are gone, and cart-total tiers do not exist for regular shoppers. The AI playbook that runs real quantity breaks across your whole catalog." />
-<meta property="og:url" content="https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html" />
+<meta property="og:title" content="How to block a customer on Shopify from placing orders" />
+<meta property="og:description" content="A customer has returned nine of eleven orders, and their tenth order just landed. Shopify has no ban button anywhere in the admin: deleting the account only stops the login while guest checkout stays wide open, fraud analysis calls their valid card low risk, and Shopify Flow can only cancel the order after the money has already moved. The AI playbook that keeps a real blocklist built on identity instead of a single email address, checks every new order against it, cancels before fulfillment, and catches the comeback attempt under a fresh alias." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-block-a-customer-on-shopify.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -33,8 +33,8 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="How to set up tiered volume discounts (buy more, save more) on Shopify" />
-<meta name="twitter:description" content="Shopify allows one tier per discount, native quantity pricing is B2B only, and Scripts are gone. The AI playbook that runs real buy-more-save-more quantity breaks across your whole catalog." />
+<meta name="twitter:title" content="How to block a customer on Shopify from placing orders" />
+<meta name="twitter:description" content="Shopify will flag a stolen card. It has no way to remember the customer who burned you three times. The AI playbook that makes a block actually stick." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
     <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 
@@ -44,25 +44,25 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#article",
+      "@id": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#article",
       "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
-      "mainEntityOfPage": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html",
-      "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html",
-      "headline": "How to set up tiered volume discounts (buy more, save more) on Shopify",
-      "description": "Shopify's native discount engine allows one condition per discount, so you can build buy 3 save 10 percent as a single rule but you cannot chain buy 3, buy 6, and buy 12 into one buy-more-save-more offer that a regular shopper sees on the storefront. Native quantity pricing exists only for B2B customers assigned to a company profile, not for tagged retail customers or cart-total tiers. Shopify Scripts, the old way merchants faked tiered cart logic, stopped running on June 30, 2026, so any store that leaned on them is now broken and pushed toward Shopify Functions or an app. The AI playbook that reads a plain-language tier table, applies the right break by quantity or spend per line and per cart, keeps the tiers from stacking with codes or clashing with a sale, respects a margin floor and wholesale versus retail, and escalates the judgement calls to a human.",
-      "datePublished": "2026-07-16",
-      "dateModified": "2026-07-16",
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html",
+      "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html",
+      "headline": "How to block a customer on Shopify from placing orders",
+      "description": "A customer has returned nine of eleven orders, and their tenth order just landed in the admin. Every merchant eventually meets this person: the serial returner, the chargeback filer, the harasser, the competitor placing fake orders, and every one of them goes looking for the same button. Shopify does not have it. There is no block or ban feature anywhere in the admin: deleting or disabling a customer account only affects the login while guest checkout stays open to anyone with an email address, and Shopify's fraud analysis is built to catch stolen cards, so the serial returner paying with their own valid card sails through as low risk. Shopify Flow can react after the fact, canceling any order whose customer carries a blocked tag, but the order still gets placed, the payment is captured and refunded with the processing fees usually lost, and the same person walks straight past the filter with a plus-addressed alias or a fresh email. Checkout validation functions can truly decline a checkout but require a custom app and a developer, and IP blocking apps dissolve against VPNs and shared addresses. The AI playbook that keeps a real blocklist built on identity instead of a single string, checks every new order against it, decides match or coincidence from the whole record, cancels before fulfillment and restocks, catches the comeback attempt, and hands the ambiguous match to a human before a good customer gets burned.",
+      "datePublished": "2026-07-23",
+      "dateModified": "2026-07-23",
       "articleSection": "Research",
-      "keywords": "Shopify tiered discount, Shopify volume discount, Shopify buy more save more, Shopify quantity break discount, Shopify tiered pricing not working, Shopify multiple discount tiers, bulk discount Shopify, Shopify quantity discount native",
-      "wordCount": 2140,
+      "keywords": "Shopify block customer, ban customer Shopify, Shopify blacklist customer, block customer from ordering Shopify, Shopify serial returner, Shopify block email address checkout, Shopify IP block customer, stop customer from buying Shopify",
+      "wordCount": 2290,
       "timeRequired": "PT10M",
       "inLanguage": "en",
       "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
       "about": [
         { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "Discounts and allowances", "sameAs": "https://en.wikipedia.org/wiki/Discounts_and_allowances" },
-        { "@type": "Thing", "name": "Pricing", "sameAs": "https://en.wikipedia.org/wiki/Pricing" },
-        { "@type": "Thing", "name": "Volume discount", "sameAs": "https://en.wikipedia.org/wiki/Volume_discount" },
+        { "@type": "Thing", "name": "Return fraud", "sameAs": "https://en.wikipedia.org/wiki/Return_fraud" },
+        { "@type": "Thing", "name": "Chargeback", "sameAs": "https://en.wikipedia.org/wiki/Chargeback" },
+        { "@type": "Thing", "name": "Customer service", "sameAs": "https://en.wikipedia.org/wiki/Customer_service" },
         { "@type": "Thing", "name": "E-commerce", "sameAs": "https://en.wikipedia.org/wiki/E-commerce" }
       ],
       "speakable": {
@@ -87,7 +87,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The buy-more-save-more discount Shopify won't tier", "item": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html" }
+        { "@type": "ListItem", "position": 2, "name": "The customer you can't ban", "item": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html" }
       ]
     },
     {
@@ -95,45 +95,44 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Can Shopify do tiered volume discounts natively?",
+          "name": "Can I block a customer from placing orders on Shopify?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Not as a real buy-more-save-more ladder for regular shoppers. Shopify's discount engine allows one condition per discount, so you can build a single tier like buy 3 and save 10 percent, but you cannot chain buy 3, buy 6, and buy 12 into one storefront offer that steps the saving up as the cart grows. The only native quantity pricing that behaves like true tiers is the B2B feature, and it applies only to customers who are assigned to a company profile in your B2B setup, not to tagged retail customers, not to cart-total tiers, and not to your general storefront. Shopify Scripts, the old way stores faked tiered cart logic, stopped running on June 30, 2026, so that route is closed too. Real tiers for everyone else come from Shopify Functions or an app."
+            "text": "Not natively. Shopify has no block or ban feature anywhere in the admin. Deleting or disabling a customer's account only affects their ability to log in, and guest checkout remains open to anyone with an email address, so the same person can order again immediately. Shopify's fraud analysis does not help either, because it is built to flag stolen payment methods, and a serial returner paying with their own valid card registers as low risk. Merchants make a block stick by automating the whole loop: keep a blocklist built on identity rather than one email string, check every incoming order against it, and cancel and restock before fulfillment when a match is confirmed."
           }
         },
         {
           "@type": "Question",
-          "name": "Why does my Shopify tiered discount only apply one tier?",
+          "name": "Can Shopify Flow block a customer from ordering?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because each Shopify discount holds one rule, so when you create separate discounts for each break they compete instead of laddering. A cart that qualifies for buy 12 also qualifies for buy 3 and buy 6, and Shopify applies one automatic discount rather than picking the best tier and ignoring the rest, so the shopper can land on the smaller saving or the discounts refuse to combine at all. There is also a cap of 25 active automatic discounts, so building a tier per product this way runs out fast. To make tiers behave you need one piece of logic that reads the quantity or spend, chooses the correct single tier, and applies just that one, which is exactly what stacking separate discounts cannot do."
+            "text": "Flow cannot prevent an order, only react to one. The standard workaround is to tag the customer as blocked and build a workflow on the Order created trigger that checks the tag or email and cancels the order, restocks the items, and optionally notifies the customer. It works, but the order still gets placed and paid: the payment is captured and then refunded, and payment processing fees are generally not returned on refunds, so every blocked order costs money. The match is also literal, so a plus-addressed alias or a brand-new email walks straight past the condition, and the customer just tries again since nothing stops the next checkout."
           }
         },
         {
           "@type": "Question",
-          "name": "What replaced Shopify Scripts for tiered pricing in 2026?",
+          "name": "Can I block someone's IP address on Shopify?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Shopify Scripts stopped executing on June 30, 2026, so any tiered cart pricing or buy-more-save-more logic that ran through Scripts now needs to move to Shopify Functions or a discount app built on them. Functions can express real tier logic, but it is developer work: you write, deploy, and maintain the code, and you own every edge case as your catalog and promotions change. That is why most merchants reach for an app or a compiler instead. The dependable approach is to keep the tier table as something you can read and change in plain language, and let the automation translate it into the correct per-line and per-cart behavior, rather than hard-coding one promotion at a time."
+            "text": "There is no native IP blocking in Shopify. Third-party apps can block IP addresses or countries at the storefront level, but as a way to ban a specific person it is weak on both sides: the determined returner switches to a VPN or their phone's network in seconds, while a shared address like an office, a campus, or a mobile carrier's network can lock out innocent shoppers along with the one you meant. IP is one useful signal among several for recognizing a returning bad actor, but it cannot carry a block on its own, which is why identity-based matching across email variants, phone, and shipping address works better."
           }
         }
       ]
     },
     {
       "@type": "HowTo",
-      "@id": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#howto",
-      "name": "The buy-more-save-more discount Shopify won't tier",
-      "description": "The AI playbook that runs real tiered volume discounts on Shopify: reading a plain-language tier table, resolving the right break by quantity or spend per line and per cart, applying only the single correct tier, keeping it from stacking with codes or clashing with a live sale, respecting a margin floor and wholesale versus retail, and escalating the judgement calls to a human.",
+      "@id": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#howto",
+      "name": "The customer you can't ban",
+      "description": "The AI playbook that blocks a customer on Shopify for real: keeping a blocklist built on identity instead of a single email address, checking every new order against it, deciding match or coincidence from the whole record, canceling before fulfillment and restocking, catching the comeback attempt under a fresh alias, and handing the ambiguous match to a human before a good customer gets burned.",
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
-        { "@type": "HowToStep", "position": 1, "name": "Define the tier table", "text": "Write the breaks in plain language: which products or collection, whether the tier keys off units or cart spend, and the saving at each step, so the ladder lives in one place you can change", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 2, "name": "Resolve the right tier per cart", "text": "On every cart change, read the qualifying quantity or spend and select the single highest tier the cart has earned, rather than letting several discounts compete", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 3, "name": "Apply only that tier", "text": "Apply just the chosen break to the right lines or the whole cart, so a shopper who qualifies for the deepest tier is never dropped onto a smaller one", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 4, "name": "Guard the stacking rules", "text": "Decide whether the tier can combine with a code or a running sale, and enforce that choice so the volume break and a coupon do not quietly double up past your floor", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 5, "name": "Respect margin and audience", "text": "Hold each tier above its margin floor and apply the right ladder to the right audience, so wholesale or logged-in buyers can get a deeper break than the open storefront", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 6, "name": "Show the next tier to the shopper", "text": "Tell the cart how close it is to the next break, so add one more to save 20 percent nudges the order up instead of leaving the saving invisible", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 7, "name": "Escalate the judgement calls", "text": "Hold for review a tier that would cross a margin floor, a clash between a code and a volume break, or a new promotion that overlaps an existing ladder, so a person makes the call", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" }
+        { "@type": "HowToStep", "position": 1, "name": "Keep a blocklist built on identity, not one email", "text": "Record every signal for each blocked customer: email variants and aliases, phone, shipping address, payment fingerprint, and the history that earned the block", "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook" },
+        { "@type": "HowToStep", "position": 2, "name": "Check every new order against the list", "text": "Screen each incoming order at creation, before fulfillment starts, instead of discovering the name after the box shipped", "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook" },
+        { "@type": "HowToStep", "position": 3, "name": "Decide match or coincidence from the whole record", "text": "Weigh all the signals together: a shared surname is nothing, a fresh email shipping to the exact same flat is not", "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook" },
+        { "@type": "HowToStep", "position": 4, "name": "Cancel before fulfillment and restock", "text": "Cancel the confirmed match while the order is still unfulfilled, restock the inventory, and keep the paper trail of why", "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook" },
+        { "@type": "HowToStep", "position": 5, "name": "Watch for the comeback attempt", "text": "Treat every block as the start of a pattern: new aliases, new accounts, and small address edits that point at the same person feed back into the list", "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook" },
+        { "@type": "HowToStep", "position": 6, "name": "Escalate the ambiguous match to a human", "text": "Route the borderline cases to a person with the full history attached, because canceling a good customer's order costs more than one bad order slipping through", "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook" }
       ]
     }
   ]
@@ -425,20 +424,18 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 </style>
 </head>
-
 <body>
-
 <div class="grain" aria-hidden="true"></div>
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>&#9670; DISPATCH N&ordm; 84 &mdash; JUL 16, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 89 &mdash; JUL 23, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,140 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,290 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
-    <span>&#9670; DISPATCH N&ordm; 84 &mdash; JUL 16, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 89 &mdash; JUL 23, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,140 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,290 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -457,31 +454,30 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
   </nav>
 </header>
-
 <article class="article">
 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 84</span>
+    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 89</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">JUL 16, 2026</span>
+    <span style="color: var(--cream-dim);">JUL 23, 2026</span>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">10 MIN READ</span>
   </div>
 
   <h1 class="article-title">
-    How to set up tiered <em>volume discounts</em> (buy more, save more) on Shopify
+    How to <em>block a customer</em> on Shopify from placing orders
   </h1>
 
   <p class="article-dek">
-    You want the obvious offer: buy 3 and save 10 percent, buy 6 and save 20, buy 12 and
-    save 30. You open Shopify's discount screen, build the first tier, go to add the
-    second, and there is nowhere to put it, because a Shopify discount holds one rule and
-    only one. Here is why buy-more-save-more never works natively, why Scripts are no
-    longer the escape hatch, and the playbook that runs real quantity breaks across your
-    whole catalog.
+    A customer has returned nine of eleven orders, and their tenth order just landed
+    in your admin. You go looking for the ban button, and there isn't one. Deleting
+    the account leaves guest checkout wide open, fraud analysis calls their valid
+    card low risk, and Flow can only cancel after the money has moved. Here is why
+    Shopify cannot remember the people who burn you, and the playbook that makes a
+    block actually stick.
   </p>
 
   <div class="article-byline">
@@ -494,189 +490,241 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="article-body">
 
     <p>
-      Every merchant who sells anything people buy in multiples reaches for the same
-      lever eventually. Coffee, candles, socks, supplements, wholesale anything: the way
-      to lift the average order is to reward the bigger basket. Buy three, save a little.
-      Buy six, save more. Buy a case, save the most. It is the oldest pricing move there
-      is, and shoppers understand it on sight. So you go into Shopify to build it, and you
-      discover the platform will let you build exactly one rung of the ladder.
+      Every store meets this customer eventually. The one who has ordered eleven
+      times and returned nine, always worn once, always just inside the window. The
+      one who files an item-not-received claim on every third package. The one who
+      was abusive to your support person twice and is somehow back with a full cart.
+      The competitor who places orders and cancels them to poke at your stock. The
+      details vary, and the merchant's next move never does: they open the customer's
+      profile, look for the button that says never again, and discover that in a
+      platform which can schedule a sale to the second, there is no way to refuse a
+      sale at all.
     </p>
 
     <p>
-      This is one of the most-repeated frustrations in the Shopify community, and the
-      threads say it plainly. "Tiered discounts based on variant quantity." "Tiered buy X
-      get Y discount?" "How do I do buy more save more without an app?" The answers are
-      always some mix of the same three: it is not natively possible for regular
-      customers, you can fake a single tier and hope, or you install an app. Merchants are
-      not asking for anything exotic. They want a discount that gets deeper as the cart
-      gets bigger, and Shopify's discount engine was built for simple, not for tiered.
+      The community threads on this run back years and read like one long support
+      queue. "How can I block or blacklist certain customers from placing orders?"
+      "How can I block or blacklist a problematic customer in Shopify?" "IP ban
+      customer from buying from or even seeing my store?" And, still arriving in
+      2025, "How to block customer account." Different stores, different bad actors,
+      the same discovery underneath: the platform holds a complete record of what
+      this person did to you and offers no way to act on it. Nobody in those threads
+      is asking for something exotic. Every marketplace has a block button. Every
+      email client has one. The storefront where this person costs you actual money
+      does not.
     </p>
 
     <h2>What Shopify actually does, and where it stops</h2>
 
     <p>
-      Give the platform its due first. Shopify's native discounts are genuinely good at
-      the simple case. You can create an automatic discount like "buy 3, get 10 percent
-      off," and it applies cleanly at checkout with no code and no app. You can gate a
-      discount to a collection, to a minimum quantity, or to a minimum spend. For a store
-      that wants one straightforward promotion running at a time, the native tools do the
-      job and do it well.
+      The obvious moves all miss, and it is worth being precise about why. Deleting
+      or disabling the customer's account touches only the login: guest checkout
+      remains open to anyone who can type an email address, which is to say the
+      person you just deleted, thirty seconds later, with the same email or a new
+      one. Shopify's fraud analysis will not catch them either, because it is
+      answering a different question. It exists to spot stolen payment methods, the
+      mismatched cards and impossible geographies behind
+      <a href="how-to-handle-high-risk-orders-on-shopify.html">the high-risk flag
+      that makes you guess</a>. Your serial returner is not stealing anything at
+      checkout. They pay with their own valid card from their own address, the
+      transaction is perfectly legitimate, and the analysis waves it through as low
+      risk, because as a payment it is. The damage comes later, and no field in the
+      fraud panel looks later.
     </p>
 
     <p>
-      The wall is that each discount holds a single condition. "Buy 3 save 10" is one
-      rule. "Buy 6 save 20" is a second, separate rule. Shopify gives you no way to say
-      "and if they reach 6, step up to 20, and if they reach 12, step up to 30" inside one
-      offer. So merchants try to fake it by creating three automatic discounts at once,
-      and that is where it breaks: a cart with 12 units qualifies for all three tiers,
-      Shopify does not pick the best one and suppress the rest, and the shopper can land on
-      the smallest saving or the discounts simply refuse to combine. There is also a hard
-      cap of 25 active automatic discounts on the store, so the "one discount per tier per
-      product" approach runs out of room fast.
+      The workaround the forums converge on is Shopify Flow, and it gets closer while
+      still missing the point. Tag the customer as blocked, then build a workflow on
+      the Order created trigger: if the customer carries the tag, or the email
+      matches a list, cancel the order, restock the items, maybe send the
+      cancellation notice. This genuinely works, and for some stores it is enough.
+      But look at what it is actually doing. The order was placed. The payment was
+      captured. Canceling now means refunding, and payment processing fees are
+      generally not returned on refunds, so every order your blocklist catches still
+      costs you the fees on money you never wanted. The customer gets a cancellation
+      email and learns the exact shape of the wall, and nothing stops them from
+      checking out again in two minutes, because Flow reacts to orders and cannot
+      refuse one. A block that charges you per use and tells the blocked person how
+      it matched is not a block. It is a toll booth you pay for.
     </p>
 
     <p>
-      The one place Shopify does real quantity tiers is B2B. If you run a wholesale setup,
-      you can attach quantity pricing to a price list, and it behaves like a proper ladder.
-      But it applies only to customers who are assigned to a company profile in your B2B
-      configuration. It does nothing for your open storefront, nothing for tagged retail
-      customers, and nothing for a cart-total tier that a first-time visitor should see. So
-      the one native feature that tiers correctly is walled off from almost everyone you
-      would actually want to show it to.
+      The matching is the deeper crack. Flow compares strings. The email
+      <code>jane@gmail.com</code> is on your list, so
+      <code>jane+1@gmail.com</code> is not, and <code>jane.doe@icloud.com</code> is
+      certainly not, and the fresh address created in one minute is invisible. The
+      person is identical, the ship-to flat is identical, the behavior about to
+      happen is identical, and the workflow sees a brand-new customer, which is the
+      same blindness that lets <a
+      href="how-to-merge-duplicate-customer-profiles-on-shopify.html">one loyal
+      customer split into four strangers</a> in the other direction. There are
+      sharper tools further down: checkout validation functions can truly decline a
+      checkout before it completes, but they live inside a custom app that someone
+      has to build and maintain, and they match on the same literal fields. And the
+      IP blocking apps dissolve on contact with reality, because the determined
+      returner switches to a VPN in seconds while a shared office or campus address
+      locks out innocent shoppers wholesale.
     </p>
-
-    <div class="callout callout-sand">
-      <span class="callout-mark">&#9670; TIMELY</span>
-      <span>
-        The old workaround is gone. For years, Shopify Plus merchants faked tiered cart
-        pricing with <strong>Shopify Scripts</strong>, which stopped executing on
-        <strong>June 30, 2026</strong>. Any store that ran buy-more-save-more logic through
-        a Script now has a broken checkout and is being pushed toward Shopify Functions or a
-        discount app built on them. If your tiers quietly stopped working in the last few
-        weeks, this is almost certainly why.
-      </span>
-    </div>
 
     <blockquote>
-      A volume discount is not one rule. It is a ladder, and Shopify only ever hands you a
-      single rung.
+      Shopify can tell you an order looks stolen. It has no way to remember that
+      this exact customer has burned you three times.
     </blockquote>
+
+    <p>
+      What the missing button costs depends on which bad actor you drew. The serial
+      returner runs up outbound shipping, return shipping, and restocking on
+      merchandise that comes back unsellable, a loop that <a
+      href="how-to-automate-returns-and-exchanges-on-shopify.html">an automated
+      returns desk</a> processes faster but cannot refuse. The item-not-received
+      filer converts your goodwill into <a
+      href="how-to-win-chargeback-disputes-on-shopify.html">chargebacks you lose by
+      default</a>, each one carrying its own fee on top of the product. The
+      launch-day buyer who <a
+      href="how-to-limit-purchase-quantity-per-customer-on-shopify.html">clears your
+      whole drop</a> comes back under a new name the moment his first cart gets
+      canceled. And the abusive customer costs you something no ledger holds, which
+      is the support person who has to be polite to them again. None of these people
+      are anonymous. You know exactly who they are. That is the insult in it: the
+      block fails not for lack of information but for lack of anywhere to put it.
+    </p>
 
     <h2>Why doing it by hand never keeps up</h2>
 
     <p>
-      The by-hand version of tiers is a maze of overlapping automatic discounts and coupon
-      codes, and it turns fragile the moment anything else is running. Say you build your
-      three tiers as three discounts. Now you launch a
-      <a href="how-to-schedule-a-sale-on-shopify.html">weekend sale</a> on the same
-      collection. Does the volume tier stack on top of the sale price, or replace it? Now a
-      newsletter code goes out. Does buy 12 plus the code push the item below your cost?
-      Shopify's combination settings are coarse, so you are left toggling "combines with
-      other discounts" and testing carts by hand, hoping you have not opened a hole that a
-      sharp shopper drives a bulk order through at negative margin.
+      The manual version is a memory game scored in real money. Someone keeps the
+      list, in their head or in a spreadsheet: the names, the emails, that one
+      address on Elm Street. Every morning someone scans the new orders against it,
+      which works until the day the orders are many and the scan is quick, and the
+      match that mattered wore a middle initial. Catch it after fulfillment and you
+      are no longer blocking, you are chasing: intercepting a label that already
+      printed or eating one more round trip of shipping. Miss it entirely and you
+      find out in three weeks, at the returns desk, from the person processing
+      refund number ten.
     </p>
 
     <p>
-      Then there is the judgement that a tier table can never hold on its own. Not every
-      product can carry the same ladder, because margins differ, so a 30 percent top tier
-      that is fine on a high-margin candle is a loss on a thin-margin electronic. A
-      wholesale buyer and a retail shopper should not see the same breaks. A deep tier
-      during a promotion window is a different decision from the same tier as a permanent
-      price. None of this is a single subtract. It is a running set of rules with exceptions
-      and floors, and it is exactly what a person loses the thread of across a catalog and a
-      calendar of overlapping promotions.
+      And the memory game has a second failure mode that costs more than the misses:
+      false positives. A spreadsheet matched on surname will eventually cancel a
+      wedding gift from the blocked customer's cousin, or a genuine order from a
+      flatmate at the same address, and that person tells the story forever. A block
+      list enforced by tired pattern-matching at 8 a.m. swings between too loose,
+      letting the tenth order through, and too tight, executing an innocent, and it
+      cannot tell you which mode it is in today.
     </p>
 
     <h2>What the automation actually has to do</h2>
 
     <p>
-      The real job is not "make a discount." It is "read a tier table, and on every cart
-      pick the single correct break by quantity or spend, apply just that one, keep it from
-      stacking past a floor, apply the right ladder to the right audience, and nudge the
-      shopper toward the next rung, with the risky calls handed to a person." That is a
-      resolver, a guardrail, and an escalation, running on every cart change. As a Dugong
-      playbook, in plain prose, it reads like this:
+      A block that sticks is not one rule. It is a memory, a screen, a judgement,
+      and a follow-through: remember every signal about who burned you, check every
+      new order against that memory before fulfillment starts, decide match or
+      coincidence from the whole record rather than one string, act while the order
+      is still cheap to act on, and keep watching, because blocked customers come
+      back sideways. As a Dugong playbook, in plain prose, it reads like this:
     </p>
 
     <pre id="playbook"><code><span class="c"># trigger</span>
-<span class="k">On</span> any cart change for a product or collection
-   that carries a volume tier
+<span class="k">On</span> every new order, and whenever a return closes
+   badly, a chargeback lands, or support flags an
+   abusive exchange
 
 <span class="c"># steps</span>
-1. <span class="k">Read</span> the tier table: the breaks, whether they key
-   off units or cart spend, and the audience they apply to
-2. <span class="k">Resolve</span> the single highest tier this cart has
-   actually earned
-3. <span class="k">Apply</span> only that tier, to the right lines or the
-   whole cart, never a smaller one by accident
-4. <span class="k">Guard</span> stacking: enforce whether it can combine with
-   a code or a live sale, and hold every tier above its margin floor
-5. <span class="k">Show</span> the shopper the next rung ("add 2 more to save
-   20 percent") so the ladder does its own upselling
-6. <span class="k">Hold</span> for review a tier that crosses a floor, a
-   code clash, or a new promo that overlaps an existing ladder</code></pre>
+1. <span class="k">Keep</span> the blocklist as identities, not strings:
+   email variants, phone, ship-to address, payment
+   fingerprint, and the history that earned the block
+2. <span class="k">Screen</span> each order at creation against the list,
+   before the label, before the pick
+3. <span class="k">Decide</span> match or coincidence from the whole
+   record: a shared surname is nothing, a fresh email
+   shipping to the same flat is not
+4. <span class="k">Cancel</span> the confirmed match unfulfilled, restock,
+   and file the reason on the order
+5. <span class="k">Watch</span> the comeback: new aliases, new accounts,
+   small address edits that point at the same person
+6. <span class="k">Escalate</span> the borderline case to a human with
+   the history attached</code></pre>
 
     <p>
-      Six lines. The compiler fills in the rest: reading the tier table as intent rather
-      than as a pile of competing discounts, choosing the one right break instead of
-      letting three fight, doing the math per line or per cart depending on how the offer is
-      written, enforcing the stacking rule you chose so a coupon and a volume break never
-      quietly double up, holding each rung above the margin floor you set, and telling the
-      cart how close it is to the next tier so the discount pulls the order up instead of
-      sitting there invisible. The merchant never built twenty-five overlapping discounts.
-      They described the ladder once and let the compiler run it on every cart.
+      Six lines. The compiler fills in the rest: reading plus-addressing and dot
+      tricks for what they are; treating the shipping address and phone number as
+      the durable identity they actually represent; scoring a borderline order
+      instead of guessing, this email is new but the flat and the phone both match,
+      say it plainly and wait; canceling inside the window where cancellation is
+      clean, before the warehouse moves, the same race that
+      <a href="how-to-edit-a-shopify-order-after-its-been-placed.html">order edits
+      lose by hand</a>; <a
+      href="how-to-automatically-tag-orders-on-shopify.html">tagging the order and
+      the customer</a> so support sees the history before they answer the angry
+      email; and remembering why each block exists, so the list can be argued with
+      later, entry by entry, when someone asks whether the person who made two
+      returns in 2024 really belongs next to the one who made nine.
     </p>
 
     <div class="callout callout-sand">
       <span class="callout-mark">&#9670; NOTE</span>
       <span>
-        The trap here is building tiers as separate discounts and hoping Shopify picks the
-        best one. It does not. Treat the tier table as the source of truth and the applied
-        discount as a <em>result</em> the automation computes on each cart, and the ladder is
-        correct by construction: one break, the right one, every time. Whether a tier can
-        stack with a code, whether it clears a margin floor, and whether wholesale sees a
-        deeper ladder than retail are the judgement calls that matter as much as the
-        percentages themselves.
+        The trap is <strong>blocking by exact email</strong>. One string in a Flow
+        condition feels like a wall and works like a turnstile: the plus-sign alias
+        walks past it on the first try, and meanwhile the literal match is the
+        version most likely to hit an innocent, the relative with the shared
+        surname, the flatmate at the same address. A block is a judgement about a
+        person, and it has to be enforced on the person, not on the last email
+        address they happened to use.
       </span>
     </div>
 
     <h2>Why this is a compiler problem, not an app problem</h2>
 
     <p>
-      There are capable volume-discount apps on the Shopify App Store, and a store losing
-      average order value every day should evaluate one. But the thing that makes tiers safe
-      is not one more grid of quantities and percentages. It is judgement about a specific
-      cart at a specific moment: is this the best tier the cart earned, does applying it
-      alongside the code that is also in the cart cross the floor, should this buyer see the
-      wholesale ladder or the retail one, and does this new promotion overlap a tier that is
-      already live. Those answers change per product, per audience, and per promotion window,
-      which is exactly what a fixed rulebook handles badly and a person cannot hold across a
-      busy catalog.
+      There are blocking apps, and a store under active siege should look at them.
+      But the hard part of a block is not refusing a checkout, it is everything
+      around the refusal: is this order actually the blocked person, or their
+      neighbor; is this customer's record bad enough to block at all, or is two
+      returns in a year just a person with opinions about fit; should the block
+      cancel silently, or ask a human first, because the match is only probable;
+      and when the blocked customer inevitably comes back under a new name, is the
+      new name recognized as a comeback or greeted as a first-time buyer with a
+      welcome discount. Those are judgements about identity and proportion, they
+      change with every order, and a fixed rule holds none of them. The cost of
+      getting the judgement wrong is asymmetric, too: a bad order slipping through
+      costs you a return cycle, while a good customer canceled as a suspect costs
+      you the customer, their friends, and a public review that says your store
+      cancels orders for no reason.
     </p>
 
     <p>
-      A natural-language compiler fits because a volume discount was never a single action.
-      It is a resolver that reads intent, a guardrail that protects margin and stacking, and
-      a nudge that upsells the next rung, all running on every cart as it changes. You can
-      describe the whole behavior in a paragraph. You could never keep twenty-five
-      overlapping discounts honest by hand. It sits in the same family as
-      <a href="how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html">the free
-      gift that never lands in the cart</a>, where a threshold has to change what the cart
-      does rather than just lower a price, and
-      <a href="how-to-set-a-minimum-order-amount-on-shopify.html">the minimum order Shopify
-      won't enforce</a>, where the cart itself has to carry a rule the platform leaves to you.
+      It also sits in a web this desk keeps mapping. Nearest neighbor is <a
+      href="how-to-handle-high-risk-orders-on-shopify.html">the high-risk flag that
+      makes you guess</a>, which judges the payment while this playbook judges the
+      person, and a store wants both watching every order. The identity work
+      underneath is the same skill as <a
+      href="how-to-merge-duplicate-customer-profiles-on-shopify.html">merging the
+      customer Shopify counts three times</a>, pointed at the opposite end of the
+      customer list. The volume attacks belong to <a
+      href="how-to-stop-card-testing-attacks-on-shopify.html">the card-testing
+      flood</a> and <a
+      href="how-to-limit-purchase-quantity-per-customer-on-shopify.html">the buyer
+      who clears your whole drop</a>, while the damage a missed block does
+      downstream lands on <a
+      href="how-to-automate-returns-and-exchanges-on-shopify.html">the returns
+      desk</a> and <a href="how-to-win-chargeback-disputes-on-shopify.html">the
+      chargeback desk</a> in equal measure.
     </p>
 
     <p>
-      Picture a case-pack seller heading into a peak. You want buy 6 save 15 and buy 12 save
-      25 across a collection, but only on the items whose margin can carry it, not stacking
-      with the launch code, and showing wholesale accounts a deeper rung. On the native
-      setup that is a dozen automatic discounts, a combination-settings guessing game, and a
-      Script that no longer runs. With the automation, it is one tier table with a floor and
-      an audience rule: every cart gets the single right break, the code and the tier respect
-      the floor, wholesale sees its own ladder, and the cart tells each shopper how close they
-      are to the next saving. Same offer, none of the overlap, and no negative-margin surprise
-      at the end of the week.
+      Picture a mid-sized apparel store with one professional returner. Eleven
+      orders, nine returns, every item back worn with the tags retucked. The
+      merchant tags her blocked, and the Flow cancellation catches order twelve.
+      Order thirteen arrives four days later under a new Gmail with one dot moved,
+      same flat, same phone, and sails through. With the playbook running, order
+      thirteen scores as a comeback at creation: the address and phone match an
+      identity on the list, the order cancels unfulfilled with the stock returned
+      to the shelf, the reason is filed on the order, and the merchant reads about
+      it in a morning summary instead of a returns report. Order fourteen never
+      comes. The whole affair cost two cancellations and zero shipped boxes,
+      against the alternative, which was four more round trips of worn merchandise
+      and a support inbox learning to dread one name.
     </p>
 
     <hr />
@@ -684,45 +732,50 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <h2>The workflow worth building this week</h2>
 
     <p>
-      If you sell anything in multiples, or you just lost a Script-based tier on June 30, this
-      is the automation to set up now, because the cost of not having it is invisible: the
-      bigger baskets you never earned, and the occasional oversold discount that quietly
-      clears your margin. It pairs naturally with the pricing work we have written about, like
-      <a href="how-to-bulk-edit-product-prices-on-shopify.html">the price change you make one
-      product at a time</a>, which keeps the list prices under the tiers honest, and
-      <a href="how-to-schedule-a-sale-on-shopify.html">the sale you start by hand</a>, which
-      decides how a running promotion and a volume tier are allowed to meet. It feeds the same
-      flywheel as <a href="best-shopify-automations-to-set-up.html">the Shopify automations no
-      one builds</a>, where the work that compounds is the part merchants never get to.
+      If you sell anything with a return window, run limited drops, or have ever
+      had a customer your team recognizes by name with a sinking feeling, the
+      missing ban button is already costing you money labeled as something else:
+      shipping on round trips that were never sales, chargeback fees on claims that
+      were never honest, support hours spent being polite to someone who is not a
+      customer but a recurring event. It pairs naturally with <a
+      href="how-to-handle-high-risk-orders-on-shopify.html">the high-risk order
+      playbook</a>, which catches the strangers with stolen cards, while this one
+      remembers the regulars who cost you on purpose. It feeds the same flywheel as
+      <a href="best-shopify-automations-to-set-up.html">the Shopify automations no
+      one builds</a>, where the compounding work is the institutional memory nobody
+      has time to keep.
     </p>
 
     <p>
-      Describe it the way you would brief a careful merchandiser: here is the ladder, here is
-      what it keys off, here is the floor it must never cross, here is who sees the deeper
-      version, and never stack it past that floor. On every cart, give the shopper the best
-      rung they have earned and tell them how to reach the next one, and bring me anything that
-      would cross a line. That is the whole brief. The compiler does the reading, the resolving,
-      the guarding, and the nudging. Your average order climbs, your margin holds, and buy more
-      save more finally behaves the way shoppers already expect it to.
+      Describe it the way you would brief a careful assistant: here is the list of
+      people we no longer sell to and why, watch every new order against it, treat
+      the address and the phone as the person rather than the email, cancel the
+      confirmed ones before the warehouse touches them and put the stock back, ask
+      me about the borderline ones instead of guessing, and tell me when one of
+      them tries to come back as somebody new. That is the whole brief. The
+      compiler does the remembering, the screening, the scoring, and the paper
+      trail. Your store finally gets the thing every other platform gave its users
+      years ago, which is the right to say no thank you, and mean it tomorrow too.
     </p>
 
     <div class="callout">
       <span class="callout-mark">&#9670; READING</span>
       <span>
         If this resonates, two companion pieces: our dispatch on
-        <a href="how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html">the free
-        gift that never lands in the cart</a>, where a threshold has to add to the cart rather
-        than just discount it, and
-        <a href="how-to-set-a-minimum-order-amount-on-shopify.html">the minimum order Shopify
-        won't enforce</a>, where the cart carries a rule the platform leaves entirely to you.
+        <a href="how-to-handle-high-risk-orders-on-shopify.html">the high-risk flag
+        that makes you guess</a>, which handles the fraud Shopify does try to
+        catch, and <a
+        href="how-to-merge-duplicate-customer-profiles-on-shopify.html">the
+        customer Shopify counts three times</a>, where the same identity problem
+        wrecks your best customers instead of shielding you from your worst.
       </span>
     </div>
 
     <p>
-      If you are a Shopify merchant who has built tiered volume pricing that survives codes,
-      sales, and the Scripts sunset, or you have a story about the bulk discount that cleared
-      your margin, the inbox is open: <code>field-notes@dugong.live</code>. We are collecting
-      case studies for the next issue.
+      If you are a Shopify merchant who has fought a professional returner across
+      five aliases, or you have a blocklist story with a better ending, the inbox
+      is open: <code>field-notes@dugong.live</code>. We are collecting case studies
+      for the next issue.
     </p>
 
   </div>
@@ -744,16 +797,16 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   </div>
   <div class="faq-list">
     <div class="faq-item">
-      <h2 class="faq-q">Can Shopify do tiered volume discounts natively?</h2>
-      <p class="faq-a">Not as a real buy-more-save-more ladder for regular shoppers. Shopify's discount engine allows one condition per discount, so you can build a single tier like buy 3 and save 10 percent, but you cannot chain buy 3, buy 6, and buy 12 into one storefront offer that steps the saving up as the cart grows. The only native quantity pricing that behaves like true tiers is the B2B feature, and it applies only to customers who are assigned to a company profile in your B2B setup, not to tagged retail customers, not to cart-total tiers, and not to your general storefront. Shopify Scripts, the old way stores faked tiered cart logic, stopped running on June 30, 2026, so that route is closed too. Real tiers for everyone else come from Shopify Functions or an app.</p>
+      <h2 class="faq-q">Can I block a customer from placing orders on Shopify?</h2>
+      <p class="faq-a">Not natively. Shopify has no block or ban feature anywhere in the admin. Deleting or disabling a customer's account only affects their ability to log in, and guest checkout remains open to anyone with an email address, so the same person can order again immediately. Shopify's fraud analysis does not help either, because it is built to flag stolen payment methods, and a serial returner paying with their own valid card registers as low risk. Merchants make a block stick by automating the whole loop: keep a blocklist built on identity rather than one email string, check every incoming order against it, and cancel and restock before fulfillment when a match is confirmed.</p>
     </div>
     <div class="faq-item">
-      <h2 class="faq-q">Why does my Shopify tiered discount only apply one tier?</h2>
-      <p class="faq-a">Because each Shopify discount holds one rule, so when you create separate discounts for each break they compete instead of laddering. A cart that qualifies for buy 12 also qualifies for buy 3 and buy 6, and Shopify applies one automatic discount rather than picking the best tier and ignoring the rest, so the shopper can land on the smaller saving or the discounts refuse to combine at all. There is also a cap of 25 active automatic discounts, so building a tier per product this way runs out fast. To make tiers behave you need one piece of logic that reads the quantity or spend, chooses the correct single tier, and applies just that one, which is exactly what stacking separate discounts cannot do.</p>
+      <h2 class="faq-q">Can Shopify Flow block a customer from ordering?</h2>
+      <p class="faq-a">Flow cannot prevent an order, only react to one. The standard workaround is to tag the customer as blocked and build a workflow on the Order created trigger that checks the tag or email and cancels the order, restocks the items, and optionally notifies the customer. It works, but the order still gets placed and paid: the payment is captured and then refunded, and payment processing fees are generally not returned on refunds, so every blocked order costs money. The match is also literal, so a plus-addressed alias or a brand-new email walks straight past the condition, and the customer just tries again since nothing stops the next checkout.</p>
     </div>
     <div class="faq-item">
-      <h2 class="faq-q">What replaced Shopify Scripts for tiered pricing in 2026?</h2>
-      <p class="faq-a">Shopify Scripts stopped executing on June 30, 2026, so any tiered cart pricing or buy-more-save-more logic that ran through Scripts now needs to move to Shopify Functions or a discount app built on them. Functions can express real tier logic, but it is developer work: you write, deploy, and maintain the code, and you own every edge case as your catalog and promotions change. That is why most merchants reach for an app or a compiler instead. The dependable approach is to keep the tier table as something you can read and change in plain language, and let the automation translate it into the correct per-line and per-cart behavior, rather than hard-coding one promotion at a time.</p>
+      <h2 class="faq-q">Can I block someone's IP address on Shopify?</h2>
+      <p class="faq-a">There is no native IP blocking in Shopify. Third-party apps can block IP addresses or countries at the storefront level, but as a way to ban a specific person it is weak on both sides: the determined returner switches to a VPN or their phone's network in seconds, while a shared address like an office, a campus, or a mobile carrier's network can lock out innocent shoppers along with the one you meant. IP is one useful signal among several for recognizing a returning bad actor, but it cannot carry a block on its own, which is why identity-based matching across email variants, phone, and shipping address works better.</p>
     </div>
   </div>
 </section>
@@ -798,41 +851,24 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </div>
     </a>
 
-    <a href="how-to-block-a-customer-on-shopify.html" class="card">
+<a href="how-to-handle-high-risk-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
+          <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The customer you can&rsquo;t ban</h3>
+        <h3 class="card-title">The high-risk flag that makes you guess</h3>
         <p class="card-dek">
-          Shopify has no block button: deleting the account leaves guest checkout open, and Flow can only cancel after the money moved. The AI playbook that keeps a real blocklist and makes a block stick.
+          Shopify flags an order as high risk and then leaves the decision to you: ship it and risk a chargeback, or cancel a real customer. The AI playbook that investigates the flag and decides with evidence.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUL 23</span>
+          <span class="card-date">JUN 6</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
 
-    <a href="how-to-notify-customers-of-shipping-delays-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The delayed order no one tells your customer about</h3>
-        <p class="card-dek">
-          Shopify emails the customer when the order ships, never when it stalls, and Flow can only alert your own staff. The AI playbook that sends the honest delay email before the WISMO ticket arrives.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUL 22</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="how-to-merge-duplicate-customer-profiles-on-shopify.html" class="card">
+<a href="how-to-merge-duplicate-customer-profiles-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -840,7 +876,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
         <h3 class="card-title">The customer Shopify counts three times</h3>
         <p class="card-dek">
-          Your best customer looks like three strangers in the admin, so every segment undercounts her. The AI playbook that merges duplicate profiles in bulk without welding two real people together.
+          One loyal customer becomes four strangers across guest checkouts, relay addresses, and POS. The AI playbook that finds the duplicates and merges the whole list.
         </p>
         <div class="card-foot">
           <span class="card-date">JUL 22</span>
@@ -849,105 +885,41 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </div>
     </a>
 
-    <a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="card">
+<a href="how-to-win-chargeback-disputes-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
+          <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The discount code that double-dips your sale</h3>
+        <h3 class="card-title">The chargeback you lose by default</h3>
         <p class="card-dek">
-          A shopper stacks the welcome code on your 40 percent markdowns and Shopify allows it, because a markdown is not a discount to the engine. The AI playbook that keeps every code off your sale prices.
+          Shopify files a thin dispute response on the deadline and you lose, even with the proof. The AI playbook that builds the evidence and fights it.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUL 20</span>
+          <span class="card-date">JUN 11</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
 
-    <a href="how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html" class="card">
+<a href="how-to-stop-card-testing-attacks-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
+          <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The gift message that never reaches the box</h3>
+        <h3 class="card-title">The card-testing attack that floods your store</h3>
         <p class="card-dek">
-          A shopper writes a note and pays for wrap, and the recipient opens a box with the full invoice inside and no message. The AI playbook that runs gifting end to end.
+          Hundreds of one-dollar orders hit your store in an hour as bots test stolen cards. The AI playbook that spots the flood and shuts it down before the fees land.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUL 18</span>
+          <span class="card-date">JUL 1</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
 
-    <a href="how-to-schedule-a-sale-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The sale you start by hand</h3>
-        <p class="card-dek">
-          You sit up at midnight to flip prices, then again to flip them back. The AI playbook that starts and ends a sale on time across your whole catalog.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 16</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The free gift that never lands in the cart</h3>
-        <p class="card-dek">
-          A customer crosses your spend threshold and the free gift never appears, because a discount only lowers a price. The AI playbook that adds the gift and keeps it honest.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUL 8</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-set-a-minimum-order-amount-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The minimum order Shopify won't enforce</h3>
-        <p class="card-dek">
-          You set a minimum order value and Shopify waves smaller carts straight through checkout anyway. The AI playbook that enforces a real order minimum.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUL 5</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-bulk-edit-product-prices-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The price change you make one product at a time</h3>
-        <p class="card-dek">
-          A cost goes up and you edit prices one by one across the catalog. The AI playbook that reprices in bulk by rule and keeps your margins intact.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 28</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-limit-purchase-quantity-per-customer-on-shopify.html" class="card">
+<a href="how-to-limit-purchase-quantity-per-customer-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -955,7 +927,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
         <h3 class="card-title">The buyer who clears your whole drop</h3>
         <p class="card-dek">
-          You cap a product at two per person and one buyer still takes forty, because Shopify's limit is per cart, not per customer. The AI playbook that enforces a real per-customer limit.
+          One buyer takes forty units of a launch in a single order, and Shopify has no limit-per-customer setting. The AI playbook that enforces fair limits without punishing real fans.
         </p>
         <div class="card-foot">
           <span class="card-date">JUL 11</span>
@@ -963,103 +935,110 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-segment-repeat-customers-on-shopify.html" class="card">
+
+<a href="how-to-automate-returns-and-exchanges-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The repeat customer your store treats like a stranger</h3>
+        <h3 class="card-title">The return that won't approve itself</h3>
         <p class="card-dek">
-          Your best customers get the same generic treatment as first-time visitors, because Shopify does not segment on its own. The AI playbook that spots and rewards them.
+          Every return request waits for a human to read it, approve it, and send a label. The AI playbook that resolves the routine ones and flags the ones that deserve a look.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 21</span>
+          <span class="card-date">JUN 9</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
-    <a href="how-to-sync-bundle-inventory-with-component-stock-on-shopify.html" class="card">
+
+<a href="how-to-automatically-tag-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order tag you set by hand</h3>
+        <p class="card-dek">
+          Shopify Flow tags an order on one condition and can't read the note, so the tags that route everything downstream get set by hand. The AI playbook that reads the whole order and tags it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-edit-a-shopify-order-after-its-been-placed.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order change that races your warehouse</h3>
+        <p class="card-dek">
+          Wrong size, wrong address, one more item: the "can you change my order?" email always lands at a bad time and locks the second you fulfill. The AI playbook that reads the request and resolves it before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 8</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The unpaid order that never cancels itself</h3>
+        <p class="card-dek">
+          Pending payments sit in your admin holding stock hostage until you cancel them by hand. The AI playbook that waits the right amount of time and closes them out.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-validate-shipping-addresses-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">7&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The bad address that ships anyway</h3>
+        <p class="card-dek">
+          Shopify warns you the address looks wrong, you ship anyway, and the package bounces back two weeks later. The AI playbook that fixes or confirms a bad address before the label ever prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-notify-customers-of-shipping-delays-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The bundle sale that never touches your component stock</h3>
+        <h3 class="card-title">The delayed order no one tells your customer about</h3>
         <p class="card-dek">
-          You sell a bundle and the products inside it never move, because Shopify tracks a bundle as its own SKU. The AI playbook that keeps bundle and component stock in sync.
+          Shopify emails your customer when the order ships, never when it stalls, and Flow can only alert your own staff. The AI playbook that sends honest delay emails automatically.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUL 15</span>
+          <span class="card-date">JUL 22</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
-    <a href="how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The abandoned cart that gets one email</h3>
-        <p class="card-dek">
-          Shopify sends a single recovery email and calls it a sequence. The AI playbook that runs a real, well-timed abandoned cart flow that actually recovers revenue.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 14</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">8&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The overselling problem no one automates</h3>
-        <p class="card-dek">
-          Selling stock you no longer have is the pain merchants dread most. The AI playbook that keeps inventory honest in real time across every channel.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 5</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-automatically-request-product-reviews-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The review request you never send</h3>
-        <p class="card-dek">
-          Every delivered order is a review you never asked for, because Shopify does not chase them. The AI playbook that requests the review at the right moment.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 22</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">9&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The tracking number you paste by hand</h3>
-        <p class="card-dek">
-          You copy tracking numbers between tabs one order at a time. The AI playbook that attaches tracking and notifies the customer automatically.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 27</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-    <a href="best-shopify-automations-to-set-up.html" class="card">
+
+<a href="best-shopify-automations-to-set-up.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
