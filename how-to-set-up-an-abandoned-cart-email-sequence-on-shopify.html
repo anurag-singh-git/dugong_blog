@@ -390,6 +390,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -589,7 +593,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       Shopify is good at the detection and thin on the recovery. It reliably
       records an abandoned checkout the moment a shopper reaches checkout and
       leaves without paying, and it can fire a recovery email automatically.
-      What it will not do is run the sustained, judgement-driven follow-up that
+      What it will not do is run the sustained, judgment-driven follow-up that
       actually wins carts back. The gap shows up in three concrete ways the forum
       threads keep circling.
     </p>
@@ -665,7 +669,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       <strong>"I'll build a sequence in Flow."</strong> Shopify Flow can chain a
       few steps, so you can fake a second and third email with delays and
-      conditions. But Flow is a rule tree, and recovery is a judgement problem
+      conditions. But Flow is a rule tree, and recovery is a judgment problem
       wearing a scheduling problem's clothes. You can branch on cart value, but
       not on why the cart was left. You end up hand-maintaining a brittle ladder
       of waits and tags that sends the same generic copy a little later, which is
@@ -680,7 +684,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       monthly fee that climbs with your list, and you still have to design every
       branch, write every variant, and decide every rule yourself, in a separate
       tool bolted to the side of your store. The platform gives you the
-      machinery. It does not give you the judgement of who to chase, with what
+      machinery. It does not give you the judgment of who to chase, with what
       message, on which channel, and when to stop, which is the part that
       actually moves the number.
     </p>
@@ -693,7 +697,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       channel they actually use, with a message that fits the reason, follow up
       as many times as makes sense and no more, stop the instant they buy, and
       never burn a good customer with a discount they did not need." That is a
-      sequence of small judgements, repeated for every cart, not a single timed
+      sequence of small judgments, repeated for every cart, not a single timed
       blast. As a Dugong playbook, in plain prose, it reads like this:
     </p>
 
@@ -734,7 +738,7 @@ reach the shopper (email, phone, or a known account)
         A discount is not the recovery, it is the last resort. Leading every
         reminder with a coupon trains shoppers to abandon on purpose and quietly
         margins away revenue you would have earned at full price. The
-        <strong>judgement</strong> is the value: who to nudge for free, who
+        <strong>judgment</strong> is the value: who to nudge for free, who
         genuinely needs an incentive, which channel they answer, and when to
         stop chasing before you become the brand that emails too much.
       </span>
@@ -757,7 +761,7 @@ reach the shopper (email, phone, or a known account)
 
     <p>
       A natural-language compiler is the unlock because this was never really a
-      scheduling problem. It was a <em>judgement and timing</em> problem wearing
+      scheduling problem. It was a <em>judgment and timing</em> problem wearing
       a scheduling problem's clothes. Sending a delayed email is the easy part,
       which is exactly why every tool ships a version of it. The hard part is
       deciding who to chase and how: reading the cart and the customer, guessing
@@ -861,6 +865,23 @@ reach the shopper (email, phone, or a known account)
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

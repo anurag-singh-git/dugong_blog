@@ -122,7 +122,7 @@
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html#howto",
       "name": "The free gift that never lands in the cart",
-      "description": "The AI playbook that runs a free-gift-with-purchase promotion end to end on Shopify: reading the cart in real time, deciding the right gift by threshold, tier, and customer, adding it on every path into checkout, swapping or removing it as the cart changes, honoring stock, telling the customer, and surfacing the judgement calls for a human.",
+      "description": "The AI playbook that runs a free-gift-with-purchase promotion end to end on Shopify: reading the cart in real time, deciding the right gift by threshold, tier, and customer, adding it on every path into checkout, swapping or removing it as the cart changes, honoring stock, telling the customer, and surfacing the judgment calls for a human.",
       "inLanguage": "en",
       "totalTime": "PT9M",
       "step": [
@@ -391,6 +391,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -686,7 +690,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       gift, put the right gift in it free, on whatever path this customer takes to checkout, take
       it back out if the cart no longer qualifies, upgrade it if they reach a higher tier, never
       gift something you cannot ship, and pull in a human only for the calls that are genuinely
-      judgement." That is a read, a decision, an action on the live cart, and a set of corrections
+      judgment." That is a read, a decision, an action on the live cart, and a set of corrections
       as the cart moves. As a Dugong playbook, in plain prose, it reads like this:
     </p>
 
@@ -724,7 +728,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <span class="callout-mark">◆ NOTE</span>
       <span>
         The trap here is treating a gift as pure mechanics. Whether a cart qualifies is a rule, but
-        whether to gift it right now is a judgement: an item down to its last few units should stop
+        whether to gift it right now is a judgment: an item down to its last few units should stop
         being offered before it oversells and turns a gift into a refund, the way
         <a href="how-to-prevent-overselling-on-shopify-across-channels.html">overselling any product
         does</a>; a cart split into three orders to collect three gifts is one customer working the
@@ -739,7 +743,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       There are capable free-gift and BOGO apps on the Shopify App Store, and a store running gift
       offers should look at one. But the thing that makes an automatic gift safe is not one more
-      rules table. It is judgement about each specific cart: is the gift in stock enough to keep
+      rules table. It is judgment about each specific cart: is the gift in stock enough to keep
       offering, is this customer collecting gifts across split orders, does this cart already carry
       a promotion that the gift should not stack on, did a partial refund just pull the order under
       the line, and is the gift landing on the wallet-button path as well as the cart page. Those
@@ -849,6 +853,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

@@ -349,6 +349,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -663,7 +667,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       There are notification apps, and a store drowning in where-is-my-order tickets
       should look at them. But the hard part of a delay notice is not the sending, it
-      is the judgement stacked underneath it: is this order actually late, or does
+      is the judgment stacked underneath it: is this order actually late, or does
       its shipping profile say Friday; is this a one-order problem or the leading
       edge of a supplier failure that will swallow four hundred orders by Thursday;
       what date can we honestly promise now; is this delay long enough that the email
@@ -796,6 +800,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

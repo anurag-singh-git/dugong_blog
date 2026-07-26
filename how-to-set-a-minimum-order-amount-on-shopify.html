@@ -105,7 +105,7 @@
         {
           "@type": "Question",
           "name": "What is the difference between a minimum order amount and a minimum order quantity?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A minimum order amount is a floor on the cart's value, for example nothing under twenty-five dollars, and it is usually about covering the fixed cost of fulfilling a small order. A minimum order quantity is a floor on units, for example at least six of an item, and it shows up most in wholesale, where you sell in cases or packs. They solve different problems and often need different rules, which is why a single flat setting rarely fits both, and why the useful thing is judgement about which floor applies to which cart and which customer." }
+          "acceptedAnswer": { "@type": "Answer", "text": "A minimum order amount is a floor on the cart's value, for example nothing under twenty-five dollars, and it is usually about covering the fixed cost of fulfilling a small order. A minimum order quantity is a floor on units, for example at least six of an item, and it shows up most in wholesale, where you sell in cases or packs. They solve different problems and often need different rules, which is why a single flat setting rarely fits both, and why the useful thing is judgment about which floor applies to which cart and which customer." }
         }
       ]
     },
@@ -382,6 +382,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -662,7 +666,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       early and kindly how much more they need, enforce it everywhere checkout can
       start rather than on one page, and let the cases that should pass, pass, while
       pulling in a human for the calls that are really policy decisions. That is
-      detection, judgement, and enforcement that has to hold on every path. As a
+      detection, judgment, and enforcement that has to hold on every path. As a
       Dugong playbook, in plain prose, it reads like this:
     </p>
 
@@ -716,7 +720,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       There are capable minimum-order apps on the Shopify App Store, and a store that
       hits this daily should evaluate one. But the thing that makes a minimum safe is
-      not one more number in a settings box. It is judgement about a specific cart at a
+      not one more number in a settings box. It is judgment about a specific cart at a
       specific moment: is this a retail shopper or a wholesale account, should this
       gift-card order be exempt, is this repeat customer worth waving through, and
       would enforcing the floor here cost more goodwill than the order is worth. Those
@@ -761,7 +765,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       to clear before it checks out, know that wholesale and gift cards play by
       different rules, tell the shopper early how much more they need, enforce it
       everywhere checkout can start, and bring me the exceptions that are really policy.
-      That is the whole brief. The compiler does the reading, the judgement, the
+      That is the whole brief. The compiler does the reading, the judgment, the
       warning, and the enforcement, on every path a customer can take. The orders you
       accept are worth accepting, and the shopper with a small cart gets nudged up
       instead of slipped through.
@@ -815,7 +819,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </div>
     <div class="faq-item">
       <h2 class="faq-q">What is the difference between a minimum order amount and a minimum order quantity?</h2>
-      <p class="faq-a">A minimum order amount is a floor on the cart's value, for example nothing under twenty-five dollars, and it is usually about covering the fixed cost of fulfilling a small order. A minimum order quantity is a floor on units, for example at least six of an item, and it shows up most in wholesale, where you sell in cases or packs. They solve different problems and often need different rules, which is why a single flat setting rarely fits both, and why the useful thing is judgement about which floor applies to which cart and which customer.</p>
+      <p class="faq-a">A minimum order amount is a floor on the cart's value, for example nothing under twenty-five dollars, and it is usually about covering the fixed cost of fulfilling a small order. A minimum order quantity is a floor on units, for example at least six of an item, and it shows up most in wholesale, where you sell in cases or packs. They solve different problems and often need different rules, which is why a single flat setting rarely fits both, and why the useful thing is judgment about which floor applies to which cart and which customer.</p>
     </div>
   </div>
 </section>
@@ -826,6 +830,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

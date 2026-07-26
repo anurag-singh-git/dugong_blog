@@ -49,7 +49,7 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html",
       "headline": "How to add a gift message and gift wrap option at checkout on Shopify",
-      "description": "Shopify has no dedicated gift message or gift wrap field for a standard store. Shoppers are pushed into the single cart order-note box, which is one freeform field per order, unlabeled, and easy to miss, so a gift note gets buried with delivery instructions and never reaches the packing station. Native gift wrap at checkout exists only for Shopify Plus stores on Checkout Extensibility, and even then it is a bare checkbox, not a fee, a line item, or a packing instruction. The packing slip is one template for every order, so a gift message does not flow onto it without Liquid edits, and there is no native toggle to hide prices for a gift order, so the recipient opens a box with the full invoice inside. The AI playbook that captures gift intent and the message, validates and cleans it, attaches gift wrap as a real line item or fee, tags the order as a gift, produces a gift packing slip with the note in and the prices out, routes it to the packing bench, and escalates the judgement calls to a human.",
+      "description": "Shopify has no dedicated gift message or gift wrap field for a standard store. Shoppers are pushed into the single cart order-note box, which is one freeform field per order, unlabeled, and easy to miss, so a gift note gets buried with delivery instructions and never reaches the packing station. Native gift wrap at checkout exists only for Shopify Plus stores on Checkout Extensibility, and even then it is a bare checkbox, not a fee, a line item, or a packing instruction. The packing slip is one template for every order, so a gift message does not flow onto it without Liquid edits, and there is no native toggle to hide prices for a gift order, so the recipient opens a box with the full invoice inside. The AI playbook that captures gift intent and the message, validates and cleans it, attaches gift wrap as a real line item or fee, tags the order as a gift, produces a gift packing slip with the note in and the prices out, routes it to the packing bench, and escalates the judgment calls to a human.",
       "datePublished": "2026-07-18",
       "dateModified": "2026-07-18",
       "articleSection": "Research",
@@ -114,7 +114,7 @@
           "name": "How do I hide prices on a Shopify gift receipt?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "There is no native per-order toggle that says this order is a gift, hide the prices. The packing slip template is shared across the whole store, so hiding prices there hides them for every order, and leaving them shows them on gifts too. The dependable way is to mark an order as a gift the moment it is placed, then generate a separate gift packing slip for those orders that carries the message and omits every price and total, while normal orders keep their standard slip. That means detecting the gift, tagging the order, and branching the document, which is exactly the judgement a shared template cannot make on its own."
+            "text": "There is no native per-order toggle that says this order is a gift, hide the prices. The packing slip template is shared across the whole store, so hiding prices there hides them for every order, and leaving them shows them on gifts too. The dependable way is to mark an order as a gift the moment it is placed, then generate a separate gift packing slip for those orders that carries the message and omits every price and total, while normal orders keep their standard slip. That means detecting the gift, tagging the order, and branching the document, which is exactly the judgment a shared template cannot make on its own."
           }
         }
       ]
@@ -123,7 +123,7 @@
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#howto",
       "name": "The gift message that never reaches the box",
-      "description": "The AI playbook that runs gifting end to end on Shopify: capturing the gift intent and the message, validating and cleaning it, attaching gift wrap as a real line item or fee, tagging the order as a gift, producing a gift packing slip with the note in and the prices out, routing it to the packing bench, and escalating the judgement calls to a human.",
+      "description": "The AI playbook that runs gifting end to end on Shopify: capturing the gift intent and the message, validating and cleaning it, attaching gift wrap as a real line item or fee, tagging the order as a gift, producing a gift packing slip with the note in and the prices out, routing it to the packing bench, and escalating the judgment calls to a human.",
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
@@ -133,7 +133,7 @@
         { "@type": "HowToStep", "position": 4, "name": "Tag the order as a gift", "text": "Mark the order as a gift so every downstream step, the slip, the routing, and the notifications can branch on it instead of guessing", "url": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#playbook" },
         { "@type": "HowToStep", "position": 5, "name": "Build a gift packing slip", "text": "Generate a slip for gift orders that prints the message and omits every price and total, while normal orders keep their standard slip", "url": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#playbook" },
         { "@type": "HowToStep", "position": 6, "name": "Route it to the bench", "text": "Send the gift order to the packing station with the wrap flag and the printed message attached, so nothing depends on someone spotting a note in the admin", "url": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 7, "name": "Escalate the judgement calls", "text": "Hold for review an offensive or oversized message, a gift that ships to multiple addresses, or a split shipment, so a person makes the call before it goes out", "url": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#playbook" }
+        { "@type": "HowToStep", "position": 7, "name": "Escalate the judgment calls", "text": "Hold for review an offensive or oversized message, a gift that ships to multiple addresses, or a split shipment, so a person makes the call before it goes out", "url": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#playbook" }
       ]
     }
   ]
@@ -350,6 +350,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -574,7 +578,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <p>
-      Then there is the judgement a text field can never hold. Some messages should not print:
+      Then there is the judgment a text field can never hold. Some messages should not print:
       the empty submission, the paste of a tracking URL into the wrong box, the occasional
       abusive note aimed at the recipient. A gift that ships to a different address than the
       buyer needs its own handling. A cart that is half gift and half self-purchase should not
@@ -633,7 +637,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         as its own kind of order, with a tag, a clean message, a real wrap charge, and a
         price-free slip, and the whole thing becomes reliable by construction. Whether a message
         is safe to print, whether the wrap reached the bench, and whether the price ever shows on
-        the box are the judgement calls that matter as much as the note itself.
+        the box are the judgment calls that matter as much as the note itself.
       </span>
     </div>
 
@@ -642,7 +646,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       There are capable gifting apps on the Shopify App Store, and a store that sells a lot of
       gifts should evaluate one. But the thing that makes gifting safe is not one more field on
-      the product page. It is judgement about a specific order at a specific moment: is this
+      the product page. It is judgment about a specific order at a specific moment: is this
       message fit to print, does this gift ship to the buyer or to someone else, should the price
       be hidden on this box and shown on the next, and did the wrap instruction actually reach the
       person folding the paper. Those answers change per order, which is exactly what a fixed form
@@ -748,7 +752,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </div>
     <div class="faq-item">
       <h2 class="faq-q">How do I hide prices on a Shopify gift receipt?</h2>
-      <p class="faq-a">There is no native per-order toggle that says this order is a gift, hide the prices. The packing slip template is shared across the whole store, so hiding prices there hides them for every order, and leaving them shows them on gifts too. The dependable way is to mark an order as a gift the moment it is placed, then generate a separate gift packing slip for those orders that carries the message and omits every price and total, while normal orders keep their standard slip. That means detecting the gift, tagging the order, and branching the document, which is exactly the judgement a shared template cannot make on its own.</p>
+      <p class="faq-a">There is no native per-order toggle that says this order is a gift, hide the prices. The packing slip template is shared across the whole store, so hiding prices there hides them for every order, and leaving them shows them on gifts too. The dependable way is to mark an order as a gift the moment it is placed, then generate a separate gift packing slip for those orders that carries the message and omits every price and total, while normal orders keep their standard slip. That means detecting the gift, tagging the order, and branching the document, which is exactly the judgment a shared template cannot make on its own.</p>
     </div>
   </div>
 </section>
@@ -759,6 +763,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

@@ -390,6 +390,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -660,7 +664,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <strong>A Shopify Flow rule.</strong> Flow is genuinely useful for
       reacting to structured events. A return request is not really one. It
       arrives as a sentence a person wrote, "the large was too big, can I
-      swap for a medium," and the decision underneath it needs judgement:
+      swap for a medium," and the decision underneath it needs judgment:
       is it in window, is the item eligible, is this a serial returner, do
       we exchange or refund. Flow can tag and route, but it cannot read the
       request, weigh it against your policy, run the exchange, and settle the
@@ -716,7 +720,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         easy, in-policy majority automatically, the size swap, the unworn
         item inside the window, and to put a clear guardrail around the
         rest. Automate the safe cases and your team's attention is freed for
-        the judgement calls: the repeat returner, the high-value claim, the
+        the judgment calls: the repeat returner, the high-value claim, the
         item that came back damaged.
       </span>
     </div>
@@ -738,7 +742,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p>
       A natural-language compiler is the unlock because returns were never
-      really a forms problem. They were a <em>judgement</em> problem wearing
+      really a forms problem. They were a <em>judgment</em> problem wearing
       a forms problem's clothes. Issuing the refund is the easy part. The
       hard part is everything around it: read the request, decide if it
       qualifies, choose exchange over refund when you can, settle the money,
@@ -838,6 +842,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

@@ -390,6 +390,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -688,7 +692,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       text, or a duplicated one, or just the file name, look at the picture, write a
       line that describes what it actually shows, keep it short and on brand, leave
       the decorative ones empty, and never let two near-identical shots read the
-      same." That is looking, judgement, and bookkeeping at catalog scale. As a
+      same." That is looking, judgment, and bookkeeping at catalog scale. As a
       Dugong playbook, in plain prose, it reads like this:
     </p>
 
@@ -731,7 +735,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         it is a <strong>customer who hears "image four eight two one" instead of
         your product</strong>, and a photo your search engine cannot read. The goal
         is not "every field is filled," it is a line that actually describes the
-        picture, which is precisely the judgement a template built from the product
+        picture, which is precisely the judgment a template built from the product
         name can never make. The picture is the whole point, and the template never
         looks at it.
       </span>
@@ -746,13 +750,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       color, on whom. That is different for the front of a coat than for the lining
       detail, different again for a lifestyle shot than for a flat product shot of
       the same item, and different for a decorative banner that should carry no alt
-      at all. Those are judgements about the picture in front of you, not tokens in
+      at all. Those are judgments about the picture in front of you, not tokens in
       someone else's template.
     </p>
 
     <p>
       A natural-language compiler fits because writing alt text was never really a
-      data problem. It is a <em>looking and judgement</em> problem wearing a data
+      data problem. It is a <em>looking and judgment</em> problem wearing a data
       problem's clothes. Storing the field is the easy part, which is why Shopify
       does it. The hard part is everything around it: open each image, see what is
       actually in it, write a line that fits only it, keep them all distinct, hold
@@ -859,6 +863,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

@@ -49,7 +49,7 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html",
       "headline": "How to automatically sync bundle inventory with component stock on Shopify",
-      "description": "Shopify treats a bundle as its own product with its own stock number, so selling a bundle does not deduct the individual products inside it, and selling one of those products does not reduce how many bundles are still available. When a component is shared across several bundles and its own product page, one sale should reduce all of them, and Shopify links none of it, so the store oversells the part and promises a bundle it can no longer build. The native Shopify Bundles app does link a fixed bundle to its components and shows availability from the lowest component, which is real and useful, but it caps components, does not cover mix-and-match cleanly, tracks by overall stock rather than by location, and does nothing for bundles built the older way as a standalone product or variant, and an order edit breaks the link entirely. There is no native rule that keeps every bundle, every component, and every other listing that shares a component in sync in real time. The AI playbook that watches component stock per location, decrements the parts on a bundle sale and the bundle count on a part sale, cascades a shared component across every bundle that uses it, syncs the same signal to other channels so the count is not phantom, and escalates the judgement calls to a human.",
+      "description": "Shopify treats a bundle as its own product with its own stock number, so selling a bundle does not deduct the individual products inside it, and selling one of those products does not reduce how many bundles are still available. When a component is shared across several bundles and its own product page, one sale should reduce all of them, and Shopify links none of it, so the store oversells the part and promises a bundle it can no longer build. The native Shopify Bundles app does link a fixed bundle to its components and shows availability from the lowest component, which is real and useful, but it caps components, does not cover mix-and-match cleanly, tracks by overall stock rather than by location, and does nothing for bundles built the older way as a standalone product or variant, and an order edit breaks the link entirely. There is no native rule that keeps every bundle, every component, and every other listing that shares a component in sync in real time. The AI playbook that watches component stock per location, decrements the parts on a bundle sale and the bundle count on a part sale, cascades a shared component across every bundle that uses it, syncs the same signal to other channels so the count is not phantom, and escalates the judgment calls to a human.",
       "datePublished": "2026-07-15",
       "dateModified": "2026-07-15",
       "articleSection": "Research",
@@ -123,7 +123,7 @@
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#howto",
       "name": "The bundle sale that never touches your component stock",
-      "description": "The AI playbook that keeps Shopify bundle and component inventory in sync: watching component stock per location, deducting the parts on a bundle sale and the bundle count on a part sale, cascading a shared component across every bundle that uses it, recomputing bundle availability from the components, syncing the signal to other channels, and escalating the judgement calls to a human.",
+      "description": "The AI playbook that keeps Shopify bundle and component inventory in sync: watching component stock per location, deducting the parts on a bundle sale and the bundle count on a part sale, cascading a shared component across every bundle that uses it, recomputing bundle availability from the components, syncing the signal to other channels, and escalating the judgment calls to a human.",
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
@@ -133,7 +133,7 @@
         { "@type": "HowToStep", "position": 4, "name": "Cascade shared components across bundles", "text": "When a component sits in several bundles or has its own product page, apply one deduction to the real component and update every bundle and listing that depends on it", "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook" },
         { "@type": "HowToStep", "position": 5, "name": "Sync the signal to every channel", "text": "Push the corrected component and bundle counts to the other sales channels so a marketplace is not still showing stock the bundle just consumed", "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook" },
         { "@type": "HowToStep", "position": 6, "name": "Reconcile on restocks, returns, and edits", "text": "Add component stock back on a restock or a returned bundle, and re-run the math when an order is edited so removing or adding a bundle corrects the parts too", "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 7, "name": "Escalate the judgement calls", "text": "Hold for review a component that has gone negative, a bundle that should switch to backorder rather than hide, or a partial return where only some parts came back, so a person makes the call", "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook" }
+        { "@type": "HowToStep", "position": 7, "name": "Escalate the judgment calls", "text": "Hold for review a component that has gone negative, a bundle that should switch to backorder rather than hide, or a partial return where only some parts came back, so a person makes the call", "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook" }
       ]
     }
   ]
@@ -350,6 +350,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -575,7 +579,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <p>
-      Then the judgement creeps in, the way it always does. A component at zero inside a
+      Then the judgment creeps in, the way it always does. A component at zero inside a
       bundle is not the same as one you have chosen to backorder. A returned gift set may
       have come back with two of its three items, so adding a whole bundle's worth of stock
       back is wrong. A bundle that dips to zero because one cheap filler part ran out should
@@ -636,7 +640,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         thing, the kit says another, and the customer or the warehouse finds the gap before you
         do. Whether a shared component needs a reserve held for already-promised bundles, whether
         a part-return should credit stock, and whether a zeroed bundle should hide or backorder
-        are the judgement calls that matter as much as the subtraction itself.
+        are the judgment calls that matter as much as the subtraction itself.
       </span>
     </div>
 
@@ -645,7 +649,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       There are capable bundle and inventory-sync apps on the Shopify App Store, and a store
       that oversells its components every week should evaluate one. But the thing that makes this
-      safe is not one more field mapping a bundle to its parts. It is judgement about a specific
+      safe is not one more field mapping a bundle to its parts. It is judgment about a specific
       component at a specific moment: is this bundle out because a real part is gone or because a
       cheap filler dipped, should a returned kit credit one item or three, does this shared
       component need a reserve so the kits you already sold can still ship, and which channel is
@@ -762,6 +766,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

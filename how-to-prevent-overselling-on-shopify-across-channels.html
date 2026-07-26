@@ -391,7 +391,7 @@ em { font-style: italic; }
 .pb-node-body { flex: 1; min-width: 0; }
 .pb-node-title { color: var(--text); font-size: 0.78rem; font-weight: 600; font-family: var(--display); }
 .pb-node-sub { color: var(--text-faint); font-size: 0.68rem; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.pb-tag { font-family: var(--display); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--lime-deep); background: rgba(198,254,30,.3); padding: 0.2rem 0.45rem; border-radius: 100px; flex-shrink: 0; }
+.pb-tag { font-family: var(--display); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--lime-deep); background: rgba(198,254,30,.3); padding: 0.2rem 0.45rem; border-radius: 100px; flex-shrink: 0; }
 .pb-line { width: 2px; height: 14px; background: var(--border-strong); margin: 0.25rem 0 0.25rem 1.95rem; }
 .pb-branch { display: grid; gap: 0.4rem; padding: 0.5rem 0.75rem; border: 1px dashed var(--border-strong); border-radius: 11px; }
 .pb-branch-arm { font-size: 0.7rem; color: var(--text-dim); }
@@ -535,6 +535,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -792,7 +796,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       truth, push that truth everywhere within seconds, hold a smart
       buffer on fast-movers, and, when two systems genuinely
       disagree, know which one to believe and who to wake up. That's
-      a set of judgement calls, not a single rule. Written as a
+      a set of judgment calls, not a single rule. Written as a
       Dugong playbook, in plain prose, it reads like this:
     </p>
 
@@ -965,6 +969,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

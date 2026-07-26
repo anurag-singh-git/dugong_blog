@@ -98,7 +98,7 @@
           "name": "Can I merge duplicate customer profiles in bulk on Shopify?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Shopify's native merge combines exactly two profiles at a time: you select two customers on the Customers page and choose Merge customers, or open one profile and use More actions, then Merge customer. There is no bulk select, no store-wide duplicate report, and no admin screen that queues thousands of likely pairs for review, so a list that has accumulated years of guest checkouts and POS sales is a two-at-a-time job with no end. Cleaning a real list means detection and judgement first: finding likely pairs across email variants, shared phones, and matching addresses, deciding which pairs are truly the same person, then running the merges pair by pair, which is exactly the part worth automating."
+            "text": "No. Shopify's native merge combines exactly two profiles at a time: you select two customers on the Customers page and choose Merge customers, or open one profile and use More actions, then Merge customer. There is no bulk select, no store-wide duplicate report, and no admin screen that queues thousands of likely pairs for review, so a list that has accumulated years of guest checkouts and POS sales is a two-at-a-time job with no end. Cleaning a real list means detection and judgment first: finding likely pairs across email variants, shared phones, and matching addresses, deciding which pairs are truly the same person, then running the merges pair by pair, which is exactly the part worth automating."
           }
         },
         {
@@ -114,7 +114,7 @@
           "name": "Why won't Shopify let me merge two customer profiles?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The merge is blocked whenever either profile is entangled in something Shopify cannot cleanly combine: a subscription contract, current or past; a link to a B2B company; a vaulted payment card; a store credit account; a multipass login; or a pending customer data request or redaction. Those pairs need a different path than the merge button: consolidate what can move, such as tags, notes, addresses, and a record of which profile is the primary one, point future activity at the survivor, and leave the entangled record intact. That is judgement work per pair, which is why a cleanup that only knows how to press merge stalls the first time it meets a subscriber."
+            "text": "The merge is blocked whenever either profile is entangled in something Shopify cannot cleanly combine: a subscription contract, current or past; a link to a B2B company; a vaulted payment card; a store credit account; a multipass login; or a pending customer data request or redaction. Those pairs need a different path than the merge button: consolidate what can move, such as tags, notes, addresses, and a record of which profile is the primary one, point future activity at the survivor, and leave the entangled record intact. That is judgment work per pair, which is why a cleanup that only knows how to press merge stalls the first time it meets a subscriber."
           }
         }
       ]
@@ -349,6 +349,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -598,7 +602,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <h2>What the automation actually has to do</h2>
 
     <p>
-      The real job is not a merge button pressed faster. It is a sweep, a judgement,
+      The real job is not a merge button pressed faster. It is a sweep, a judgment,
       and a safe hand on the button, running continuously: find the likely duplicates
       across the whole list, decide which are truly the same person from evidence
       rather than string matching, merge the safe ones through Shopify's own merge so
@@ -656,7 +660,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       There are dedup apps, and a store drowning in duplicates should look at them.
       But the thing that makes a cleanup safe is not a merge executed quickly, it is
-      the judgement about a specific pair: is the relay address her, is the POS
+      the judgment about a specific pair: is the relay address her, is the POS
       profile him, does this pair share an inbox or merely a surname, which record
       deserves to survive, and is this cluster safe to collapse or is one profile in
       it a subscriber the merge will refuse. Those answers change per pair and per
@@ -758,7 +762,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="faq-list">
     <div class="faq-item">
       <h2 class="faq-q">Can I merge duplicate customer profiles in bulk on Shopify?</h2>
-      <p class="faq-a">No. Shopify's native merge combines exactly two profiles at a time: you select two customers on the Customers page and choose Merge customers, or open one profile and use More actions, then Merge customer. There is no bulk select, no store-wide duplicate report, and no admin screen that queues thousands of likely pairs for review, so a list that has accumulated years of guest checkouts and POS sales is a two-at-a-time job with no end. Cleaning a real list means detection and judgement first: finding likely pairs across email variants, shared phones, and matching addresses, deciding which pairs are truly the same person, then running the merges pair by pair, which is exactly the part worth automating.</p>
+      <p class="faq-a">No. Shopify's native merge combines exactly two profiles at a time: you select two customers on the Customers page and choose Merge customers, or open one profile and use More actions, then Merge customer. There is no bulk select, no store-wide duplicate report, and no admin screen that queues thousands of likely pairs for review, so a list that has accumulated years of guest checkouts and POS sales is a two-at-a-time job with no end. Cleaning a real list means detection and judgment first: finding likely pairs across email variants, shared phones, and matching addresses, deciding which pairs are truly the same person, then running the merges pair by pair, which is exactly the part worth automating.</p>
     </div>
     <div class="faq-item">
       <h2 class="faq-q">Why does Shopify keep creating duplicate customer profiles?</h2>
@@ -766,7 +770,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </div>
     <div class="faq-item">
       <h2 class="faq-q">Why won't Shopify let me merge two customer profiles?</h2>
-      <p class="faq-a">The merge is blocked whenever either profile is entangled in something Shopify cannot cleanly combine: a subscription contract, current or past; a link to a B2B company; a vaulted payment card; a store credit account; a multipass login; or a pending customer data request or redaction. Those pairs need a different path than the merge button: consolidate what can move, such as tags, notes, addresses, and a record of which profile is the primary one, point future activity at the survivor, and leave the entangled record intact. That is judgement work per pair, which is why a cleanup that only knows how to press merge stalls the first time it meets a subscriber.</p>
+      <p class="faq-a">The merge is blocked whenever either profile is entangled in something Shopify cannot cleanly combine: a subscription contract, current or past; a link to a B2B company; a vaulted payment card; a store credit account; a multipass login; or a pending customer data request or redaction. Those pairs need a different path than the merge button: consolidate what can move, such as tags, notes, addresses, and a record of which profile is the primary one, point future activity at the survivor, and leave the entangled record intact. That is judgment work per pair, which is why a cleanup that only knows how to press merge stalls the first time it meets a subscriber.</p>
     </div>
   </div>
 </section>
@@ -777,6 +781,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

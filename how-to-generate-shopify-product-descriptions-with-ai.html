@@ -390,6 +390,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -674,7 +678,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       deliver the click. What they cannot deliver is the reading. Fed the same thin
       product data, they produce a large volume of generic, near-duplicate copy
       that you now have to audit and re-edit, which is the work you were trying to
-      skip. You have bought speed, not judgement, and the catalog needs judgement.
+      skip. You have bought speed, not judgment, and the catalog needs judgment.
     </p>
 
     <h2>What the automation actually has to do</h2>
@@ -689,15 +693,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <pre id="playbook"><code><span class="c"># trigger</span>
-<span class="k">On</span> every product created or updated, and on a one-time backfill of the catalog
+<span class="k">On</span> every product created or updated, and on a
+one-time backfill of the catalog
 
 <span class="c"># steps</span>
 1. <span class="k">Read</span> each product whole: title, type and tags, every
-   variant and option, the existing copy, the supplier spec sheet, and the
-   product images, not a few keywords typed by hand
+   variant and option, the existing copy, the supplier
+   spec sheet, and the product images, not a few
+   keywords typed by hand
 2. <span class="k">Write</span> the description in one defined brand voice,
-   applied the same way across every product, from a short brief instead of
-   per-product tone toggles
+   applied the same way across every product, from a
+   short brief instead of per-product tone toggles
 3. <span class="k">Differentiate</span> near-identical products so each page
    earns its own ranking, and never paste the supplier's shared copy
 4. <span class="k">Structure</span> for SEO and scanning: a lead line, the
@@ -707,7 +713,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 6. <span class="k">Backfill</span> the products that ship blank or with
    placeholder copy, and refresh when the product or spec changes
 7. <span class="k">Flag</span> the products too thin to describe well and ask
-   for a spec, and log every description with the inputs it was written from</code></pre>
+   for a spec, and log every description with the
+   inputs it was written from</code></pre>
 
     <p>
       Seven lines. The compiler fills in everything beneath: pulling each product
@@ -739,12 +746,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p>
       There are capable description apps, and for a quick fill-in they do the job.
-      But a good description is a small act of judgement about a specific product:
+      But a good description is a small act of judgment about a specific product:
       what is genuinely different here, which detail decides the purchase, how this
       one earns a page next to the three that look almost the same, and how all of
       that should sound in your voice rather than a generic one. That changes with
       your catalog, your buyers, and your brand, and a chunk of it lives in the
-      spec and the photo that no keyword box captures. Those are judgements about
+      spec and the photo that no keyword box captures. Those are judgments about
       your store, not tokens in someone else's template.
     </p>
 
@@ -849,6 +856,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

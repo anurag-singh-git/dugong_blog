@@ -350,6 +350,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -581,7 +585,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <p>
-      Then the judgement creeps in. A product at one unit left is not the same as one at zero.
+      Then the judgment creeps in. A product at one unit left is not the same as one at zero.
       A product that is out but restocking tomorrow morning is not the same as one that is gone
       for the season. A product that is out in one size while three others still sell should not
       have its ad killed. And once you have paused something, you have to remember to turn it
@@ -599,7 +603,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       spend is actually being wasted, pause only the exact placement without touching the
       in-stock products beside it, fix the feed so the mismatch stops causing disapprovals,
       and reverse all of it the instant stock returns, while pulling in a human for the calls
-      that are really media decisions." That is detection, matching, judgement, and a
+      that are really media decisions." That is detection, matching, judgment, and a
       reversible action that has to run in both directions. As a Dugong playbook, in plain
       prose, it reads like this:
     </p>
@@ -653,7 +657,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       There are decent ad-pausing apps on the Shopify App Store, and a store that bleeds budget
       on sold-out items every week should evaluate one. But the thing that makes this safe is
-      not one more threshold field. It is judgement about a specific product at a specific moment
+      not one more threshold field. It is judgment about a specific product at a specific moment
       across two ad platforms: is this out for an hour or gone for good, is it one placement or a
       whole product group, is there budget here worth moving rather than just switching off, and
       would pausing this scramble a campaign that is carrying your in-stock catalog. Those answers
@@ -663,7 +667,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p>
       A natural-language compiler fits because stopping ad waste on a sold-out product was never a
-      single action. It is detection, a match across systems, a judgement call, a reversible change
+      single action. It is detection, a match across systems, a judgment call, a reversible change
       in two ad accounts and a feed, and it has to run in both directions as stock moves. You can
       describe the whole behavior in a paragraph. You could never keep up with it by hand. It sits
       in the same family as <a href="how-to-automatically-hide-sold-out-variants-on-shopify.html">the
@@ -706,7 +710,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       is being advertised on Google and Meta, pause just that placement without touching the products
       still selling, fix the feed so it stops getting disapproved, put it all back the moment stock
       returns, and bring me anything that is really a budget call. That is the whole brief. The
-      compiler does the watching, the matching, the judgement, the pause, and the restore. Your budget
+      compiler does the watching, the matching, the judgment, the pause, and the restore. Your budget
       stops funding Sold Out pages, and the products you can actually ship keep every dollar you meant
       for them.
     </p>
@@ -770,6 +774,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

@@ -113,7 +113,7 @@
           "name": "Should you hide sold-out variants or just show them as unavailable?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It depends on the case, which is exactly why a fixed rule struggles. A size that is briefly out and restocking next week is often better shown as unavailable with a back-in-stock signup, so you capture the demand instead of pretending the size never existed. A size that is discontinued, or a color that is gone for the season, is usually better hidden so it stops drawing clicks that dead-end. Hiding everything blindly loses waitlist demand, and showing everything blindly buries your in-stock options behind dead ones. The right move is per variant and changes over time, so the useful thing is judgement about which sold-out variants to hide, which to keep with a signup, and which to bring straight back when stock returns."
+            "text": "It depends on the case, which is exactly why a fixed rule struggles. A size that is briefly out and restocking next week is often better shown as unavailable with a back-in-stock signup, so you capture the demand instead of pretending the size never existed. A size that is discontinued, or a color that is gone for the season, is usually better hidden so it stops drawing clicks that dead-end. Hiding everything blindly loses waitlist demand, and showing everything blindly buries your in-stock options behind dead ones. The right move is per variant and changes over time, so the useful thing is judgment about which sold-out variants to hide, which to keep with a signup, and which to bring straight back when stock returns."
           }
         }
       ]
@@ -122,7 +122,7 @@
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#howto",
       "name": "The sold-out variant Shopify still shows",
-      "description": "The AI playbook that hides a variant the moment it sells out and restores it when stock returns: watching inventory per variant, deciding hide versus keep with a signup, hiding the option value without unpublishing the product, keeping the in-stock variants and the page live, capturing demand on the hidden ones, restoring on restock, and surfacing the judgement calls for a human.",
+      "description": "The AI playbook that hides a variant the moment it sells out and restores it when stock returns: watching inventory per variant, deciding hide versus keep with a signup, hiding the option value without unpublishing the product, keeping the in-stock variants and the page live, capturing demand on the hidden ones, restoring on restock, and surfacing the judgment calls for a human.",
       "inLanguage": "en",
       "totalTime": "PT9M",
       "step": [
@@ -171,7 +171,7 @@
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Surface the judgement calls for a human",
+          "name": "Surface the judgment calls for a human",
           "text": "Hold for review a variant that is discontinued, a core size that keeps flickering in and out, or a product where hiding would leave nothing to buy, so a person makes the merchandising call",
           "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#playbook"
         }
@@ -391,6 +391,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -682,7 +686,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       cleanly without touching the rest of the product, capture the demand you are
       hiding, and put it back the second stock returns, while pulling in a human for
       the calls that are actually merchandising decisions." That is detection,
-      judgement, and a reversible action that has to run both ways. As a Dugong
+      judgment, and a reversible action that has to run both ways. As a Dugong
       playbook, in plain prose, it reads like this:
     </p>
 
@@ -737,7 +741,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       There are decent variant-hiding apps on the Shopify App Store, and a store
       that sees this constantly should evaluate one. But the thing that makes
-      hiding safe is not one more toggle. It is judgement about a specific variant
+      hiding safe is not one more toggle. It is judgment about a specific variant
       at a specific moment: is this out for a week or gone for the season, does
       hiding it leave a clean selector or an empty one, is there demand worth
       capturing before it disappears, and would hiding this one leave the shopper
@@ -748,7 +752,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p>
       A natural-language compiler fits because hiding a sold-out variant was never a
-      single action. It is detection, a judgement call, a reversible change to the
+      single action. It is detection, a judgment call, a reversible change to the
       storefront, and a demand-capture step, and it has to run in both directions as
       stock moves in and out. You can describe the whole behavior in a paragraph.
       You could never keep up with it by hand across a catalog that changes hourly.
@@ -786,7 +790,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       off the page cleanly without touching the sizes still in stock, hold onto the
       demand, and put it straight back the moment it returns, and bring me anything
       that is really a merchandising call. That is the whole brief. The compiler does
-      the watching, the judgement, the hide, the capture, and the restore. Your
+      the watching, the judgment, the hide, the capture, and the restore. Your
       in-stock sizes stop carrying a dead one, and the shopper who came for a size that
       is gone still sees a page full of ones they can buy.
     </p>
@@ -840,7 +844,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </div>
     <div class="faq-item">
       <h2 class="faq-q">Should you hide sold-out variants or just show them as unavailable?</h2>
-      <p class="faq-a">It depends on the case, which is exactly why a fixed rule struggles. A size that is briefly out and restocking next week is often better shown as unavailable with a back-in-stock signup, so you capture the demand instead of pretending the size never existed. A size that is discontinued, or a color that is gone for the season, is usually better hidden so it stops drawing clicks that dead-end. Hiding everything blindly loses waitlist demand, and showing everything blindly buries your in-stock options behind dead ones. The right move is per variant and changes over time, so the useful thing is judgement about which sold-out variants to hide, which to keep with a signup, and which to bring straight back when stock returns.</p>
+      <p class="faq-a">It depends on the case, which is exactly why a fixed rule struggles. A size that is briefly out and restocking next week is often better shown as unavailable with a back-in-stock signup, so you capture the demand instead of pretending the size never existed. A size that is discontinued, or a color that is gone for the season, is usually better hidden so it stops drawing clicks that dead-end. Hiding everything blindly loses waitlist demand, and showing everything blindly buries your in-stock options behind dead ones. The right move is per variant and changes over time, so the useful thing is judgment about which sold-out variants to hide, which to keep with a signup, and which to bring straight back when stock returns.</p>
     </div>
   </div>
 </section>
@@ -851,6 +855,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

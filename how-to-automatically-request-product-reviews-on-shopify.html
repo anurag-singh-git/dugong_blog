@@ -390,6 +390,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -618,7 +622,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <p>
-      Third, <strong>the timing and the judgement are on you</strong>. Even with an app
+      Third, <strong>the timing and the judgment are on you</strong>. Even with an app
       installed, you are the one deciding how long after delivery to wait, whether to ask
       again if there is no reply, which products are too sensitive to chase, and what
       happens when the reply is one star. Get the timing wrong and you ask a customer to
@@ -636,7 +640,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         A few days for consumables, about a week for apparel, longer for anything someone
         has to live with before forming a view. Ask the day the label prints and you reach
         a customer with nothing to review yet; ask weeks late and you reach one who has
-        moved on. The right window is a per-product judgement, which is exactly what a
+        moved on. The right window is a per-product judgment, which is exactly what a
         single global setting cannot make.
       </span>
     </div>
@@ -653,7 +657,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       you remember and the order count is small. It collapses the moment volume climbs,
       because now you are scrolling the orders list, checking who was delivered, copying a
       name and a product into a template, and remembering who you already asked. It is the
-      kind of repetitive, judgement-light, easy-to-skip chore that quietly stops happening
+      kind of repetitive, judgment-light, easy-to-skip chore that quietly stops happening
       by the second busy week, and the reviews stop with it.
     </p>
 
@@ -694,13 +698,15 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 1. <span class="k">Wait</span> for the right window after delivery: shorter for
    consumables, longer for things a customer has to live with first
 2. <span class="k">Read</span> the order before asking: who bought what, repeat or
-   first-time, and whether there is an open return, refund, or support thread
+   first-time, and whether there is an open return,
+   refund, or support thread
 3. <span class="k">Skip</span> anyone mid-complaint, and name the real product in
    the ask instead of "your recent order"
 4. <span class="k">Send</span> once, follow up a single time if there is no reply,
    then stop
 5. <span class="k">Route</span> the rating: a high score to the public review and
-   your storefront, a low score privately to support before it lands in public
+   your storefront, a low score privately to support
+   before it lands in public
 6. <span class="k">Remember</span> who was asked and when, so no one is asked twice
    and a multi-item order is one ask, not four
 7. <span class="k">Log</span> every send, response, and rating, and flag the edge
@@ -738,7 +744,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       thing that makes a request land is not a slot to fill, it is a read of the specific
       order in front of you: what was bought and how long it takes to form a view of it,
       whether this customer is delighted or already frustrated, whether you asked them last
-      week, and what to do with the answer once it comes back. Those are judgements about a
+      week, and what to do with the answer once it comes back. Those are judgments about a
       particular situation, weighed together, not a single timer applied to everyone. And the
       right move changes with each order, which means the work is never set-and-forget, it is
       decided fresh every time.
@@ -746,7 +752,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p>
       A natural-language compiler fits because review collection was never really an email
-      problem. It is a <em>timing and judgement</em> problem wearing an email problem's
+      problem. It is a <em>timing and judgment</em> problem wearing an email problem's
       clothes. Sending a templated blast is the easy part, which is why apps do it. The hard
       part is everything around it: wait the right amount for this product, skip the customer
       who is unhappy, ask for the thing they actually bought, follow up without nagging, and
@@ -846,6 +852,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

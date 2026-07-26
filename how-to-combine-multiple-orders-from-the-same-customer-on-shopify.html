@@ -391,6 +391,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -685,7 +689,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       ordered again to the same address before anything shipped, decide whether the
       two can safely combine, ship one parcel, make the customer whole on the extra
       shipping, keep the books straight, and only pull in a human for the cases that
-      genuinely need one." That is detection, judgement, and a careful multi-step
+      genuinely need one." That is detection, judgment, and a careful multi-step
       cleanup, all inside the short window before fulfillment. As a Dugong playbook,
       in plain prose, it reads like this:
     </p>
@@ -733,7 +737,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         looks similar," it is "recognize the true duplicate-shipment case, act on it,
         and route everything ambiguous to a person." An automation that merges
         aggressively will eventually ship someone the wrong parcel or strip a paid
-        upgrade, which is worse than the two boxes it was trying to save. Judgement
+        upgrade, which is worse than the two boxes it was trying to save. Judgment
         about when not to merge is as much the point as the merge itself.
       </span>
     </div>
@@ -744,7 +748,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       There are good order-merging apps on the Shopify App Store, and a store that
       sees this pattern often should look at one, which again is proof the native
       gap is real. But the thing that makes a merge safe is not one more button. It
-      is judgement about a specific pair of orders: are these really the same
+      is judgment about a specific pair of orders: are these really the same
       shipment, is the second one a rush the customer wants kept separate, what is
       the fair combined shipping to refund, and which of these do I not touch because
       something is off. Those calls shift with every pair and every store, which is
@@ -753,7 +757,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p>
       A natural-language compiler fits because combining orders was never one action.
-      It is a small chain of dependent steps with a judgement call at the front and a
+      It is a small chain of dependent steps with a judgment call at the front and a
       cleanup at the back, and it has to run inside the window before either order
       ships. You can describe the whole thing in a paragraph. You could never keep up
       with it by hand on a busy day. It sits in the same family as
@@ -789,7 +793,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       they can safely go in one box, combine them, refund the extra shipping, keep the
       inventory and the books straight, tell the customer once, and bring me anything
       that looks off. That is the whole brief. The compiler does the matching, the
-      judgement, the merge, the refund, and the cleanup. You keep the shipping cost you
+      judgment, the merge, the refund, and the cleanup. You keep the shipping cost you
       would have thrown away, and the customer gets one parcel instead of two.
     </p>
 
@@ -853,6 +857,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

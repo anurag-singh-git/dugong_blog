@@ -49,7 +49,7 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html",
       "headline": "How to set up tiered volume discounts (buy more, save more) on Shopify",
-      "description": "Shopify's native discount engine allows one condition per discount, so you can build buy 3 save 10 percent as a single rule but you cannot chain buy 3, buy 6, and buy 12 into one buy-more-save-more offer that a regular shopper sees on the storefront. Native quantity pricing exists only for B2B customers assigned to a company profile, not for tagged retail customers or cart-total tiers. Shopify Scripts, the old way merchants faked tiered cart logic, stopped running on June 30, 2026, so any store that leaned on them is now broken and pushed toward Shopify Functions or an app. The AI playbook that reads a plain-language tier table, applies the right break by quantity or spend per line and per cart, keeps the tiers from stacking with codes or clashing with a sale, respects a margin floor and wholesale versus retail, and escalates the judgement calls to a human.",
+      "description": "Shopify's native discount engine allows one condition per discount, so you can build buy 3 save 10 percent as a single rule but you cannot chain buy 3, buy 6, and buy 12 into one buy-more-save-more offer that a regular shopper sees on the storefront. Native quantity pricing exists only for B2B customers assigned to a company profile, not for tagged retail customers or cart-total tiers. Shopify Scripts, the old way merchants faked tiered cart logic, stopped running on June 30, 2026, so any store that leaned on them is now broken and pushed toward Shopify Functions or an app. The AI playbook that reads a plain-language tier table, applies the right break by quantity or spend per line and per cart, keeps the tiers from stacking with codes or clashing with a sale, respects a margin floor and wholesale versus retail, and escalates the judgment calls to a human.",
       "datePublished": "2026-07-16",
       "dateModified": "2026-07-16",
       "articleSection": "Research",
@@ -123,7 +123,7 @@
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#howto",
       "name": "The buy-more-save-more discount Shopify won't tier",
-      "description": "The AI playbook that runs real tiered volume discounts on Shopify: reading a plain-language tier table, resolving the right break by quantity or spend per line and per cart, applying only the single correct tier, keeping it from stacking with codes or clashing with a live sale, respecting a margin floor and wholesale versus retail, and escalating the judgement calls to a human.",
+      "description": "The AI playbook that runs real tiered volume discounts on Shopify: reading a plain-language tier table, resolving the right break by quantity or spend per line and per cart, applying only the single correct tier, keeping it from stacking with codes or clashing with a live sale, respecting a margin floor and wholesale versus retail, and escalating the judgment calls to a human.",
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
@@ -133,7 +133,7 @@
         { "@type": "HowToStep", "position": 4, "name": "Guard the stacking rules", "text": "Decide whether the tier can combine with a code or a running sale, and enforce that choice so the volume break and a coupon do not quietly double up past your floor", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" },
         { "@type": "HowToStep", "position": 5, "name": "Respect margin and audience", "text": "Hold each tier above its margin floor and apply the right ladder to the right audience, so wholesale or logged-in buyers can get a deeper break than the open storefront", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" },
         { "@type": "HowToStep", "position": 6, "name": "Show the next tier to the shopper", "text": "Tell the cart how close it is to the next break, so add one more to save 20 percent nudges the order up instead of leaving the saving invisible", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 7, "name": "Escalate the judgement calls", "text": "Hold for review a tier that would cross a margin floor, a clash between a code and a volume break, or a new promotion that overlaps an existing ladder, so a person makes the call", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" }
+        { "@type": "HowToStep", "position": 7, "name": "Escalate the judgment calls", "text": "Hold for review a tier that would cross a margin floor, a clash between a code and a volume break, or a new promotion that overlaps an existing ladder, so a person makes the call", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" }
       ]
     }
   ]
@@ -350,6 +350,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -577,7 +581,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <p>
-      Then there is the judgement that a tier table can never hold on its own. Not every
+      Then there is the judgment that a tier table can never hold on its own. Not every
       product can carry the same ladder, because margins differ, so a 30 percent top tier
       that is fine on a high-margin candle is a loss on a thin-margin electronic. A
       wholesale buyer and a retail shopper should not see the same breaks. A deep tier
@@ -635,7 +639,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         discount as a <em>result</em> the automation computes on each cart, and the ladder is
         correct by construction: one break, the right one, every time. Whether a tier can
         stack with a code, whether it clears a margin floor, and whether wholesale sees a
-        deeper ladder than retail are the judgement calls that matter as much as the
+        deeper ladder than retail are the judgment calls that matter as much as the
         percentages themselves.
       </span>
     </div>
@@ -645,7 +649,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       There are capable volume-discount apps on the Shopify App Store, and a store losing
       average order value every day should evaluate one. But the thing that makes tiers safe
-      is not one more grid of quantities and percentages. It is judgement about a specific
+      is not one more grid of quantities and percentages. It is judgment about a specific
       cart at a specific moment: is this the best tier the cart earned, does applying it
       alongside the code that is also in the cart cross the floor, should this buyer see the
       wholesale ladder or the retail one, and does this new promotion overlap a tier that is
@@ -764,6 +768,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

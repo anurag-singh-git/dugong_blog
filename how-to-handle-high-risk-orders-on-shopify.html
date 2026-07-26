@@ -112,7 +112,7 @@
           "name": "Can fraud review on Shopify be automated?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. An AI playbook can enrich each flagged order with the signals a human would check, order history, email and address age, device and geolocation, AVS/CVV results, order velocity, then approve clearly-good orders, hold or cancel clearly-bad ones, and escalate only the genuine grey-area cases to a person with the evidence already gathered. That cuts the manual queue without blindly canceling good customers."
+            "text": "Yes. An AI playbook can enrich each flagged order with the signals a human would check, order history, email and address age, device and geolocation, AVS/CVV results, order velocity, then approve clearly-good orders, hold or cancel clearly-bad ones, and escalate only the genuine gray-area cases to a person with the evidence already gathered. That cuts the manual queue without blindly canceling good customers."
           }
         }
       ]
@@ -156,8 +156,8 @@
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "If genuinely grey",
-          "text": "If genuinely grey → hold, send the customer a light verification step, and queue it for me with the full dossier already attached",
+          "name": "If genuinely gray",
+          "text": "If genuinely gray → hold, send the customer a light verification step, and queue it for me with the full dossier already attached",
           "url": "https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html#playbook"
         },
         {
@@ -384,7 +384,7 @@ em { font-style: italic; }
 .pb-node-body { flex: 1; min-width: 0; }
 .pb-node-title { color: var(--text); font-size: 0.78rem; font-weight: 600; font-family: var(--display); }
 .pb-node-sub { color: var(--text-faint); font-size: 0.68rem; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.pb-tag { font-family: var(--display); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--lime-deep); background: rgba(198,254,30,.3); padding: 0.2rem 0.45rem; border-radius: 100px; flex-shrink: 0; }
+.pb-tag { font-family: var(--display); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--lime-deep); background: rgba(198,254,30,.3); padding: 0.2rem 0.45rem; border-radius: 100px; flex-shrink: 0; }
 .pb-line { width: 2px; height: 14px; background: var(--border-strong); margin: 0.25rem 0 0.25rem 1.95rem; }
 .pb-branch { display: grid; gap: 0.4rem; padding: 0.5rem 0.75rem; border: 1px dashed var(--border-strong); border-radius: 11px; }
 .pb-branch-arm { font-size: 0.7rem; color: var(--text-dim); }
@@ -528,6 +528,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -697,7 +701,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       most-used piece of automation in the whole platform, it runs on
       every single order, and it's also the one merchants resent most,
       because it doesn't actually <em>decide</em> anything. It scores
-      the order, raises an eyebrow, and hands the judgement call
+      the order, raises an eyebrow, and hands the judgment call
       straight back to a human who has even less information than the
       algorithm that flagged it.
     </p>
@@ -796,7 +800,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       That's the gap. Fraud review isn't a branch on one number; it's a
       small investigation. And an investigation, gather the signals,
       weigh them, decide, and know when you're genuinely unsure, is
-      exactly the kind of judgement you can describe in a paragraph but
+      exactly the kind of judgment you can describe in a paragraph but
       could never draw in a node graph.
     </p>
 
@@ -816,12 +820,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 1. <span class="k">Pull</span> the signals a human would check:
    AVS/CVV result, billing vs. shipping match, email + address age,
    IP geolocation vs. shipping country, proxy/VPN, order velocity
-2. <span class="k">Look up</span> this customer's history with us, prior approved orders, past chargebacks, lifetime value
+2. <span class="k">Look up</span> this customer's history with us: prior
+   approved orders, past chargebacks, lifetime value
 3. <span class="k">If</span> clearly legitimate (known good customer,
    everything matches) → approve and fulfill, no human needed
 4. <span class="k">If</span> clearly fraudulent (mismatched everything,
    card testing, disposable email) → cancel, refund, blocklist
-5. <span class="k">If</span> genuinely grey → hold, send the customer a
+5. <span class="k">If</span> genuinely gray → hold, send the customer a
    light verification step, and queue it for me with the full dossier
    already attached
 6. <span class="k">Log</span> every decision so the line between
@@ -893,7 +898,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       first day: here's how we tell a real customer from a fraudster,
       here's when you decide on your own, and here's exactly when to
       stop and ask me. That's the whole brief. The compiler does the
-      investigating; you keep the judgement for the orders that
+      investigating; you keep the judgment for the orders that
       actually need it.
     </p>
 
@@ -944,7 +949,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </div>
     <div class="faq-item">
       <h2 class="faq-q">Can fraud review on Shopify be automated?</h2>
-      <p class="faq-a">Yes. An AI playbook can enrich each flagged order with the signals a human would check, order history, email and address age, device and geolocation, AVS/CVV results, order velocity, then approve clearly-good orders, hold or cancel clearly-bad ones, and escalate only the genuine grey-area cases to a person with the evidence already gathered. That cuts the manual queue without blindly canceling good customers.</p>
+      <p class="faq-a">Yes. An AI playbook can enrich each flagged order with the signals a human would check, order history, email and address age, device and geolocation, AVS/CVV results, order velocity, then approve clearly-good orders, hold or cancel clearly-bad ones, and escalate only the genuine gray-area cases to a person with the evidence already gathered. That cuts the manual queue without blindly canceling good customers.</p>
     </div>
   </div>
 </section>
@@ -955,6 +960,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

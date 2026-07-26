@@ -49,7 +49,7 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-schedule-product-publishing-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-schedule-product-publishing-on-shopify.html",
       "headline": "How to automatically schedule product publishing on Shopify",
-      "description": "Shopify's built-in future publishing lets you pick a date for a product to go live, but it only publishes to the Online Store, not to POS, the Buy Button, or any other sales channel, and the product has to be in Active status at that moment or nothing happens. There is no native way to schedule an unpublish when a promotion ends, no way to bulk-schedule many products at once, and no rule that retires a seasonal line the day its season closes. Merchants running drops and limited launches keep hitting the same wall in the community. The AI playbook that publishes a launch at the exact minute across every channel, unpublishes it when it is meant to end, runs the whole thing in bulk by tag or collection, keeps the state honest, and surfaces the judgement calls, a still-draft product or an out-of-stock drop, for a human.",
+      "description": "Shopify's built-in future publishing lets you pick a date for a product to go live, but it only publishes to the Online Store, not to POS, the Buy Button, or any other sales channel, and the product has to be in Active status at that moment or nothing happens. There is no native way to schedule an unpublish when a promotion ends, no way to bulk-schedule many products at once, and no rule that retires a seasonal line the day its season closes. Merchants running drops and limited launches keep hitting the same wall in the community. The AI playbook that publishes a launch at the exact minute across every channel, unpublishes it when it is meant to end, runs the whole thing in bulk by tag or collection, keeps the state honest, and surfaces the judgment calls, a still-draft product or an out-of-stock drop, for a human.",
       "datePublished": "2026-07-05",
       "dateModified": "2026-07-05",
       "articleSection": "Research",
@@ -122,7 +122,7 @@
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-schedule-product-publishing-on-shopify.html#howto",
       "name": "The product drop that won't go live on time",
-      "description": "The AI playbook that runs a product launch on a schedule: publishing at the exact minute across every sales channel, unpublishing when the drop is meant to end, running it in bulk by tag or collection, keeping the published state honest, and surfacing the judgement calls for a human.",
+      "description": "The AI playbook that runs a product launch on a schedule: publishing at the exact minute across every sales channel, unpublishing when the drop is meant to end, running it in bulk by tag or collection, keeping the published state honest, and surfacing the judgment calls for a human.",
       "inLanguage": "en",
       "totalTime": "PT9M",
       "step": [
@@ -171,7 +171,7 @@
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Surface the judgement calls for a human",
+          "name": "Surface the judgment calls for a human",
           "text": "Hold for review a product still in draft at go-live, a drop with no stock, or a launch time that clashes with another promotion, so a person makes the call",
           "url": "https://blog.dugong.live/how-to-schedule-product-publishing-on-shopify.html#playbook"
         }
@@ -391,6 +391,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -672,7 +676,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       and does not check whether the product is actually ready to be seen, does not
       know that this launch clashes with that promotion, and does not decide what to
       do with a drop that has no stock at go-live. It runs the calendar. It does not
-      run the judgement.
+      run the judgment.
     </p>
 
     <h2>What the automation actually has to do</h2>
@@ -736,7 +740,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       There are competent product-scheduling apps on the Shopify App Store, and a
       store that runs frequent drops should look at one. But the thing that makes a
-      scheduled launch safe is not one more date picker. It is judgement about a
+      scheduled launch safe is not one more date picker. It is judgment about a
       specific set at a specific moment: is every product in this drop actually ready
       to be seen, does this launch need its ending scheduled as firmly as its start,
       which channels does it belong on, and does its timing collide with a
@@ -852,6 +856,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

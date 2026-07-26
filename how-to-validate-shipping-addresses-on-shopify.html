@@ -112,7 +112,7 @@
           "name": "Can bad-address handling on Shopify be automated?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. An AI playbook can check every new order against an address-verification service before fulfillment, auto-correct unambiguous fixes like a missing ZIP or a standardised street format, hold fulfillment and email the customer a suggested correction when the address is ambiguous, and only escalate the genuinely unresolvable ones to a person, so the package never ships to an address that's going to bounce."
+            "text": "Yes. An AI playbook can check every new order against an address-verification service before fulfillment, auto-correct unambiguous fixes like a missing ZIP or a standardized street format, hold fulfillment and email the customer a suggested correction when the address is ambiguous, and only escalate the genuinely unresolvable ones to a person, so the package never ships to an address that's going to bounce."
           }
         }
       ]
@@ -383,6 +383,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -633,8 +637,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       first busy week, which is, of course, exactly when order volume
       and address typos both spike. And tag-and-hold just builds a pile:
       Flow can detect that an address is risky, but it can't go
-      <em>fix</em> it. It can't standardise the street format, look up
-      the correct ZIP, recognise that "123 Man St" is almost certainly
+      <em>fix</em> it. It can't standardize the street format, look up
+      the correct ZIP, recognize that "123 Man St" is almost certainly
       "123 Main St," or email the customer a specific suggested
       correction and wait for a yes. So the held orders sit there until a
       human works through them by hand, which is the original problem,
@@ -671,8 +675,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
    (ZIP, street format, missing direction) → apply it, note the change,
    and continue
 4. <span class="k">If</span> it's ambiguous (missing apt #, two possible
-   matches) → hold fulfillment and email the customer the exact suggested
-   address: "Did you mean __? Confirm and we'll ship today."
+   matches) → hold fulfillment and email the customer
+   the exact suggested address: "Did you mean __?
+   Confirm and we'll ship today."
 5. <span class="k">If</span> they confirm → update the order and release
    it; <span class="k">if</span> no reply in 48h → queue it for me
 6. <span class="k">If</span> it's unresolvable (PO box for a freight
@@ -694,7 +699,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         The win isn't catching <em>every</em> bad address, it's moving
         the catch from <strong>after</strong> the package ships to
         <strong>before</strong>. Most address problems are either a
-        trivial standardisation the machine can do silently, or a quick
+        trivial standardization the machine can do silently, or a quick
         "did you mean?" the customer can confirm in one tap. Automate
         those two and the return-to-sender pile shrinks to the rare
         genuinely-broken address, caught while it's still cheap to fix.
@@ -732,7 +737,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p>
       If you've ever eaten a return-to-sender fee, re-shipped an order out
-      of your own pocket, or opened a WISMO ticket only to realise the
+      of your own pocket, or opened a WISMO ticket only to realize the
       address was wrong the whole time, this is the automation to build
       before any upsell or win-back flow. It sits right at the seam
       between two pains we've written about already, it stops the
@@ -799,7 +804,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </div>
     <div class="faq-item">
       <h2 class="faq-q">Can bad-address handling on Shopify be automated?</h2>
-      <p class="faq-a">Yes. An AI playbook can check every new order against an address-verification service before fulfillment, auto-correct unambiguous fixes like a missing ZIP or a standardised street format, hold fulfillment and email the customer a suggested correction when the address is ambiguous, and only escalate the genuinely unresolvable ones to a person, so the package never ships to an address that&#x27;s going to bounce.</p>
+      <p class="faq-a">Yes. An AI playbook can check every new order against an address-verification service before fulfillment, auto-correct unambiguous fixes like a missing ZIP or a standardized street format, hold fulfillment and email the customer a suggested correction when the address is ambiguous, and only escalate the genuinely unresolvable ones to a person, so the package never ships to an address that&#x27;s going to bounce.</p>
     </div>
   </div>
 </section>
@@ -810,6 +815,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

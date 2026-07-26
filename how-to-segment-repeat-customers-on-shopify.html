@@ -112,7 +112,7 @@
           "name": "Why isn't tagging customers by total spend enough?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because total spend is one number and a customer is a pattern. Two people can both have spent six hundred dollars: one bought steadily for two years and is your most loyal regular, the other bought once on a fifty-percent code and never came back. A spend threshold tags them identically. It also never flags the customer who used to order every month and has gone quiet, which is the most valuable signal you have, because winning back a lapsing regular is far cheaper than finding a new one. Good segmentation reads recency, frequency, value, the products someone buys, their returns, and their discount use together, and that judgement is exactly what a single-condition rule cannot make."
+            "text": "Because total spend is one number and a customer is a pattern. Two people can both have spent six hundred dollars: one bought steadily for two years and is your most loyal regular, the other bought once on a fifty-percent code and never came back. A spend threshold tags them identically. It also never flags the customer who used to order every month and has gone quiet, which is the most valuable signal you have, because winning back a lapsing regular is far cheaper than finding a new one. Good segmentation reads recency, frequency, value, the products someone buys, their returns, and their discount use together, and that judgment is exactly what a single-condition rule cannot make."
           }
         }
       ]
@@ -390,6 +390,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -637,7 +641,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         monetary value</strong> together, not any one alone. A customer who bought a
         lot but not lately is a different person from one who buys a little but every
         month, and both are different from a big one-time spend. The whole reason
-        segmentation is hard to automate natively is that it is a <strong>judgement
+        segmentation is hard to automate natively is that it is a <strong>judgment
         across several signals at once</strong>, which is exactly what a single
         spend threshold throws away.
       </span>
@@ -676,7 +680,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       native gap is real. But many work off the same rigid thresholds in a nicer
       interface, you still have to decide and encode every rule, and now the truth
       about your customers lives in a second system that has to be kept in sync with
-      the tags your email, ads, and support actually read. The judgement, who counts
+      the tags your email, ads, and support actually read. The judgment, who counts
       as what and when that changes, is still yours to specify; the app just runs the
       thresholds you hand it.
     </p>
@@ -688,18 +692,21 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       their whole history the way a sharp retention manager would, decide which one
       lifecycle group they are in right now, write that as a single clean tag, remove
       the one that no longer fits, and do it again as they keep buying." That is
-      reading, judgement, and bookkeeping across the entire customer base. As a
+      reading, judgment, and bookkeeping across the entire customer base. As a
       Dugong playbook, in plain prose, it reads like this:
     </p>
 
     <pre id="playbook"><code><span class="c"># trigger</span>
-<span class="k">On</span> a schedule, and again whenever a customer places, returns, or cancels an order
+<span class="k">On</span> a schedule, and again whenever a customer
+places, returns, or cancels an order
 
 <span class="c"># steps</span>
 1. <span class="k">Pull</span> each customer's full history: orders, total and recent
-   spend, recency, frequency, products, returns, discount use, support contacts
+   spend, recency, frequency, products, returns,
+   discount use, support contacts
 2. <span class="k">Read</span> the pattern, not a single threshold: a loyal regular,
-   a rising VIP, a one-time discount hunter, a lapsing buyer, a serial returner
+   a rising VIP, a one-time discount hunter, a lapsing
+   buyer, a serial returner
 3. <span class="k">Assign</span> one clear lifecycle tag from a single clean
    vocabulary, and remove the tags that no longer fit
 4. <span class="k">Keep</span> it current: re-evaluate as new orders land so a VIP
@@ -733,7 +740,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         customer</strong>, and a flat list, or a tag set once by hand, never tells
         you they slipped. The goal is not "the big spenders are labeled," it is a
         living read of who each customer is becoming, which is precisely the
-        judgement a one-time tag or a single-spend rule can never keep.
+        judgment a one-time tag or a single-spend rule can never keep.
       </span>
     </div>
 
@@ -744,7 +751,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       fine answer. But deciding what a customer is is not a slot to fill, it is a read
       of a specific person's behavior: bought a lot but not lately, buys small but
       every month, only ever on a code, loves one category and ignores the rest, keeps
-      half of what they order. Those are judgements about the pattern in front of you,
+      half of what they order. Those are judgments about the pattern in front of you,
       weighed together, not a single token compared to a single number. And the right
       label changes underneath you every time that customer acts, which means the work
       is never done, it is maintained.
@@ -752,7 +759,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p>
       A natural-language compiler fits because segmentation was never really a data
-      problem. It is a <em>reading and judgement</em> problem wearing a data problem's
+      problem. It is a <em>reading and judgment</em> problem wearing a data problem's
       clothes. Storing the order history is the easy part, which is why Shopify does it.
       The hard part is everything around it: read each customer whole, weigh the signals
       against each other, pick the one label that fits today, drop the one that does not,
@@ -842,7 +849,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </div>
     <div class="faq-item">
       <h2 class="faq-q">Why isn't tagging customers by total spend enough?</h2>
-      <p class="faq-a">Because total spend is one number and a customer is a pattern. Two people can both have spent six hundred dollars: one bought steadily for two years and is your most loyal regular, the other bought once on a fifty-percent code and never came back. A spend threshold tags them identically. It also never flags the customer who used to order every month and has gone quiet, which is the most valuable signal you have, because winning back a lapsing regular is far cheaper than finding a new one. Good segmentation reads recency, frequency, value, the products someone buys, their returns, and their discount use together, and that judgement is exactly what a single-condition rule cannot make.</p>
+      <p class="faq-a">Because total spend is one number and a customer is a pattern. Two people can both have spent six hundred dollars: one bought steadily for two years and is your most loyal regular, the other bought once on a fifty-percent code and never came back. A spend threshold tags them identically. It also never flags the customer who used to order every month and has gone quiet, which is the most valuable signal you have, because winning back a lapsing regular is far cheaper than finding a new one. Good segmentation reads recency, frequency, value, the products someone buys, their returns, and their discount use together, and that judgment is exactly what a single-condition rule cannot make.</p>
     </div>
   </div>
 </section>
@@ -853,6 +860,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

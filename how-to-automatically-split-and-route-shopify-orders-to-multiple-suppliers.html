@@ -122,7 +122,7 @@
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#howto",
       "name": "The order you split across vendors by hand",
-      "description": "The AI playbook that splits and routes each Shopify order to the right suppliers: reading the whole order, grouping line items by who fulfills each, building a purchase order per supplier, sending it in the format they accept, fulfilling only their lines when tracking returns, telling the customer once, and surfacing the judgement calls for a human.",
+      "description": "The AI playbook that splits and routes each Shopify order to the right suppliers: reading the whole order, grouping line items by who fulfills each, building a purchase order per supplier, sending it in the format they accept, fulfilling only their lines when tracking returns, telling the customer once, and surfacing the judgment calls for a human.",
       "inLanguage": "en",
       "totalTime": "PT9M",
       "step": [
@@ -391,6 +391,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -689,7 +693,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       line items by who actually fulfills each one, build the right purchase order for each
       supplier in the format they accept, send them automatically, then fulfill only their
       lines when their tracking comes back, keeping the customer informed once and pulling in
-      a human only for the calls that are genuinely judgement." That is a read, a
+      a human only for the calls that are genuinely judgment." That is a read, a
       classification, a document build per supplier, a send, and a set of partial
       fulfillments that close over time. As a Dugong playbook, in plain prose, it reads like
       this:
@@ -729,7 +733,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <span class="callout-mark">◆ NOTE</span>
       <span>
         The trap here is treating routing as pure mechanics. Who makes an item is usually a
-        rule, but whether to route it right now is a judgement: a backordered line should wait,
+        rule, but whether to route it right now is a judgment: a backordered line should wait,
         not fire a purchase order the supplier cannot fill; a supplier that has not confirmed
         yesterday's orders should not be sent ten more into the void; a split that would send a
         single low-value item on its own freight leg may be worse than holding it for the next
@@ -743,7 +747,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       There are capable order-routing and dropship apps on the Shopify App Store, and a store
       that fulfills from many suppliers should look at one. But the thing that makes automatic
-      splitting safe is not one more rules table. It is judgement about each specific order:
+      splitting safe is not one more rules table. It is judgment about each specific order:
       does this line have stock at the location the rule points to, has this supplier been
       responsive this week, is this backordered item better held than routed, does this
       destination change the cheapest source, and would this split leave the customer with a
@@ -860,6 +864,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

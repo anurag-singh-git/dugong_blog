@@ -122,7 +122,7 @@
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#howto",
       "name": "The buyer who clears your whole drop",
-      "description": "The AI playbook that enforces a real per-customer purchase limit on Shopify: identifying the buyer across orders, deciding the limit for this product and window, enforcing it on every checkout path, canceling and restocking what slipped, telling the customer, and surfacing the judgement calls for a human.",
+      "description": "The AI playbook that enforces a real per-customer purchase limit on Shopify: identifying the buyer across orders, deciding the limit for this product and window, enforcing it on every checkout path, canceling and restocking what slipped, telling the customer, and surfacing the judgment calls for a human.",
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
@@ -391,6 +391,10 @@ em { font-style: italic; }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
 .article-body pre code { background: none; padding: 0; color: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
@@ -695,7 +699,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       running count against the limit for this product and this window, refuse the order that goes over
       on whatever path they take to checkout, undo the ones that slipped through by canceling and
       restocking the excess, tell the customer plainly, and pull in a human only for the calls that are
-      genuinely judgement." That is a read, an identity match, a decision, an action at checkout, and a
+      genuinely judgment." That is a read, an identity match, a decision, an action at checkout, and a
       set of corrections after the fact. As a Dugong playbook, in plain prose, it reads like this:
     </p>
 
@@ -732,7 +736,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <span class="callout-mark">◆ NOTE</span>
       <span>
         The trap here is treating a purchase limit as pure mechanics. Whether an order is over the cap
-        is arithmetic, but whether to cancel it is a judgement: two orders to the same address can be a
+        is arithmetic, but whether to cancel it is a judgment: two orders to the same address can be a
         couple who both wanted one, or a reseller reusing a drop-off, and getting that wrong either
         punishes a real customer or waves a reseller through; a wholesale buyer on
         <a href="how-to-segment-repeat-customers-on-shopify.html">a recognized account</a> should often
@@ -749,7 +753,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       There are capable order-limit apps on the Shopify App Store, and a store running drops should look
       at one. But the thing that makes a purchase limit hold is not one more quantity field. It is
-      judgement about each specific order: is this the same buyer as that earlier order or just a
+      judgment about each specific order: is this the same buyer as that earlier order or just a
       coincidence of name, is this second order to the same street a household or a reseller, should this
       account be exempt because it is wholesale, did this order slip past the cap and need its excess
       canceled and restocked, and is the limit landing on the wallet-button path as well as the cart.
@@ -859,6 +863,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
