@@ -15,7 +15,17 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Sun, 26 Jul 2026 15:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2026 15:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>How to stop Shopify routing orders to the wrong warehouse</title>
+      <link>https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Mon, 27 Jul 2026 15:00:00 +0000</pubDate>
+      <description>A customer forty minutes from the Pennsylvania warehouse receives two boxes, one of them shipped from Nevada, against a single flat shipping fee charged once. Shopify routed it exactly the way its rules say it should. Order routing is a fixed list of rules applied top to bottom, identically, to every order: minimize split fulfillments, stay within the destination market, ship from the closest location, plus ranked locations and location metafields if you add them. Not one of those rules reads a shipping rate. Closest is straight-line distance, which Shopify's own documentation says is not driving distance, and it knows nothing about carrier zones, cutoff times, weekend coverage, or today's backlog. The only capacity input is a location metafield someone types by hand and never revisits. The split decision is a single global lever for a question whose right answer changes order by order. Routing is decided once at order creation and never reconsidered when the count was wrong or the location is closed. Shopify Flow can move a fulfillment order, but only to a location that stocks every line, and not once a fulfillment service has accepted the request. Custom routing rules exist through the Order Routing Location Rule Function API, which is Shopify Plus, by request, and deployed as a custom app. The AI playbook that scores every eligible location on landed cost, cutoff time, and backlog, decides split or single per order, moves the fulfillment order before the 3PL accepts it, and re-checks when reality moves.</description>
+    </item>
 
     <item>
       <title>How to sync supplier stock feeds to Shopify without zeroing your catalog</title>

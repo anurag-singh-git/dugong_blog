@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to stop Shopify routing orders to the wrong warehouse &mdash; Dugong Field Notes</title>
+<meta name="description" content="Shopify picks a location by straight-line distance and never reads a shipping rate. The AI playbook that routes each order on landed cost, cutoff, and backlog." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="Shopify order routing, Shopify wrong fulfillment location, Shopify multi location fulfillment, Shopify ship from closest location, Shopify split shipment two locations, Shopify fulfillment priority, Shopify move fulfillment order, Shopify 3PL routing, stop Shopify splitting orders, Shopify order routing rules, Shopify location metafields, cheapest warehouse routing Shopify, AI order routing, Dugong" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
+<meta property="article:published_time" content="2026-07-27" />
+    <meta property="article:modified_time" content="2026-07-27" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to stop Shopify routing orders to the wrong warehouse" />
+<meta property="og:description" content="A customer forty minutes from your Pennsylvania warehouse gets two boxes, one of them from Nevada, on a single five dollar shipping fee. Shopify's order routing is a list of rules applied top to bottom, identically, to every order you take. Not one of those rules reads a shipping rate. Closest means straight-line distance, which knows nothing about carrier zones, driving distance, cutoff times, or whether that location has anybody on the floor at six on a Friday. The only capacity signal is a location metafield you type by hand and never update. The split decision is one global preference for a question whose answer flips order by order. Routing is decided once at checkout and never revisited when the count was wrong or the warehouse is snowed in. Custom rules exist through Shopify Functions, but they are Plus only, by request, and shipped as a custom app. The AI playbook that scores every eligible location on landed cost, cutoff, and backlog, decides split or single per order, moves the fulfillment order before the 3PL accepts it, and re-checks when reality moves." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to stop Shopify routing orders to the wrong warehouse" />
+<meta name="twitter:description" content="One ranking, applied to every order, that never reads a shipping rate. The AI playbook that routes by landed cost instead." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+    <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#article",
+      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html",
+      "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html",
+      "headline": "How to stop Shopify routing orders to the wrong warehouse",
+      "description": "A customer forty minutes from your Pennsylvania warehouse receives two boxes, one of them shipped from Nevada, against a single flat shipping fee. Shopify's order routing is a fixed list of rules applied top to bottom, identically, to every order: minimize split fulfillments, stay within the destination market, ship from the closest location, plus ranked locations and location metafields if you add them. Not one of those rules reads a shipping rate. Closest is measured as straight-line distance, which Shopify's own documentation admits is not driving distance, and it knows nothing about carrier zones, cutoff times, weekend coverage, or today's backlog. The only capacity input is a location metafield you maintain by hand. The split decision is a single global preference for a question whose right answer changes order by order. Routing is decided once, at order creation, and never revisited when the count was wrong or the location is closed. Shopify Flow can move a fulfillment order, but only to a location that stocks every line, and not once a fulfillment service has accepted the request. Custom routing rules exist through the Order Routing Location Rule Function API, which is Shopify Plus, by request, and deployed as a custom app. The AI playbook that scores every eligible location on landed cost, cutoff time, and backlog, decides split or single per order, moves the fulfillment order before the 3PL accepts it, and re-checks when reality moves.",
+      "datePublished": "2026-07-27",
+      "dateModified": "2026-07-27",
+      "articleSection": "Research",
+      "keywords": "Shopify order routing, Shopify wrong fulfillment location, Shopify multi location fulfillment, Shopify ship from closest location, Shopify split shipment two locations, Shopify move fulfillment order, Shopify 3PL routing, Shopify order routing rules",
+      "wordCount": 2450,
+      "timeRequired": "PT10M",
+      "inLanguage": "en",
+      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+      "about": [
+        { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
+        { "@type": "Thing", "name": "Order fulfillment", "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment" },
+        { "@type": "Thing", "name": "Third-party logistics", "sameAs": "https://en.wikipedia.org/wiki/Third-party_logistics" },
+        { "@type": "Thing", "name": "Distribution center", "sameAs": "https://en.wikipedia.org/wiki/Distribution_center" },
+        { "@type": "Thing", "name": "Warehouse management system", "sameAs": "https://en.wikipedia.org/wiki/Warehouse_management_system" }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".article-title", ".faq"]
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Priya Singh",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
+        { "@type": "ListItem", "position": 2, "name": "The order that ships from the wrong warehouse", "item": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does Shopify ship from a far warehouse when a closer location has the item?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually because a rule above the distance rule already made the decision. Shopify's default routing strategy runs Minimize split fulfillments first, then Stay within the destination market, then Ship from closest location, and each rule filters the list the next one sees. A far location that stocks every line in the order outranks a near one that stocks three lines out of four, because the first rule has already eliminated the near one. Four other things send orders the long way. The closest location may have the option to fulfill online orders switched off. Its stock may exist but be committed to earlier orders. It may not be included in the shipping profile that produced the rate the customer paid. And closest is measured as straight-line distance, which Shopify's own documentation says is not driving distance, so a location across a bay or a mountain range can win on the map and lose on the truck."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Shopify Flow change the fulfillment location of an order?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Partly. Flow has a Move fulfillment order action, and it works well for rules you already know, such as sending every order over a certain weight to the warehouse that stocks pallets. It has two hard limits. The destination has to stock every line item in that fulfillment order or the run fails outright, which rules out most of the interesting cases. And you cannot move a fulfillment order once a fulfillment service has a request status of submitted or accepted, which is exactly the moment your 3PL already has it and the mistake is about to cost money. Flow also cannot compare carrier rates, measure driving distance, check a cutoff time, or ask whether a location is behind today, so it can execute a routing decision but it cannot make one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I stop Shopify splitting one order into two shipments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Put the Minimize split fulfillments rule at the top of your order routing strategy in Settings, Shipping and delivery, Order routing. That tells Shopify to prefer any single location holding the whole order over a closer location holding part of it. The catch is that you have now answered the question once for every order you will ever take. Sometimes one box crossing the country costs more than two boxes traveling one zone each, and sometimes the customer would rather have two thirds of the order tomorrow than all of it on Friday. Shopify gives you one lever for a decision that has a different right answer depending on weight, zone, margin, and how badly that customer needs the item. Splitting is not the problem. Splitting without doing the arithmetic is."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#howto",
+      "name": "The order that ships from the wrong warehouse",
+      "description": "The AI playbook for Shopify order routing across multiple locations: scoring every eligible location on landed cost, cutoff time, and backlog, deciding split or single per order, respecting product and market constraints, moving the fulfillment order before a fulfillment service accepts it, and re-checking when reality moves.",
+      "inLanguage": "en",
+      "totalTime": "PT10M",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Score every location that could send this order", "text": "Rank eligible locations on real rate, carrier zone, cutoff time, backlog, and stock health rather than straight-line distance", "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook" },
+        { "@type": "HowToStep", "position": 2, "name": "Decide split or single per order", "text": "Compare landed cost and promised delivery date for one shipment against two, order by order, instead of setting one global preference", "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook" },
+        { "@type": "HowToStep", "position": 3, "name": "Respect the constraints that are not negotiable", "text": "Honor oversized and hazmat limits, market boundaries, personalization, and stock a retail floor needs to keep", "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook" },
+        { "@type": "HowToStep", "position": 4, "name": "Move it before the 3PL accepts it", "text": "Reassign the fulfillment order inside the window where a move is still allowed, not after the request has been accepted", "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook" },
+        { "@type": "HowToStep", "position": 5, "name": "Re-check when reality moves", "text": "Revisit the assignment when a count turns out to be wrong, a location closes, or a cutoff is missed", "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook" },
+        { "@type": "HowToStep", "position": 6, "name": "Tell the customer once, clearly", "text": "Send one message explaining a genuine split shipment with both tracking numbers instead of two silent notifications", "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook" }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES — matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #71716a;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0a8f54;
+  --pink:         #c61f93;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #b5882c;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background — lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--gutter); height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+@media (max-width: 820px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+/* GRID (for related cards) */
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 560px) { .foot-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; } }
+@media (max-width: 340px) { .foot-cols { grid-template-columns: 1fr; } }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+.article-title em { font-style: normal; position: relative; white-space: nowrap; color: var(--text); }
+.article-title em::after { content: ""; position: absolute; left: -.06em; right: -.06em; bottom: .06em; height: .32em; background: var(--lime); z-index: -1; border-radius: 3px; transform: rotate(-.5deg); }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: var(--border-strong); }
+.byline-role { color: var(--text-faint); }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
+.article-body pre code { background: none; padding: 0; color: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) — mirrors the site's final card ---- */
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+
+/* mobile: let highlighted title phrases wrap (nowrap em overflows small screens) */
+@media (max-width: 640px) {
+  .article-title em { white-space: normal; background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .article-title em::after { display: none; }
+}
+
+/* ACCESSIBILITY */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>&#9670; DISPATCH N&ordm; 93 &mdash; JUL 27, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 10 MIN READ &middot; 2,450 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+    <span>&#9670; DISPATCH N&ordm; 93 &mdash; JUL 27, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 10 MIN READ &middot; 2,450 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+  </nav>
+</header>
+<article class="article">
+
+  <a href="index.html" class="article-back">&larr; back to field notes</a>
+
+  <div class="article-meta">
+    <span class="tag tag-research">research</span>
+    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 93</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <span style="color: var(--cream-dim);">JUL 27, 2026</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <span style="color: var(--cream-dim);">10 MIN READ</span>
+  </div>
+
+  <h1 class="article-title">
+    How to stop Shopify routing orders to the <em>wrong warehouse</em>
+  </h1>
+
+  <p class="article-dek">
+    A customer forty minutes from your Pennsylvania warehouse gets two
+    boxes, one of them from Nevada, on a single flat shipping fee you
+    charged once. Shopify routed it exactly the way its rules say it
+    should. Here is what those rules can and cannot see, why moving the
+    order after the fact usually fails, and the playbook that picks the
+    location by what the shipment will actually cost.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name">Priya Singh</span>
+    <span class="byline-divider">&middot;</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      An order comes in from New Jersey. Three items. Two of them sit in
+      your Pennsylvania warehouse, an easy overnight run. The third is
+      only in the Nevada 3PL. Shopify looks at the order, sees that no
+      single location holds all three, splits it, and now you are paying
+      for two shipments against one flat rate the customer paid once, and
+      one of those shipments crosses the country to deliver a twelve
+      dollar item. On Thursday the customer emails to ask where the rest
+      of their order is, because they got one box and one tracking number
+      and nobody told them there was a second.
+    </p>
+
+    <p>
+      The quieter version costs more over a year and never generates a
+      ticket. A Friday evening order routes to the retail location eleven
+      miles from the customer, which is the closest pin on the map and
+      also a shop with two people on the floor that does not ship on
+      weekends. It goes out Monday afternoon. Your warehouse two states
+      away would have had it on a truck that night. Nothing failed. No
+      alert fired. The order simply took three extra days and one of your
+      store's units, which a walk-in would have bought at full margin with
+      no shipping cost at all.
+    </p>
+
+    <h2>What Shopify actually does, and where it stops</h2>
+
+    <p>
+      Credit first, because Shopify's routing is much better than the old
+      fulfillment priority list it replaced. Under Settings, Shipping and
+      delivery, Order routing, you get a strategy: a list of rules that
+      run top to bottom, each one filtering the locations the next rule
+      gets to see. The default is three rules in this order. Minimize
+      split fulfillments, which prefers any location holding every item.
+      Stay within the destination market. Ship from the closest location.
+      You can reorder them, remove them, and add two more: ranked
+      locations, where you group locations into tiers you define, and
+      location metafields, where you prioritize on a boolean or a number
+      you have stored against each location.
+    </p>
+
+    <p>
+      That is a real routing engine and for a lot of stores the defaults
+      are fine. The trouble starts with what none of those rules can read.
+      <strong>Not one of them looks at a shipping rate.</strong> There is
+      no rule for cheapest label, no rule for carrier zone, no rule for
+      dimensional weight, no rule for the pick fee your 3PL charges that
+      your own warehouse does not. Closest is measured as straight-line
+      distance, and Shopify's own documentation is upfront that this is
+      not driving distance, so the location that wins on the map regularly
+      loses on the truck. Near a zone boundary, across a bay, or on the
+      wrong side of a border, the nearest pin and the cheapest label are
+      different answers.
+    </p>
+
+    <p>
+      Nothing in the ranking knows what time it is either. There is no
+      concept of a cutoff, a weekend, a public holiday, or a warehouse
+      that is two days behind because half the team has flu. The one
+      capacity signal available is a location metafield, which means a
+      number or a checkbox that a person types and then never touches
+      again, and which will still say <code>has_capacity: true</code> on
+      the Tuesday your 3PL stops answering the phone. It is the same
+      failure mode as
+      <a href="how-to-set-inventory-reorder-points-on-shopify.html">a
+      reorder point typed once</a> against a catalog that moves every
+      week.
+    </p>
+
+    <blockquote>
+      One ranking, applied identically to every order you will ever take.
+      The cheapest way to ship an order changes with the order.
+    </blockquote>
+
+    <p>
+      The split decision has the same shape. Put Minimize split
+      fulfillments at the top and you have said, once and forever, that
+      one box is always better, even when that box goes coast to coast to
+      save a second label that would have traveled one zone. Take it out
+      and you have said two boxes are fine, including on the order where
+      the second box holds a four dollar accessory. Both answers are right
+      some of the time. Shopify gives you one lever and asks you to hold
+      it in one position through Black Friday and through July.
+    </p>
+
+    <p>
+      And routing happens once, at the moment the order is created. If the
+      count at that location turns out to be wrong, if the store closes
+      early, if the cutoff passes while the order sits in review, nothing
+      goes back and reconsiders. The assignment is a decision made with
+      the information available in the half second after checkout, and it
+      is never revisited.
+    </p>
+
+    <p>
+      There is an escape hatch, and it is worth knowing it is closed for
+      most people. Custom routing rules are real, they are implemented as
+      Shopify Functions through the Order Routing Location Rule API, and
+      they can do genuinely clever things. They are also Shopify Plus, by
+      request, in early access, and they require you to be enrolled in the
+      Partners program and deploy your own app. That is a fine answer for
+      an enterprise team with engineers. It is not an answer for the store
+      doing four hundred orders a day out of a warehouse and two
+      showrooms.
+    </p>
+
+    <h2>Why Flow gets close and then stops</h2>
+
+    <p>
+      Shopify Flow has a Move fulfillment order action, and it is more
+      useful than people realize. If you already know the rule, Flow will
+      run it: send anything over twenty kilos to the location with the
+      pallet racking, keep engraved items at the workshop, push wholesale
+      orders to the bulk site. That is genuine value and if you are moving
+      those by hand today, build it this afternoon.
+    </p>
+
+    <p>
+      Two walls sit right behind it. The first is that the destination has
+      to stock every line item in the fulfillment order or the run fails,
+      which rules out precisely the mixed-basket orders that route badly
+      in the first place. The second is timing. You cannot move a
+      fulfillment order once a fulfillment service has the request in a
+      submitted or accepted state, which is to say, once your 3PL actually
+      has it. The window in which the fix is possible is the window before
+      anyone notices there is something to fix.
+    </p>
+
+    <p>
+      Underneath both is the familiar limit. Flow evaluates static
+      conditions on one order at a time. It cannot ask which of three
+      labels is cheapest, or whether Columbus can still hit today's
+      cutoff, or whether Reno is running a day behind, because those are
+      questions about the world outside the order record. Flow can execute
+      a routing decision. It cannot make one. That is the same structural
+      wall behind
+      <a href="how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html">splitting
+      an order across vendors</a>, which is this problem again with
+      somebody else's warehouse.
+    </p>
+
+    <h2>Why doing it by hand never keeps up</h2>
+
+    <p>
+      The manual version is a person on the fulfillment team scanning the
+      morning's orders for ones that look wrong. They spot the Nevada
+      split, pull up two rate quotes in the carrier account, message the
+      warehouse to ask if it can still go out today, move the fulfillment
+      order, and move on to the next. It works, and at thirty orders a day
+      it is genuinely the right call. At three hundred it is arithmetic
+      nobody has time for, so the only orders that get checked are the
+      ones a customer already complained about, which means you are paying
+      the cost and doing the work.
+    </p>
+
+    <p>
+      What makes it invisible is that Shopify has no report for this.
+      There is nowhere in the admin that tells you what your routing cost
+      last month against the best assignment available at the time. The
+      loss does not arrive as an incident. It arrives as a shipping line
+      that runs a bit higher than budget every month, spread across
+      thousands of orders that each cost two or three dollars more than
+      they had to, plus the split shipments that quietly generate
+      <a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html">where
+      is my order tickets</a> because the customer got one box and no
+      explanation.
+    </p>
+
+    <p>
+      And it degrades exactly when it matters. In peak, every location is
+      backed up differently, stock is moving faster than counts can keep
+      up, and the one static ranking you set in February is making four
+      hundred decisions an hour on information from five months ago.
+    </p>
+
+    <h2>What the automation actually has to do</h2>
+
+    <p>
+      The working version is not a better rule list. It is something that
+      does, per order, the arithmetic a good fulfillment lead does in
+      their head and only has time to do for the handful they notice. As a
+      Dugong playbook, in plain prose, it looks like this:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">On</span> order created, and again whenever anything
+changes before a label is bought
+
+<span class="c"># steps</span>
+1. <span class="k">Score</span> every location that could send this order:
+   real rate, carrier zone, cutoff, backlog, stock
+   health
+2. <span class="k">Decide</span> split or single for this order, on landed
+   cost and promised date, not one global setting
+3. <span class="k">Respect</span> what is not negotiable: oversized, hazmat,
+   market, personalization, shop floor stock
+4. <span class="k">Move</span> the fulfillment order inside the window,
+   before a fulfillment service accepts it
+5. <span class="k">Re-check</span> when reality moves: bad count, closed
+   location, missed cutoff, storm
+6. <span class="k">Tell</span> the customer once, in one message, when an
+   order genuinely does ship in two boxes
+</code></pre>
+
+    <p>
+      Step one is where the money is. For a given order, the eligible
+      locations are usually two or three, and ranking them properly takes
+      information Shopify's rules do not have: the actual rate for this
+      weight and these dimensions to this zip from each origin, whether
+      each location can still get it out today given its cutoff and its
+      current queue, and what pulling this unit does to the location it
+      leaves. Straight-line distance is a rough proxy for the first of
+      those and blind to the other two.
+    </p>
+
+    <p>
+      Step two is the one that is impossible to express as a setting. The
+      question is not do we allow splits. It is, for this order, does one
+      shipment or two cost less all-in and land sooner. Two zone-two
+      parcels frequently beat one zone-eight parcel, and just as
+      frequently do not. It depends on weight distribution, the carrier
+      contract, the dimensional rounding, and whether the customer chose
+      express. That is a calculation, run per order, in the seconds
+      between checkout and the warehouse queue. It is not a checkbox.
+    </p>
+
+    <div class="callout callout-sand">
+      <span class="callout-mark">&#9670; NOTE</span>
+      <span>
+        The trap is <strong>treating the routing strategy as a setup
+        task</strong>. It gets configured in week one, when you have two
+        locations and a rough idea of your carrier rates, and then it
+        keeps making every decision for the next three years through a
+        3PL migration, a new market, a peak season, and a carrier
+        contract renegotiation. Nothing in the admin ever tells you it
+        has drifted out of date, because from Shopify's point of view it
+        is working perfectly. It is applying your rules exactly as
+        written.
+      </span>
+    </div>
+
+    <h2>Why this is a compiler problem, not an app problem</h2>
+
+    <p>
+      Every question in this workflow depends on context that cannot be
+      pre-ranked. Is the cheapest label worth an extra day here. Is this
+      customer's second order this week, so should it wait an hour and go
+      out with the first, the way
+      <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html">combined
+      orders</a> do. Is this address even deliverable, which is a question
+      for
+      <a href="how-to-validate-shipping-addresses-on-shopify.html">address
+      validation</a> before you commit a location to it. Is the stock at
+      that location actually there, or is it the phantom count that causes
+      <a href="how-to-prevent-overselling-on-shopify-across-channels.html">overselling
+      across channels</a>. Those answers depend on your margins, your
+      season, your carrier contract, and how patient that particular
+      customer is, and they move week to week.
+    </p>
+
+    <p>
+      Picture an outdoor gear brand with a 3PL in Reno, an owned warehouse
+      in Columbus, and two showrooms. A Chicago customer orders a tent, a
+      stove, and a set of pegs. Reno has all three, Columbus has two of
+      them, the showroom nine miles away has the pegs. With the default
+      strategy, Minimize split fulfillments hands the whole order to Reno
+      and it travels sixteen hundred miles. With the playbook running, the
+      two heavy items go from Columbus, which is one zone away and inside
+      cutoff, the pegs are checked against the showroom and left there
+      because that store sells four sets a week at full margin, so they
+      come from Columbus too. One shipment, one zone, out tonight, about
+      nine dollars cheaper, and the showroom keeps its stock. On the order
+      where the arithmetic goes the other way, it splits, and the customer
+      gets one email explaining both tracking numbers instead of
+      <a href="how-to-notify-customers-of-shipping-delays-on-shopify.html">wondering
+      where the rest of it is</a>.
+    </p>
+
+    <p>
+      It also sits directly downstream of the numbers you feed the
+      platform. Routing is only as good as your location-level counts,
+      which is why
+      <a href="how-to-sync-supplier-inventory-feeds-to-shopify.html">a
+      supplier feed that lands wrong</a> shows up here as an order
+      assigned to a warehouse that cannot actually pick it, and why a
+      routing decision that assumed stock which does not exist ends up as
+      <a href="how-to-edit-a-shopify-order-after-its-been-placed.html">an
+      order edited after the fact</a>.
+    </p>
+
+    <hr />
+
+    <h2>The workflow worth building this week</h2>
+
+    <p>
+      Start with the audit, not the automation, because you almost
+      certainly do not know the size of this. Export last month's orders
+      with the location each one shipped from, and for each order compute
+      what the best eligible location would have cost. Two hundred orders
+      is enough to see the shape. Most multi-location stores find the gap
+      is somewhere between two and six dollars an order, concentrated in a
+      handful of patterns that repeat: one lane, one product that only
+      lives in the far warehouse, one showroom that keeps getting picked
+      because it is close.
+    </p>
+
+    <p>
+      Then build the guardrail before the optimizer. A watcher that does
+      nothing but flag orders where the assigned location is materially
+      worse than the best alternative, and move them while the move is
+      still allowed, captures most of the value with none of the risk.
+      That is the same compounding logic behind
+      <a href="best-shopify-automations-to-set-up.html">the Shopify
+      automations no one builds</a>: the boring guardrail earns more than
+      the clever feature.
+    </p>
+
+    <p>
+      Describe it the way you would brief a new fulfillment lead on their
+      first morning. For every order, look at which of our locations could
+      actually send it, price the realistic options including the split,
+      and pick the one that costs least without missing the delivery date
+      we promised. Do not take the last unit off a shop floor for a
+      twelve dollar accessory. Do not send anything to a location that
+      cannot ship it today when one that can is a dollar more. Move it
+      before the warehouse picks it, not after. If reality changes before
+      the label prints, think again. And if an order truly has to go in
+      two boxes, tell the customer once, properly, with both tracking
+      numbers. That is the brief. The compiler handles the rates, the
+      cutoffs, the fulfillment order mechanics, and the timing window,
+      and your shipping line stops quietly absorbing a decision made in
+      February.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">&#9670; READING</span>
+      <span>
+        If this resonates, two companion pieces: our dispatch on
+        <a href="how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html">the
+        order you split across vendors by hand</a>, which is this problem
+        when the warehouses belong to somebody else, and
+        <a href="how-to-prevent-overselling-on-shopify-across-channels.html">the
+        overselling problem no one automates</a>, which is what happens
+        when the count the router trusted was never true.
+      </span>
+    </div>
+
+    <p>
+      If you are a Shopify merchant running two or more locations, with a
+      routing story, a spreadsheet where you check rates by hand, or a
+      3PL that keeps getting orders it should never have seen, the inbox
+      is open: <code>field-notes@dugong.live</code>. We are collecting
+      case studies for the next issue.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share &middot; copy link &middot; &#10022;</span>
+  </div>
+
+</article>
+
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">&#9670; COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h2 class="faq-q">Why does Shopify ship from a far warehouse when a closer location has the item?</h2>
+      <p class="faq-a">Usually because a rule above the distance rule already made the decision. Shopify's default routing strategy runs Minimize split fulfillments first, then Stay within the destination market, then Ship from closest location, and each rule filters the list the next one sees. A far location that stocks every line in the order outranks a near one that stocks three lines out of four, because the first rule has already eliminated the near one. Four other things send orders the long way. The closest location may have the option to fulfill online orders switched off. Its stock may exist but be committed to earlier orders. It may not be in the shipping profile that produced the rate the customer paid. And closest is measured as straight-line distance, which Shopify's own documentation says is not driving distance, so a location across a bay or a mountain range can win on the map and lose on the truck.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Can Shopify Flow change the fulfillment location of an order?</h2>
+      <p class="faq-a">Partly. Flow has a Move fulfillment order action, and it works well for rules you already know, such as sending every order over a certain weight to the warehouse that stocks pallets. It has two hard limits. The destination has to stock every line item in that fulfillment order or the run fails outright, which rules out most of the interesting cases. And you cannot move a fulfillment order once a fulfillment service has the request in a submitted or accepted state, which is exactly the moment your 3PL already has it and the mistake is about to cost money. Flow also cannot compare carrier rates, measure driving distance, check a cutoff time, or ask whether a location is running behind today, so it can execute a routing decision but it cannot make one.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">How do I stop Shopify splitting one order into two shipments?</h2>
+      <p class="faq-a">Put the Minimize split fulfillments rule at the top of your order routing strategy in Settings, Shipping and delivery, Order routing. That tells Shopify to prefer any single location holding the whole order over a closer location holding part of it. The catch is that you have now answered the question once for every order you will ever take. Sometimes one box crossing the country costs more than two boxes traveling one zone each, and sometimes the customer would rather have two thirds of the order tomorrow than all of it on Friday. Shopify gives you one lever for a decision that has a different right answer depending on weight, zone, margin, and how badly that customer needs the item. Splitting is not the problem. Splitting without doing the arithmetic is.</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="section-head">
+    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+<a href="how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order you split across vendors by hand</h3>
+        <p class="card-dek">
+          One order holds items from three suppliers, and Shopify has no way to route each line to the right vendor or email each one a purchase order with just their items. The AI playbook that splits the order by supplier and fulfills the right lines when tracking returns.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 7</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The overselling problem no one automates</h3>
+        <p class="card-dek">
+          Selling stock you no longer have is the pain merchants dread most. The AI playbook that keeps inventory honest in real time across every channel.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your whole catalog</h3>
+        <p class="card-dek">
+          One renamed column and your sync app sets four hundred products to zero. The AI playbook that checks a supplier feed before it trusts it and holds back the updates that look wrong.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The second order that arrives before the first ships</h3>
+        <p class="card-dek">
+          A customer orders twice in an hour and Shopify treats it as two shipments, two labels, and two boxes. The AI playbook that catches the pair in time and merges them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 2</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The WISMO tickets that eat your afternoon</h3>
+        <p class="card-dek">
+          Half your support queue is one question, and every answer is a copy and paste from a carrier page. The AI playbook that answers it before the customer asks.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 4</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-validate-shipping-addresses-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The bad address that ships anyway</h3>
+        <p class="card-dek">
+          Shopify accepts a missing apartment number without a word, and you find out when the parcel comes back. The AI playbook that catches it before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-notify-customers-of-shipping-delays-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The delayed order no one tells your customer about</h3>
+        <p class="card-dek">
+          Shopify has no delay notification anywhere, so silence is the default and the ticket is the consequence. The AI playbook that gets ahead of it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 22</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-set-inventory-reorder-points-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The reorder you always make too late</h3>
+        <p class="card-dek">
+          Shopify tracks every unit but never buys more, and its purchase orders are too basic to know what to reorder or when. The AI playbook that forecasts demand per SKU and drafts the PO on time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 15</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-edit-a-shopify-order-after-its-been-placed.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order change that races your warehouse</h3>
+        <p class="card-dek">
+          A customer emails to change one line, and Shopify's edit screen cannot keep up with the pick list already printing. The AI playbook that catches the change in the window that still exists.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 8</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="best-shopify-automations-to-set-up.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The Shopify automations no one builds</h3>
+        <p class="card-dek">
+          Tagging is 14% of every Shopify workflow merchants ship. The work that actually scales is under 1%.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 28</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html">Latest</a>
+        <a href="index.html">Essays</a>
+        <a href="index.html">Post-mortems</a>
+        <a href="index.html">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>&copy; 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>

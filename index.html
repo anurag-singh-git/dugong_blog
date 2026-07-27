@@ -85,6 +85,14 @@
         },
         {
           "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#article",
+          "headline": "How to stop Shopify routing orders to the wrong warehouse",
+          "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html",
+          "datePublished": "2026-07-27",
+          "author": { "@type": "Person", "name": "Priya Singh" }
+        },
+        {
+          "@type": "BlogPosting",
           "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#article",
           "headline": "How to sync supplier stock feeds to Shopify without zeroing your catalog",
           "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html",
@@ -450,7 +458,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
 <style>
 /* =========================================================
    DUGONG FIELD NOTES — matches dugong.live
@@ -906,11 +914,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
     <span>◆ FIELD NOTES VOL. 04 — 2026</span>
     <span>◆ FROM THE DUGONG RESEARCH DESK</span>
     <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
-    <span>◆ 19 NEW DISPATCHES THIS MONTH</span>
+    <span>◆ 21 NEW DISPATCHES THIS MONTH</span>
     <span>◆ FIELD NOTES VOL. 04 — 2026</span>
     <span>◆ FROM THE DUGONG RESEARCH DESK</span>
     <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
-    <span>◆ 19 NEW DISPATCHES THIS MONTH</span>
+    <span>◆ 21 NEW DISPATCHES THIS MONTH</span>
   </div>
 </div>
 
@@ -931,9 +939,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
 <section class="hero">
   <div class="hero-meta">
-    <span class="hero-issue">ISSUE Nº 92</span>
+    <span class="hero-issue">ISSUE Nº 93</span>
     <span class="hero-divider">·</span>
-    <span class="hero-date">JUL 26 · 2026</span>
+    <span class="hero-date">JUL 27 · 2026</span>
     <span class="hero-divider">·</span>
     <span class="hero-pulse"><span class="dot"></span>NEW THIS WEEK</span>
   </div>
@@ -956,7 +964,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
   <div class="hero-stats">
     <div class="stat">
-      <span class="stat-num">92</span>
+      <span class="stat-num">93</span>
       <span class="stat-label">dispatches&nbsp;published</span>
     </div>
     <div class="stat">
@@ -1061,11 +1069,44 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
   <div class="article-grid">
 
-        <a class="card card-tall" href="how-to-sync-supplier-inventory-feeds-to-shopify.html" style="text-decoration:none;">
+        <a class="card card-tall" href="how-to-route-shopify-orders-to-the-right-warehouse.html" style="text-decoration:none;">
       <div class="card-art card-art-1">
-        <span class="art-glyph">📦</span>
-        <span class="art-coord">FEED&nbsp;·&nbsp;ZEROED</span>
+        <span class="art-glyph">🚚</span>
+        <span class="art-coord">ROUTED&nbsp;·&nbsp;WRONG</span>
       </div>
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to stop Shopify routing orders to the <em>wrong warehouse</em></h3>
+        <p class="card-dek">
+          A customer forty minutes from your Pennsylvania warehouse gets two boxes, one of them
+          from Nevada, against a single flat shipping fee you charged once. Shopify routed it
+          exactly the way its rules say it should. Order routing is a list of rules applied top
+          to bottom, identically, to every order you take: minimize split fulfillments, stay
+          within the destination market, ship from the closest location, plus ranked locations
+          and location metafields if you add them. Not one of those rules reads a shipping rate.
+          Closest means straight-line distance, which Shopify's own documentation admits is not
+          driving distance, and which knows nothing about carrier zones, cutoff times, weekend
+          coverage, or today's backlog. The only capacity signal is a metafield you type by hand
+          and never revisit. The split decision is a single global lever for a question whose
+          right answer changes order by order. Routing happens once at checkout and is never
+          reconsidered when the count was wrong or the location is closed. Flow can move a
+          fulfillment order, but only where every line is stocked, and not once your 3PL has
+          accepted it. Custom rules exist through Shopify Functions, and they are Plus only, by
+          request, shipped as a custom app. The AI playbook that scores every eligible location
+          on landed cost, cutoff, and backlog, decides split or single per order, moves the
+          fulfillment order inside the window, and re-checks when reality moves.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 27</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a class="card" href="how-to-sync-supplier-inventory-feeds-to-shopify.html" style="text-decoration:none;">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2283,7 +2324,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   </div>
   <div class="topic-cloud">
     <a href="best-shopify-automations-to-set-up.html" class="topic" style="--topic-size:2.4rem;">shopify</a>
-    <a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="topic" style="--topic-size:2.3rem;">supplier&nbsp;stock&nbsp;sync</a>
+    <a href="how-to-route-shopify-orders-to-the-right-warehouse.html" class="topic" style="--topic-size:2.3rem;">order&nbsp;routing</a>
+    <a href="how-to-route-shopify-orders-to-the-right-warehouse.html" class="topic" style="--topic-size:1.4rem;">wrong&nbsp;fulfillment&nbsp;location</a>
+    <a href="how-to-route-shopify-orders-to-the-right-warehouse.html" class="topic" style="--topic-size:1.2rem;">split&nbsp;shipments</a>
+    <a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="topic" style="--topic-size:2.2rem;">supplier&nbsp;stock&nbsp;sync</a>
     <a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="topic" style="--topic-size:1.4rem;">inventory&nbsp;feed&nbsp;errors</a>
     <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="topic" style="--topic-size:2.3rem;">discount&nbsp;code&nbsp;abuse</a>
     <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="topic" style="--topic-size:1.4rem;">leaked&nbsp;coupon&nbsp;codes</a>
