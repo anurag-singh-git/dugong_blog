@@ -15,7 +15,37 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Mon, 27 Jul 2026 15:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2026 15:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>How to change a Shopify order from local pickup to shipping</title>
+      <link>https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Fri, 31 Jul 2026 15:00:00 +0000</pubDate>
+      <description>A customer in Marietta, Georgia checks out on her phone in eleven seconds, and the order lands as a pickup at your Denver shop, 1,400 miles away. She never chose pickup: Shopify checkout preselects the cheapest delivery option, local pickup is free, and Shop Pay carried her straight past the choice. Merchants report several of these a week, and the community thread asking Shopify to stop defaulting to pickup has been collecting replies for years, with a feature request logged and no timeline. The order cannot be fixed either: order editing does not touch the delivery method, and orders placed with local pickup or local delivery often cannot be edited at all, so the supported path is cancel, refund, rebuild as a draft order, and invoice the shipping. The half workaround of buying a label anyway leaves a pickup order that still sends pickup instructions and never collected a shipping fee. The AI playbook that reads every new order's delivery method against its address, distance, and history, asks the customer the same hour, converts the order cleanly when they meant shipping, confirms pickup when they meant pickup, keeps pickup orders out of the label queue, and counts the wrong-method orders so you can fix the checkout copy that causes them.</description>
+    </item>
+
+    <item>
+      <title>How to automatically approve wholesale customers on Shopify</title>
+      <link>https://blog.dugong.live/how-to-automatically-approve-wholesale-customers-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-automatically-approve-wholesale-customers-on-shopify.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Thu, 30 Jul 2026 15:00:00 +0000</pubDate>
+      <description>A boutique owner fills out your wholesale application on Friday evening. You find it on Monday, approve it on Tuesday, and her opening order went to another brand on Saturday, because wholesale buyers apply to three brands at once and the fastest yes wins the account. Shopify treats approval as a click it cannot help you make. On Shopify Plus, a company account request submitted through Shopify Forms automatically creates the company, a company location, and a customer record, and then the queue waits for a human: nothing checks the tax ID, reads the website, or notices that the applicant is a competitor or one of your own retail customers fishing for trade prices. Switch on Restrict access to B2B customers only and the Shopify hosted login page shows a single email field with no registration form and no way to request access, a gap merchants have titled Massive Oversight on the community forums. Switch it off and the login box creates a customer record for any email address that asks for a six digit code, which is how retail shoppers end up placing orders on a wholesale-only store. New customer accounts accept no Liquid customization and no app embeds, so there is no hook to build an approval step on, and non-Plus stores have no companies at all, just a form app, a wholesale tag applied by hand, and a gating app. The AI playbook that reads each application, verifies the email domain, the website, and the tax ID format, checks your own records for duplicates, territory conflicts, and competitors, sorts the queue into approve, decline, and human review, provisions the catalog, payment terms, and tax status in the same pass as the yes, answers every applicant the same day, and nudges approved accounts that have not placed a first order.</description>
+    </item>
+
+    <item>
+      <title>How to automatically release Shopify orders on hold when stock arrives</title>
+      <link>https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Tue, 28 Jul 2026 15:00:00 +0000</pubDate>
+      <description>An order sits on hold because one line was short. The pallet lands on Wednesday, the back in stock emails fire, three new customers buy and ship the same afternoon, and the order that has been waiting since Monday is still on hold. Shopify has no trigger for the inventory a held fulfillment order was waiting on arriving. A Shopify staff member confirmed this on the community forums in 2023 and merchants were still confirming it in July 2026. The Inventory quantity changed trigger fires, but it hands you a variant and a quantity with no way to search backward to the held fulfillment orders containing it. The scheduled polling workaround in Flow, built on the Get fulfillment order data action and its documented status:ON_HOLD query, has four sharp edges: the Release fulfillment order holds action has no fields and clears every hold on the fulfillment order including fraud, address, and manual holds, availability has to be checked at the fulfillment order's assigned location rather than store-wide, Get data actions cap at 100 records and Shopify's own documentation warns a failed query often returns all results rather than none, and available is not reserved, so two held orders waiting on the same three units both get released in a single run. The AI playbook that matches a receipt to the held orders it unblocks, reserves before releasing, lifts only its own hold by its hold ID, releases oldest promise first, ships partial when waiting costs more than a second label, and tells the customer once when the wait ran long.</description>
+    </item>
 
     <item>
       <title>How to stop Shopify routing orders to the wrong warehouse</title>
