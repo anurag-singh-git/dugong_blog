@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to automatically follow up on unpaid draft orders on Shopify &mdash; Dugong Field Notes</title>
+<meta name="description" content="Shopify sends one draft order invoice and never a reminder, so quotes die in silence. The AI playbook that follows up, answers, and retires stale quotes." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="Shopify draft order follow up, unpaid draft order invoice Shopify, Shopify draft order payment reminder, automatically remind customer to pay invoice Shopify, Shopify quote follow up automation, draft order invoice link expires, auto cancel draft orders Shopify, draft order cancelled status, Shopify Flow draft order trigger, B2B quote follow up Shopify, AI quote follow-up, Dugong" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
+<meta property="article:published_time" content="2026-08-01" />
+    <meta property="article:modified_time" content="2026-08-01" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to automatically follow up on unpaid draft orders on Shopify" />
+<meta property="og:description" content="You build the quote in a draft order, send the invoice, and Shopify's part in the sale is over: one email, one checkout link, and no reminder, ever. The reminder machinery exists one screen away, up to five scheduled emails for orders with payment terms, and draft orders are excluded because a draft has no due date to count from. So merchants keep the pipeline in their heads or a spreadsheet, chase quotes in Friday batches when the oldest are three weeks cold, and watch drafts pile up by the hundred with no cancelled status, no expiry, and invoice links that stay payable for months at prices locked when the quote was written. Flow is the wrong shape for the job: its draft trigger fires once at creation, its draft actions stop at tags, and the accepted workaround emails your own staff a list of open drafts, automating the guilt instead of the follow-up. The AI playbook that reads each draft's value, age, customer, and stock, reminds on the cadence the quote deserves, answers the small replies and escalates the negotiations, never chases a quote that can no longer be filled, retires dead quotes so stale links and prices die with them, and reports the pipeline weekly." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to automatically follow up on unpaid draft orders on Shopify" />
+<meta name="twitter:description" content="One invoice email, no reminders, no expiry, no cancelled status: Shopify leaves draft order quotes to die in silence. The AI playbook that follows up on every one." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+    <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html#article",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html",
+      "url": "https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html",
+      "headline": "How to automatically follow up on unpaid draft orders on Shopify",
+      "description": "You build the quote in a draft order, send the invoice, and Shopify's part in the sale is over: one email, one checkout link, and no reminder, ever. The reminder machinery exists one screen away, up to five scheduled emails for orders with payment terms, and draft orders are excluded because a draft has no due date to count from. So merchants keep the pipeline in their heads or a spreadsheet, chase quotes in Friday batches when the oldest are three weeks cold, and watch drafts pile up by the hundred with no cancelled status, no expiry, and invoice links that stay payable for months at prices locked when the quote was written. Flow is the wrong shape for the job: its draft trigger fires once at creation, its draft actions stop at tags, and the accepted workaround emails your own staff a list of open drafts, automating the guilt instead of the follow-up. The AI playbook that reads each draft's value, age, customer, and stock, reminds on the cadence the quote deserves, answers the small replies and escalates the negotiations, never chases a quote that can no longer be filled, retires dead quotes so stale links and prices die with them, and reports the pipeline weekly.",
+      "datePublished": "2026-08-01",
+      "dateModified": "2026-08-01",
+      "articleSection": "Research",
+      "keywords": "Shopify draft order follow up, unpaid draft order invoice Shopify, Shopify draft order payment reminder, Shopify quote follow up automation, draft order invoice link expires, auto cancel draft orders Shopify, Shopify Flow draft order trigger, B2B quote follow up Shopify",
+      "wordCount": 2410,
+      "timeRequired": "PT9M",
+      "inLanguage": "en",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "@type": "Thing",
+          "name": "Invoice",
+          "sameAs": "https://en.wikipedia.org/wiki/Invoice"
+        },
+        {
+          "@type": "Thing",
+          "name": "Business-to-business",
+          "sameAs": "https://en.wikipedia.org/wiki/Business-to-business"
+        },
+        {
+          "@type": "Thing",
+          "name": "Sales",
+          "sameAs": "https://en.wikipedia.org/wiki/Sales"
+        },
+        {
+          "@type": "Thing",
+          "name": "Customer relationship management",
+          "sameAs": "https://en.wikipedia.org/wiki/Customer_relationship_management"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://blog.dugong.live/#priya-singh",
+        "name": "Priya Singh",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/og-image.png",
+          "width": 1200,
+          "height": 630
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The quote that goes quiet",
+          "item": "https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Shopify automatically send reminders for unpaid draft order invoices?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Sending an invoice from a draft order sends exactly one email with a checkout link, and nothing follows it, ever. Shopify does have automatic payment reminders, up to five scheduled emails, but only for orders that have payment terms assigned, such as net 30, and a draft order has no due date for a reminder to count down from, so drafts are excluded entirely. Some merchants work around this by completing the draft as a pending payment order with short terms just to borrow the reminder machinery, but that turns every undecided quote into a real order that lands in reports, commits inventory, and needs a cancellation to undo when the customer never pays. The practical alternatives are a reminder app that resends on a fixed schedule, or an AI workflow that reads each draft and follows up the way a salesperson would, matching the cadence to the quote's value and stopping when the customer says no."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do Shopify draft order invoice links expire?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not on any schedule you control. The checkout link in a draft order invoice keeps working for as long as the draft exists, and because product prices in a draft are locked by default, a customer can open a months-old email and pay a price you have since raised. There is no cancelled status for draft orders, a gap merchants have a standing feature request open for, so the only way to kill a live link is to delete the draft itself. The single expiry Shopify applies is automatic deletion of drafts created on or after April 1, 2025 once they have sat inactive for a full year, and any edit resets that clock. A year is not a quote lifecycle. If your prices move, retiring old drafts deliberately, on a cutoff you choose, is the only real protection against last winter's quote being paid at last winter's price."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Shopify Flow follow up on unpaid draft orders?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not with the customer. Flow has a Draft order created trigger, and it fires once, at the moment of creation, for drafts that contain products. There is no trigger for an invoice that has sat unpaid for a number of days, and the actions available against a draft are organizational, tagging mainly, with nothing that emails a customer about a draft at all. The accepted community workaround is a Scheduled time trigger that sends your own staff a list of open drafts on a schedule, which automates the reminder to you rather than the follow-up itself. A real follow-up means reading the draft's value, age, stock, and any reply that has already arrived before writing to a human being, then choosing between a nudge, an answer, an escalation, and retirement. That is judgment rather than a condition, and it is the part an AI workflow adds on top of what Flow can see."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html#howto",
+      "name": "The quote that goes quiet",
+      "description": "The AI playbook for unpaid draft orders on Shopify: reading each open draft's value, customer, history, stock, and age, reminding on a cadence matched to the quote, answering small replies and escalating negotiations, checking stock before every nudge, retiring dead quotes so stale links and locked prices die with them, escalating the quotes worth a phone call, and reporting the pipeline weekly.",
+      "inLanguage": "en",
+      "totalTime": "PT9M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Read the draft, not just its age",
+          "text": "Weigh each open draft's value, customer, history, stock, and how long it has been sitting before deciding what happens next",
+          "url": "https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Remind on the cadence the quote deserves",
+          "text": "Day two, day seven, day fourteen for routine quotes, warmer and personal above the big-ticket line",
+          "url": "https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Read every reply",
+          "text": "Answer the small questions the same hour and hand real negotiations to a human with the history attached",
+          "url": "https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Check stock before every nudge",
+          "text": "Never chase payment for a quote you can no longer fill; re-quote honestly or reserve the items instead",
+          "url": "https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Retire quotes at your cutoff",
+          "text": "Tag the loss, log the reason, and delete the draft so the stale checkout link and its locked prices die with it",
+          "url": "https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Escalate the quotes worth a phone call",
+          "text": "Send the big-ticket and negotiated quotes to the owner with the context already attached",
+          "url": "https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Report the pipeline weekly",
+          "text": "Count quotes sent, paid, and expired, and how long paying took, so pricing and deposits improve",
+          "url": "https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html#playbook"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES — matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #71716a;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0a8f54;
+  --pink:         #c61f93;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #b5882c;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background — lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--gutter); height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+@media (max-width: 820px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+/* GRID (for related cards) */
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 560px) { .foot-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; } }
+@media (max-width: 340px) { .foot-cols { grid-template-columns: 1fr; } }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+.article-title em { font-style: normal; position: relative; white-space: nowrap; color: var(--text); }
+.article-title em::after { content: ""; position: absolute; left: -.06em; right: -.06em; bottom: .06em; height: .32em; background: var(--lime); z-index: -1; border-radius: 3px; transform: rotate(-.5deg); }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: var(--border-strong); }
+.byline-role { color: var(--text-faint); }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
+.article-body pre code { background: none; padding: 0; color: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) — mirrors the site's final card ---- */
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+
+/* mobile: let highlighted title phrases wrap (nowrap em overflows small screens) */
+@media (max-width: 640px) {
+  .article-title em { white-space: normal; background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .article-title em::after { display: none; }
+}
+
+/* ACCESSIBILITY */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>&#9670; DISPATCH N&ordm; 97 &mdash; AUG 1, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 9 MIN READ &middot; 2,410 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+    <span>&#9670; DISPATCH N&ordm; 97 &mdash; AUG 1, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 9 MIN READ &middot; 2,410 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+  </nav>
+</header>
+<article class="article">
+
+  <a href="index.html" class="article-back">&larr; back to field notes</a>
+
+  <div class="article-meta">
+    <span class="tag tag-research">research</span>
+    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 97</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <span style="color: var(--cream-dim);">AUG 1, 2026</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <span style="color: var(--cream-dim);">9 MIN READ</span>
+  </div>
+
+  <h1 class="article-title">
+    How to automatically follow up on <em>unpaid draft orders</em> on Shopify
+  </h1>
+
+  <p class="article-dek">
+    You build the quote, send the invoice, and Shopify's part is done:
+    one email, one link, and never a reminder. Most quotes do not die
+    from a no. They die from silence, and the follow-up that would have
+    saved them is nobody's job. Here is the playbook that makes it
+    someone's.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name">Priya Singh</span>
+    <span class="byline-divider">&middot;</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      An interior designer in Savannah emails a lighting studio about
+      twelve brass pendants for a restaurant opening in October. The
+      owner does what Shopify tells him to do with a sale that starts in
+      an inbox: he builds a draft order, applies her trade discount, adds
+      a shipping line, writes a warm note, and clicks Send invoice. The
+      status flips to Invoice sent. It feels like closing. It is actually
+      the last thing Shopify will ever do for this sale.
+    </p>
+
+    <p>
+      Because that is the entire feature. One email, one checkout link,
+      and the platform's part is over. If the designer opens the invoice
+      on her phone between site visits, means to pay on Friday, and
+      forgets, nothing happens. Not to her: no reminder, no nudge, no
+      second email, ever. And not to you: no alert, no aging view, no
+      overdue state. The draft wears the same badge on day forty that it
+      wore in the first hour.
+    </p>
+
+    <p>
+      The forums have been asking about this for years. The thread titled
+      <em>How to automate unpaid invoice reminders?</em> gets pointed at
+      apps. The one titled <em>auto cancel draft orders</em> gets pointed
+      at scripts. And the merchants inside them describe the same Drafts
+      page: dozens or hundreds of open quotes, some alive, some long
+      dead, and no way inside Shopify to tell which is which, let alone
+      to do anything about either.
+    </p>
+
+    <h2>One email, then the machinery goes quiet</h2>
+
+    <p>
+      Draft orders are Shopify's quote workflow, whether or not anyone
+      calls them that. The phone order, the Instagram DM, the wholesale
+      inquiry, the custom piece, the pro forma
+      <a href="how-to-automatically-send-invoices-on-shopify.html">invoice
+      a business buyer needs</a> before their accounts team will pay
+      anything: all of it runs through a draft. A draft has exactly three
+      states, Open, Invoice sent, and Completed, and only a customer can
+      reach the third one, by paying. There is no due date on a draft, no
+      overdue status, and no second invoice email unless a human opens
+      the draft and sends one by hand.
+    </p>
+
+    <p>
+      Here is the detail that stings once you notice it. Shopify knows
+      how to send payment reminders. Orders with payment terms attached,
+      net 30 and its cousins, can send up to five scheduled reminder
+      emails, on the due date and after it. The machinery exists, one
+      screen away in the same admin, and draft orders are excluded from
+      it: a draft has no due date, so there is nothing to count down
+      from, so nothing ever fires. The product knows how to nag. For
+      quotes, it declines to.
+    </p>
+
+    <p>
+      Some merchants borrow the machinery anyway: complete the draft as a
+      pending payment order, attach Net 7 terms, and reminders suddenly
+      exist. So does an order, though. Every undecided quote becomes a
+      live order sitting in your reports and committing stock it may
+      never sell, right next to
+      <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html">the
+      unpaid orders that never cancel themselves</a>, and every quote
+      that dies now needs a cancellation to bury it. You have traded a
+      follow-up problem for an accounting one.
+    </p>
+
+    <h2>The quote that cannot die</h2>
+
+    <p>
+      Stale drafts have the opposite problem, and it is stranger. A draft
+      order has no cancelled status. The community feature request asking
+      for one is polite, specific, and open. Your choices for a dead
+      quote are two: leave it, or delete it. Leave it and the Drafts page
+      slowly becomes an archaeology site, this month's live pipeline
+      interleaved with February's ghosts, which is why so many merchants
+      end up keeping the real list in a spreadsheet next to Shopify. The
+      spreadsheet is its own admission.
+    </p>
+
+    <p>
+      Leaving a dead draft does something worse than clutter. The
+      checkout link in that invoice stays live for as long as the draft
+      exists, and product prices inside a draft are locked by default.
+      That is correct behavior for a quote this week and a liability by
+      summer: a customer can dig a January email out of search and pay
+      January prices in July, and the first you hear of it is an order
+      you have to honor or awkwardly refund. The only expiry Shopify
+      applies is blunt: drafts created on or after April 1, 2025 delete
+      themselves after a full year of inactivity. A year is not a quote
+      lifecycle. It is a statute of limitations.
+    </p>
+
+    <p>
+      And a third failure mode catches the quotes that were about to
+      succeed. Inventory is not held for a draft unless you deliberately
+      reserve it, and nobody reserves stock for a maybe. So the customer
+      who finally clicks the link in week three can meet a checkout that
+      refuses her, because one line item sold out on Tuesday. The sale
+      survived your silence and died at the finish line, and nobody
+      tells you about that either.
+    </p>
+
+    <div class="callout callout-sand">
+      <span class="callout-mark">&#9670; NOTE</span>
+      <span>
+        The trap is <strong>treating follow-up as memory</strong>. Every
+        unpaid quote is a small task with no owner, and the default
+        owner becomes whoever feels guilty on a Friday. At thirty quotes
+        a month that is not a memory problem. It is a sales pipeline
+        with no one running it, and pipelines nobody runs leak money
+        quietly.
+      </span>
+    </div>
+
+    <h2>Why the manual version fails quietly</h2>
+
+    <p>
+      The manual version is a spreadsheet, or worse, a feeling. Export
+      the drafts, add a column for chased once and chased twice, resolve
+      to keep it current. What actually happens is batches: follow-ups
+      go out on the afternoon someone remembers, which is precisely the
+      afternoon the oldest quotes are three weeks cold and the note has
+      decayed to just checking in. Timing is most of a follow-up's
+      value, and batch-when-guilty is the worst possible timing, too
+      early for nobody and too late for exactly the quotes that
+      mattered.
+    </p>
+
+    <p>
+      Uniform chasing is the second failure. The eighty dollar phone
+      order and the thirty-eight hundred dollar trade order sit in the
+      same list and get the same template, which in practice means the
+      big one gets undertreated. It deserved a stock check and a phone
+      call. It got bumping this to the top of your inbox, eleven days
+      late.
+    </p>
+
+    <p>
+      And Flow, the tool that should fix this, is the wrong shape for
+      it. Flow does have a Draft order created trigger. It fires once,
+      at the moment of creation, for drafts that contain products, and
+      the useful actions available against a draft essentially end at
+      tags. There is no trigger for an invoice that has sat unpaid for
+      five days, and nothing in Flow writes to your customer about a
+      draft at all. The accepted workaround on the forums is a Scheduled
+      time trigger that emails your own staff a list of open drafts.
+      Sit with that for a second: the automation platform's answer to
+      forgotten follow-ups is a scheduled email reminding you to do
+      them. It automates the guilt.
+    </p>
+
+    <blockquote>
+      Shopify keeps every quote you have ever written, and reminds no
+      one about any of them.
+    </blockquote>
+
+    <h2>What the automation actually has to do</h2>
+
+    <p>
+      The fix is not a louder invoice. It is the follow-up a good
+      salesperson runs on every open quote without being asked, which
+      means reading before writing. As a Dugong playbook, in plain
+      prose:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">On</span> invoice sent, on customer reply, and on
+a daily sweep of open drafts
+
+<span class="c"># steps</span>
+1. <span class="k">Read</span> the draft: value, customer, history,
+   stock, and how long it has been sitting
+2. <span class="k">Remind</span> on the cadence the quote deserves:
+   day two, day seven, day fourteen, warmer
+   and personal above the big-ticket line
+3. <span class="k">Answer</span> every reply: small questions the
+   same hour, negotiations handed to a human
+4. <span class="k">Check</span> stock before every nudge: never
+   chase payment for a quote you can no
+   longer fill; re-quote or reserve instead
+5. <span class="k">Retire</span> quotes at your cutoff: tag the
+   loss, delete the draft, let the stale
+   link and its locked prices die with it
+6. <span class="k">Escalate</span> the quotes worth a phone call,
+   with the context already attached
+7. <span class="k">Report</span> the pipeline weekly: sent, paid,
+   expired, and how long paying took
+</code></pre>
+
+    <p>
+      Step one is the part that looks decorative and is not. A rule can
+      find drafts older than seven days; that is a filter, and a filter
+      chases everything equally. Reading means noticing that the
+      thirty-eight hundred dollar draft belongs to a trade account that
+      always pays after one nudge, that the sixty dollar one is a phone
+      customer who probably changed her mind, and that the draft with a
+      reply sitting in your inbox is not stalled at all, it is waiting
+      on you to answer a question about finishes. That is the same
+      species of judgment as
+      <a href="how-to-handle-high-risk-orders-on-shopify.html">deciding
+      what a risk flag actually means</a> or
+      <a href="how-to-automatically-tag-orders-on-shopify.html">tagging
+      an order from its contents</a>: context weighed against context,
+      not a field against a threshold.
+    </p>
+
+    <p>
+      Steps two and three are where the money is. A note on day two
+      converts because the decision is still warm; the customer meant
+      to pay, and the bump is a courtesy. A note in week three is an
+      apology for the silence in both directions. Replies matter even
+      more than reminders. Most are one question long, how soon can
+      these ship, can you do ten instead of twelve, does the discount
+      survive the change, and every unanswered hour lowers the odds the
+      quote survives. An agent that answers the small ones inside the
+      hour and hands the real negotiations to you with the history
+      attached is doing sales work, not clerical work.
+    </p>
+
+    <p>
+      Steps four and five are the two ends of the staleness problem.
+      A nudge that says pay now for a quote whose contents sold out is
+      worse than no nudge, so the sweep checks stock first and either
+      re-quotes honestly or asks you whether to reserve. And retirement
+      is protection, not tidying: deleting the dead draft is the only
+      way Shopify gives you to kill a live checkout link and the locked
+      prices inside it, so quotes past your cutoff get tagged, logged,
+      and removed on schedule, not whenever someone gets around to it.
+    </p>
+
+    <h2>Why this is a compiler problem, not an app problem</h2>
+
+    <p>
+      There are reminder apps for this, and the good ones do what they
+      say: resend an email on the schedule you configured. A schedule is
+      what an app can hold. What it cannot hold is the paragraph your
+      follow-up policy actually is: nudge at two days and a week, then
+      stop. <a href="how-to-automatically-approve-wholesale-customers-on-shopify.html">Trade
+      accounts</a> get more patience than retail, and anyone on
+      <a href="how-to-set-up-tiered-volume-discounts-on-shopify.html">volume
+      pricing</a> gets a call, not a template. Anything over fifteen
+      hundred dollars comes to me. Never chase what we can no longer
+      fill. Kill everything at thirty days so nobody pays spring prices
+      in August, and tell me what died, because that is pricing
+      feedback. That paragraph changes with your margins, your lead
+      times, and your patience. An app settings page cannot hold it. A
+      compiler that turns the paragraph into the running workflow can,
+      which is the argument behind
+      <a href="best-shopify-automations-to-set-up.html">the automations
+      no one builds</a>: the valuable workflow is shaped like your
+      store, not like a feature list.
+    </p>
+
+    <p>
+      Picture a furniture workshop in Asheville: forty quotes a month,
+      mostly trade. Twenty-two pay on their own within a few days, and
+      the other eighteen used to age out in silence unless the owner
+      happened to remember one on a slow Friday. With the playbook
+      running, eight pay after the day-two note and three more after day
+      seven. Two reply with questions, get answers within the hour, and
+      pay the same week. One turns into a quantity negotiation the owner
+      takes over by phone, and the remaining four go quiet for good and
+      are retired at day thirty, links dead, stock released, reasons
+      logged. That is thirteen recovered quotes out of eighteen that
+      used to be coin flips, and at the workshop's average quote of six
+      hundred forty dollars, it is eight thousand three hundred twenty
+      dollars a month that stopped depending on the owner's memory. Her
+      involvement is one weekly summary and the occasional phone call
+      she would have wanted to make anyway.
+    </p>
+
+    <hr />
+
+    <h2>The workflow worth building this week</h2>
+
+    <p>
+      Start with the number you do not have. Open Drafts, filter to
+      Invoice sent, and count three things: how many there are, how old
+      the oldest is, and what they add up to. Then look at last quarter
+      and count how many of those drafts ever received a single
+      follow-up. Most stores that quote at all discover a five-figure
+      pipeline being run entirely on remorse.
+    </p>
+
+    <p>
+      Then automate the reading before the sending. For the first two
+      weeks, let the workflow watch the drafts, write every reminder,
+      and queue them for your click. You are checking its judgment: does
+      it know a live negotiation from a stalled quote, does it catch the
+      sold-out line item before nudging, does it sound like you. Once it
+      has been right fifty times in a row, let the routine cadence run
+      end to end and keep the escalations, the negotiations and the
+      big-ticket calls, for yourself.
+    </p>
+
+    <p>
+      Describe it the way you would brief a new hire on their first
+      morning. When we send a quote, stay on it. Nudge politely at two
+      days, again at a week, once more at two, then let it go: tag it
+      lost, note why, and delete it so the link dies. Answer the small
+      questions yourself, the same hour. Bring me anything that turns
+      into a negotiation and anything over fifteen hundred dollars.
+      Never chase a quote we can no longer fill. And on Fridays, tell me
+      how many we sent, how many paid, and how long they took, because
+      that number is how I fix my prices. That is the brief. The
+      compiler handles the sweeps, the drafts, and the timers, and the
+      designer in Savannah pays for her pendants on Thursday because a
+      two-line note landed Wednesday morning, while it was still just a
+      bump between friends.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">&#9670; READING</span>
+      <span>
+        Two companion pieces if this one landed:
+        <a href="how-to-automatically-approve-wholesale-customers-on-shopify.html">the
+        wholesale application that sits all weekend</a>, on the other
+        queue where B2B revenue waits for a human click, and
+        <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html">the
+        unpaid order that never cancels itself</a>, on the same silence
+        after checkout instead of before it.
+      </span>
+    </div>
+
+    <p>
+      If you are a Shopify merchant with a Drafts page holding a hundred
+      open quotes, a follow-up spreadsheet that was last current in
+      March, or a customer who just paid last winter's price from a link
+      you forgot existed, the inbox is open:
+      <code>field-notes@dugong.live</code>. We are collecting case
+      studies for the next issue.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share &middot; copy link &middot; &#10022;</span>
+  </div>
+
+</article>
+
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">&#9670; COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h2 class="faq-q">Does Shopify automatically send reminders for unpaid draft order invoices?</h2>
+      <p class="faq-a">No. Sending an invoice from a draft order sends exactly one email with a checkout link, and nothing follows it, ever. Shopify does have automatic payment reminders, up to five scheduled emails, but only for orders that have payment terms assigned, such as net 30, and a draft order has no due date for a reminder to count down from, so drafts are excluded entirely. Some merchants work around this by completing the draft as a pending payment order with short terms just to borrow the reminder machinery, but that turns every undecided quote into a real order that lands in reports, commits inventory, and needs a cancellation to undo when the customer never pays. The practical alternatives are a reminder app that resends on a fixed schedule, or an AI workflow that reads each draft and follows up the way a salesperson would, matching the cadence to the quote's value and stopping when the customer says no.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Do Shopify draft order invoice links expire?</h2>
+      <p class="faq-a">Not on any schedule you control. The checkout link in a draft order invoice keeps working for as long as the draft exists, and because product prices in a draft are locked by default, a customer can open a months-old email and pay a price you have since raised. There is no cancelled status for draft orders, a gap merchants have a standing feature request open for, so the only way to kill a live link is to delete the draft itself. The single expiry Shopify applies is automatic deletion of drafts created on or after April 1, 2025 once they have sat inactive for a full year, and any edit resets that clock. A year is not a quote lifecycle. If your prices move, retiring old drafts deliberately, on a cutoff you choose, is the only real protection against last winter's quote being paid at last winter's price.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Can Shopify Flow follow up on unpaid draft orders?</h2>
+      <p class="faq-a">Not with the customer. Flow has a Draft order created trigger, and it fires once, at the moment of creation, for drafts that contain products. There is no trigger for an invoice that has sat unpaid for a number of days, and the actions available against a draft are organizational, tagging mainly, with nothing that emails a customer about a draft at all. The accepted community workaround is a Scheduled time trigger that sends your own staff a list of open drafts on a schedule, which automates the reminder to you rather than the follow-up itself. A real follow-up means reading the draft's value, age, stock, and any reply that has already arrived before writing to a human being, then choosing between a nudge, an answer, an escalation, and retirement. That is judgment rather than a condition, and it is the part an AI workflow adds on top of what Flow can see.</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="section-head">
+    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+<a href="how-to-automatically-approve-wholesale-customers-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The wholesale application that sits all weekend</h3>
+        <p class="card-dek">
+          Shopify makes wholesale approval a manual chore: the B2B login has no signup, and Forms builds a queue nobody vets. The AI playbook that answers in minutes.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 30</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The unpaid order that never cancels itself</h3>
+        <p class="card-dek">
+          A customer picks bank transfer or cash on delivery, then goes quiet, and the dead order sits in your admin holding stock. The AI playbook that chases payment, then cancels and restocks on time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-automatically-send-invoices-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The invoice you send by hand</h3>
+        <p class="card-dek">
+          Shopify emails a receipt, not an invoice, and has no field for a customer's tax number, so business buyers ask and you build it by hand. The AI playbook that sends the right invoice after every order.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-set-up-tiered-volume-discounts-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The buy-more-save-more discount Shopify won't tier</h3>
+        <p class="card-dek">
+          You want buy 3 save 10, buy 6 save 20, buy 12 save 30, and Shopify lets you build only one tier per discount. The AI playbook that runs real quantity breaks across your whole catalog.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 16</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-set-a-minimum-order-amount-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The minimum order Shopify won't enforce</h3>
+        <p class="card-dek">
+          A customer checks out for a few dollars and Shopify waves it through, even though the order costs more to fulfill than it earns. The AI playbook that sets a real floor on every checkout path.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-automatically-tag-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order tag you set by hand</h3>
+        <p class="card-dek">
+          Shopify Flow tags an order on one condition and can't read the note, so the tags that route everything downstream get set by hand. The AI playbook that reads the whole order and tags it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-segment-repeat-customers-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The repeat customer your store treats like a stranger</h3>
+        <p class="card-dek">
+          A loyal repeat buyer, a one-time discount hunter, and a customer about to leave all look identical without a manual tag. The AI playbook that segments customers by behavior.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-handle-high-risk-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The high risk flag that makes you guess</h3>
+        <p class="card-dek">
+          Shopify flags the order and then leaves the decision entirely to you, with no context and no way to act on it at scale. The AI playbook that decides.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="best-shopify-automations-to-set-up.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The Shopify automations no one builds</h3>
+        <p class="card-dek">
+          Tagging is 14% of every Shopify workflow merchants ship. The work that actually scales is under 1%.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 28</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html">Latest</a>
+        <a href="index.html">Essays</a>
+        <a href="index.html">Post-mortems</a>
+        <a href="index.html">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>&copy; 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>

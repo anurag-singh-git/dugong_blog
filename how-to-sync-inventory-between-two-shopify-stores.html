@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to sync inventory between two Shopify stores &mdash; Dugong Field Notes</title>
+<meta name="description" content="Two Shopify stores cannot share a shelf: no native sync, drifting counts, the same last unit sold twice. The AI playbook that ends the double-sell for good." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="sync inventory between two Shopify stores, multiple Shopify stores same inventory, share inventory between Shopify stores, multi store inventory sync Shopify, two Shopify stores one warehouse, sync stock across Shopify stores, Shopify multi store sync, wholesale and retail Shopify stores shared inventory, Shopify Collective inventory sync, sync two Shopify stores without app, Shopify oversell two stores, AI inventory automation, Dugong" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
+<meta property="article:published_time" content="2026-08-01" />
+    <meta property="article:modified_time" content="2026-08-01" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to sync inventory between two Shopify stores" />
+<meta property="og:description" content="At 9:41 on a Saturday night your retail store sells the last Meridian hoodie in medium, and seconds later your wholesale store sells it again. Neither store did anything wrong: two Shopify stores are two sealed inventories, and nothing native bridges them. Locations only work inside one store, Flow cannot cross accounts, and when merchants ask in community threads titled Can multiple Shopify websites share one inventory, the staff answer is a list of third-party apps. The apps match variants by SKU and sync on a delay, which is exactly where the trouble lives: blank SKUs miss silently, two-way loops have corrupted both catalogs, and the last-unit race happens inside the webhook window on the busiest weekend of the quarter. The AI playbook that treats sync as judgment instead of plumbing: match variants by SKU and report the blanks, pick one source of truth per SKU, mirror every change with the reason attached, hold the last units back from the mirrored store, read both orders when the race happens anyway and keep the one that matters more, pause during supplier feeds, and reconcile nightly with the drift named." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to sync inventory between two Shopify stores" />
+<meta name="twitter:description" content="Shopify gives two stores no shared shelf. The AI playbook that mirrors every stock change by SKU, buffers the last units, and settles the double-sold order." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+    <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#article",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html",
+      "url": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html",
+      "headline": "How to sync inventory between two Shopify stores",
+      "description": "At 9:41 on a Saturday night your retail store sells the last Meridian hoodie in medium, and seconds later your wholesale store sells it again. Neither store did anything wrong: two Shopify stores are two sealed inventories, and nothing native bridges them. Locations only work inside one store, Flow cannot cross accounts, and when merchants ask in community threads titled Can multiple Shopify websites share one inventory, the staff answer is a list of third-party apps. The apps match variants by SKU and sync on a delay, which is exactly where the trouble lives: blank SKUs miss silently, two-way loops have corrupted both catalogs, and the last-unit race happens inside the webhook window on the busiest weekend of the quarter. The AI playbook that treats sync as judgment instead of plumbing: match variants by SKU and report the blanks, pick one source of truth per SKU, mirror every change with the reason attached, hold the last units back from the mirrored store, read both orders when the race happens anyway and keep the one that matters more, pause during supplier feeds, and reconcile nightly with the drift named.",
+      "datePublished": "2026-08-01",
+      "dateModified": "2026-08-01",
+      "articleSection": "Research",
+      "keywords": "sync inventory between two Shopify stores, multiple Shopify stores same inventory, share inventory between Shopify stores, multi store inventory sync Shopify, two Shopify stores one warehouse, Shopify multi store sync, wholesale and retail Shopify stores shared inventory, Shopify oversell two stores",
+      "wordCount": 2310,
+      "timeRequired": "PT9M",
+      "inLanguage": "en",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "@type": "Thing",
+          "name": "Inventory",
+          "sameAs": "https://en.wikipedia.org/wiki/Inventory"
+        },
+        {
+          "@type": "Thing",
+          "name": "Inventory management software",
+          "sameAs": "https://en.wikipedia.org/wiki/Inventory_management_software"
+        },
+        {
+          "@type": "Thing",
+          "name": "E-commerce",
+          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+        },
+        {
+          "@type": "Thing",
+          "name": "Warehouse",
+          "sameAs": "https://en.wikipedia.org/wiki/Warehouse"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://blog.dugong.live/#priya-singh",
+        "name": "Priya Singh",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/og-image.png",
+          "width": 1200,
+          "height": 630
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The last unit both your stores just sold",
+          "item": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can two Shopify stores share the same inventory without an app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not natively. Each Shopify store is a separate account with its own products and its own counts, and nothing built into Shopify pushes an inventory change from one store to another. Locations do not help: a single store can track stock across multiple warehouses, but locations live inside one store, and a second store cannot read them. Shopify Flow runs inside a single store too, so there is no cross-store trigger to build on. When merchants ask on the community forums, in threads titled Can multiple Shopify websites share one inventory and Sync inventory between multiple Shopify stores, the staff answer is a list of third-party sync apps. The one partial exception is Shopify Collective, which does sync inventory between connected stores, but it is built for a retailer selling a separate supplier's products, is limited to US stores on Shopify Payments, and routes payouts between two businesses. For two storefronts you own sharing one stockroom, the real options are manual CSV transfers, a sync app, or an automation you control."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do two Shopify stores oversell the same last unit even with a sync app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because every sync has a window. An order on store A reaches store B by webhook, and in a quiet week the delay is seconds and invisible. The oversell lives in the exception: a drop, a sale weekend, a product that catches, exactly when both stores are moving fastest. If both stores each show one unit and both sell it inside the window, no app can conjure a second unit; the sync just delivers the bad news. The fix is not faster plumbing, it is judgment about last units: keep a small buffer on the mirrored store so the final units only sell in one place, and when the race happens anyway, read both orders and decide which one to keep rather than refunding whoever was unlucky by seconds. A first-time customer buying one unit and a stockist with three years of reorders are not the same order, and a timestamp cannot tell the difference."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the safest way to set up inventory sync between two Shopify stores?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Audit SKUs first, mirror one way, and reconcile nightly. Sync tools match variants by SKU, so a blank or duplicated SKU becomes a silent miss or a wrong match; fix the catalog before wiring anything. Pick one store per SKU as the source of truth, usually the store attached to the physical shelf, and mirror changes outward instead of running two-way sync, which is how feedback loops corrupt both stores. Run the first two weeks in dry-run mode, where the automation reports what it would have changed and you check its arithmetic, then let the clear cases run and keep the odd ones for a human. Pause mirroring during bulk imports and supplier feed updates, and reconcile the full count nightly with a report naming the SKUs that keep drifting, because a sync that is quietly wrong is worse than no sync at all."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#howto",
+      "name": "The last unit both your stores just sold",
+      "description": "The AI playbook for sharing one stockroom between two Shopify stores: match variants by SKU and report the blanks, designate one source of truth per SKU, mirror every inventory change with the reason attached, hold the last units back from the mirrored store, read both orders when the same last unit sells twice and keep the one that matters more, pause mirroring during bulk imports and supplier feeds, and reconcile the full count nightly with the drifting SKUs named.",
+      "inLanguage": "en",
+      "totalTime": "PT9M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Match variants across stores by SKU",
+          "text": "Map every variant in one store to its twin in the other by SKU, and report the blanks and duplicates instead of guessing",
+          "url": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Designate one source of truth per SKU",
+          "text": "Pick the store attached to the physical shelf as the master count, and treat the other store as a mirror",
+          "url": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Mirror every change with the reason attached",
+          "text": "Push each sale, refund, cancellation, restock, and manual correction to the other store, labeled with why it happened",
+          "url": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Hold a buffer on the mirrored store",
+          "text": "Keep the last units selling in one place only, sized by how fast each store moves the product",
+          "url": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Catch the race when it happens anyway",
+          "text": "When both stores sell the same last unit inside the sync window, read both orders, keep the one that matters more, and tell the other customer the same hour",
+          "url": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Pause mirroring during bulk imports",
+          "text": "Stop the mirror while supplier feeds and CSV imports run, then reconcile before switching back on",
+          "url": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Reconcile nightly and name the drift",
+          "text": "Compare full counts every night, report the disagreements, and flag the SKUs that keep drifting",
+          "url": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#playbook"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES — matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #71716a;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0a8f54;
+  --pink:         #c61f93;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #b5882c;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background — lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--gutter); height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+@media (max-width: 820px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+/* GRID (for related cards) */
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 560px) { .foot-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; } }
+@media (max-width: 340px) { .foot-cols { grid-template-columns: 1fr; } }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+.article-title em { font-style: normal; position: relative; white-space: nowrap; color: var(--text); }
+.article-title em::after { content: ""; position: absolute; left: -.06em; right: -.06em; bottom: .06em; height: .32em; background: var(--lime); z-index: -1; border-radius: 3px; transform: rotate(-.5deg); }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: var(--border-strong); }
+.byline-role { color: var(--text-faint); }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
+.article-body pre code { background: none; padding: 0; color: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) — mirrors the site's final card ---- */
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+
+/* mobile: let highlighted title phrases wrap (nowrap em overflows small screens) */
+@media (max-width: 640px) {
+  .article-title em { white-space: normal; background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .article-title em::after { display: none; }
+}
+
+/* ACCESSIBILITY */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>&#9670; DISPATCH N&ordm; 97 &mdash; AUG 1, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 9 MIN READ &middot; 2,310 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+    <span>&#9670; DISPATCH N&ordm; 97 &mdash; AUG 1, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 9 MIN READ &middot; 2,310 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+  </nav>
+</header>
+<article class="article">
+
+  <a href="index.html" class="article-back">&larr; back to field notes</a>
+
+  <div class="article-meta">
+    <span class="tag tag-research">research</span>
+    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 97</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <span style="color: var(--cream-dim);">AUG 1, 2026</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <span style="color: var(--cream-dim);">9 MIN READ</span>
+  </div>
+
+  <h1 class="article-title">
+    How to sync inventory between <em>two Shopify stores</em>
+  </h1>
+
+  <p class="article-dek">
+    Two stores, one stockroom, and a hoodie two customers now own. Shopify has no native way for separate stores to share inventory, the manual version drifts by the hour, and the sync apps have sharp edges. Here is the playbook that mirrors stock the way an operations person would.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name">Priya Singh</span>
+    <span class="byline-divider">&middot;</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      At 9:41 on a Saturday night, your retail store sells the last
+      Meridian hoodie in medium. Forty seconds later, your wholesale
+      store sells it again. Neither store did anything wrong. Each one
+      checked its own inventory, found one unit, and took the money.
+      There is one hoodie on the shelf and two customers who own it,
+      and you will not find out until you pack Monday's orders.
+    </p>
+
+    <p>
+      This is the tax on running two Shopify stores out of one
+      stockroom. Two stores are two separate accounts: separate
+      products, separate counts, separate admins. The number in one
+      store does not know the number in the other exists. Sell a unit
+      in either place and Shopify decrements exactly one of the two
+      ledgers, and the other keeps advertising stock you no longer
+      have.
+    </p>
+
+    <p>
+      Merchants have been asking about this for as long as the forums
+      go back. The community threads read like one long support ticket:
+      <em>Can multiple Shopify websites share one inventory?</em>,
+      <em>Sync inventory between multiple Shopify stores</em>, <em>Can
+      I sync products across two different stores?</em> The answer
+      never changes. Not natively. Here is a list of apps.
+    </p>
+
+    <h2>Why one business ends up with two stores</h2>
+
+    <p>
+      Nobody runs two stores for fun. The second store is always the
+      fix for a real constraint. The most common one is wholesale: you
+      want to <a href="how-to-automatically-approve-wholesale-customers-on-shopify.html">sell
+      to stockists at trade prices</a> without paying for Plus, so the
+      B2B catalog gets its own password-protected store. Or the
+      constraint is geography: a UK store in pounds with UK shipping
+      rates, because one checkout could not say two things at once when
+      you set it up. Or it is brand: the candle line and the homeware
+      line deserve different websites, but they pour from the same
+      workshop and stack on the same shelves.
+    </p>
+
+    <p>
+      All three merchants made a sensible call, and all three inherited
+      the same leftover problem: one pile of stock, two systems
+      counting it, and no wire between them. The stockroom is shared.
+      The arithmetic is not.
+    </p>
+
+    <h2>The silo Shopify will not bridge</h2>
+
+    <p>
+      Inside a single store, Shopify is actually good at this. One
+      store can track stock across multiple locations, route orders
+      between warehouses, and show a combined count. But locations live
+      inside one account. A second store cannot read them, cannot
+      subscribe to them, cannot even see that they exist. Shopify Flow
+      stops at the same wall: it automates one store at a time, with no
+      trigger that reaches across accounts.
+    </p>
+
+    <p>
+      The closest thing to a native bridge is Shopify Collective, and
+      it is worth being precise about what it is for. Collective
+      connects two stores so a retailer can list a supplier's products,
+      with inventory and prices synced and the wholesale cut paid out
+      automatically. It is built for two businesses trading with each
+      other: US stores, US dollars, Shopify Payments, and a sales
+      history bar to clear. If both stores are yours, you would be
+      onboarding yourself as your own supplier and routing a payout
+      between your own bank accounts to move a number between two
+      admins. It can be made to work. It is not what anyone means by
+      keeping two stores in sync.
+    </p>
+
+    <p>
+      So the real options are the ones merchants actually live with:
+      update both stores by hand, install a sync app, or build the
+      automation yourself.
+    </p>
+
+    <h2>The manual version and the midnight spreadsheet</h2>
+
+    <p>
+      The manual version starts honorably. Two browser tabs, two
+      admins, and a rule that whoever touches the shelf updates both
+      counts. It survives about a month. Then a restock lands during a
+      busy week, someone updates the retail store and gets interrupted,
+      and the wholesale store spends nine days selling from a count
+      that was true the previous Tuesday. The upgraded version is the
+      CSV ritual: export inventory from the main store, reshape the
+      columns, import into the second store, once a week, at midnight,
+      by you.
+    </p>
+
+    <blockquote>
+      A CSV is a photograph of your inventory. Both stores keep
+      selling after the shutter clicks.
+    </blockquote>
+
+    <p>
+      The drift starts the moment the import finishes, and it grows
+      with every sale the export did not see. In a slow month you get
+      away with it. Then the busy weekend arrives, the one the whole
+      quarter was pointed at, and the gap between the two ledgers is
+      suddenly full of orders. That is when the hoodie sells twice,
+      and you get to choose which customer to refund: the retail buyer
+      who paid full price, or the stockist whose reorder was the whole
+      point of the second store. Every path out of that choice costs
+      money and an apology.
+    </p>
+
+    <h2>The sync apps and their sharp edges</h2>
+
+    <p>
+      The app store's answer is a shelf of sync tools, and the good
+      ones are good plumbing. But the mechanics have edges, and the
+      reviews document each one. Sync apps match variants across
+      stores by SKU, so every blank SKU is a variant that silently
+      never syncs, and every duplicated SKU is a coin flip about which
+      variant gets the count. One review describes an app that
+      rewrote SKUs and zeroed inventory across the catalog, and the
+      recovery was a full physical recount. Another describes a
+      two-way sync that kept firing after the app was uninstalled,
+      pushing stale counts back and forth between both stores while
+      collections quietly dropped out of view.
+    </p>
+
+    <p>
+      Even when the plumbing works, it works on a delay. A sale on one
+      store reaches the other by webhook in seconds on a quiet
+      Tuesday. On the drop weekend, with both stores moving at once,
+      the last-unit race happens inside that window, and no sync
+      however fast can sell one hoodie to two people successfully.
+      The app did its job. The judgment about last units was never
+      its job.
+    </p>
+
+    <div class="callout callout-sand">
+      <span class="callout-mark">&#9670; NOTE</span>
+      <span>
+        The trap is <strong>treating sync as plumbing</strong> when
+        half of it is judgment. Which store gets the benefit of the
+        doubt on the final unit. Which order to keep when both stores
+        sell it anyway. When to stop mirroring because a supplier
+        import is mid-flight. A pipe cannot hold opinions. Your
+        stockroom runs on them.
+      </span>
+    </div>
+
+    <h2>What the automation actually has to do</h2>
+
+    <p>
+      The fix is the routine a good operations person would run if
+      watching both admins were their whole job: mirror every change,
+      protect the last units, and escalate the genuinely ambiguous
+      cases. As a Dugong playbook, in plain prose:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">On</span> inventory change in either store: order,
+refund, cancellation, restock, manual edit
+
+<span class="c"># steps</span>
+1. <span class="k">Match</span> variants across stores by SKU, and
+   report the blanks and duplicates instead
+   of guessing
+2. <span class="k">Designate</span> one source of truth per SKU,
+   the store attached to the physical shelf
+3. <span class="k">Mirror</span> every change to the other store
+   with the reason attached: sold, restocked,
+   returned, corrected
+4. <span class="k">Hold</span> a buffer on the mirrored store so
+   the last units sell in one place only
+5. <span class="k">Catch</span> the race: both stores sell the same
+   last unit, keep the order that matters
+   more, tell the other customer this hour
+6. <span class="k">Pause</span> mirroring while bulk imports and
+   supplier feeds run, reconcile on resume
+7. <span class="k">Reconcile</span> nightly, report the drift, and
+   name the SKUs that keep drifting
+</code></pre>
+
+    <p>
+      Step one is the unglamorous win, and it comes before any
+      syncing at all. Matching by SKU only works on a catalog where
+      SKUs are filled in and unique, and most two-store catalogs
+      grew up without that discipline. An automation that starts by
+      reporting the seventeen blank SKUs and the three duplicates,
+      rather than guessing around them, saves you from the class of
+      failure where a sync is confidently wrong for months.
+    </p>
+
+    <p>
+      Step four is where the oversell actually dies. The double-sold
+      hoodie was never a speed problem, it was a policy problem: the
+      final units of anything should only be sellable in one place.
+      A buffer of two units on the mirrored store means the wholesale
+      site shows sold out while the retail store sells the last two
+      at full margin, or the reverse if stockists are your priority.
+      Which store wins the endgame is a decision about your business,
+      which is exactly why no app ships it as a default. It is the
+      same species of judgment as
+      <a href="how-to-prevent-overselling-on-shopify-across-channels.html">deciding
+      which channel to starve first when stock runs low</a>, applied
+      to a channel that happens to be your own second store.
+    </p>
+
+    <p>
+      Step five accepts that no window is ever zero. When the race
+      happens anyway, the difference between a rule and a reader
+      shows. A rule refunds whichever order arrived second, which on
+      a bad night means refunding the stockist who reorders every
+      quarter in favor of a first-time buyer who found you an hour
+      ago. A reader weighs both orders, keeps the one the
+      relationship says to keep, and sends the other customer an
+      apology with a restock date and a
+      <a href="how-to-set-up-back-in-stock-notifications-on-shopify.html">back
+      in stock notification</a> already armed, inside the hour,
+      while the disappointment is still small.
+    </p>
+
+    <p>
+      Step six exists because the mirror itself can become the
+      weapon. A supplier CSV that zeroes a column, imported into the
+      source store with the mirror running, becomes
+      <a href="how-to-sync-supplier-inventory-feeds-to-shopify.html">two
+      zeroed catalogs</a> at machine speed. Pausing the mirror during
+      bulk operations, then reconciling before it resumes, is the
+      difference between a bad import and a bad week. And step seven
+      is the habit that keeps the whole thing honest: a nightly count
+      comparison, a short morning note, and a running list of the
+      SKUs that keep disagreeing, because a SKU that drifts weekly
+      has a physical cause standing in your stockroom.
+    </p>
+
+    <h2>Why this is a compiler problem, not an app problem</h2>
+
+    <p>
+      Your actual sync policy is a paragraph, and it is nothing like
+      anyone else's. Wholesale wins ties on core styles because
+      stockists reorder all year. Retail wins on broken sizes because
+      stockists will not buy them anyway. Keep two units back from
+      wholesale on anything that moved this week. Never mirror while
+      the Tuesday supplier file loads. If both stores sell the same
+      last unit, keep whichever order the relationship says, and make
+      the apology generous. That paragraph moves with your margins,
+      your stockists, and your season. A settings page cannot hold
+      it. A compiler that turns the paragraph into the running
+      workflow can, which is the same argument behind
+      <a href="best-shopify-automations-to-set-up.html">the Shopify
+      automations no one builds</a>: the automation worth having is
+      shaped like your store, not like a feature grid.
+    </p>
+
+    <p>
+      Picture an apparel brand in Portland: a retail site, a
+      wholesale store for about ninety stockists, one stockroom,
+      1,400 SKUs between them. The first nightly reconcile finds 63
+      SKUs where the stores disagree, 41 counted high on wholesale
+      and 22 high on retail, drift nobody could see because nobody
+      was comparing. The previous month had six oversells: five were
+      wholesale selling units retail had already shipped, one the
+      reverse. With the playbook running, the SKU report gets fixed
+      in an afternoon, the buffer keeps final units off the wholesale
+      store, and the one genuine race in the next eight weeks ends
+      with the stockist keeping the unit and the retail customer
+      holding an apology, a code, and a restock date before she
+      thought to complain. The owner's involvement was reading a
+      morning summary and answering one question:
+      <strong>wholesale or retail on the last of the corduroy?</strong>
+    </p>
+
+    <hr />
+
+    <h2>The workflow worth building this week</h2>
+
+    <p>
+      Start with the number you do not have. Tonight, export the
+      inventory CSV from both stores and diff them by SKU. Two-store
+      merchants who run this for the first time almost always find
+      drift, and the size of it is the size of your oversell risk on
+      the next busy weekend. While you are in there, count the blank
+      and duplicate SKUs, because that list is the first thing any
+      sync, bought or built, will trip over.
+    </p>
+
+    <p>
+      Then run the mirror in dry-run mode for two weeks. Let it
+      watch both stores and report what it would have changed, and
+      check its arithmetic against the shelf. You are walking the
+      same trust curve as
+      <a href="how-to-set-inventory-reorder-points-on-shopify.html">letting
+      an automation draft your reorders</a>: verify until it has
+      been right fifty times in a row, then let the clear cases run
+      end to end and keep the odd ones, the negative counts and the
+      unmatched SKUs, for a human look.
+    </p>
+
+    <p>
+      Describe it the way you would brief a new hire on their first
+      morning. Both stores sell from the one stockroom, so when
+      anything changes in either store, make the other one match,
+      and write down why. Keep the last couple of units of anything
+      selling in one store only, and ask me which store when it is
+      not obvious. If a supplier file is loading, stop mirroring
+      until it is done and the counts check out. If both stores
+      ever sell the same last unit, keep the order that matters
+      more and apologize to the other customer within the hour.
+      And every morning, tell me which counts disagreed and which
+      SKUs keep doing it. That is the brief. The compiler handles
+      the webhooks, the sequencing, and the timing, and the Meridian
+      hoodie stops being owned by two people at once.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">&#9670; READING</span>
+      <span>
+        Two companion pieces if this one landed:
+        <a href="how-to-prevent-overselling-on-shopify-across-channels.html">the
+        overselling problem no one automates</a>, on the same race
+        run against marketplaces instead of your own second store,
+        and
+        <a href="how-to-sync-supplier-inventory-feeds-to-shopify.html">the
+        supplier feed that zeroed your catalog</a>, on what bulk
+        imports do to a live count.
+      </span>
+    </div>
+
+    <p>
+      If you are a Shopify merchant with two admins open in two
+      tabs, a hoodie two customers own, or a midnight CSV ritual you
+      have stopped mentioning out loud, the inbox is open:
+      <code>field-notes@dugong.live</code>. We are collecting case
+      studies for the next issue.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share &middot; copy link &middot; &#10022;</span>
+  </div>
+
+</article>
+
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">&#9670; COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h2 class="faq-q">Can two Shopify stores share the same inventory without an app?</h2>
+      <p class="faq-a">Not natively. Each Shopify store is a separate account with its own products and its own counts, and nothing built into Shopify pushes an inventory change from one store to another. Locations do not help: a single store can track stock across multiple warehouses, but locations live inside one store, and a second store cannot read them. Shopify Flow runs inside a single store too, so there is no cross-store trigger to build on. When merchants ask on the community forums, in threads titled Can multiple Shopify websites share one inventory and Sync inventory between multiple Shopify stores, the staff answer is a list of third-party sync apps. The one partial exception is Shopify Collective, which does sync inventory between connected stores, but it is built for a retailer selling a separate supplier's products, is limited to US stores on Shopify Payments, and routes payouts between two businesses. For two storefronts you own sharing one stockroom, the real options are manual CSV transfers, a sync app, or an automation you control.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Why do two Shopify stores oversell the same last unit even with a sync app?</h2>
+      <p class="faq-a">Because every sync has a window. An order on store A reaches store B by webhook, and in a quiet week the delay is seconds and invisible. The oversell lives in the exception: a drop, a sale weekend, a product that catches, exactly when both stores are moving fastest. If both stores each show one unit and both sell it inside the window, no app can conjure a second unit; the sync just delivers the bad news. The fix is not faster plumbing, it is judgment about last units: keep a small buffer on the mirrored store so the final units only sell in one place, and when the race happens anyway, read both orders and decide which one to keep rather than refunding whoever was unlucky by seconds. A first-time customer buying one unit and a stockist with three years of reorders are not the same order, and a timestamp cannot tell the difference.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">What is the safest way to set up inventory sync between two Shopify stores?</h2>
+      <p class="faq-a">Audit SKUs first, mirror one way, and reconcile nightly. Sync tools match variants by SKU, so a blank or duplicated SKU becomes a silent miss or a wrong match; fix the catalog before wiring anything. Pick one store per SKU as the source of truth, usually the store attached to the physical shelf, and mirror changes outward instead of running two-way sync, which is how feedback loops corrupt both stores. Run the first two weeks in dry-run mode, where the automation reports what it would have changed and you check its arithmetic, then let the clear cases run and keep the odd ones for a human. Pause mirroring during bulk imports and supplier feed updates, and reconcile the full count nightly with a report naming the SKUs that keep drifting, because a sync that is quietly wrong is worse than no sync at all.</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="section-head">
+    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+<a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The overselling problem no one automates</h3>
+        <p class="card-dek">
+          Selling stock you no longer have is the pain merchants dread most. The AI playbook that keeps inventory honest in real time across every channel.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your whole catalog</h3>
+        <p class="card-dek">
+          One renamed column and your sync app sets four hundred products to zero. The AI playbook that checks a supplier feed before it trusts it and holds back the updates that look wrong.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-sync-bundle-inventory-with-component-stock-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The bundle sale that never touches your component stock</h3>
+        <p class="card-dek">
+          You sell a bundle and the products inside it never move, because Shopify counts the bundle as its own SKU. The AI playbook that keeps bundle and component stock in sync in real time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 15</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-set-inventory-reorder-points-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The reorder you always make too late</h3>
+        <p class="card-dek">
+          Shopify tracks every unit but never buys more, and its purchase orders are too basic to know what to reorder or when. The AI playbook that forecasts demand per SKU and drafts the PO on time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 15</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-automatically-hide-sold-out-variants-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The sold-out variant Shopify still shows</h3>
+        <p class="card-dek">
+          A shopper picks their size, hits Sold Out, and leaves, because Shopify keeps the out-of-stock variant in the dropdown with no native way to hide it. The AI playbook that hides it and brings it back on restock.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 3</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-set-up-back-in-stock-notifications-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The restock alert that never fires</h3>
+        <p class="card-dek">
+          Shopify collects the email and then does nothing with it, so the people who wanted the item most hear about the restock last. The AI playbook that gets the alert out first.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 13</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-automatically-release-held-shopify-orders-when-stock-arrives.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order on hold that nobody releases</h3>
+        <p class="card-dek">
+          Shopify has no event for stock arriving on a held order, so paid orders age in the On hold queue for days. The AI playbook that releases them the hour the pallet lands.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 28</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-automatically-approve-wholesale-customers-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The wholesale application that sits all weekend</h3>
+        <p class="card-dek">
+          Shopify makes wholesale approval a manual chore: the B2B login has no signup, and Forms builds a queue nobody vets. The AI playbook that answers in minutes.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 30</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="best-shopify-automations-to-set-up.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The Shopify automations no one builds</h3>
+        <p class="card-dek">
+          Tagging is 14% of every Shopify workflow merchants ship. The work that actually scales is under 1%.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 28</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html">Latest</a>
+        <a href="index.html">Essays</a>
+        <a href="index.html">Post-mortems</a>
+        <a href="index.html">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>&copy; 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>

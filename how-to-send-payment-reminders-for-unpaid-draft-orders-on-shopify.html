@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to send payment reminders for unpaid draft orders on Shopify &mdash; Dugong Field Notes</title>
+<meta name="description" content="You send the draft order invoice and Shopify never follows up: no reminders, no expiry, no reserved stock. The AI playbook that chases every unpaid draft." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-send-payment-reminders-for-unpaid-draft-orders-on-shopify.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="Shopify draft order payment reminder, unpaid draft orders Shopify, draft order invoice follow up, Shopify send invoice no response, draft order reminder email, Shopify draft order not paid, draft order inventory not reserved, chase unpaid invoices Shopify, do Shopify draft orders expire, wholesale invoice follow up Shopify, B2B draft order automation, AI invoice chasing, Dugong" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
+<meta property="article:published_time" content="2026-08-01" />
+    <meta property="article:modified_time" content="2026-08-01" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to send payment reminders for unpaid draft orders on Shopify" />
+<meta property="og:description" content="A stockist says yes to sixty cards and two dozen notebooks, you build the draft order in four minutes, click Send invoice, and Shopify sends one email with a checkout link. That is the entire feature. There is no reminder if the invoice sits unpaid, no alert to you on day five, no expiry on the draft, and no hold on the stock it promises. The reminder machinery Shopify does have hangs off payment terms and due dates that invoice-sent drafts never carry, Flow's only draft trigger fires at creation before the invoice even exists, and the Reserve items button is a manual, date-stamped afterthought that wholesale merchants were still calling an unacceptable gap this spring. So unpaid drafts pile up in a tab that never sorts by waiting longest, a customer pays on Thursday for stock that sold out on Tuesday, and last autumn's forgotten quote is still payable this afternoon at last autumn's prices. The AI playbook that logs every invoice as it leaves, reminds on a cadence that reads the customer, routes the replies, watches the promised stock, escalates the big ones, expires the dead ones, and counts what actually gets paid." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-send-payment-reminders-for-unpaid-draft-orders-on-shopify.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to send payment reminders for unpaid draft orders on Shopify" />
+<meta name="twitter:description" content="Shopify sends one invoice email and never follows up: no reminders, no expiry, no reserved stock. The AI playbook that chases every draft until it pays or dies." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+    <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-send-payment-reminders-for-unpaid-draft-orders-on-shopify.html#article",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-send-payment-reminders-for-unpaid-draft-orders-on-shopify.html",
+      "url": "https://blog.dugong.live/how-to-send-payment-reminders-for-unpaid-draft-orders-on-shopify.html",
+      "headline": "How to send payment reminders for unpaid draft orders on Shopify",
+      "description": "A stockist says yes to sixty cards and two dozen notebooks, you build the draft order in four minutes, click Send invoice, and Shopify sends one email with a checkout link. That is the entire feature. There is no reminder if the invoice sits unpaid, no alert to you on day five, no expiry on the draft, and no hold on the stock it promises. The reminder machinery Shopify does have hangs off payment terms and due dates that invoice-sent drafts never carry, Flow's only draft trigger fires at creation before the invoice even exists, and the Reserve items button is a manual, date-stamped afterthought that wholesale merchants were still calling an unacceptable gap this spring. So unpaid drafts pile up in a tab that never sorts by waiting longest, a customer pays on Thursday for stock that sold out on Tuesday, and last autumn's forgotten quote is still payable this afternoon at last autumn's prices. The AI playbook that logs every invoice as it leaves, reminds on a cadence that reads the customer, routes the replies, watches the promised stock, escalates the big ones, expires the dead ones, and counts what actually gets paid.",
+      "datePublished": "2026-08-01",
+      "dateModified": "2026-08-01",
+      "articleSection": "Research",
+      "keywords": "Shopify draft order payment reminder, unpaid draft orders Shopify, draft order invoice follow up, draft order reminder email, Shopify draft order inventory, do Shopify draft orders expire, wholesale invoice follow up Shopify",
+      "wordCount": 2340,
+      "timeRequired": "PT9M",
+      "inLanguage": "en",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "@type": "Thing",
+          "name": "Invoice",
+          "sameAs": "https://en.wikipedia.org/wiki/Invoice"
+        },
+        {
+          "@type": "Thing",
+          "name": "Accounts receivable",
+          "sameAs": "https://en.wikipedia.org/wiki/Accounts_receivable"
+        },
+        {
+          "@type": "Thing",
+          "name": "Wholesale",
+          "sameAs": "https://en.wikipedia.org/wiki/Wholesaling"
+        },
+        {
+          "@type": "Thing",
+          "name": "Online shopping",
+          "sameAs": "https://en.wikipedia.org/wiki/Online_shopping"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://blog.dugong.live/#priya-singh",
+        "name": "Priya Singh",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/og-image.png",
+          "width": 1200,
+          "height": 630
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The draft order invoice nobody pays",
+          "item": "https://blog.dugong.live/how-to-send-payment-reminders-for-unpaid-draft-orders-on-shopify.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Shopify automatically send payment reminders for unpaid draft order invoices?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The Send invoice button sends one email with a checkout link, the draft's status flips to Invoice sent, and nothing follows: no reminder to the customer, no alert to you, no expiry on the draft. Shopify does have automatic payment reminders, up to five per order, timed to the due date or up to thirty days after, but they only apply to orders with payment terms assigned, and a draft order does not become an order until someone pays it or you mark it paid. You can work around this by completing the draft as payment due later with terms attached, which creates a real unpaid order that the reminder system can see, at the cost of an order number that pollutes your reports and has to be canceled by hand if it never pays. Otherwise, follow-up is yours to build with apps or automation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do draft orders reserve inventory when you send an invoice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Sending an invoice changes nothing about inventory: every unit on the draft stays available on your storefront and on every channel while the customer decides. If the items sell out before the invoice is paid, the checkout link still works, and you end up holding money for stock you no longer have. Shopify's Reserve items feature is a manual step on each draft with an expiry date you pick, it releases silently when that date passes, and wholesale merchants were still describing the gap as unacceptable on the community forums in May 2026, because the exposure lasts exactly as long as a B2B buyer takes to pay. The reliable pattern is to treat invoiced stock as spoken for: track what each open draft promises, flag drafts when their stock runs low, and reserve or release deliberately instead of by accident."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long do Shopify draft orders stay open, and should I cancel old ones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Forever. Draft orders have no expiry: an unpaid draft sits in the Drafts tab until someone pays it or you delete it, and the invoice's checkout link keeps working the whole time at the prices the draft was built with. That is how a quote from last autumn gets paid in the spring at autumn prices, for items that may have been discontinued or repriced since. The fix is a written expiry policy the automation enforces: a last call email at a deadline you choose, then cancel the draft, release any reserved stock, and note why. Thirty days suits most retail quotes, wholesale terms often run longer, and bespoke work can stay open as long as the conversation is alive. What matters is that expiry is a decision, not an accident of nobody remembering the draft exists."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-send-payment-reminders-for-unpaid-draft-orders-on-shopify.html#howto",
+      "name": "The draft order invoice nobody pays",
+      "description": "The AI playbook for unpaid draft order invoices on Shopify: logging every invoice as it goes out, reminding on a cadence that reads the customer, routing replies back into the draft, watching the stock each open draft promises, escalating high-value invoices to a human, expiring dead drafts and releasing their stock, and counting weekly what got paid and how fast.",
+      "inLanguage": "en",
+      "totalTime": "PT9M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Log every invoice as it leaves",
+          "text": "Record who was invoiced, for what, for how much, and which stock the draft promises, the moment the invoice goes out",
+          "url": "https://blog.dugong.live/how-to-send-payment-reminders-for-unpaid-draft-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Remind on a cadence that reads the room",
+          "text": "Day 2 gentle, day 5 direct, day 10 last call, written for the customer and the order, stopping the moment they reply or pay",
+          "url": "https://blog.dugong.live/how-to-send-payment-reminders-for-unpaid-draft-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Read the answers and route them",
+          "text": "Questions go to you, quantity changes become draft edits with a fresh invoice, and paid you Tuesday gets checked against the money",
+          "url": "https://blog.dugong.live/how-to-send-payment-reminders-for-unpaid-draft-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Watch the stock each draft promises",
+          "text": "Flag the draft when its items run low before the payment lands, so you reserve or release deliberately",
+          "url": "https://blog.dugong.live/how-to-send-payment-reminders-for-unpaid-draft-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Escalate by size and history",
+          "text": "The $1,900 wholesale draft unpaid for a week gets a human call, not a third template",
+          "url": "https://blog.dugong.live/how-to-send-payment-reminders-for-unpaid-draft-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Expire the dead ones",
+          "text": "Send a last call at your deadline, then cancel the draft, release the stock, and keep the Drafts tab honest",
+          "url": "https://blog.dugong.live/how-to-send-payment-reminders-for-unpaid-draft-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Count what gets paid, weekly",
+          "text": "Invoices sent, invoices paid, median days to pay, and the customers who never pay without three nudges",
+          "url": "https://blog.dugong.live/how-to-send-payment-reminders-for-unpaid-draft-orders-on-shopify.html#playbook"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+__CSS_BLOCK__
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>&#9670; DISPATCH N&ordm; 97 &mdash; AUG 1, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 9 MIN READ &middot; 2,340 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+    <span>&#9670; DISPATCH N&ordm; 97 &mdash; AUG 1, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 9 MIN READ &middot; 2,340 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+  </nav>
+</header>
+<article class="article">
+
+  <a href="index.html" class="article-back">&larr; back to field notes</a>
+
+  <div class="article-meta">
+    <span class="tag tag-research">research</span>
+    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 97</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <span style="color: var(--cream-dim);">AUG 1, 2026</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <span style="color: var(--cream-dim);">9 MIN READ</span>
+  </div>
+
+  <h1 class="article-title">
+    How to send payment reminders for <em>unpaid draft orders</em> on Shopify
+  </h1>
+
+  <p class="article-dek">
+    You build the draft order, click Send invoice, and Shopify sends one
+    email, once. No reminder if it sits unpaid, no expiry, no hold on the
+    stock it promises. Here is why unpaid drafts pile up, and the
+    playbook that chases every invoice until it pays or dies.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name">Priya Singh</span>
+    <span class="byline-divider">&middot;</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      A boutique stockist in Savannah emails your letterpress studio on
+      Monday morning: sixty of the botanical greeting cards, two dozen of
+      the linen notebooks, can you invoice me? You build the draft order
+      in four minutes. Wholesale prices, her address, a shipping line,
+      $1,140 all in. You click Send invoice, Shopify confirms it went,
+      and you get back to the press with the small satisfaction of a sale
+      closed before lunch.
+    </p>
+
+    <p>
+      On Friday the draft still says Invoice sent. Not because she
+      changed her mind. Her yes is sitting right there in your inbox.
+      Your invoice is also sitting in hers, under forty newer emails, in
+      the folder of things she meant to do on Monday. Shopify has not
+      reminded her. It has not told you. And here is the part merchants
+      keep rediscovering the hard way: it never will.
+    </p>
+
+    <p>
+      The Send invoice button sends one email with a checkout link. That
+      is the complete feature. The draft's status flips from Open to
+      Invoice sent and then nothing else happens, ever, on any timeline.
+      There is no follow-up to the customer, no alert to you on day five,
+      no view that sorts drafts by waiting longest, no total of what is
+      outstanding. The Drafts tab shows your $1,140 wholesale order with
+      exactly the same quiet indifference as a test draft from March.
+    </p>
+
+    <h2>One email is the entire feature</h2>
+
+    <p>
+      Draft orders are where Shopify's tidy self-serve story meets the
+      messy half of commerce: phone orders, wholesale accounts, custom
+      work, repairs, the customer who cannot check out because her
+      company card blocks online payments. Every one of those sales ends
+      the same way, with an invoice email and a wait. And everyone who
+      has ever sent invoices knows the shape of the wait: some people pay
+      within the hour, and the rest fully intended to. The difference
+      between the two groups is rarely willingness. It is whether anyone
+      followed up.
+    </p>
+
+    <p>
+      Shopify does not follow up, and it makes following up by hand
+      harder than it looks. The platform does not even record which email
+      address an invoice actually went to. You can type any address into
+      the To field when you send, and the draft keeps no note of it, so
+      any tool that wants to chase the invoice later has to assume the
+      customer on file was the recipient. The automation platform
+      Mechanic ships a follow-up task for exactly this job, and its own
+      documentation has to admit that limitation before it does anything
+      else.
+    </p>
+
+    <h2>The reminder machinery exists, one door over</h2>
+
+    <p>
+      The strange part is that Shopify has a perfectly good reminder
+      system. Assign payment terms to an order, Net 15 or Net 30 or due
+      on a date, and Settings, Notifications, Payment reminders will send
+      up to five automatic emails per order, timed anywhere from the due
+      date to thirty days after it, while the order wears an Overdue
+      badge that actually means something.
+    </p>
+
+    <p>
+      The catch is in the noun. Payment reminders apply to orders, and a
+      draft with an invoice out is not an order. It only becomes one when
+      the customer pays or you mark it paid. So the documents most in
+      need of automatic reminders, the invoices you sent to people who
+      have not paid yet, live in the one tab the reminder system cannot
+      see. Merchants keep landing on the forums asking for exactly this,
+      and the thread titled <em>Workflow for payment reminders without
+      due dates</em> ends where these threads usually end, at a list of
+      apps.
+    </p>
+
+    <p>
+      There is a workaround with teeth, if you know the trick: complete
+      the draft as payment due later with terms attached. Now it is a
+      real order and the reminder machinery wakes up. It is also a real
+      order number in your reports, counted as a sale you have not been
+      paid for, holding committed stock, and if the customer never pays,
+      you get to discover that
+      <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html">unpaid
+      orders do not cancel themselves</a> either. You have not solved the
+      chase. You have moved it into a more expensive room.
+    </p>
+
+    <h2>The stock your invoice quietly promised</h2>
+
+    <p>
+      While the invoice waits, the sixty cards it promises are still for
+      sale. Sending an invoice reserves nothing. Your storefront, your
+      other channels, and every other draft can sell those units all
+      week, because
+      <a href="how-to-prevent-overselling-on-shopify-across-channels.html">nothing
+      in Shopify treats invoiced stock as spoken for</a>. The stockist
+      pays on Thursday for cards that sold out on Tuesday, and now you
+      are holding her money and an apology: refund the line, or open a
+      backorder conversation she never signed up for.
+    </p>
+
+    <p>
+      Shopify's answer is the Reserve items button, and it is an honest
+      little feature with three quiet flaws: it is manual, per draft,
+      every time; it expires on a date you pick and releases silently
+      when that date passes; and nothing connects it to whether the
+      invoice was paid. Wholesale merchants were still filing this gap as
+      unacceptable on the community forums in May of this year, the
+      thread's author pointing out that an invoice neither deducts nor
+      reliably reserves inventory, which leaves the store exposed for
+      exactly as long as a B2B buyer takes to pay. The older thread
+      asking <em>What is the point of Reserve Items on a Draft
+      order?</em> has been collecting confused replies for years.
+    </p>
+
+    <div class="callout callout-sand">
+      <span class="callout-mark">&#9670; NOTE</span>
+      <span>
+        Drafts also <strong>never expire</strong>. The checkout link in
+        an invoice works for as long as the draft exists, at the prices
+        the draft was built with. Raise your wholesale prices in January
+        and the forgotten quote from September is still payable in
+        February, at September prices, for stock you may no longer
+        carry. The Drafts tab is a pile of open offers with no expiry
+        dates, and Shopify will not mention one was accepted until the
+        order appears.
+      </span>
+    </div>
+
+    <h2>Why Flow cannot chase an invoice</h2>
+
+    <p>
+      The reflex is to build the reminder in Shopify Flow, and Flow gets
+      you exactly one step in. Its only draft trigger is Draft order
+      created, which fires the moment the draft is made, before you have
+      even sent the invoice, and never speaks of the draft again. There
+      is no trigger for invoice sent. There is no event for still unpaid
+      after three days. Flow does ship a Send payment reminder action,
+      but it hangs off payment schedules, which means payment terms,
+      which means orders again.
+    </p>
+
+    <p>
+      Even the email is the wrong shape. Flow's messages are built for
+      notifying your own team, and merchants who try to bend it into
+      customer-facing follow-up, in threads like <em>Shopify Flow
+      Triggered by Open Draft Orders</em>, run into the same walls:
+      no clean way to write to the customer with the draft's details
+      filled in, no way to schedule the second nudge, and a polite
+      suggestion to try an app. The apps exist and they are fine at
+      what they do, which is a fixed cadence and a template: twenty-four
+      hours after the invoice, then daily, same message for everyone.
+      Better than silence. But a metronome cannot tell your oldest
+      stockist from a stranger, cannot read a reply that says can we
+      make it forty instead, and cannot see that the draft it keeps
+      politely nudging is promising stock that ran out yesterday.
+    </p>
+
+    <h2>What the automation actually has to do</h2>
+
+    <p>
+      The job is not send more emails. The job is the one a good
+      bookkeeper with taste would do: know what is out, chase it with
+      judgment, notice what each invoice is holding, and kill the dead
+      ones before they cause accidents. As a Dugong playbook, in plain
+      prose:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">On</span> invoice sent, on customer reply, on the clock
+
+<span class="c"># steps</span>
+1. <span class="k">Log</span> every invoice as it leaves: who, what,
+   how much, and which stock it promises
+2. <span class="k">Remind</span> on a cadence that reads the room:
+   day 2 gentle, day 5 direct, day 10 last
+   call, stopping on a reply or a payment
+3. <span class="k">Read</span> the answers and route them: questions
+   to you, edits into the draft, "paid you
+   Tuesday" checked against the money
+4. <span class="k">Watch</span> the stock each draft promises and
+   flag it before the payment outlives it
+5. <span class="k">Escalate</span> by size and history: the $1,900
+   wholesale draft gets you, not a template
+6. <span class="k">Expire</span> the dead ones: last call, cancel,
+   release the stock, keep the tab honest
+7. <span class="k">Count</span> weekly: sent, paid, days to pay,
+   and who never pays without three nudges
+</code></pre>
+
+    <p>
+      Step two is where the fixed-cadence tools crack. The right day-5
+      email to a first-time buyer of a custom piece is a link and a
+      deadline. The right day-5 email to your oldest stockist, three
+      years of on-time payments and one slow month, is warmth, her
+      buyer's name spelled right, and an offer to split the order into
+      two invoices. Same day, same status, entirely different letter.
+      Choosing between them is not a rule you can write in advance. It
+      is a reading of the whole account, the same species of judgment as
+      <a href="how-to-handle-high-risk-orders-on-shopify.html">deciding
+      what a high risk flag actually means</a> or
+      <a href="how-to-automatically-approve-wholesale-customers-on-shopify.html">which
+      wholesale application deserves a same-day yes</a>.
+    </p>
+
+    <p>
+      Step three is the half nobody budgets for. Reminders generate
+      replies, and the replies land in your inbox, not in the draft.
+      Can you make it forty instead of sixty is a draft edit and a fresh
+      invoice, sent the same hour. I paid this by transfer on Tuesday is
+      a check against
+      <a href="how-to-reconcile-shopify-payouts-with-your-sales.html">the
+      money that actually arrived</a>, then a paid mark or a gentle
+      correction. What is this invoice? is an escalation to you, today,
+      because either the stockist forgot or someone is being invoiced
+      who should not be. An automation that sends but does not read is
+      just a louder metronome.
+    </p>
+
+    <p>
+      Steps four and six are inventory policy wearing an accounts
+      hat. If the cards the draft promises drop below the invoiced
+      quantity before payment lands, you want the flag while choices
+      still exist: reserve what is left, warn the stockist, or pull
+      stock from the next production run. And expiry is a decision you
+      write once: quotes die at thirty days with a last call email,
+      wholesale gets forty-five and a phone call first, bespoke work
+      stays open while the conversation is alive. The automation
+      enforces the policy, cancels the corpse, releases the stock, and
+      the Drafts tab finally tells the truth about your pipeline.
+    </p>
+
+    <h2>Why this is a compiler problem, not an app problem</h2>
+
+    <p>
+      Your actual follow-up policy is a paragraph. Remind at two, five,
+      and ten days, but never nudge the Marion account without showing
+      me first. Anything over $1,500 unpaid for a week is a phone call,
+      not an email. If a draft is holding the last units of anything,
+      tell me on day three. Kill retail quotes at thirty days, keep
+      bespoke open, and anyone who needed three nudges twice in a row
+      pays a deposit next time. That paragraph is the whole system, and
+      it does not fit in an app's settings page, because it is shaped
+      like your customers and your margins. A compiler that turns the
+      paragraph into the running workflow is the point, and it is
+      <a href="best-shopify-automations-to-set-up.html">the same
+      argument behind every automation merchants never build</a>: the
+      valuable workflow is shaped like your store, not like a feature
+      list.
+    </p>
+
+    <p>
+      Run the numbers on the letterpress studio. Last month it sent 30
+      draft invoices. Eighteen paid without a word, because some people
+      are like that. Twelve needed chasing: seven paid after the day-2
+      note, three after the day-5, one after the last call, and one
+      died at thirty days, canceled with its stock released the same
+      minute. Median days to pay fell from eight to three once the
+      cadence went live, not because anyone became a better customer,
+      but because the invoice stopped being the thing everyone forgot.
+      The owner's part in all of it was one Friday summary and a single
+      decision about a slow-paying account. The Drafts tab holds
+      nothing older than the policy allows, which is a sentence no
+      Shopify merchant has ever said out loud.
+    </p>
+
+    <hr />
+
+    <h2>The workflow worth building this week</h2>
+
+    <p>
+      Start with the number Shopify will not show you. Open Drafts,
+      filter by Invoice sent, and add up what is sitting there. Most
+      stores that send invoices find a month of quiet revenue in that
+      tab, unchased not because anyone decided to let it go, but
+      because no system ever put it in front of them. That total is
+      the business case, and it took ninety seconds.
+    </p>
+
+    <p>
+      Then run the trust curve you would run with any new hire. For the
+      first two weeks, let the workflow log every invoice, draft every
+      reminder, and show you each one before it goes. You are checking
+      its reading of your customers against your own, the same way you
+      would check
+      <a href="how-to-automatically-send-invoices-on-shopify.html">the
+      paperwork it sends after the sale</a>. When it has been right
+      fifty times, let the routine cadence run end to end and keep
+      only the escalations: the big drafts, the odd replies, the
+      accounts you have history with.
+    </p>
+
+    <p>
+      Describe it the way you would brief that hire on their first
+      morning. When an invoice goes out, put it on the list. If nobody
+      pays in two days, remind them nicely. Five days, remind them
+      plainly. Ten days, tell them it is the last call, and mean it.
+      Stop the moment they answer, and bring me anything strange. If
+      the stock an invoice promises starts running out, tell me before
+      it does, not after. Kill anything past thirty days and put the
+      stock back. And on Fridays, tell me what went out, what came in,
+      and who should be paying deposits from now on. That is the whole
+      brief. The compiler handles the events, the timers, and the
+      ledger, and the stockist in Savannah pays on Wednesday, because
+      on Wednesday morning the invoice was the top email in her inbox
+      instead of the fortieth.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">&#9670; READING</span>
+      <span>
+        Two companion pieces if this one landed:
+        <a href="how-to-automatically-approve-wholesale-customers-on-shopify.html">the
+        wholesale application that sits all weekend</a>, on the other
+        half of B2B admin nobody staffs, and
+        <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html">the
+        unpaid order that never cancels itself</a>, on the same disease
+        one tab over.
+      </span>
+    </div>
+
+    <p>
+      If you are a Shopify merchant with a Drafts tab you avoid looking
+      at, a stockist who pays every invoice but never the first email,
+      or a quote from last autumn that someone just paid at last
+      autumn's prices, the inbox is open:
+      <code>field-notes@dugong.live</code>. We are collecting case
+      studies for the next issue.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share &middot; copy link &middot; &#10022;</span>
+  </div>
+
+</article>
+
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">&#9670; COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h2 class="faq-q">Does Shopify automatically send payment reminders for unpaid draft order invoices?</h2>
+      <p class="faq-a">No. The Send invoice button sends one email with a checkout link, the draft's status flips to Invoice sent, and nothing follows: no reminder to the customer, no alert to you, no expiry on the draft. Shopify does have automatic payment reminders, up to five per order, timed to the due date or up to thirty days after, but they only apply to orders with payment terms assigned, and a draft order does not become an order until someone pays it or you mark it paid. You can work around this by completing the draft as payment due later with terms attached, which creates a real unpaid order that the reminder system can see, at the cost of an order number that pollutes your reports and has to be canceled by hand if it never pays. Otherwise, follow-up is yours to build with apps or automation.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Do draft orders reserve inventory when you send an invoice?</h2>
+      <p class="faq-a">No. Sending an invoice changes nothing about inventory: every unit on the draft stays available on your storefront and on every channel while the customer decides. If the items sell out before the invoice is paid, the checkout link still works, and you end up holding money for stock you no longer have. Shopify's Reserve items feature is a manual step on each draft with an expiry date you pick, it releases silently when that date passes, and wholesale merchants were still describing the gap as unacceptable on the community forums in May 2026, because the exposure lasts exactly as long as a B2B buyer takes to pay. The reliable pattern is to treat invoiced stock as spoken for: track what each open draft promises, flag drafts when their stock runs low, and reserve or release deliberately instead of by accident.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">How long do Shopify draft orders stay open, and should I cancel old ones?</h2>
+      <p class="faq-a">Forever. Draft orders have no expiry: an unpaid draft sits in the Drafts tab until someone pays it or you delete it, and the invoice's checkout link keeps working the whole time at the prices the draft was built with. That is how a quote from last autumn gets paid in the spring at autumn prices, for items that may have been discontinued or repriced since. The fix is a written expiry policy the automation enforces: a last call email at a deadline you choose, then cancel the draft, release any reserved stock, and note why. Thirty days suits most retail quotes, wholesale terms often run longer, and bespoke work can stay open as long as the conversation is alive. What matters is that expiry is a decision, not an accident of nobody remembering the draft exists.</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="section-head">
+    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+<a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The unpaid order that never cancels itself</h3>
+        <p class="card-dek">
+          A customer picks bank transfer or cash on delivery, then goes quiet, and the dead order sits in your admin holding stock. The AI playbook that chases payment, then cancels and restocks on time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-automatically-send-invoices-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The invoice you send by hand</h3>
+        <p class="card-dek">
+          Shopify emails a receipt, not an invoice, and has no field for a customer's tax number, so business buyers ask and you build it by hand. The AI playbook that sends the right invoice after every order.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 6</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-automatically-approve-wholesale-customers-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The wholesale application that sits all weekend</h3>
+        <p class="card-dek">
+          Shopify makes wholesale approval a manual chore: the B2B login has no signup, and Forms builds a queue nobody vets. The AI playbook that answers in minutes.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 30</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-change-a-shopify-order-from-local-pickup-to-shipping.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The pickup order that should have shipped</h3>
+        <p class="card-dek">
+          Checkout preselects free local pickup, customers tap past it, and Shopify has no button to switch the order to shipping. The AI playbook that converts it the same hour.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 31</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-set-a-minimum-order-amount-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The minimum order Shopify won't enforce</h3>
+        <p class="card-dek">
+          A customer checks out for a few dollars and Shopify waves it through, even though the order costs more to fulfill than it earns. The AI playbook that sets a real floor on every checkout path.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-edit-a-shopify-order-after-its-been-placed.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order change that races your warehouse</h3>
+        <p class="card-dek">
+          The "can you change my order?" email lands at a bad time and locks the second you fulfill. The AI playbook that resolves it before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 8</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The overselling problem no one automates</h3>
+        <p class="card-dek">
+          Selling stock you no longer have is the pain merchants dread most. The AI playbook that keeps inventory honest in real time across every channel.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-reconcile-shopify-payouts-with-your-sales.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The payout that never matches your sales</h3>
+        <p class="card-dek">
+          Shopify nets every payout down by fees, refunds, chargebacks, and a held reserve, then pays it in a batch, so the deposit never matches your sales and the connector double counts it. The AI playbook that ties each payout back to its orders.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 29</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="best-shopify-automations-to-set-up.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The Shopify automations no one builds</h3>
+        <p class="card-dek">
+          Tagging is 14% of every Shopify workflow merchants ship. The work that actually scales is under 1%.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 28</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html">Latest</a>
+        <a href="index.html">Essays</a>
+        <a href="index.html">Post-mortems</a>
+        <a href="index.html">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>&copy; 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>

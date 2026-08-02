@@ -3,28 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to change a Shopify order from local pickup to shipping &mdash; Dugong Field Notes</title>
-<meta name="description" content="Checkout preselects free local pickup, customers tap past it, and Shopify has no button to switch the order to shipping. The AI playbook that fixes it fast." />
-<link rel="canonical" href="https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html" />
+<title>How to automatically clear dead stock on Shopify &mdash; Dugong Field Notes</title>
+<meta name="description" content="Shopify has no last-sold date, no aging alert, and no automatic markdowns, so dead stock sits until stocktake. The AI playbook that finds and clears it on time." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html" />
 <meta name="author" content="Priya Singh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="keywords" content="change Shopify order from local pickup to shipping, customer accidentally chose local pickup Shopify, Shop Pay defaults to local pickup, convert pickup order to shipping Shopify, edit delivery method Shopify order, cannot edit order with local delivery Shopify, local pickup order shipped by mistake, Shopify checkout preselects cheapest rate, pickup order automation Shopify, wrong delivery method Shopify, AI order triage, Dugong" />
+<meta name="keywords" content="clear dead stock Shopify, slow moving inventory Shopify, automatically discount slow moving inventory Shopify, Shopify products not selling, inventory aging report Shopify, dead stock automation, markdown automation Shopify, clearance collection Shopify, Shopify smart collection last sold date, sell-through rate Shopify, aged inventory Shopify, AI inventory automation, Dugong" />
 <meta name="theme-color" content="#c6fe1e" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
-<meta property="article:published_time" content="2026-07-31" />
-    <meta property="article:modified_time" content="2026-07-31" />
+<meta property="article:published_time" content="2026-08-01" />
+    <meta property="article:modified_time" content="2026-08-01" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
-<meta property="og:title" content="How to change a Shopify order from local pickup to shipping" />
-<meta property="og:description" content="A customer in Marietta, Georgia checks out on her phone in eleven seconds, and the order lands as a pickup at your Denver shop, 1,400 miles away. She never chose pickup: Shopify checkout preselects the cheapest delivery option, local pickup is free, and Shop Pay carried her straight past the choice. Merchants report several of these a week, and the community thread asking Shopify to stop defaulting to pickup has been collecting replies for years, with a feature request logged and no timeline. The order cannot be fixed either: order editing does not touch the delivery method, and orders placed with local pickup or local delivery often cannot be edited at all, so the supported path is cancel, refund, rebuild as a draft order, and invoice the shipping. The half workaround of buying a label anyway leaves a pickup order that still sends pickup instructions and never collected a shipping fee. The AI playbook that reads every new order's delivery method against its address, distance, and history, asks the customer the same hour, converts the order cleanly when they meant shipping, confirms pickup when they meant pickup, keeps pickup orders out of the label queue, and counts the wrong-method orders so you can fix the checkout copy that causes them." />
-<meta property="og:url" content="https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html" />
+<meta property="og:title" content="How to automatically clear dead stock on Shopify" />
+<meta property="og:description" content="The linen shorts from the April buy stopped selling on June 9, and Shopify never mentions it: no last sold date anywhere in the admin, no aging alert, no report that acts. The products list cannot be sorted by sales recency, smart collections cannot see sales data at all, and Shopify Flow has no trigger for a product that stopped selling, because a product that stops selling emits no event. So dead stock gets discovered at stocktake, months late, and cleared in a panic: a weekend of exports and pivot tables, a hand-built clearance list, a bulk editor session, markdowns that stack with discount codes, and ads still spending on products that died in June. Meanwhile holding the stock costs a quarter to a third of its value a year, and the next purchase order repeats the mistake because nobody told buying. The AI playbook that reads sell-through per product every week, flags what crossed 60, 90, and 120 days with the cash value attached, chooses the right move per product, drafts markdowns against a margin floor with compare-at prices handled and an end date attached, re-merchandises the clearance, watches whether each move worked, and reports the cash freed so the overbuy gets caught at 60 days instead of 200." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -33,8 +33,8 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="How to change a Shopify order from local pickup to shipping" />
-<meta name="twitter:description" content="Checkout defaults to free local pickup, customers tap past it, and Shopify has no button to convert the order to shipping. The AI playbook that fixes it the same hour." />
+<meta name="twitter:title" content="How to automatically clear dead stock on Shopify" />
+<meta name="twitter:description" content="Shopify has no last-sold date, no aging alert, and no automatic markdowns, so dead stock sits until stocktake. The AI playbook that finds and clears it on time." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
     <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 
@@ -44,19 +44,19 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html#article",
+      "@id": "https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html#article",
       "isPartOf": {
         "@id": "https://blog.dugong.live/#blog"
       },
-      "mainEntityOfPage": "https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html",
-      "url": "https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html",
-      "headline": "How to change a Shopify order from local pickup to shipping",
-      "description": "A customer in Marietta, Georgia checks out on her phone in eleven seconds, and the order lands as a pickup at your Denver shop, 1,400 miles away. She never chose pickup: Shopify checkout preselects the cheapest delivery option, local pickup is free, and Shop Pay carried her straight past the choice. Merchants report several of these a week, and the community thread asking Shopify to stop defaulting to pickup has been collecting replies for years, with a feature request logged and no timeline. The order cannot be fixed either: order editing does not touch the delivery method, and orders placed with local pickup or local delivery often cannot be edited at all, so the supported path is cancel, refund, rebuild as a draft order, and invoice the shipping. The half workaround of buying a label anyway leaves a pickup order that still sends pickup instructions and never collected a shipping fee. The AI playbook that reads every new order's delivery method against its address, distance, and history, asks the customer the same hour, converts the order cleanly when they meant shipping, confirms pickup when they meant pickup, keeps pickup orders out of the label queue, and counts the wrong-method orders so you can fix the checkout copy that causes them.",
-      "datePublished": "2026-07-31",
-      "dateModified": "2026-07-31",
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html",
+      "url": "https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html",
+      "headline": "How to automatically clear dead stock on Shopify",
+      "description": "The linen shorts from the April buy stopped selling on June 9, and Shopify never mentions it: no last sold date anywhere in the admin, no aging alert, no report that acts. The products list cannot be sorted by sales recency, smart collections cannot see sales data at all, and Shopify Flow has no trigger for a product that stopped selling, because a product that stops selling emits no event. So dead stock gets discovered at stocktake, months late, and cleared in a panic: a weekend of exports and pivot tables, a hand-built clearance list, a bulk editor session, markdowns that stack with discount codes, and ads still spending on products that died in June. Meanwhile holding the stock costs a quarter to a third of its value a year, and the next purchase order repeats the mistake because nobody told buying. The AI playbook that reads sell-through per product every week, flags what crossed 60, 90, and 120 days with the cash value attached, chooses the right move per product, drafts markdowns against a margin floor with compare-at prices handled and an end date attached, re-merchandises the clearance, watches whether each move worked, and reports the cash freed so the overbuy gets caught at 60 days instead of 200.",
+      "datePublished": "2026-08-01",
+      "dateModified": "2026-08-01",
       "articleSection": "Research",
-      "keywords": "change Shopify order from local pickup to shipping, customer accidentally chose local pickup Shopify, Shop Pay defaults to local pickup, convert pickup order to shipping Shopify, edit delivery method Shopify order, local pickup order shipped by mistake, Shopify checkout preselects cheapest rate, wrong delivery method Shopify",
-      "wordCount": 2362,
+      "keywords": "clear dead stock Shopify, slow moving inventory Shopify, automatically discount slow moving inventory Shopify, Shopify products not selling, inventory aging report Shopify, markdown automation Shopify, clearance collection Shopify, Shopify smart collection last sold date",
+      "wordCount": 2173,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "image": {
@@ -73,23 +73,23 @@
         },
         {
           "@type": "Thing",
-          "name": "Click and collect",
-          "sameAs": "https://en.wikipedia.org/wiki/Click_and_collect"
+          "name": "Inventory",
+          "sameAs": "https://en.wikipedia.org/wiki/Inventory"
         },
         {
           "@type": "Thing",
-          "name": "Order fulfillment",
-          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+          "name": "Inventory turnover",
+          "sameAs": "https://en.wikipedia.org/wiki/Inventory_turnover"
+        },
+        {
+          "@type": "Thing",
+          "name": "Pricing",
+          "sameAs": "https://en.wikipedia.org/wiki/Pricing"
         },
         {
           "@type": "Thing",
           "name": "Online shopping",
           "sameAs": "https://en.wikipedia.org/wiki/Online_shopping"
-        },
-        {
-          "@type": "Thing",
-          "name": "Customer service",
-          "sameAs": "https://en.wikipedia.org/wiki/Customer_service"
         }
       ],
       "speakable": {
@@ -133,8 +133,8 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "The pickup order that should have shipped",
-          "item": "https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html"
+          "name": "The dead stock your dashboard never mentions",
+          "item": "https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html"
         }
       ]
     },
@@ -143,86 +143,86 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Can I change a Shopify order from local pickup to shipping?",
+          "name": "How do I find products that are not selling on Shopify?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Not by editing the order. Shopify's order editing can add and remove items, but the delivery method is not editable, and orders placed with local pickup or local delivery often cannot be edited at all. The supported path is to cancel and refund the original order, recreate it as a draft order with a shipping line, and send the customer an invoice, which means two order numbers, a refund in flight, and payment processing fees you may not get back. The faster workaround many merchants use is to add a shipping address to the pickup order and buy a label from the bulk orders screen, but the order still counts as pickup everywhere else: the confirmation the customer holds says pickup, ready-for-pickup notifications are still armed, reports still call it pickup, and no shipping fee was ever collected. Either way, the conversion is manual work Shopify does not track or automate."
+            "text": "Shopify will not surface them for you. The products list has no last sold column and cannot be sorted by sales recency, so the honest answers live in reports and exports. Start with the ABC analysis by product report, where grade C collects the bottom five percent of your revenue, and Days of inventory remaining, which divides stock on hand by recent velocity. Neither shows a plain last sold date, so for that you export orders, pivot by SKU, and take the most recent order date per product. Most merchants grade against thresholds by category, commonly 60 days for slowing, 90 for stalled, and 120 for dead, with seasonal exceptions applied by judgment. The catch is that all of this describes the problem on the day you run it. Nothing in Shopify alerts you when a product crosses 90 days without a sale, which is why dead stock is usually discovered at stocktake, months after it stopped moving."
           }
         },
         {
           "@type": "Question",
-          "name": "Why do customers keep accidentally choosing local pickup at checkout?",
+          "name": "Can Shopify automatically discount slow moving inventory?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because Shopify's checkout preselects the cheapest delivery option, and local pickup is free. Wherever pickup is offered it sits preselected above paid shipping, and in an express checkout like Shop Pay a returning customer can tap straight through to payment without registering the delivery method at all. Merchants have asked Shopify for a way to set the default method or reorder the options, and staff have acknowledged the request on the community forums without a timeline. The common workarounds in the meantime are renaming the pickup rate to something impossible to misread, such as FREE PICKUP, you collect in Denver, spelling the address out in the rate name, or attaching a fee to pickup and refunding it on collection. None of them stop every mistake, which is why catching wrong-method orders after checkout matters as much as preventing them before it."
+            "text": "Not natively. The bulk editor changes prices by hand, discounts target products and collections rather than sales velocity, and Shopify Flow has no trigger and no product field for time since last sale, so there is nothing to build the rule on. Automatic markdown apps exist and hold a threshold like 90 days then 20 percent off, which works until the exception list grows: brands that must never be discounted, margin floors that differ by category, products that are seasonal rather than dead, and markdowns that need compare-at prices handled cleanly and an end date attached. Whatever runs your markdowns also needs to keep stacking in check, because discount codes still apply on top of lowered prices unless you guard against it, and it should put prices back when a product starts selling again. That full loop, detect, decide, mark down, watch, and revert, is an automation job rather than a setting."
           }
         },
         {
           "@type": "Question",
-          "name": "How do I stop pickup orders from being shipped by mistake?",
+          "name": "Can I create a Shopify collection of products that have not sold in 90 days?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Separate them the moment they land. A pickup order shows only a small badge in the Shopify orders list, which is easy to miss when someone is bulk-selecting fifty orders to buy labels in a busy week. The reliable pattern is a tag applied the moment a pickup order is created, a saved view for the fulfillment team built on that tag, and a label flow that refuses to include tagged orders in a batch. The same tag drives the rest of pickup hygiene: ready-for-pickup notifications, a nudge when an order has sat uncollected for a week, and a flag when a pickup order's address suggests the customer actually wanted shipping. Shopify Flow can apply the tag on a condition. Deciding which pickup orders deserve a closer look before fulfillment takes reading the whole order, which is where AI automation earns its keep."
+            "text": "Not with smart collection conditions. They match on things like title, type, vendor, price, tag, weight, and stock level, and none of them can see sales data, so a collection defined as has not sold in 90 days is impossible to express natively. It is the same gap that keeps new arrivals collections running on hand-applied tags. The working pattern is to let an automation compute last sold per product on a schedule, apply a tag such as aging-90 when a product crosses the line, and remove the tag if the product sells again. A smart collection keyed on that tag then stays current on its own, and it can drive both an outlet page on the storefront and internal saved views. The tag becomes the hook for everything downstream: markdowns, demotion in full-price collections, paused ads, and the weekly count of cash sitting in aged stock."
           }
         }
       ]
     },
     {
       "@type": "HowTo",
-      "@id": "https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html#howto",
-      "name": "The pickup order that should have shipped",
-      "description": "The AI playbook for wrong delivery method orders on Shopify: reading every new order's delivery method against its address, distance, and history, flagging mismatches before fulfillment, asking the customer the same hour, converting the order cleanly when shipping was meant, confirming pickup when pickup was meant, keeping pickup orders out of the label queue, and counting wrong-method orders weekly to fix the checkout copy causing them.",
+      "@id": "https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html#howto",
+      "name": "The dead stock your dashboard never mentions",
+      "description": "The AI playbook for dead stock on Shopify: reading sell-through per product every week, flagging what crossed the aging thresholds with cash value attached, choosing the right move per product, drafting markdowns against a margin floor, re-merchandising the clearance, watching whether each move worked, and reporting the cash freed so buying stops repeating the mistake.",
       "inLanguage": "en",
       "totalTime": "PT9M",
       "step": [
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Read the delivery method against the rest of the order",
-          "text": "Compare every new order's delivery method with its address, its distance to the pickup location, the customer's history, and gift signals",
-          "url": "https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html#playbook"
+          "name": "Read sell-through per product every week",
+          "text": "Compute last sale date, weekly velocity, stock on hand, days of cover, and season for every product in the catalog",
+          "url": "https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Flag the mismatches before fulfillment",
-          "text": "Hold the pickup order placed 1,400 miles from the shop, and the shipping order from the regular who collects every Friday",
-          "url": "https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html#playbook"
+          "name": "Flag what crossed your thresholds",
+          "text": "Mark products at 60 days slowing, 90 stalled, and 120 dead, each with the cash value sitting in its stock attached",
+          "url": "https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Ask the customer the same hour",
-          "text": "One email: pickup at the location, or shipped to your address for the standard rate, answered while the mistake is still fresh",
-          "url": "https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html#playbook"
+          "name": "Choose the move per product",
+          "text": "Markdown, bundle, gift with purchase, outlet collection, or write-off, judged by margin, season, and what the product is",
+          "url": "https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Convert cleanly when they meant shipping",
-          "text": "Collect the shipping fee, rebuild the order, cancel the original, reconcile the order numbers, and carry the notes across",
-          "url": "https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html#playbook"
+          "name": "Draft the markdown against a margin floor",
+          "text": "Set the new price above the floor, handle the compare-at price cleanly, and attach an end date before anything goes live",
+          "url": "https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Confirm cleanly when they meant pickup",
-          "text": "Send the address, the hours, and what to bring, and nudge when the order sits uncollected for a week",
-          "url": "https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html#playbook"
+          "name": "Re-merchandise the clearance",
+          "text": "Tag into the outlet collection, demote in full-price collections, keep codes off the markdowns, and stop ads on dead SKUs",
+          "url": "https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Keep pickup orders out of the label queue",
-          "text": "Tag them at creation and make the bulk label flow respect the tag, so no pickup order ever ships by accident",
-          "url": "https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html#playbook"
+          "name": "Watch whether the move worked",
+          "text": "No lift after two weeks means a deeper cut or a different move, and a product that wakes up gets its price back",
+          "url": "https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Count the wrong-method orders weekly",
-          "text": "Track how many orders needed conversion and fix the checkout copy and rate names that keep causing them",
-          "url": "https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html#playbook"
+          "name": "Report the cash freed every week",
+          "text": "One digest: what moved, what did not, cash recovered, and which SKUs buying should stop reordering",
+          "url": "https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html#playbook"
         }
       ]
     }
@@ -524,13 +524,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>&#9670; DISPATCH N&ordm; 96 &mdash; JUL 31, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 97 &mdash; AUG 1, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 9 MIN READ &middot; 2,362 WORDS</span>
+    <span>&#9670; 9 MIN READ &middot; 2,173 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
-    <span>&#9670; DISPATCH N&ordm; 96 &mdash; JUL 31, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 97 &mdash; AUG 1, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 9 MIN READ &middot; 2,362 WORDS</span>
+    <span>&#9670; 9 MIN READ &middot; 2,173 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -555,23 +555,22 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 96</span>
+    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 97</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">JUL 31, 2026</span>
+    <span style="color: var(--cream-dim);">AUG 1, 2026</span>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">9 MIN READ</span>
   </div>
 
   <h1 class="article-title">
-    How to change a Shopify order from local pickup <em>to shipping</em>
+    How to automatically clear dead stock <em>on Shopify</em>
   </h1>
 
   <p class="article-dek">
-    A customer in Georgia checks out in eleven seconds and the order lands
-    as a pickup at your Denver shop, 1,400 miles away. She never chose
-    pickup, and Shopify gives you no button to fix it. Here is why it
-    keeps happening, and the playbook that converts the order the same
-    hour.
+    The linen shorts from the April buy stopped selling on June 9, and
+    nothing in Shopify will ever mention it. Here is why dead stock
+    hides in a dashboard you look at every day, and the playbook that
+    finds it and moves it while it is still worth something.
   </p>
 
   <div class="article-byline">
@@ -584,261 +583,248 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="article-body">
 
     <p>
-      A customer in Marietta, Georgia finds your candle brand on Instagram
-      and checks out on her phone. Shop Pay has her card saved, so the
-      whole thing takes eleven seconds: tap, face scan, done. She never
-      sees the delivery options, because checkout preselected the cheapest
-      one for her, and the cheapest one is free local pickup at your shop
-      in Denver. Her order confirmation invites her to collect three
-      candles at a storefront 1,400 miles from her house, any weekday
-      between ten and six.
+      The linen shorts arrived in April: 240 units across five sizes,
+      because the rep offered a price break at 240 and June was going to
+      be big. June was fine. The last pair sold on June 9. It is now
+      August, and 212 pairs sit folded on four shelves of your Nashville
+      stockroom, $9,300 at cost, and nothing anywhere in Shopify will
+      ever tell you so. The product page looks healthy. The inventory
+      count is comfortably green. To your admin, a product that has not
+      sold in eight weeks looks exactly like a product that launched
+      this morning.
     </p>
 
     <p>
-      She replies to the confirmation within the hour, half apologetic and
-      half annoyed, asking you to just ship it. And this is where your
-      afternoon actually goes sideways, because there is no button in
-      Shopify for what she is asking. You cannot open the order and change
-      local pickup to shipping. The delivery method is the one part of an
-      order that <a href="how-to-edit-a-shopify-order-after-its-been-placed.html">order
-      editing</a> does not touch.
+      You will find out in October, and not from a report. You will find
+      out the way most merchants find dead stock: doing the fall
+      stocktake, or unpacking the new season's delivery with nowhere to
+      put it, or opening the 3PL invoice and noticing you have paid
+      storage on the same 212 pairs for the fourth straight month. By
+      then the season the shorts belonged to is over, and every option
+      left is a bad one: bury them at 60 percent off in a January sale,
+      bundle them away below cost, or write them off entirely.
     </p>
 
     <p>
-      If this happened once, it would be a funny support email. Merchants
-      on the Shopify community forums report several wrong-method orders a
-      week, every week, and the thread asking Shopify to stop defaulting
-      checkout to pickup carries the title <em>Shop Pay defaulting to
-      local pick up instead of letting customer decide is causing major
-      issues</em>. Shopify staff replied, acknowledged the problem, and
-      logged a feature request. That was the resolution. The thread is
-      still collecting replies.
+      The overbuy itself is ordinary. Every store that carries inventory
+      makes it, every season, and a store that never overbuys is a store
+      that constantly sells out. What turns an ordinary buying mistake
+      into a write-off is the silence afterward: no aging alert, no last
+      sold date, no report that acts. A product crosses 60 days without
+      a sale, then 90, then 120, and each threshold passes without a
+      single pixel changing anywhere in the admin.
     </p>
 
-    <h2>Why checkout keeps picking pickup for your customers</h2>
+    <h2>Why dead stock hides in a dashboard you check daily</h2>
 
     <p>
-      The mechanics are simple and entirely out of your hands. Shopify
-      checkout preselects the cheapest delivery option available for the
-      cart. Local pickup is free, so on any store that offers it, pickup
-      sits at the top of the list, already selected, for every customer
-      within its eligibility. A careful shopper on a desktop reads the
-      options and clicks the right one. A phone shopper inside Shop Pay,
-      gliding from cart to Face ID on saved details, never touches the
-      delivery section at all. The default wins by default.
+      Start where you would expect the answer to live: the products
+      list. It has no last sold column, and it cannot be sorted by sales
+      recency. To learn when a product last sold, you open the product,
+      note the SKU, walk over to orders, and search. That is one
+      product. A 340 SKU catalog is an afternoon, which is why nobody
+      does it and the question goes unanswered until stocktake forces
+      it.
     </p>
 
     <p>
-      There is no setting to change which method is preselected, no way
-      to reorder the list, and no way to make pickup opt-in. Merchants
-      have asked for exactly those three things for years. What they swap
-      instead are workarounds of costume and friction: rename the rate to
-      <strong>FREE PICKUP, you collect in Denver</strong> so it cannot be
-      misread, spell the street address out inside the rate name, attach
-      a fee to pickup and refund it at the counter. Some stores give up
-      and switch pickup off entirely, which fixes the mistake by
-      abandoning the customers who genuinely want to collect. Every
-      option trades away something, because the real lever, the default,
-      is not yours to pull.
+      The reports get closer, and stop short. <strong>ABC analysis by
+      product</strong> grades your catalog by revenue share, and grade C,
+      the bottom five percent of revenue, is where dead stock lives,
+      alongside every new product too young to have earned its rank.
+      <strong>Days of inventory remaining</strong> divides stock on hand
+      by recent velocity, which is genuinely useful right up until
+      velocity hits zero and the math gives up. Both reports describe.
+      Neither one emails you, neither one changes anything, and neither
+      one knows that the shorts were seasonal, that the candles sell
+      only in Q4, or that the leather bags are slow every summer and
+      always recover. The report is a mirror, not a tripwire.
     </p>
 
-    <h2>The order you are not allowed to fix</h2>
-
     <p>
-      The checkout half of the problem would be survivable if the admin
-      half were not so strange. Shopify has order editing, and for items
-      it works: add a product, remove one, adjust a quantity, collect the
-      difference. The delivery method is not part of it. There is no
-      supported way to convert a pickup order to a shipping order, or a
-      shipping order to pickup, and orders placed with local pickup or
-      local delivery often refuse editing altogether, a limitation
-      merchants have been asking about in a community thread that has run
-      for years across dozens of replies.
+      Then you reach for the tools that automate everything else and
+      find both of them blind. Smart collections match on title, type,
+      vendor, price, tag, weight, and stock level, and not one condition
+      can see sales data, so <em>products that have not sold in 90
+      days</em> is a collection Shopify cannot express. Neither can
+      <em>new this month</em>, which is why new arrivals run on
+      hand-applied tags that someone eventually forgets to remove, the
+      same gap facing both directions. And Shopify Flow, the automation
+      layer, is built entirely on events: order created, inventory
+      changed, product added.
     </p>
 
     <blockquote>
-      The delivery method is the one field on a Shopify order that no
-      amount of clicking will change.
+      A product that stops selling emits no event. The automation
+      platform is built on events, so the most expensive thing in your
+      stockroom is the one thing it cannot see.
     </blockquote>
 
     <p>
-      The supported path, confirmed by Shopify's own support staff, is
-      demolition. Cancel the original order. Refund it, and depending on
-      your payment provider, wave goodbye to the processing fee. Rebuild
-      the whole thing as a draft order with the items added again and a
-      shipping line this time. Send the customer an invoice and wait for
-      her to pay a second time while the refund crawls back to her card.
-      You now have two order numbers for one purchase, a cancellation
-      polluting your analytics, and a customer whose eleven second
-      checkout has become a three day correspondence.
+      There is no trigger for silence, no product field holding time
+      since last sale, nothing to hang a condition on. The absence of a
+      sale, the exact signal that costs you the most money, is the one
+      signal the platform has no way to represent.
+    </p>
+
+    <h2>The clearance you eventually run by hand</h2>
+
+    <p>
+      So dead stock gets handled the way it has always been handled: in
+      arrears, in a panic, usually the weekend before a new season
+      lands. You export the orders CSV, pivot by SKU, and hand-build the
+      list of what stopped moving. You
+      <a href="how-to-bulk-edit-product-prices-on-shopify.html">reprice
+      it through the bulk editor</a>, fifty products at a time, setting
+      compare-at prices by hand and hoping you fat-finger nothing. You
+      drag products into a Sale collection one at a time. Somewhere in
+      hour three you remember that
+      <a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html">the
+      welcome code stacks on top of markdowns</a> unless you guard for
+      it, and now the 40 percent clearance is a 50 percent clearance for
+      every subscriber.
     </p>
 
     <p>
-      So most merchants do not do that. They use the half workaround
-      instead: type a shipping address into the pickup order, select it
-      from the orders list, and buy a label anyway. It works, in the way
-      that duct tape works. The order still says pickup on the
-      confirmation the customer holds. The ready-for-pickup notification
-      is still armed and waiting for someone to tap the wrong button. No
-      shipping fee was ever collected, so the store just ate it. And the
-      reports now quietly miscount both channels. The reverse mistake, a
-      customer who wanted pickup but paid for shipping, is handled the
-      same artisanal way: refund the shipping fee by hand and reply to
-      the email telling her to come by.
+      Meanwhile the rest of the stack never got the memo. The
+      <a href="how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html">ad
+      account is still spending</a> on products that died in June,
+      paying full acquisition cost to send shoppers to a full-price page
+      for a product you are about to mark down. The dead SKUs still sit
+      mid-collection at full price, pushing live sellers
+      <a href="how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html">further
+      down the page</a>. And the cruelest one:
+      <a href="how-to-set-inventory-reorder-points-on-shopify.html">the
+      next purchase order</a> quietly includes a reorder of something
+      that was already dying, because the buying spreadsheet tracks what
+      sold, not what stopped.
     </p>
 
     <div class="callout callout-sand">
       <span class="callout-mark">&#9670; NOTE</span>
       <span>
-        The trap is <strong>treating each of these as a one-off support
-        ticket</strong> rather than a leak in checkout. Every
-        wrong-method order costs a refund or an eaten fee, ten minutes of
-        admin surgery, and a customer whose first impression of your
-        brand is a mistake neither of you could prevent. At several a
-        week, that is a workflow, not an accident.
+        Holding inventory is not free storage of future revenue. The
+        standard estimate puts carrying cost at <strong>25 to 30
+        percent of the inventory's value per year</strong> once storage,
+        insurance, shrink, and the cost of the tied-up cash are counted.
+        The $9,300 of shorts is not sitting still; it is quietly
+        invoicing you a couple of hundred dollars a month for the
+        privilege of keeping the mistake.
       </span>
     </div>
-
-    <h2>Why the manual version fails quietly</h2>
-
-    <p>
-      Catching these by eye depends on someone noticing that a delivery
-      method does not make sense, and Shopify offers no help. There is no
-      distance check anywhere in the platform: an order for pickup in
-      Denver from a customer in Georgia sails through checkout, lands in
-      the admin, and looks exactly like every legitimate pickup order
-      above and below it. The badge that distinguishes pickup in the
-      orders list is small, and during a sale week, when someone is bulk
-      selecting sixty orders to buy labels, it is the easiest thing on
-      the screen to miss. That is how pickup orders get shipped by
-      accident, usually to a billing address, occasionally to the store
-      itself.
-    </p>
-
-    <p>
-      The customers who email you are the good outcome. The quiet failure
-      is the customer who does not: her candles sit on the pickup shelf
-      for two weeks while she waits for a delivery that was never coming,
-      and the first you hear of it is a
-      <a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html">where
-      is my order ticket</a> with a temper, or a chargeback, or nothing
-      at all and one fewer repeat customer. And because no report exists
-      for wrong-method orders, you cannot see the size of the leak. The
-      cost shows up as shipping fees eaten, refunds processed, and shelf
-      space occupied, none of it labeled with the cause.
-    </p>
 
     <h2>What the automation actually has to do</h2>
 
     <p>
-      The fix is not a faster refund. It is the sanity check a good
-      operations person would run on every order the moment it lands,
-      done automatically, with the correction started while the customer
-      still remembers checking out. As a Dugong playbook, in plain prose:
+      The fix is not a better report. It is the Monday morning read a
+      good merchandiser would do, and the actions that follow from it,
+      running every week without being asked. As a Dugong playbook, in
+      plain prose:
     </p>
 
     <pre id="playbook"><code><span class="c"># trigger</span>
-<span class="k">On</span> order created, and on customer reply
+<span class="k">On</span> a weekly schedule, and when a season end nears
 
 <span class="c"># steps</span>
-1. <span class="k">Read</span> the delivery method against the rest of
-   the order: address, distance to the pickup
-   location, customer history, gift signals
-2. <span class="k">Flag</span> the mismatches before fulfillment:
-   pickup from 1,400 miles away, shipping for
-   the regular who collects every Friday
-3. <span class="k">Ask</span> the customer, same hour, one email:
-   pickup at the shop, or shipped for the
-   standard rate?
-4. <span class="k">Convert</span> cleanly on a ship answer: collect
-   the fee, rebuild the order, cancel the
-   original, reconcile the numbers and notes
-5. <span class="k">Confirm</span> cleanly on a pickup answer: address,
-   hours, what to bring, and a nudge if the
-   order sits uncollected a week
-6. <span class="k">Keep</span> pickup orders out of the label queue
-   with a tag the bulk flow respects
-7. <span class="k">Count</span> the wrong-method orders weekly and
-   fix the checkout copy causing them
+1. <span class="k">Read</span> sell-through per product: last sale
+   date, weekly velocity, stock on hand, days
+   of cover, season
+2. <span class="k">Flag</span> what crossed your thresholds: 60 days
+   slowing, 90 stalled, 120 dead, with the
+   cash value attached to each
+3. <span class="k">Choose</span> the move per product: markdown,
+   bundle, gift with purchase, outlet
+   collection, or write-off
+4. <span class="k">Draft</span> the markdown against a margin floor,
+   compare-at handled, end date attached
+5. <span class="k">Re-merchandise</span>: tag into clearance, demote
+   in full-price collections, keep codes off
+   the markdowns, stop the ads
+6. <span class="k">Watch</span> the move work: no lift in two weeks
+   means deeper cut or different move, and a
+   product that wakes up gets its price back
+7. <span class="k">Report</span> weekly: cash freed, what moved, what
+   did not, and what buying should stop
+   reordering
 </code></pre>
 
     <p>
-      Steps one and two are reading, not filtering, and that distinction
-      is the whole game. A rule can
-      <a href="how-to-automatically-tag-orders-on-shopify.html">tag every
-      pickup order</a>, and it should. A rule cannot notice that this
-      particular pickup order makes no sense: first-time customer, home
-      address four states away, a gift note addressed to someone in a
-      third city, and a shipping address typed in anyway because the
-      customer assumed it mattered. Weighing those signals against each
-      other is the same species of judgment as
-      <a href="how-to-handle-high-risk-orders-on-shopify.html">deciding
-      what a high risk flag actually means</a> or
-      <a href="how-to-catch-and-cancel-duplicate-orders-on-shopify.html">spotting
-      the order a customer placed twice</a>: context against context,
-      not field against threshold.
+      Step one is the part that looks trivial and is not. Computing last
+      sale date per product is arithmetic, but reading it is judgment.
+      A winter coat that has not sold since March is not dead in July,
+      it is early. A product with 30 days of silence and four units left
+      is not a markdown candidate, it is nearly sold through. A size run
+      broken down to XS and XXL will never move at any discount, and
+      wants a bundle or an outlet, not a price cut that insults the
+      margin without shifting a unit. A threshold can count days. It
+      takes something that understands what the product is to know
+      which silences matter.
     </p>
 
     <p>
-      Step three is where the economics live. Reached within the hour,
-      the customer answers in minutes, because the mistake is hers and
-      she knows it, and the fix becomes a two message exchange. Reached
-      after the pickup shelf and the silence, the same conversation is a
-      refund, an apology, and a review you would rather not receive. The
-      email is short and the automation can send it the moment the flag
-      is raised, which is precisely what a human batch-processing orders
-      at 6 p.m. cannot.
+      Steps four and five are where hand-run clearances leak. The
+      markdown needs a floor, because clearing stock at any price is
+      how you teach yourself to lose money twice on the same buy. The
+      compare-at price needs to be set honestly and put back when the
+      markdown ends, which is
+      <a href="how-to-schedule-a-sale-on-shopify.html">its own
+      unautomated chore on Shopify</a>. The clearance tag needs to
+      drive everything downstream in one motion: the outlet collection
+      gains the product, the full-price collections demote it, the ads
+      stop spending on it, and the discount codes are fenced off from
+      double-dipping. Done by hand, those are five separate sessions in
+      five separate screens, which is exactly why at least one of them
+      is always forgotten.
     </p>
 
     <p>
-      Step four is the grind Shopify declined to automate, and it is
-      honest work: a draft order with the same lines and a shipping fee,
-      an invoice, a cancellation of the original once the new order is
-      paid, and notes on both numbers so support can follow the trail in
-      a month. None of it is hard. All of it is ten minutes of admin
-      surgery per order, which is exactly the kind of sequence an
-      automation runs identically every time and a hurried human
-      occasionally fumbles, forgetting the refund or the invoice and
-      creating a second ticket to clean up the first.
+      And step three is where the interesting money is, because a
+      markdown is not the only move, just the only one anyone
+      remembers at 11 p.m. on inventory weekend. Slow candles can ride
+      along as
+      <a href="how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html">a
+      gift with purchase</a> that lifts the average order instead of
+      cutting a price. Broken size runs bundle with their bestselling
+      siblings. A product that died on your store but sells steadily
+      wholesale wants a line on the next trade order, not a discount.
+      The move should fit the product, and the automation should
+      propose it, not just the percentage.
     </p>
 
     <h2>Why this is a compiler problem, not an app problem</h2>
 
     <p>
-      There are good pickup apps, and if you run serious curbside volume
-      you may already use one for date pickers and ready notifications.
-      They manage legitimate pickup orders. None of them read intent,
-      because intent is store-specific in a way no settings page can
-      hold. Your actual policy is a paragraph: if a pickup order's
-      address is more than fifty miles from the shop, ask before
-      treating it as real. Regulars who always collect get waved
-      through. Gift orders get a gentler email than mistakes. If the
-      customer meant shipping, charge the standard rate, unless the
-      order is over eighty dollars, in which case eat it and say so,
-      because that customer is worth keeping. Never let a pickup order
-      into a label batch. That paragraph changes with your margins and
-      your neighborhood. An app cannot hold it. A compiler that turns
-      the paragraph into the running workflow can, which is the same
-      argument behind
+      There are markdown apps, and for a store with one rule they are
+      fine. What they hold is a threshold. What you have is a policy,
+      and your policy is a paragraph: anything past 90 days goes to 20
+      percent off, except the leather goods, which never go on sale
+      because the brand does not discount leather; candles bundle
+      instead of marking down; broken size runs go to the outlet
+      collection; nothing drops below 15 points of margin without a
+      human saying so; and if a product starts selling again, put the
+      price back and take it out of clearance. That paragraph changes
+      with the season and the cash position. No settings page holds
+      it. A compiler that turns the paragraph into the running
+      workflow can, which is the argument behind
       <a href="best-shopify-automations-to-set-up.html">the automations
       no one builds</a>: the valuable workflow is shaped like your
       store, not like a feature list.
     </p>
 
     <p>
-      Picture a home goods store in Austin: one shop, pickup enabled,
-      about 130 orders a week, six of them wrong-method in a typical
-      week. With the playbook running, five are flagged at creation and
-      emailed within the hour. Four customers answer ship it, and the
-      conversion runs end to end: fee collected, order rebuilt, original
-      canceled, notes carried across. One answers that her sister is
-      collecting it, thanks, and gets the pickup hours by reply. The
-      sixth is the reverse case, a local who paid for shipping out of
-      habit, and the automation refunds her shipping fee and tells her
-      the order is on the shelf before she thought to ask. Nothing has
-      shipped from the pickup shelf by accident since the tag went in.
-      The owner's involvement in all of it was reading one weekly
-      summary.
+      Run the tape forward for the Nashville boutique. The first weekly
+      read flags 41 of 340 SKUs past 90 days, $28,400 at cost, which is
+      the number that finally makes the problem real. The owner approves
+      the first wave: 19 markdowns at 20 percent with the floor
+      respected, six bundles, five gift-with-purchase candidates, the
+      shorts to the new outlet collection at 30 percent off while
+      August can still sell them. Two weeks later the automation
+      deepens four markdowns that did not lift and quietly restores one
+      product that woke up. Five weeks in, 60 percent of the flagged
+      cash has moved at planned margins instead of January panic
+      prices. And the April-style overbuy that happens again next
+      spring gets flagged at 60 days, marked down 20 percent while the
+      season is alive, instead of 60 percent after it is dead.
     </p>
 
     <hr />
@@ -846,59 +832,56 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <h2>The workflow worth building this week</h2>
 
     <p>
-      Start with the number you do not have. Pull your last ninety days
-      of pickup orders and count the ones with a customer address
-      nowhere near your location, then count the cancellations and
-      shipping refunds that trace back to a wrong method. Most stores
-      that offer pickup find the leak immediately, and it is bigger in
-      exactly the weeks they were too busy to notice it.
+      Start with the number you do not have. Export your orders, pivot
+      to a last sale date per SKU, and count what has crossed 90 days,
+      with the cost value next to it. Most merchants who run this for
+      the first time find more cash on the aging list than in their
+      bank account, and the number is worst in exactly the categories
+      they were proudest of buying deep.
     </p>
 
     <p>
-      Then automate the reading before the deciding. For the first two
-      weeks, let the workflow flag mismatched orders and draft the
-      customer email, and click send yourself. You are checking its
-      judgment against yours, the same trust curve you would run with
-      <a href="how-to-validate-shipping-addresses-on-shopify.html">an
-      address check before the label prints</a>. Once it has been right
-      fifty times in a row, let the clear cases run end to end, ask and
-      convert and reconcile, and keep only the odd ones for a human
-      look.
+      Then automate the reading before the acting. For the first two
+      weeks, let the workflow compute the aging list, flag the
+      crossings, and draft the moves, and approve each one yourself.
+      You are checking its judgment against yours: does it know the
+      coats are seasonal, does it respect the no-discount brands, does
+      it propose bundles where a markdown would be waste. Once it has
+      been right fifty times, let the clear cases run end to end and
+      keep the approvals for anything touching your margin floor.
     </p>
 
     <p>
-      Describe it the way you would brief a new hire on their first
-      morning. When an order comes in, glance at how it is getting to
-      the customer and whether that makes any sense. If a pickup order
-      is from someone far away, or a shipping order is from one of our
-      regulars, ask them the same hour, nicely. If they meant shipping,
-      collect the fee and redo the order properly, and make sure the
-      paper trail is clean. Keep pickup orders away from the label
-      printer. And tell me once a week how many of these we caught, so
-      I can fix the wording at checkout. That is the brief. The
-      compiler handles the fields, the sequences, and the timing, and
-      the customer in Marietta gets her candles shipped before she has
-      time to be annoyed about it.
+      Describe it the way you would brief a merchandiser on their first
+      Monday. Every week, tell me what stopped selling and what it is
+      costing us to keep. Propose the move for each one, and mark
+      things down with the margin protected, the sale price honest,
+      and an end date attached. When something goes to clearance, make
+      the whole store agree: collection, ads, codes, everything. If a
+      move does not work in two weeks, escalate it. And tell buying
+      what to stop reordering. That is the brief. The compiler handles
+      the schedules, the tags, and the price edits, and the shorts get
+      cleared in August at 30 percent off instead of surviving to
+      haunt the January sale.
     </p>
 
     <div class="callout">
       <span class="callout-mark">&#9670; READING</span>
       <span>
         Two companion pieces if this one landed:
-        <a href="how-to-edit-a-shopify-order-after-its-been-placed.html">the
-        order change that races your warehouse</a>, on every other edit
-        Shopify makes you fight for, and
-        <a href="how-to-notify-customers-of-shipping-delays-on-shopify.html">the
-        delayed order no one tells your customer about</a>, on saying
-        the awkward thing before the customer asks.
+        <a href="how-to-set-inventory-reorder-points-on-shopify.html">the
+        reorder you always make too late</a>, on the same loop from the
+        buying side, and
+        <a href="how-to-schedule-a-sale-on-shopify.html">the sale you
+        have to start by hand</a>, on the mechanics of moving prices on
+        time.
       </span>
     </div>
 
     <p>
-      If you are a Shopify merchant with a pickup shelf holding orders
-      that were never going to be collected, a label queue that has
-      shipped a pickup order to a billing address, or a rate renamed in
-      all caps as a defense mechanism, the inbox is open:
+      If you are a Shopify merchant with a stockroom shelf you avoid
+      looking at, a January sale that is really a confession, or a
+      spreadsheet named clearance_final_v3, the inbox is open:
       <code>field-notes@dugong.live</code>. We are collecting case
       studies for the next issue.
     </p>
@@ -922,16 +905,16 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   </div>
   <div class="faq-list">
     <div class="faq-item">
-      <h2 class="faq-q">Can I change a Shopify order from local pickup to shipping?</h2>
-      <p class="faq-a">Not by editing the order. Shopify's order editing can add and remove items, but the delivery method is not editable, and orders placed with local pickup or local delivery often cannot be edited at all. The supported path is to cancel and refund the original order, recreate it as a draft order with a shipping line, and send the customer an invoice, which means two order numbers, a refund in flight, and payment processing fees you may not get back. The faster workaround many merchants use is to add a shipping address to the pickup order and buy a label from the bulk orders screen, but the order still counts as pickup everywhere else: the confirmation the customer holds says pickup, ready-for-pickup notifications are still armed, reports still call it pickup, and no shipping fee was ever collected. Either way, the conversion is manual work Shopify does not track or automate.</p>
+      <h2 class="faq-q">How do I find products that are not selling on Shopify?</h2>
+      <p class="faq-a">Shopify will not surface them for you. The products list has no last sold column and cannot be sorted by sales recency, so the honest answers live in reports and exports. Start with the ABC analysis by product report, where grade C collects the bottom five percent of your revenue, and Days of inventory remaining, which divides stock on hand by recent velocity. Neither shows a plain last sold date, so for that you export orders, pivot by SKU, and take the most recent order date per product. Most merchants grade against thresholds by category, commonly 60 days for slowing, 90 for stalled, and 120 for dead, with seasonal exceptions applied by judgment. The catch is that all of this describes the problem on the day you run it. Nothing in Shopify alerts you when a product crosses 90 days without a sale, which is why dead stock is usually discovered at stocktake, months after it stopped moving.</p>
     </div>
     <div class="faq-item">
-      <h2 class="faq-q">Why do customers keep accidentally choosing local pickup at checkout?</h2>
-      <p class="faq-a">Because Shopify's checkout preselects the cheapest delivery option, and local pickup is free. Wherever pickup is offered it sits preselected above paid shipping, and in an express checkout like Shop Pay a returning customer can tap straight through to payment without registering the delivery method at all. Merchants have asked Shopify for a way to set the default method or reorder the options, and staff have acknowledged the request on the community forums without a timeline. The common workarounds in the meantime are renaming the pickup rate to something impossible to misread, such as FREE PICKUP, you collect in Denver, spelling the address out in the rate name, or attaching a fee to pickup and refunding it on collection. None of them stop every mistake, which is why catching wrong-method orders after checkout matters as much as preventing them before it.</p>
+      <h2 class="faq-q">Can Shopify automatically discount slow moving inventory?</h2>
+      <p class="faq-a">Not natively. The bulk editor changes prices by hand, discounts target products and collections rather than sales velocity, and Shopify Flow has no trigger and no product field for time since last sale, so there is nothing to build the rule on. Automatic markdown apps exist and hold a threshold like 90 days then 20 percent off, which works until the exception list grows: brands that must never be discounted, margin floors that differ by category, products that are seasonal rather than dead, and markdowns that need compare-at prices handled cleanly and an end date attached. Whatever runs your markdowns also needs to keep stacking in check, because discount codes still apply on top of lowered prices unless you guard against it, and it should put prices back when a product starts selling again. That full loop, detect, decide, mark down, watch, and revert, is an automation job rather than a setting.</p>
     </div>
     <div class="faq-item">
-      <h2 class="faq-q">How do I stop pickup orders from being shipped by mistake?</h2>
-      <p class="faq-a">Separate them the moment they land. A pickup order shows only a small badge in the Shopify orders list, which is easy to miss when someone is bulk-selecting fifty orders to buy labels in a busy week. The reliable pattern is a tag applied the moment a pickup order is created, a saved view for the fulfillment team built on that tag, and a label flow that refuses to include tagged orders in a batch. The same tag drives the rest of pickup hygiene: ready-for-pickup notifications, a nudge when an order has sat uncollected for a week, and a flag when a pickup order's address suggests the customer actually wanted shipping. Shopify Flow can apply the tag on a condition. Deciding which pickup orders deserve a closer look before fulfillment takes reading the whole order, which is where AI automation earns its keep.</p>
+      <h2 class="faq-q">Can I create a Shopify collection of products that have not sold in 90 days?</h2>
+      <p class="faq-a">Not with smart collection conditions. They match on things like title, type, vendor, price, tag, weight, and stock level, and none of them can see sales data, so a collection defined as has not sold in 90 days is impossible to express natively. It is the same gap that keeps new arrivals collections running on hand-applied tags. The working pattern is to let an automation compute last sold per product on a schedule, apply a tag such as aging-90 when a product crosses the line, and remove the tag if the product sells again. A smart collection keyed on that tag then stays current on its own, and it can drive both an outlet page on the storefront and internal saved views. The tag becomes the hook for everything downstream: markdowns, demotion in full-price collections, paused ads, and the weekly count of cash sitting in aged stock.</p>
     </div>
   </div>
 </section>
@@ -958,154 +941,137 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
-<a href="how-to-automatically-clear-dead-stock-on-shopify.html" class="card">
+<a href="how-to-set-inventory-reorder-points-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The dead stock your dashboard never mentions</h3>
+        <h3 class="card-title">The reorder you always make too late</h3>
         <p class="card-dek">
-          Shopify has no last-sold date, no aging alert, and no automatic markdowns, so dead stock sits until stocktake. The AI playbook that finds and clears it on time.
+          Shopify tracks every unit but never buys more, and its purchase orders are too basic to know what to reorder or when. The AI playbook that forecasts demand per SKU and drafts the PO on time.
         </p>
         <div class="card-foot">
-          <span class="card-date">AUG 1</span>
+          <span class="card-date">JUN 15</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
-<a href="how-to-edit-a-shopify-order-after-its-been-placed.html" class="card">
+
+<a href="how-to-bulk-edit-product-prices-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The order change that races your warehouse</h3>
+        <h3 class="card-title">The price change you make one product at a time</h3>
         <p class="card-dek">
-          The "can you change my order?" email lands at a bad time and locks the second you fulfill. The AI playbook that resolves it before the label prints.
+          Shopify's bulk editor caps at fifty products, has no math, and Flow cannot reprice at all, so you retype every price by hand. The AI playbook that reprices the catalog by rule.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 8</span>
+          <span class="card-date">JUN 28</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
 
-<a href="how-to-validate-shipping-addresses-on-shopify.html" class="card">
+<a href="how-to-schedule-a-sale-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">7&nbsp;min</span>
+          <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The bad address that ships anyway</h3>
+        <h3 class="card-title">The sale you have to start by hand</h3>
         <p class="card-dek">
-          Shopify warns the address looks wrong, you ship anyway, and the package bounces back. The AI playbook that fixes it before the label prints.
+          Shopify won't schedule a sale to start, won't revert it, and won't run it by rule, so you flip prices by hand at midnight. The AI playbook that runs the whole promotion.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 6</span>
+          <span class="card-date">JUN 16</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
 
-<a href="how-to-catch-and-cancel-duplicate-orders-on-shopify.html" class="card">
+<a href="how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The order your customer placed twice</h3>
+        <h3 class="card-title">The ad budget you burn on sold-out products</h3>
         <p class="card-dek">
-          Two identical orders land four minutes apart, and Shopify has no duplicate detection anywhere in the admin. The AI playbook that cancels the copy before the label prints and tells the customer first.
+          A product sells out and your Google and Meta ads keep spending on it, because Shopify syncs a feed on a schedule and never pauses the ad itself. The AI playbook that pauses the exact ad for a sold-out product and turns it back on when stock returns.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUL 24</span>
+          <span class="card-date">JUL 12</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
 
-<a href="how-to-notify-customers-of-shipping-delays-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The delayed order no one tells your customer about</h3>
-        <p class="card-dek">
-          Shopify emails the customer when the order ships, never when it stalls, and Flow can only alert your own staff. The AI playbook that sends the honest delay email before the WISMO ticket arrives.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUL 22</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-<a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">6&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The &ldquo;where is my order?&rdquo; tickets that eat your afternoon</h3>
-        <p class="card-dek">
-          WISMO is ~18% of support tickets, over half during a sale. The AI playbook that reads the order and answers before customers ask.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUN 4</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-<a href="how-to-route-shopify-orders-to-the-right-warehouse.html" class="card">
-      <div class="card-body">
-        <div class="post-meta">
-          <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
-        </div>
-        <h3 class="card-title">The order that ships from the wrong warehouse</h3>
-        <p class="card-dek">
-          Shopify picks a location by straight-line distance and never reads a shipping rate. The AI playbook that routes each order on landed cost, cutoff, and backlog.
-        </p>
-        <div class="card-foot">
-          <span class="card-date">JUL 27</span>
-          <span class="card-author">P. Singh</span>
-        </div>
-      </div>
-    </a>
-
-<a href="how-to-automatically-tag-orders-on-shopify.html" class="card">
+<a href="how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The order tag you set by hand</h3>
+        <h3 class="card-title">The sold-out products that sink your collection</h3>
         <p class="card-dek">
-          Shopify Flow tags an order on one condition and can't read the note, so the tags that route everything downstream get set by hand. The AI playbook that reads the whole order and tags it.
+          Shopify leaves sold-out products at the top of your collection page, dragging down the conversion of everything in stock behind them. The AI playbook that re-merchandises as stock moves.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUN 18</span>
+          <span class="card-date">JUN 13</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
     </a>
 
-<a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" class="card">
+<a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The discount code that double-dips your sale</h3>
+        <p class="card-dek">
+          A shopper stacks the welcome code on your 40 percent markdowns and Shopify allows it, because a markdown is not a discount to the engine. The AI playbook that keeps every code off your sale prices.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
         </div>
-        <h3 class="card-title">The second order that arrives before the first ships</h3>
+        <h3 class="card-title">The free gift that never lands in the cart</h3>
         <p class="card-dek">
-          A customer orders again before the first order ships and pays delivery twice, and Shopify has no merge button. The AI playbook that catches the pair and ships one box.
+          You promise a free gift over a threshold, the customer crosses it, and the gift never shows, because a Shopify discount reduces a price but never adds the item, and a cart-page script skips every wallet-button path. The AI playbook that adds the right gift on every checkout path and pulls it when the cart drops.
         </p>
         <div class="card-foot">
-          <span class="card-date">JUL 2</span>
+          <span class="card-date">JUL 8</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-set-up-back-in-stock-notifications-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The restock alert that never fires</h3>
+        <p class="card-dek">
+          Shopify collects the email and then does nothing with it, so the people who wanted the item most hear about the restock last. The AI playbook that gets the alert out first.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 13</span>
           <span class="card-author">P. Singh</span>
         </div>
       </div>
