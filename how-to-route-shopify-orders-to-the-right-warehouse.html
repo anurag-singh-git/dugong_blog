@@ -99,7 +99,7 @@
           "name": "Why does Shopify ship from a far warehouse when a closer location has the item?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Usually because a rule above the distance rule already made the decision. Shopify's default routing strategy runs Minimize split fulfillments first, then Stay within the destination market, then Ship from closest location, and each rule filters the list the next one sees. A far location that stocks every line in the order outranks a near one that stocks three lines out of four, because the first rule has already eliminated the near one. Four other things send orders the long way. The closest location may have the option to fulfill online orders switched off. Its stock may exist but be committed to earlier orders. It may not be included in the shipping profile that produced the rate the customer paid. And closest is measured as straight-line distance, which Shopify's own documentation says is not driving distance, so a location across a bay or a mountain range can win on the map and lose on the truck."
+            "text": "Usually because a rule above the distance rule already made the decision. Shopify's default routing strategy runs Minimize split fulfillments first, then Stay within the destination market, then Ship from closest location, and each rule filters the list the next one sees. A far location that stocks every line in the order outranks a near one that stocks three lines out of four, because the first rule has already eliminated the near one. Four other things send orders the long way. The closest location may have the option to fulfill online orders switched off. Its stock may exist but be committed to earlier orders. It may not be in the shipping profile that produced the rate the customer paid. And closest is measured as straight-line distance, which Shopify's own documentation says is not driving distance, so a location across a bay or a mountain range can win on the map and lose on the truck."
           }
         },
         {
@@ -107,7 +107,7 @@
           "name": "Can Shopify Flow change the fulfillment location of an order?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Partly. Flow has a Move fulfillment order action, and it works well for rules you already know, such as sending every order over a certain weight to the warehouse that stocks pallets. It has two hard limits. The destination has to stock every line item in that fulfillment order or the run fails outright, which rules out most of the interesting cases. And you cannot move a fulfillment order once a fulfillment service has a request status of submitted or accepted, which is exactly the moment your 3PL already has it and the mistake is about to cost money. Flow also cannot compare carrier rates, measure driving distance, check a cutoff time, or ask whether a location is behind today, so it can execute a routing decision but it cannot make one."
+            "text": "Partly. Flow has a Move fulfillment order action, and it works well for rules you already know, such as sending every order over a certain weight to the warehouse that stocks pallets. It has two hard limits. The destination has to stock every line item in that fulfillment order or the run fails outright, which rules out most of the interesting cases. And you cannot move a fulfillment order once a fulfillment service has the request in a submitted or accepted state, which is exactly the moment your 3PL already has it and the mistake is about to cost money. Flow also cannot compare carrier rates, measure driving distance, check a cutoff time, or ask whether a location is running behind today, so it can execute a routing decision but it cannot make one."
           }
         },
         {
@@ -887,6 +887,56 @@ changes before a label is bought
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The quote that goes quiet</h3>
+        <p class="card-dek">
+          Shopify sends one draft order invoice and never a reminder, so quotes die in silence. The AI playbook that follows up, answers, and retires stale quotes.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">AUG 3</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-sync-inventory-between-two-shopify-stores.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The last unit both your stores just sold</h3>
+        <p class="card-dek">
+          Two Shopify stores cannot share a shelf: no native sync, drifting counts, the same last unit sold twice. The AI playbook that ends the double-sell for good.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">AUG 3</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-automatically-capture-payments-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The payment that expires before you capture it</h3>
+        <p class="card-dek">
+          Authorized is not paid: Shopify gives you 7 days to capture before the hold expires. The AI playbook that captures every order before the clock runs out.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">AUG 3</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-let-customers-cancel-their-own-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

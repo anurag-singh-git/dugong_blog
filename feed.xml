@@ -15,7 +15,37 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Sun, 02 Aug 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2026 14:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>How to automatically follow up on unpaid draft orders on Shopify</title>
+      <link>https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Mon, 03 Aug 2026 14:00:00 +0000</pubDate>
+      <description>An interior designer in Savannah emails a lighting studio about twelve brass pendants for a restaurant opening in October. The owner builds the draft order, applies her trade discount, writes a warm note, and clicks Send invoice, and Shopify's part is over: one email, one checkout link, and never a reminder. If she means to pay on Friday and forgets, nothing happens, not to her and not to you, no nudge, no second email, no alert that the quote is going cold. The forums have asked for years, the thread titled How to automate unpaid invoice reminders gets pointed at apps, and the Drafts page fills with open quotes meanwhile. Draft orders are Shopify's quote workflow, the phone order, the Instagram DM, the wholesale inquiry, the pro forma invoice a business buyer needs before paying, and here is the detail that stings: Shopify knows how to send payment reminders, orders with payment terms like net 30 can send up to five scheduled reminder emails, the machinery sits one screen away in the same admin, and draft order invoices are excluded from all of it. The checkout link never expires on any schedule you control either, and because draft prices are locked by default, a months-old email can still pay a price you have since raised. The AI playbook that reads each draft, not just its age, reminds on the cadence the quote deserves, reads every reply and routes it, checks stock before every nudge, retires quotes at your cutoff, escalates the ones worth a phone call, and reports the quote pipeline weekly.</description>
+    </item>
+
+    <item>
+      <title>How to sync inventory between two Shopify stores</title>
+      <link>https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Mon, 03 Aug 2026 13:00:00 +0000</pubDate>
+      <description>At 9:41 on a Saturday night the retail store sells the last Meridian hoodie in medium, and forty seconds later the wholesale store sells it again: one hoodie on the shelf, two customers who own it, and neither store did anything wrong. Two Shopify stores are two separate accounts, separate products, separate counts, separate admins, and the number in one store never learns the number in the other exists. Merchants have asked for years whether multiple Shopify websites can share one inventory, and the answer never changes: not natively. One store can track stock across multiple locations and route orders between warehouses, but locations live inside one account, a second store cannot even see that they exist, and Shopify Flow stops at the same wall. Shopify Collective connects two stores, but it is built for two businesses trading with each other, not one stockroom counted twice. So the fallback is the midnight spreadsheet that drifts by the hour, or a sync app whose sharp edges surface on the SKUs that do not match and the last unit both storefronts still race for. The AI playbook that maps every variant to its twin by SKU and reports the blanks, designates the store attached to the physical shelf as the source of truth, mirrors every sale, refund, restock, and correction with the reason attached, holds a buffer so the last units sell in one place only, catches the race when both stores sell the same unit anyway, pauses mirroring during bulk imports, and reconciles the counts nightly so the drift gets named before it becomes an oversell.</description>
+    </item>
+
+    <item>
+      <title>How to automatically capture payments on Shopify</title>
+      <link>https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Mon, 03 Aug 2026 12:00:00 +0000</pubDate>
+      <description>The boots ship Monday, the tracking updates, the customer is happy, and the $412 is still sitting in an authorization nobody captured. On Shopify, authorized is not paid: card payments are authorized at checkout and must be captured within the authorization period, 7 days on Shopify Payments, and a store on manual capture that treats fulfillment as the finish line finds out weeks later, reconciling payouts, that the money quietly went back to the customer's bank. The traps are documented and almost never read: capture at fulfillment only fires when the entire order is fulfilled, so every split shipment leaves an authorization running out the clock; the setting only applies to orders placed after it was activated; fulfillment apps that wait for a paid status deadlock against a capture that waits for fulfillment; Plus stores get extended authorization periods of up to 30 days on Visa, Mastercard, and Amex but pay an extra 1.75% on anything captured after day 7; and the only native warning is a single email, one day before expiry, in the same inbox as everything else. Shopify Flow can capture when an order is not high risk, and that is the happy path handled: it cannot wait for your actual fraud process, capture when the first box ships, chase a day-six authorization, choose void over silent expiry, or tell you what almost expired this week. The AI playbook that watches every authorization with its real deadline, captures on the trigger your policy actually names, escalates the expiring ones with evidence attached, voids the cancels so holds release cleanly, recovers the expired with a payment link in the same hour, and reports what it saved.</description>
+    </item>
 
     <item>
       <title>How to let customers cancel their own orders on Shopify</title>
