@@ -15,7 +15,17 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Mon, 03 Aug 2026 14:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2026 12:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>How to handle delivered but not received claims on Shopify</title>
+      <link>https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Fri, 07 Aug 2026 12:00:00 +0000</pubDate>
+      <description>The email lands Tuesday at 8:04 a.m.: it says delivered, nothing came, I was home all weekend. The tracking page backs her up and settles nothing, because delivered is a scan, not a doorstep: GPS handhelds mark packages delivered from the truck, drivers batch-scan a loop before walking it, and the standard carrier guidance is that a package marked delivered can surface 24 to 48 hours later. Or it went to the wrong porch. Or it was stolen off the right one. Or she is farming refunds. Each story has a different correct answer, and Shopify cannot tell you which one you are in: the order timeline marches to Delivered and stops, there is no claim workflow, Shopify Protect covers fraudulent and unrecognized chargebacks on eligible Shop Pay orders and a delivered-but-missing dispute is neither, and Shopify Flow's delivery trigger fires on carrier scans, never on a customer typing nothing came. So support refunds by default to close the ticket, which trains the addresses that claim often, or denies by default, which converts honest victims into item-not-received chargebacks you lose without a photo or a signature. Meanwhile the proof exists: FedEx photographs no-signature residential deliveries, UPS attaches delivery photos, USPS records GPS coordinates the local Post Office can read back, and none of it is anyone's job to pull at 8 a.m. The AI playbook that hears the claim on every channel, builds the evidence file in the same hour, runs the 48 hour play with the photo attached, scores the claim against value and history, decides by your policy, executes the reship or refund or denial end to end, and reports the addresses that keep coming back.</description>
+    </item>
 
     <item>
       <title>How to automatically follow up on unpaid draft orders on Shopify</title>

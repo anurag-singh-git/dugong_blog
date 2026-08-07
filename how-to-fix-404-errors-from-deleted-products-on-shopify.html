@@ -15,7 +15,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
 <meta property="article:published_time" content="2026-06-25" />
-    <meta property="article:modified_time" content="2026-06-25" />
+    <meta property="article:modified_time" content="2026-08-07" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -51,7 +51,7 @@
       "headline": "How to fix 404 errors from deleted products on Shopify",
       "description": "Shopify does not create a redirect when you delete a product. The old URL simply returns a 404, even though Google still has it indexed, your paid ads may still point at it, and your own internal links and external backlinks still send people to it. Changing a product handle and unpublishing a product break URLs the same silent way. The native fix is a manual redirect built one URL at a time, or a CSV you have to assemble by hand, and Shopify Flow cannot create a redirect at all. The AI playbook that watches for every delete, unpublish, and handle change, finds the closest live page for each broken URL, and writes the 301 before a customer or a crawler hits the dead end.",
       "datePublished": "2026-06-25",
-      "dateModified": "2026-06-25",
+      "dateModified": "2026-08-07",
       "articleSection": "Research",
       "keywords": "Shopify deleted product 404, redirect deleted product Shopify, Shopify 404 errors SEO, Shopify broken links, automatically redirect deleted product, bulk URL redirect Shopify, 301 redirect Shopify, product URL handle changed 404, soft 404",
       "wordCount": 2210,
@@ -117,7 +117,7 @@
             "text": "Only as a last resort. Redirecting a deleted product to the most relevant live page, a replacement product, the same collection, or the closest alternative, keeps both the customer and the link value on a page that matches what they wanted. Sending every dead URL to the homepage instead is treated by search engines as a soft 404, because the destination has nothing to do with the original page, so you lose the link equity anyway and you drop the customer somewhere they then have to search from scratch. The right move is a relevant 301 per URL, with the homepage used only when genuinely nothing else fits."
           }
         }
-      ]
+      ,{"@type": "Question", "name": "Can Shopify Flow create a redirect when a product is deleted?", "acceptedAnswer": {"@type": "Answer", "text": "No. Flow, which is free on every plan, can react to a product being deleted and can send you an internal notification about it, but it has no action that creates a URL redirect, so the one step that actually fixes the 404 is the step it cannot take. That gap defines the workarounds. Notification-only setups still depend on a human remembering to add the redirect in the admin. Most redirect apps log a 404 after a visitor has already hit it, or apply blanket pattern rules. And sending everything to the homepage trades a 404 for a soft 404, which throws away the link equity anyway. The working shape is an automation that catches the deletion, unpublish, or handle change in the moment, reads what the page was, chooses the closest live target, writes the 301 itself, and holds only the URLs with real traffic or backlinks for a human to confirm."}},{"@type": "Question", "name": "How do I find the 404 errors already piling up on my Shopify store?", "acceptedAnswer": {"@type": "Answer", "text": "Search Console is the honest mirror: its not found report lists the URLs Google is still trying to reach, and the deleted products and renamed handles are usually recognizable straight from the paths. Your analytics show the same dead ends arriving as landing pages that bounce immediately, and redirect apps keep hit logs of 404s as visitors trip them. Two habits make the list useful instead of depressing. First, triage by weight: a URL with rankings, backlinks, or steady traffic deserves a hand-picked destination, while long-tail strays can take a rule-based target. Second, treat the backlog as a symptom. Every URL on that list went dark at a specific moment, a deletion, an unpublish, a handle edit, so pair the cleanup with an automation that catches those moments and writes the 301 before the next wall of 404s accumulates."}}]
     },
     {
       "@type": "HowTo",
@@ -290,13 +290,13 @@ em { font-style: italic; }
 /* NAV */
 .nav {
   position: sticky; top: 0; z-index: 50;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 var(--gutter); height: 66px;
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0 var(--gutter); min-height: 66px;
   background: rgba(246,246,241,.72);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
-.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; }
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; min-width: 0; }
 .brand-mark {
   width: 26px; height: 26px; border-radius: 8px; background: #11110e;
   display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
@@ -315,10 +315,18 @@ em { font-style: italic; }
   font-family: var(--display); font-weight: 700; font-size: 14.5px;
   background: var(--lime); color: #11110e !important;
   border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  white-space: nowrap; flex-shrink: 0;
   transition: transform .15s ease, box-shadow .2s;
 }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
 @media (max-width: 820px) { .nav-links a:not(.nav-cta) { display: none; } }
+@media (max-width: 480px) {
+  .brand-slash, .brand-section { display: none; }
+  .nav-cta { font-size: 12.5px; padding: 8px 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 11.5px; padding: 7px 10px; }
+}
 
 /* SECTION HEAD */
 .section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
@@ -853,6 +861,14 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <h2 class="faq-q">Should you redirect deleted Shopify products to the homepage?</h2>
       <p class="faq-a">Only as a last resort. Redirecting a deleted product to the most relevant live page, a replacement product, the same collection, or the closest alternative, keeps both the customer and the link value on a page that matches what they wanted. Sending every dead URL to the homepage instead is treated by search engines as a soft 404, because the destination has nothing to do with the original page, so you lose the link equity anyway and you drop the customer somewhere they then have to search from scratch. The right move is a relevant 301 per URL, with the homepage used only when genuinely nothing else fits.</p>
     </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Can Shopify Flow create a redirect when a product is deleted?</h2>
+      <p class="faq-a">No. Flow, which is free on every plan, can react to a product being deleted and can send you an internal notification about it, but it has no action that creates a URL redirect, so the one step that actually fixes the 404 is the step it cannot take. That gap defines the workarounds. Notification-only setups still depend on a human remembering to add the redirect in the admin. Most redirect apps log a 404 after a visitor has already hit it, or apply blanket pattern rules. And sending everything to the homepage trades a 404 for a soft 404, which throws away the link equity anyway. The working shape is an automation that catches the deletion, unpublish, or handle change in the moment, reads what the page was, chooses the closest live target, writes the 301 itself, and holds only the URLs with real traffic or backlinks for a human to confirm.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">How do I find the 404 errors already piling up on my Shopify store?</h2>
+      <p class="faq-a">Search Console is the honest mirror: its not found report lists the URLs Google is still trying to reach, and the deleted products and renamed handles are usually recognizable straight from the paths. Your analytics show the same dead ends arriving as landing pages that bounce immediately, and redirect apps keep hit logs of 404s as visitors trip them. Two habits make the list useful instead of depressing. First, triage by weight: a URL with rankings, backlinks, or steady traffic deserves a hand-picked destination, while long-tail strays can take a rule-based target. Second, treat the backlog as a symptom. Every URL on that list went dark at a specific moment, a deletion, an unpublish, a handle edit, so pair the cleanup with an automation that catches those moments and writes the 301 before the next wall of 404s accumulates.</p>
+    </div>
   </div>
 </section>
 
@@ -862,6 +878,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-handle-delivered-but-not-received-claims-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The package that says delivered but never arrived</h3>
+        <p class="card-dek">
+          Tracking says delivered, the porch says nothing, and the refund is on you. The AI playbook that pulls carrier proof, runs the 48 hour play, and decides with evidence.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">AUG 7</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

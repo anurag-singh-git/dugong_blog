@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta property="article:published_time" content="2026-05-28" />
-    <meta property="article:modified_time" content="2026-06-13" />
+    <meta property="article:modified_time" content="2026-08-07" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -51,7 +51,7 @@
       "headline": "The best Shopify automations to set up",
       "description": "Tagging is 14% of every Shopify workflow merchants ship. Returns and refunds, the work that actually scales with order volume, are under 1%. A field study of 1,374 playbooks and the gap between what's easy to automate and what's worth automating.",
       "datePublished": "2026-05-28",
-      "dateModified": "2026-06-13",
+      "dateModified": "2026-08-07",
       "articleSection": "Research",
       "keywords": "Shopify automation, Shopify Flow, ecommerce returns, order tagging, refund automation",
       "wordCount": 1650,
@@ -116,7 +116,7 @@
             "text": "Traditional drag-and-drop automation rewards tasks that fit neat if-this-then-that rules, so merchants automate simple tagging and notifications. The high-value work, returns, refunds, support exceptions, involves judgment and branching that rule builders handle poorly. An AI playbook closes the gap by letting merchants describe the messy workflow in plain language and compiling it into a running automation."
           }
         }
-      ]
+      ,{"@type": "Question", "name": "Which Shopify automation should a merchant set up first?", "acceptedAnswer": {"@type": "Answer", "text": "Start where the labor actually scales with order volume, not where the builder makes it easiest. In the 1,374 workflows we studied, tagging was 14% of everything shipped while returns and refunds together were 0.8%, which means most merchants automate the label and keep doing the work the label points at. The four setups that pay back fastest in our field data: VIP detection that reads order history, review scores, and cohort lifetime value instead of a single spend threshold; refund triage that reads the customer's message and photos before deciding; chargeback evidence assembly that pulls the order, the auth log, the conversation, the tracking, and the delivery scan into one packet; and abandoned-checkout classification that works out why the cart stalled before choosing the message. One fashion brand saw a 34% lift in repeat purchases after wiring VIP recognition to land within twenty-four hours of a customer qualifying."}},{"@type": "Question", "name": "Can Shopify Flow build the automations that are actually worth it?", "acceptedAnswer": {"@type": "Answer", "text": "Flow is genuinely good at the trigger, condition, action shape: when an order is paid, if value crosses a threshold, add a tag. That is why tagging is 14% of shipped workflows, and why 67% of the 1,374 workflows we studied had four or fewer steps. The high-value jobs are a different shape. Refund triage has to read a complaint and its photos, judge damage against a dollar threshold, check whether this is the customer's third return in 60 days, and route the gray cases to a human. Chargeback evidence lives in five systems: Shopify holds the order, Stripe the auth log, Gorgias the conversation, ShipStation the tracking, the 3PL the proof-of-delivery scan. Work like that needs an agent that can read messages and evidence and follow a prose playbook, which is the gap the compiler approach exists to close. Use Flow for the rules; describe the judgment calls in plain English."}}]
     },
     {
       "@type": "ItemList",
@@ -264,13 +264,13 @@ em { font-style: italic; }
 /* NAV */
 .nav {
   position: sticky; top: 0; z-index: 50;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 var(--gutter); height: 66px;
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0 var(--gutter); min-height: 66px;
   background: rgba(246,246,241,.72);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
-.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; }
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; min-width: 0; }
 .brand-mark {
   width: 26px; height: 26px; border-radius: 8px; background: #11110e;
   display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
@@ -289,10 +289,18 @@ em { font-style: italic; }
   font-family: var(--display); font-weight: 700; font-size: 14.5px;
   background: var(--lime); color: #11110e !important;
   border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  white-space: nowrap; flex-shrink: 0;
   transition: transform .15s ease, box-shadow .2s;
 }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
 @media (max-width: 820px) { .nav-links a:not(.nav-cta) { display: none; } }
+@media (max-width: 480px) {
+  .brand-slash, .brand-section { display: none; }
+  .nav-cta { font-size: 12.5px; padding: 8px 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 11.5px; padding: 7px 10px; }
+}
 
 /* HERO */
 .hero {
@@ -456,11 +464,15 @@ em { font-style: italic; }
 .signup-form { display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 1; }
 .signup-label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.75rem; }
 .signup-row { display: flex; gap: 0.5rem; margin-bottom: 0.85rem; }
-.signup-row input { flex: 1; background: var(--surface); border: 1px solid var(--border-strong); color: var(--text); padding: 0.9rem 1rem; font-family: var(--body); font-size: 0.95rem; border-radius: 10px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+.signup-row input { flex: 1; min-width: 0; background: var(--surface); border: 1px solid var(--border-strong); color: var(--text); padding: 0.9rem 1rem; font-family: var(--body); font-size: 0.95rem; border-radius: 10px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
 .signup-row input:focus { border-color: var(--lime-deep); box-shadow: 0 0 0 3px var(--lime-tint); }
 .signup-row input::placeholder { color: var(--text-faint); }
-.signup-row button { font-family: var(--display); font-weight: 700; background: #11110e; color: #fff; border: none; padding: 0.9rem 1.4rem; font-size: 0.9rem; border-radius: 10px; cursor: pointer; transition: transform .15s ease, box-shadow .2s; }
+.signup-row button { font-family: var(--display); font-weight: 700; background: #11110e; color: #fff; border: none; padding: 0.9rem 1.4rem; font-size: 0.9rem; border-radius: 10px; cursor: pointer; white-space: nowrap; transition: transform .15s ease, box-shadow .2s; }
 .signup-row button:hover { transform: translateY(-1px); box-shadow: 0 12px 30px -12px rgba(15,15,12,.5); }
+@media (max-width: 420px) {
+  .signup-row { flex-direction: column; }
+  .signup-row button { width: 100%; }
+}
 .signup-fine { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.03em; color: var(--text-faint); }
 
 /* ARCHIVE */
@@ -1014,6 +1026,14 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <h2 class="faq-q">Why is there a gap between easy-to-automate and worth-automating Shopify tasks?</h2>
       <p class="faq-a">Traditional drag-and-drop automation rewards tasks that fit neat if-this-then-that rules, so merchants automate simple tagging and notifications. The high-value work, returns, refunds, support exceptions, involves judgment and branching that rule builders handle poorly. An AI playbook closes the gap by letting merchants describe the messy workflow in plain language and compiling it into a running automation.</p>
     </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Which Shopify automation should a merchant set up first?</h2>
+      <p class="faq-a">Start where the labor actually scales with order volume, not where the builder makes it easiest. In the 1,374 workflows we studied, tagging was 14% of everything shipped while returns and refunds together were 0.8%, which means most merchants automate the label and keep doing the work the label points at. The four setups that pay back fastest in our field data: VIP detection that reads order history, review scores, and cohort lifetime value instead of a single spend threshold; refund triage that reads the customer's message and photos before deciding; chargeback evidence assembly that pulls the order, the auth log, the conversation, the tracking, and the delivery scan into one packet; and abandoned-checkout classification that works out why the cart stalled before choosing the message. One fashion brand saw a 34% lift in repeat purchases after wiring VIP recognition to land within twenty-four hours of a customer qualifying.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Can Shopify Flow build the automations that are actually worth it?</h2>
+      <p class="faq-a">Flow is genuinely good at the trigger, condition, action shape: when an order is paid, if value crosses a threshold, add a tag. That is why tagging is 14% of shipped workflows, and why 67% of the 1,374 workflows we studied had four or fewer steps. The high-value jobs are a different shape. Refund triage has to read a complaint and its photos, judge damage against a dollar threshold, check whether this is the customer's third return in 60 days, and route the gray cases to a human. Chargeback evidence lives in five systems: Shopify holds the order, Stripe the auth log, Gorgias the conversation, ShipStation the tracking, the 3PL the proof-of-delivery scan. Work like that needs an agent that can read messages and evidence and follow a prose playbook, which is the gap the compiler approach exists to close. Use Flow for the rules; describe the judgment calls in plain English.</p>
+    </div>
   </div>
 </section>
 
@@ -1023,6 +1043,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-handle-delivered-but-not-received-claims-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The package that says delivered but never arrived</h3>
+        <p class="card-dek">
+          Tracking says delivered, the porch says nothing, and the refund is on you. The AI playbook that pulls carrier proof, runs the 48 hour play, and decides with evidence.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">AUG 7</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
 <a href="how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
