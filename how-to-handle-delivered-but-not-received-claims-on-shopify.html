@@ -115,11 +115,29 @@
         "url": "https://dugong.live",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://blog.dugong.live/og-image.png",
-          "width": 1200,
-          "height": 630
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
         }
-      }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shop Pay",
+          "url": "https://help.shopify.com/en/manual/payments/shop-pay"
+        },
+        {
+          "@type": "WebPage",
+          "name": "About webhooks",
+          "url": "https://shopify.dev/docs/apps/build/webhooks"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -141,9 +159,46 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-{"@type": "Question", "name": "Who is responsible when a package is marked delivered but the customer says it never arrived?", "acceptedAnswer": {"@type": "Answer", "text": "Practically, the merchant is. The carrier's contract ends at the delivery scan, and a package with a delivered status is nearly impossible to claim as lost: UPS and FedEx will open a delivery investigation, and USPS accepts a Missing Mail search after 7 business days, but a scan with GPS coordinates at the right address usually closes the case in the carrier's favor. The card networks point the same direction: if the customer disputes the charge as item not received, the burden of proof is on the merchant, and the winning evidence is delivery confirmation to the address on the order, an AVS match from checkout, a delivery photo, and a signature for high-value shipments. A shipping policy page that says not responsible for stolen packages does not bind the customer's bank. So the practical question is not who is responsible but what evidence you can produce and how fast: the photo, the GPS readback, and the correspondence, gathered while the claim is hours old, decide most cases either way."}},{"@type": "Question", "name": "Does Shopify Protect cover delivered but not received chargebacks?", "acceptedAnswer": {"@type": "Answer", "text": "No. Shopify Protect protects eligible Shop Pay orders against fraudulent and unrecognized chargebacks, the disputes where a cardholder says the purchase was not authorized or not recognized. A customer who says the package never arrived files under item not received, which is a different reason code and is not covered, even on an order wearing the protected badge. That distinction surprises merchants at the worst moment: the order says protected, the dispute arrives, and the response is still yours to build. For item not received disputes you respond with delivery evidence: tracking showing delivered to the address on the order, the delivery photo if the carrier took one, GPS coordinates from the carrier if you requested them, the AVS result from checkout, and your correspondence with the customer. Signature confirmation is the strongest single item and worth requiring automatically above a value threshold you choose."}},{"@type": "Question", "name": "Should I refund, reship, or deny when tracking shows the package was delivered?", "acceptedAnswer": {"@type": "Answer", "text": "Wait first, then decide by evidence and history, not by mood. Carriers mark packages delivered early often enough that the standard guidance is to give it 24 to 48 hours: reply in the first hour with the delivery photo and a short checklist covering household members, neighbors, side doors, and the building office, and a real share of claims close themselves when the package surfaces or the photo shows someone else's porch. If nothing surfaces, split by stakes. A first claim from a customer with clean history on a low-value order is a reship or refund: the goodwill costs you the product at cost, and fighting it costs more. A high-value order waits for the GPS readback and the carrier trace before anything moves, and ships again only with signature required. A repeat pattern, whether the same customer, the same address, or the same building cluster, gets a polite denial with the evidence file attached, because paying it once more buys the next claim. Put thresholds on those doors in advance so the queue stops improvising."}},
-{"@type": "Question", "name": "Do carriers provide photo proof of delivery for disputed packages?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, and it is better evidence than most merchants realize they have. FedEx runs Picture Proof of Delivery on residential deliveries released without a signature in the US and Canada: the driver photographs the package where it sits, and the photo appears on the tracking page, free, with no account or login required. UPS attaches delivery photos to many residential stops the same way. USPS does not photograph doorsteps, but its delivered scan carries GPS coordinates, and your local Post Office counter can read them back if you ask there rather than calling the 800 number; at 7 business days you can also file a Missing Mail search. The catch is that none of it arrives on its own. The evidence sits scattered across three carrier sites, gated behind the right question, so at 8:04 on a Tuesday with a queue building, nobody pulls it."}},
-{"@type": "Question", "name": "Can Shopify Flow detect a delivered but not received claim?", "acceptedAnswer": {"@type": "Answer", "text": "No. The claim is a customer typing nothing came, and that is an email, not a webhook, so no Flow trigger exists for it. The closest trigger, Fulfillment event created, fires on updates from third-party fulfillment services as a package moves through picked up, in transit, and delivered, and the documentation adds the line that decides the matter for half the stores reading it: manual fulfillment events do not start workflows. Fulfill by hand and even the delivered scan may pass Flow by. So Flow can tag delivered orders, but it cannot hear a claim, and nothing native records one either. Shopify has no claim object, so an order that is delivered and disputed looks identical to one that is delivered and fine, and the third nothing-came from the same address this year opens exactly like the first."}}
+        {
+          "@type": "Question",
+          "name": "Who is responsible when a package is marked delivered but the customer says it never arrived?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Practically, the merchant is. The carrier's contract ends at the delivery scan, and a package with a delivered status is nearly impossible to claim as lost: UPS and FedEx will open a delivery investigation, and USPS accepts a Missing Mail search after 7 business days, but a scan with GPS coordinates at the right address usually closes the case in the carrier's favor. The card networks point the same direction: if the customer disputes the charge as item not received, the burden of proof is on the merchant, and the winning evidence is delivery confirmation to the address on the order, an AVS match from checkout, a delivery photo, and a signature for high-value shipments. A shipping policy page that says not responsible for stolen packages does not bind the customer's bank. So the practical question is not who is responsible but what evidence you can produce and how fast: the photo, the GPS readback, and the correspondence, gathered while the claim is hours old, decide most cases either way."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Shopify Protect cover delivered but not received chargebacks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Shopify Protect protects eligible Shop Pay orders against fraudulent and unrecognized chargebacks, the disputes where a cardholder says the purchase was not authorized or not recognized. A customer who says the package never arrived files under item not received, which is a different reason code and is not covered, even on an order wearing the protected badge. That distinction surprises merchants at the worst moment: the order says protected, the dispute arrives, and the response is still yours to build. For item not received disputes you respond with delivery evidence: tracking showing delivered to the address on the order, the delivery photo if the carrier took one, GPS coordinates from the carrier if you requested them, the AVS result from checkout, and your correspondence with the customer. Signature confirmation is the strongest single item and worth requiring automatically above a value threshold you choose."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I refund, reship, or deny when tracking shows the package was delivered?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wait first, then decide by evidence and history, not by mood. Carriers mark packages delivered early often enough that the standard guidance is to give it 24 to 48 hours: reply in the first hour with the delivery photo and a short checklist covering household members, neighbors, side doors, and the building office, and a real share of claims close themselves when the package surfaces or the photo shows someone else's porch. If nothing surfaces, split by stakes. A first claim from a customer with clean history on a low-value order is a reship or refund: the goodwill costs you the product at cost, and fighting it costs more. A high-value order waits for the GPS readback and the carrier trace before anything moves, and ships again only with signature required. A repeat pattern, whether the same customer, the same address, or the same building cluster, gets a polite denial with the evidence file attached, because paying it once more buys the next claim. Put thresholds on those doors in advance so the queue stops improvising."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do carriers provide photo proof of delivery for disputed packages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and it is better evidence than most merchants realize they have. FedEx runs Picture Proof of Delivery on residential deliveries released without a signature in the US and Canada: the driver photographs the package where it sits, and the photo appears on the tracking page, free, with no account or login required. UPS attaches delivery photos to many residential stops the same way. USPS does not photograph doorsteps, but its delivered scan carries GPS coordinates, and your local Post Office counter can read them back if you ask there rather than calling the 800 number; at 7 business days you can also file a Missing Mail search. The catch is that none of it arrives on its own. The evidence sits scattered across three carrier sites, gated behind the right question, so at 8:04 on a Tuesday with a queue building, nobody pulls it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Shopify Flow detect a delivered but not received claim?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The claim is a customer typing nothing came, and that is an email, not a webhook, so no Flow trigger exists for it. The closest trigger, Fulfillment event created, fires on updates from third-party fulfillment services as a package moves through picked up, in transit, and delivered, and the documentation adds the line that decides the matter for half the stores reading it: manual fulfillment events do not start workflows. Fulfill by hand and even the delivered scan may pass Flow by. So Flow can tag delivered orders, but it cannot hear a claim, and nothing native records one either. Shopify has no claim object, so an order that is delivered and disputed looks identical to one that is delivered and fine, and the third nothing-came from the same address this year opens exactly like the first."
+          }
+        }
       ]
     },
     {
@@ -154,13 +209,55 @@
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
-{"@type": "HowToStep", "position": 1, "name": "Hear the claim on every channel", "text": "Match the nothing-came message to its order no matter where it arrives, and open a case file on the order itself", "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 2, "name": "Pull the proof while it is fresh", "text": "Delivery scan time, carrier photo, GPS readback, address match, AVS result, and signature status, gathered in the first hour", "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 3, "name": "Run the 48 hour play", "text": "Reply the same hour with the photo and the checklist, follow up on day 2, file the carrier trace and the USPS Missing Mail search on schedule", "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 4, "name": "Score the claim", "text": "Order value against cost of goods, first claim or pattern, AVS match, and what the delivery photo actually shows", "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 5, "name": "Decide by policy", "text": "Reship with signature, refund, hold for the trace, or deny with the file attached, on thresholds the store chose in advance", "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 6, "name": "Execute end to end", "text": "Duplicate the order with signature required, refund with a tagged reason, send the denial with evidence, and draft the chargeback response before it is needed", "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 7, "name": "Report weekly", "text": "Claims by carrier, by zip, by SKU, cost per decision, signature threshold tuning, and the addresses that keep coming back", "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"}
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Hear the claim on every channel",
+          "text": "Match the nothing-came message to its order no matter where it arrives, and open a case file on the order itself",
+          "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Pull the proof while it is fresh",
+          "text": "Delivery scan time, carrier photo, GPS readback, address match, AVS result, and signature status, gathered in the first hour",
+          "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Run the 48 hour play",
+          "text": "Reply the same hour with the photo and the checklist, follow up on day 2, file the carrier trace and the USPS Missing Mail search on schedule",
+          "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Score the claim",
+          "text": "Order value against cost of goods, first claim or pattern, AVS match, and what the delivery photo actually shows",
+          "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Decide by policy",
+          "text": "Reship with signature, refund, hold for the trace, or deny with the file attached, on thresholds the store chose in advance",
+          "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Execute end to end",
+          "text": "Duplicate the order with signature required, refund with a tagged reason, send the denial with evidence, and draft the chargeback response before it is needed",
+          "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Report weekly",
+          "text": "Claims by carrier, by zip, by SKU, cost per decision, signature threshold tuning, and the addresses that keep coming back",
+          "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"
+        }
       ]
     }
   ]
@@ -188,14 +285,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -499,9 +596,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 102</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">AUG 7, 2026</span>
+    <time datetime="2026-08-07" style="color: var(--cream-dim);">AUG 7, 2026</time>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">10 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-12" style="color: var(--cream-dim);">UPDATED AUG 12, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -618,7 +717,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <p>
-      If you run Shop Pay you may believe you are covered, and this is
+      If you run <a href="https://help.shopify.com/en/manual/payments/shop-pay" target="_blank" rel="noopener">Shop Pay</a> you may believe you are covered, and this is
       the boundary worth reading twice. Shopify Protect protects
       eligible orders against fraudulent and unrecognized chargebacks:
       the cardholder who says I did not make this purchase. A customer
@@ -630,7 +729,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <p>
-      Shopify Flow gets you closer than nothing and stops short of
+      <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Shopify Flow</a> gets you closer than nothing and stops short of
       useful. The one delivery-aware trigger, Fulfillment event
       created, fires on updates from third-party fulfillment services,
       picked up, in transit, delivered, and the documentation adds a
@@ -639,7 +738,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       hand and even the delivered scan may pass Flow by. Either way,
       no trigger exists for the event that actually starts this
       problem, a customer typing nothing came, because that is an
-      email, not a webhook. Flow can
+      email, not a <a href="https://shopify.dev/docs/apps/build/webhooks" target="_blank" rel="noopener">webhook</a>. Flow can
       <a href="how-to-automatically-tag-orders-on-shopify.html">tag
       delivered orders</a>. It cannot hear a claim.
     </p>
@@ -935,6 +1034,38 @@ package never arrived, on any channel
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

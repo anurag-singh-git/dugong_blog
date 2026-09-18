@@ -115,11 +115,29 @@
         "url": "https://dugong.live",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://blog.dugong.live/og-image.png",
-          "width": 1200,
-          "height": 630
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
         }
-      }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Payments",
+          "url": "https://help.shopify.com/en/manual/payments/shopify-payments"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        },
+        {
+          "@type": "WebPage",
+          "name": "About webhooks",
+          "url": "https://shopify.dev/docs/apps/build/webhooks"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -165,8 +183,22 @@
             "text": "Audit SKUs first, mirror one way, and reconcile nightly. Sync tools match variants by SKU, so a blank or duplicated SKU becomes a silent miss or a wrong match; fix the catalog before wiring anything. Pick one store per SKU as the source of truth, usually the store attached to the physical shelf, and mirror changes outward instead of running two-way sync, which is how feedback loops corrupt both stores. Run the first two weeks in dry-run mode, where the automation reports what it would have changed and you check its arithmetic, then let the clear cases run and keep the odd ones for a human. Pause mirroring during bulk imports and supplier feed updates, and reconcile the full count nightly with a report naming the SKUs that keep drifting, because a sync that is quietly wrong is worse than no sync at all."
           }
         },
-{"@type": "Question", "name": "How do I stop two Shopify stores from selling the same last unit?", "acceptedAnswer": {"@type": "Answer", "text": "With a buffer, because the double-sell is a policy problem before it is a speed problem: the final units of anything should be sellable in one place only. Holding two units back on the mirrored store means the wholesale site shows sold out while retail sells the last two at full margin, or the reverse if stockists are the priority, and which store wins the endgame is a decision about your business, which is exactly why no app ships it as a default. When the race happens inside the sync window anyway, a rule refunds whichever order arrived second, which on a bad night means refunding a stockist who reorders every quarter in favor of a first-time buyer an hour old. The better version weighs both orders, keeps the one the relationship says to keep, and sends the other customer an apology with a restock date inside the hour."}},
-{"@type": "Question", "name": "Should inventory sync keep running during a bulk import?", "acceptedAnswer": {"@type": "Answer", "text": "No. Pause the mirror while bulk imports and supplier feeds run, and reconcile before it resumes, because the mirror itself can become the weapon: a supplier CSV that zeroes a column, imported into the source store with the mirror live, becomes two zeroed catalogs at machine speed. The app reviews document the neighboring failures, one sync that rewrote SKUs and zeroed inventory across the catalog, where the recovery was a full physical recount, and a two-way sync that kept firing after the app was uninstalled, pushing stale counts back and forth while collections quietly dropped out of view. The habit that keeps any mirror honest is the nightly count comparison with the drift reported each morning and the repeat offenders named, because a SKU that drifts weekly has a physical cause standing in your stockroom, not a software one."}}
+        {
+          "@type": "Question",
+          "name": "How do I stop two Shopify stores from selling the same last unit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "With a buffer, because the double-sell is a policy problem before it is a speed problem: the final units of anything should be sellable in one place only. Holding two units back on the mirrored store means the wholesale site shows sold out while retail sells the last two at full margin, or the reverse if stockists are the priority, and which store wins the endgame is a decision about your business, which is exactly why no app ships it as a default. When the race happens inside the sync window anyway, a rule refunds whichever order arrived second, which on a bad night means refunding a stockist who reorders every quarter in favor of a first-time buyer an hour old. The better version weighs both orders, keeps the one the relationship says to keep, and sends the other customer an apology with a restock date inside the hour."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should inventory sync keep running during a bulk import?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Pause the mirror while bulk imports and supplier feeds run, and reconcile before it resumes, because the mirror itself can become the weapon: a supplier CSV that zeroes a column, imported into the source store with the mirror live, becomes two zeroed catalogs at machine speed. The app reviews document the neighboring failures, one sync that rewrote SKUs and zeroed inventory across the catalog, where the recovery was a full physical recount, and a two-way sync that kept firing after the app was uninstalled, pushing stale counts back and forth while collections quietly dropped out of view. The habit that keeps any mirror honest is the nightly count comparison with the drift reported each morning and the repeat offenders named, because a SKU that drifts weekly has a physical cause standing in your stockroom, not a software one."
+          }
+        }
       ]
     },
     {
@@ -256,14 +288,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -567,9 +599,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 100</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">AUG 3, 2026</span>
+    <time datetime="2026-08-03" style="color: var(--cream-dim);">AUG 3, 2026</time>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">9 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-13" style="color: var(--cream-dim);">UPDATED AUG 13, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -646,7 +680,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       store can track stock across multiple locations, route orders
       between warehouses, and show a combined count. But locations live
       inside one account. A second store cannot read them, cannot
-      subscribe to them, cannot even see that they exist. Shopify Flow
+      subscribe to them, cannot even see that they exist. <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Shopify Flow</a>
       stops at the same wall: it automates one store at a time, with no
       trigger that reaches across accounts.
     </p>
@@ -657,7 +691,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       connects two stores so a retailer can list a supplier's products,
       with inventory and prices synced and the wholesale cut paid out
       automatically. It is built for two businesses trading with each
-      other: US stores, US dollars, Shopify Payments, and a sales
+      other: US stores, US dollars, <a href="https://help.shopify.com/en/manual/payments/shopify-payments" target="_blank" rel="noopener">Shopify Payments</a>, and a sales
       history bar to clear. If both stores are yours, you would be
       onboarding yourself as your own supplier and routing a payout
       between your own bank accounts to move a number between two
@@ -901,7 +935,7 @@ refund, cancellation, restock, manual edit
       more and apologize to the other customer within the hour.
       And every morning, tell me which counts disagreed and which
       SKUs keep doing it. That is the brief. The compiler handles
-      the webhooks, the sequencing, and the timing, and the Meridian
+      the <a href="https://shopify.dev/docs/apps/build/webhooks" target="_blank" rel="noopener">webhooks</a>, the sequencing, and the timing, and the Meridian
       hoodie stops being owned by two people at once.
     </p>
 
@@ -974,6 +1008,38 @@ refund, cancellation, restock, manual edit
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

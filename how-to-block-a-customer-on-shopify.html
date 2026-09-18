@@ -45,7 +45,9 @@
     {
       "@type": "BlogPosting",
       "@id": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#article",
-      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
       "mainEntityOfPage": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html",
       "headline": "How to block a customer on Shopify from placing orders",
@@ -57,38 +59,91 @@
       "wordCount": 2290,
       "timeRequired": "PT10M",
       "inLanguage": "en",
-      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
       "about": [
-        { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "Return fraud", "sameAs": "https://en.wikipedia.org/wiki/Return_fraud" },
-        { "@type": "Thing", "name": "Chargeback", "sameAs": "https://en.wikipedia.org/wiki/Chargeback" },
-        { "@type": "Thing", "name": "Customer service", "sameAs": "https://en.wikipedia.org/wiki/Customer_service" },
-        { "@type": "Thing", "name": "E-commerce", "sameAs": "https://en.wikipedia.org/wiki/E-commerce" }
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "@type": "Thing",
+          "name": "Return fraud",
+          "sameAs": "https://en.wikipedia.org/wiki/Return_fraud"
+        },
+        {
+          "@type": "Thing",
+          "name": "Chargeback",
+          "sameAs": "https://en.wikipedia.org/wiki/Chargeback"
+        },
+        {
+          "@type": "Thing",
+          "name": "Customer service",
+          "sameAs": "https://en.wikipedia.org/wiki/Customer_service"
+        },
+        {
+          "@type": "Thing",
+          "name": "E-commerce",
+          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+        }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".article-title", ".faq"]
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
       },
       "author": {
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
         "jobTitle": "Commerce Research, Dugong",
-        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://blog.dugong.live/#organization",
         "name": "Dugong",
         "url": "https://dugong.live",
-        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
-      }
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The customer you can't ban", "item": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The customer you can't ban",
+          "item": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html"
+        }
       ]
     },
     {
@@ -144,12 +199,48 @@
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
-        { "@type": "HowToStep", "position": 1, "name": "Keep a blocklist built on identity, not one email", "text": "Record every signal for each blocked customer: email variants and aliases, phone, shipping address, payment fingerprint, and the history that earned the block", "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 2, "name": "Check every new order against the list", "text": "Screen each incoming order at creation, before fulfillment starts, instead of discovering the name after the box shipped", "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 3, "name": "Decide match or coincidence from the whole record", "text": "Weigh all the signals together: a shared surname is nothing, a fresh email shipping to the exact same flat is not", "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 4, "name": "Cancel before fulfillment and restock", "text": "Cancel the confirmed match while the order is still unfulfilled, restock the inventory, and keep the paper trail of why", "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 5, "name": "Watch for the comeback attempt", "text": "Treat every block as the start of a pattern: new aliases, new accounts, and small address edits that point at the same person feed back into the list", "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 6, "name": "Escalate the ambiguous match to a human", "text": "Route the borderline cases to a person with the full history attached, because canceling a good customer's order costs more than one bad order slipping through", "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook" }
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Keep a blocklist built on identity, not one email",
+          "text": "Record every signal for each blocked customer: email variants and aliases, phone, shipping address, payment fingerprint, and the history that earned the block",
+          "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Check every new order against the list",
+          "text": "Screen each incoming order at creation, before fulfillment starts, instead of discovering the name after the box shipped",
+          "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Decide match or coincidence from the whole record",
+          "text": "Weigh all the signals together: a shared surname is nothing, a fresh email shipping to the exact same flat is not",
+          "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Cancel before fulfillment and restock",
+          "text": "Cancel the confirmed match while the order is still unfulfilled, restock the inventory, and keep the paper trail of why",
+          "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Watch for the comeback attempt",
+          "text": "Treat every block as the start of a pattern: new aliases, new accounts, and small address edits that point at the same person feed back into the list",
+          "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Escalate the ambiguous match to a human",
+          "text": "Route the borderline cases to a person with the full history attached, because canceling a good customer's order costs more than one bad order slipping through",
+          "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html#playbook"
+        }
       ]
     }
   ]
@@ -180,14 +271,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -491,9 +582,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 89</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">JUL 23, 2026</span>
+    <time datetime="2026-07-23" style="color: var(--cream-dim);">JUL 23, 2026</time>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">10 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-14" style="color: var(--cream-dim);">UPDATED AUG 14, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -562,7 +655,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <p>
-      The workaround the forums converge on is Shopify Flow, and it gets closer while
+      The workaround the forums converge on is <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Shopify Flow</a>, and it gets closer while
       still missing the point. Tag the customer as blocked, then build a workflow on
       the Order created trigger: if the customer carries the tag, or the email
       matches a list, cancel the order, restock the items, maybe send the
@@ -854,6 +947,38 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

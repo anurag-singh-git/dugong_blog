@@ -110,11 +110,29 @@
         "url": "https://dugong.live",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://blog.dugong.live/og-image.png",
-          "width": 1200,
-          "height": 630
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
         }
-      }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Point of sale",
+          "url": "https://help.shopify.com/en/manual/sell-in-person"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shop Pay",
+          "url": "https://help.shopify.com/en/manual/payments/shop-pay"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Draft orders and invoices",
+          "url": "https://help.shopify.com/en/manual/fulfillment/managing-orders/create-orders"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -265,14 +283,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -578,9 +596,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH Nº 81</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">JUL 11, 2026</span>
+    <time datetime="2026-07-11" style="color: var(--cream-dim);">JUL 11, 2026</time>
     <span style="color: var(--line-2);">·</span>
     <span style="color: var(--cream-dim);">10 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-16" style="color: var(--cream-dim);">UPDATED AUG 16, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -657,8 +677,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       is gone, and the same person can start a fresh cart and buy again, and again, with nothing
       tracking the running total across their orders. Third, it <strong>does not know who the
       customer is</strong>. The rule never looks at email, address, card, or account, so it cannot
-      tell that twenty separate orders are one buyer, and it does not apply at all in Shopify POS,
-      on draft orders, or for B2B profiles.
+      tell that twenty separate orders are one buyer, and it does not apply at all in <a href="https://help.shopify.com/en/manual/sell-in-person" target="_blank" rel="noopener">Shopify POS</a>,
+      on <a href="https://help.shopify.com/en/manual/fulfillment/managing-orders/create-orders" target="_blank" rel="noopener">draft orders</a>, or for B2B profiles.
     </p>
 
     <h2>The limit Shopify enforces per cart but never per customer</h2>
@@ -680,7 +700,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       And that phrase, every path, is where the usual fix quietly fails. The common workaround is
       code on the product or cart page that blocks the button once the quantity is too high. But a
-      modern Shopify store has many doors into checkout that never touch that page: the Shop Pay,
+      modern Shopify store has many doors into checkout that never touch that page: the <a href="https://help.shopify.com/en/manual/payments/shop-pay" target="_blank" rel="noopener">Shop Pay</a>,
       Apple Pay, and Google Pay wallet buttons that jump straight from the product page, a buy-it-now
       button, a saved cart link, a checkout permalink shared in a group chat where the resellers
       trade them. A limit enforced by cart-page code is simply absent on all of those, the very
@@ -939,6 +959,38 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

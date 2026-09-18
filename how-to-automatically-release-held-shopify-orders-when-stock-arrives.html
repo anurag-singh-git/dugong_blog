@@ -45,7 +45,9 @@
     {
       "@type": "BlogPosting",
       "@id": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html#article",
-      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
       "mainEntityOfPage": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html",
       "url": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html",
       "headline": "How to automatically release Shopify orders on hold when stock arrives",
@@ -57,38 +59,91 @@
       "wordCount": 2385,
       "timeRequired": "PT9M",
       "inLanguage": "en",
-      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
       "about": [
-        { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "Backorder", "sameAs": "https://en.wikipedia.org/wiki/Backorder" },
-        { "@type": "Thing", "name": "Order fulfillment", "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment" },
-        { "@type": "Thing", "name": "Inventory management", "sameAs": "https://en.wikipedia.org/wiki/Inventory_management_software" },
-        { "@type": "Thing", "name": "Stockout", "sameAs": "https://en.wikipedia.org/wiki/Stockout" }
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "@type": "Thing",
+          "name": "Backorder",
+          "sameAs": "https://en.wikipedia.org/wiki/Backorder"
+        },
+        {
+          "@type": "Thing",
+          "name": "Order fulfillment",
+          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+        },
+        {
+          "@type": "Thing",
+          "name": "Inventory management",
+          "sameAs": "https://en.wikipedia.org/wiki/Inventory_management_software"
+        },
+        {
+          "@type": "Thing",
+          "name": "Stockout",
+          "sameAs": "https://en.wikipedia.org/wiki/Stockout"
+        }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".article-title", ".faq"]
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
       },
       "author": {
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
         "jobTitle": "Commerce Research, Dugong",
-        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://blog.dugong.live/#organization",
         "name": "Dugong",
         "url": "https://dugong.live",
-        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
-      }
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The order on hold that nobody releases", "item": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The order on hold that nobody releases",
+          "item": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html"
+        }
       ]
     },
     {
@@ -97,17 +152,26 @@
         {
           "@type": "Question",
           "name": "Can Shopify Flow automatically release a fulfillment hold when stock comes back in?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Not on an event, and only with care on a schedule. There is no trigger in Flow for the inventory a held fulfillment order was waiting on arriving. Shopify staff confirmed that on the community forums in 2023 and merchants were still confirming it in July 2026. The Inventory quantity changed trigger fires, but it gives you a variant and a quantity with no way to search backward to the held orders that contain it. The workable path is a Scheduled time trigger plus the Get fulfillment order data action with the query status:ON_HOLD, then a For each loop that checks stock and releases. Three things to watch. Flow's Release fulfillment order holds action has no fields and clears every hold on that fulfillment order, including fraud, address, and manual holds, which the Admin API docs warn will fulfill items incorrectly. Get data actions return at most 100 records and a failed query often returns all results rather than none. And availability is not a reservation, so two held orders waiting on the same three units will both be released in the same run." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not on an event, and only with care on a schedule. There is no trigger in Flow for the inventory a held fulfillment order was waiting on arriving. Shopify staff confirmed that on the community forums in 2023 and merchants were still confirming it in July 2026. The Inventory quantity changed trigger fires, but it gives you a variant and a quantity with no way to search backward to the held orders that contain it. The workable path is a Scheduled time trigger plus the Get fulfillment order data action with the query status:ON_HOLD, then a For each loop that checks stock and releases. Three things to watch. Flow's Release fulfillment order holds action has no fields and clears every hold on that fulfillment order, including fraud, address, and manual holds, which the Admin API docs warn will fulfill items incorrectly. Get data actions return at most 100 records and a failed query often returns all results rather than none. And availability is not a reservation, so two held orders waiting on the same three units will both be released in the same run."
+          }
         },
         {
           "@type": "Question",
           "name": "Why does my Shopify order stay on hold after the item is back in stock?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Because nothing in Shopify connects the restock to the hold. A fulfillment hold is a flag on the fulfillment order, and Shopify never re-evaluates it when the inventory picture changes. Somebody has to filter the orders list by On hold and release it by hand, or an automation has to poll. Two other things keep an order held after the stock looks fine. The stock may have landed at a different location than the one the fulfillment order is assigned to, and stock in the wrong building does not make an order ready. And the count you are looking at may be committed to newer orders that were placed after the hold went on, because available at a location is what is left after everything already claimed has taken its share." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because nothing in Shopify connects the restock to the hold. A fulfillment hold is a flag on the fulfillment order, and Shopify never re-evaluates it when the inventory picture changes. Somebody has to filter the orders list by On hold and release it by hand, or an automation has to poll. Two other things keep an order held after the stock looks fine. The stock may have landed at a different location than the one the fulfillment order is assigned to, and stock in the wrong building does not make an order ready. And the count you are looking at may be committed to newer orders that were placed after the hold went on, because available at a location is what is left after everything already claimed has taken its share."
+          }
         },
         {
           "@type": "Question",
           "name": "Should I hold the whole order or ship what is in stock?",
-          "acceptedAnswer": { "@type": "Answer", "text": "It depends on the order, which is why no setting answers it. Shipping partial costs you a second label and a second pick, and it means the customer gets two boxes instead of one. Holding costs you a delivery date and, past a few days, a support ticket or a cancellation. The trade tips on three things: how long the missing line is realistically away, what the second label costs against the margin on the order, and how close you already are to the delivery date you promised. A four dollar accessory holding up an order that has been waiting six days should almost always ship partial. A two day wait on a set that only works together should almost always hold. The mistake is answering it once in settings and then applying that answer to every order for the next two years." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the order, which is why no setting answers it. Shipping partial costs you a second label and a second pick, and it means the customer gets two boxes instead of one. Holding costs you a delivery date and, past a few days, a support ticket or a cancellation. The trade tips on three things: how long the missing line is realistically away, what the second label costs against the margin on the order, and how close you already are to the delivery date you promised. A four dollar accessory holding up an order that has been waiting six days should almost always ship partial. A two day wait on a set that only works together should almost always hold. The mistake is answering it once in settings and then applying that answer to every order for the next two years."
+          }
         },
         {
           "@type": "Question",
@@ -135,13 +199,55 @@
       "inLanguage": "en",
       "totalTime": "PT9M",
       "step": [
-        { "@type": "HowToStep", "position": 1, "name": "Find the held orders a receipt unblocks", "text": "Match incoming stock to the held fulfillment orders whose outstanding lines include the item that just landed", "url": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html#playbook" },
-        { "@type": "HowToStep", "position": 2, "name": "Check availability at the assigned location", "text": "Verify stock at the fulfillment order's own location rather than trusting store-wide availability", "url": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html#playbook" },
-        { "@type": "HowToStep", "position": 3, "name": "Reserve before releasing", "text": "Claim the units first so two held orders never get released against the same stock", "url": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html#playbook" },
-        { "@type": "HowToStep", "position": 4, "name": "Release only your own hold", "text": "Lift the inventory hold by its hold ID and leave fraud, address, and manual holds in place", "url": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html#playbook" },
-        { "@type": "HowToStep", "position": 5, "name": "Release oldest promise first", "text": "Rank the queue by promised delivery date and order age instead of whatever the query returned first", "url": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html#playbook" },
-        { "@type": "HowToStep", "position": 6, "name": "Partial ship when waiting costs more", "text": "Send what is in the building now when a second label costs less than the delay the customer is absorbing", "url": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html#playbook" },
-        { "@type": "HowToStep", "position": 7, "name": "Tell the customer once when the wait ran long", "text": "Send a single clear message on orders that waited past the promised date, before support has to answer for it", "url": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html#playbook" }
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Find the held orders a receipt unblocks",
+          "text": "Match incoming stock to the held fulfillment orders whose outstanding lines include the item that just landed",
+          "url": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Check availability at the assigned location",
+          "text": "Verify stock at the fulfillment order's own location rather than trusting store-wide availability",
+          "url": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Reserve before releasing",
+          "text": "Claim the units first so two held orders never get released against the same stock",
+          "url": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Release only your own hold",
+          "text": "Lift the inventory hold by its hold ID and leave fraud, address, and manual holds in place",
+          "url": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Release oldest promise first",
+          "text": "Rank the queue by promised delivery date and order age instead of whatever the query returned first",
+          "url": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Partial ship when waiting costs more",
+          "text": "Send what is in the building now when a second label costs less than the delay the customer is absorbing",
+          "url": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Tell the customer once when the wait ran long",
+          "text": "Send a single clear message on orders that waited past the promised date, before support has to answer for it",
+          "url": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html#playbook"
+        }
       ]
     }
   ]
@@ -172,14 +278,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -483,9 +589,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 94</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">JUL 28, 2026</span>
+    <time datetime="2026-07-28" style="color: var(--cream-dim);">JUL 28, 2026</time>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">9 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-14" style="color: var(--cream-dim);">UPDATED AUG 14, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -511,7 +619,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       A customer orders four things on a Monday night. Three are in the
       bin. The fourth sold out ninety minutes earlier because your
-      marketplace listing took the last two. Your Flow workflow does
+      marketplace listing took the last two. Your <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Flow</a> workflow does
       exactly the right thing and puts the fulfillment order on hold with
       the reason set to insufficient inventory. Nothing goes out
       half-picked. Nobody gets a surprise partial box. So far the system
@@ -915,6 +1023,38 @@ schedule as a safety net
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

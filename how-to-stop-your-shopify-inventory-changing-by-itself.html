@@ -105,11 +105,24 @@
         "url": "https://dugong.live",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://blog.dugong.live/og-image.png",
-          "width": 1200,
-          "height": 630
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
         }
-      }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Sales channels",
+          "url": "https://help.shopify.com/en/manual/online-sales-channels"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -257,14 +270,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -568,7 +581,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 112</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">AUG 22, 2026</span>
+    <time datetime="2026-08-22" style="color: var(--cream-dim);">AUG 22, 2026</time>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">11 MIN READ</span>
   </div>
@@ -667,7 +680,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       been ongoing for two years now and support are unable to
       assist, at least once a month, small inventory levels, often
       caught short. In August 2023 a merchant with a low stock
-      Flow alert acquired an accidental monitoring system: every
+      <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Flow</a> alert acquired an accidental monitoring system: every
       night at 9:20pm his digital products reset to zero. He set
       them back to 1000; the next night they were zero again, five
       nights running, alert emails each time. In September 2023
@@ -762,7 +775,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       Shopify does keep receipts, in the adjustment history, and
       when it works it is exactly the right tool: date, activity,
       and a Created by column naming the staff member, app, or
-      sales channel behind every change. But it is built for
+      <a href="https://help.shopify.com/en/manual/online-sales-channels" target="_blank" rel="noopener">sales channel</a> behind every change. But it is built for
       spot checks, not audits. You read it one variant at a time,
       product by product, so sweeping a thousand-SKU catalog
       through it is a career. It reaches back 180 days, and for
@@ -1051,6 +1064,38 @@ and on a clock for the sweep
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

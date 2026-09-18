@@ -115,11 +115,24 @@
         "url": "https://dugong.live",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://blog.dugong.live/og-image.png",
-          "width": 1200,
-          "height": 630
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
         }
-      }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        },
+        {
+          "@type": "WebPage",
+          "name": "GraphQL Admin API reference",
+          "url": "https://shopify.dev/docs/api/admin-graphql"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -141,7 +154,46 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-{"@type": "Question", "name": "Does Shopify automatically restock returned items?", "acceptedAnswer": {"@type": "Answer", "text": "Only as arithmetic, and only if someone remembers. When you refund an order, Shopify shows a Restock option, selected by default when you track inventory, and ticking it adds the returned quantity straight back to the available count at the location that originally fulfilled the order, the same minute you click. Nothing checks that the box actually arrived, nothing asks what condition it is in, and available means buyable, so the unit can be resold before anyone has opened the carton. If the box is unticked, deliberately because the item came back worn, or accidentally because it was a busy Tuesday, no queue of unrestocked returns exists anywhere in the admin and nothing ever asks again. The newer returns flow separates the restock step from the refund, which means there are now two moments to do half the job. So the honest answer is that Shopify restocks instantly or never, and it cannot tell you which one just happened."}},{"@type": "Question", "name": "Why is my Shopify inventory wrong after processing returns?", "acceptedAnswer": {"@type": "Answer", "text": "Returns leak inventory in four distinct ways, and most stores have all four running at once. Refunds processed without the restock option quietly bleed the count downward, a phantom stockout that ends with you reordering units you already own. Blind restocks do the opposite: a worn or damaged item goes back into the available count, so the number is right and the shelf is wrong, and the next customer receives it as new. Multi-location stores get a third leak, because Shopify restocks at the location that fulfilled the order, while the box physically arrived somewhere else, so the count points at a shelf the unit will never sit on. And the pile by the receiving door is the fourth: boxes that came back and were never marked as returned exist in no inventory state at all, not incoming, not available, not damaged. Reconcile all four the same way: pull your refunds, check each line's restock outcome, and walk the top ten returned SKUs against the physical shelf."}},{"@type": "Question", "name": "What should I do with returned items that cannot be resold as new?", "acceptedAnswer": {"@type": "Answer", "text": "Grade it, route it, and never let it touch the available count. Sellable-as-new goes back to available at the location where the box actually sits. Open-box items go to an outlet collection or a separate open-box variant at a discount, which recovers most of the margin without lying to the next customer. Damaged units belong in Shopify's damaged inventory state, which the Admin API has supported since August 2023: they stay inside your on-hand count so you know what you own, but display as Unavailable and cannot be oversold. Anything unrecoverable gets written off with the shrinkage reason, named honestly in the week it happened rather than discovered at stocktake. Categories with hygiene or safety rules, cosmetics, skincare, earrings, opened consumables, should never restock at all, and for items whose processing costs more than they recover, a returnless refund is a policy worth writing down. The point is that condition is a decision, and every returned unit should carry one."}},{"@type": "Question", "name": "Can Shopify Flow tell when a returned package is delivered back to my store?", "acceptedAnswer": {"@type": "Answer", "text": "No. Flow's return triggers are Return requested, Return approved, Return declined, Return closed, Return processed, and Return reopened, and every one of them fires when a person clicks something in the admin. None of them fire when the carrier scans the box at your door. The return label has its own tracking, that tracking hits Delivered, and the one event in the whole journey that means your inventory is physically back starts nothing, anywhere. Flow can hear your buttons. It cannot hear the doorbell. The gap matters because a box that has landed but not been received exists in no inventory state at all, not incoming, not available, not damaged, and if your policy refunds after inspection, your customer is watching a tracking page that says you have had her return for five days. Watching the inbound leg of the return label is the first job of a real restock automation."}},{"@type": "Question", "name": "Why did my Shopify return restock to the wrong location?", "acceptedAnswer": {"@type": "Answer", "text": "Because the Restock checkbox adds the returned quantity back at the location that originally fulfilled the order, not the place the box was mailed to. That default is fine exactly until your returns address and your fulfillment location stop being the same building, which happens as soon as a 3PL, a pop-up, or a second warehouse arrives. The community threads have asked for years to change it, and the shape is always the same: a 3PL in New Jersey ships the orders, returns come back to the studio in Charleston, and the checkbox adds the cardigan back to New Jersey, where a picker will eventually open an empty bin. The count is not wrong, it is right about the wrong building. The API is strict about the mismatch too: a restock against a fulfillment service location it does not control simply errors. Receive the box first, then restock where it sits."}}
+        {
+          "@type": "Question",
+          "name": "Does Shopify automatically restock returned items?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only as arithmetic, and only if someone remembers. When you refund an order, Shopify shows a Restock option, selected by default when you track inventory, and ticking it adds the returned quantity straight back to the available count at the location that originally fulfilled the order, the same minute you click. Nothing checks that the box actually arrived, nothing asks what condition it is in, and available means buyable, so the unit can be resold before anyone has opened the carton. If the box is unticked, deliberately because the item came back worn, or accidentally because it was a busy Tuesday, no queue of unrestocked returns exists anywhere in the admin and nothing ever asks again. The newer returns flow separates the restock step from the refund, which means there are now two moments to do half the job. So the honest answer is that Shopify restocks instantly or never, and it cannot tell you which one just happened."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is my Shopify inventory wrong after processing returns?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Returns leak inventory in four distinct ways, and most stores have all four running at once. Refunds processed without the restock option quietly bleed the count downward, a phantom stockout that ends with you reordering units you already own. Blind restocks do the opposite: a worn or damaged item goes back into the available count, so the number is right and the shelf is wrong, and the next customer receives it as new. Multi-location stores get a third leak, because Shopify restocks at the location that fulfilled the order, while the box physically arrived somewhere else, so the count points at a shelf the unit will never sit on. And the pile by the receiving door is the fourth: boxes that came back and were never marked as returned exist in no inventory state at all, not incoming, not available, not damaged. Reconcile all four the same way: pull your refunds, check each line's restock outcome, and walk the top ten returned SKUs against the physical shelf."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I do with returned items that cannot be resold as new?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Grade it, route it, and never let it touch the available count. Sellable-as-new goes back to available at the location where the box actually sits. Open-box items go to an outlet collection or a separate open-box variant at a discount, which recovers most of the margin without lying to the next customer. Damaged units belong in Shopify's damaged inventory state, which the Admin API has supported since August 2023: they stay inside your on-hand count so you know what you own, but display as Unavailable and cannot be oversold. Anything unrecoverable gets written off with the shrinkage reason, named honestly in the week it happened rather than discovered at stocktake. Categories with hygiene or safety rules, cosmetics, skincare, earrings, opened consumables, should never restock at all, and for items whose processing costs more than they recover, a returnless refund is a policy worth writing down. The point is that condition is a decision, and every returned unit should carry one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Shopify Flow tell when a returned package is delivered back to my store?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Flow's return triggers are Return requested, Return approved, Return declined, Return closed, Return processed, and Return reopened, and every one of them fires when a person clicks something in the admin. None of them fire when the carrier scans the box at your door. The return label has its own tracking, that tracking hits Delivered, and the one event in the whole journey that means your inventory is physically back starts nothing, anywhere. Flow can hear your buttons. It cannot hear the doorbell. The gap matters because a box that has landed but not been received exists in no inventory state at all, not incoming, not available, not damaged, and if your policy refunds after inspection, your customer is watching a tracking page that says you have had her return for five days. Watching the inbound leg of the return label is the first job of a real restock automation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why did my Shopify return restock to the wrong location?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because the Restock checkbox adds the returned quantity back at the location that originally fulfilled the order, not the place the box was mailed to. That default is fine exactly until your returns address and your fulfillment location stop being the same building, which happens as soon as a 3PL, a pop-up, or a second warehouse arrives. The community threads have asked for years to change it, and the shape is always the same: a 3PL in New Jersey ships the orders, returns come back to the studio in Charleston, and the checkbox adds the cardigan back to New Jersey, where a picker will eventually open an empty bin. The count is not wrong, it is right about the wrong building. The API is strict about the mismatch too: a restock against a fulfillment service location it does not control simply errors. Receive the box first, then restock where it sits."
+          }
+        }
       ]
     },
     {
@@ -152,13 +204,55 @@
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
-{"@type": "HowToStep", "position": 1, "name": "Watch the inbound leg", "text": "Track the return label itself, the way you track outbound orders, until the delivered scan lands at your door", "url": "https://blog.dugong.live/how-to-automatically-restock-returns-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 2, "name": "Open a receiving task that hour", "text": "Box matched to its return: order, items, quantities, an intake photo attached to the order timeline", "url": "https://blog.dugong.live/how-to-automatically-restock-returns-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 3, "name": "Grade before anything moves", "text": "New, open-box, or damaged, a twenty second photo checklist per line item, judged against the store's written policy", "url": "https://blog.dugong.live/how-to-automatically-restock-returns-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 4, "name": "Route by grade", "text": "Sellable to available at the location where the box sits, open-box to the outlet at its discount, damaged to the damaged state with the reason logged", "url": "https://blog.dugong.live/how-to-automatically-restock-returns-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 5, "name": "Release the refund on the grade", "text": "Same hour, with the return reason and the restock outcome tagged on the order for reporting", "url": "https://blog.dugong.live/how-to-automatically-restock-returns-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 6, "name": "Chase the exceptions", "text": "Labels never scanned after a week, boxes delivered but unmatched, grades still pending past 24 hours", "url": "https://blog.dugong.live/how-to-automatically-restock-returns-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 7, "name": "Report Fridays", "text": "Recovery rate, shrinkage named per SKU, restock lag, and the products that keep coming back, routed to buying", "url": "https://blog.dugong.live/how-to-automatically-restock-returns-on-shopify.html#playbook"}
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Watch the inbound leg",
+          "text": "Track the return label itself, the way you track outbound orders, until the delivered scan lands at your door",
+          "url": "https://blog.dugong.live/how-to-automatically-restock-returns-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Open a receiving task that hour",
+          "text": "Box matched to its return: order, items, quantities, an intake photo attached to the order timeline",
+          "url": "https://blog.dugong.live/how-to-automatically-restock-returns-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Grade before anything moves",
+          "text": "New, open-box, or damaged, a twenty second photo checklist per line item, judged against the store's written policy",
+          "url": "https://blog.dugong.live/how-to-automatically-restock-returns-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Route by grade",
+          "text": "Sellable to available at the location where the box sits, open-box to the outlet at its discount, damaged to the damaged state with the reason logged",
+          "url": "https://blog.dugong.live/how-to-automatically-restock-returns-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Release the refund on the grade",
+          "text": "Same hour, with the return reason and the restock outcome tagged on the order for reporting",
+          "url": "https://blog.dugong.live/how-to-automatically-restock-returns-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Chase the exceptions",
+          "text": "Labels never scanned after a week, boxes delivered but unmatched, grades still pending past 24 hours",
+          "url": "https://blog.dugong.live/how-to-automatically-restock-returns-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Report Fridays",
+          "text": "Recovery rate, shrinkage named per SKU, restock lag, and the products that keep coming back, routed to buying",
+          "url": "https://blog.dugong.live/how-to-automatically-restock-returns-on-shopify.html#playbook"
+        }
       ]
     }
   ]
@@ -186,14 +280,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -497,9 +591,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 103</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">AUG 9, 2026</span>
+    <time datetime="2026-08-09" style="color: var(--cream-dim);">AUG 9, 2026</time>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">10 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-14" style="color: var(--cream-dim);">UPDATED AUG 14, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -604,7 +700,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <h2>The platform knows the word for inspection</h2>
 
     <p>
-      The obvious move is to automate the gap, and Shopify Flow looks
+      The obvious move is to automate the gap, and <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Shopify Flow</a> looks
       ready for it. The trigger list has a whole return section:
       Return requested, Return approved, Return declined, Return
       closed, Return processed, Return reopened. Wire them up and you
@@ -620,7 +716,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p>
       The stranger discovery is one layer down. Since August 2023,
-      Shopify's Admin API has carried inventory states built for
+      Shopify's <a href="https://shopify.dev/docs/api/admin-graphql" target="_blank" rel="noopener">Admin API</a> has carried inventory states built for
       exactly this workflow: <code>quality_control</code> for units
       under inspection, <code>damaged</code> for units that failed
       it, both counted inside on-hand but displayed as Unavailable,
@@ -961,6 +1057,38 @@ the return label exists
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

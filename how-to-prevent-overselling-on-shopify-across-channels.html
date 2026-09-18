@@ -45,7 +45,9 @@
     {
       "@type": "BlogPosting",
       "@id": "https://blog.dugong.live/how-to-prevent-overselling-on-shopify-across-channels.html#article",
-      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
       "mainEntityOfPage": "https://blog.dugong.live/how-to-prevent-overselling-on-shopify-across-channels.html",
       "url": "https://blog.dugong.live/how-to-prevent-overselling-on-shopify-across-channels.html",
       "headline": "How to prevent overselling on Shopify across channels",
@@ -57,36 +59,86 @@
       "wordCount": 1600,
       "timeRequired": "PT8M",
       "inLanguage": "en",
-      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
       "about": [
-        { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "E-commerce", "sameAs": "https://en.wikipedia.org/wiki/E-commerce" },
-        { "@type": "Thing", "name": "Business process automation", "sameAs": "https://en.wikipedia.org/wiki/Business_process_automation" }
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "@type": "Thing",
+          "name": "E-commerce",
+          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+        },
+        {
+          "@type": "Thing",
+          "name": "Business process automation",
+          "sameAs": "https://en.wikipedia.org/wiki/Business_process_automation"
+        }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".article-title", ".faq"]
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
       },
       "author": {
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
         "jobTitle": "Commerce Research, Dugong",
-        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://blog.dugong.live/#organization",
         "name": "Dugong",
         "url": "https://dugong.live",
-        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
-      }
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Payments",
+          "url": "https://help.shopify.com/en/manual/payments/shopify-payments"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The overselling problem no one automates", "item": "https://blog.dugong.live/how-to-prevent-overselling-on-shopify-across-channels.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The overselling problem no one automates",
+          "item": "https://blog.dugong.live/how-to-prevent-overselling-on-shopify-across-channels.html"
+        }
       ]
     },
     {
@@ -115,8 +167,24 @@
             "@type": "Answer",
             "text": "Yes. The fix is real-time inventory sync: the moment a unit sells on any channel, every other channel's available count is updated, and low-stock items are buffered or hidden before they can be oversold. An AI playbook can do this continuously, reconcile mismatches, and flag the edge cases, partial stock, bundles, pre-orders, that simple sync rules miss."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should inventory sync between Shopify and other sales channels?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Continuously, or as close as the stack allows: the working playbook in this dispatch reconciles on every stock change, or every 2 minutes as a floor. Nightly and hourly batch syncs are where oversells are born. If the last three units of a SKU sell on Amazon at 2:14pm and Shopify learns about it from a midnight export, the store spends ten hours selling inventory it does not have. Frequency alone is not the whole fix, though. Each pass should reconcile every channel to a single source of truth, push the lowest verified count everywhere at once, hold a dynamic buffer on fast movers during a sale, and flip a SKU to hidden or notify me before it can cross zero. And when two channels disagree by more than a unit, the right move is to pause that SKU and show a human both numbers, because one of the counts is lying."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should happen to an order for a SKU that is already out of stock?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Catch it before fulfillment, not after the label prints. The playbook treats any order for a SKU at or below zero as an exception: first recheck real stock across the warehouse and every channel, because the count may simply be stale and the order can ship normally after a resync. If the unit is truly gone, hold the order before it reaches fulfillment and give the customer a real choice within minutes: a backorder with an honest ETA, a swap to a close alternative, or an instant refund. Speed is most of the outcome here. A warm email sent minutes after the order reads as a store on top of its stock. The same message two days later, after the pick already failed in the warehouse, reads as the cancellation merchants dread, and it shows up in reviews accordingly."
+          }
         }
-      ,{"@type": "Question", "name": "How often should inventory sync between Shopify and other sales channels?", "acceptedAnswer": {"@type": "Answer", "text": "Continuously, or as close as the stack allows: the working playbook in this dispatch reconciles on every stock change, or every 2 minutes as a floor. Nightly and hourly batch syncs are where oversells are born. If the last three units of a SKU sell on Amazon at 2:14pm and Shopify learns about it from a midnight export, the store spends ten hours selling inventory it does not have. Frequency alone is not the whole fix, though. Each pass should reconcile every channel to a single source of truth, push the lowest verified count everywhere at once, hold a dynamic buffer on fast movers during a sale, and flip a SKU to hidden or notify me before it can cross zero. And when two channels disagree by more than a unit, the right move is to pause that SKU and show a human both numbers, because one of the counts is lying."}},{"@type": "Question", "name": "What should happen to an order for a SKU that is already out of stock?", "acceptedAnswer": {"@type": "Answer", "text": "Catch it before fulfillment, not after the label prints. The playbook treats any order for a SKU at or below zero as an exception: first recheck real stock across the warehouse and every channel, because the count may simply be stale and the order can ship normally after a resync. If the unit is truly gone, hold the order before it reaches fulfillment and give the customer a real choice within minutes: a backorder with an honest ETA, a swap to a close alternative, or an instant refund. Speed is most of the outcome here. A warm email sent minutes after the order reads as a store on top of its stock. The same message two days later, after the pick already failed in the warehouse, reads as the cancellation merchants dread, and it shows up in reviews accordingly."}}]
+      ]
     },
     {
       "@type": "HowTo",
@@ -205,14 +273,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -677,9 +745,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH Nº 50</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">JUN 5, 2026</span>
+    <time datetime="2026-06-05" style="color: var(--cream-dim);">JUN 5, 2026</time>
     <span style="color: var(--line-2);">·</span>
     <span style="color: var(--cream-dim);">8 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-07" style="color: var(--cream-dim);">UPDATED AUG 7, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -773,7 +843,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       Every merchant eventually rigs up a defense. A spreadsheet they
       reconcile on Sunday nights. A "safety buffer" where they hide
       the last five units so the count can be wrong by up to five
-      before it hurts. A Shopify Flow rule that hides a product when
+      before it hurts. A <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Shopify Flow</a> rule that hides a product when
       it hits zero. A cheap sync app bolted between two channels.
       Each helps. None of them hold under load.
     </p>
@@ -873,7 +943,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <span class="callout-mark">◆ NOTE</span>
       <span>
         The hidden cost isn't just the refund. On Shopify, canceled
-        and disputed orders feed your chargeback and dispute rate, and a rate that climbs too high can get Shopify Payments
+        and disputed orders feed your chargeback and dispute rate, and a rate that climbs too high can get <a href="https://help.shopify.com/en/manual/payments/shopify-payments" target="_blank" rel="noopener">Shopify Payments</a>
         throttled or disabled. Overselling, left unmanaged, doesn't
         just annoy customers; it can quietly threaten your ability to
         take payment at all.
@@ -990,6 +1060,38 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

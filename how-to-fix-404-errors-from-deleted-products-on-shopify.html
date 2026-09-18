@@ -45,7 +45,9 @@
     {
       "@type": "BlogPosting",
       "@id": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html#article",
-      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
       "mainEntityOfPage": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html",
       "headline": "How to fix 404 errors from deleted products on Shopify",
@@ -57,37 +59,86 @@
       "wordCount": 2210,
       "timeRequired": "PT9M",
       "inLanguage": "en",
-      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
       "about": [
-        { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "HTTP 404", "sameAs": "https://en.wikipedia.org/wiki/HTTP_404" },
-        { "@type": "Thing", "name": "URL redirection", "sameAs": "https://en.wikipedia.org/wiki/URL_redirection" },
-        { "@type": "Thing", "name": "Search engine optimization", "sameAs": "https://en.wikipedia.org/wiki/Search_engine_optimization" }
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "@type": "Thing",
+          "name": "HTTP 404",
+          "sameAs": "https://en.wikipedia.org/wiki/HTTP_404"
+        },
+        {
+          "@type": "Thing",
+          "name": "URL redirection",
+          "sameAs": "https://en.wikipedia.org/wiki/URL_redirection"
+        },
+        {
+          "@type": "Thing",
+          "name": "Search engine optimization",
+          "sameAs": "https://en.wikipedia.org/wiki/Search_engine_optimization"
+        }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".article-title", ".faq"]
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
       },
       "author": {
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
         "jobTitle": "Commerce Research, Dugong",
-        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://blog.dugong.live/#organization",
         "name": "Dugong",
         "url": "https://dugong.live",
-        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
-      }
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The deleted product that 404s your customers", "item": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The deleted product that 404s your customers",
+          "item": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html"
+        }
       ]
     },
     {
@@ -116,8 +167,24 @@
             "@type": "Answer",
             "text": "Only as a last resort. Redirecting a deleted product to the most relevant live page, a replacement product, the same collection, or the closest alternative, keeps both the customer and the link value on a page that matches what they wanted. Sending every dead URL to the homepage instead is treated by search engines as a soft 404, because the destination has nothing to do with the original page, so you lose the link equity anyway and you drop the customer somewhere they then have to search from scratch. The right move is a relevant 301 per URL, with the homepage used only when genuinely nothing else fits."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Shopify Flow create a redirect when a product is deleted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Flow, which is free on every plan, can react to a product being deleted and can send you an internal notification about it, but it has no action that creates a URL redirect, so the one step that actually fixes the 404 is the step it cannot take. That gap defines the workarounds. Notification-only setups still depend on a human remembering to add the redirect in the admin. Most redirect apps log a 404 after a visitor has already hit it, or apply blanket pattern rules. And sending everything to the homepage trades a 404 for a soft 404, which throws away the link equity anyway. The working shape is an automation that catches the deletion, unpublish, or handle change in the moment, reads what the page was, chooses the closest live target, writes the 301 itself, and holds only the URLs with real traffic or backlinks for a human to confirm."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I find the 404 errors already piling up on my Shopify store?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Search Console is the honest mirror: its not found report lists the URLs Google is still trying to reach, and the deleted products and renamed handles are usually recognizable straight from the paths. Your analytics show the same dead ends arriving as landing pages that bounce immediately, and redirect apps keep hit logs of 404s as visitors trip them. Two habits make the list useful instead of depressing. First, triage by weight: a URL with rankings, backlinks, or steady traffic deserves a hand-picked destination, while long-tail strays can take a rule-based target. Second, treat the backlog as a symptom. Every URL on that list went dark at a specific moment, a deletion, an unpublish, a handle edit, so pair the cleanup with an automation that catches those moments and writes the 301 before the next wall of 404s accumulates."
+          }
         }
-      ,{"@type": "Question", "name": "Can Shopify Flow create a redirect when a product is deleted?", "acceptedAnswer": {"@type": "Answer", "text": "No. Flow, which is free on every plan, can react to a product being deleted and can send you an internal notification about it, but it has no action that creates a URL redirect, so the one step that actually fixes the 404 is the step it cannot take. That gap defines the workarounds. Notification-only setups still depend on a human remembering to add the redirect in the admin. Most redirect apps log a 404 after a visitor has already hit it, or apply blanket pattern rules. And sending everything to the homepage trades a 404 for a soft 404, which throws away the link equity anyway. The working shape is an automation that catches the deletion, unpublish, or handle change in the moment, reads what the page was, chooses the closest live target, writes the 301 itself, and holds only the URLs with real traffic or backlinks for a human to confirm."}},{"@type": "Question", "name": "How do I find the 404 errors already piling up on my Shopify store?", "acceptedAnswer": {"@type": "Answer", "text": "Search Console is the honest mirror: its not found report lists the URLs Google is still trying to reach, and the deleted products and renamed handles are usually recognizable straight from the paths. Your analytics show the same dead ends arriving as landing pages that bounce immediately, and redirect apps keep hit logs of 404s as visitors trip them. Two habits make the list useful instead of depressing. First, triage by weight: a URL with rankings, backlinks, or steady traffic deserves a hand-picked destination, while long-tail strays can take a rule-based target. Second, treat the backlog as a symptom. Every URL on that list went dark at a specific moment, a deletion, an unpublish, a handle edit, so pair the cleanup with an automation that catches those moments and writes the 301 before the next wall of 404s accumulates."}}]
+      ]
     },
     {
       "@type": "HowTo",
@@ -206,14 +273,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -519,9 +586,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH Nº 68</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">JUN 25, 2026</span>
+    <time datetime="2026-06-25" style="color: var(--cream-dim);">JUN 25, 2026</time>
     <span style="color: var(--line-2);">·</span>
     <span style="color: var(--cream-dim);">9 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-07" style="color: var(--cream-dim);">UPDATED AUG 7, 2026</time>
   </div>
 
   <h1 class="article-title">How to fix <em>404 errors</em> from deleted products on Shopify</h1>
@@ -630,7 +699,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <p>
-      Third, <strong>Flow cannot create a redirect</strong>. Shopify Flow, free
+      Third, <strong>Flow cannot create a redirect</strong>. <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Shopify Flow</a>, free
       on every plan, can react to a product being deleted and can send you an
       internal note about it. But Flow has no action that creates a URL
       redirect, so the one step that actually fixes the 404 is the step it
@@ -878,6 +947,38 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

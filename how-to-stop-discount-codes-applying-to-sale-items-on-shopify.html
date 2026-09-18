@@ -45,7 +45,9 @@
     {
       "@type": "BlogPosting",
       "@id": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html#article",
-      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
       "mainEntityOfPage": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html",
       "headline": "How to stop discount codes from applying to sale items on Shopify",
@@ -57,38 +59,91 @@
       "wordCount": 2010,
       "timeRequired": "PT10M",
       "inLanguage": "en",
-      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
       "about": [
-        { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "Discounts and allowances", "sameAs": "https://en.wikipedia.org/wiki/Discounts_and_allowances" },
-        { "@type": "Thing", "name": "Coupon", "sameAs": "https://en.wikipedia.org/wiki/Coupon" },
-        { "@type": "Thing", "name": "Pricing", "sameAs": "https://en.wikipedia.org/wiki/Pricing" },
-        { "@type": "Thing", "name": "E-commerce", "sameAs": "https://en.wikipedia.org/wiki/E-commerce" }
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "@type": "Thing",
+          "name": "Discounts and allowances",
+          "sameAs": "https://en.wikipedia.org/wiki/Discounts_and_allowances"
+        },
+        {
+          "@type": "Thing",
+          "name": "Coupon",
+          "sameAs": "https://en.wikipedia.org/wiki/Coupon"
+        },
+        {
+          "@type": "Thing",
+          "name": "Pricing",
+          "sameAs": "https://en.wikipedia.org/wiki/Pricing"
+        },
+        {
+          "@type": "Thing",
+          "name": "E-commerce",
+          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+        }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".article-title", ".faq"]
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
       },
       "author": {
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
         "jobTitle": "Commerce Research, Dugong",
-        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://blog.dugong.live/#organization",
         "name": "Dugong",
         "url": "https://dugong.live",
-        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
-      }
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Customer segmentation",
+          "url": "https://help.shopify.com/en/manual/customers/customer-segmentation"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The discount code that double-dips your sale", "item": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The discount code that double-dips your sale",
+          "item": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html"
+        }
       ]
     },
     {
@@ -144,12 +199,48 @@
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
-        { "@type": "HowToStep", "position": 1, "name": "Define the discount policy", "text": "Write the rule in plain language: codes do not apply to items with a live markdown, name the specific codes that are allowed through, and set the floor no combined discount may cross", "url": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 2, "name": "Keep the eligibility collections true", "text": "On every price or compare-at change, refresh the on-sale and full-price collections automatically so the rule always knows which items are marked down", "url": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 3, "name": "Scope every code at creation", "text": "Catch each new code the moment it is minted, including codes from popup, loyalty, and review apps, and restrict it to the full-price collection before a shopper ever sees it", "url": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 4, "name": "Guard the checkout", "text": "When a code still meets a marked-down item, resolve to the single best discount for the shopper and drop the rest, instead of letting the stack go through", "url": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 5, "name": "Explain the outcome to the shopper", "text": "Say plainly which discount applied and why the code did not stack, so the declined combination reads as policy rather than a bug", "url": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 6, "name": "Escalate the exceptions", "text": "Hold for review a support code meeting a sale item, a stack that slipped through, or any combination that would cross the margin floor, so a person makes the call", "url": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html#playbook" }
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Define the discount policy",
+          "text": "Write the rule in plain language: codes do not apply to items with a live markdown, name the specific codes that are allowed through, and set the floor no combined discount may cross",
+          "url": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Keep the eligibility collections true",
+          "text": "On every price or compare-at change, refresh the on-sale and full-price collections automatically so the rule always knows which items are marked down",
+          "url": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Scope every code at creation",
+          "text": "Catch each new code the moment it is minted, including codes from popup, loyalty, and review apps, and restrict it to the full-price collection before a shopper ever sees it",
+          "url": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Guard the checkout",
+          "text": "When a code still meets a marked-down item, resolve to the single best discount for the shopper and drop the rest, instead of letting the stack go through",
+          "url": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Explain the outcome to the shopper",
+          "text": "Say plainly which discount applied and why the code did not stack, so the declined combination reads as policy rather than a bug",
+          "url": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Escalate the exceptions",
+          "text": "Hold for review a support code meeting a sale item, a stack that slipped through, or any combination that would cross the margin floor, so a person makes the call",
+          "url": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html#playbook"
+        }
       ]
     }
   ]
@@ -180,14 +271,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -492,9 +583,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 86</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">JUL 20, 2026</span>
+    <time datetime="2026-07-20" style="color: var(--cream-dim);">JUL 20, 2026</time>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">10 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-15" style="color: var(--cream-dim);">UPDATED AUG 15, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -545,7 +638,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       Give the platform its due first. Shopify's discount engine handles the individual
       pieces well. Codes are easy to create and can be gated by collection, minimum
-      spend, or customer segment. Automatic discounts apply cleanly with nobody typing
+      spend, or <a href="https://help.shopify.com/en/manual/customers/customer-segmentation" target="_blank" rel="noopener">customer segment</a>. Automatic discounts apply cleanly with nobody typing
       anything. And since discount combinations arrived, you can even decide which
       classes of discount are allowed to meet: product discounts, order discounts, and
       shipping discounts each carry a combines-with setting, so two offers you built as
@@ -814,6 +907,38 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

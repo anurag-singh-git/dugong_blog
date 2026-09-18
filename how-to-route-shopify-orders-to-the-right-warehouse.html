@@ -45,7 +45,9 @@
     {
       "@type": "BlogPosting",
       "@id": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#article",
-      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
       "mainEntityOfPage": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html",
       "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html",
       "headline": "How to stop Shopify routing orders to the wrong warehouse",
@@ -57,38 +59,101 @@
       "wordCount": 2450,
       "timeRequired": "PT10M",
       "inLanguage": "en",
-      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
       "about": [
-        { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "Order fulfillment", "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment" },
-        { "@type": "Thing", "name": "Third-party logistics", "sameAs": "https://en.wikipedia.org/wiki/Third-party_logistics" },
-        { "@type": "Thing", "name": "Distribution center", "sameAs": "https://en.wikipedia.org/wiki/Distribution_center" },
-        { "@type": "Thing", "name": "Warehouse management system", "sameAs": "https://en.wikipedia.org/wiki/Warehouse_management_system" }
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "@type": "Thing",
+          "name": "Order fulfillment",
+          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+        },
+        {
+          "@type": "Thing",
+          "name": "Third-party logistics",
+          "sameAs": "https://en.wikipedia.org/wiki/Third-party_logistics"
+        },
+        {
+          "@type": "Thing",
+          "name": "Distribution center",
+          "sameAs": "https://en.wikipedia.org/wiki/Distribution_center"
+        },
+        {
+          "@type": "Thing",
+          "name": "Warehouse management system",
+          "sameAs": "https://en.wikipedia.org/wiki/Warehouse_management_system"
+        }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".article-title", ".faq"]
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
       },
       "author": {
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
         "jobTitle": "Commerce Research, Dugong",
-        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://blog.dugong.live/#organization",
         "name": "Dugong",
         "url": "https://dugong.live",
-        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
-      }
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "About Shopify Functions",
+          "url": "https://shopify.dev/docs/apps/build/functions"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Metafields",
+          "url": "https://help.shopify.com/en/manual/custom-data/metafields"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The order that ships from the wrong warehouse", "item": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The order that ships from the wrong warehouse",
+          "item": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html"
+        }
       ]
     },
     {
@@ -144,12 +209,48 @@
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
-        { "@type": "HowToStep", "position": 1, "name": "Score every location that could send this order", "text": "Rank eligible locations on real rate, carrier zone, cutoff time, backlog, and stock health rather than straight-line distance", "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook" },
-        { "@type": "HowToStep", "position": 2, "name": "Decide split or single per order", "text": "Compare landed cost and promised delivery date for one shipment against two, order by order, instead of setting one global preference", "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook" },
-        { "@type": "HowToStep", "position": 3, "name": "Respect the constraints that are not negotiable", "text": "Honor oversized and hazmat limits, market boundaries, personalization, and stock a retail floor needs to keep", "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook" },
-        { "@type": "HowToStep", "position": 4, "name": "Move it before the 3PL accepts it", "text": "Reassign the fulfillment order inside the window where a move is still allowed, not after the request has been accepted", "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook" },
-        { "@type": "HowToStep", "position": 5, "name": "Re-check when reality moves", "text": "Revisit the assignment when a count turns out to be wrong, a location closes, or a cutoff is missed", "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook" },
-        { "@type": "HowToStep", "position": 6, "name": "Tell the customer once, clearly", "text": "Send one message explaining a genuine split shipment with both tracking numbers instead of two silent notifications", "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook" }
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Score every location that could send this order",
+          "text": "Rank eligible locations on real rate, carrier zone, cutoff time, backlog, and stock health rather than straight-line distance",
+          "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Decide split or single per order",
+          "text": "Compare landed cost and promised delivery date for one shipment against two, order by order, instead of setting one global preference",
+          "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Respect the constraints that are not negotiable",
+          "text": "Honor oversized and hazmat limits, market boundaries, personalization, and stock a retail floor needs to keep",
+          "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Move it before the 3PL accepts it",
+          "text": "Reassign the fulfillment order inside the window where a move is still allowed, not after the request has been accepted",
+          "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Re-check when reality moves",
+          "text": "Revisit the assignment when a count turns out to be wrong, a location closes, or a cutoff is missed",
+          "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Tell the customer once, clearly",
+          "text": "Send one message explaining a genuine split shipment with both tracking numbers instead of two silent notifications",
+          "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook"
+        }
       ]
     }
   ]
@@ -180,14 +281,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -491,9 +592,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 93</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">JUL 27, 2026</span>
+    <time datetime="2026-07-27" style="color: var(--cream-dim);">JUL 27, 2026</time>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">10 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-15" style="color: var(--cream-dim);">UPDATED AUG 15, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -554,7 +657,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       Stay within the destination market. Ship from the closest location.
       You can reorder them, remove them, and add two more: ranked
       locations, where you group locations into tiers you define, and
-      location metafields, where you prioritize on a boolean or a number
+      location <a href="https://help.shopify.com/en/manual/custom-data/metafields" target="_blank" rel="noopener">metafields</a>, where you prioritize on a boolean or a number
       you have stored against each location.
     </p>
 
@@ -614,7 +717,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       There is an escape hatch, and it is worth knowing it is closed for
       most people. Custom routing rules are real, they are implemented as
-      Shopify Functions through the Order Routing Location Rule API, and
+      <a href="https://shopify.dev/docs/apps/build/functions" target="_blank" rel="noopener">Shopify Functions</a> through the Order Routing Location Rule API, and
       they can do genuinely clever things. They are also Shopify Plus, by
       request, in early access, and they require you to be enrolled in the
       Partners program and deploy your own app. That is a fine answer for
@@ -626,7 +729,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <h2>Why Flow gets close and then stops</h2>
 
     <p>
-      Shopify Flow has a Move fulfillment order action, and it is more
+      <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Shopify Flow</a> has a Move fulfillment order action, and it is more
       useful than people realize. If you already know the rule, Flow will
       run it: send anything over twenty kilos to the location with the
       pallet racking, keep engraved items at the workshop, push wholesale
@@ -919,6 +1022,38 @@ changes before a label is bought
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

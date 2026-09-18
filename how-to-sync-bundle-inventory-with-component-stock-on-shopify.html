@@ -45,7 +45,9 @@
     {
       "@type": "BlogPosting",
       "@id": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#article",
-      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
       "mainEntityOfPage": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html",
       "headline": "How to automatically sync bundle inventory with component stock on Shopify",
@@ -57,38 +59,96 @@
       "wordCount": 2153,
       "timeRequired": "PT10M",
       "inLanguage": "en",
-      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
       "about": [
-        { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "Inventory", "sameAs": "https://en.wikipedia.org/wiki/Inventory" },
-        { "@type": "Thing", "name": "Product bundling", "sameAs": "https://en.wikipedia.org/wiki/Product_bundling" },
-        { "@type": "Thing", "name": "Stock keeping unit", "sameAs": "https://en.wikipedia.org/wiki/Stock_keeping_unit" },
-        { "@type": "Thing", "name": "E-commerce", "sameAs": "https://en.wikipedia.org/wiki/E-commerce" }
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "@type": "Thing",
+          "name": "Inventory",
+          "sameAs": "https://en.wikipedia.org/wiki/Inventory"
+        },
+        {
+          "@type": "Thing",
+          "name": "Product bundling",
+          "sameAs": "https://en.wikipedia.org/wiki/Product_bundling"
+        },
+        {
+          "@type": "Thing",
+          "name": "Stock keeping unit",
+          "sameAs": "https://en.wikipedia.org/wiki/Stock_keeping_unit"
+        },
+        {
+          "@type": "Thing",
+          "name": "E-commerce",
+          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+        }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".article-title", ".faq"]
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
       },
       "author": {
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
         "jobTitle": "Commerce Research, Dugong",
-        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://blog.dugong.live/#organization",
         "name": "Dugong",
         "url": "https://dugong.live",
-        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
-      }
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Product bundles",
+          "url": "https://help.shopify.com/en/manual/products/bundles"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Sales channels",
+          "url": "https://help.shopify.com/en/manual/online-sales-channels"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The bundle sale that never touches your component stock", "item": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The bundle sale that never touches your component stock",
+          "item": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html"
+        }
       ]
     },
     {
@@ -144,13 +204,55 @@
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
-        { "@type": "HowToStep", "position": 1, "name": "Map each bundle to its components", "text": "Record which products and quantities make up every bundle, including the components you never sell on their own, so each bundle has a real recipe rather than a standalone stock number", "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 2, "name": "Deduct components on a bundle sale", "text": "When a bundle sells, reduce the stock of each product inside it by the right quantity, per location, so the parts reflect what just left the shelf", "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 3, "name": "Recompute bundle availability from the parts", "text": "After any change, set each bundle's availability to how many full sets its components can still build, so a bundle never sells past the stock behind it and never hides while the parts are in stock", "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 4, "name": "Cascade shared components across bundles", "text": "When a component sits in several bundles or has its own product page, apply one deduction to the real component and update every bundle and listing that depends on it", "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 5, "name": "Sync the signal to every channel", "text": "Push the corrected component and bundle counts to the other sales channels so a marketplace is not still showing stock the bundle just consumed", "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 6, "name": "Reconcile on restocks, returns, and edits", "text": "Add component stock back on a restock or a returned bundle, and re-run the math when an order is edited so removing or adding a bundle corrects the parts too", "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 7, "name": "Escalate the judgment calls", "text": "Hold for review a component that has gone negative, a bundle that should switch to backorder rather than hide, or a partial return where only some parts came back, so a person makes the call", "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook" }
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Map each bundle to its components",
+          "text": "Record which products and quantities make up every bundle, including the components you never sell on their own, so each bundle has a real recipe rather than a standalone stock number",
+          "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Deduct components on a bundle sale",
+          "text": "When a bundle sells, reduce the stock of each product inside it by the right quantity, per location, so the parts reflect what just left the shelf",
+          "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Recompute bundle availability from the parts",
+          "text": "After any change, set each bundle's availability to how many full sets its components can still build, so a bundle never sells past the stock behind it and never hides while the parts are in stock",
+          "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Cascade shared components across bundles",
+          "text": "When a component sits in several bundles or has its own product page, apply one deduction to the real component and update every bundle and listing that depends on it",
+          "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Sync the signal to every channel",
+          "text": "Push the corrected component and bundle counts to the other sales channels so a marketplace is not still showing stock the bundle just consumed",
+          "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Reconcile on restocks, returns, and edits",
+          "text": "Add component stock back on a restock or a returned bundle, and re-run the math when an order is edited so removing or adding a bundle corrects the parts too",
+          "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Escalate the judgment calls",
+          "text": "Hold for review a component that has gone negative, a bundle that should switch to backorder rather than hide, or a partial return where only some parts came back, so a person makes the call",
+          "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook"
+        }
       ]
     }
   ]
@@ -181,14 +283,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -495,9 +597,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 83</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">JUL 15, 2026</span>
+    <time datetime="2026-07-15" style="color: var(--cream-dim);">JUL 15, 2026</time>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">10 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-15" style="color: var(--cream-dim);">UPDATED AUG 15, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -550,7 +654,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p>
       Give Shopify its due first, because the picture is better than it was a year ago. The
-      free Shopify Bundles app does link a fixed bundle to its components: you build the
+      free <a href="https://help.shopify.com/en/manual/products/bundles" target="_blank" rel="noopener">Shopify Bundles</a> app does link a fixed bundle to its components: you build the
       bundle from existing products, and it shows the bundle as available based on the
       lowest-stock component, so it will not let you sell a kit whose parts are gone. For a
       store that builds every bundle through that app and keeps them simple, that linkage is
@@ -576,7 +680,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       Then there are the seams that break even a linked bundle. Edit an order after it is
       placed, remove a bundle, add one, change a quantity, and the component math does not
       re-run, because Shopify never modeled the relationship as something an edit should
-      recalculate. Sync your catalog to another sales channel or a marketplace and the
+      recalculate. Sync your catalog to another <a href="https://help.shopify.com/en/manual/online-sales-channels" target="_blank" rel="noopener">sales channel</a> or a marketplace and the
       bundle usually travels as one atomic SKU, so selling ten kits on your store leaves the
       component still showing its full quantity on Amazon, and you oversell the part on the
       channel you were not even watching. The link that exists is real, but it is thin, and
@@ -799,6 +903,38 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

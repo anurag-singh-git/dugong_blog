@@ -45,7 +45,9 @@
     {
       "@type": "BlogPosting",
       "@id": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#article",
-      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
       "mainEntityOfPage": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html",
       "headline": "How to bulk edit product prices on Shopify",
@@ -57,37 +59,91 @@
       "wordCount": 2446,
       "timeRequired": "PT9M",
       "inLanguage": "en",
-      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
       "about": [
-        { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "Pricing", "sameAs": "https://en.wikipedia.org/wiki/Pricing" },
-        { "@type": "Thing", "name": "Price", "sameAs": "https://en.wikipedia.org/wiki/Price" },
-        { "@type": "Thing", "name": "Bulk operation", "sameAs": "https://en.wikipedia.org/wiki/Bulk_operation" }
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "@type": "Thing",
+          "name": "Pricing",
+          "sameAs": "https://en.wikipedia.org/wiki/Pricing"
+        },
+        {
+          "@type": "Thing",
+          "name": "Price",
+          "sameAs": "https://en.wikipedia.org/wiki/Price"
+        },
+        {
+          "@type": "Thing",
+          "name": "Bulk operation",
+          "sameAs": "https://en.wikipedia.org/wiki/Bulk_operation"
+        }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".article-title", ".faq"]
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
       },
       "author": {
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
         "jobTitle": "Commerce Research, Dugong",
-        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://blog.dugong.live/#organization",
         "name": "Dugong",
         "url": "https://dugong.live",
-        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
-      }
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Bulk editing",
+          "url": "https://help.shopify.com/en/manual/shopify-admin/productivity-tools/bulk-editing"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The price change you make one product at a time", "item": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The price change you make one product at a time",
+          "item": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html"
+        }
       ]
     },
     {
@@ -222,14 +278,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -535,9 +591,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH Nº 70</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">JUN 28, 2026</span>
+    <time datetime="2026-06-28" style="color: var(--cream-dim);">JUN 28, 2026</time>
     <span style="color: var(--line-2);">·</span>
     <span style="color: var(--cream-dim);">9 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-12" style="color: var(--cream-dim);">UPDATED AUG 12, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -570,7 +628,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       The accountant points out that a chunk of the catalog is selling below the
       margin you need. And then a person, often the owner, sits down with the
       Shopify admin open and starts changing prices one product at a time: filter
-      to a group, open the bulk editor, read the current price, do the math in
+      to a group, open the <a href="https://help.shopify.com/en/manual/shopify-admin/productivity-tools/bulk-editing" target="_blank" rel="noopener">bulk editor</a>, read the current price, do the math in
       their head or a calculator, type the new number, tab to the next row, and
       do it again. Fifty rows later the page ends and they load the next fifty.
       It is not hard. That is exactly why it is so corrosive. It is easy,
@@ -661,7 +719,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <p>
-      Third, <strong>Flow cannot change a price</strong>. Shopify Flow, free on
+      Third, <strong>Flow cannot change a price</strong>. <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Shopify Flow</a>, free on
       every plan, can react when a product is updated, can tag it, and can notify
       you. But Flow has no action that sets a product or variant price, so it
       cannot raise prices by a percentage, apply a rounding rule, or reprice
@@ -919,6 +977,38 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

@@ -115,11 +115,19 @@
         "url": "https://dugong.live",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://blog.dugong.live/og-image.png",
-          "width": 1200,
-          "height": 630
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
         }
-      }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Customer accounts",
+          "url": "https://help.shopify.com/en/manual/customers/customer-accounts"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -141,9 +149,46 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-{"@type": "Question", "name": "Can customers cancel their own orders on Shopify?", "acceptedAnswer": {"@type": "Answer", "text": "Since June 18, 2026, yes, with limits. Shopify's self-serve returns now include cancellation requests: a signed-in customer can open their order status page and request cancellation of any item that has not shipped, and you can set cancellation windows alongside your return rules, with different rules per market. The limits matter. The feature requires the new customer accounts, so stores on legacy accounts need to add the customer accounts URL to their store or upgrade. And it is a request, not a cancellation: the help center is explicit that a pending request does not change the order's state on its own, and that you review and decide on every one. Nothing pauses fulfillment while the request waits, request notifications arrive by email rather than in the Shopify app, and processing a cancellation on a subscription order does not cancel the subscription contract. EU merchants should turn it on regardless: Directive 2023/2673 has required an easy electronic withdrawal function since June 19, 2026."}},{"@type": "Question", "name": "How do I stop an order from shipping after a customer asks to cancel?", "acceptedAnswer": {"@type": "Answer", "text": "Hold it before you decide anything. A Shopify fulfillment hold takes the order out of every pick feed, which is exactly what a pending cancellation request does not do, so the winning pattern is hold first, judge second: the moment cancellation intent appears anywhere, on the order status page, in the inbox, in chat, or in a DM, the order goes on hold within seconds, and the decision about refunding can happen minutes later without a race. The common alternative, delaying all fulfillment by 24 hours, does catch most cancellations, but it taxes every order to catch the few percent that cancel, and your delivery times carry the cost. Matching matters as much as holding: most cancellation intent never arrives through the button, so whatever is watching needs to read a reply to an order confirmation, or a message with no order number in it, and resolve it to the right order before the hold can be placed."}},{"@type": "Question", "name": "What happens if the order already shipped?", "acceptedAnswer": {"@type": "Answer", "text": "Cancellation is off the table: customers can only request cancellation for unshipped items, and once there is a tracking number the request becomes a return conversation. You have three real options. Treat it as a return that starts before delivery: approve the return, send the label, refund when the parcel comes back. Ask the customer to refuse delivery, which is free but slow and unreliable, since refused parcels wander home at carrier pace. Or pay the carrier for a package intercept, which costs real money and is not guaranteed. The expensive version of this moment is silence: a customer who asked to cancel, got shipping notifications instead, and heard nothing is a chargeback waiting to be filed, and a hard one to fight. The cheap version is an honest reply within minutes that says the order beat the request out the door, with the return label already attached."}},
-{"@type": "Question", "name": "What does it cost when an order ships after a cancellation request?", "acceptedAnswer": {"@type": "Answer", "text": "Count it per race lost. The pick and pack fee is spent, the outbound label is spent, the refund goes out in full, and then you either buy a return label or lose the customer arguing about who pays for one, with restocking two weeks out if the item comes back sellable. Somewhere between $20 and $30 walks out the door, you do the work of two shipments to sell nothing, and the customer watches the thing she canceled arrive at her house. The downside case is worse: a cardholder who asked to cancel and got shipping notifications instead files the easiest chargeback dispute there is, and I requested cancellation before shipment reads terribly in the evidence packet. The audit that sizes the problem: search the inbox for cancel, take 90 days, and count the orders that shipped after the request arrived."}},
-{"@type": "Question", "name": "Are most cancellation requests actually cancellations?", "acceptedAnswer": {"@type": "Answer", "text": "A large share are not; they are other requests wearing the cancel button. Wrong size wants an order edit, not a refund. Moved last month wants the address fixed before the label exists. Ordered twice by accident wants the duplicate canceled and the original kept. Offering the edit before the cancellation saves the sale outright, and the customer who came to cancel leaves having been helped instead, which is why the gates in the playbook check for an edit path before the refund runs. The weekly report is where this pays twice: eleven requests, nine canceled clean, one converted to an order edit, one intercepted at the dock, and then the sentence that funds the whole workflow, eight of eleven were size confusion on the same two products, here is the size chart fix that makes next week quieter."}}
+        {
+          "@type": "Question",
+          "name": "Can customers cancel their own orders on Shopify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Since June 18, 2026, yes, with limits. Shopify's self-serve returns now include cancellation requests: a signed-in customer can open their order status page and request cancellation of any item that has not shipped, and you can set cancellation windows alongside your return rules, with different rules per market. The limits matter. The feature requires the new customer accounts, so stores on legacy accounts need to add the customer accounts URL to their store or upgrade. And it is a request, not a cancellation: the help center is explicit that a pending request does not change the order's state on its own, and that you review and decide on every one. Nothing pauses fulfillment while the request waits, request notifications arrive by email rather than in the Shopify app, and processing a cancellation on a subscription order does not cancel the subscription contract. EU merchants should turn it on regardless: Directive 2023/2673 has required an easy electronic withdrawal function since June 19, 2026."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I stop an order from shipping after a customer asks to cancel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hold it before you decide anything. A Shopify fulfillment hold takes the order out of every pick feed, which is exactly what a pending cancellation request does not do, so the winning pattern is hold first, judge second: the moment cancellation intent appears anywhere, on the order status page, in the inbox, in chat, or in a DM, the order goes on hold within seconds, and the decision about refunding can happen minutes later without a race. The common alternative, delaying all fulfillment by 24 hours, does catch most cancellations, but it taxes every order to catch the few percent that cancel, and your delivery times carry the cost. Matching matters as much as holding: most cancellation intent never arrives through the button, so whatever is watching needs to read a reply to an order confirmation, or a message with no order number in it, and resolve it to the right order before the hold can be placed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if the order already shipped?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cancellation is off the table: customers can only request cancellation for unshipped items, and once there is a tracking number the request becomes a return conversation. You have three real options. Treat it as a return that starts before delivery: approve the return, send the label, refund when the parcel comes back. Ask the customer to refuse delivery, which is free but slow and unreliable, since refused parcels wander home at carrier pace. Or pay the carrier for a package intercept, which costs real money and is not guaranteed. The expensive version of this moment is silence: a customer who asked to cancel, got shipping notifications instead, and heard nothing is a chargeback waiting to be filed, and a hard one to fight. The cheap version is an honest reply within minutes that says the order beat the request out the door, with the return label already attached."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does it cost when an order ships after a cancellation request?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Count it per race lost. The pick and pack fee is spent, the outbound label is spent, the refund goes out in full, and then you either buy a return label or lose the customer arguing about who pays for one, with restocking two weeks out if the item comes back sellable. Somewhere between $20 and $30 walks out the door, you do the work of two shipments to sell nothing, and the customer watches the thing she canceled arrive at her house. The downside case is worse: a cardholder who asked to cancel and got shipping notifications instead files the easiest chargeback dispute there is, and I requested cancellation before shipment reads terribly in the evidence packet. The audit that sizes the problem: search the inbox for cancel, take 90 days, and count the orders that shipped after the request arrived."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are most cancellation requests actually cancellations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A large share are not; they are other requests wearing the cancel button. Wrong size wants an order edit, not a refund. Moved last month wants the address fixed before the label exists. Ordered twice by accident wants the duplicate canceled and the original kept. Offering the edit before the cancellation saves the sale outright, and the customer who came to cancel leaves having been helped instead, which is why the gates in the playbook check for an edit path before the refund runs. The weekly report is where this pays twice: eleven requests, nine canceled clean, one converted to an order edit, one intercepted at the dock, and then the sentence that funds the whole workflow, eight of eleven were size confusion on the same two products, here is the size chart fix that makes next week quieter."
+          }
+        }
       ]
     },
     {
@@ -154,13 +199,55 @@
       "inLanguage": "en",
       "totalTime": "PT9M",
       "step": [
-{"@type": "HowToStep", "position": 1, "name": "Match the message to its order", "text": "Resolve every channel to one order: the self-serve request, the email reply, the chat message, and the DM, matched by email, name, address, and time", "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 2, "name": "Hold fulfillment first", "text": "Place a fulfillment hold the second cancellation intent is detected, before any decision, so the order leaves every pick feed and label queue", "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 3, "name": "Check the policy gates", "text": "Confirm the order is unfulfilled, inside the cancellation window, not final sale, not personalized, and not a subscription contract", "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 4, "name": "Cancel the clean cases end to end", "text": "Cancel, refund to the original payment, restock the units, tag the order, and send the customer a confirmation within minutes", "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 5, "name": "Escalate the exceptions with context", "text": "Route picked, digital, personalized, and late EU cases to a human with the order, the request, and the deadline attached", "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 6, "name": "Open the return path when it is too late", "text": "If the order already shipped, say so honestly in minutes and start the return or intercept instead of going quiet", "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 7, "name": "Report weekly", "text": "Count requests, saves, and misses, and surface what keeps causing cancellations so checkout stops generating them", "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"}
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Match the message to its order",
+          "text": "Resolve every channel to one order: the self-serve request, the email reply, the chat message, and the DM, matched by email, name, address, and time",
+          "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Hold fulfillment first",
+          "text": "Place a fulfillment hold the second cancellation intent is detected, before any decision, so the order leaves every pick feed and label queue",
+          "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Check the policy gates",
+          "text": "Confirm the order is unfulfilled, inside the cancellation window, not final sale, not personalized, and not a subscription contract",
+          "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Cancel the clean cases end to end",
+          "text": "Cancel, refund to the original payment, restock the units, tag the order, and send the customer a confirmation within minutes",
+          "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Escalate the exceptions with context",
+          "text": "Route picked, digital, personalized, and late EU cases to a human with the order, the request, and the deadline attached",
+          "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Open the return path when it is too late",
+          "text": "If the order already shipped, say so honestly in minutes and start the return or intercept instead of going quiet",
+          "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Report weekly",
+          "text": "Count requests, saves, and misses, and surface what keeps causing cancellations so checkout stops generating them",
+          "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"
+        }
       ]
     }
   ]
@@ -189,14 +276,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -500,9 +587,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 98</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">AUG 2, 2026</span>
+    <time datetime="2026-08-02" style="color: var(--cream-dim);">AUG 2, 2026</time>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">9 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-13" style="color: var(--cream-dim);">UPDATED AUG 13, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -586,7 +675,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       Then read the fine print, because three sentences of it decide
       whether the rain shell ships. The feature does not work with
-      legacy customer accounts, which many stores still run at
+      legacy <a href="https://help.shopify.com/en/manual/customers/customer-accounts" target="_blank" rel="noopener">customer accounts</a>, which many stores still run at
       checkout, so those customers keep emailing. The merchant
       notification is an email in the same inbox as everything else,
       and request notifications are not available in the Shopify app,
@@ -907,6 +996,38 @@ message that reads like one
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

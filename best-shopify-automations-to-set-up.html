@@ -45,7 +45,9 @@
     {
       "@type": "BlogPosting",
       "@id": "https://blog.dugong.live/best-shopify-automations-to-set-up.html#article",
-      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
       "mainEntityOfPage": "https://blog.dugong.live/best-shopify-automations-to-set-up.html",
       "url": "https://blog.dugong.live/best-shopify-automations-to-set-up.html",
       "headline": "The best Shopify automations to set up",
@@ -57,36 +59,81 @@
       "wordCount": 1650,
       "timeRequired": "PT8M",
       "inLanguage": "en",
-      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
       "about": [
-        { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "E-commerce", "sameAs": "https://en.wikipedia.org/wiki/E-commerce" },
-        { "@type": "Thing", "name": "Business process automation", "sameAs": "https://en.wikipedia.org/wiki/Business_process_automation" }
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "@type": "Thing",
+          "name": "E-commerce",
+          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+        },
+        {
+          "@type": "Thing",
+          "name": "Business process automation",
+          "sameAs": "https://en.wikipedia.org/wiki/Business_process_automation"
+        }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".article-title", ".faq"]
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
       },
       "author": {
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
         "jobTitle": "Commerce Research, Dugong",
-        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://blog.dugong.live/#organization",
         "name": "Dugong",
         "url": "https://dugong.live",
-        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
-      }
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The Shopify automations no one builds", "item": "https://blog.dugong.live/best-shopify-automations-to-set-up.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The Shopify automations no one builds",
+          "item": "https://blog.dugong.live/best-shopify-automations-to-set-up.html"
+        }
       ]
     },
     {
@@ -115,8 +162,24 @@
             "@type": "Answer",
             "text": "Traditional drag-and-drop automation rewards tasks that fit neat if-this-then-that rules, so merchants automate simple tagging and notifications. The high-value work, returns, refunds, support exceptions, involves judgment and branching that rule builders handle poorly. An AI playbook closes the gap by letting merchants describe the messy workflow in plain language and compiling it into a running automation."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Which Shopify automation should a merchant set up first?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start where the labor actually scales with order volume, not where the builder makes it easiest. In the 1,374 workflows we studied, tagging was 14% of everything shipped while returns and refunds together were 0.8%, which means most merchants automate the label and keep doing the work the label points at. The four setups that pay back fastest in our field data: VIP detection that reads order history, review scores, and cohort lifetime value instead of a single spend threshold; refund triage that reads the customer's message and photos before deciding; chargeback evidence assembly that pulls the order, the auth log, the conversation, the tracking, and the delivery scan into one packet; and abandoned-checkout classification that works out why the cart stalled before choosing the message. One fashion brand saw a 34% lift in repeat purchases after wiring VIP recognition to land within twenty-four hours of a customer qualifying."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Shopify Flow build the automations that are actually worth it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Flow is genuinely good at the trigger, condition, action shape: when an order is paid, if value crosses a threshold, add a tag. That is why tagging is 14% of shipped workflows, and why 67% of the 1,374 workflows we studied had four or fewer steps. The high-value jobs are a different shape. Refund triage has to read a complaint and its photos, judge damage against a dollar threshold, check whether this is the customer's third return in 60 days, and route the gray cases to a human. Chargeback evidence lives in five systems: Shopify holds the order, Stripe the auth log, Gorgias the conversation, ShipStation the tracking, the 3PL the proof-of-delivery scan. Work like that needs an agent that can read messages and evidence and follow a prose playbook, which is the gap the compiler approach exists to close. Use Flow for the rules; describe the judgment calls in plain English."
+          }
         }
-      ,{"@type": "Question", "name": "Which Shopify automation should a merchant set up first?", "acceptedAnswer": {"@type": "Answer", "text": "Start where the labor actually scales with order volume, not where the builder makes it easiest. In the 1,374 workflows we studied, tagging was 14% of everything shipped while returns and refunds together were 0.8%, which means most merchants automate the label and keep doing the work the label points at. The four setups that pay back fastest in our field data: VIP detection that reads order history, review scores, and cohort lifetime value instead of a single spend threshold; refund triage that reads the customer's message and photos before deciding; chargeback evidence assembly that pulls the order, the auth log, the conversation, the tracking, and the delivery scan into one packet; and abandoned-checkout classification that works out why the cart stalled before choosing the message. One fashion brand saw a 34% lift in repeat purchases after wiring VIP recognition to land within twenty-four hours of a customer qualifying."}},{"@type": "Question", "name": "Can Shopify Flow build the automations that are actually worth it?", "acceptedAnswer": {"@type": "Answer", "text": "Flow is genuinely good at the trigger, condition, action shape: when an order is paid, if value crosses a threshold, add a tag. That is why tagging is 14% of shipped workflows, and why 67% of the 1,374 workflows we studied had four or fewer steps. The high-value jobs are a different shape. Refund triage has to read a complaint and its photos, judge damage against a dollar threshold, check whether this is the customer's third return in 60 days, and route the gray cases to a human. Chargeback evidence lives in five systems: Shopify holds the order, Stripe the auth log, Gorgias the conversation, ShipStation the tracking, the 3PL the proof-of-delivery scan. Work like that needs an agent that can read messages and evidence and follow a prose playbook, which is the gap the compiler approach exists to close. Use Flow for the rules; describe the judgment calls in plain English."}}]
+      ]
     },
     {
       "@type": "ItemList",
@@ -180,14 +243,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -652,9 +715,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH Nº 48</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">MAY 28, 2026</span>
+    <time datetime="2026-05-28" style="color: var(--cream-dim);">MAY 28, 2026</time>
     <span style="color: var(--line-2);">·</span>
     <span style="color: var(--cream-dim);">8 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-07" style="color: var(--cream-dim);">UPDATED AUG 7, 2026</time>
   </div>
 
   <h1 class="article-title">The <em>best Shopify automations</em> to set up</h1>
@@ -681,7 +746,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       count, her Shopify backend has nineteen tag rules, <em>VIP</em>,
       <em>repeat</em>, <em>fragrance-preference-vanilla</em>,
       <em>fragrance-preference-citrus</em>, and on. She built every
-      one of them inside Shopify Flow. They run silently in the
+      one of them inside <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Shopify Flow</a>. They run silently in the
       background. She has not opened the Flow editor in four months.
     </p>
 
@@ -1043,6 +1108,38 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

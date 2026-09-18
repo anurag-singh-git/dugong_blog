@@ -115,11 +115,24 @@
         "url": "https://dugong.live",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://blog.dugong.live/og-image.png",
-          "width": 1200,
-          "height": 630
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
         }
-      }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Payments",
+          "url": "https://help.shopify.com/en/manual/payments/shopify-payments"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -141,8 +154,47 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-{"@type": "Question", "name": "How long do I have to capture an authorized payment on Shopify?", "acceptedAnswer": {"@type": "Answer", "text": "Seven days on Shopify Payments: the card is authorized at checkout, and you must capture within the authorization period to collect any money for the order. The period varies by payment provider, and on the Shopify Plus plan with Shopify Payments some cards support extended authorization periods: up to 30 days for Visa, Mastercard, and American Express, up to 10 days for Discover and JCB, and 7 days for Diners Club and China UnionPay, depending on the issuing bank. Two details catch merchants. Capturing after the standard 7 days on an extended authorization adds a 1.75% charge on top of standard processing fees. And if the payment was made in a foreign currency, the amount converts at the rate on capture day, not authorization day, so a slow capture can also be a smaller one. Shopify can email you a warning 1 day before an authorization expires: one email, worth turning on, and not a system for a store doing real volume."}},{"@type": "Question", "name": "What happens if a Shopify payment authorization expires before I capture it?", "acceptedAnswer": {"@type": "Answer", "text": "The hold releases and the money returns to the customer's available balance. An expired authorization cannot be captured, so the order sits in your admin looking normal, sometimes already shipped, with payment that will never arrive. Shopify's guidance is to cancel the order and create a new one, or contact the customer to arrange payment again, usually with a payment link. Recovery depends almost entirely on speed and tone: a same-day message saying the payment hold expired before we charged you, here is a secure link, reads as competence, while a two-week-old request to please pay again for boots the customer already owns reads as a bill from nowhere and converts accordingly. If the order has not shipped, hold it until the new payment lands. If it already shipped, you are collecting a debt now, politely, and every day of delay costs recovery rate."}},{"@type": "Question", "name": "Why didn't Shopify capture payment when I fulfilled the order?", "acceptedAnswer": {"@type": "Answer", "text": "The most common reason is a partial fulfillment. The capture-at-fulfillment setting only captures when the entire order is fulfilled, and Shopify's documentation is explicit that partially fulfilled orders won't be captured. Split a shipment, backorder one line, or fulfill items from two locations on different days and the authorization keeps running out its clock while the order looks handled. Other documented causes: the setting only applies to orders placed after it was activated, so everything already in the queue stays manual; B2B orders and orders from B2B checkout often must be captured manually; some fulfillment apps require a paid status before they start, which deadlocks against a capture that waits for fulfillment; and running a third-party auto-capture app alongside a Shopify automatic capture setting can conflict. Capture per fulfillment, which charges for items as each fulfillment happens, exists but only on Shopify Plus and only with providers that support multiple captures."}}
-      ,{"@type": "Question", "name": "Should I use automatic or manual payment capture on Shopify?", "acceptedAnswer": {"@type": "Answer", "text": "Automatic capture at checkout is right when nothing ever stands between an order and its money: no fraud verification step, no preorders, no B2B terms. The moment any order can need review, the choice gets sharper. Manual capture is honest but fragile: a human clicking a button on every order inside the 7 day authorization window, with one warning email that arrives with roughly 24 hours left. Capture at fulfillment sounds like the compromise, but it only fires when the entire order is fulfilled, so a split shipment or one backordered line quietly runs the clock out. The setting matters less than owning the deadline. Whatever mode you pick, some order will eventually wait on a decision, and the store needs an escalation that says which authorizations die soon, what blocks each one, and who owes the decision, with hours on the clock attached."}},{"@type": "Question", "name": "Can Shopify Flow capture payments automatically?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, within one policy's worth of logic. The well-known Flow template that captures payment when an order is not high fraud risk exists and works, and if your entire capture policy fits in that sentence, Flow closes the gap. Real stores rarely stay that simple. The policies that show up in practice name different triggers for different orders: capture when the fraud check passes, capture at first shipment for split orders, hold preorders until release day, carve out B2B orders on terms entirely. Add the deadline problem, watching each authorization's true expiry by provider and card type, escalating day 5 holds with what blocks them, and voiding deliberately instead of letting holds die silently, and the job outgrows a single trigger and condition. Flow is the right tool for the simple capture rule; the full clock-watching policy is a playbook an agent has to run."}}]
+        {
+          "@type": "Question",
+          "name": "How long do I have to capture an authorized payment on Shopify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Seven days on Shopify Payments: the card is authorized at checkout, and you must capture within the authorization period to collect any money for the order. The period varies by payment provider, and on the Shopify Plus plan with Shopify Payments some cards support extended authorization periods: up to 30 days for Visa, Mastercard, and American Express, up to 10 days for Discover and JCB, and 7 days for Diners Club and China UnionPay, depending on the issuing bank. Two details catch merchants. Capturing after the standard 7 days on an extended authorization adds a 1.75% charge on top of standard processing fees. And if the payment was made in a foreign currency, the amount converts at the rate on capture day, not authorization day, so a slow capture can also be a smaller one. Shopify can email you a warning 1 day before an authorization expires: one email, worth turning on, and not a system for a store doing real volume."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if a Shopify payment authorization expires before I capture it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The hold releases and the money returns to the customer's available balance. An expired authorization cannot be captured, so the order sits in your admin looking normal, sometimes already shipped, with payment that will never arrive. Shopify's guidance is to cancel the order and create a new one, or contact the customer to arrange payment again, usually with a payment link. Recovery depends almost entirely on speed and tone: a same-day message saying the payment hold expired before we charged you, here is a secure link, reads as competence, while a two-week-old request to please pay again for boots the customer already owns reads as a bill from nowhere and converts accordingly. If the order has not shipped, hold it until the new payment lands. If it already shipped, you are collecting a debt now, politely, and every day of delay costs recovery rate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why didn't Shopify capture payment when I fulfilled the order?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The most common reason is a partial fulfillment. The capture-at-fulfillment setting only captures when the entire order is fulfilled, and Shopify's documentation is explicit that partially fulfilled orders won't be captured. Split a shipment, backorder one line, or fulfill items from two locations on different days and the authorization keeps running out its clock while the order looks handled. Other documented causes: the setting only applies to orders placed after it was activated, so everything already in the queue stays manual; B2B orders and orders from B2B checkout often must be captured manually; some fulfillment apps require a paid status before they start, which deadlocks against a capture that waits for fulfillment; and running a third-party auto-capture app alongside a Shopify automatic capture setting can conflict. Capture per fulfillment, which charges for items as each fulfillment happens, exists but only on Shopify Plus and only with providers that support multiple captures."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I use automatic or manual payment capture on Shopify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Automatic capture at checkout is right when nothing ever stands between an order and its money: no fraud verification step, no preorders, no B2B terms. The moment any order can need review, the choice gets sharper. Manual capture is honest but fragile: a human clicking a button on every order inside the 7 day authorization window, with one warning email that arrives with roughly 24 hours left. Capture at fulfillment sounds like the compromise, but it only fires when the entire order is fulfilled, so a split shipment or one backordered line quietly runs the clock out. The setting matters less than owning the deadline. Whatever mode you pick, some order will eventually wait on a decision, and the store needs an escalation that says which authorizations die soon, what blocks each one, and who owes the decision, with hours on the clock attached."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Shopify Flow capture payments automatically?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, within one policy's worth of logic. The well-known Flow template that captures payment when an order is not high fraud risk exists and works, and if your entire capture policy fits in that sentence, Flow closes the gap. Real stores rarely stay that simple. The policies that show up in practice name different triggers for different orders: capture when the fraud check passes, capture at first shipment for split orders, hold preorders until release day, carve out B2B orders on terms entirely. Add the deadline problem, watching each authorization's true expiry by provider and card type, escalating day 5 holds with what blocks them, and voiding deliberately instead of letting holds die silently, and the job outgrows a single trigger and condition. Flow is the right tool for the simple capture rule; the full clock-watching policy is a playbook an agent has to run."
+          }
+        }
+      ]
     },
     {
       "@type": "HowTo",
@@ -152,13 +204,55 @@
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
-{"@type": "HowToStep", "position": 1, "name": "Watch every authorization with its real deadline", "text": "Track each authorized order with its provider, card type, expiry timestamp, and the fee cliff at day 7 for extended authorizations", "url": "https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 2, "name": "Capture on the trigger your policy names", "text": "Fraud check passed, order fulfilled, first shipment out, preorder ready to ship: capture fires on the store's actual rule, not on memory", "url": "https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 3, "name": "Handle the split shipment", "text": "When an order partially fulfills, capture the full amount at first shipment or apply per-fulfillment capture where the plan supports it, instead of waiting for a completion event that never comes", "url": "https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 4, "name": "Escalate day-5 authorizations with evidence", "text": "Anything still uncaptured at day 5 goes to a human with what is blocking it, who owes the decision, and the hours remaining", "url": "https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 5, "name": "Void instead of abandoning", "text": "When an order cancels or fails review, release the authorization deliberately so the hold clears the customer's statement, and tag the order with the reason", "url": "https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 6, "name": "Recover the expired in the same hour", "text": "Cancel, duplicate, send a payment link with a message that reads like competence, and hold fulfillment until the new payment lands", "url": "https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 7, "name": "Report weekly", "text": "Captured, voided, expired, late-capture fees avoided, and the dollars the clock almost took", "url": "https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html#playbook"}
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Watch every authorization with its real deadline",
+          "text": "Track each authorized order with its provider, card type, expiry timestamp, and the fee cliff at day 7 for extended authorizations",
+          "url": "https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Capture on the trigger your policy names",
+          "text": "Fraud check passed, order fulfilled, first shipment out, preorder ready to ship: capture fires on the store's actual rule, not on memory",
+          "url": "https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Handle the split shipment",
+          "text": "When an order partially fulfills, capture the full amount at first shipment or apply per-fulfillment capture where the plan supports it, instead of waiting for a completion event that never comes",
+          "url": "https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Escalate day-5 authorizations with evidence",
+          "text": "Anything still uncaptured at day 5 goes to a human with what is blocking it, who owes the decision, and the hours remaining",
+          "url": "https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Void instead of abandoning",
+          "text": "When an order cancels or fails review, release the authorization deliberately so the hold clears the customer's statement, and tag the order with the reason",
+          "url": "https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Recover the expired in the same hour",
+          "text": "Cancel, duplicate, send a payment link with a message that reads like competence, and hold fulfillment until the new payment lands",
+          "url": "https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Report weekly",
+          "text": "Captured, voided, expired, late-capture fees avoided, and the dollars the clock almost took",
+          "url": "https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html#playbook"
+        }
       ]
     }
   ]
@@ -187,14 +281,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -498,9 +592,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 99</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">AUG 3, 2026</span>
+    <time datetime="2026-08-03" style="color: var(--cream-dim);">AUG 3, 2026</time>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">10 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-07" style="color: var(--cream-dim);">UPDATED AUG 7, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -543,7 +639,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       Fulfillment feels like the end of an order, the admin shows a
       tidy Fulfilled badge, and the one thing still open is a payment
       status quietly reading Authorized in a column nobody sorts by.
-      The authorization Shopify Payments created on Sunday night is
+      The authorization <a href="https://help.shopify.com/en/manual/payments/shopify-payments" target="_blank" rel="noopener">Shopify Payments</a> created on Sunday night is
       good for 7 days. On Thursday at 11:47 p.m. it expires, the hold
       releases, and $412 goes back to the customer's available balance
       while her boots sit by her door.
@@ -677,7 +773,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <p>
-      Shopify Flow deserves an honest word, because Flow can do the
+      <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Shopify Flow</a> deserves an honest word, because Flow can do the
       famous version of this: the template that captures payment when
       an order is not high fraud risk exists, it works, and if your
       entire policy is capture everything Shopify does not flag, you
@@ -916,6 +1012,38 @@ after, until captured, voided, or expired
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

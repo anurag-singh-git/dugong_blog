@@ -110,11 +110,29 @@
         "url": "https://dugong.live",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://blog.dugong.live/og-image.png",
-          "width": 1200,
-          "height": 630
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
         }
-      }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Bulk editing",
+          "url": "https://help.shopify.com/en/manual/shopify-admin/productivity-tools/bulk-editing"
+        },
+        {
+          "@type": "WebPage",
+          "name": "About webhooks",
+          "url": "https://shopify.dev/docs/apps/build/webhooks"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -262,14 +280,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -573,9 +591,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 106</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">AUG 12, 2026</span>
+    <time datetime="2026-08-12" style="color: var(--cream-dim);">AUG 12, 2026</time>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">10 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-13" style="color: var(--cream-dim);">UPDATED AUG 13, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -642,7 +662,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       Count the ways a price gets written in a working store. A
       staff member edits a variant in the admin. Someone runs the
-      bulk editor across a collection, the same editor whose limits
+      <a href="https://help.shopify.com/en/manual/shopify-admin/productivity-tools/bulk-editing" target="_blank" rel="noopener">bulk editor</a> across a collection, the same editor whose limits
       push merchants into
       <a href="how-to-bulk-edit-product-prices-on-shopify.html">retyping
       prices one product at a time</a>. A CSV import overwrites the
@@ -703,7 +723,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p>
       The instinctive fix is an alert, and on Shopify alerts mean
-      Flow, so read Flow's product trigger list in full: product
+      <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Flow</a>, so read Flow's product trigger list in full: product
       created, product deleted, product status updated, product
       variant added, product variant deleted, product variant back
       in stock, product variant out of stock, and product variant
@@ -729,7 +749,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p>
       The do-it-yourself route hits the same wall from the other
-      side. The products update webhook fires on every edit to any
+      side. The products update <a href="https://shopify.dev/docs/apps/build/webhooks" target="_blank" rel="noopener">webhook</a> fires on every edit to any
       product field, but the payload does not say which field
       changed and does not carry the previous value, so a watcher
       has to store every price itself and diff each payload
@@ -1022,6 +1042,38 @@ and every incoming order
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

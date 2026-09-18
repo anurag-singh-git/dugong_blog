@@ -45,7 +45,9 @@
     {
       "@type": "BlogPosting",
       "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#article",
-      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
       "mainEntityOfPage": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html",
       "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html",
       "headline": "How to sync supplier stock feeds to Shopify without zeroing your catalog",
@@ -57,38 +59,91 @@
       "wordCount": 2500,
       "timeRequired": "PT10M",
       "inLanguage": "en",
-      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
       "about": [
-        { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "Inventory management", "sameAs": "https://en.wikipedia.org/wiki/Inventory_management_software" },
-        { "@type": "Thing", "name": "Stock keeping unit", "sameAs": "https://en.wikipedia.org/wiki/Stock_keeping_unit" },
-        { "@type": "Thing", "name": "Drop shipping", "sameAs": "https://en.wikipedia.org/wiki/Drop_shipping" },
-        { "@type": "Thing", "name": "Electronic data interchange", "sameAs": "https://en.wikipedia.org/wiki/Electronic_data_interchange" }
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "@type": "Thing",
+          "name": "Inventory management",
+          "sameAs": "https://en.wikipedia.org/wiki/Inventory_management_software"
+        },
+        {
+          "@type": "Thing",
+          "name": "Stock keeping unit",
+          "sameAs": "https://en.wikipedia.org/wiki/Stock_keeping_unit"
+        },
+        {
+          "@type": "Thing",
+          "name": "Drop shipping",
+          "sameAs": "https://en.wikipedia.org/wiki/Drop_shipping"
+        },
+        {
+          "@type": "Thing",
+          "name": "Electronic data interchange",
+          "sameAs": "https://en.wikipedia.org/wiki/Electronic_data_interchange"
+        }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".article-title", ".faq"]
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
       },
       "author": {
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
         "jobTitle": "Commerce Research, Dugong",
-        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://blog.dugong.live/#organization",
         "name": "Dugong",
         "url": "https://dugong.live",
-        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
-      }
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The supplier feed that zeroed your whole catalog", "item": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The supplier feed that zeroed your whole catalog",
+          "item": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html"
+        }
       ]
     },
     {
@@ -144,12 +199,48 @@
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
-        { "@type": "HowToStep", "position": 1, "name": "Inspect the file before trusting it", "text": "Check shape, row count, and how far today's file moves from yesterday's before applying a single update", "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 2, "name": "Match on meaning, not on string equality", "text": "Handle case, whitespace, stripped leading zeros, new prefixes, renamed codes, and changed pack sizes", "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 3, "name": "Judge every zero", "text": "Decide whether a missing or zeroed row means genuinely out of stock, discontinued, renamed, or dropped by a broken export", "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 4, "name": "Set the buffer by velocity", "text": "Hold back more stock on fast movers between feed drops and less on slow movers, instead of one global safety number", "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 5, "name": "Apply the safe changes, hold the rest", "text": "Push the updates that look normal and queue the ones that do not for a human decision", "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 6, "name": "Notice a feed that is late, thin, or quietly different", "text": "Alert on a missing drop or a changed file format before the silence becomes stale stock on the storefront", "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#playbook" }
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Inspect the file before trusting it",
+          "text": "Check shape, row count, and how far today's file moves from yesterday's before applying a single update",
+          "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Match on meaning, not on string equality",
+          "text": "Handle case, whitespace, stripped leading zeros, new prefixes, renamed codes, and changed pack sizes",
+          "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Judge every zero",
+          "text": "Decide whether a missing or zeroed row means genuinely out of stock, discontinued, renamed, or dropped by a broken export",
+          "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Set the buffer by velocity",
+          "text": "Hold back more stock on fast movers between feed drops and less on slow movers, instead of one global safety number",
+          "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Apply the safe changes, hold the rest",
+          "text": "Push the updates that look normal and queue the ones that do not for a human decision",
+          "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Notice a feed that is late, thin, or quietly different",
+          "text": "Alert on a missing drop or a changed file format before the silence becomes stale stock on the storefront",
+          "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#playbook"
+        }
       ]
     }
   ]
@@ -180,14 +271,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -491,9 +582,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 92</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">JUL 26, 2026</span>
+    <time datetime="2026-07-26" style="color: var(--cream-dim);">JUL 26, 2026</time>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">10 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-15" style="color: var(--cream-dim);">UPDATED AUG 15, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -593,7 +686,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </blockquote>
 
     <p>
-      The instinct is to reach for Shopify Flow, and Flow genuinely helps
+      The instinct is to reach for <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Shopify Flow</a>, and Flow genuinely helps
       downstream. It can start a workflow when an inventory quantity
       changes, and it can tag the product, unpublish it, or ping a channel.
       What it cannot do is any part of the job that happens before that: it
@@ -903,6 +996,38 @@ when one does not arrive
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

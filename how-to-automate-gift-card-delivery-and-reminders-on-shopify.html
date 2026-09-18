@@ -115,11 +115,19 @@
         "url": "https://dugong.live",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://blog.dugong.live/og-image.png",
-          "width": 1200,
-          "height": 630
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
         }
-      }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -141,9 +149,46 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-{"@type": "Question", "name": "Why didn't my customer receive their Shopify gift card email?", "acceptedAnswer": {"@type": "Answer", "text": "Work through four suspects in order. First, fulfillment: the gift card email goes out when the card is fulfilled, and while gift cards fulfill automatically on payment by default, a store switched to manual fulfillment leaves the card waiting for a click, and medium and high risk orders skip automatic gift card fulfillment entirely, so a fraud flag can hold the send in silence. Second, the recipient form: unless your theme supports the form, it is activated in the theme editor, and the buyer filled it in through the standard Add to Cart flow, the card goes to the purchaser rather than the recipient, and accelerated checkout buttons bypass the form's validation altogether. Third, the address itself: a typo in the recipient email neither errors nor bounces anywhere you can see, because the admin has no delivered or bounced state, only sent. Fourth, spam. The repair is the Resend gift card button on the card's page under Products, then Gift cards, and since the admin shows only the last four characters of any code after creation, resending is the only repair there is."}},{"@type": "Question", "name": "Can customers schedule a Shopify gift card to send on a specific date?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, within boundaries worth knowing before you promise anyone a birthday. The recipient form's optional Send on date schedules a card at most 90 days in the future, and scheduled cards go out approximately between 4:00 am and 10:00 am in the purchasing customer's timezone, so the delivery morning keys off the buyer's clock unless the theme passes the recipient's timezone offset along. The form itself is a theme feature: it arrived in v9.0.0 of Shopify's free Online Store 2.0 themes, lives in Dawn and the Horizon family, does not exist on vintage themes, and stays off until the Show recipient information form for gift card products checkbox is enabled in the Buy buttons block. And the form's validation supports only the Add to Cart flow, so a buyer who pays with an accelerated checkout button can lose the recipient details, in which case the card sends immediately to the buyer and no schedule exists. If a specific date genuinely matters, an automation that queues the send itself and confirms to the buyer when the card lands is the only version of the promise you fully control."}},{"@type": "Question", "name": "Do Shopify gift cards expire, and should you set an expiry?", "acceptedAnswer": {"@type": "Answer", "text": "By default Shopify gift cards never expire, and the setting lives under Settings, then Payments, in the Default expiration section. If you switch expiry on, the default term is five years, which matches the floor the US CARD Act of 2009 sets for how quickly gift card funds can expire; several states are stricter, some ban gift card expiration outright, and in many states balances that sit unredeemed long enough become unclaimed property owed to the state rather than kept by the store, so check the rules everywhere you sell before touching the setting. The better question is what happens before any expiry: Shopify sends no balance reminders and no expiry warnings, and Bankrate's survey work counts about $27 billion of unused gift card value held by 43 percent of American adults, an average of $244 per person. A reminded card gets spent, and a spent card is usually a new customer's first visit to your store; an expired card is a small grudge with your brand's name on it. Remind first, and treat expiry as a legal detail rather than a revenue plan."}},
-{"@type": "Question", "name": "Can Shopify Flow send gift card reminders?", "acceptedAnswer": {"@type": "Answer", "text": "Not from a trigger, because Flow has no gift card trigger of any kind: nothing fires when a card is created, sent, redeemed, or approaches its expiry date. What Flow does have, since the Get data actions arrived, is Get gift card data, which can query up to 100 cards at a time on a schedule and loop over the results, so the raw material for a reminder program sits one query away. The program itself is the part that exists nowhere as a checkbox: a nudge at 30 and 90 days of stillness with the balance stated and the code re-attached so nobody digs through old email, plain warnings at 60 and 14 days where an expiry term is set and lawful, and a monthly report of outstanding balance, redemption rate, aging cards, and breakage, routed to whoever does your books."}},
-{"@type": "Question", "name": "Why is my customized gift card email missing the recipient details?", "acceptedAnswer": {"@type": "Answer", "text": "Because two separate notification templates carry gift cards, and customizations age badly. New gift card goes to the recipient and Gift card receipt goes to the buyer; customize either, or carry customizations from before the recipient feature existed, and the recipient fields can simply be absent from the email, along with the Add to Apple Wallet button that was supposed to put the card somewhere it could not be lost. The reliable diagnostic is two test orders for your own card: one through Add to Cart with the recipient form filled in, one through the express checkout button, then watch which inbox each email reaches, since the form validates only on the Add to Cart flow and an express button sends the card to the buyer. Most stores learn something from the second test that they are glad to have learned on purpose."}}
+        {
+          "@type": "Question",
+          "name": "Why didn't my customer receive their Shopify gift card email?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Work through four suspects in order. First, fulfillment: the gift card email goes out when the card is fulfilled, and while gift cards fulfill automatically on payment by default, a store switched to manual fulfillment leaves the card waiting for a click, and medium and high risk orders skip automatic gift card fulfillment entirely, so a fraud flag can hold the send in silence. Second, the recipient form: unless your theme supports the form, it is activated in the theme editor, and the buyer filled it in through the standard Add to Cart flow, the card goes to the purchaser rather than the recipient, and accelerated checkout buttons bypass the form's validation altogether. Third, the address itself: a typo in the recipient email neither errors nor bounces anywhere you can see, because the admin has no delivered or bounced state, only sent. Fourth, spam. The repair is the Resend gift card button on the card's page under Products, then Gift cards, and since the admin shows only the last four characters of any code after creation, resending is the only repair there is."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can customers schedule a Shopify gift card to send on a specific date?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, within boundaries worth knowing before you promise anyone a birthday. The recipient form's optional Send on date schedules a card at most 90 days in the future, and scheduled cards go out approximately between 4:00 am and 10:00 am in the purchasing customer's timezone, so the delivery morning keys off the buyer's clock unless the theme passes the recipient's timezone offset along. The form itself is a theme feature: it arrived in v9.0.0 of Shopify's free Online Store 2.0 themes, lives in Dawn and the Horizon family, does not exist on vintage themes, and stays off until the Show recipient information form for gift card products checkbox is enabled in the Buy buttons block. And the form's validation supports only the Add to Cart flow, so a buyer who pays with an accelerated checkout button can lose the recipient details, in which case the card sends immediately to the buyer and no schedule exists. If a specific date genuinely matters, an automation that queues the send itself and confirms to the buyer when the card lands is the only version of the promise you fully control."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do Shopify gift cards expire, and should you set an expiry?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By default Shopify gift cards never expire, and the setting lives under Settings, then Payments, in the Default expiration section. If you switch expiry on, the default term is five years, which matches the floor the US CARD Act of 2009 sets for how quickly gift card funds can expire; several states are stricter, some ban gift card expiration outright, and in many states balances that sit unredeemed long enough become unclaimed property owed to the state rather than kept by the store, so check the rules everywhere you sell before touching the setting. The better question is what happens before any expiry: Shopify sends no balance reminders and no expiry warnings, and Bankrate's survey work counts about $27 billion of unused gift card value held by 43 percent of American adults, an average of $244 per person. A reminded card gets spent, and a spent card is usually a new customer's first visit to your store; an expired card is a small grudge with your brand's name on it. Remind first, and treat expiry as a legal detail rather than a revenue plan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Shopify Flow send gift card reminders?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not from a trigger, because Flow has no gift card trigger of any kind: nothing fires when a card is created, sent, redeemed, or approaches its expiry date. What Flow does have, since the Get data actions arrived, is Get gift card data, which can query up to 100 cards at a time on a schedule and loop over the results, so the raw material for a reminder program sits one query away. The program itself is the part that exists nowhere as a checkbox: a nudge at 30 and 90 days of stillness with the balance stated and the code re-attached so nobody digs through old email, plain warnings at 60 and 14 days where an expiry term is set and lawful, and a monthly report of outstanding balance, redemption rate, aging cards, and breakage, routed to whoever does your books."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is my customized gift card email missing the recipient details?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because two separate notification templates carry gift cards, and customizations age badly. New gift card goes to the recipient and Gift card receipt goes to the buyer; customize either, or carry customizations from before the recipient feature existed, and the recipient fields can simply be absent from the email, along with the Add to Apple Wallet button that was supposed to put the card somewhere it could not be lost. The reliable diagnostic is two test orders for your own card: one through Add to Cart with the recipient form filled in, one through the express checkout button, then watch which inbox each email reaches, since the form validates only on the Add to Cart flow and an express button sends the card to the buyer. Most stores learn something from the second test that they are glad to have learned on purpose."
+          }
+        }
       ]
     },
     {
@@ -154,13 +199,55 @@
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
-{"@type": "HowToStep", "position": 1, "name": "Watch the send", "text": "A gift card order still unfulfilled an hour after payment is a settings problem or a risk hold; either way a human hears about it the same day", "url": "https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 2, "name": "Verify the landing", "text": "Bounces, dead inboxes, and missing recipients caught the day they happen, chased with one question, repaired with a resend in minutes", "url": "https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 3, "name": "Honor the date", "text": "Scheduled cards queued to the recipient's own morning, with the buyer told the moment the card lands", "url": "https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 4, "name": "Wake the balance", "text": "Nudges at 30 and 90 days unspent, balance and code re-attached so nobody has to dig", "url": "https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 5, "name": "Warn before the cliff", "text": "Where an expiry term is set and legal, notices at 60 and 14 days out", "url": "https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 6, "name": "Rescue the lost card", "text": "Never-got-it requests answered with a resend and a reply the same hour", "url": "https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html#playbook"},
-{"@type": "HowToStep", "position": 7, "name": "Report monthly", "text": "Outstanding liability, redemption rate, cards aging toward expiry, and breakage named, routed to whoever does the books", "url": "https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html#playbook"}
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Watch the send",
+          "text": "A gift card order still unfulfilled an hour after payment is a settings problem or a risk hold; either way a human hears about it the same day",
+          "url": "https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Verify the landing",
+          "text": "Bounces, dead inboxes, and missing recipients caught the day they happen, chased with one question, repaired with a resend in minutes",
+          "url": "https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Honor the date",
+          "text": "Scheduled cards queued to the recipient's own morning, with the buyer told the moment the card lands",
+          "url": "https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Wake the balance",
+          "text": "Nudges at 30 and 90 days unspent, balance and code re-attached so nobody has to dig",
+          "url": "https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Warn before the cliff",
+          "text": "Where an expiry term is set and legal, notices at 60 and 14 days out",
+          "url": "https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Rescue the lost card",
+          "text": "Never-got-it requests answered with a resend and a reply the same hour",
+          "url": "https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Report monthly",
+          "text": "Outstanding liability, redemption rate, cards aging toward expiry, and breakage named, routed to whoever does the books",
+          "url": "https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html#playbook"
+        }
       ]
     }
   ]
@@ -188,14 +275,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -499,9 +586,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 104</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">AUG 10, 2026</span>
+    <time datetime="2026-08-10" style="color: var(--cream-dim);">AUG 10, 2026</time>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">10 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-13" style="color: var(--cream-dim);">UPDATED AUG 13, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -642,7 +731,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         <strong>4:00 am and 10:00 am in the buyer's
         timezone</strong>. And after creation the admin shows only
         the <strong>last four characters</strong> of any code,
-        while <strong>Shopify Flow has no gift card
+        while <strong><a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Shopify Flow</a> has no gift card
         trigger</strong> of any kind.
       </span>
     </div>
@@ -951,6 +1040,38 @@ it is minted to the day it hits zero
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

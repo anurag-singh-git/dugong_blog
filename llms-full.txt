@@ -11,6 +11,317 @@ The site’s lead essay, The death of the drag-and-drop builder (Dispatch Nº 47
 
 ---
 
+# How to fix Shopify shipping rates that ignore product dimensions
+
+URL: https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html
+Dispatch: Nº 118
+Author: Priya Singh, Commerce Research, Dugong
+Published: 2026-09-18. Updated: 2026-09-18
+
+Shopify stores a weight and no box. Every carrier quote your store makes describes one default package, so the long, light and bulky orders ship for a fraction of their label. Here is the community record, and the playbook that quotes what the carrier will actually bill.
+
+The order landed at 9:40 on a Friday night. One floor lamp, nine pounds on the scale, $11.40 of shipping collected at checkout.
+
+Monday morning you box it. The box is 44 by 12 by 12, because a floor lamp is 44 inches long and nothing about that is negotiable. You buy the label. It costs $38.
+
+Nothing malfunctioned. Shopify quoted the rate your carrier returned, and your carrier priced the only fact your store knows how to send, which is the weight. The box never entered the conversation, because there is nowhere in Shopify to put one.
+
+## Shopify stores a weight. It does not store a box.
+
+Open any variant in the admin and you will find a weight field. Look for length, width or height, on the product, on the variant, anywhere in the shipping section, and there is nothing. The data model has a number for how heavy a thing is and no number for how big it is.
+
+What it has instead is one default package. You save a box in Shipping settings, mark it default, and every carrier-calculated quote your store makes goes out describing that box, whether the cart holds a phone case or a rug. A September 2023 thread put it in one line that has not needed updating since: when it comes to Shopify shipping, there is a limitation, you can only designate a single default shipping box.
+
+This is not a setting somebody forgot to ship. It was answered by a Shopify moderator on February 5, 2021, in the thread that first asked for product dimensions, in a single sentence: Shopify doesn't have support for that, we use an app called boxify. Five years on, that is still the answer, and Boxify is still the app in it.
+
+## The community record
+
+The February 2021 thread ran for two years and twenty-odd replies, and the tone in it is people discovering the same wall one at a time. How is that even possible, one merchant wrote, every vendor has multiple products and multiple box sizes. Another made the comparison that keeps coming up: if I list on Etsy, eBay, Bonanza or anywhere else, I don't have to worry about this issue. A third asked the question that actually names the defect. Why am I entering the dimensions to ship my items after the customer has already paid?
+
+On November 11, 2021 a developer asked the technical version on the API forum: how do you pass a product's length, height and width into a CarrierService rate request? Nobody answered. Someone came back in April 2024 to ask whether it was possible yet. Nobody answered that either.
+
+March 22, 2023, a merchant posts the receipt. Shopify is not charging enough for shipping, they wrote. I ship through Shopify and they calculated $9.69 when the shipping was nearly $13. Staff replied that the rates are provided via the carrier, not Shopify, and that discrepancies happen when order dimensions are slightly larger than listed. Which is true, and which quietly concedes the point, because the store was never given a place to list them.
+
+January 21, 2024 is the thread everybody remembers, because the merchant stopped being polite in the title. When I ship with USPS or UPS I don't just give them the weight, they charge based on size as well, he wrote, and then: I am just in awe at the stupidity, a college student could code it into the system. Two staff replies arrived on March 9. The first pointed at custom package dimensions in Shipping settings, which is the default box again. The second named the third-party app and offered to share the feedback with the development team.
+
+February 22, 2024, a merchant selling long, light products lays out the mechanism exactly. The calculation is completely wrong and under charging my customers due to lack of product dimensions. Some of my products are quite long and light so when shipping is calculated by weight only it under charges the customer. I really don't understand why the biggest ecommerce platform in the world doesn't have product dimensions as a standard for shipping. Support sent them to their carrier app vendor. Their reply to the app suggestions in the thread is the sentence the whole archive keeps arriving at: this should be a problem addressed by Shopify, not third party apps.
+
+March 12, 2024 opens a thread that would collect more than a hundred replies. It is ridiculous that you need an app to do this, one of them reads, naming the $20 discrepancy on shipping for large and bulky items which was calculated with the default small box at checkout.
+
+January 31, 2025, the same question with five more years of patience gone. How on earth does it make sense for Shopify to only calculate shipping based on one default package. I can't charge accurate shipping prices. The replies through February and May 2025 are app names and monthly prices, one of them rebranded mid-thread.
+
+## The arithmetic the carrier runs and your checkout does not
+
+Carriers stopped billing on weight alone a long time ago. UPS and FedEx bill the greater of actual weight and dimensional weight, and dimensional weight is length times width times height divided by 139.
+
+Run the lamp through it. 44 by 12 by 12 is 6,336 cubic inches. Divided by 139 that is 45.6, which bills as 46 pounds. You collected shipping on nine. The carrier billed you on 46. The entire $27 gap is that one division, and no person in your store made a mistake to produce it.
+
+Two recent changes widened it. On August 18, 2025 both carriers began rounding every fractional inch up before the division, so 9.1 inches becomes 10 and 5.01 becomes 6. A box measuring 11.1 by 8.5 by 6.2 used to come out at 5 pounds of dimensional weight and now comes out at 6, and it is the same box.
+
+Then the January 2026 notices moved the volume thresholds. FedEx on January 12 and UPS on January 26 both set additional handling at 10,368 cubic inches and oversize at 17,280 cubic inches or 110 pounds. Those are surcharges. They stack on top of the dimensional weight, and they are triggered by exactly the number your checkout has never been told.
+
+## The bill arrives twice, and only one of them is quoted
+
+There is a second charge most merchants meet before they understand it. Shopify documents it plainly. A shipping label price adjustment occurs when you purchase a shipping label and the shipping carrier determines that you've provided inaccurate information that results in an incorrect shipping label price. One of the listed reasons is that the package dimensions specified on the label don't match the actual dimensions of shipment. After you ship, the carrier verifies the price, and if you paid an incorrect amount, then your carrier credits or debits you the difference, which shows up on your next bill.
+
+So the true cost of an oversized order reaches you in two pieces, neither of them at checkout. The label price on the day, and an adjustment weeks later, arriving in a bill that is hard to attribute back to any single order. The customer paid once, in advance, on a number your store guessed with no dimensions in hand, and that transaction is closed. There is no version of this where you go back and ask for the other $27.
+
+The quiet third cost is the overcorrection. Merchants who get burned twice usually give up on calculated rates and set a flat rate high enough to survive the worst box in the catalog. That works, and it prices the small orders out of the store, which is how a shipping data problem turns into a conversion problem nobody labels as one.
+
+## Why Flow and the customization API do not reach this
+
+The instinct is to automate around it, so it is worth being precise about which doors are locked.
+
+Shopify Flow reacts to events that have already happened: an order created, a product updated, an inventory level crossed. A rate request is not one of them. There is no trigger that fires while the customer is standing at checkout waiting for a number, so Flow cannot be in that moment at all.
+
+Delivery Customization Functions look closer and are not. They do three things: hide an option, rename an option, reorder the list. None of them calculate anything. They cannot create an option and they cannot change a price. You can use one to suppress a rate you know is wrong. You cannot use one to produce the right one.
+
+The Carrier Service API is the only route that computes, and that brings you back to the November 2021 question that never got an answer: the rate request that arrives at your endpoint carries the cart's weights, not a set of per-product dimensions, because the platform has none to send. Which means the dimensions have to live somewhere you own, and something has to do the packing arithmetic before the quote goes back, in the few hundred milliseconds the checkout will wait.
+
+## What the automation actually has to do
+
+Four jobs, and the apps do roughly one and a half of them. As a Dugong playbook, in plain prose:
+
+```
+# trigger
+Every rate request, plus a
+nightly pass over shipped
+orders and carrier bills
+
+# steps
+1. Audit every sellable
+   variant for a length,
+   width, height and weight
+2. Fill the gaps from
+   supplier sheets, with a
+   confidence on each guess
+3. Queue the low-confidence
+   ones for a person with a
+   tape measure
+4. Pack the cart into the
+   boxes we really own, not
+   one default package
+5. Price dim weight at L x W
+   x H over 139, inches
+   rounded up, plus
+   surcharges
+6. Quote the greater of dim
+   and actual through the
+   carrier service endpoint
+7. Reconcile quoted against
+   label and adjustment,
+   name the SKUs quoting
+   under
+8. Guard new variants saved
+   with no dimensions before
+   they can sell
+```
+
+Fill the catalog. Every sellable variant needs a length, a width, a height and a weight that matches a scale. Almost no store has this, because nobody has ever been asked for it by the platform. This is the part AI is unreasonably good at: read the supplier spec sheets, the packing lists, the PDFs in the shared drive, the manufacturer's own product page, and propose dimensions per variant with a confidence on each. Low confidence goes in a queue for someone to measure. High confidence goes in and gets checked by the loop below.
+
+Keep a real box library. Not one default package: the boxes you actually own, with inner dimensions, wall thickness and the mailer sizes for the small stuff.
+
+Pack the cart before quoting it. Given the items and the box library, choose the smallest set of boxes that fits, compute dimensional weight per box on the current divisor, take the greater of that and actual, add whatever surcharges the cubic thresholds trigger, and hand that back through the carrier service endpoint as the quote. This is the part the packing apps do.
+
+Close the loop. This is the part nothing does, and it is the one that compounds. Every shipped order has three numbers: what you quoted, what the label cost, and what the adjustment corrected weeks later. Line them up. Where a SKU's quotes keep landing under its labels, the stored dimension is wrong, and the system should say which SKU and by how much rather than waiting for you to notice a margin dip in March. Adjust, re-measure the outliers, and the catalog gets more accurate every week instead of drifting.
+
+Then guard the front door. A new variant saved with no dimensions, or a dimension that does not fit any box you own, should be flagged before it can take an order, because the cheapest moment to fix this is the one before something sells.
+
+## Why this is a compiler problem, not an app problem
+
+Box-packing apps solve the packing. What they do not solve is that your rules are not their rules. Never quote below cost on the 48-inch rods. Absorb up to three dollars on orders over $150 because the margin carries it. Ship the two-jar orders in the mailer, never the box. Anything over 10,000 cubic inches goes to the freight quote, not the parcel rate. Those are sentences, not settings, and they change the week your carrier publishes its January notice.
+
+They also assume the data is already correct, which is the actual problem. An app that packs perfectly from dimensions nobody has verified produces confident wrong answers, which is worse than the default box, because at least the default box was obviously wrong.
+
+## The workflow worth building this week
+
+Read every sellable variant and find the ones with no dimensions. For those, pull what you can from the supplier sheets and the manufacturer pages, propose a length, width and height with a confidence score, and queue anything under the bar for someone to measure with a tape. Keep my box list current. When a rate is requested, pack the cart into my real boxes, compute dimensional weight on the current divisor with fractional inches rounded up, bill the greater of that and actual, add the surcharge if the cubic volume crosses the threshold, and quote that. Then every night, compare what I quoted against what the label cost and against any adjustment that landed since, and tell me which SKUs are consistently quoting under, with the dollars attached. Flag any new variant saved without dimensions before it can sell.
+
+That is one paragraph, and it names three things the platform does not offer, one thing Flow cannot be present for, and a reconciliation loop that no app in the archive above was selling. The compiler turns it into a running workflow, and the store stops finding out what its boxes cost from a bill that arrives three weeks after the customer paid.
+
+> ◆ READING: Two companion pieces if this one landed: the bad address that ships anyway, on the other checkout field nobody validates until the carrier does, and the parcel customs sends back, on the product data gap that costs you the whole shipment rather than part of it.
+
+If you are a Shopify merchant with a dimensional weight story, the lamp that shipped for a third of its label, the flat rate you set too high and watched conversion fall, the adjustment line you could not trace to an order, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
+
+## Frequently asked questions
+
+### Does Shopify have a product dimensions field?
+
+No. A Shopify variant has a weight field and no length, width or height field anywhere on the product, the variant, or the shipping section of the admin. The platform stores how heavy a thing is and not how big it is. What it offers instead is one default package saved in Shipping settings, and every carrier-calculated quote your store makes describes that same box whether the cart holds a phone case or a rug. A September 2023 community thread summarised it exactly: when it comes to Shopify shipping, there is a limitation, you can only designate a single default shipping box. This is long-standing and acknowledged. A Shopify moderator answered the first dimensions request on February 5, 2021 with one sentence, that Shopify does not have support for that and they use an app called Boxify, and the same app was still being recommended by staff in a March 2024 reply. Merchants who sell long, light or bulky items are the ones who feel it, because those are exactly the products whose price depends on volume rather than weight.
+
+### Why is Shopify undercharging for shipping?
+
+Because the rate request your store sends the carrier describes a weight and a default box, and the carrier prices the real box you actually ship. UPS and FedEx bill the greater of actual weight and dimensional weight, where dimensional weight is length times width times height divided by 139. A 44 by 12 by 12 box is 6,336 cubic inches, which is 45.6 and bills as 46 pounds, so a nine pound floor lamp quoted on weight alone misses by 37 pounds of billable weight before any surcharge. Shopify staff have confirmed the mechanism in the community: the rates are provided via the carrier, not Shopify, and discrepancies occur when order dimensions are slightly larger than listed. Merchants have posted the receipts for years, including $9.69 collected against a label that cost nearly $13 in March 2023, and a $20 discrepancy on large and bulky items calculated with the default small box at checkout in March 2024. Two carrier changes have widened the gap since: from August 18, 2025 both carriers round every fractional inch up before dividing, and in January 2026 both set additional handling at 10,368 cubic inches and oversize at 17,280 cubic inches or 110 pounds.
+
+### Can I assign different package sizes to different products on Shopify?
+
+Not natively. You can save several packages in Shipping settings, but only one is the default, and the default is what carrier-calculated rates are quoted against for the whole cart. There is no per-product or per-variant package assignment, which is why the request has stayed open in the community since 2021 and why the staff answer has been an app recommendation rather than a setting. Merchants regularly point out that Etsy and eBay listings do not have this problem, and one thread on the subject collected more than a hundred replies before it stopped. The workaround most stores end up with is either a box-packing app sitting on the Carrier Service API, or a flat rate set high enough to survive the largest item in the catalog, which protects the margin on bulky orders and quietly overcharges every small one.
+
+### What is dimensional weight and what changed for 2025 and 2026?
+
+Dimensional weight prices a parcel by the space it occupies rather than what it weighs. For UPS and FedEx the formula is length times width times height divided by 139, and you are billed on whichever is greater, the dimensional weight or the actual weight. Two changes matter for anyone quoting rates. From August 18, 2025 both carriers round every fractional inch up before the division, so 9.1 inches is measured as 10 and 5.01 as 6, which turned a box of 11.1 by 8.5 by 6.2 from 5 billable pounds into 6. Then in January 2026 both moved cubic volume thresholds onto the same footing, FedEx effective January 12 and UPS effective January 26, with additional handling applying over 10,368 cubic inches and oversize or large package charges over 17,280 cubic inches or 110 pounds. Those surcharges stack on top of the dimensional weight, and every one of them is triggered by a measurement Shopify never asked you for.
+
+### Can AI fix Shopify shipping rates that ignore box size?
+
+Yes, and the fit is specific. The job is four parts, and off-the-shelf packing apps cover about one and a half. First, fill the catalog: read supplier spec sheets, packing lists and manufacturer pages to propose a length, width and height per variant with a confidence score, and queue the low-confidence ones for someone to measure. Second, keep a library of the boxes you actually own with inner dimensions, not one default package. Third, pack each cart into those boxes before quoting, compute dimensional weight on the current divisor with fractional inches rounded up, bill the greater of that and actual, and add a surcharge when the cubic volume crosses the threshold. Fourth, and this is the part nothing on the app store does, reconcile every order's quoted rate against its label cost and against the adjustment the carrier posts weeks later, then name the SKUs that keep quoting under and by how many dollars. An automation like Dugong can also enforce your own rules in plain language, such as never quoting below cost on a given product line or routing anything over a cubic threshold to a freight quote. The honest limits: it cannot invent a measurement for a product nobody has ever measured, so the first pass on a messy catalog needs a tape and a person, and a rate returned through the Carrier Service API has to answer inside the checkout's timeout, so the packing logic has to be fast, not merely clever.
+
+---
+
+# How to find and fix duplicate SKUs on Shopify before they break your inventory
+
+URL: https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html
+Dispatch: Nº 117
+Author: Priya Singh, Commerce Research, Dugong
+Published: 2026-09-17. Updated: 2026-09-17
+
+Shopify can tell you how many units carry a code. It cannot tell you that two different products carry the same one. Here is the community record, and the playbook that finds every collision.
+
+The email arrives on a Tuesday at 4:12 pm, and the customer is being very polite about it. She ordered the midnight blue mug from your gift bundle page nine days ago. It has not shipped.
+
+You open the order, open the product, and the variant reads 0 available. Then you search the admin for the mug and find it a second time, on its own product page, 14 in stock, selling quietly all week.
+
+Same mug. Same shelf. Same characters typed into the SKU field. Two products, two inventory numbers, and nothing anywhere in Shopify that ever thought to mention they were the same thing.
+
+## Shopify treats the SKU as a label, not a key
+
+Here is the part that surprises people who assume the code means something to the platform. Inventory in Shopify does not live on the SKU. It lives on an inventory item, one per variant, and the SKU is a text field sitting next to it. Type the same string into two variants and you have not linked anything. You have created two separate stock counts wearing the same name tag.
+
+Shopify's own documentation is clear about what you should do. SKUs within your Shopify admin must be unique, it says, and no two product variants should include the same SKU. It is equally clear about the consequence: duplicate SKUs can cause issues with third-party integrations and inventory tracking. And it tells you the platform is watching: if a duplicate SKU is detected, then a warning message displays.
+
+That is the entire enforcement. A line of grey text near a field. It does not block the save. It does not block a CSV import. It does not block an app writing through the API. And it never goes back to look at the duplicates you made last March, because nothing in the admin ever does.
+
+The warning also has a blind spot the documentation names itself. SKUs are case-sensitive, so ABC123 and abc123 are recognized as different SKUs. The same is true of a trailing space typed by someone in a hurry at 6 pm. Those pass every uniqueness check the platform runs, and then fail every match your warehouse, your feed, and your accountant try to make.
+
+There is exactly one place Shopify draws a hard line: Shopify Fulfillment Network requires unique SKUs for each product variant. Everywhere else, duplicates are legal, invisible, and yours to find.
+
+## The community record
+
+The thread that defines this problem opened on August 7, 2019 and was still collecting replies in November 2022, twenty-odd posts across two pages. The title is the whole complaint: multiple products with the same SKU, not updating inventory in sync.
+
+The answer never changed, and it never came from Shopify. It came from other merchants, in the flat tone of people who already went through it. Unfortunately Shopify doesn't keep in sync inventory for products that have the same SKU. One reply asked the question everybody in the thread was actually asking: I dont understand why they would even allow duplicate a product if you cant sync the inventory.
+
+What filled the space where a staff answer would have been was the app store. Trunk at twenty-nine dollars a month. Bundles at fourteen. A five dollar app whose entire name is Duplicate SKU Sync. Sync Master GoGo on a pay-as-you-grow plan. One merchant read the thread, did the arithmetic on a small catalog, and went back to tracking it by hand.
+
+Then, on May 24, 2024, a harder version of the same thread, and this one is worth reading twice, because it shows the problem is structural rather than merely missing. A merchant running a fulfillment service integration laid out the arithmetic. Shopify asks a fulfillment service for one available number per SKU. But Shopify subtracts a different committed quantity from each duplicate variant. So if two variants share a code and one of them has three units committed to open orders, there is no single number you can return that is correct for both variants at the same time. Not hard. Impossible.
+
+His proposed fix was one sentence long: when duplicate SKUs point at the same location, deduct the committed amounts for all of them together, and treat committed units as reserved across the group. A follow-up post arrived on May 5, 2025. No staff reply in that thread either.
+
+And the front door is still swinging. On September 15, 2026, two days before this dispatch, a developer filed a bug on the Shopify developer forum with a title that needs no elaboration: duplicating a variant duplicates the SKU, even when not selected. Even if you tell it to NOT duplicate the SKU, it does so. A related regression in the same report copies barcodes onto new variants added to an existing product. No staff reply yet on that one either.
+
+> ◆ NOTE: The record, compressed: SKUs must be unique, says the documentation, and nothing enforces it. Products with the same SKU do not sync, asked August 2019, answered by other merchants and by app links, never by staff. One number per SKU against a different committed quantity per variant, asked May 2024, asked again May 2025, unanswered. Duplicating a variant copies the SKU when you told it not to, filed September 15, 2026, open. Every thread ends in the same place: a spreadsheet, or a subscription.
+
+## Nobody types a duplicate SKU on purpose
+
+Which is exactly why they accumulate. Every duplicate in a working catalog got there through a door the merchant was not watching.
+
+The Duplicate button is the biggest one. You copy a product to make the holiday version, the bundle listing, the wholesale page, and the copy brings its codes along for the ride. The open bug means it can bring them even when you ask it not to.
+
+CSV imports are the second. Shopify matches an import by handle, not by SKU, so a re-import under a different handle does not update the old product, it creates a second one carrying the same codes. Feed and merge files that already contain duplicates pass them straight through, and a custom metafield named SKU will collide with the real field during an import and manufacture duplicates on the way in.
+
+Apps are the third, and this one catches good merchants doing sensible things. Membership and wholesale pricing apps routinely clone a product to offer tier pricing, and the clone carries the original SKU by design.
+
+Then there are the two categories that are not mistakes at all. Bundles, multipacks, and kits, where the six-pack deliberately borrows the single unit's code because it draws from the same physical shelf. And blank SKUs, which are usually the largest duplicate group in any catalog over a thousand variants, because every system downstream that keys on SKU treats all of them as one enormous bucket.
+
+This is why the common advice, find the duplicates and delete them, is wrong in a way that costs money. Some collisions are decisions. The work is not deletion. The work is telling them apart.
+
+## What the split count costs
+
+The first cost is the one that brought you here: overselling and phantom stock. The count splits at the moment the second listing is created, and from then on it drifts. One page sells out while the other keeps taking orders. A restock lands on one and not the other. A physical stock take reconciles to a number that is correct for the shelf and wrong for both product pages, which is the most demoralizing result a stock take can produce.
+
+The second cost lives past your admin, in the systems that actually move boxes. Your 3PL, your shipping app, a barcode scanner, a warehouse system: none of them see your product pages. They see a code on a line. Two products, one code, and the pick becomes a guess.
+
+Mature integrations know this and say so out loud. Cin7 Core used to refuse the import entirely: duplicate SKUs in Shopify would not be imported until the user changed the Shopify SKUs to unique values. It now accepts them behind a setting you have to switch on deliberately, and hands you the rules that come with it. Only make stock adjustments on the main product, because adjusting the kit product can cause incorrect stock numbers. Map Shopify locations one to one. That is what a serious system does with duplicate codes: it lets you have them, and it makes you declare what you meant.
+
+The third cost is quieter and shows up in decisions. Sales by SKU adds two different products together and reports a number nobody questions. Channel feeds either collapse the rows or reject them, and the rejection email names an error, not a cause. Reorder points fire against half a shelf.
+
+And the bill compounds, because a SKU accumulates history. A duplicate found in the week it was created is a two-minute rename. A duplicate found in year two has order lines, returns, purchase orders, supplier records, and a 3PL's own database attached to it, and every one of those is an argument against renaming anything. The cheapest moment to fix a collision is always the day it was made, which is the one day nobody is looking.
+
+Which brings up the last cost, the one no merchant tracks: finding them. There is no duplicate SKU report in the Shopify admin. The standard method, still, is to export the product CSV, sort it by the SKU column in a spreadsheet, and read. The bulk editor apps that do this for you run the same errand with a better interface: filter, export to a sheet, edit, upload the sheet back. It works on the day you run it. Nothing is watching on the days you do not.
+
+> Shopify treats the SKU as a label you wrote on a box. Every system downstream treats it as the name of the box.
+
+## What the automation actually has to do
+
+As a Dugong playbook, in plain prose:
+
+```
+# trigger
+Every morning, plus every
+product or variant saved
+during the day
+
+# steps
+1. Scan every variant in the
+   catalog and group them
+   by SKU
+2. Normalize first: fold
+   case, strip whitespace,
+   then compare
+3. Separate intent from
+   accident: bundle groups
+   stay, clones do not
+4. Sync the deliberate ones:
+   one shelf, one number,
+   many listings
+5. Rename the accidents on
+   our code format, history
+   shown, human approves
+6. Guard the front door: new
+   collisions flagged within
+   the hour
+7. Report weekly: opened,
+   closed, prevented, and
+   what each one cost
+```
+
+Step two is the one most spreadsheet passes skip, and it is where a surprising share of real collisions hide. Fold case, strip leading and trailing whitespace, and compare the cleaned codes. A pair like MUG-MDNT-01 and mug-mdnt-01 will never sort next to each other in a raw export, and it will break every downstream match exactly as hard as an exact duplicate does.
+
+Step three is the judgment call, and it is the reason this cannot be a button. A bundle sharing its component's code and a wholesale clone carrying a copied code look identical in a spreadsheet. The difference exists only in what you meant, so the automation has to hold your rules: collisions inside a bundle group are expected and stay in sync, everything else is a defect and gets renamed on our format, the customer-facing listing is canonical when two products disagree.
+
+Step five is where the honest limit sits. Renaming a SKU that already carries order history is not a small edit, and an automation that quietly rewrites codes on products with two years of purchase orders behind them has replaced one mess with a more confident mess. The right behavior is to propose, show the attached history, and wait for a human to nod. New collisions, caught within minutes of the save, need no such ceremony, which is the whole argument for step six.
+
+## Why this is a compiler problem, not an app problem
+
+The app store covers exactly half of this, twice. Sync apps keep duplicate SKUs moving in step, which is genuinely useful, and they will never tell you which of those duplicates should not exist in the first place. Bulk editors find collisions and hand you a spreadsheet, which is also useful, and they will never decide anything. Between them sits the actual work, which is a judgment about your own catalog that neither tool is built to hold.
+
+Shopify Flow cannot bridge it either, and the reason is worth naming precisely, because it is the same shape as the other walls in this series. Flow reacts to one product at a time. It has no way to ask the question that matters here, which is what else in this catalog carries this code. A trigger that fires on a product update can tell you a product changed. It cannot compare that product to the other eleven thousand.
+
+What the job actually needs is a scan the platform will not run, a comparison Flow cannot express, and a set of rules that only exist in the merchant's head. That is a description, not a diagram. You write it in a paragraph and a compiler turns it into the loop that runs every morning.
+
+## The workflow worth building this week
+
+Every morning, read every variant in the catalog and group them by SKU with case and spacing ignored. If two or more variants share a code, check my bundle list first: if they are all in one bundle group, keep their stock in step and say nothing. If they are not, open a collision, show me both products with their order history, and propose a new code for the one that is not the customer-facing listing, following our format. List every variant with a blank SKU as its own problem. Then watch the catalog all day, and if a new or edited variant lands on a code that already exists, tell me within the hour, while it is still a rename. Once a week, show me what opened, what closed, and what the open ones are holding up.
+
+That is the whole paragraph. It names a scan Shopify does not offer, a comparison Flow cannot make, and three judgments that belong to the merchant. The compiler turns it into a workflow, and the store stops discovering its duplicates through a polite email about a mug.
+
+> ◆ READING: Two companion pieces if this one landed: the bundle sale that never touches your component stock, on the collisions you make on purpose, and the overselling problem no one automates, on what a split count does once it reaches a second sales channel.
+
+If you are a Shopify merchant with a duplicate SKU story, the bundle page that sold air for a month, the 3PL that picked the wrong box, the rename you could not do because of the order history, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
+
+## Frequently asked questions
+
+### Does Shopify allow duplicate SKUs?
+
+Yes, and that is the root of the problem. Shopify's own documentation says that SKUs within your Shopify admin must be unique and that no two product variants should include the same SKU, but nothing in the platform enforces it. Inventory does not live on the SKU: it lives on an inventory item, one per variant, and the SKU is a text field sitting next to it. Type the same code into two variants and you have not linked them, you have created two separate stock counts wearing the same name tag. The admin displays a warning message when it detects a duplicate, and that warning does not stop the save, does not stop a CSV import, does not stop an app writing through the API, and never goes back to look at the duplicates already sitting in your catalog. The one place Shopify draws a hard line is Shopify Fulfillment Network, which requires unique SKUs for each product variant. Everywhere else, duplicates are legal, invisible, and yours to find.
+
+### Why is my Shopify inventory not syncing between two products with the same SKU?
+
+Because Shopify never promised it would. Merchants have been asking since a community thread opened on August 7, 2019 that was still collecting replies in November 2022, and the answer in it never changed: Shopify does not keep inventory in sync for products that have the same SKU. One merchant put the frustration plainly, asking why the platform would even allow duplicating a product if you cannot sync the inventory. No Shopify staff answered, and the thread filled with app pitches instead, at five, fourteen, and twenty-nine dollars a month. A second thread from May 24, 2024 showed the problem is structural rather than simply missing: Shopify asks a fulfillment service for one available number per SKU, but it subtracts a different committed quantity from each duplicate variant, so no single number can be correct for both variants at the same time. The merchant's suggested fix, deducting the committed amounts for all duplicate SKUs together when they point at the same location, was raised again in May 2025 and has not been answered.
+
+### How do I find duplicate SKUs in my Shopify store?
+
+There is no duplicate SKU report anywhere in the Shopify admin, so the standard method is manual: export your products to CSV, sort by the SKU column in a spreadsheet, and read down the list looking for repeats. Bulk editor apps package the same errand with a filter and a re-upload step. Both work on the day you run them, and neither is watching the next day. Two things the spreadsheet pass usually misses: SKUs are case-sensitive in Shopify, so ABC123 and abc123 are treated as different codes and will not sort next to each other unless you normalize the column first, and the same is true of a trailing space. Blank SKUs are the other blind spot, because every system downstream treats them as a single bucket. A scan worth trusting folds case, strips whitespace, groups by the cleaned code, reports blanks as their own collision group, and runs on a schedule rather than on the morning you remember.
+
+### Should bundles and multipacks share the same SKU as the single product?
+
+Sometimes, which is exactly why blanket advice to find and delete duplicate SKUs is wrong in a way that costs money. A six-pack that draws down the same physical shelf as the single unit is a deliberate collision, and merchants use it so stock stays allocated from one place. What is not deliberate is the seasonal copy of a product, the wholesale clone an app created for tier pricing, or the second listing made by a re-import under a new handle. Those two cases look identical in a spreadsheet, because the difference lives only in what you intended. Mature integrations handle it by making you declare that intent: Cin7 Core used to refuse to import duplicate SKUs at all until merchants made them unique, and now imports them behind a setting, with the rule that stock adjustments should be made only on the main product because adjusting the kit product can cause incorrect stock numbers. The right workflow does the same thing inside your own store: label the intentional collisions, keep them in sync, and treat everything else as a defect.
+
+### Can AI find and fix duplicate SKUs on my Shopify store?
+
+Yes, and it fits because the job is two parts detection and one part judgment. Detection is mechanical: read the whole catalog, fold case and whitespace, group by code, surface every collision including the blank ones. Shopify Flow cannot do this, because Flow reacts to one product at a time and has no way to ask what else in the catalog carries the same code. Judgment is where your rules live, in plain language: bundle groups that share a component code are expected and stay in sync, wholesale clones are defects and get renamed on our format, the customer-facing listing wins when two products disagree. An automation like Dugong runs the scan on a schedule, checks every new or edited variant within minutes of the save so a collision is caught while it is still a rename, applies your code format to the accidents, keeps the intentional groups in step, and reports weekly. The honest limits: it will not decide for you which of two listings is the real product, and renaming a code that already carries order lines, purchase orders, and 3PL records is a decision that needs your sign-off, so the workflow proposes and you approve.
+
+---
+
 # How to track product expiry dates on Shopify before the stock goes bad
 
 URL: https://blog.dugong.live/how-to-track-product-expiry-dates-on-shopify.html

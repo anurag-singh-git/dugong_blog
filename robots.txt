@@ -103,6 +103,27 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
+User-agent: meta-externalfetcher
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: omgilibot
+Allow: /
+
+User-agent: iaskspider
+Allow: /
+
+User-agent: img2dataset
+Allow: /
+
+User-agent: Webzio-Extended
+Allow: /
+
+User-agent: SemrushBot-OCOB
+Allow: /
+
 Sitemap: https://blog.dugong.live/sitemap.xml
 
 # Site summary for answer engines (llms.txt convention):

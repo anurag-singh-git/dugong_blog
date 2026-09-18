@@ -45,7 +45,9 @@
     {
       "@type": "BlogPosting",
       "@id": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#article",
-      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
       "mainEntityOfPage": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html",
       "headline": "How to set up tiered volume discounts (buy more, save more) on Shopify",
@@ -57,38 +59,91 @@
       "wordCount": 2140,
       "timeRequired": "PT10M",
       "inLanguage": "en",
-      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
       "about": [
-        { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "Discounts and allowances", "sameAs": "https://en.wikipedia.org/wiki/Discounts_and_allowances" },
-        { "@type": "Thing", "name": "Pricing", "sameAs": "https://en.wikipedia.org/wiki/Pricing" },
-        { "@type": "Thing", "name": "Volume discount", "sameAs": "https://en.wikipedia.org/wiki/Volume_discount" },
-        { "@type": "Thing", "name": "E-commerce", "sameAs": "https://en.wikipedia.org/wiki/E-commerce" }
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "@type": "Thing",
+          "name": "Discounts and allowances",
+          "sameAs": "https://en.wikipedia.org/wiki/Discounts_and_allowances"
+        },
+        {
+          "@type": "Thing",
+          "name": "Pricing",
+          "sameAs": "https://en.wikipedia.org/wiki/Pricing"
+        },
+        {
+          "@type": "Thing",
+          "name": "Volume discount",
+          "sameAs": "https://en.wikipedia.org/wiki/Volume_discount"
+        },
+        {
+          "@type": "Thing",
+          "name": "E-commerce",
+          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+        }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".article-title", ".faq"]
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
       },
       "author": {
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
         "jobTitle": "Commerce Research, Dugong",
-        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://blog.dugong.live/#organization",
         "name": "Dugong",
         "url": "https://dugong.live",
-        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
-      }
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "About Shopify Functions",
+          "url": "https://shopify.dev/docs/apps/build/functions"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The buy-more-save-more discount Shopify won't tier", "item": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The buy-more-save-more discount Shopify won't tier",
+          "item": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html"
+        }
       ]
     },
     {
@@ -144,13 +199,55 @@
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
-        { "@type": "HowToStep", "position": 1, "name": "Define the tier table", "text": "Write the breaks in plain language: which products or collection, whether the tier keys off units or cart spend, and the saving at each step, so the ladder lives in one place you can change", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 2, "name": "Resolve the right tier per cart", "text": "On every cart change, read the qualifying quantity or spend and select the single highest tier the cart has earned, rather than letting several discounts compete", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 3, "name": "Apply only that tier", "text": "Apply just the chosen break to the right lines or the whole cart, so a shopper who qualifies for the deepest tier is never dropped onto a smaller one", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 4, "name": "Guard the stacking rules", "text": "Decide whether the tier can combine with a code or a running sale, and enforce that choice so the volume break and a coupon do not quietly double up past your floor", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 5, "name": "Respect margin and audience", "text": "Hold each tier above its margin floor and apply the right ladder to the right audience, so wholesale or logged-in buyers can get a deeper break than the open storefront", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 6, "name": "Show the next tier to the shopper", "text": "Tell the cart how close it is to the next break, so add one more to save 20 percent nudges the order up instead of leaving the saving invisible", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" },
-        { "@type": "HowToStep", "position": 7, "name": "Escalate the judgment calls", "text": "Hold for review a tier that would cross a margin floor, a clash between a code and a volume break, or a new promotion that overlaps an existing ladder, so a person makes the call", "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook" }
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Define the tier table",
+          "text": "Write the breaks in plain language: which products or collection, whether the tier keys off units or cart spend, and the saving at each step, so the ladder lives in one place you can change",
+          "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Resolve the right tier per cart",
+          "text": "On every cart change, read the qualifying quantity or spend and select the single highest tier the cart has earned, rather than letting several discounts compete",
+          "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Apply only that tier",
+          "text": "Apply just the chosen break to the right lines or the whole cart, so a shopper who qualifies for the deepest tier is never dropped onto a smaller one",
+          "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Guard the stacking rules",
+          "text": "Decide whether the tier can combine with a code or a running sale, and enforce that choice so the volume break and a coupon do not quietly double up past your floor",
+          "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Respect margin and audience",
+          "text": "Hold each tier above its margin floor and apply the right ladder to the right audience, so wholesale or logged-in buyers can get a deeper break than the open storefront",
+          "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Show the next tier to the shopper",
+          "text": "Tell the cart how close it is to the next break, so add one more to save 20 percent nudges the order up instead of leaving the saving invisible",
+          "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Escalate the judgment calls",
+          "text": "Hold for review a tier that would cross a margin floor, a clash between a code and a volume break, or a new promotion that overlaps an existing ladder, so a person makes the call",
+          "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook"
+        }
       ]
     }
   ]
@@ -181,14 +278,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -495,9 +592,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 84</span>
     <span style="color: var(--line-2);">&middot;</span>
-    <span style="color: var(--cream-dim);">JUL 16, 2026</span>
+    <time datetime="2026-07-16" style="color: var(--cream-dim);">JUL 16, 2026</time>
     <span style="color: var(--line-2);">&middot;</span>
     <span style="color: var(--cream-dim);">10 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-12" style="color: var(--cream-dim);">UPDATED AUG 12, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -580,7 +679,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         The old workaround is gone. For years, Shopify Plus merchants faked tiered cart
         pricing with <strong>Shopify Scripts</strong>, which stopped executing on
         <strong>June 30, 2026</strong>. Any store that ran buy-more-save-more logic through
-        a Script now has a broken checkout and is being pushed toward Shopify Functions or a
+        a Script now has a broken checkout and is being pushed toward <a href="https://shopify.dev/docs/apps/build/functions" target="_blank" rel="noopener">Shopify Functions</a> or a
         discount app built on them. If your tiers quietly stopped working in the last few
         weeks, this is almost certainly why.
       </span>
@@ -801,6 +900,38 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

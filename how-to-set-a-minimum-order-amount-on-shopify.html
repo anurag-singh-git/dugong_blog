@@ -110,11 +110,24 @@
         "url": "https://dugong.live",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://blog.dugong.live/og-image.png",
-          "width": 1200,
-          "height": 630
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
         }
-      }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "About Shopify Functions",
+          "url": "https://shopify.dev/docs/apps/build/functions"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shop Pay",
+          "url": "https://help.shopify.com/en/manual/payments/shop-pay"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -265,14 +278,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -578,9 +591,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH Nº 76</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">JUL 5, 2026</span>
+    <time datetime="2026-07-05" style="color: var(--cream-dim);">JUL 5, 2026</time>
     <span style="color: var(--line-2);">·</span>
     <span style="color: var(--cream-dim);">9 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-16" style="color: var(--cream-dim);">UPDATED AUG 16, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -642,7 +657,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p>
       Two real exceptions exist, and both are narrow. If you are on Shopify Plus you
-      can write checkout logic with Shopify Functions, formerly Scripts, that blocks
+      can write checkout logic with <a href="https://shopify.dev/docs/apps/build/functions" target="_blank" rel="noopener">Shopify Functions</a>, formerly Scripts, that blocks
       a checkout under a threshold, but that is a developer feature on the top plan,
       not a switch the rest of the platform gets. And Shopify's B2B tools let you set
       quantity rules and minimums on company profiles, which is genuinely useful if
@@ -661,7 +676,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       the cart clears your minimum, with a little message explaining why. It demos
       well. The problem is where it lives: on the cart page only. Shopify checkout
       can be reached without ever seeing that page, through a checkout permalink, an
-      accelerated wallet button like Shop Pay or Apple Pay that jumps straight from
+      accelerated wallet button like <a href="https://help.shopify.com/en/manual/payments/shop-pay" target="_blank" rel="noopener">Shop Pay</a> or Apple Pay that jumps straight from
       the product page, or a cart link a customer saved. Your cart-page guard never
       runs, and the too-small order goes through exactly as before. You have built a
       fence with a gate standing open beside it.
@@ -915,6 +930,38 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

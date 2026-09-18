@@ -45,7 +45,9 @@
     {
       "@type": "BlogPosting",
       "@id": "https://blog.dugong.live/how-to-win-chargeback-disputes-on-shopify.html#article",
-      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
       "mainEntityOfPage": "https://blog.dugong.live/how-to-win-chargeback-disputes-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-win-chargeback-disputes-on-shopify.html",
       "headline": "How to win chargeback disputes on Shopify",
@@ -57,36 +59,86 @@
       "wordCount": 1760,
       "timeRequired": "PT9M",
       "inLanguage": "en",
-      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
       "about": [
-        { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "E-commerce", "sameAs": "https://en.wikipedia.org/wiki/E-commerce" },
-        { "@type": "Thing", "name": "Business process automation", "sameAs": "https://en.wikipedia.org/wiki/Business_process_automation" }
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "@type": "Thing",
+          "name": "E-commerce",
+          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+        },
+        {
+          "@type": "Thing",
+          "name": "Business process automation",
+          "sameAs": "https://en.wikipedia.org/wiki/Business_process_automation"
+        }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".article-title", ".faq"]
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
       },
       "author": {
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
         "jobTitle": "Commerce Research, Dugong",
-        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://blog.dugong.live/#organization",
         "name": "Dugong",
         "url": "https://dugong.live",
-        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
-      }
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Payments",
+          "url": "https://help.shopify.com/en/manual/payments/shopify-payments"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The chargeback you lose by default", "item": "https://blog.dugong.live/how-to-win-chargeback-disputes-on-shopify.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The chargeback you lose by default",
+          "item": "https://blog.dugong.live/how-to-win-chargeback-disputes-on-shopify.html"
+        }
       ]
     },
     {
@@ -115,8 +167,24 @@
             "@type": "Answer",
             "text": "Far more than the order. The average disputed transaction is around 84 dollars, but the all-in cost of a single dispute reaches roughly 315 dollars once you add the chargeback fee, the lost goods, the shipping, and the staff time to respond. Friendly fraud, where a real customer disputes a real purchase, now makes up about three quarters of chargebacks and is rising sharply. Across ecommerce, chargebacks are projected to cost around 33.8 billion dollars in 2025, which is why the unanswered dispute is one of the most expensive things a busy store quietly ignores."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "When should I submit chargeback evidence on Shopify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Well before the deadline, never on the last day, and always with a confirmation that the submission actually went through. Every dispute in the admin carries its own due date, set by the card network and the reason code, and the response window is one of the few parts of the process entirely in your control. Filing early buys margin for the failure modes merchants only discover late: a document that will not upload, a deadline that lands on a weekend, an evidence packet missing the one artifact the reason code required. The playbook in this dispatch treats filing as the last step of an assembly line: read the reason code, pull the full order, gather the evidence that specific claim requires, write the point-by-point rebuttal. None of that assembly is worth anything if the packet reaches the bank a day late."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is every chargeback worth fighting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, and the discipline of not fighting some is part of winning the rest. If a dispute is clearly unwinnable, or the amount is below the fee and the hours it costs to contest, the playbook's answer is to accept it and log why, because an afternoon spent assembling a doomed packet is an afternoon not spent on the winnable one that arrived the same day. The disputes worth taking are the ones where evidence can answer the actual claim: product not received against a tracking number with a signature and a delivery scan, fraud against a passed verification and a chat where the customer confirmed receipt, not as described against the policy the buyer accepted at checkout. Logging the accepted ones matters too, because the log is how a store notices that one product, one carrier, or one policy keeps generating the same reason code, which is the fix that shrinks next quarter's dispute count."
+          }
         }
-      ,{"@type": "Question", "name": "When should I submit chargeback evidence on Shopify?", "acceptedAnswer": {"@type": "Answer", "text": "Well before the deadline, never on the last day, and always with a confirmation that the submission actually went through. Every dispute in the admin carries its own due date, set by the card network and the reason code, and the response window is one of the few parts of the process entirely in your control. Filing early buys margin for the failure modes merchants only discover late: a document that will not upload, a deadline that lands on a weekend, an evidence packet missing the one artifact the reason code required. The playbook in this dispatch treats filing as the last step of an assembly line: read the reason code, pull the full order, gather the evidence that specific claim requires, write the point-by-point rebuttal. None of that assembly is worth anything if the packet reaches the bank a day late."}},{"@type": "Question", "name": "Is every chargeback worth fighting?", "acceptedAnswer": {"@type": "Answer", "text": "No, and the discipline of not fighting some is part of winning the rest. If a dispute is clearly unwinnable, or the amount is below the fee and the hours it costs to contest, the playbook's answer is to accept it and log why, because an afternoon spent assembling a doomed packet is an afternoon not spent on the winnable one that arrived the same day. The disputes worth taking are the ones where evidence can answer the actual claim: product not received against a tracking number with a signature and a delivery scan, fraud against a passed verification and a chat where the customer confirmed receipt, not as described against the policy the buyer accepted at checkout. Logging the accepted ones matters too, because the log is how a store notices that one product, one carrier, or one policy keeps generating the same reason code, which is the fix that shrinks next quarter's dispute count."}}]
+      ]
     },
     {
       "@type": "HowTo",
@@ -205,14 +273,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -518,9 +586,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH Nº 55</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">JUN 11, 2026</span>
+    <time datetime="2026-06-11" style="color: var(--cream-dim);">JUN 11, 2026</time>
     <span style="color: var(--line-2);">·</span>
     <span style="color: var(--cream-dim);">9 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-07" style="color: var(--cream-dim);">UPDATED AUG 7, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -557,7 +627,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p>
       The trap is that doing nothing feels almost the same as doing
-      something. When a dispute is filed and you use Shopify Payments,
+      something. When a dispute is filed and you use <a href="https://help.shopify.com/en/manual/payments/shopify-payments" target="_blank" rel="noopener">Shopify Payments</a>,
       Shopify automatically gathers the basic transaction record and submits
       a response to the issuing bank on your behalf. That sounds like
       protection. It is closer to a default form letter mailed on the last
@@ -680,7 +750,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <p>
-      <strong>A Shopify Flow rule or a one-off macro.</strong> Flow is great
+      <strong>A <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Shopify Flow</a> rule or a one-off macro.</strong> Flow is great
       at reacting to clean events, but a chargeback is not a clean event. It
       arrives as a reason code attached to a story, and the winning response
       depends on facts spread across your processor, your carrier, and your
@@ -865,6 +935,38 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

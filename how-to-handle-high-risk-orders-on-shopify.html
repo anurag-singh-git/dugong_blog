@@ -45,7 +45,9 @@
     {
       "@type": "BlogPosting",
       "@id": "https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html#article",
-      "isPartOf": { "@id": "https://blog.dugong.live/#blog" },
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
       "mainEntityOfPage": "https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html",
       "headline": "How to handle high-risk orders on Shopify",
@@ -57,36 +59,86 @@
       "wordCount": 1750,
       "timeRequired": "PT9M",
       "inLanguage": "en",
-      "image": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
       "about": [
-        { "@type": "Thing", "name": "Shopify", "sameAs": "https://en.wikipedia.org/wiki/Shopify" },
-        { "@type": "Thing", "name": "E-commerce", "sameAs": "https://en.wikipedia.org/wiki/E-commerce" },
-        { "@type": "Thing", "name": "Business process automation", "sameAs": "https://en.wikipedia.org/wiki/Business_process_automation" }
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "@type": "Thing",
+          "name": "E-commerce",
+          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+        },
+        {
+          "@type": "Thing",
+          "name": "Business process automation",
+          "sameAs": "https://en.wikipedia.org/wiki/Business_process_automation"
+        }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".article-title", ".faq"]
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
       },
       "author": {
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
         "jobTitle": "Commerce Research, Dugong",
-        "worksFor": { "@id": "https://blog.dugong.live/#organization" }
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
       },
       "publisher": {
         "@type": "Organization",
         "@id": "https://blog.dugong.live/#organization",
         "name": "Dugong",
         "url": "https://dugong.live",
-        "logo": { "@type": "ImageObject", "url": "https://blog.dugong.live/og-image.png", "width": 1200, "height": 630 }
-      }
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Payments",
+          "url": "https://help.shopify.com/en/manual/payments/shopify-payments"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Field Notes", "item": "https://blog.dugong.live/" },
-        { "@type": "ListItem", "position": 2, "name": "The high-risk flag that makes you guess", "item": "https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The high-risk flag that makes you guess",
+          "item": "https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html"
+        }
       ]
     },
     {
@@ -115,8 +167,24 @@
             "@type": "Answer",
             "text": "Yes. An AI playbook can enrich each flagged order with the signals a human would check, order history, email and address age, device and geolocation, AVS/CVV results, order velocity, then approve clearly-good orders, hold or cancel clearly-bad ones, and escalate only the genuine gray-area cases to a person with the evidence already gathered. That cuts the manual queue without blindly canceling good customers."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I automatically cancel every high-risk order on Shopify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Auto-canceling on the flag alone burns good customers at industry scale: false declines are estimated to cost merchants around $443 billion a year, roughly nine times the $48 billion lost to actual fraud, and among loyal buyers a single wrongful decline is followed by a 65% drop in reorder frequency, with 27% never returning at all. New customers are 5 to 7 times more likely to be wrongly declined, which means a blanket rule punishes exactly the people you paid the most to acquire. Reserve auto-cancel for the unambiguous cases, mismatched everything, card-testing patterns, disposable emails, and auto-approve known good customers whose history and signals line up. The genuinely gray middle should neither ship blind nor die silently: hold it, send the customer a light verification step, and queue it for a human with the full dossier already attached."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a wrong call on a flagged Shopify order actually cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both directions are expensive, which is what makes the coin-toss so corrosive. Ship a genuinely fraudulent order and the chargeback averages about $191, with the all-in damage running near $3.75 for every $1 of the original order once fees, product, shipping, and labor are counted; enough of them and your dispute rate drifts toward the 0.65% line where Visa starts watching and Shopify Payments can get throttled. Decline a good customer and the cost is quieter but compounds: retailers reject around 6% of all orders, somewhere between 2% and 10% of those rejections hit honest buyers, and the loyal ones respond to a false decline by ordering 65% less often or never again. The $180 do I ship it thread has no good answer precisely because either wrong guess costs more than the order itself."
+          }
         }
-      ,{"@type": "Question", "name": "Should I automatically cancel every high-risk order on Shopify?", "acceptedAnswer": {"@type": "Answer", "text": "No. Auto-canceling on the flag alone burns good customers at industry scale: false declines are estimated to cost merchants around $443 billion a year, roughly nine times the $48 billion lost to actual fraud, and among loyal buyers a single wrongful decline is followed by a 65% drop in reorder frequency, with 27% never returning at all. New customers are 5 to 7 times more likely to be wrongly declined, which means a blanket rule punishes exactly the people you paid the most to acquire. Reserve auto-cancel for the unambiguous cases, mismatched everything, card-testing patterns, disposable emails, and auto-approve known good customers whose history and signals line up. The genuinely gray middle should neither ship blind nor die silently: hold it, send the customer a light verification step, and queue it for a human with the full dossier already attached."}},{"@type": "Question", "name": "What does a wrong call on a flagged Shopify order actually cost?", "acceptedAnswer": {"@type": "Answer", "text": "Both directions are expensive, which is what makes the coin-toss so corrosive. Ship a genuinely fraudulent order and the chargeback averages about $191, with the all-in damage running near $3.75 for every $1 of the original order once fees, product, shipping, and labor are counted; enough of them and your dispute rate drifts toward the 0.65% line where Visa starts watching and Shopify Payments can get throttled. Decline a good customer and the cost is quieter but compounds: retailers reject around 6% of all orders, somewhere between 2% and 10% of those rejections hit honest buyers, and the loyal ones respond to a false decline by ordering 65% less often or never again. The $180 do I ship it thread has no good answer precisely because either wrong guess costs more than the order itself."}}]
+      ]
     },
     {
       "@type": "HowTo",
@@ -198,14 +266,14 @@
   --lime-deep:    #4f7000;
   --lime-line:    rgba(168,224,0,.55);
   --lime-tint:    rgba(198,254,30,.22);
-  --green:        #0a8f54;
-  --pink:         #c61f93;
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
 
   /* legacy aliases so any stray var() still resolves */
   --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
   --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
   --teal: var(--lime-deep); --sand: var(--pink);
-  --cream-dim: var(--text-dim); --gold: #b5882c;
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
 
   --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --body:    "Inter", system-ui, -apple-system, sans-serif;
@@ -670,9 +738,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH Nº 51</span>
     <span style="color: var(--line-2);">·</span>
-    <span style="color: var(--cream-dim);">JUN 6, 2026</span>
+    <time datetime="2026-06-06" style="color: var(--cream-dim);">JUN 6, 2026</time>
     <span style="color: var(--line-2);">·</span>
     <span style="color: var(--cream-dim);">9 MIN READ</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-08-07" style="color: var(--cream-dim);">UPDATED AUG 7, 2026</time>
   </div>
 
   <h1 class="article-title">
@@ -731,7 +801,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       Every flagged order is a fork with a bad branch on each side.
       Fulfill it and you might be shipping product to someone using a
       stolen card, and when the real cardholder notices, you eat a
-      chargeback. On Shopify Payments, that amount is simply pulled
+      chargeback. On <a href="https://help.shopify.com/en/manual/payments/shopify-payments" target="_blank" rel="noopener">Shopify Payments</a>, that amount is simply pulled
       from your next payout, you're usually out the merchandise
       <em>and</em> the shipping, and the dispute counts against you
       whether you win it or not. The average chargeback now runs about
@@ -796,7 +866,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <h2>What the manual fixes miss</h2>
 
     <p>
-      The usual escalation is Shopify Flow: when an order is high-risk,
+      The usual escalation is <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Shopify Flow</a>: when an order is high-risk,
       auto-cancel it, or tag it and hold it for review. Both are
       blunt. Auto-cancel hard-codes the false decline, you've now
       automated the act of firing good customers. Tag-and-hold just
@@ -981,6 +1051,38 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-track-product-expiry-dates-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
