@@ -451,12 +451,13 @@ em { font-style: italic; }
 
 /* POST PAGE */
 .article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
-.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
-.article-title em { font-style: normal; position: relative; white-space: nowrap; color: var(--text); }
-.article-title em::after { content: ""; position: absolute; left: -.06em; right: -.06em; bottom: .06em; height: .32em; background: var(--lime); z-index: -1; border-radius: 3px; transform: rotate(-.5deg); }
+/* highlight wraps at every width: nowrap overflowed the text column on long phrases */
+.article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.article-title em::after { content: none; }
 .article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
 .article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
 .byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
@@ -474,9 +475,9 @@ em { font-style: italic; }
 .article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
 
 @media (max-width: 560px) {
-  .article-body pre { font-size: 0.74rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+  .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
 }
-.article-body pre code { background: none; padding: 0; color: inherit; }
+.article-body pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
 .article-body pre .k { color: var(--lime-deep); font-weight: 600; }
 .article-body pre .s { color: var(--pink); }
 .article-body pre .c { color: var(--text-faint); font-style: italic; }
@@ -535,12 +536,6 @@ em { font-style: italic; }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
 
-/* mobile: let highlighted title phrases wrap (nowrap em overflows small screens) */
-@media (max-width: 640px) {
-  .article-title em { white-space: normal; background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-  .article-title em::after { display: none; }
-}
-
 /* ACCESSIBILITY */
 a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) {
@@ -583,7 +578,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   </nav>
 </header>
 
-<article class="article">
+<article class="article" role="main">
 
   <a href="index.html" class="article-back">← back to field notes</a>
 

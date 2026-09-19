@@ -15,8 +15,17 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Fri, 18 Sep 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2026 12:00:00 +0000</lastBuildDate>
 
+    <item>
+      <title>How to restrict Shopify products from shipping to certain states</title>
+      <link>https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Sat, 19 Sep 2026 12:00:00 +0000</pubDate>
+      <description>The order lands at 11:40 on a Saturday night: four tins of hemp gummies, paid, shipping to Boise. Idaho is one of the states you cannot send that to, and your store took the money anyway, because nothing in Shopify knows which of your products are legal where. Shopify restricts shipping by zone, and a zone is store-wide, so unchecking Idaho stops your t-shirts going there too. The only product-level lever is a shipping profile, and a profile restricts by absence: you give the product no rate to that state. That has been the official answer since June 18, 2021, when a merchant asked how to keep CBD out of four states and a moderator replied with shipping profiles. It breaks in the cart. Shopify combines rates across profiles, so a cart holding one restricted item and one ordinary one either charges shipping twice, default shopify behaviour, it cannot be changed, wrote a merchant on May 8, 2023, or tells the buyer you do not ship to their area at all and takes the legal half of the basket down with it. A merchant in June 2024: after talking to Shopify Support they have no solution. Another, on July 6, 2021, having followed the official instructions: this still isn't working. And the map moves faster than the setting. The federal hemp THC restrictions slid from November 12, 2026 to December 11, 2026 on a bill the House passed 370 to 48 on September 1, 2026, six states restrict alcohol into dry territory drawn by townships and precincts rather than ZIP codes, and Shopify's native zones stop at the state line, so there isn't a way to blacklist specific postcodes without a workaround. The AI playbook that reads what each product actually is, resolves the destination below the state line, blocks only the lines a jurisdiction bans while the rest of the cart checks out, and keeps the rule set dated so a law change is an edit instead of an incident.</description>
+    </item>
     <item>
       <title>How to fix Shopify shipping rates that ignore product dimensions</title>
       <link>https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html</link>

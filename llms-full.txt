@@ -11,6 +11,158 @@ The site’s lead essay, The death of the drag-and-drop builder (Dispatch Nº 47
 
 ---
 
+# How to restrict Shopify products from shipping to certain states
+
+URL: https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html
+Dispatch: Nº 119
+Author: Priya Singh, Commerce Research, Dugong
+Published: 2026-09-19. Updated: 2026-09-19
+
+Shopify restricts shipping by zone. A zone belongs to the store, not to the product. Here is why the official workaround breaks in a mixed cart, and the playbook that blocks only the line that is actually restricted.
+
+The order lands at 11:40 on a Saturday night. Four tins of hemp gummies, paid in full, shipping to an address in Boise.
+
+Idaho is one of the states you cannot send that to. Your store took the money anyway, printed a label option, and sent a cheerful confirmation email. Nothing in Shopify knows which of your products are legal where, so nothing in Shopify had an opinion.
+
+You will spend Monday refunding it and writing an apology that has to sound like a policy rather than a mistake. Then it happens again, because the setting you are about to go looking for does not exist.
+
+## Shopify restricts by zone, not by product
+
+Shipping in Shopify is organised around zones. A zone is a list of countries and, inside a country, a list of states or provinces that you are willing to quote rates for. Uncheck Idaho and you have stopped shipping to Idaho. All of it. The gummies, the t-shirts, the sticker packs, the thing your best customer in Boise orders every month.
+
+That is the answer merchants get first, and it is why the follow-up question always arrives about a week later. On November 13, 2023 someone asked the plain version, how to sell in the USA but not in all states, and was told to build a US zone and deselect the states they did not want. Correct, and store-wide, which is the opposite of what a restricted-product merchant needs.
+
+The only product-level lever Shopify gives you is the shipping profile, which the documentation describes as a set of shipping rules for specific products and locations. You get up to 99 custom profiles on top of the general one. Move the restricted items into a profile of their own, then build that profile's zones without the states you cannot serve.
+
+Notice what you have actually built. There is no rule anywhere saying this product may not go to Idaho. There is only an absence: no rate exists, so checkout has nothing to offer. The restriction is a hole in a table, and holes are hard to audit, hard to explain to a new hire, and completely silent when someone widens a zone six months from now.
+
+## The workaround, and the two ways it breaks
+
+This approach has been the standing recommendation for years. On June 18, 2021 a merchant asked how to stop CBD shipments reaching four states, and a Shopify moderator answered the same day: make a custom profile for those products and make sure no shipping rates exist for those states. Clear, official, and it holds right up to the moment a customer puts two different kinds of thing in one basket.
+
+The first break is the bill. Shopify's own documentation on combining rates across profiles says the separate shipping rates for each product are combined and a single shipping rate is displayed to your customer at checkout, and that rates with the same name are added together, even those in different shipping profiles. Added together. Not the higher of the two. A cart with one restricted item and one ordinary one pays shipping twice.
+
+A merchant named it on May 8, 2023, in the flat tone of someone who had already argued about it: charging twice as it s the default shopify behaviour, it cannot be changed. Another came back to the same thread on June 17, 2024 to report that customers get double-charged shipping, and added the line that ends most of these threads. After talking to Shopify Support they have no solution.
+
+The second break costs more and gets discussed less. When the restricted profile has no rate to the buyer's state, checkout does not quietly drop that one item. It fails the whole delivery step. The customer is told you do not ship to their address, and the legal half of the basket goes down with the illegal half. You have not blocked a sale you were not allowed to make. You have blocked a customer.
+
+And the setup itself is fragile. On June 18, 2021 another merchant asked how to restrict a set of products to Virginia only, got the profile instructions, and came back on July 6, 2021 with three words that will be familiar to anyone who has tried this: this still isn't working. All fifty states were still showing at checkout. No staff member returned to the thread. Three years later, in June 2024, the answer posted there was the name of a paid app.
+
+## The community record
+
+Laid end to end, the threads read like one conversation held five times with different people.
+
+June 18, 2021, CBD into four states: use shipping profiles, answered by a moderator. June 18, 2021, products restricted to Virginia: use shipping profiles, still broken three weeks later. May 1, 2023, what is the best way to restrict certain states from purchasing certain products: profiles, and then the double-charge problem. June 13, 2023, a staff member arrives, asks about plan and carrier setup, and recommends an app. June 18, 2024, another app. October 22, 2025, a merchant needs to exclude specific areas within states and is told, correctly, that it cannot be done natively at all.
+
+The most recent entry is the most telling. On August 7, 2026 a merchant returned to the 2023 thread to point out that checkout extensibility now gives apps a validation hook that avoids the double-charge trap, and framed it exactly right: there is still no native fix. Five years, and the platform answer is the same absence of a rate it was in 2021.
+
+> ◆ NOTE: The record, compressed: zones are store-wide, profiles are the only product-level lever, and a profile restricts by having no rate. Mixed carts either pay twice, default behaviour, cannot be changed, or fail entirely and take the legal items with them. Asked June 2021, answered with profiles. Asked May 2023, answered with profiles and an app. Asked October 2025 below the state line, answered not possible. Noted August 2026: still no native fix.
+
+## The map moves faster than the setting
+
+Even a perfectly built profile is a photograph of the law on the day you built it.
+
+Take hemp. Federal restrictions on hemp-derived THC products were due to take effect on November 12, 2026, then moved to December 11, 2026 by a continuing appropriations bill the House passed 370 to 48 on September 1, 2026. That is one date change, thirty days of notice, decided in a week. Underneath it sits a state patchwork that rewrites itself every legislative session. Nobody is going to remember to open the shipping settings.
+
+Alcohol is worse, because the line is not the state line. Six states restrict direct-to-consumer shipment into dry territory, and in two of them the geography is real: Alaska has roughly 75 dry communities, Arkansas has 29 dry counties plus 24 that are partly wet and partly dry. Those boundaries are drawn by townships, precincts and local votes, not by postcodes or city limits, and a single local election redraws one.
+
+Shopify cannot express any of it. A merchant asked on October 22, 2025 how to exclude specific areas within states and got the accurate answer the next morning: Shopify's native shipping zones only let you include or exclude entire states or countries, so there isn't a way to blacklist specific postcodes without using a workaround. A second reply said the same thing in fewer words. Shopify only lets you block shipping at the state level.
+
+> A shipping zone answers where will you quote a rate. Compliance asks what is this thing, and where is it allowed to arrive. Those are not the same question, and only one of them has a settings page.
+
+## What a real check has to know
+
+Strip away the workarounds and the job has four inputs, none of which live in your shipping settings.
+
+What the product is. Not a tag someone remembered to add, but the actual attribute the rule cares about: the cannabinoid, the alcohol by volume, the blade length, the aerosol classification, the nicotine. Your catalog knows it in titles, descriptions, ingredient lists and supplier sheets. Your shipping settings have never read any of that.
+
+Where the order is really going, resolved below the state field when the rule is drawn below it. Then the rule itself, with a date on it, because a rule without a date cannot tell you whether it is stale. And finally a decision point early enough to matter, which means before the charge, not after it.
+
+That last one rules out the tool most merchants reach for. Shopify Flow runs on orders that already exist, so the best it can do is tag, hold or cancel a sale you have already taken. For compliance that is a record of the problem, not a fix. The surface that can actually stop a checkout is a cart and checkout validation function, which runs on Shopify's servers and can block checkout progress when business rules are not met. Shopify's own documentation lists preventing shipping to restricted locations as an example. It is the right enforcement point. It is also an empty box until something tells it what the rules are.
+
+## What the automation actually has to do
+
+As a Dugong playbook, in plain prose:
+
+```
+# trigger
+Every cart that reaches
+checkout, plus a nightly
+catalog and rules pass
+
+# steps
+1. Classify each product
+   once: what it is, which
+   rules touch it
+2. Resolve the address
+   below the state line:
+   county, township, ZIP
+3. Check the cart line by
+   line, not as a single
+   basket
+4. Block only the restricted
+   lines, let the rest of
+   the order check out
+5. Say why, in plain words,
+   at the point where it
+   fails
+6. Re-read the rule set
+   nightly and surface every
+   dated change
+7. Log every block with the
+   rule and date that
+   caused it
+```
+
+Step one is the unglamorous half of the work and the half that decides whether the rest is worth anything. A rule set is useless against a catalog that has not been classified, and classification is exactly the sort of reading job that used to require a person with a spreadsheet and now does not.
+
+Step four is where the money is. The profile workaround treats a cart as one decision, so a restricted item poisons the whole order. Checking line by line turns a lost order into a smaller one. The customer buys the three things you are allowed to send them, sees a clear note about the fourth, and does not go looking for a competitor who will ship all four.
+
+Step five sounds cosmetic and is not. A generic no shipping available at this address message produces a support ticket and, often enough, a second attempt with a friend's address. Naming the item and the reason ends the conversation and leaves you with a record that you told them.
+
+Step six is the one that ages well. When the hemp date moves by thirty days, or a state adds a product category in April, the workflow should notice, show you the change, and wait for you to accept it. An automation that silently starts refusing orders because it read a news item is worse than no automation. Propose, then enforce.
+
+## Why this is a compiler problem, not an app problem
+
+Every app in these threads solves one slice. Some hide shipping methods by state code. Some validate postcodes. Some block countries. All of them need you to maintain the list, and none of them know what your products are.
+
+The reason this stays unsolved is that the rule is not really about shipping. It is a sentence about your business, and it sounds like this: we do not send anything containing THC to the states that ban it, we do not send spirits into dry counties, we never send aerosols by air, and if a cart has one of those in it we block the line and sell the rest. That sentence is already complete. What has been missing is anything that can turn it into a check that runs at checkout.
+
+That is the whole argument for describing workflows in language and compiling them. The merchant holds the judgment, which is theirs by law and by licence. The compiler holds the plumbing: the classification pass, the address resolution, the line-level decision, the validation function, the log. Nobody has to translate a compliance policy into an absence of shipping rates and then remember, a year later, why Idaho is missing from a table.
+
+## The workflow worth building this week
+
+Start narrow. Take the one product category that actually carries risk, write the rule as a sentence with the states in it, and put the check in front of checkout rather than behind the order. Then add the nightly pass that re-reads the rules, because the date is the part that will catch you out.
+
+Everything else is refinement. But the store stops taking money it cannot keep, and you stop finding out about it at 11:40 on a Saturday night.
+
+> ◆ READING: Two companion pieces if this one landed: the bad address that ships anyway, on the other half of the checkout that nobody validates, and the parcel customs sends back, on what happens when the rule you missed is enforced at a border instead of a state line.
+
+If you are a Shopify merchant with a restricted shipping story, the refund you wrote on a Monday, the cart that charged twice, the customer who could not buy a t-shirt because of a tin of gummies, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
+
+## Frequently asked questions
+
+### Can I stop one Shopify product from shipping to certain states?
+
+Not directly, and that is the whole problem. Shopify restricts shipping with zones, and a zone belongs to the store, so unchecking Idaho stops every product going there, not just the one that is restricted. The only product-level lever is a shipping profile, which is a set of shipping rules for specific products and locations. You move the restricted items into their own profile and simply give that profile no rate for the states in question, which makes the restriction an absence rather than a rule. That is the answer a Shopify moderator gave on June 18, 2021 to a merchant who needed to keep CBD out of four states, and the same answer merchants were still passing around in 2026. It works only while the restricted item is alone in the cart. There is no field on a product that says where it may not go, no report of which products are blocked where, and nothing that tells you when a rule changed.
+
+### Why does Shopify charge shipping twice when I use two shipping profiles?
+
+Because that is what Shopify does by design when one cart draws from more than one profile. The documentation is explicit: the separate shipping rates for each product are combined and a single shipping rate is displayed to your customer at checkout, and rates with the same name are added together, even those in different shipping profiles. Add together is the operative phrase. A cart with one item from your general profile and one from your restricted profile gets the sum of two rates, not the higher of them. A merchant put it flatly on May 8, 2023: charging twice as it s the default shopify behaviour, it cannot be changed. Another merchant reported in June 2024 that customers get double-charged shipping and added, after talking to Shopify Support they have no solution. The usual workaround is to name the rates identically and hope the arithmetic lands somewhere defensible, or to apply a discount equal to the smaller rate, which is a coupon covering a bug.
+
+### Can Shopify block shipping to a specific ZIP code or county?
+
+Not natively. Shopify zones are built from countries and their states or provinces, and they stop there. A merchant asked on October 22, 2025 how to exclude specific areas within states, and the reply the next day was direct: Shopify's native shipping zones only let you include or exclude entire states or countries, so there isn't a way to blacklist specific postcodes without using a workaround. A second reply put it the same way, that Shopify only lets you block shipping at the state level. This matters more than it sounds, because several real restrictions are drawn below the state line. Six states restrict direct shipment of alcohol into dry territory, and those boundaries follow townships, precincts and county votes rather than ZIP codes or city limits, so a postcode list is an approximation that a single local election can invalidate. Getting below the state line means resolving the address against the boundary that actually governs it, which is work no shipping zone was designed to do.
+
+### Can Shopify Flow stop an order to a restricted state before it is placed?
+
+No. Flow is an order-level automation that runs after the order exists, so the earliest it can act is to tag, hold or cancel an order you have already accepted and, in most setups, already charged. For a compliance restriction that is the wrong side of the line: you did not prevent the sale, you made a record of it and then wrote to the customer. The surface that can actually stop a checkout is a cart and checkout validation function, which runs on Shopify's servers and can block checkout progress when business rules are not met, with preventing shipping to restricted locations named as an example use. It is app territory rather than a setting, it needs the logic written and maintained, and it needs something to tell it which products are restricted where. The validation function is the enforcement point. It is not the answer to what the rule should be today.
+
+### Can AI handle state shipping restrictions on a Shopify store?
+
+Yes, because the hard parts of this job are reading and matching, not enforcement. There are three of them. Classifying the catalog: deciding that this tin is a hemp product, that bottle is a spirit and that folding knife is blade-length restricted, read from titles, descriptions, ingredients and supplier sheets rather than from a tag somebody remembered to add. Resolving the destination below the state line when the rule is drawn by county or township. Keeping the rule set current, which is the part that quietly rots, since state law changes on its own schedule and the federal hemp THC restrictions alone moved from November 12, 2026 to December 11, 2026 on a bill passed on September 1, 2026. An automation like Dugong holds those rules in plain language, classifies every new product as it is saved, checks each cart line by line so only the restricted line is blocked and the rest of the basket still checks out, writes the explanation the customer sees, and logs every block against the rule and the date that caused it. The honest limits: it will not tell you whether you hold the licence a state requires, and a rule change needs a human to accept it before it starts refusing orders.
+
+---
 # How to fix Shopify shipping rates that ignore product dimensions
 
 URL: https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html
@@ -1156,7 +1308,7 @@ Then pull the last 90 days of orders for your personalized SKUs and count the on
 
 Then say the brief out loud, the way you would hand custom orders to a new hire. Every order with a personalized item gets its text checked the minute it lands: present, makeable, in the right field, inside the character limit. Anything that fails goes on hold before production can see it, and the customer gets one clear question within minutes, a reminder at 24 hours, another at 72 with our deadline stated, then bring it to me. When the answer comes, put it on the order with a record of who said what, release the hold, and tell production. Once a week, show me the blanks by product, field, and checkout path. That is the whole paragraph. The compiler turns it into the workflow, and the next Tuesday order arrives blank, answers itself by 9:41, and ships engraved with the right dog's name.
 
-> ◆ READING: Two companion pieces if this one landed: the bad address that ships anyway, on catching order data problems before anything physical happens, and the quote that goes quiet, on the other conversation customers keep not finishing.
+> ◆ READING: Two companion pieces if this one landed: the bad address that ships anyway, on catching order data problems before anything physical happens, and the quote that goes quiet, on the other conversation customers keep not finishing. Also worth reading: the gift message that never reaches the box, on the other note a customer types at checkout that never makes it onto the packing slip.
 
 If you sell personalized products and have a blank order story, the tag engraved with the wrong name, the customer who answered on day nine, the field that vanished after a theme update, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
 
@@ -1534,7 +1686,7 @@ Fix the top of that list first, by hand or with the classifier proposing and you
 
 Then say the brief out loud, the way you would hand customs to a new hire. Every variant carries an HS code, an origin, and a weight, and you tell me our coverage number when I ask. Propose codes for anything new the hour it publishes; publish the confident ones with a record of what changed, bring me the doubtful ones, send the truly odd ones to the broker and remember the answer. Hold any international order carrying a blank. Compare what checkout charged with what the carrier billed, and treat a big gap as a wrong code until proven otherwise. Once a month, show me coverage, changes, and every duty complaint. That is the whole paragraph. The compiler turns it into the workflow, and the next card the carrier leaves is for a parcel that is not yours.
 
-> ◆ READING: Two companion pieces if this one landed: the image alt text no one writes, on the other catalog field everyone skips until it costs them, and the bad address that ships anyway, on catching order data problems before the label prints.
+> ◆ READING: Two companion pieces if this one landed: the image alt text no one writes, on the other catalog field everyone skips until it costs them, and the bad address that ships anyway, on catching order data problems before the label prints. Also worth reading: the order from a state you can’t ship to, on the other compliance field Shopify will happily let you sell without.
 
 If you are a Shopify merchant with a customs story, the parcel that came back with a bill, the duty calculated at double the price, the classification you still argue about, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
 
@@ -2747,7 +2899,7 @@ Then automate the reading before the acting. For the first two weeks, let the wo
 
 Describe it the way you would brief a merchandiser on their first Monday. Every week, tell me what stopped selling and what it is costing us to keep. Propose the move for each one, and mark things down with the margin protected, the sale price honest, and an end date attached. When something goes to clearance, make the whole store agree: collection, ads, codes, everything. If a move does not work in two weeks, escalate it. And tell buying what to stop reordering. That is the brief. The compiler handles the schedules, the tags, and the price edits, and the shorts get cleared in August at 30 percent off instead of surviving to haunt the January sale.
 
-> ◆ READING: Two companion pieces if this one landed: the reorder you always make too late, on the same loop from the buying side, and the sale you have to start by hand, on the mechanics of moving prices on time.
+> ◆ READING: Two companion pieces if this one landed: the reorder you always make too late, on the same loop from the buying side, and the sale you have to start by hand, on the mechanics of moving prices on time. Also worth reading: the expiry date your store can’t see, on the stock that does not just sit, it spoils.
 
 If you are a Shopify merchant with a stockroom shelf you avoid looking at, a January sale that is really a confession, or a spreadsheet named clearance_final_v3, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
 
@@ -2864,7 +3016,7 @@ Then automate the reading before the deciding. For the first two weeks, let the 
 
 Describe it the way you would brief a new hire on their first morning. When an order comes in, glance at how it is getting to the customer and whether that makes any sense. If a pickup order is from someone far away, or a shipping order is from one of our regulars, ask them the same hour, nicely. If they meant shipping, collect the fee and redo the order properly, and make sure the paper trail is clean. Keep pickup orders away from the label printer. And tell me once a week how many of these we caught, so I can fix the wording at checkout. That is the brief. The compiler handles the fields, the sequences, and the timing, and the customer in Marietta gets her candles shipped before she has time to be annoyed about it.
 
-> ◆ READING: Two companion pieces if this one landed: the order change that races your warehouse, on every other edit Shopify makes you fight for, and the delayed order no one tells your customer about, on saying the awkward thing before the customer asks.
+> ◆ READING: Two companion pieces if this one landed: the order change that races your warehouse, on every other edit Shopify makes you fight for, and the delayed order no one tells your customer about, on saying the awkward thing before the customer asks. Also worth reading: the pickup order that never leaves the shelf, on the bags that pile up behind the register when the one ready-for-pickup email does not land.
 
 If you are a Shopify merchant with a pickup shelf holding orders that were never going to be collected, a label queue that has shipped a pickup order to a billing address, or a rate renamed in all caps as a defense mechanism, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
 
@@ -3231,7 +3383,7 @@ Then build the guardrail before the optimizer. A watcher that does nothing but f
 
 Describe it the way you would brief a new fulfillment lead on their first morning. For every order, look at which of our locations could actually send it, price the realistic options including the split, and pick the one that costs least without missing the delivery date we promised. Do not take the last unit off a shop floor for a twelve dollar accessory. Do not send anything to a location that cannot ship it today when one that can is a dollar more. Move it before the warehouse picks it, not after. If reality changes before the label prints, think again. And if an order truly has to go in two boxes, tell the customer once, properly, with both tracking numbers. That is the brief. The compiler handles the rates, the cutoffs, the fulfillment order mechanics, and the timing window, and your shipping line stops quietly absorbing a decision made in February.
 
-> ◆ READING: If this resonates, two companion pieces: our dispatch on the order you split across vendors by hand, which is this problem when the warehouses belong to somebody else, and the overselling problem no one automates, which is what happens when the count the router trusted was never true.
+> ◆ READING: If this resonates, two companion pieces: our dispatch on the order you split across vendors by hand, which is this problem when the warehouses belong to somebody else, and the overselling problem no one automates, which is what happens when the count the router trusted was never true. Also worth reading: the shipping rate that ignores your box, on what the label actually costs once the carrier measures the parcel you packed.
 
 If you are a Shopify merchant running two or more locations, with a routing story, a spreadsheet where you check rates by hand, or a 3PL that keeps getting orders it should never have seen, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
 
@@ -4918,7 +5070,7 @@ If you run drops, collabs, flash sales, or seasonal lines, and you have ever wat
 
 Describe it the way you would brief a sharp launch manager: at this minute put the whole drop live on every channel it belongs on, but only the products that are actually ready, and at that minute take it all back down and send the old links somewhere useful, and bring me anything that is not ready or that clashes with something else running. That is the whole brief. The compiler does the readiness check, the publish, the take-down, and the link safety, across the set, on time. Your launch lands everywhere at once, and it ends when you said it would, without anyone sitting up to make it happen.
 
-> ◆ READING: If this resonates, two companion pieces: our dispatch on the sale you have to start by hand, the pricing side of scheduling a promotion and reverting it, and the deleted product that 404s your customers, where a product coming down needs its old URL pointed at a live page instead of a dead end.
+> ◆ READING: If this resonates, two companion pieces: our dispatch on the sale you have to start by hand, the pricing side of scheduling a promotion and reverting it, and the deleted product that 404s your customers, where a product coming down needs its old URL pointed at a live page instead of a dead end. Also worth reading: the vacation your store won’t let you take, on scheduling the whole storefront down and back up without losing the orders in between.
 
 If you are a Shopify merchant who has built something that publishes a drop across every channel on time and pulls it when the window closes, or you have a story about a launch that went live on the online store and nowhere else, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
 
@@ -5364,7 +5516,7 @@ If you have ever woken up to a wall of tiny orders you did not make, spent a mor
 
 Describe it the way you would brief a sharp fraud lead: when a burst of tiny orders spikes past our normal rate, tell me if it is an attack, cancel and refund the junk before it ships, keep it out of my numbers, slow the source without blocking real buyers, and bring me the one order that needs a human. That is the whole brief. The compiler does the reading, the correlating, the canceling, and the defending. You keep your night, and you stop being the slowest thing standing between a stolen-card list and your payment account.
 
-> ◆ READING: If this resonates, two companion pieces: our dispatch on the high-risk flag that makes you guess, where Shopify raises a hand on one order but cannot investigate it, and the chargeback you lose by default, where the bill for tonight's approved test orders arrives weeks from now and nobody built the case.
+> ◆ READING: If this resonates, two companion pieces: our dispatch on the high-risk flag that makes you guess, where Shopify raises a hand on one order but cannot investigate it, and the chargeback you lose by default, where the bill for tonight's approved test orders arrives weeks from now and nobody built the case. Also worth reading: the customer list the bots built, on what the same traffic leaves behind in your customer records when it is not chasing a card.
 
 If you are a Shopify merchant who has weathered a card-testing attack and built something that catches the burst and cleans up behind it, or you have a story about the night the orders would not stop, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
 
@@ -6270,7 +6422,7 @@ If any part of how you grow depends on treating customers differently, your emai
 
 Describe it the way you would brief a sharp retention manager: here is the customer base, read each person's whole history, tell me who is a loyal regular, who is a rising VIP, who is only here for a discount, and who used to buy and has gone quiet, tag each one with a single clean label, take the label off when it stops being true, and keep it current as people keep ordering. That is the whole brief. The compiler does the reading, the weighing, the write-back, and the upkeep. You keep your attention for the campaigns themselves, and you stop discovering that the customer who has bought from you eleven times got the exact same email as someone who never came back.
 
-> ◆ READING: If this resonates, two companion pieces: our dispatch on the order tag you set by hand, the same read-the-whole-record problem one level over, and the field study on the Shopify automations no one builds, where the work that actually compounds is a sliver of what merchants wire up.
+> ◆ READING: If this resonates, two companion pieces: our dispatch on the order tag you set by hand, the same read-the-whole-record problem one level over, and the field study on the Shopify automations no one builds, where the work that actually compounds is a sliver of what merchants wire up. Also worth reading: the review request you never send, on the post-purchase message that earns the next order and almost never goes out.
 
 If you are a Shopify merchant who has wired up a segmentation workflow that actually reads each customer and keeps the tags current, or you have a story about the VIP you only noticed after they stopped buying, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
 
@@ -7747,7 +7899,7 @@ If you've ever eaten a return-to-sender fee, re-shipped an order out of your own
 
 Describe it the way you'd brief a sharp fulfillment hire on their first day: here's how we know an address is good, here's when you fix it yourself, here's when you ask the customer, and here's when you stop and flag it for me. That's the whole brief. The compiler does the checking and the chasing; you keep your attention for the handful of orders that genuinely need a human.
 
-> ◆ READING: If this resonates, two companion pieces: the dispatch on the high-risk flag that makes you guess, and our field study on the overselling problem no one automates.
+> ◆ READING: If this resonates, two companion pieces: the dispatch on the high-risk flag that makes you guess, and our field study on the overselling problem no one automates. Also worth reading: the custom order that arrives blank, on the other order-data gap that only surfaces after the box has already shipped.
 
 If you're a Shopify merchant who's built an address-resolution playbook that finally stopped the bounce-backs, or you've got a return-to-sender horror story that cost you a customer, the inbox is open: field-notes@dugong.live. We're collecting case studies for the next issue.
 
@@ -7966,7 +8118,7 @@ If you sell in more than one place and you've ever sent a "so sorry, it's actual
 
 Describe it the way you'd brief a careful operations manager: never sell what we don't have, keep every channel telling the same truth, and if something slips through, catch it in minutes and make it right before the customer is even annoyed. That's the whole brief. The compiler handles the rest.
 
-> ◆ READING: If this resonates, two companion pieces: our field study on the Shopify automations no one builds, and the dispatch on the "where is my order?" tickets that eat your afternoon.
+> ◆ READING: If this resonates, two companion pieces: our field study on the Shopify automations no one builds, and the dispatch on the "where is my order?" tickets that eat your afternoon. Also worth reading: the SKU two products share, on the catalog error that makes every count downstream wrong before a channel gets the chance to oversell.
 
 If you're a Shopify merchant who's been burned by overselling, or you've built a sync playbook that finally holds during a sale, the inbox is open: field-notes@dugong.live. We're collecting case studies for the next issue.
 
