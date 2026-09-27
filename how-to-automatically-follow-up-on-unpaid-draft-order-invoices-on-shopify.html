@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to automatically follow up on unpaid draft order invoices on Shopify &mdash; Dugong Field Notes</title>
+<title>How to automatically follow up on unpaid draft order invoices on Shopify | Dugong Field Notes</title>
 <meta name="description" content="Shopify sends a draft order invoice once and never follows up: no reminders, no recovery emails, and the link never expires. The AI playbook that gets it paid." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-order-invoices-on-shopify.html" />
 <meta name="author" content="Priya Singh" />
@@ -13,7 +13,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <meta property="article:published_time" content="2026-08-01" />
     <meta property="article:modified_time" content="2026-08-01" />
 <meta property="article:author" content="Priya Singh" />
@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
 <meta property="og:title" content="How to automatically follow up on unpaid draft order invoices on Shopify" />
-<meta property="og:description" content="A furniture maker in Asheville sends a walnut table quote as a Shopify draft order invoice, the customer replies that he will pay tonight, and then nothing. Shopify sends the invoice email exactly once and never follows up: unpaid draft orders never join the abandoned checkout list, the payment reminders setting only works on orders with payment terms attached and only fires on or after the due date, and Shopify Flow can email your staff but not your customers, a limitation merchants have been asking about since 2022. Meanwhile the invoice link never expires, so a customer can come back a year later and pay last year's price, and the only native way to end a quote is to delete its record entirely. The AI playbook that reads every open draft, sequences the follow-up by age, amount, and customer, matches the tone to a first-timer, a regular, or a school district's accounts payable, escalates the big invoices for a personal note, expires stale quotes on schedule so old prices die with them, reconciles payments the moment they land, and reports the open-draft pipeline weekly." />
+<meta property="og:description" content="Shopify sends a draft order invoice once and never follows up: no reminders, no recovery emails, and the link never expires. The AI playbook that gets it paid." />
 <meta property="og:url" content="https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-order-invoices-on-shopify.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -521,6 +521,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .reveal { opacity: 1; transform: none; }
 }
 
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
 </style>
 </head>
 <body>
@@ -528,11 +535,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>&#9670; DISPATCH N&ordm; 97 &mdash; AUG 1, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 97 &middot; AUG 1, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 9 MIN READ &middot; 2,195 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
-    <span>&#9670; DISPATCH N&ordm; 97 &mdash; AUG 1, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 97 &middot; AUG 1, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 9 MIN READ &middot; 2,195 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>

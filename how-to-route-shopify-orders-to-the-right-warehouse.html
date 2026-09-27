@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to stop Shopify routing orders to the wrong warehouse &mdash; Dugong Field Notes</title>
+<title>How to stop Shopify routing orders to the wrong warehouse | Dugong Field Notes</title>
 <meta name="description" content="Shopify picks a location by straight-line distance and never reads a shipping rate. The AI playbook that routes each order on landed cost, cutoff, and backlog." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html" />
 <meta name="author" content="Priya Singh" />
@@ -13,7 +13,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <meta property="article:published_time" content="2026-07-27" />
     <meta property="article:modified_time" content="2026-08-15" />
 <meta property="article:author" content="Priya Singh" />
@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
 <meta property="og:title" content="How to stop Shopify routing orders to the wrong warehouse" />
-<meta property="og:description" content="A customer forty minutes from your Pennsylvania warehouse gets two boxes, one of them from Nevada, on a single five dollar shipping fee. Shopify's order routing is a list of rules applied top to bottom, identically, to every order you take. Not one of those rules reads a shipping rate. Closest means straight-line distance, which knows nothing about carrier zones, driving distance, cutoff times, or whether that location has anybody on the floor at six on a Friday. The only capacity signal is a location metafield you type by hand and never update. The split decision is one global preference for a question whose answer flips order by order. Routing is decided once at checkout and never revisited when the count was wrong or the warehouse is snowed in. Custom rules exist through Shopify Functions, but they are Plus only, by request, and shipped as a custom app. The AI playbook that scores every eligible location on landed cost, cutoff, and backlog, decides split or single per order, moves the fulfillment order before the 3PL accepts it, and re-checks when reality moves." />
+<meta property="og:description" content="Shopify picks a location by straight-line distance and never reads a shipping rate. The AI playbook that routes each order on landed cost, cutoff, and backlog." />
 <meta property="og:url" content="https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -547,6 +547,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .reveal { opacity: 1; transform: none; }
 }
 
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
 </style>
 </head>
 <body>
@@ -554,11 +561,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>&#9670; DISPATCH N&ordm; 93 &mdash; JUL 27, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 93 &middot; JUL 27, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 10 MIN READ &middot; 2,450 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
-    <span>&#9670; DISPATCH N&ordm; 93 &mdash; JUL 27, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 93 &middot; JUL 27, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 10 MIN READ &middot; 2,450 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
@@ -1020,6 +1027,54 @@ changes before a label is bought
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The twenty-first order</h3>
+        <p class="card-dek">
+          Shopify has no daily order limit, and the stock-count trick breaks on shared capacity and lead times. The AI playbook that caps orders by the day you make them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The automation that quietly stopped running</h3>
+        <p class="card-dek">
+          Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order from a state you cannot ship to</h3>
+        <p class="card-dek">
+          Shopify restricts shipping by zone, not by product, and a mixed cart breaks the workaround. The AI playbook that blocks only the items a state bans.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
       <div class="card-body">
         <div class="post-meta">

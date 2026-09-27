@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to restrict Shopify products from shipping to certain states &mdash; Dugong Field Notes</title>
+<title>How to restrict Shopify products from shipping to certain states | Dugong Field Notes</title>
 <meta name="description" content="Shopify restricts shipping by zone, not by product, and a mixed cart breaks the workaround. The AI playbook that blocks only the items a state bans." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html" />
 <meta name="author" content="Priya Singh" />
@@ -13,7 +13,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <meta property="article:published_time" content="2026-09-19" />
 <meta property="article:modified_time" content="2026-09-19" />
 <meta property="article:author" content="Priya Singh" />
@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
 <meta property="og:title" content="How to restrict Shopify products from shipping to certain states" />
-<meta property="og:description" content="The order lands at 11:40 on a Saturday night: four tins of hemp gummies, paid, shipping to Boise. Idaho is one of the states you cannot send that to, and your store took the money anyway, because nothing in Shopify knows which of your products are legal where. Shopify restricts shipping by zone, and a zone is store-wide, so unchecking Idaho stops your t-shirts going there too. The only product-level lever is a shipping profile, and a profile restricts by absence: you give the product no rate to that state. That has been the official answer since June 18, 2021, when a merchant asked how to keep CBD out of four states and a moderator replied with shipping profiles. It breaks in the cart. Shopify combines rates across profiles, so a cart holding one restricted item and one ordinary one either charges shipping twice, default shopify behaviour, it cannot be changed, wrote a merchant on May 8, 2023, or tells the buyer you do not ship to their area at all and takes the legal half of the basket down with it. A merchant in June 2024: after talking to Shopify Support they have no solution. Another, on July 6, 2021, having followed the official instructions: this still isn't working. And the map moves faster than the setting. The federal hemp THC restrictions slid from November 12, 2026 to December 11, 2026 on a bill the House passed 370 to 48 on September 1, 2026, six states restrict alcohol into dry territory drawn by townships and precincts rather than ZIP codes, and Shopify's native zones stop at the state line, so there isn't a way to blacklist specific postcodes without a workaround. The AI playbook that reads what each product actually is, resolves the destination below the state line, blocks only the lines a jurisdiction bans while the rest of the cart checks out, and keeps the rule set dated so a law change is an edit instead of an incident." />
+<meta property="og:description" content="Shopify restricts shipping by zone, not by product, and a mixed cart breaks the workaround. The AI playbook that blocks only the items a state bans." />
 <meta property="og:url" content="https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -545,6 +545,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .reveal { opacity: 1; transform: none; }
 }
 
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
 </style>
 </head>
 <body>
@@ -552,11 +559,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>&#9670; DISPATCH N&ordm; 119 &mdash; SEP 19, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 119 &middot; SEP 19, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 9 MIN READ &middot; 2,300 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
-    <span>&#9670; DISPATCH N&ordm; 119 &mdash; SEP 19, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 119 &middot; SEP 19, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 9 MIN READ &middot; 2,300 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
@@ -1059,6 +1066,38 @@ catalog and rules pass
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The twenty-first order</h3>
+        <p class="card-dek">
+          Shopify has no daily order limit, and the stock-count trick breaks on shared capacity and lead times. The AI playbook that caps orders by the day you make them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The automation that quietly stopped running</h3>
+        <p class="card-dek">
+          Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-validate-shipping-addresses-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">

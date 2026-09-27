@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to automatically request product reviews on Shopify — Dugong Field Notes</title>
+<title>How to automatically request product reviews on Shopify | Dugong Field Notes</title>
 <meta name="description" content="Shopify has no native way to ask for a review, so it never sends or blasts everyone at the wrong time. The AI playbook that requests reviews after delivery." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html" />
 <meta name="author" content="Priya Singh" />
@@ -13,7 +13,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <meta property="article:published_time" content="2026-06-22" />
     <meta property="article:modified_time" content="2026-08-12" />
 <meta property="article:author" content="Priya Singh" />
@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
 <meta property="og:title" content="How to automatically request product reviews on Shopify" />
-<meta property="og:description" content="Shopify has no native review system, so the request that turns a happy buyer into social proof either never gets sent or goes out as one mistimed blast to everyone, including the customer who is mid-complaint. The AI playbook that waits for delivery, reads the order, asks for the right product at the right moment, and routes a bad rating to support before it goes public." />
+<meta property="og:description" content="Shopify has no native way to ask for a review, so it never sends or blasts everyone at the wrong time. The AI playbook that requests reviews after delivery." />
 <meta property="og:url" content="https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -534,6 +534,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .reveal { opacity: 1; transform: none; }
 }
 
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
 </style>
 </head>
 <body>
@@ -542,11 +549,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>◆ DISPATCH Nº 66 — JUN 22, 2026</span>
+    <span>◆ DISPATCH Nº 66 &middot; JUN 22, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
     <span>◆ 9 MIN READ · 2,010 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
-    <span>◆ DISPATCH Nº 66 — JUN 22, 2026</span>
+    <span>◆ DISPATCH Nº 66 &middot; JUN 22, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
     <span>◆ 9 MIN READ · 2,010 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
@@ -929,6 +936,54 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The twenty-first order</h3>
+        <p class="card-dek">
+          Shopify has no daily order limit, and the stock-count trick breaks on shared capacity and lead times. The AI playbook that caps orders by the day you make them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The automation that quietly stopped running</h3>
+        <p class="card-dek">
+          Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order from a state you cannot ship to</h3>
+        <p class="card-dek">
+          Shopify restricts shipping by zone, not by product, and a mixed cart breaks the workaround. The AI playbook that blocks only the items a state bans.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -2078,7 +2133,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <div class="cta-band-copy">
       <span class="cta-eyebrow">&#9670; Ready when you are</span>
       <h2 class="cta-title">Stop configuring. <em>Start describing.</em></h2>
-      <p class="cta-sub">Write your workflow in plain English and an AI agent runs it &mdash; calling your apps directly. Your first automation takes under five minutes.</p>
+      <p class="cta-sub">Write your workflow in plain English and an AI agent runs it, calling your apps directly. Your first automation takes under five minutes.</p>
     </div>
     <div class="cta-actions">
       <a href="https://dugong.live" class="btn btn-primary btn-lg">Try Dugong now &rarr;</a>

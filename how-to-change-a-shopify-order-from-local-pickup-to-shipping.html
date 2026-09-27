@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to change a Shopify order from local pickup to shipping &mdash; Dugong Field Notes</title>
+<title>How to change a Shopify order from local pickup to shipping | Dugong Field Notes</title>
 <meta name="description" content="Checkout preselects free local pickup, customers tap past it, and Shopify has no button to switch the order to shipping. The AI playbook that fixes it fast." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html" />
 <meta name="author" content="Priya Singh" />
@@ -13,7 +13,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <meta property="article:published_time" content="2026-07-31" />
     <meta property="article:modified_time" content="2026-08-15" />
 <meta property="article:author" content="Priya Singh" />
@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
 <meta property="og:title" content="How to change a Shopify order from local pickup to shipping" />
-<meta property="og:description" content="A customer in Marietta, Georgia checks out on her phone in eleven seconds, and the order lands as a pickup at your Denver shop, 1,400 miles away. She never chose pickup: Shopify checkout preselects the cheapest delivery option, local pickup is free, and Shop Pay carried her straight past the choice. Merchants report several of these a week, and the community thread asking Shopify to stop defaulting to pickup has been collecting replies for years, with a feature request logged and no timeline. The order cannot be fixed either: order editing does not touch the delivery method, and orders placed with local pickup or local delivery often cannot be edited at all, so the supported path is cancel, refund, rebuild as a draft order, and invoice the shipping. The half workaround of buying a label anyway leaves a pickup order that still sends pickup instructions and never collected a shipping fee. The AI playbook that reads every new order's delivery method against its address, distance, and history, asks the customer the same hour, converts the order cleanly when they meant shipping, confirms pickup when they meant pickup, keeps pickup orders out of the label queue, and counts the wrong-method orders so you can fix the checkout copy that causes them." />
+<meta property="og:description" content="Checkout preselects free local pickup, customers tap past it, and Shopify has no button to switch the order to shipping. The AI playbook that fixes it fast." />
 <meta property="og:url" content="https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -549,6 +549,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .reveal { opacity: 1; transform: none; }
 }
 
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
 </style>
 </head>
 <body>
@@ -556,11 +563,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>&#9670; DISPATCH N&ordm; 96 &mdash; JUL 31, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 96 &middot; JUL 31, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 9 MIN READ &middot; 2,362 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
-    <span>&#9670; DISPATCH N&ordm; 96 &mdash; JUL 31, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 96 &middot; JUL 31, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 9 MIN READ &middot; 2,362 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
@@ -987,6 +994,54 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The twenty-first order</h3>
+        <p class="card-dek">
+          Shopify has no daily order limit, and the stock-count trick breaks on shared capacity and lead times. The AI playbook that caps orders by the day you make them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The automation that quietly stopped running</h3>
+        <p class="card-dek">
+          Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order from a state you cannot ship to</h3>
+        <p class="card-dek">
+          Shopify restricts shipping by zone, not by product, and a mixed cart breaks the workaround. The AI playbook that blocks only the items a state bans.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
       <div class="card-body">
         <div class="post-meta">

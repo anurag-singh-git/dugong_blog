@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to catch Shopify Flow workflows that fail silently | Dugong Field Notes</title>
+<meta name="description" content="Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="shopify flow not working, shopify flow workflow failed, shopify flow completed but not working, shopify flow error notification, shopify flow run history 14 days, shopify flow rate limited, shopify automation monitoring, shopify flow troubleshooting, workflow failed silently shopify, AI automation monitoring, Dugong" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<meta property="article:published_time" content="2026-09-20" />
+<meta property="article:modified_time" content="2026-09-20" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to catch Shopify Flow workflows that fail silently" />
+<meta property="og:description" content="Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to catch Shopify Flow workflows that fail silently" />
+<meta name="twitter:description" content="Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+    <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#article",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html",
+      "url": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html",
+      "headline": "How to catch Shopify Flow workflows that fail silently",
+      "description": "Shopify Flow marks a run Completed whenever it stops, whatever its actions did, so a dead branch inside a workflow leaves no mark on the run list. The built-in error trigger fires once per workflow version within a thirty day period. Run history is deleted after fourteen days, which is shorter than the audit cycle that usually finds the problem. And a workflow that stops firing altogether produces no run at all, so watching runs cannot catch it. The AI playbook that inventories every automation and the outcome it promises, baselines how often each should fire, checks the store data rather than the run log, alarms on silence as loudly as on error, archives run evidence before day fourteen, and keeps one open incident per broken automation.",
+      "datePublished": "2026-09-20",
+      "dateModified": "2026-09-20",
+      "articleSection": "Research",
+      "keywords": "shopify flow not working, shopify flow workflow failed, shopify flow completed but not working, shopify flow error notification, shopify flow run history, shopify flow rate limited, shopify automation monitoring, AI automation monitoring",
+      "wordCount": 2700,
+      "timeRequired": "PT11M",
+      "inLanguage": "en",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Observability (software)",
+          "sameAs": "https://en.wikipedia.org/wiki/Observability_(software)"
+        },
+        {
+          "@type": "Thing",
+          "name": "Business process automation",
+          "sameAs": "https://en.wikipedia.org/wiki/Business_process_automation"
+        },
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://blog.dugong.live/#priya-singh",
+        "name": "Priya Singh",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Finding and monitoring workflow runs",
+          "url": "https://help.shopify.com/en/manual/shopify-flow/manage/monitor"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Workflow error occurred",
+          "url": "https://help.shopify.com/en/manual/shopify-flow/reference/triggers/workflow-error-occurred"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Troubleshooting errors in Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow/create/troubleshoot"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Optimizing your Shopify Flow workflows",
+          "url": "https://help.shopify.com/en/manual/shopify-flow/create/optimize"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Changelog | Flow: New actions to get data about workflow runs",
+          "url": "https://changelog.shopify.com/posts/flow-new-actions-to-get-data-about-workflow-runs-abandoned-checkouts-inventory-items-catalogs-and-pages"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The automation that quietly stopped running",
+          "item": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does Shopify Flow say Completed when my workflow did not work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because Completed is not a success signal. Shopify's documentation defines the run statuses as In progress, meaning currently executing or retrying, Waiting, meaning a wait step has delayed a workflow, Rate limited, meaning the workflow was using too many resources so Flow limited the execution, Canceled, and Completed, which is defined as done. A run reaches Completed when it stops, whatever the individual actions did on the way. A developer established this in public on January 2, 2026 after an HTTP request failed inside a loop while the run reported success: I am not sure why the Run status shows as Completed when one action had an error. Shopify staff confirmed it and explained the mechanism, that a fail stops execution for that path, which is usually the same as the workflow, but a workflow with parallel actions and loops has many paths, so one dead branch does not mark the run. Practical consequence: filter the run list on Errors, which is a separate facet from status, and never treat Completed as evidence that anything happened."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get notified when a Shopify Flow workflow fails?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is a built-in trigger called Workflow error occurred, described as starting a workflow when workflows fail during execution. You pair it with an email or Slack action and you have a monitor. The limit is the problem. It fires once per workflow version within a thirty day period, however many times the workflow fails, and the counter resets only when you edit the workflow, which creates a new version, or when thirty days pass. Shopify states the intent plainly: error notifications are designed to limit noise, so you will only get one notification per workflow version. On a store doing four hundred orders a day, a workflow that breaks on the first of the month sends one email and then fails silently for twenty nine days. It is also blind to the two failures that are not errors, a run that completes with a dead branch inside it and a workflow that stops firing altogether."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does Shopify Flow keep workflow run history?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fourteen days. Shopify's monitoring documentation states that workflow runs are stored for 14 days after a run has completed, and that after 14 days, the run is removed from the system. The run search carries the same ceiling: the search is limited to the last 14 days of workflow runs. This matters because fourteen days is shorter than most of the loops that actually surface these failures. A monthly reconciliation finds the problem on day thirty, a quarterly audit on day ninety, and a customer whenever the customer happens to notice. By the time anyone asks how long this has been wrong, the runs that would answer have been deleted. The cheap fix is to export the run list on a schedule and keep a copy of your own, so day fifteen still has a memory."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I tell if a Shopify Flow workflow has stopped running entirely?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not from the run list, which is the whole difficulty. When a workflow stops firing, because a trigger tag was renamed, an app supplying the trigger was uninstalled or changed scopes, a condition stopped matching, or somebody deactivated it during a busy week, there is no failed run to find. There is no run. An empty list looks identical to a quiet week, so you cannot detect a missing run by watching runs. The only reliable detection is to watch the outcome instead: baseline how often each automation should fire and what it should leave behind in your store data, then alarm when that number goes to zero. A workflow that normally runs two hundred times a day and ran zero times today is a louder signal than any error message, but only if something remembers what two hundred looks like."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can AI monitor Shopify automations for silent failures?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and the reason it fits is that the hard part is expressing and re-checking expectations rather than reading logs. Every automation is really a promise about the world: every order over two hundred dollars leaves the customer tagged VIP within five minutes, every return marked received puts stock back within the hour, every unpaid draft older than seven days has had a reminder sent. Those sentences are checkable against store data directly, which catches all five failure modes at once, the completed run with a dead branch, the suppressed alert, the expired evidence, the workflow that never fired, and the platform change under a workflow you never edited. An automation like Dugong holds those sentences in plain language, checks them against the store hourly, archives run evidence before the fourteen day window closes, re-verifies after every edit and app update, and keeps one open incident per broken automation instead of one email per month. The honest limits: it does not stop a workflow breaking, it shortens the gap between breaking and knowing; it cannot audit an automation nobody wrote down; and during a genuine anomaly such as a flash sale it will need to be told that this week is not normal."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#howto",
+      "name": "The automation that quietly stopped running",
+      "description": "The AI playbook for catching Shopify Flow workflows that fail without saying so: listing every automation and the outcome it is supposed to produce, baselining how often each should fire and how fast, checking that outcome against store data rather than the run log, alarming on silence as loudly as on error, copying run evidence out before the fourteen day window deletes it, re-verifying after every workflow edit, app update and platform release, and keeping one open incident per broken automation until the outcome starts arriving again.",
+      "inLanguage": "en",
+      "totalTime": "PT11M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Inventory every automation",
+          "text": "What each one is supposed to leave behind in the store",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Baseline how often it should fire",
+          "text": "A rate and a latency, per automation",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Check the outcome, not the run log",
+          "text": "Query the store for the promise, not the process",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Alarm on silence, not just errors",
+          "text": "Zero runs is a result, and the expensive one",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Archive the runs before day fourteen",
+          "text": "Own the history instead of renting a two week window",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Re-verify after every change",
+          "text": "Your edit, an app update, a platform release",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Keep one open incident per automation",
+          "text": "Told once, reminded until the outcome returns",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#playbook"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES — matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #71716a;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background — lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0 var(--gutter); min-height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; min-width: 0; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  white-space: nowrap; flex-shrink: 0;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+@media (max-width: 820px) { .nav-links a:not(.nav-cta) { display: none; } }
+@media (max-width: 480px) {
+  .brand-slash, .brand-section { display: none; }
+  .nav-cta { font-size: 12.5px; padding: 8px 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 11.5px; padding: 7px 10px; }
+}
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+/* GRID (for related cards) */
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 560px) { .foot-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; } }
+@media (max-width: 340px) { .foot-cols { grid-template-columns: 1fr; } }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+/* highlight wraps at every width: nowrap overflowed the text column on long phrases */
+.article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.article-title em::after { content: none; }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: var(--border-strong); }
+.byline-role { color: var(--text-faint); }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
+.article-body pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) — mirrors the site's final card ---- */
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+
+/* ACCESSIBILITY */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>&#9670; DISPATCH N&ordm; 120 &middot; SEP 20, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 11 MIN READ &middot; 2,700 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+    <span>&#9670; DISPATCH N&ordm; 120 &middot; SEP 20, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 11 MIN READ &middot; 2,700 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+  </nav>
+</header>
+<article class="article" role="main">
+
+  <a href="index.html" class="article-back">&larr; back to field notes</a>
+
+  <div class="article-meta">
+    <span class="tag tag-research">research</span>
+    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 120</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-09-20" style="color: var(--cream-dim);">SEP 20, 2026</time>
+    <span style="color: var(--line-2);">&middot;</span>
+    <span style="color: var(--cream-dim);">11 MIN READ</span>
+  </div>
+
+  <h1 class="article-title">
+    How to catch Shopify Flow workflows that <em>fail silently</em>
+  </h1>
+
+  <p class="article-dek">
+    Shopify Flow marks a run Completed whether or not it worked, sends one alert a month, and deletes the evidence on day fourteen. Here is what has to be watched instead.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name">Priya Singh</span>
+    <span class="byline-divider">&middot;</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      The VIP tag stopped happening on a Tuesday. Nobody
+      noticed until the following Thursday, when a customer
+      who has spent eleven thousand dollars with you over two
+      years emailed to ask why she was being offered the
+      welcome discount again.
+    </p>
+
+    <p>
+      You open Shopify Flow. The workflow is there. It is
+      switched on. The run list is full of runs, and every
+      single one of them says <em>Completed</em>.
+    </p>
+
+    <p>
+      Nothing is broken, according to the only screen that
+      would tell you.
+    </p>
+
+    <h2>Completed does not mean it worked</h2>
+
+    <p>
+      This is the first thing to understand about Flow, and
+      almost nobody does until it costs them something.
+      Shopify's own documentation lists five run statuses. In
+      progress means currently executing or retrying. Waiting
+      means a wait step has delayed a workflow. Rate limited
+      means the workflow was using too many resources, so Flow
+      limited the execution. Canceled means the workflow was
+      canceled before it could complete.
+    </p>
+
+    <p>
+      And Completed means, in full, one word: done.
+    </p>
+
+    <p>
+      Done is not succeeded. A run reaches Completed when it
+      stops, whatever it did or failed to do on the way. A
+      developer worked this out in public on January 2, 2026,
+      after watching an HTTP request fail inside a loop while
+      the run reported success. I am not sure why the Run
+      status shows as Completed when one action had an error,
+      he wrote. He answered his own question a few posts
+      later: a workflow shows Completed whenever it is not
+      running, cancelled or rate limited, regardless of what
+      the individual actions did.
+    </p>
+
+    <p>
+      A Shopify staff member confirmed it and added the
+      mechanism. The fail will stop execution for that path,
+      which is usually the same as the workflow. However, here
+      you have many paths because you have actions running in
+      parallel and a loop. In other words, one dead branch of
+      a workflow with several branches does not mark the run.
+      The run finishes. The log says Completed. The tag never
+      got applied.
+    </p>
+
+    <div class="callout callout-sand">
+      <span class="callout-mark">&#9670; NOTE</span>
+      <span>
+        If you are monitoring Flow by scanning the run list
+        for the word failed, you are monitoring the one thing
+        Flow is least likely to show you. Filter on Errors
+        instead, which is a separate facet from status, and
+        assume the two disagree.
+      </span>
+    </div>
+
+    <h2>The alert fires once and then goes quiet</h2>
+
+    <p>
+      Flow does have an alarm. It is a trigger called Workflow
+      error occurred, and the documentation describes it
+      plainly: it starts a workflow when workflows fail during
+      execution. You point it at an email action or a Slack
+      message and you have built yourself a monitor.
+    </p>
+
+    <p>
+      Then you read the limit. The trigger runs once per
+      workflow version within a thirty day period, however
+      many times that workflow fails. It resets only if you
+      edit the workflow, which creates a new version, or if
+      thirty days pass since the last notification.
+    </p>
+
+    <p>
+      Shopify says why, and the reasoning is defensible:
+      error notifications are designed to limit noise, so you
+      will only get one notification per workflow version.
+    </p>
+
+    <p>
+      Consider what that means on a store doing four hundred
+      orders a day. A workflow breaks on the first of the
+      month. You get an email. The workflow then fails on
+      every order for twenty nine days, in silence, and the
+      inbox stays clean because the alarm has already been
+      used up. If you were away that first day, or the mail
+      went to a shared address nobody watches, or you read it
+      and meant to look later, the next signal you get is a
+      customer.
+    </p>
+
+    <p>
+      An alarm that rings once a month is a smoke detector
+      with one battery and no replacement.
+    </p>
+
+    <h2>The evidence deletes itself in fourteen days</h2>
+
+    <p>
+      Here is the second structural problem, and it is the
+      one that turns a bad week into an unresolvable one.
+    </p>
+
+    <p>
+      Shopify's documentation on monitoring workflow runs is
+      unambiguous. Workflow runs are stored for 14 days after
+      a run has completed. After 14 days, the run is removed
+      from the system. The search that lets you find a run by
+      order number or customer ID carries the same ceiling:
+      the search is limited to the last 14 days of workflow
+      runs.
+    </p>
+
+    <p>
+      Fourteen days is shorter than most of the loops that
+      actually catch these failures. A monthly reconciliation
+      catches it on day thirty. A quarterly audit catches it
+      on day ninety. A customer complaint arrives whenever the
+      customer happens to notice. By the time anyone asks how
+      long has this been wrong, the runs that would answer
+      the question have been deleted, and the only remaining
+      evidence is the shape of the damage in your order data.
+    </p>
+
+    <p>
+      Nobody plans for this. You discover it at the moment
+      you most need the log, which is also the moment it is
+      gone.
+    </p>
+
+    <h2>The failure with no run at all</h2>
+
+    <p>
+      Everything so far assumes a run happened and went
+      wrong. The worst case is quieter than that.
+    </p>
+
+    <p>
+      A workflow can simply stop firing. The trigger stops
+      matching because a tag was renamed. Someone deactivated
+      it during a busy week and forgot. An app that supplied
+      the trigger or the action was uninstalled or changed its
+      scopes. A condition that used to be true for half your
+      orders is now true for none of them.
+    </p>
+
+    <p>
+      When that happens there is no failed run to find,
+      because there is no run. The run list is not wrong, it
+      is empty, and an empty list looks exactly like a quiet
+      week. Every monitoring approach built on watching runs
+      shares the same blind spot: you cannot detect a missing
+      run by looking at runs.
+    </p>
+
+    <p>
+      This is the failure mode that costs the most and gets
+      caught the latest, and it is the reason the rest of this
+      piece is about outcomes rather than logs.
+    </p>
+
+    <h2>Sometimes it is not your workflow</h2>
+
+    <p>
+      The community record is worth reading, because it kills
+      the instinct that a broken Flow is always something you
+      did.
+    </p>
+
+    <p>
+      On April 1, 2025 a merchant reported that a signup
+      automation had stopped sending entirely. It worked for
+      several month correctly, another merchant added in the
+      same thread. Since Monday it does not work anymore. A
+      third: it is really weird, as a few weeks ago I had one
+      set up and it was all working perfectly. Staff first
+      pointed at third party forms and marketing consent, the
+      usual suspects, and then on April 3 came back with the
+      real answer. Turns out there was an issue with a recent
+      release that was causing issues with double opt in. The
+      issue should be fixed now.
+    </p>
+
+    <p>
+      On May 29, 2025 a Plus merchant found a workflow that
+      updates a company metafield had begun erroring against a
+      field it had written to for months. Today we went to
+      test it again, had used it before and worked perfect,
+      and it was erroring. The log showed Flow submitting a
+      list where the metafield expected a single integer. The
+      fix was to point the action at a different metafield,
+      save the whole workflow, then point it back. In the end
+      it is identical to what it was, the merchant wrote, but
+      something on the Shopify side had started trying to
+      update with the wrong type and resetting it fixed it.
+    </p>
+
+    <p>
+      On September 26, 2024 a merchant watching workflows
+      hang in progress and fail halfway concluded, reasonably,
+      that it is some update on the backend of Shopify or Flow
+      that is causing this error. Two other merchants in the
+      same thread had the same symptom. No staff answer
+      appears in it.
+    </p>
+
+    <p>
+      And on February 3, 2026 a merchant posted the purest
+      version of the problem: the admin was showing a banner
+      that said recent runs contain errors, and the runs
+      themselves showed nothing. Staff replied the same day,
+      then again on February 6 and February 9, suggesting a
+      search filter. The thread ends without a cause.
+    </p>
+
+    <div class="callout callout-sand">
+      <span class="callout-mark">&#9670; NOTE</span>
+      <span>
+        Four separate years, one pattern: the workflow did
+        not change, the ground underneath it did. Platform
+        releases, type coercion, app updates and scope changes
+        all break automations that you will swear you have not
+        touched. Version pinning does not exist here. The only
+        defence is checking that the outcome still arrives.
+      </span>
+    </div>
+
+    <h2>The other silent one: rate limited</h2>
+
+    <p>
+      There is a fifth status that deserves its own mention,
+      because merchants consistently read it as a delay when
+      it is closer to a decision.
+    </p>
+
+    <p>
+      Rate limited means the workflow was using too many
+      resources, so Flow limited the execution. It is not an
+      error. It will not trip the error trigger. It arrives
+      during exactly the periods you care about most, which
+      are the flash sale, the drop, the Black Friday hour when
+      six hundred orders land in ninety minutes and every one
+      of them fans out into four workflows.
+    </p>
+
+    <p>
+      Shopify's optimisation guidance is honest about the
+      arithmetic behind it. Your shop is limited in how many
+      requests it can handle at once by the API limits, and
+      workflows using a Get data action are designed to return
+      a maximum of 100 objects per workflow. The store-wide
+      limits are real, they are shared across every workflow
+      and every app you run, and a workflow that loops over
+      line items will hit them faster than you expect.
+    </p>
+
+    <p>
+      Worth knowing alongside it: Flow caps a store at 1,000
+      workflows, a workflow at 40 wait steps and 90 days of
+      total waiting, a config field at 50 kB, and every
+      workflow section at a combined 36 hours of execution.
+      Those ceilings do not announce themselves either.
+    </p>
+
+    <h2>What monitoring actually has to watch</h2>
+
+    <p>
+      Put the five failure modes side by side and one
+      conclusion falls out.
+    </p>
+
+    <p>
+      An action fails but the run says Completed. The alarm
+      fires once per version per month. The evidence expires
+      on day fourteen. The workflow stops firing and produces
+      no run to inspect. The platform changes under a workflow
+      you never edited.
+    </p>
+
+    <p>
+      Not one of those is reliably visible in the run list,
+      which means the run list is the wrong thing to watch.
+      The right thing to watch is the outcome the workflow
+      exists to produce.
+    </p>
+
+    <p>
+      A workflow that tags VIP customers is not really a
+      workflow. It is a promise that every order over two
+      hundred dollars leaves a tagged customer behind it. That
+      promise is checkable against your own store data, right
+      now, without touching Flow at all, and it stays
+      checkable long after the runs have been deleted. Ask the
+      store how many orders in the last twenty four hours
+      crossed two hundred dollars, ask how many of those
+      customers carry the tag, and the difference between the
+      two numbers is the only monitor that catches all five
+      failures at once.
+    </p>
+
+    <p>
+      Shopify has moved a little way toward this. A March 24,
+      2026 changelog added a Get workflow run data action,
+      which retrieves information about a workflow run,
+      including the workflow it belongs to, the event that
+      triggered it, retry attempts, and timing details, so
+      that you can build workflows that monitor or report on
+      other workflow activity. It is genuinely useful. It is
+      also a workflow watching workflows inside the system
+      that is failing, on data that disappears in fourteen
+      days, and it still cannot see a run that never started.
+    </p>
+
+    <h2>What the automation actually has to do</h2>
+
+    <p>
+      As a Dugong playbook, in plain prose:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">Every</span> hour, plus a daily
+digest and a check after
+every workflow edit
+
+<span class="c"># steps</span>
+1. <span class="k">List</span> every automation and
+   the outcome it is
+   supposed to produce
+2. <span class="k">Baseline</span> each one: how
+   often it should fire and
+   how fast
+3. <span class="k">Check</span> the outcome in the
+   store data, not the run
+   log
+4. <span class="k">Alarm</span> on silence too, not
+   just on errors: zero runs
+   is a result
+5. <span class="k">Copy</span> run evidence out
+   before day fourteen
+   deletes it
+6. <span class="k">Re-verify</span> after every
+   edit, app update and
+   platform release
+7. <span class="k">Open</span> one incident per
+   automation and keep it
+   open until it clears
+</code></pre>
+
+    <p>
+      Step one is the part most teams have never done. Nobody
+      has a list of what the store automates. There is Flow,
+      there are the marketing automations, there are three
+      apps with rules inside them, and there is the thing a
+      contractor built in 2024. The inventory is the
+      foundation, and the sentence next to each entry matters
+      more than the workflow diagram: what should be true in
+      the world if this is working.
+    </p>
+
+    <p>
+      Step two is what makes silence legible. A workflow that
+      normally runs two hundred times a day and ran zero times
+      today is a louder signal than any error message, but
+      only if something remembers what two hundred looks like.
+    </p>
+
+    <p>
+      Step four is the one that catches the expensive failure.
+      Errors are easy and absence is hard, so most monitoring
+      never does it. Absence is where the VIP tag went.
+    </p>
+
+    <p>
+      Step five is cheap insurance. Pull the run list every
+      day, keep it somewhere of your own, and you own a
+      history rather than renting a two week window. The first
+      time somebody asks how long has this been broken, that
+      archive answers in seconds instead of never.
+    </p>
+
+    <p>
+      Step seven is the correction to the once per thirty
+      days design. The right behaviour is not more email. It
+      is one open incident per broken automation, which stays
+      open, updates itself with a count, and closes when the
+      outcome starts arriving again. You want to be told once
+      and reminded until it is fixed, which is the opposite of
+      being told once and never again.
+    </p>
+
+    <h2>Why this is a compiler problem, not an app problem</h2>
+
+    <p>
+      You could build most of this by hand. A scheduled job,
+      a few Admin API queries, a table of expected rates and
+      an alerting rule. Teams with an engineer do exactly that
+      and it works.
+    </p>
+
+    <p>
+      What breaks it is that the expectations change every
+      week. You launch a product and the tagging rule needs a
+      new threshold. You add a market and the fulfillment
+      routing splits in two. A promotion doubles the run rate
+      for four days and every baseline alarms at once. Each of
+      those is a ten minute edit to a hand built monitor and
+      nobody has the ten minutes, so the monitor drifts out of
+      date and starts crying wolf, and within a quarter people
+      are filtering its email.
+    </p>
+
+    <p>
+      The version that survives is one where the expectation
+      is written the way you would say it to a colleague.
+      Every order over two hundred dollars should leave the
+      customer tagged VIP within five minutes. Every return
+      marked received should put stock back within the hour.
+      Every unpaid draft older than seven days should have had
+      a reminder sent. Those sentences are the monitor.
+      Changing the rule means changing the sentence, which is
+      a thing you will actually do, and an automation like
+      Dugong can hold them, check them against the store on a
+      schedule, and tell you which promise stopped being kept
+      and when it stopped.
+    </p>
+
+    <p>
+      The honest limits. This does not stop a workflow
+      breaking, it shortens the distance between breaking and
+      knowing, from weeks to about an hour. It cannot audit
+      what you never wrote down, so an automation missing from
+      the inventory is still invisible. And a store in the
+      middle of a genuine anomaly, a sale or an outage, will
+      generate noise unless somebody tells it that this week
+      is not normal.
+    </p>
+
+    <h2>The workflow worth building this week</h2>
+
+    <p>
+      Pick the three automations whose failure would cost you
+      the most. For most stores that is the fulfillment
+      handoff, the inventory sync and whatever touches money.
+      Write one sentence each describing what should be true
+      when they work. Check those three sentences against the
+      store every hour, alarm on zero as loudly as on error,
+      and archive the run list daily so day fifteen still has
+      a memory.
+    </p>
+
+    <p>
+      That is an afternoon of work and it converts your
+      automation stack from something you hope is running into
+      something you can see. The rest is refinement. But you
+      stop learning about broken workflows from customers, and
+      the run list goes back to being a debugging tool instead
+      of a fire alarm that mostly does not ring.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">&#9670; READING</span>
+      <span>
+        Two companion pieces if this one landed:
+        <a href="how-to-sync-supplier-inventory-feeds-to-shopify.html">the supplier feed that zeroed your catalog</a>,
+        on an automation that worked exactly as written and
+        was still a disaster, and
+        <a href="how-to-stop-your-shopify-inventory-changing-by-itself.html">the stock count that changes overnight</a>,
+        on finding out which of your integrations moved a
+        number nobody asked it to move.
+      </span>
+    </div>
+
+    <p>
+      If you are a Shopify merchant with a silent automation
+      story, the workflow that had not fired since March, the
+      run list that said Completed while nothing happened, the
+      customer who told you before your tooling did, the inbox
+      is open:
+      <code>field-notes@dugong.live</code>. We are collecting
+      case studies for the next issue.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share &middot; copy link &middot; &#10022;</span>
+  </div>
+
+</article>
+
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">&#9670; COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h2 class="faq-q">Why does Shopify Flow say Completed when my workflow did not work?</h2>
+      <p class="faq-a">Because Completed is not a success signal. Shopify's documentation defines the run statuses as In progress, meaning currently executing or retrying, Waiting, meaning a wait step has delayed a workflow, Rate limited, meaning the workflow was using too many resources so Flow limited the execution, Canceled, and Completed, which is defined as done. A run reaches Completed when it stops, whatever the individual actions did on the way. A developer established this in public on January 2, 2026 after an HTTP request failed inside a loop while the run reported success: I am not sure why the Run status shows as Completed when one action had an error. Shopify staff confirmed it and explained the mechanism, that a fail stops execution for that path, which is usually the same as the workflow, but a workflow with parallel actions and loops has many paths, so one dead branch does not mark the run. Practical consequence: filter the run list on Errors, which is a separate facet from status, and never treat Completed as evidence that anything happened.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">How do I get notified when a Shopify Flow workflow fails?</h2>
+      <p class="faq-a">There is a built-in trigger called Workflow error occurred, described as starting a workflow when workflows fail during execution. You pair it with an email or Slack action and you have a monitor. The limit is the problem. It fires once per workflow version within a thirty day period, however many times the workflow fails, and the counter resets only when you edit the workflow, which creates a new version, or when thirty days pass. Shopify states the intent plainly: error notifications are designed to limit noise, so you will only get one notification per workflow version. On a store doing four hundred orders a day, a workflow that breaks on the first of the month sends one email and then fails silently for twenty nine days. It is also blind to the two failures that are not errors, a run that completes with a dead branch inside it and a workflow that stops firing altogether.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">How long does Shopify Flow keep workflow run history?</h2>
+      <p class="faq-a">Fourteen days. Shopify's monitoring documentation states that workflow runs are stored for 14 days after a run has completed, and that after 14 days, the run is removed from the system. The run search carries the same ceiling: the search is limited to the last 14 days of workflow runs. This matters because fourteen days is shorter than most of the loops that actually surface these failures. A monthly reconciliation finds the problem on day thirty, a quarterly audit on day ninety, and a customer whenever the customer happens to notice. By the time anyone asks how long this has been wrong, the runs that would answer have been deleted. The cheap fix is to export the run list on a schedule and keep a copy of your own, so day fifteen still has a memory.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">How do I tell if a Shopify Flow workflow has stopped running entirely?</h2>
+      <p class="faq-a">Not from the run list, which is the whole difficulty. When a workflow stops firing, because a trigger tag was renamed, an app supplying the trigger was uninstalled or changed scopes, a condition stopped matching, or somebody deactivated it during a busy week, there is no failed run to find. There is no run. An empty list looks identical to a quiet week, so you cannot detect a missing run by watching runs. The only reliable detection is to watch the outcome instead: baseline how often each automation should fire and what it should leave behind in your store data, then alarm when that number goes to zero. A workflow that normally runs two hundred times a day and ran zero times today is a louder signal than any error message, but only if something remembers what two hundred looks like.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Can AI monitor Shopify automations for silent failures?</h2>
+      <p class="faq-a">Yes, and the reason it fits is that the hard part is expressing and re-checking expectations rather than reading logs. Every automation is really a promise about the world: every order over two hundred dollars leaves the customer tagged VIP within five minutes, every return marked received puts stock back within the hour, every unpaid draft older than seven days has had a reminder sent. Those sentences are checkable against store data directly, which catches all five failure modes at once, the completed run with a dead branch, the suppressed alert, the expired evidence, the workflow that never fired, and the platform change under a workflow you never edited. An automation like Dugong holds those sentences in plain language, checks them against the store hourly, archives run evidence before the fourteen day window closes, re-verifies after every edit and app update, and keeps one open incident per broken automation instead of one email per month. The honest limits: it does not stop a workflow breaking, it shortens the gap between breaking and knowing; it cannot audit an automation nobody wrote down; and during a genuine anomaly such as a flash sale it will need to be told that this week is not normal.</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="section-head">
+    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+<a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The twenty-first order</h3>
+        <p class="card-dek">
+          Shopify has no daily order limit, and the stock-count trick breaks on shared capacity and lead times. The AI playbook that caps orders by the day you make them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The supplier feed that zeroed your catalog</h3>
+        <p class="card-dek">
+          A distributor renames one column overnight and your sync app sets 400 products to zero. The AI playbook that checks a feed before it trusts it and tells a real out-of-stock from a broken export.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 26</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-stop-your-shopify-inventory-changing-by-itself.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The stock count that changes overnight</h3>
+        <p class="card-dek">
+          Sold out products refill themselves, full ones zero out at 9:20pm, and the adjustment history can show nothing at all. The AI playbook that matches every inventory change to its story and names the hand on the dial.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">AUG 22</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order from a state you cannot ship to</h3>
+        <p class="card-dek">
+          Shopify restricts shipping by zone, not by product, and a mixed cart breaks the workaround. The AI playbook that blocks only the items a state bans.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order against one default box. The AI playbook that packs the cart, prices dimensional weight before checkout, and reconciles every quote against the label that follows.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify's docs say SKUs must be unique, then let two products save the same one and split the stock between them. The AI playbook that finds every collision, tells the deliberate ones from the accidents, and keeps the counts honest.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-orders-that-never-sync-to-shipstation.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order your warehouse never heard about</h3>
+        <p class="card-dek">
+          Shopify says paid, the customer has a confirmation, and ShipStation has no row: the order fell into the gap between systems, and neither side alerts you. The AI playbook that reconciles every paid order against the fulfillment queue and catches the one that never arrived.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">AUG 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-order-confirmation-emails-not-sending-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order confirmation that never arrives</h3>
+        <p class="card-dek">
+          The customer paid at 9:47 and calls at four asking if she was scammed: the confirmation email never sent, and Shopify has no button to send one. The AI playbook that catches every silent order in minutes and sends the receipt through a door that opens.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">AUG 23</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The overselling problem no one automates</h3>
+        <p class="card-dek">
+          Selling stock you no longer have is the pain merchants dread most. The AI playbook that keeps inventory honest in real time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="best-shopify-automations-to-set-up.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The Shopify automations no one builds</h3>
+        <p class="card-dek">
+          The automations that compound are the ones merchants never get to. The field guide to the Shopify workflows worth handing to an AI first.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">MAY 28</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html">Latest</a>
+        <a href="index.html">Essays</a>
+        <a href="index.html">Post-mortems</a>
+        <a href="index.html">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>&copy; 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>

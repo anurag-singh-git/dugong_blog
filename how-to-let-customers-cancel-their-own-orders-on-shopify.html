@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to let customers cancel their own orders on Shopify &mdash; Dugong Field Notes</title>
+<title>How to let customers cancel their own orders on Shopify | Dugong Field Notes</title>
 <meta name="description" content="Shopify's new cancel button only files a request: nothing pauses, and the order ships anyway. The AI playbook that holds fulfillment and wins the race." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html" />
 <meta name="author" content="Priya Singh" />
@@ -13,7 +13,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <meta property="article:published_time" content="2026-08-02" />
     <meta property="article:modified_time" content="2026-08-13" />
 <meta property="article:author" content="Priya Singh" />
@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
 <meta property="og:title" content="How to let customers cancel their own orders on Shopify" />
-<meta property="og:description" content="The request lands seventeen minutes after checkout: wrong size, tapped Request cancellation, confirmation email received, caught in time by any human measure. But on Shopify a pending cancellation request changes nothing: the help center states that a request does not change the order's state on its own, so the order stays in every fulfillment feed, the 3PL pulls it Monday at 6:02 a.m., and the tracking number arrives two messages above the request. The cancel button Shopify added on June 18, 2026, one day before the EU's withdrawal function deadline, files requests and nothing more: no hold, no pause, no Shopify app notification, no legacy account support, and most cancellation intent still arrives by email reply, chat, and DM anyway. So merchants keep refunding orders in full after paying to ship them, then paying again to ship them back, and the customer who did everything right watches the thing she canceled arrive at her door. The AI playbook that hears cancellation intent on every channel, matches it to the right order, holds fulfillment in seconds before any decision is made, cancels the clean cases end to end with refund, restock, tag, and reply, escalates the picked and the shipped with context attached, opens the return path honestly when it lost the race, and reports weekly on what keeps causing the requests so checkout stops generating them." />
+<meta property="og:description" content="Shopify's new cancel button only files a request: nothing pauses, and the order ships anyway. The AI playbook that holds fulfillment and wins the race." />
 <meta property="og:url" content="https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -542,6 +542,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .reveal { opacity: 1; transform: none; }
 }
 
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
 </style>
 </head>
 <body>
@@ -549,11 +556,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>&#9670; DISPATCH N&ordm; 98 &mdash; AUG 2, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 98 &middot; AUG 2, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 9 MIN READ &middot; 2,304 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
-    <span>&#9670; DISPATCH N&ordm; 98 &mdash; AUG 2, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 98 &middot; AUG 2, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 9 MIN READ &middot; 2,304 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
@@ -991,6 +998,54 @@ message that reads like one
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The twenty-first order</h3>
+        <p class="card-dek">
+          Shopify has no daily order limit, and the stock-count trick breaks on shared capacity and lead times. The AI playbook that caps orders by the day you make them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The automation that quietly stopped running</h3>
+        <p class="card-dek">
+          Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order from a state you cannot ship to</h3>
+        <p class="card-dek">
+          Shopify restricts shipping by zone, not by product, and a mixed cart breaks the workaround. The AI playbook that blocks only the items a state bans.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
       <div class="card-body">
         <div class="post-meta">

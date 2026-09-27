@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to send payment reminders for unpaid draft orders on Shopify &mdash; Dugong Field Notes</title>
+<title>How to send payment reminders for unpaid draft orders on Shopify | Dugong Field Notes</title>
 <meta name="description" content="You send the draft order invoice and Shopify never follows up: no reminders, no expiry, no reserved stock. The AI playbook that chases every unpaid draft." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-send-payment-reminders-for-unpaid-draft-orders-on-shopify.html" />
 <meta name="author" content="Priya Singh" />
@@ -13,7 +13,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <meta property="article:published_time" content="2026-08-01" />
     <meta property="article:modified_time" content="2026-08-01" />
 <meta property="article:author" content="Priya Singh" />
@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
 <meta property="og:title" content="How to send payment reminders for unpaid draft orders on Shopify" />
-<meta property="og:description" content="A stockist says yes to sixty cards and two dozen notebooks, you build the draft order in four minutes, click Send invoice, and Shopify sends one email with a checkout link. That is the entire feature. There is no reminder if the invoice sits unpaid, no alert to you on day five, no expiry on the draft, and no hold on the stock it promises. The reminder machinery Shopify does have hangs off payment terms and due dates that invoice-sent drafts never carry, Flow's only draft trigger fires at creation before the invoice even exists, and the Reserve items button is a manual, date-stamped afterthought that wholesale merchants were still calling an unacceptable gap this spring. So unpaid drafts pile up in a tab that never sorts by waiting longest, a customer pays on Thursday for stock that sold out on Tuesday, and last autumn's forgotten quote is still payable this afternoon at last autumn's prices. The AI playbook that logs every invoice as it leaves, reminds on a cadence that reads the customer, routes the replies, watches the promised stock, escalates the big ones, expires the dead ones, and counts what actually gets paid." />
+<meta property="og:description" content="You send the draft order invoice and Shopify never follows up: no reminders, no expiry, no reserved stock. The AI playbook that chases every unpaid draft." />
 <meta property="og:url" content="https://blog.dugong.live/how-to-send-payment-reminders-for-unpaid-draft-orders-on-shopify.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -522,6 +522,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .reveal { opacity: 1; transform: none; }
 }
 
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
 </style>
 __CSS_BLOCK__
 </head>
@@ -530,11 +537,11 @@ __CSS_BLOCK__
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>&#9670; DISPATCH N&ordm; 97 &mdash; AUG 1, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 97 &middot; AUG 1, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 9 MIN READ &middot; 2,340 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
-    <span>&#9670; DISPATCH N&ordm; 97 &mdash; AUG 1, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 97 &middot; AUG 1, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 9 MIN READ &middot; 2,340 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>

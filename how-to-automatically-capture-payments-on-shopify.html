@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to automatically capture payments on Shopify &mdash; Dugong Field Notes</title>
+<title>How to automatically capture payments on Shopify | Dugong Field Notes</title>
 <meta name="description" content="Authorized is not paid: Shopify gives you 7 days to capture before the hold expires. The AI playbook that captures every order before the clock runs out." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html" />
 <meta name="author" content="Priya Singh" />
@@ -13,7 +13,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <meta property="article:published_time" content="2026-08-03" />
     <meta property="article:modified_time" content="2026-08-07" />
 <meta property="article:author" content="Priya Singh" />
@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
 <meta property="og:title" content="How to automatically capture payments on Shopify" />
-<meta property="og:description" content="The boots ship Monday, the tracking updates, the customer is happy, and the $412 is still sitting in an authorization nobody captured. On Shopify, authorized is not paid: card payments are authorized at checkout and must be captured within the authorization period, 7 days on Shopify Payments, and a store on manual capture that treats fulfillment as the finish line finds out weeks later, reconciling payouts, that the money quietly went back to the customer's bank. The traps are documented and almost never read: capture at fulfillment only fires when the entire order is fulfilled, so every split shipment leaves an authorization running out the clock; the setting only applies to orders placed after it was activated; fulfillment apps that wait for a paid status deadlock against a capture that waits for fulfillment; Plus stores get extended authorization periods of up to 30 days on Visa, Mastercard, and Amex but pay an extra 1.75% on anything captured after day 7; and the only native warning is a single email, one day before expiry, in the same inbox as everything else. Shopify Flow can capture when an order is not high risk, and that is the happy path handled: it cannot wait for your actual fraud process, capture when the first box ships, chase a day-six authorization, choose void over silent expiry, or tell you what almost expired this week. The AI playbook that watches every authorization with its real deadline, captures on the trigger your policy actually names, escalates the expiring ones with evidence attached, voids the cancels so holds release cleanly, recovers the expired with a payment link in the same hour, and reports what it saved." />
+<meta property="og:description" content="Authorized is not paid: Shopify gives you 7 days to capture before the hold expires. The AI playbook that captures every order before the clock runs out." />
 <meta property="og:url" content="https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -547,6 +547,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .reveal { opacity: 1; transform: none; }
 }
 
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
 </style>
 </head>
 <body>
@@ -554,11 +561,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>&#9670; DISPATCH N&ordm; 99 &mdash; AUG 3, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 99 &middot; AUG 3, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 10 MIN READ &middot; 2,412 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
-    <span>&#9670; DISPATCH N&ordm; 99 &mdash; AUG 3, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 99 &middot; AUG 3, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 10 MIN READ &middot; 2,412 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
@@ -1007,6 +1014,54 @@ after, until captured, voided, or expired
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The twenty-first order</h3>
+        <p class="card-dek">
+          Shopify has no daily order limit, and the stock-count trick breaks on shared capacity and lead times. The AI playbook that caps orders by the day you make them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The automation that quietly stopped running</h3>
+        <p class="card-dek">
+          Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order from a state you cannot ship to</h3>
+        <p class="card-dek">
+          Shopify restricts shipping by zone, not by product, and a mixed cart breaks the workaround. The AI playbook that blocks only the items a state bans.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
       <div class="card-body">
         <div class="post-meta">

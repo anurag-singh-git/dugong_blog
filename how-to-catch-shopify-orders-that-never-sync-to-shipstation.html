@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to catch Shopify orders that never sync to ShipStation &mdash; Dugong Field Notes</title>
+<title>How to catch Shopify orders that never sync to ShipStation | Dugong Field Notes</title>
 <meta name="description" content="Paid Shopify orders sometimes never reach ShipStation or your 3PL, and nothing alerts you. The AI playbook that catches the gap before the customer does." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-catch-shopify-orders-that-never-sync-to-shipstation.html" />
 <meta name="author" content="Priya Singh" />
@@ -13,7 +13,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <meta property="article:published_time" content="2026-08-20" />
 <meta property="article:modified_time" content="2026-08-22" />
 <meta property="article:author" content="Priya Singh" />
@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
 <meta property="og:title" content="How to catch Shopify orders that never sync to ShipStation" />
-<meta property="og:description" content="The order lands on a Tuesday: paid in full, confirmation sent, another green row in a busy week. Nine days later the customer emails asking where it is, you open ShipStation to check the label, and there is no label, because there is no order. Shopify never sent it. No error on either dashboard, no email, nothing to click: the order fell into the gap between the store and the warehouse and aged there until the customer found it for you. Merchants have the receipts. A March 2024 thread mapped one failure precisely: customer pays, a new tax amount is applied, the authorization is voided, Shopify emails the customer a payment failure notice, the invoice is paid again, and the order never exports. About one a week that we know about, the merchant wrote, then at least half a dozen a week by the next update. ShipStation confirmed no event ever reached their side. Shopify staff answered twice, and both answers were the same: talk to ShipStation. The genre is older than that thread. In February 2021 a merchant learned Printful never received two orders his customers had already been charged for, and the official advice was to refund them. In March 2022 another reported orders not flowing with everything connected correctly, in a thread still collecting replies in May 2025. In October 2025 a merchant posted his own YouTube workaround to a thread that got zero replies. The failure has a dozen mundane causes, a voided authorization, an order already marked fulfilled, a manual draft order, a hold, a status filter, and one shape: every system reports that it is fine, and the order is nowhere. The only defense merchants have found is diffing two order lists by hand, which the March 2024 merchant called a nightmare in busy seasons where we'll have thousands of orders per day. The AI playbook that reconciles Shopify against ShipStation or any 3PL on a clock, flags every paid order missing from the pick queue within the hour, reads the payment timeline for the signatures that predict a skip, chases each gap with the probable cause attached, watches the tracking on the way back, and reports weekly on where the pipe leaked." />
+<meta property="og:description" content="Paid Shopify orders sometimes never reach ShipStation or your 3PL, and nothing alerts you. The AI playbook that catches the gap before the customer does." />
 <meta property="og:url" content="https://blog.dugong.live/how-to-catch-shopify-orders-that-never-sync-to-shipstation.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -536,6 +536,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .reveal { opacity: 1; transform: none; }
 }
 
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
 </style>
 </head>
 <body>
@@ -543,11 +550,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>&#9670; DISPATCH N&ordm; 111 &mdash; AUG 20, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 111 &middot; AUG 20, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 10 MIN READ &middot; 2,500 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
-    <span>&#9670; DISPATCH N&ordm; 111 &mdash; AUG 20, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 111 &middot; AUG 20, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 10 MIN READ &middot; 2,500 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
@@ -1033,6 +1040,54 @@ and on a clock for the queue
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The twenty-first order</h3>
+        <p class="card-dek">
+          Shopify has no daily order limit, and the stock-count trick breaks on shared capacity and lead times. The AI playbook that caps orders by the day you make them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The automation that quietly stopped running</h3>
+        <p class="card-dek">
+          Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order from a state you cannot ship to</h3>
+        <p class="card-dek">
+          Shopify restricts shipping by zone, not by product, and a mixed cart breaks the workaround. The AI playbook that blocks only the items a state bans.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
       <div class="card-body">
         <div class="post-meta">

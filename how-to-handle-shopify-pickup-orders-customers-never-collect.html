@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to handle Shopify pickup orders customers never collect &mdash; Dugong Field Notes</title>
+<title>How to handle Shopify pickup orders customers never collect | Dugong Field Notes</title>
 <meta name="description" content="Shopify sends one ready for pickup email and goes silent: no reminders, no resend button, no auto-cancel window. The AI playbook that clears the pickup shelf." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html" />
 <meta name="author" content="Priya Singh" />
@@ -13,7 +13,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <meta property="article:published_time" content="2026-08-24" />
 <meta property="article:modified_time" content="2026-08-24" />
 <meta property="article:author" content="Priya Singh" />
@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
 <meta property="og:title" content="How to handle Shopify pickup orders customers never collect" />
-<meta property="og:description" content="The shelf behind the register tells the story: eleven paper bags with sticky notes, and the oldest is from March. The customer paid in full, you packed the order, marked it ready, Shopify sent its one email, and then everyone went quiet. Merchants have been asking for the obvious fix since October 2021, in a thread that ran 27 replies and was still collecting posts in April 2025: a Hawaii tea merchant whose customers sometimes forget about their order for a month or more, sending personal reminder emails one at a time, asking for a resend button in the order timeline. Shopify staff confirmed the feature does not exist and suggested watching the changelog. The thread aged the way these threads do: almost a year and no fix, August 2022; a resend button visible in the timeline but greyed out, October 2022, still greyed out in a screenshot posted August 2023; it is completely asinine that this is not an existing feature, March 2024; it has been YEARS, lol, September 2024. A second thread asked again in May 2024 and closed on the same note in June 2025: how is this not an option yet. And the operational cost was documented back in March 2021 by a schoolwear shop that ended one peak season with hundreds of uncollected orders and sifted through every last one to send reminders by hand, while bags sat for months, inventory stayed committed, and the only app anyone could name charged ten dollars a month for what one merchant called a one in a hundred problem. The AI playbook that starts a clock the moment an order is marked ready, reminds on a schedule through a door that opens, catches the notification that bounced or went to a typo, offers shipping or a refund when the shelf date passes, restocks and closes per your policy, and reports weekly on shelf age and recovered sales." />
+<meta property="og:description" content="Shopify sends one ready for pickup email and goes silent: no reminders, no resend button, no auto-cancel window. The AI playbook that clears the pickup shelf." />
 <meta property="og:url" content="https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -530,6 +530,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .reveal { opacity: 1; transform: none; }
 }
 
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
 </style>
 </head>
 <body>
@@ -537,11 +544,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>&#9670; DISPATCH N&ordm; 114 &mdash; AUG 24, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 114 &middot; AUG 24, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 10 MIN READ &middot; 2,600 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
-    <span>&#9670; DISPATCH N&ordm; 114 &mdash; AUG 24, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 114 &middot; AUG 24, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 10 MIN READ &middot; 2,600 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
@@ -1020,6 +1027,54 @@ of the shelf
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The twenty-first order</h3>
+        <p class="card-dek">
+          Shopify has no daily order limit, and the stock-count trick breaks on shared capacity and lead times. The AI playbook that caps orders by the day you make them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The automation that quietly stopped running</h3>
+        <p class="card-dek">
+          Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order from a state you cannot ship to</h3>
+        <p class="card-dek">
+          Shopify restricts shipping by zone, not by product, and a mixed cart breaks the workaround. The AI playbook that blocks only the items a state bans.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
       <div class="card-body">
         <div class="post-meta">

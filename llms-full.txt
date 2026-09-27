@@ -11,6 +11,340 @@ The site’s lead essay, The death of the drag-and-drop builder (Dispatch Nº 47
 
 ---
 
+# How to stop taking Shopify orders when you hit your daily capacity
+
+URL: https://blog.dugong.live/how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html
+Dispatch: Nº 121
+Author: Priya Singh, Commerce Research, Dugong
+Published: 2026-09-21. Updated: 2026-09-21
+
+Shopify has no daily order limit. Stock counts cap products, not your kitchen, and a midnight reset breaks the moment you have lead times. Here is the setup that caps orders by the day you actually make them.
+
+It is Thursday night and there are 31 orders for Saturday. The oven, the van and your two pairs of hands can do 20.
+
+Nobody did anything wrong. The store just never knew there was a limit. Shopify tracks how many of a thing you have. It has no idea how many things you can make, pack or deliver in a day.
+
+If you run a bakery, a florist, a meal prep kitchen, a print shop or anything else made to order, this is the problem that decides whether Saturday is profitable or a mess. Here is how to fix it properly.
+
+## The short answer
+
+Cap orders by the day you fulfill them, not the day they are placed, and count every sales channel against the same number. Shopify cannot do this natively. There is no daily order limit setting anywhere in the admin.
+
+The closest native tool is inventory. Set a product's stock to your daily limit and it sells out when you hit it. That works for one product with no lead time. For everything else you need something that counts committed work per day and closes the date, not the product, when it fills.
+
+## Merchants are asking this right now
+
+On August 22, 2026 a merchant posted the exact question in the Shopify Community. With room for about 20 orders a day: “When you reach your limit, how would you prevent the next customer from ordering?”
+
+Replies came in within a day, and together they map the whole problem:
+
+- Use real inventory, not code. Native stock tracking means the sold-out state closes orders for you once the count hits zero.
+- Hiding the button does not work. Two replies warned that CSS tricks fail against cart permalinks and saved carts. The customer simply checks out anyway.
+- Reset it every night. One suggested a scheduled task that sets the variant back to 20 just after midnight in your store time zone.
+- Count by delivery day, with weights. The last reply pointed out that capacity belongs to fulfillment dates, not calendar days, and that a big order uses more of it than a small one.
+
+Every one of those is right. Stacked together, they still break.
+
+## Why the stock-count trick breaks
+
+Stock set to 20, reset at midnight, is the standard advice. It fails in five predictable places.
+
+1. Your limit is shared. Your stock is not. You can make 20 orders a day across 40 products. Inventory counts each product on its own, so 40 products at 20 each is a daily cap of 800.
+
+2. You sell on one day and make on another. A Saturday order placed on Tuesday uses Saturday's capacity. A midnight reset counts orders by the day they were placed, so Saturday fills up quietly all week and the counter never notices.
+
+3. Not every order is one unit of work. A three-tier wedding cake and a box of six cookies both count as one order. Your kitchen disagrees.
+
+4. The reset overwrites real numbers. A cancellation at 4pm should free a slot. The midnight job wipes it. And if you also sell ready-made items, a blanket reset destroys those counts too.
+
+5. Other channels do not ask. Shopify's own help page notes that the continue selling setting “doesn't apply to orders placed from Shopify POS”. Phone orders, draft orders and wholesale all use the same hands, and none of them checks your cap.
+
+> ◆ NOTE: Shopify Flow can run the nightly reset. Its Scheduled time trigger runs at most once every 10 minutes and defaults to your store's time zone. That fixes the timing. It does not fix the other four problems.
+
+## What about delivery date apps?
+
+A date picker is the right instinct: the customer picks a day, and full days are blocked. It is also always an app. Shopify's local delivery setup covers zones, radius, postal codes and pricing, and says nothing about dates, time slots or daily limits.
+
+Check two things before you trust one:
+
+- Does it count orders from POS, drafts and manual entries, or only checkouts that went through its own widget?
+- Does a cancelled order, or a changed delivery date, give the slot back?
+
+If the answer to either is no, you will oversell on exactly the busy days you bought it for. And a picker only covers delivery and pickup. Shipped made-to-order goods have the same problem with no calendar at all.
+
+## What a real capacity cap has to do
+
+Strip it down and a working cap needs four things:
+
+- One capacity number per day, shared across every product, with heavier weights for big jobs.
+- Every order counted against the day it will be made, from every channel.
+- A date that closes when it fills and reopens when an order is cancelled or moved.
+- A storefront that shows the next open day instead of a sold out badge.
+
+The last one is the one merchants miss. Sold out on a cake you bake fresh every day is not true, and it sends the customer to a competitor for an order you had room for on Tuesday. Next available: Thursday keeps the sale.
+
+## The playbook
+
+As a Dugong playbook, in plain language:
+
+```
+# trigger
+Every new, edited or cancelled
+order from any channel, plus a
+7am daily brief
+
+# steps
+1. Read capacity: 20 points a day,
+   wedding cakes cost 5, closed
+   on Mondays
+2. Assign each order to the day it
+   gets made, from its delivery
+   date or lead time
+3. Sum committed points per day
+   across online, POS, draft and
+   wholesale orders
+4. Close a day at 90 percent:
+   block it in the date picker and
+   show the next open day on
+   product pages
+5. Reopen the day when an order
+   is cancelled, refunded or moved
+6. Flag any day that still goes
+   over, before anyone starts work
+7. Send a morning brief: today,
+   tomorrow, and the days filling
+   fast
+```
+
+Step four closes at 90 percent, not 100. Two customers can be at checkout at the same moment. A small buffer is cheaper than an apology.
+
+Step six is the safety net. Nothing on a storefront stops every edge case. So the automation re-checks the numbers after every order and tells you while you can still call a customer, not at 6am on Saturday.
+
+Step seven turns the cap into a planning tool. If Friday is full by Tuesday every week, you do not have a capacity problem. You have a pricing problem, or a hiring one.
+
+## Where AI earns its place
+
+The counting is simple arithmetic. The hard part is the mess around it. A delivery date typed into a cart note. “For my mom's birthday on the 14th”, which means it has to be made on the 13th. A custom order with six extra lines that is obviously a big job. Rules break on all of that. A model reads it the way your staff would.
+
+The honest limit: a storefront cap cuts overselling, it does not make it impossible. The only layer that can refuse a checkout outright is checkout validation with Shopify Functions, and orders still arrive through POS and drafts. That is why step six exists.
+
+## Set it up this week
+
+Write down your real daily number. List your three heaviest products and what each one costs in capacity. Decide how a full day should look to a customer: next open date, pre-order, or hidden.
+
+Then count last month's orders by the day they were made, not the day they were placed. Most shops that do this find two or three days they overbooked without noticing. Those days are exactly where the cap pays for itself.
+
+> ◆ READING: Two companion pieces if this one landed: The pre-order that holds your whole order hostage (https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html), on letting customers buy ahead without breaking the stock you actually hold, and The vacation your store won’t let you take (https://blog.dugong.live/how-to-put-your-shopify-store-on-vacation-mode-without-losing-sales.html), on closing the shop for a week without losing the orders.
+
+Running a made-to-order shop with a capacity story, the Saturday with 31 orders, the app that forgot about POS, the week you turned the store off to catch up? The inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
+
+## Frequently asked questions
+
+### Can Shopify limit the number of orders per day?
+
+Not natively. There is no daily order limit setting in the Shopify admin. The common workaround is inventory: set a product's stock to your daily limit, turn tracking on, leave continue selling when out of stock off, and the product sells out when the limit is reached. It works for a single product with same-day fulfillment. It breaks when your limit is shared across many products, when customers order days ahead, when some orders are much bigger than others, and when orders arrive through POS, drafts or wholesale, because Shopify's help page says continue selling when out of stock does not apply to orders placed from Shopify POS. For a real daily cap you need to count committed work per fulfillment day across every channel, with an app or an automation.
+
+### How do I stop Shopify orders after a certain number each day?
+
+Use real inventory rather than hiding the add to cart button, because CSS tricks fail against cart permalinks and saved carts. Set the stock to your daily number and reset it every night. Shopify Flow's Scheduled time trigger can run that reset: it runs at most once every 10 minutes and uses your store's time zone by default. Know the limits before you rely on it. The reset counts orders by the day they were placed, not the day they will be made, it overwrites any slot freed by a cancellation, and it caps each product separately, so 40 products at 20 each is a cap of 800 rather than 20.
+
+### How do I limit orders per delivery date on Shopify?
+
+You need a delivery date app, because Shopify's local delivery settings cover zones, radius, postal codes and pricing but not dates, time slots or daily limits. Pick one that sets a maximum per day or per slot and blocks full dates in the picker. Then check two things: whether it counts orders that did not go through its own widget, such as POS, draft and manual orders, and whether a cancelled order or a changed date gives the slot back. If either answer is no, the app will oversell on your busiest days.
+
+### Should I show sold out or the next available date when I hit capacity?
+
+Show the next available date. Sold out on a product you make fresh every day is not true, and it sends the customer to a competitor for an order you could have filled on a quieter day. A message such as next available: Thursday keeps the sale and spreads demand across the week. Close a day slightly before it is full, around 90 percent, so two customers checking out at the same moment cannot push you over.
+
+### Can AI manage daily order capacity on Shopify?
+
+Yes. The arithmetic is simple; the hard part is reading orders the way staff do, such as a delivery date written in a cart note, a birthday on the 14th that means baking on the 13th, or a custom order that is obviously a big job. An automation like Dugong reads every new, edited and cancelled order from every channel, assigns it to the day it will be made, sums weighted capacity per day, closes a date at about 90 percent and shows the next open day on product pages, reopens the date when an order is cancelled or moved, flags any day that still goes over, and sends a morning brief. The honest limit: a storefront cap reduces overselling but cannot make it impossible, because only checkout validation can refuse a checkout outright and orders still arrive through POS and drafts, so the after-the-fact check matters.
+
+---
+
+# How to catch Shopify Flow workflows that fail silently
+
+URL: https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html
+Dispatch: Nº 120
+Author: Priya Singh, Commerce Research, Dugong
+Published: 2026-09-20. Updated: 2026-09-20
+
+Shopify Flow marks a run Completed whether or not it worked, sends one alert a month, and deletes the evidence on day fourteen. Here is what has to be watched instead.
+
+The VIP tag stopped happening on a Tuesday. Nobody noticed until the following Thursday, when a customer who has spent eleven thousand dollars with you over two years emailed to ask why she was being offered the welcome discount again.
+
+You open Shopify Flow. The workflow is there. It is switched on. The run list is full of runs, and every single one of them says Completed.
+
+Nothing is broken, according to the only screen that would tell you.
+
+## Completed does not mean it worked
+
+This is the first thing to understand about Flow, and almost nobody does until it costs them something. Shopify's own documentation lists five run statuses. In progress means currently executing or retrying. Waiting means a wait step has delayed a workflow. Rate limited means the workflow was using too many resources, so Flow limited the execution. Canceled means the workflow was canceled before it could complete.
+
+And Completed means, in full, one word: done.
+
+Done is not succeeded. A run reaches Completed when it stops, whatever it did or failed to do on the way. A developer worked this out in public on January 2, 2026, after watching an HTTP request fail inside a loop while the run reported success. I am not sure why the Run status shows as Completed when one action had an error, he wrote. He answered his own question a few posts later: a workflow shows Completed whenever it is not running, cancelled or rate limited, regardless of what the individual actions did.
+
+A Shopify staff member confirmed it and added the mechanism. The fail will stop execution for that path, which is usually the same as the workflow. However, here you have many paths because you have actions running in parallel and a loop. In other words, one dead branch of a workflow with several branches does not mark the run. The run finishes. The log says Completed. The tag never got applied.
+
+> ◆ NOTE: If you are monitoring Flow by scanning the run list for the word failed, you are monitoring the one thing Flow is least likely to show you. Filter on Errors instead, which is a separate facet from status, and assume the two disagree.
+
+## The alert fires once and then goes quiet
+
+Flow does have an alarm. It is a trigger called Workflow error occurred, and the documentation describes it plainly: it starts a workflow when workflows fail during execution. You point it at an email action or a Slack message and you have built yourself a monitor.
+
+Then you read the limit. The trigger runs once per workflow version within a thirty day period, however many times that workflow fails. It resets only if you edit the workflow, which creates a new version, or if thirty days pass since the last notification.
+
+Shopify says why, and the reasoning is defensible: error notifications are designed to limit noise, so you will only get one notification per workflow version.
+
+Consider what that means on a store doing four hundred orders a day. A workflow breaks on the first of the month. You get an email. The workflow then fails on every order for twenty nine days, in silence, and the inbox stays clean because the alarm has already been used up. If you were away that first day, or the mail went to a shared address nobody watches, or you read it and meant to look later, the next signal you get is a customer.
+
+An alarm that rings once a month is a smoke detector with one battery and no replacement.
+
+## The evidence deletes itself in fourteen days
+
+Here is the second structural problem, and it is the one that turns a bad week into an unresolvable one.
+
+Shopify's documentation on monitoring workflow runs is unambiguous. Workflow runs are stored for 14 days after a run has completed. After 14 days, the run is removed from the system. The search that lets you find a run by order number or customer ID carries the same ceiling: the search is limited to the last 14 days of workflow runs.
+
+Fourteen days is shorter than most of the loops that actually catch these failures. A monthly reconciliation catches it on day thirty. A quarterly audit catches it on day ninety. A customer complaint arrives whenever the customer happens to notice. By the time anyone asks how long has this been wrong, the runs that would answer the question have been deleted, and the only remaining evidence is the shape of the damage in your order data.
+
+Nobody plans for this. You discover it at the moment you most need the log, which is also the moment it is gone.
+
+## The failure with no run at all
+
+Everything so far assumes a run happened and went wrong. The worst case is quieter than that.
+
+A workflow can simply stop firing. The trigger stops matching because a tag was renamed. Someone deactivated it during a busy week and forgot. An app that supplied the trigger or the action was uninstalled or changed its scopes. A condition that used to be true for half your orders is now true for none of them.
+
+When that happens there is no failed run to find, because there is no run. The run list is not wrong, it is empty, and an empty list looks exactly like a quiet week. Every monitoring approach built on watching runs shares the same blind spot: you cannot detect a missing run by looking at runs.
+
+This is the failure mode that costs the most and gets caught the latest, and it is the reason the rest of this piece is about outcomes rather than logs.
+
+## Sometimes it is not your workflow
+
+The community record is worth reading, because it kills the instinct that a broken Flow is always something you did.
+
+On April 1, 2025 a merchant reported that a signup automation had stopped sending entirely. It worked for several month correctly, another merchant added in the same thread. Since Monday it does not work anymore. A third: it is really weird, as a few weeks ago I had one set up and it was all working perfectly. Staff first pointed at third party forms and marketing consent, the usual suspects, and then on April 3 came back with the real answer. Turns out there was an issue with a recent release that was causing issues with double opt in. The issue should be fixed now.
+
+On May 29, 2025 a Plus merchant found a workflow that updates a company metafield had begun erroring against a field it had written to for months. Today we went to test it again, had used it before and worked perfect, and it was erroring. The log showed Flow submitting a list where the metafield expected a single integer. The fix was to point the action at a different metafield, save the whole workflow, then point it back. In the end it is identical to what it was, the merchant wrote, but something on the Shopify side had started trying to update with the wrong type and resetting it fixed it.
+
+On September 26, 2024 a merchant watching workflows hang in progress and fail halfway concluded, reasonably, that it is some update on the backend of Shopify or Flow that is causing this error. Two other merchants in the same thread had the same symptom. No staff answer appears in it.
+
+And on February 3, 2026 a merchant posted the purest version of the problem: the admin was showing a banner that said recent runs contain errors, and the runs themselves showed nothing. Staff replied the same day, then again on February 6 and February 9, suggesting a search filter. The thread ends without a cause.
+
+> ◆ NOTE: Four separate years, one pattern: the workflow did not change, the ground underneath it did. Platform releases, type coercion, app updates and scope changes all break automations that you will swear you have not touched. Version pinning does not exist here. The only defence is checking that the outcome still arrives.
+
+## The other silent one: rate limited
+
+There is a fifth status that deserves its own mention, because merchants consistently read it as a delay when it is closer to a decision.
+
+Rate limited means the workflow was using too many resources, so Flow limited the execution. It is not an error. It will not trip the error trigger. It arrives during exactly the periods you care about most, which are the flash sale, the drop, the Black Friday hour when six hundred orders land in ninety minutes and every one of them fans out into four workflows.
+
+Shopify's optimisation guidance is honest about the arithmetic behind it. Your shop is limited in how many requests it can handle at once by the API limits, and workflows using a Get data action are designed to return a maximum of 100 objects per workflow. The store-wide limits are real, they are shared across every workflow and every app you run, and a workflow that loops over line items will hit them faster than you expect.
+
+Worth knowing alongside it: Flow caps a store at 1,000 workflows, a workflow at 40 wait steps and 90 days of total waiting, a config field at 50 kB, and every workflow section at a combined 36 hours of execution. Those ceilings do not announce themselves either.
+
+## What monitoring actually has to watch
+
+Put the five failure modes side by side and one conclusion falls out.
+
+An action fails but the run says Completed. The alarm fires once per version per month. The evidence expires on day fourteen. The workflow stops firing and produces no run to inspect. The platform changes under a workflow you never edited.
+
+Not one of those is reliably visible in the run list, which means the run list is the wrong thing to watch. The right thing to watch is the outcome the workflow exists to produce.
+
+A workflow that tags VIP customers is not really a workflow. It is a promise that every order over two hundred dollars leaves a tagged customer behind it. That promise is checkable against your own store data, right now, without touching Flow at all, and it stays checkable long after the runs have been deleted. Ask the store how many orders in the last twenty four hours crossed two hundred dollars, ask how many of those customers carry the tag, and the difference between the two numbers is the only monitor that catches all five failures at once.
+
+Shopify has moved a little way toward this. A March 24, 2026 changelog added a Get workflow run data action, which retrieves information about a workflow run, including the workflow it belongs to, the event that triggered it, retry attempts, and timing details, so that you can build workflows that monitor or report on other workflow activity. It is genuinely useful. It is also a workflow watching workflows inside the system that is failing, on data that disappears in fourteen days, and it still cannot see a run that never started.
+
+## What the automation actually has to do
+
+As a Dugong playbook, in plain prose:
+
+```
+# trigger
+Every hour, plus a daily
+digest and a check after
+every workflow edit
+
+# steps
+1. List every automation and
+   the outcome it is
+   supposed to produce
+2. Baseline each one: how
+   often it should fire and
+   how fast
+3. Check the outcome in the
+   store data, not the run
+   log
+4. Alarm on silence too, not
+   just on errors: zero runs
+   is a result
+5. Copy run evidence out
+   before day fourteen
+   deletes it
+6. Re-verify after every
+   edit, app update and
+   platform release
+7. Open one incident per
+   automation and keep it
+   open until it clears
+```
+
+Step one is the part most teams have never done. Nobody has a list of what the store automates. There is Flow, there are the marketing automations, there are three apps with rules inside them, and there is the thing a contractor built in 2024. The inventory is the foundation, and the sentence next to each entry matters more than the workflow diagram: what should be true in the world if this is working.
+
+Step two is what makes silence legible. A workflow that normally runs two hundred times a day and ran zero times today is a louder signal than any error message, but only if something remembers what two hundred looks like.
+
+Step four is the one that catches the expensive failure. Errors are easy and absence is hard, so most monitoring never does it. Absence is where the VIP tag went.
+
+Step five is cheap insurance. Pull the run list every day, keep it somewhere of your own, and you own a history rather than renting a two week window. The first time somebody asks how long has this been broken, that archive answers in seconds instead of never.
+
+Step seven is the correction to the once per thirty days design. The right behaviour is not more email. It is one open incident per broken automation, which stays open, updates itself with a count, and closes when the outcome starts arriving again. You want to be told once and reminded until it is fixed, which is the opposite of being told once and never again.
+
+## Why this is a compiler problem, not an app problem
+
+You could build most of this by hand. A scheduled job, a few Admin API queries, a table of expected rates and an alerting rule. Teams with an engineer do exactly that and it works.
+
+What breaks it is that the expectations change every week. You launch a product and the tagging rule needs a new threshold. You add a market and the fulfillment routing splits in two. A promotion doubles the run rate for four days and every baseline alarms at once. Each of those is a ten minute edit to a hand built monitor and nobody has the ten minutes, so the monitor drifts out of date and starts crying wolf, and within a quarter people are filtering its email.
+
+The version that survives is one where the expectation is written the way you would say it to a colleague. Every order over two hundred dollars should leave the customer tagged VIP within five minutes. Every return marked received should put stock back within the hour. Every unpaid draft older than seven days should have had a reminder sent. Those sentences are the monitor. Changing the rule means changing the sentence, which is a thing you will actually do, and an automation like Dugong can hold them, check them against the store on a schedule, and tell you which promise stopped being kept and when it stopped.
+
+The honest limits. This does not stop a workflow breaking, it shortens the distance between breaking and knowing, from weeks to about an hour. It cannot audit what you never wrote down, so an automation missing from the inventory is still invisible. And a store in the middle of a genuine anomaly, a sale or an outage, will generate noise unless somebody tells it that this week is not normal.
+
+## The workflow worth building this week
+
+Pick the three automations whose failure would cost you the most. For most stores that is the fulfillment handoff, the inventory sync and whatever touches money. Write one sentence each describing what should be true when they work. Check those three sentences against the store every hour, alarm on zero as loudly as on error, and archive the run list daily so day fifteen still has a memory.
+
+That is an afternoon of work and it converts your automation stack from something you hope is running into something you can see. The rest is refinement. But you stop learning about broken workflows from customers, and the run list goes back to being a debugging tool instead of a fire alarm that mostly does not ring.
+
+> ◆ READING: Two companion pieces if this one landed: the supplier feed that zeroed your catalog, on an automation that worked exactly as written and was still a disaster, and the stock count that changes overnight, on finding out which of your integrations moved a number nobody asked it to move.
+
+If you are a Shopify merchant with a silent automation story, the workflow that had not fired since March, the run list that said Completed while nothing happened, the customer who told you before your tooling did, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
+
+## Frequently asked questions
+
+### Why does Shopify Flow say Completed when my workflow did not work?
+
+Because Completed is not a success signal. Shopify's documentation defines the run statuses as In progress, meaning currently executing or retrying, Waiting, meaning a wait step has delayed a workflow, Rate limited, meaning the workflow was using too many resources so Flow limited the execution, Canceled, and Completed, which is defined as done. A run reaches Completed when it stops, whatever the individual actions did on the way. A developer established this in public on January 2, 2026 after an HTTP request failed inside a loop while the run reported success: I am not sure why the Run status shows as Completed when one action had an error. Shopify staff confirmed it and explained the mechanism, that a fail stops execution for that path, which is usually the same as the workflow, but a workflow with parallel actions and loops has many paths, so one dead branch does not mark the run. Practical consequence: filter the run list on Errors, which is a separate facet from status, and never treat Completed as evidence that anything happened.
+
+### How do I get notified when a Shopify Flow workflow fails?
+
+There is a built-in trigger called Workflow error occurred, described as starting a workflow when workflows fail during execution. You pair it with an email or Slack action and you have a monitor. The limit is the problem. It fires once per workflow version within a thirty day period, however many times the workflow fails, and the counter resets only when you edit the workflow, which creates a new version, or when thirty days pass. Shopify states the intent plainly: error notifications are designed to limit noise, so you will only get one notification per workflow version. On a store doing four hundred orders a day, a workflow that breaks on the first of the month sends one email and then fails silently for twenty nine days. It is also blind to the two failures that are not errors, a run that completes with a dead branch inside it and a workflow that stops firing altogether.
+
+### How long does Shopify Flow keep workflow run history?
+
+Fourteen days. Shopify's monitoring documentation states that workflow runs are stored for 14 days after a run has completed, and that after 14 days, the run is removed from the system. The run search carries the same ceiling: the search is limited to the last 14 days of workflow runs. This matters because fourteen days is shorter than most of the loops that actually surface these failures. A monthly reconciliation finds the problem on day thirty, a quarterly audit on day ninety, and a customer whenever the customer happens to notice. By the time anyone asks how long this has been wrong, the runs that would answer have been deleted. The cheap fix is to export the run list on a schedule and keep a copy of your own, so day fifteen still has a memory.
+
+### How do I tell if a Shopify Flow workflow has stopped running entirely?
+
+Not from the run list, which is the whole difficulty. When a workflow stops firing, because a trigger tag was renamed, an app supplying the trigger was uninstalled or changed scopes, a condition stopped matching, or somebody deactivated it during a busy week, there is no failed run to find. There is no run. An empty list looks identical to a quiet week, so you cannot detect a missing run by watching runs. The only reliable detection is to watch the outcome instead: baseline how often each automation should fire and what it should leave behind in your store data, then alarm when that number goes to zero. A workflow that normally runs two hundred times a day and ran zero times today is a louder signal than any error message, but only if something remembers what two hundred looks like.
+
+### Can AI monitor Shopify automations for silent failures?
+
+Yes, and the reason it fits is that the hard part is expressing and re-checking expectations rather than reading logs. Every automation is really a promise about the world: every order over two hundred dollars leaves the customer tagged VIP within five minutes, every return marked received puts stock back within the hour, every unpaid draft older than seven days has had a reminder sent. Those sentences are checkable against store data directly, which catches all five failure modes at once, the completed run with a dead branch, the suppressed alert, the expired evidence, the workflow that never fired, and the platform change under a workflow you never edited. An automation like Dugong holds those sentences in plain language, checks them against the store hourly, archives run evidence before the fourteen day window closes, re-verifies after every edit and app update, and keeps one open incident per broken automation instead of one email per month. The honest limits: it does not stop a workflow breaking, it shortens the gap between breaking and knowing; it cannot audit an automation nobody wrote down; and during a genuine anomaly such as a flash sale it will need to be told that this week is not normal.
+
+---
+
 # How to restrict Shopify products from shipping to certain states
 
 URL: https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html

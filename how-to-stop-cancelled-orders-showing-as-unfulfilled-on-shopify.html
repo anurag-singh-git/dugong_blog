@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to stop cancelled orders showing as unfulfilled on Shopify &mdash; Dugong Field Notes</title>
+<title>How to stop cancelled orders showing as unfulfilled on Shopify | Dugong Field Notes</title>
 <meta name="description" content="Cancelled and refunded Shopify orders stay stamped unfulfilled forever, burying the real queue. The AI playbook that keeps your fulfillment list honest." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html" />
 <meta name="author" content="Priya Singh" />
@@ -13,7 +13,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <meta property="article:published_time" content="2026-08-15" />
     <meta property="article:modified_time" content="2026-08-16" />
 <meta property="article:author" content="Priya Singh" />
@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
 <meta property="og:title" content="How to stop cancelled orders showing as unfulfilled on Shopify" />
-<meta property="og:description" content="The orders page says 61 unfulfilled. You walk the list and count 34 that actually need to ship; the other 27 are cancelled or refunded, some closed out months ago, every one wearing the same yellow badge as the order that landed an hour ago. Merchants have been asking Shopify to fix this since July 2021, in a thread that was still collecting replies in June 2026: cancel or refund an order before it ships and the unfulfilled badge is permanent, because order status and fulfillment status are two separate fields that never speak. Shopify has said twice on the record that this is expected behavior, not a bug. The merchants kept receipts: a dashboard reporting 33 unfulfilled with 27 real, a badge stuck at 872 when the true count was less than half that, from a merchant who said it had been like this for over four years and she had simply dealt with looking at 800 plus orders. The stakes are worse than a wrong number. One merchant's 3PL read refunded unfulfilled orders as open work and shipped the items when they came back into stock, to customers who already had their money back: I am losing money to customers who now have both the refund and the item. Another posted screenshots: my warehouse thinks they need to be filled. A third, closing his store, named the cost plainly: cancelled and archived unfulfilled orders stacking up over the years made it difficult to see what needs to go out. The workarounds are folklore: add a $0 phantom item called Order refunded, fulfill it quietly, archive, log out and back in so the count recalibrates, and none of it survives the cancel button, because cancelled orders cannot be edited. Meanwhile the noise buries the queue's one real job: an order that should have shipped Tuesday looks identical to an order that stopped mattering in March. The AI playbook that reads every open order and sorts real from noise, archives the settled clutter with an audit trail, never touches an order that still owes the customer items, keeps the warehouse pick queue honest, ages the real queue against your shipping promise, and delivers the true count every morning." />
+<meta property="og:description" content="Cancelled and refunded Shopify orders stay stamped unfulfilled forever, burying the real queue. The AI playbook that keeps your fulfillment list honest." />
 <meta property="og:url" content="https://blog.dugong.live/how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -531,6 +531,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .reveal { opacity: 1; transform: none; }
 }
 
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
 </style>
 </head>
 <body>
@@ -538,11 +545,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>&#9670; DISPATCH N&ordm; 109 &mdash; AUG 15, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 109 &middot; AUG 15, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 10 MIN READ &middot; 2,700 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
-    <span>&#9670; DISPATCH N&ordm; 109 &mdash; AUG 15, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 109 &middot; AUG 15, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 10 MIN READ &middot; 2,700 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
@@ -1045,6 +1052,54 @@ and every morning for the queue
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The twenty-first order</h3>
+        <p class="card-dek">
+          Shopify has no daily order limit, and the stock-count trick breaks on shared capacity and lead times. The AI playbook that caps orders by the day you make them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The automation that quietly stopped running</h3>
+        <p class="card-dek">
+          Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order from a state you cannot ship to</h3>
+        <p class="card-dek">
+          Shopify restricts shipping by zone, not by product, and a mixed cart breaks the workaround. The AI playbook that blocks only the items a state bans.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
       <div class="card-body">
         <div class="post-meta">

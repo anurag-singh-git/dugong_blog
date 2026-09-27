@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to catch Shopify orders stuck in transit &mdash; Dugong Field Notes</title>
+<title>How to catch Shopify orders stuck in transit | Dugong Field Notes</title>
 <meta name="description" content="The first scan comes in, then six days of silence, and the customer notices before you do. The AI playbook that catches stuck Shopify shipments in time." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-catch-shopify-orders-stuck-in-transit.html" />
 <meta name="author" content="Priya Singh" />
@@ -13,7 +13,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &mdash; RSS" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <meta property="article:published_time" content="2026-08-12" />
     <meta property="article:modified_time" content="2026-08-13" />
 <meta property="article:author" content="Priya Singh" />
@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
 <meta property="og:title" content="How to catch Shopify orders stuck in transit before your customer does" />
-<meta property="og:description" content="The order ships Wednesday morning: label bought in the admin, tracking emailed automatically, first scan at the regional hub that evening. Then nothing. No scan Thursday, none over the weekend, and by day six the only alert anyone has received is the customer asking whether her package is lost, which is also the first moment anyone at the store looks. Shopify never noticed, because every shipping signal it has fires on an event: a scan arrives and the status chip advances, an email goes out when the order ships, leaves for delivery, and lands, and the fulfillment event model even reserves a delayed status among its eleven. Nothing anywhere fires when events stop coming. If the carrier is not one Shopify recognizes, the order sits on Tracking added for the whole journey and nobody is told the silence is structural. Merchants have asked for the missing alert by name: a 2024 Shopify Plus community thread describes packages traveling two weeks with no tracking update, asks to tag and alert those orders after X days so action beats the complaint, and the staff reply concedes Flow would need you to store the state yourself or lean on Wait steps. Meanwhile the carrier clocks run from the ship date, not from the day you notice: USPS accepts a Missing Mail search seven days after mailing, UPS opens claims 24 hours after the scheduled delivery date passes and wants notice within 60 days, FedEx runs on a similar window, and Descartes found 67 percent of consumers hit a delivery problem in a single quarter and 63 percent of those punished the brand for it. The AI playbook that learns each lane's normal rhythm, flags the stall in days, tells the customer before they ask, opens the trace on the carrier's clock, files the claim inside the window, decides the reship, and reports the lanes that keep going quiet." />
+<meta property="og:description" content="The first scan comes in, then six days of silence, and the customer notices before you do. The AI playbook that catches stuck Shopify shipments in time." />
 <meta property="og:url" content="https://blog.dugong.live/how-to-catch-shopify-orders-stuck-in-transit.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -536,6 +536,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .reveal { opacity: 1; transform: none; }
 }
 
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
 </style>
 </head>
 <body>
@@ -543,11 +550,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>&#9670; DISPATCH N&ordm; 105 &mdash; AUG 12, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 105 &middot; AUG 12, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 10 MIN READ &middot; 2,600 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
-    <span>&#9670; DISPATCH N&ordm; 105 &mdash; AUG 12, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 105 &middot; AUG 12, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 10 MIN READ &middot; 2,600 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
@@ -1052,6 +1059,54 @@ scan to doorstep, checked daily
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The twenty-first order</h3>
+        <p class="card-dek">
+          Shopify has no daily order limit, and the stock-count trick breaks on shared capacity and lead times. The AI playbook that caps orders by the day you make them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The automation that quietly stopped running</h3>
+        <p class="card-dek">
+          Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order from a state you cannot ship to</h3>
+        <p class="card-dek">
+          Shopify restricts shipping by zone, not by product, and a mixed cart breaks the workaround. The AI playbook that blocks only the items a state bans.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
       <div class="card-body">
         <div class="post-meta">

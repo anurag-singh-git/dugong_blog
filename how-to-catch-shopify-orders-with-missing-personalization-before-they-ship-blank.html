@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
 <meta property="og:title" content="How to catch Shopify orders with missing personalization before they ship blank" />
-<meta property="og:description" content="The order lands on a Tuesday at 9:14 am: a brass pet tag, paid in full, and where the engraving should be there is nothing at all. Not a typo, not a wrong name, just no line. The text your customer typed rides into the order as a line item property, and it dies in more places than most merchants know. Shopify's dynamic checkout buttons have skipped the product form for years: community threads dating back to 2019 report the Buy it now button and express checkouts dropping line item properties, Shopify said the issue was resolved, and merchants kept posting missing engraving text afterward. The required checkbox in Shopify's own UI Elements Generator marks the field but does not enforce it, so a customer can check out straight past a blank. A personalization input pasted outside the product form tag never attaches at all, which is why the classic not receiving customers' engraving text threads end with a developer moving one div. And the order confirmation email does not echo line item properties unless you edit the notification template's Liquid, so the customer who typed Jhon never sees it in time to catch it. Then the chase starts: sellers of personalized goods report it is near impossible to get customers to respond after purchase, orders cancelled for silence, remakes shipped at the merchant's cost when the guess was wrong. Options apps guard the front door with better forms; nothing watches the order that already exists. The AI playbook that reads every personalized order the minute it lands, judges whether the text is something a machine can actually make, blank, gibberish, 42 characters into a 20 character field, holds production before the queue moves, emails the customer naming the exact product and the exact missing line, reminds at 24 and 72 hours, writes the reply back onto the order with an audit trail, and reports weekly which door the blanks came through." />
+<meta property="og:description" content="Paid orders for engraved and custom products keep arriving with the personalization blank. Where the text dies on Shopify, and the AI playbook that catches it." />
 <meta property="og:url" content="https://blog.dugong.live/how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -541,6 +541,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .reveal { opacity: 1; transform: none; }
 }
 
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
 </style>
 </head>
 <body>
@@ -1021,6 +1028,54 @@ personalized product
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The twenty-first order</h3>
+        <p class="card-dek">
+          Shopify has no daily order limit, and the stock-count trick breaks on shared capacity and lead times. The AI playbook that caps orders by the day you make them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The automation that quietly stopped running</h3>
+        <p class="card-dek">
+          Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order from a state you cannot ship to</h3>
+        <p class="card-dek">
+          Shopify restricts shipping by zone, not by product, and a mixed cart breaks the workaround. The AI playbook that blocks only the items a state bans.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
       <div class="card-body">
         <div class="post-meta">

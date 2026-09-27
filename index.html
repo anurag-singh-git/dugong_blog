@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dugong Field Notes — Workflow Automation, Thought Through</title>
+<title>Dugong Field Notes | Workflow Automation, Thought Through</title>
 <meta name="description" content="Field notes on workflow automation, AI agents, and the playbooks that run modern teams. From Dugong." />
 <link rel="canonical" href="https://blog.dugong.live/" />
-<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes — RSS" href="/feed.xml" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <meta name="author" content="Dugong" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <meta name="keywords" content="workflow automation, AI agents, AI-native automation, playbooks, Shopify automation, ecommerce operations, no-code automation, Dugong" />
@@ -18,7 +18,7 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Dugong Field Notes" />
-<meta property="og:title" content="Dugong Field Notes — Workflow Automation, Thought Through" />
+<meta property="og:title" content="Dugong Field Notes | Workflow Automation, Thought Through" />
 <meta property="og:description" content="A working journal from the team building AI-native automation. Essays, post-mortems, and field experiments on the playbooks that quietly run the modern company." />
 <meta property="og:url" content="https://blog.dugong.live/" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
@@ -29,7 +29,7 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Dugong Field Notes — Workflow Automation, Thought Through" />
+<meta name="twitter:title" content="Dugong Field Notes | Workflow Automation, Thought Through" />
 <meta name="twitter:description" content="A working journal from the team building AI-native automation. Essays, post-mortems, and field experiments on the playbooks that quietly run the modern company." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
     <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
@@ -122,6 +122,44 @@
           "inLanguage": "en",
           "dateModified": "2026-05-28",
           "wordCount": 893
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html#article",
+          "headline": "How to stop taking Shopify orders when you hit your daily capacity",
+          "url": "https://blog.dugong.live/how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html",
+          "mainEntityOfPage": "https://blog.dugong.live/how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html",
+          "description": "Shopify has no daily order limit, and the stock-count trick breaks on shared capacity and lead times. The AI playbook that caps orders by the day you make them.",
+          "datePublished": "2026-09-21",
+          "dateModified": "2026-09-21",
+          "author": {
+            "@id": "https://blog.dugong.live/#priya-singh"
+          },
+          "publisher": {
+            "@id": "https://blog.dugong.live/#organization"
+          },
+          "image": "https://blog.dugong.live/og-image.png",
+          "inLanguage": "en",
+          "wordCount": 1400
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#article",
+          "headline": "How to catch Shopify Flow workflows that fail silently",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html",
+          "mainEntityOfPage": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html",
+          "description": "Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs.",
+          "datePublished": "2026-09-20",
+          "dateModified": "2026-09-20",
+          "author": {
+            "@id": "https://blog.dugong.live/#priya-singh"
+          },
+          "publisher": {
+            "@id": "https://blog.dugong.live/#organization"
+          },
+          "image": "https://blog.dugong.live/og-image.png",
+          "inLanguage": "en",
+          "wordCount": 2700
         },
         {
           "@type": "BlogPosting",
@@ -1966,6 +2004,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .author-text { font-family: var(--body); font-size: 1.02rem; line-height: 1.7; color: var(--text-dim); margin: 0; max-width: 62em; }
 .author-text a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
 @media (max-width: 560px) { .author-card { flex-direction: column; } }
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
 </style>
 </head>
 <body>
@@ -1977,14 +2022,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>◆ FIELD NOTES VOL. 04 — 2026</span>
+    <span>◆ FIELD NOTES VOL. 04 · 2026</span>
     <span>◆ FROM THE DUGONG RESEARCH DESK</span>
     <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
-    <span>◆ 2 NEW DISPATCHES THIS MONTH</span>
-    <span>◆ FIELD NOTES VOL. 04 — 2026</span>
+    <span>◆ 5 NEW DISPATCHES THIS MONTH</span>
+    <span>◆ FIELD NOTES VOL. 04 · 2026</span>
     <span>◆ FROM THE DUGONG RESEARCH DESK</span>
     <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
-    <span>◆ 2 NEW DISPATCHES THIS MONTH</span>
+    <span>◆ 5 NEW DISPATCHES THIS MONTH</span>
   </div>
 </div>
 
@@ -2005,9 +2050,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
 <section class="hero">
   <div class="hero-meta">
-    <span class="hero-issue">ISSUE Nº 118</span>
+    <span class="hero-issue">ISSUE Nº 121</span>
     <span class="hero-divider">·</span>
-    <span class="hero-date">SEP 18 · 2026</span>
+    <span class="hero-date">SEP 21 · 2026</span>
     <span class="hero-divider">·</span>
     <span class="hero-pulse"><span class="dot"></span>LATEST DISPATCH</span>
   </div>
@@ -2030,7 +2075,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
   <div class="hero-stats">
     <div class="stat">
-      <span class="stat-num">118</span>
+      <span class="stat-num">121</span>
       <span class="stat-label">dispatches&nbsp;published</span>
     </div>
     <div class="stat">
@@ -2135,11 +2180,45 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
   <div class="article-grid">
 
-        <a class="card card-tall" href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" style="text-decoration:none;">
-      <div class="card-art card-art-1">
-        <span class="art-glyph">&#9873;</span>
-        <span class="art-coord">SHIP&nbsp;TO:&nbsp;ID&nbsp;&middot;&nbsp;RULE:&nbsp;NONE&nbsp;&middot;&nbsp;RESULT:&nbsp;SOLD</span>
+        <a class="card card-tall" href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" style="text-decoration:none;">
+      <div class="card-art card-art-2">
+        <span class="art-glyph">&#9716;</span>
+        <span class="art-coord">CAP:&nbsp;20&nbsp;&middot;&nbsp;BOOKED:&nbsp;31&nbsp;&middot;&nbsp;SAT</span>
       </div>
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to stop taking Shopify orders when you hit your <em>daily capacity</em></h3>
+        <p class="card-dek">
+          It is Thursday night and there are 31 orders for Saturday. The oven, the van and two pairs of hands can do 20. Nobody did anything wrong: Shopify tracks how many of a thing you have, and has no idea how many things you can make, pack or deliver in a day. On August 22, 2026 a merchant asked the Shopify Community exactly this, with a limit of about 20 orders a day: when you reach your limit, how would you prevent the next customer from ordering? The replies map the standard fix. Use real inventory, not CSS, because hiding the button fails against cart permalinks and saved carts. Reset the stock to 20 every night with a scheduled task. Count by fulfillment date, with bigger orders weighted heavier. Stacked together it still breaks in five places: capacity is shared across products while stock is per product, orders placed Tuesday use Saturday's capacity, a wedding cake is not one unit of work, the reset overwrites cancellations and real stock, and Shopify's own docs say continue selling when out of stock does not apply to POS orders. Flow's Scheduled time trigger can run the reset, at most once every 10 minutes in your store time zone, which fixes the timing and nothing else. The AI playbook that reads every order from every channel, assigns it to the day it gets made, sums weighted capacity per day, closes a date at 90 percent and shows the next open day instead of sold out, reopens it on a cancellation, and flags an overbooked day before anyone starts baking.
+        </p>
+        <div class="card-foot">
+          <time class="card-date" datetime="2026-09-21">SEP 21</time>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+        <a class="card" href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify Flow workflows that <em>fail silently</em></h3>
+        <p class="card-dek">
+          The VIP tag stopped happening on a Tuesday and nobody noticed until Thursday, when a customer who had spent eleven thousand dollars asked why she was being offered the welcome discount again. The workflow is there. It is switched on. Every run in the list says Completed. Shopify's documentation defines Completed in one word, done, and a run reaches it whenever it stops, whatever the individual actions did: a developer worked that out in public on January 2, 2026 after an HTTP request failed inside a loop while the run reported success, I am not sure why the Run status shows as Completed when one action had an error, and staff confirmed the mechanism, that a workflow with parallel actions and a loop has many paths, so one dead branch never marks the run. The built-in alarm has its own ceiling. Workflow error occurred fires once per workflow version within a thirty day period, however many times the workflow fails, because error notifications are designed to limit noise, so you will only get one notification per workflow version: break on the first of the month at four hundred orders a day and you get one email and twenty nine silent days. The evidence expires too. Workflow runs are stored for 14 days after a run has completed, after 14 days the run is removed from the system, and the search is limited to the last 14 days of workflow runs, which is shorter than the monthly reconciliation that usually finds the problem. Then there is the failure with no run at all: a renamed trigger tag, an uninstalled app, a condition that stopped matching, a workflow somebody deactivated in a busy week. The list is not wrong, it is empty, and an empty list looks exactly like a quiet week, so you cannot detect a missing run by watching runs. And sometimes it is not your workflow at all. April 2025: it worked for several month correctly, since Monday it does not work anymore, answered two days later with there was an issue with a recent release. May 2025: a metafield action that had worked for months began submitting a list where a single integer belonged, fixed by saving the workflow against another field and switching it back. September 2024: workflows hanging in progress across three merchants, no staff answer. February 2026: a banner reading recent runs contain errors sitting above runs that showed none, three staff replies and no cause. The AI playbook that inventories every automation and the outcome it promises, baselines how often each should fire, checks the store data instead of the run log, alarms on silence as loudly as on error, archives the runs before day fourteen deletes them, and keeps one open incident per broken automation until the outcome starts arriving again.
+        </p>
+        <div class="card-foot">
+          <time class="card-date" datetime="2026-09-20">SEP 20</time>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+        <a class="card" href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" style="text-decoration:none;">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -3891,6 +3970,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   </div>
   <div class="topic-cloud">
     <a href="best-shopify-automations-to-set-up.html" class="topic" style="--topic-size:2.4rem;">shopify</a>
+    <a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="topic" style="--topic-size:2.3rem;">daily&nbsp;capacity</a>
+    <a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="topic" style="--topic-size:1.4rem;">made&nbsp;to&nbsp;order</a>
+    <a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="topic" style="--topic-size:1.2rem;">order&nbsp;limits</a>
+    <a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="topic" style="--topic-size:2.3rem;">flow&nbsp;monitoring</a>
+    <a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="topic" style="--topic-size:1.4rem;">silent&nbsp;failures</a>
+    <a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="topic" style="--topic-size:1.2rem;">workflow&nbsp;runs</a>
+    <a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="topic" style="--topic-size:2.3rem;">state&nbsp;restrictions</a>
+    <a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="topic" style="--topic-size:1.4rem;">shipping&nbsp;profiles</a>
+    <a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="topic" style="--topic-size:1.2rem;">checkout&nbsp;validation</a>
     <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="topic" style="--topic-size:2.3rem;">dimensional&nbsp;weight</a>
     <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="topic" style="--topic-size:1.4rem;">product&nbsp;dimensions</a>
     <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="topic" style="--topic-size:1.2rem;">shipping&nbsp;rates</a>
@@ -4118,7 +4206,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
     <div class="cta-band-copy">
       <span class="cta-eyebrow">&#9670; Ready when you are</span>
       <h2 class="cta-title">Stop configuring. <em>Start describing.</em></h2>
-      <p class="cta-sub">Write your workflow in plain English and an AI agent runs it &mdash; calling your apps directly. Your first automation takes under five minutes.</p>
+      <p class="cta-sub">Write your workflow in plain English and an AI agent runs it, calling your apps directly. Your first automation takes under five minutes.</p>
     </div>
     <div class="cta-actions">
       <a href="https://dugong.live" class="btn btn-primary btn-lg">Try Dugong now &rarr;</a>
@@ -4170,11 +4258,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>◆ DISPATCH Nº 47 — MAY 28, 2026</span>
+    <span>◆ DISPATCH Nº 47 &middot; MAY 28, 2026</span>
     <span>◆ FILED UNDER: RESEARCH</span>
     <span>◆ 14 MIN READ · 3,420 WORDS</span>
     <span>◆ BY AANYA RAO</span>
-    <span>◆ DISPATCH Nº 47 — MAY 28, 2026</span>
+    <span>◆ DISPATCH Nº 47 &middot; MAY 28, 2026</span>
     <span>◆ FILED UNDER: RESEARCH</span>
     <span>◆ 14 MIN READ · 3,420 WORDS</span>
     <span>◆ BY AANYA RAO</span>
@@ -4470,7 +4558,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
     <div class="cta-band-copy">
       <span class="cta-eyebrow">&#9670; Ready when you are</span>
       <h2 class="cta-title">Stop configuring. <em>Start describing.</em></h2>
-      <p class="cta-sub">Write your workflow in plain English and an AI agent runs it &mdash; calling your apps directly. Your first automation takes under five minutes.</p>
+      <p class="cta-sub">Write your workflow in plain English and an AI agent runs it, calling your apps directly. Your first automation takes under five minutes.</p>
     </div>
     <div class="cta-actions">
       <a href="https://dugong.live" class="btn btn-primary btn-lg">Try Dugong now &rarr;</a>
