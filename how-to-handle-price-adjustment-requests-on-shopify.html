@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to handle price adjustment requests on Shopify when your sale drops the day after they buy | Dugong Field Notes</title>
+<meta name="description" content="Shopify has no price adjustment feature, no Flow trigger for a price change and no refund action. The AI playbook that computes the difference and settles it." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="shopify price adjustment, shopify price adjustment policy, price drop refund shopify, refund the price difference shopify, shopify partial refund price difference, shopify price protection, price match your own store shopify, shopify flow price change trigger, automate price adjustment requests shopify, shopify store credit refund, post purchase price drop, customer wants difference refunded after sale, Dugong" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &middot; RSS" href="/feed.xml" />
+<meta property="article:published_time" content="2026-10-10" />
+<meta property="article:modified_time" content="2026-10-10" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to handle price adjustment requests on Shopify when your sale drops the day after they buy" />
+<meta property="og:description" content="Shopify has no price adjustment feature, no Flow trigger for a price change and no refund action. The AI playbook that computes the difference and settles it." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to handle price adjustment requests on Shopify when your sale drops the day after they buy" />
+<meta name="twitter:description" content="Shopify has no price adjustment feature, no Flow trigger for a price change and no refund action. The AI playbook that computes the difference and settles it." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+<meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#article",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/#blog"
+      },
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html",
+      "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html",
+      "headline": "How to handle price adjustment requests on Shopify when your sale drops the day after they buy",
+      "description": "Shopify has no price adjustment feature, no Flow trigger for a price change and no refund action, and it keeps no price history at all. The AI playbook that snapshots prices, tells a promotion apart from a typo, computes the real per unit difference after discounts, settles in store credit or cash by policy, and tells the customer before they have to ask.",
+      "datePublished": "2026-10-10",
+      "dateModified": "2026-10-10",
+      "articleSection": "Research",
+      "keywords": "shopify price adjustment, price drop refund shopify, refund the price difference, shopify partial refund, shopify price protection, shopify flow price change trigger, price adjustment policy, store credit refund",
+      "wordCount": 1820,
+      "timeRequired": "PT7M",
+      "inLanguage": "en",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Price adjustment",
+          "sameAs": "https://en.wikipedia.org/wiki/Price_adjustment_(retail)"
+        },
+        {
+          "@type": "Thing",
+          "name": "Product return",
+          "sameAs": "https://en.wikipedia.org/wiki/Product_return"
+        },
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://blog.dugong.live/#priya-singh",
+        "name": "Priya Singh",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Refund, cancel, or archive orders",
+          "url": "https://help.shopify.com/en/manual/fulfillment/managing-orders/refunding-orders"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Triggers in Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow/reference/triggers"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Actions in Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow/reference/actions"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Refunds with Shopify Payments",
+          "url": "https://help.shopify.com/en/manual/payments/shopify-payments/payouts/refunds"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Looking for a smoother way to handle price difference refunds after a promotion",
+          "url": "https://community.shopify.com/t/looking-for-a-smoother-way-to-handle-price-difference-refunds-after-a-promotion/409767"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | How can I trigger a flow automatically when a product's price changes?",
+          "url": "https://community.shopify.com/t/how-can-i-trigger-a-flow-automatically-when-a-products-price-changes/153961"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The sale that starts the day after they buy",
+          "item": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Shopify have a price adjustment feature?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. There is no price adjustment setting, no price protection window and no policy field anywhere in the Shopify admin. What you have is the ordinary partial refund: open the order, click Refund, enter a quantity, then edit the Refund amount field in the Summary section to the figure you actually want to give back, deselect Restock items so the unit is not added back to stock, and submit. You can keep issuing further partial refunds against that order until you reach the total available to refund, and you can send the money to the original payment method, to store credit, or split it across both. The mechanism works. What is missing is everything around it: no way to detect the price drop that caused the request, no record of what the product used to cost, no policy enforcement and no reporting that separates a price adjustment from a return."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I refund the price difference on a Shopify order?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open the order, click Refund, set the quantity for the line item involved, then overwrite the number in the Refund amount field with the difference rather than the item price. Deselect Restock items, because nothing is coming back. Add an internal note saying which promotion the adjustment relates to, since nothing else in the order will record that. Choose the original payment method or store credit as the destination. Two cautions. Your credit card fees are not returned on a refund with Shopify Payments, or with a third party gateway in a country where Shopify Payments is available, so the adjustment costs you the difference plus processing you already paid. And refunds are generally possible for up to 120 days after the order, with older ones depending on the customer's bank, so a request that sits in an inbox is not free."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Shopify Flow trigger when a product price changes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not today. Flow's product triggers cover product created, product deleted, product status updated, product variant added, product variant deleted, product variant back in stock, product variant out of stock and product variant inventory quantity changed. None of them fire on price. A long running community thread puts it plainly: there is no Shopify event for price updated. In October 2026 a Shopify staff member on that thread said the Flow team is testing a product updated trigger that can fire on selected product and variant fields including price, available to testers only, with no general availability announced. Until it ships, the native workaround is a scheduled workflow that runs daily and looks for products changed since the last run. Flow also has no refund action: refund created exists as a trigger, and the write has to go through Send Admin API request."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should a Shopify price adjustment policy say?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Five numbers, published where customers and staff can both read them. The window, in days from the order date, usually seven to fourteen. The minimum difference you will bother processing, so a ninety cent adjustment does not consume four minutes of somebody's afternoon. The maximum you will adjust without a manager, which also becomes the cap your automation respects. The exclusions: final sale, clearance, bundles, gift cards, wholesale orders and orders that already used a discount code. And what the customer actually receives, meaning store credit, a refund to the original payment method, or a code for next time. Those five numbers do two jobs. Published, they stop roughly half the requests from arriving at all and pre-answer the rest. Written down, they are the entire configuration of the automation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can AI handle price adjustment requests on Shopify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can do the two parts that actually take judgement. On the way in, a request arrives as a sentence, not a form: the blue hoodie I ordered last week is cheaper now, often with a screenshot, sometimes naming a variant the customer did not buy. A model matches that to the right order and line item, reads the screenshot, computes the per unit difference after allocated discounts on both sides, checks it against your policy and drafts the reply with the real number in it. On the way out, the harder call is deciding whether a price movement is a promotion at all, because a typo correction, a currency rounding fix, a clearance markdown on a discontinued line and a supplier driven reprice all look identical to a rule that only reads a number. Refund against a mispriced item and you refund most of its value. Keep two things human: the policy itself, and any adjustment above your cap."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#howto",
+      "name": "The sale that starts the day after they buy",
+      "description": "The AI playbook for Shopify price adjustment requests: snapshotting prices Shopify does not keep, telling a promotion apart from a mispricing, computing the real per unit difference after allocated discounts, settling by policy in store credit or cash, reaching the customer first, and booking the cost against the promotion instead of your refund rate.",
+      "inLanguage": "en",
+      "totalTime": "PT7M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Snapshot prices",
+          "text": "Capture every variant price daily and immediately before any bulk price edit, because Shopify keeps no price history",
+          "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Classify the drop",
+          "text": "Decide whether a price movement is a promotion, a typo correction or a permanent reprice before anything refunds",
+          "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Pull the affected orders",
+          "text": "Every order inside the policy window that contains the variant whose price fell",
+          "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Compute the real difference",
+          "text": "Per unit price paid after allocated discounts against the per unit price that cart would pay today",
+          "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Apply the policy",
+          "text": "Window, minimum difference, cap, exclusions, and orders already adjusted in this promotion",
+          "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Settle it",
+          "text": "Store credit by default, cash to the original method above your threshold, a code where neither fits",
+          "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Speak first",
+          "text": "Tell eligible customers before they have to ask, because the same money buys a very different reaction",
+          "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Book it to the promotion",
+          "text": "Record the adjustment as promotional spend rather than letting it sit in your refund rate",
+          "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#playbook"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES - matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #71716a;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background - lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0 var(--gutter); min-height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; min-width: 0; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  white-space: nowrap; flex-shrink: 0;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+@media (max-width: 820px) { .nav-links a:not(.nav-cta) { display: none; } }
+@media (max-width: 480px) {
+  .brand-slash, .brand-section { display: none; }
+  .nav-cta { font-size: 12.5px; padding: 8px 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 11.5px; padding: 7px 10px; }
+}
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+/* GRID (for related cards) */
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 560px) { .foot-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; } }
+@media (max-width: 340px) { .foot-cols { grid-template-columns: 1fr; } }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+/* highlight wraps at every width: nowrap overflowed the text column on long phrases */
+.article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.article-title em::after { content: none; }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: var(--border-strong); }
+.byline-role { color: var(--text-faint); }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
+.article-body pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) - mirrors the site's final card ---- */
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+
+/* ACCESSIBILITY */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
+
+/* QA 2026-10-10: mobile tap targets + ticker legibility */
+@media (max-width: 560px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+  .foot-cols > div { gap: 0.1rem; }
+  .foot-cols a { padding: 0.45rem 0; }
+  .article-back { min-height: 40px; padding: 0.55rem 0; }
+  .pill { padding: 0.6rem 1rem; }
+  .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
+}
+</style></head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>&#9670; DISPATCH N&ordm; 123 &middot; OCT 10, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 7 MIN READ &middot; 1,820 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+    <span>&#9670; DISPATCH N&ordm; 123 &middot; OCT 10, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 7 MIN READ &middot; 1,820 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+  </nav>
+</header>
+<article class="article" role="main">
+
+  <a href="index.html" class="article-back">&larr; back to field notes</a>
+
+  <div class="article-meta">
+    <span class="tag tag-research">research</span>
+    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 123</span>
+    <span style="color: var(--line-2);">&middot;</span>
+    <time datetime="2026-10-10" style="color: var(--cream-dim);">OCT 10, 2026</time>
+    <span style="color: var(--line-2);">&middot;</span>
+    <span style="color: var(--cream-dim);">7 MIN READ</span>
+  </div>
+
+  <h1 class="article-title">
+    How to handle <em>price adjustment</em> requests on Shopify when your sale drops the day after they buy
+  </h1>
+
+  <p class="article-dek">
+    The sale goes live at nine and the first email lands at 9:06: I bought this on Tuesday, it is 25 percent off today, can you refund me the difference. Shopify has no price adjustment feature, no way to notice the drop, and no memory of what the thing used to cost. Here is the playbook that settles every one of these, ideally before the customer has to ask.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name">Priya Singh</span>
+    <span class="byline-divider">&middot;</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      Your sale goes live Friday at nine. By twenty to ten there
+      are nine emails saying the same thing in nine different
+      tones: I bought this on Tuesday, it is 25 percent off
+      today, can you refund me the difference.
+    </p>
+
+    <p>
+      Somebody now does this nine times. Find the order. Work out
+      what the buyer actually paid, which is not the list price
+      because they used a welcome code. Work out what the item
+      costs today, which is not the list price either because the
+      sale is an automatic discount. Subtract. Decide whether a
+      Tuesday order is inside a window nobody has written down.
+      Open the refund screen, override the amount, untick
+      restock, add a note, reply. Four minutes each when nothing
+      is strange, and something is usually strange.
+    </p>
+
+    <p>
+      A merchant put this to the Shopify Community in April 2025.
+      They were calculating the price difference after each promo
+      and issuing partial refunds by hand, and they asked whether
+      anyone had found a more efficient or automated way to
+      manage these post-purchase refund requests. The single
+      reply agreed the task sounds simple, pointed out that
+      discount codes and dynamic offers make it harder, asked two
+      clarifying questions, and that was that. The thread is
+      still open. That is the state of the art.
+    </p>
+
+    <h2>Shopify has no price adjustment anything</h2>
+
+    <p>
+      There is no price adjustment feature, no price protection
+      window, no policy field. What exists is the ordinary
+      partial refund, and the mechanism is fine: open the order,
+      click Refund, enter a quantity, then overwrite the
+      <em>Refund amount</em> field in the Summary with the figure
+      you actually mean, deselect <em>Restock items</em> because
+      nothing is coming back, and submit. You can keep issuing
+      further partial refunds until you reach the total available
+      to refund, and you can send the money to the original
+      payment method, to store credit, or split it across both.
+    </p>
+
+    <p>
+      So the refund works. Everything around it is missing, in
+      three specific ways.
+    </p>
+
+    <p>
+      <strong>Flow cannot see a price change.</strong> The
+      product triggers are product created, deleted, status
+      updated, variant added, variant deleted, variant back in
+      stock, variant out of stock, and variant inventory quantity
+      changed. None fire on price. A long-running community
+      thread says it plainly: there is no Shopify event for price
+      updated. On 6 October 2026 a Shopify staffer added to that
+      thread that the Flow team is testing a product updated
+      trigger which can fire on selected product and variant
+      fields including price, limited to testers, with no general
+      availability announced. Until it ships, the native approach
+      is a scheduled workflow that wakes up daily and goes
+      looking.
+    </p>
+
+    <p>
+      <strong>Flow cannot issue a refund.</strong> The order
+      actions are tags, note, cancel order, capture payment, mark
+      as paid, archive, add a line item, send invoice, metafields
+      and get order data. Refund exists only as a
+      <em>trigger</em>, refund created, never as an action. There
+      is no create gift card action and no store credit action
+      either. The write is reachable only through Send Admin API
+      request.
+    </p>
+
+    <p>
+      <strong>Shopify keeps no price history.</strong> The order
+      line item records what the buyer paid, so that half is
+      permanent. The product record holds only today&rsquo;s
+      price. The moment the bulk edit that starts your sale
+      finishes running, the before state is gone unless you
+      captured it yourself.
+    </p>
+
+    <p>
+      Put those together and the native answer to <em>what did
+      this customer overpay</em> is a person with two tabs open
+      and a calculator.
+    </p>
+
+    <h2>The number is harder than it looks</h2>
+
+    <p>
+      Four things make the arithmetic wrong more often than
+      anyone expects.
+    </p>
+
+    <p>
+      <strong>List price is not what they paid.</strong> If the
+      original order carried a code, Shopify allocated that
+      discount across the line items. The honest comparison is
+      per-unit price paid after allocated discounts against the
+      per-unit price that same cart would pay today.
+    </p>
+
+    <p>
+      <strong>List price is not what it costs today
+      either.</strong> Automatic discounts, volume breaks,
+      market-specific pricing and B2B catalogue prices do not
+      live on the variant. A 25 percent automatic discount shows
+      a $100 list price and charges $75.
+    </p>
+
+    <p>
+      <strong>Some orders have already been adjusted.</strong>
+      The second promo of the month catches the same customer
+      twice, and the second calculation has to run against the
+      already-reduced effective price, not the original.
+    </p>
+
+    <p>
+      <strong>Shipping thresholds move.</strong> Take $20 off a
+      $95 order that earned free shipping over $85 and you have
+      quietly given away the shipping too.
+    </p>
+
+    <p>
+      Get this wrong in your favor and you look cheap in public.
+      Get it wrong the other way across a 200-order sweep and the
+      adjustment costs more than the promotion did.
+    </p>
+
+    <h2>The costs nobody counts</h2>
+
+    <p>
+      The visible cost is the refund. Three more sit under it.
+    </p>
+
+    <p>
+      <strong>You keep the fee on money you gave back.</strong>
+      With Shopify Payments, refunds do not return your credit
+      card fees, and the same holds on a third-party gateway in a
+      country where Shopify Payments is available. Only merchants
+      on a third-party gateway in a country without Shopify
+      Payments get transaction fees back proportionally, and only
+      on refunds issued through the admin. Every adjustment is
+      the difference plus processing you have already paid on it.
+    </p>
+
+    <p>
+      <strong>It lands in your numbers as a refund, not as promo
+      spend.</strong> A price adjustment is a discount granted
+      late, and Shopify files it under refunds. Your promotion
+      looks cheaper than it was, your refund rate looks worse
+      than it is, and nobody can tell you what the last sale
+      actually cost.
+    </p>
+
+    <p>
+      <strong>The requests you never see cost the most.</strong>
+      The customer who does not email returns the whole order and
+      rebuys at the sale price, which costs you a label, a
+      restock, a possibly scuffed unit and the processing twice.
+      Or they open a dispute. Or they say nothing at all and
+      simply wait for the next sale, forever.
+    </p>
+
+    <p>
+      Time matters too. Refunds are generally possible for up to
+      120 days after the order, with anything older depending on
+      the customer&rsquo;s bank. A request sitting in a shared
+      inbox for five weeks is not a free request.
+    </p>
+
+    <h2>The playbook worth building</h2>
+
+    <p>
+      As a Dugong playbook, in plain language:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">Every</span> price change, plus every
+inbound price adjustment request
+
+<span class="c"># steps</span>
+1. <span class="k">Snapshot</span> prices daily and before
+   any bulk price edit
+2. <span class="k">Classify</span> each drop: promotion,
+   mispricing, or permanent reprice
+3. <span class="k">Pull</span> orders inside the window
+   holding that variant
+4. <span class="k">Compute</span> the real per-unit delta,
+   after allocated discounts on
+   both sides
+5. <span class="k">Apply</span> the policy: window, floor,
+   cap, exclusions, already adjusted
+6. <span class="k">Settle</span>: store credit by default,
+   cash above the threshold, code
+   where neither fits
+7. <span class="k">Speak</span> first, before the customer
+   has to ask
+8. <span class="k">Book</span> it against the promotion,
+   not against refunds
+</code></pre>
+
+    <p>
+      <strong>Step two is the step that prevents a
+      disaster.</strong> Not every price drop is a sale. A typo
+      correction from $249 to $24.90 and back, a currency
+      rounding fix, a clearance markdown on a discontinued line,
+      a supplier-driven reprice: all of them look identical to a
+      rule that only reads a number. Refund against the typo and
+      you refund most of the product.
+    </p>
+
+    <p>
+      <strong>Step six decides what this costs you.</strong>
+      Store credit keeps the money in the business, and most
+      customers take it when it is offered in the first reply
+      with a straight explanation rather than after two rounds of
+      argument. Cash to the original method is the right answer
+      above whatever figure makes credit feel like a dodge, which
+      for most baskets sits somewhere between twenty and fifty
+      dollars.
+    </p>
+
+    <p>
+      <strong>Step seven is the entire return on this
+      build.</strong> The same twelve dollars buys a completely
+      different reaction depending on who speaks first. Sent
+      unprompted on Friday morning it reads as a store that pays
+      attention. Sent on Monday after two emails and a
+      screenshot, it reads as a store that had to be pushed.
+    </p>
+
+    <h2>The policy is the configuration</h2>
+
+    <p>
+      Most stores do not have a price adjustment problem. They
+      have an undocumented one, which is why every request turns
+      into a small negotiation and two people give different
+      answers in the same week.
+    </p>
+
+    <p>
+      Write down five things and publish them. The window in days
+      from the order date. The smallest difference worth
+      processing. The largest you will adjust without a manager.
+      The exclusions, meaning final sale, clearance, bundles,
+      gift cards, wholesale and orders that already used a code.
+      And what the customer receives. Published, that page stops
+      a good share of the requests from arriving and pre-answers
+      the rest. Written down, those same five numbers are the
+      whole configuration of the automation. Everything after
+      them is reading email and doing arithmetic.
+    </p>
+
+    <h2>Where AI earns its place</h2>
+
+    <p>
+      Two judgement calls here, and neither of them is
+      subtraction.
+    </p>
+
+    <p>
+      The first is on the way in. These requests never arrive as
+      a clean form. They arrive as <em>the blue hoodie I got last
+      week is cheaper now</em>, with a screenshot, sometimes
+      about a variant the customer did not buy, sometimes about a
+      competitor&rsquo;s price, sometimes from somebody who has
+      asked three times this quarter. A model matches the
+      sentence to the order and the line item, reads the
+      screenshot, runs the real calculation on both sides, checks
+      it against your policy and drafts the reply with the actual
+      number in it. What reaches a human is a decision, not a
+      search.
+    </p>
+
+    <p>
+      The second is on the way out, and it is the one worth
+      paying for: judging whether a price movement is a promotion
+      at all. That call wants context. Is a campaign running. Is
+      this product discontinued. Is the drop plausible as a
+      percentage for this category. Did it arrive alongside a
+      bulk edit of 400 other variants. A threshold cannot see any
+      of that, which is exactly why a threshold gets this
+      confidently wrong.
+    </p>
+
+    <p>
+      Two things stay human. The policy itself, because it is a
+      margin decision rather than an operational one. And any
+      adjustment above your cap, which should land in a queue
+      with the number already worked out and a one-line
+      recommendation attached.
+    </p>
+
+    <h2>Set it up this week</h2>
+
+    <p>
+      Export your current variant prices to a CSV today. That
+      file is your first snapshot and it costs four minutes.
+    </p>
+
+    <p>
+      Then pull every partial refund from the last sixty days
+      with no return attached and add them up. That number is
+      what price adjustments already cost you, and in most stores
+      nobody has ever looked at it.
+    </p>
+
+    <p>
+      Then write the five numbers down and publish them. The
+      automation is straightforward once a policy exists. It is
+      impossible while one does not.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">&#9670; READING</span>
+      <span>
+        Two companion pieces if this one landed:
+        <a href="how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html">The misprice that sells all night</a>,
+        on catching the wrong price before it sells out, and
+        <a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html">The discount code that double-dips your sale</a>,
+        on the stacking Shopify will happily allow during a promotion.
+      </span>
+    </div>
+
+    <p>
+      Running a sale with a price adjustment story, the BFCM
+      morning that ate a day of support, the sweep that cost more
+      than the promo, the policy you have never written down? The
+      inbox is open: <code>field-notes@dugong.live</code>. We are
+      collecting case studies for the next issue.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-tactics">tactics</span>
+    </div>
+    <span class="article-end-share">share &middot; copy link &middot; &#10022;</span>
+  </div>
+
+</article>
+
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">&#9670; COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h2 class="faq-q">Does Shopify have a price adjustment feature?</h2>
+      <p class="faq-a">No. There is no price adjustment setting, no price protection window and no policy field anywhere in the admin. What you have is the ordinary partial refund: open the order, click Refund, enter a quantity, then edit the Refund amount field in the Summary to the figure you actually want to give back, deselect Restock items so the unit is not added back to stock, and submit. You can keep issuing further partial refunds until you reach the total available to refund, and you can send the money to the original payment method, to store credit, or split it across both. The mechanism works. What is missing is everything around it: no way to notice the price drop that caused the request, no record of what the product used to cost, no policy enforcement, and no reporting that separates a price adjustment from a return.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">How do I refund the price difference on a Shopify order?</h2>
+      <p class="faq-a">Open the order, click Refund, set the quantity on the line item involved, then overwrite the Refund amount field with the difference rather than the item price. Deselect Restock items, because nothing is coming back. Add an internal note naming the promotion, since nothing else on the order will record why the money moved. Then choose the original payment method or store credit as the destination. Two cautions. Your credit card fees are not returned on a refund with Shopify Payments, or on a third-party gateway in a country where Shopify Payments is available, so the adjustment costs you the difference plus processing you already paid on it. And refunds are generally possible for up to 120 days after the order, with older ones depending on the customer&rsquo;s bank, so a request that sits in a shared inbox is not free.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Can Shopify Flow trigger when a product price changes?</h2>
+      <p class="faq-a">Not today. Flow&rsquo;s product triggers cover product created, product deleted, product status updated, product variant added, product variant deleted, product variant back in stock, product variant out of stock and product variant inventory quantity changed. None of them fire on price. A long-running community thread puts it plainly: there is no Shopify event for price updated. In October 2026 a Shopify staff member on that thread said the Flow team is testing a product updated trigger that can fire on selected product and variant fields including price, available to testers only, with no general availability announced. Until it ships, the native workaround is a scheduled workflow that runs daily and looks for products changed since the last run. Note too that Flow has no refund action at all: refund created exists as a trigger, and the write has to go through Send Admin API request.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">What should a Shopify price adjustment policy say?</h2>
+      <p class="faq-a">Five numbers, published where customers and staff can both read them. The window, in days from the order date, usually seven to fourteen. The minimum difference you will bother processing, so that a ninety cent adjustment does not consume four minutes of somebody&rsquo;s afternoon. The maximum you will adjust without a manager, which also becomes the cap your automation respects. The exclusions: final sale, clearance, bundles, gift cards, wholesale orders, and orders that already used a discount code. And what the customer actually receives, meaning store credit, a refund to the original payment method, or a code for next time. Those five numbers do two jobs at once. Published, they stop a good share of the requests from arriving and pre-answer the rest. Written down, they are the entire configuration of the automation.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Can AI handle price adjustment requests on Shopify?</h2>
+      <p class="faq-a">It can do the two parts that take judgement. On the way in, a request arrives as a sentence rather than a form: the blue hoodie I ordered last week is cheaper now, often with a screenshot, sometimes naming a variant the customer never bought. A model matches that to the right order and line item, reads the screenshot, computes the per-unit difference after allocated discounts on both sides, checks it against your policy, and drafts the reply with the real number in it. On the way out, the harder call is deciding whether a price movement is a promotion at all, because a typo correction, a currency rounding fix, a clearance markdown on a discontinued line and a supplier-driven reprice all look identical to a rule that only reads a number. Refund against a mispriced item and you refund most of its value. So keep two things human: the policy itself, and any adjustment above your cap.</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="section-head">
+    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+<a href="how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The misprice that sells all night</h3>
+        <p class="card-dek">
+          A dropped zero sells out your best seller at a loss while everyone sleeps, and Shopify never asks whether $4.99 looks right. The AI playbook that checks.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">AUG 12</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The discount code that double-dips your sale</h3>
+        <p class="card-dek">
+          Shopify has no setting for keep codes off sale items, so your 20 percent code lands on top of a 40 percent markdown. The AI playbook that holds the line.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL 20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-bulk-edit-product-prices-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">6&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The price change you make one product at a time</h3>
+        <p class="card-dek">
+          Shopify&rsquo;s bulk editor handles a list, not a rule, so a 7 percent increase across 900 variants becomes an afternoon. The AI playbook that prices by policy.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 28</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html">Latest</a>
+        <a href="index.html">Essays</a>
+        <a href="index.html">Post-mortems</a>
+        <a href="index.html">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>&copy; 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>

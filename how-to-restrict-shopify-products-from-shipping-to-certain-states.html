@@ -166,7 +166,7 @@
           "name": "Why does Shopify charge shipping twice when I use two shipping profiles?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because that is what Shopify does by design when one cart draws from more than one profile. The documentation is explicit: the separate shipping rates for each product are combined and a single shipping rate is displayed to your customer at checkout, and rates with the same name are added together, even those in different shipping profiles. Add together is the operative phrase. A cart with one item from your general profile and one from your restricted profile gets the sum of two rates, not the higher of them. A merchant put it flatly on May 8, 2023: charging twice as it s the default shopify behaviour, it cannot be changed. Another merchant reported in June 2024 that customers get double-charged shipping and added, after talking to Shopify Support they have no solution. The usual workaround is to name the rates identically and hope the arithmetic lands somewhere defensible, or to apply a discount equal to the smaller rate, which is a coupon covering a bug."
+            "text": "Because that is what Shopify does by design when one cart draws from more than one profile. The documentation is explicit: the separate shipping rates for each product are combined and a single shipping rate is displayed to your customer at checkout, and rates with the same name are added together, even those in different shipping profiles. Add together is the operative phrase. A cart with one item from your general profile and one from your restricted profile gets the sum of two rates, not the higher of them. A merchant put it flatly on May 8, 2023: charging twice as it's the default shopify behavior, it cannot be changed. Another merchant reported in June 2024 that customers get double-charged shipping and added, after talking to Shopify Support they have no solution. The usual workaround is to name the rates identically and hope the arithmetic lands somewhere defensible, or to apply a discount equal to the smaller rate, which is a coupon covering a bug."
           }
         },
         {
@@ -190,7 +190,7 @@
           "name": "Can AI handle state shipping restrictions on a Shopify store?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, because the hard parts of this job are reading and matching, not enforcement. There are three of them. Classifying the catalog: deciding that this tin is a hemp product, that bottle is a spirit and that folding knife is blade-length restricted, read from titles, descriptions, ingredients and supplier sheets rather than from a tag somebody remembered to add. Resolving the destination below the state line when the rule is drawn by county or township. Keeping the rule set current, which is the part that quietly rots, since state law changes on its own schedule and the federal hemp THC restrictions alone moved from November 12, 2026 to December 11, 2026 on a bill passed on September 1, 2026. An automation like Dugong holds those rules in plain language, classifies every new product as it is saved, checks each cart line by line so only the restricted line is blocked and the rest of the basket still checks out, writes the explanation the customer sees, and logs every block against the rule and the date that caused it. The honest limits: it will not tell you whether you hold the licence a state requires, and a rule change needs a human to accept it before it starts refusing orders."
+            "text": "Yes, because the hard parts of this job are reading and matching, not enforcement. There are three of them. Classifying the catalog: deciding that this tin is a hemp product, that bottle is a spirit and that folding knife is blade-length restricted, read from titles, descriptions, ingredients and supplier sheets rather than from a tag somebody remembered to add. Resolving the destination below the state line when the rule is drawn by county or township. Keeping the rule set current, which is the part that quietly rots, since state law changes on its own schedule and the federal hemp THC restrictions alone moved from November 12, 2026 to December 11, 2026 on a bill passed on September 1, 2026. An automation like Dugong holds those rules in plain language, classifies every new product as it is saved, checks each cart line by line so only the restricted line is blocked and the rest of the basket still checks out, writes the explanation the customer sees, and logs every block against the rule and the date that caused it. The honest limits: it will not tell you whether you hold the license a state requires, and a rule change needs a human to accept it before it starts refusing orders."
           }
         }
       ]
@@ -552,6 +552,16 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 @media (max-width: 520px) {
   .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
 }
+
+/* QA 2026-10-10: mobile tap targets + ticker legibility */
+@media (max-width: 560px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+  .foot-cols > div { gap: 0.1rem; }
+  .foot-cols a { padding: 0.45rem 0; }
+  .article-back { min-height: 40px; padding: 0.55rem 0; }
+  .pill { padding: 0.6rem 1rem; }
+  .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
+}
 </style>
 </head>
 <body>
@@ -638,7 +648,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <h2>Shopify restricts by zone, not by product</h2>
 
     <p>
-      Shipping in Shopify is organised around zones. A zone is
+      Shipping in Shopify is organized around zones. A zone is
       a list of countries and, inside a country, a list of
       states or provinces that you are willing to quote rates
       for. Uncheck Idaho and you have stopped shipping to
@@ -706,7 +716,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       A merchant named it on May 8, 2023, in the flat tone of
       someone who had already argued about it: charging twice
-      as it s the default shopify behaviour, it cannot be
+      as it's the default shopify behavior, it cannot be
       changed. Another came back to the same thread on June
       17, 2024 to report that customers get double-charged
       shipping, and added the line that ends most of these
@@ -774,7 +784,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         The record, compressed: zones are store-wide, profiles
         are the only product-level lever, and a profile
         restricts by having no rate. Mixed carts either pay
-        twice, default behaviour, cannot be changed, or fail
+        twice, default behavior, cannot be changed, or fail
         entirely and take the legal items with them. Asked
         June 2021, answered with profiles. Asked May 2023,
         answered with profiles and an app. Asked October 2025
@@ -971,7 +981,7 @@ catalog and rules pass
     <p>
       That is the whole argument for describing workflows in
       language and compiling them. The merchant holds the
-      judgment, which is theirs by law and by licence. The
+      judgment, which is theirs by law and by license. The
       compiler holds the plumbing: the classification pass,
       the address resolution, the line-level decision, the
       validation function, the log. Nobody has to translate a
@@ -1043,7 +1053,7 @@ catalog and rules pass
     </div>
     <div class="faq-item">
       <h2 class="faq-q">Why does Shopify charge shipping twice when I use two shipping profiles?</h2>
-      <p class="faq-a">Because that is what Shopify does by design when one cart draws from more than one profile. The documentation is explicit: the separate shipping rates for each product are combined and a single shipping rate is displayed to your customer at checkout, and rates with the same name are added together, even those in different shipping profiles. Add together is the operative phrase. A cart with one item from your general profile and one from your restricted profile gets the sum of two rates, not the higher of them. A merchant put it flatly on May 8, 2023: charging twice as it s the default shopify behaviour, it cannot be changed. Another merchant reported in June 2024 that customers get double-charged shipping and added, after talking to Shopify Support they have no solution. The usual workaround is to name the rates identically and hope the arithmetic lands somewhere defensible, or to apply a discount equal to the smaller rate, which is a coupon covering a bug.</p>
+      <p class="faq-a">Because that is what Shopify does by design when one cart draws from more than one profile. The documentation is explicit: the separate shipping rates for each product are combined and a single shipping rate is displayed to your customer at checkout, and rates with the same name are added together, even those in different shipping profiles. Add together is the operative phrase. A cart with one item from your general profile and one from your restricted profile gets the sum of two rates, not the higher of them. A merchant put it flatly on May 8, 2023: charging twice as it's the default shopify behavior, it cannot be changed. Another merchant reported in June 2024 that customers get double-charged shipping and added, after talking to Shopify Support they have no solution. The usual workaround is to name the rates identically and hope the arithmetic lands somewhere defensible, or to apply a discount equal to the smaller rate, which is a coupon covering a bug.</p>
     </div>
     <div class="faq-item">
       <h2 class="faq-q">Can Shopify block shipping to a specific ZIP code or county?</h2>
@@ -1055,7 +1065,7 @@ catalog and rules pass
     </div>
     <div class="faq-item">
       <h2 class="faq-q">Can AI handle state shipping restrictions on a Shopify store?</h2>
-      <p class="faq-a">Yes, because the hard parts of this job are reading and matching, not enforcement. There are three of them. Classifying the catalog: deciding that this tin is a hemp product, that bottle is a spirit and that folding knife is blade-length restricted, read from titles, descriptions, ingredients and supplier sheets rather than from a tag somebody remembered to add. Resolving the destination below the state line when the rule is drawn by county or township. Keeping the rule set current, which is the part that quietly rots, since state law changes on its own schedule and the federal hemp THC restrictions alone moved from November 12, 2026 to December 11, 2026 on a bill passed on September 1, 2026. An automation like Dugong holds those rules in plain language, classifies every new product as it is saved, checks each cart line by line so only the restricted line is blocked and the rest of the basket still checks out, writes the explanation the customer sees, and logs every block against the rule and the date that caused it. The honest limits: it will not tell you whether you hold the licence a state requires, and a rule change needs a human to accept it before it starts refusing orders.</p>
+      <p class="faq-a">Yes, because the hard parts of this job are reading and matching, not enforcement. There are three of them. Classifying the catalog: deciding that this tin is a hemp product, that bottle is a spirit and that folding knife is blade-length restricted, read from titles, descriptions, ingredients and supplier sheets rather than from a tag somebody remembered to add. Resolving the destination below the state line when the rule is drawn by county or township. Keeping the rule set current, which is the part that quietly rots, since state law changes on its own schedule and the federal hemp THC restrictions alone moved from November 12, 2026 to December 11, 2026 on a bill passed on September 1, 2026. An automation like Dugong holds those rules in plain language, classifies every new product as it is saved, checks each cart line by line so only the restricted line is blocked and the rest of the basket still checks out, writes the explanation the customer sees, and logs every block against the rule and the date that caused it. The honest limits: it will not tell you whether you hold the license a state requires, and a rule change needs a human to accept it before it starts refusing orders.</p>
     </div>
   </div>
 </section>
@@ -1066,6 +1076,22 @@ catalog and rules pass
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-handle-price-adjustment-requests-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">7&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The sale that starts the day after they buy</h3>
+        <p class="card-dek">
+          Shopify has no price adjustment feature, no trigger for a price change and no refund action. The AI playbook that settles the difference before they ask.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 10</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
       <div class="card-body">
         <div class="post-meta">

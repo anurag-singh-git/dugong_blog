@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to catch Shopify orders with missing personalization before they ship blank &middot; Dugong Field Notes</title>
+<title>How to catch Shopify orders with missing personalization before they ship blank | Dugong Field Notes</title>
 <meta name="description" content="Paid orders for engraved and custom products keep arriving with the personalization blank. Where the text dies on Shopify, and the AI playbook that catches it." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html" />
 <meta name="author" content="Priya Singh" />
@@ -56,7 +56,7 @@
       "dateModified": "2026-08-16",
       "articleSection": "Research",
       "keywords": "shopify missing personalization, engraving text missing from order, line item properties not showing, buy it now line item properties, custom text field not required, personalization blank, order confirmation email properties, hold custom orders, AI personalization check",
-      "wordCount": 2700,
+      "wordCount": 2400,
       "timeRequired": "PT10M",
       "inLanguage": "en",
       "image": {
@@ -548,6 +548,16 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 @media (max-width: 520px) {
   .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
 }
+
+/* QA 2026-10-10: mobile tap targets + ticker legibility */
+@media (max-width: 560px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+  .foot-cols > div { gap: 0.1rem; }
+  .foot-cols a { padding: 0.45rem 0; }
+  .article-back { min-height: 40px; padding: 0.55rem 0; }
+  .pill { padding: 0.6rem 1rem; }
+  .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
+}
 </style>
 </head>
 <body>
@@ -557,11 +567,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 110 &middot; AUG 16, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,700 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,400 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 110 &middot; AUG 16, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,700 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,400 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -1028,6 +1038,22 @@ personalized product
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-handle-price-adjustment-requests-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">7&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The sale that starts the day after they buy</h3>
+        <p class="card-dek">
+          Shopify has no price adjustment feature, no trigger for a price change and no refund action. The AI playbook that settles the difference before they ask.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 10</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
       <div class="card-body">
         <div class="post-meta">

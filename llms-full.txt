@@ -11,6 +11,252 @@ The site’s lead essay, The death of the drag-and-drop builder (Dispatch Nº 47
 
 ---
 
+# How to handle price adjustment requests on Shopify when your sale drops the day after they buy
+
+URL: https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html
+Dispatch: Nº 123
+Author: Priya Singh, Commerce Research, Dugong
+Published: 2026-10-10. Updated: 2026-10-10
+
+The sale goes live at nine and the first email lands at 9:06: I bought this on Tuesday, it is 25 percent off today, can you refund me the difference. Shopify has no price adjustment feature, no way to notice the drop, and no memory of what the thing used to cost. Here is the playbook that settles every one of these, ideally before the customer has to ask.
+
+## The short answer
+
+Shopify gives you the partial refund and nothing else: no price adjustment setting, no price protection window, no policy field, no price history, no Flow trigger for a price change and no Flow action that issues a refund. So the work is yours to build. Snapshot variant prices daily and before every bulk edit, classify each drop as a promotion, a mispricing or a permanent reprice before anything refunds, compute the per-unit difference after allocated discounts on both sides, apply a published policy of window, minimum, cap and exclusions, settle in store credit by default and cash above a threshold, and reach eligible customers before they have to ask. The judgement, telling a sale apart from a typo and reading a request that arrives as a sentence rather than a form, is why this belongs with an agent rather than a condition builder.
+
+## Nine emails before ten
+
+Your sale goes live Friday at nine. By twenty to ten there are nine emails saying the same thing in nine different tones: I bought this on Tuesday, it is 25 percent off today, can you refund me the difference.
+
+Somebody now does this nine times. Find the order. Work out what the buyer actually paid, which is not the list price because they used a welcome code. Work out what the item costs today, which is not the list price either because the sale is an automatic discount. Subtract. Decide whether a Tuesday order is inside a window nobody has written down. Open the refund screen, override the amount, untick restock, add a note, reply. Four minutes each when nothing is strange, and something is usually strange.
+
+A merchant put this to the Shopify Community in April 2025. They were calculating the price difference after each promo and issuing partial refunds by hand, and they asked whether anyone had found a more efficient or automated way to manage these post-purchase refund requests. The single reply agreed the task sounds simple, pointed out that discount codes and dynamic offers make it harder, asked two clarifying questions, and that was that. The thread is still open.
+
+## Shopify has no price adjustment anything
+
+There is no price adjustment feature, no price protection window, no policy field. What exists is the ordinary partial refund, and the mechanism is fine: open the order, click Refund, enter a quantity, then overwrite the Refund amount field in the Summary with the figure you actually mean, deselect Restock items because nothing is coming back, and submit. You can keep issuing further partial refunds until you reach the total available to refund, and you can send the money to the original payment method, to store credit, or split it across both.
+
+So the refund works. Everything around it is missing, in three specific ways.
+
+Flow cannot see a price change. The product triggers are product created, deleted, status updated, variant added, variant deleted, variant back in stock, variant out of stock, and variant inventory quantity changed. None fire on price. A long-running community thread says it plainly: there is no Shopify event for price updated. On 6 October 2026 a Shopify staffer added to that thread that the Flow team is testing a product updated trigger which can fire on selected product and variant fields including price, limited to testers, with no general availability announced. Until it ships, the native approach is a scheduled workflow that wakes up daily and goes looking.
+
+Flow cannot issue a refund. The order actions are tags, note, cancel order, capture payment, mark as paid, archive, add a line item, send invoice, metafields and get order data. Refund exists only as a trigger, refund created, never as an action. There is no create gift card action and no store credit action either. The write is reachable only through Send Admin API request.
+
+Shopify keeps no price history. The order line item records what the buyer paid, so that half is permanent. The product record holds only today's price. The moment the bulk edit that starts your sale finishes running, the before state is gone unless you captured it yourself.
+
+Put those together and the native answer to what did this customer overpay is a person with two tabs open and a calculator.
+
+## The number is harder than it looks
+
+List price is not what they paid. If the original order carried a code, Shopify allocated that discount across the line items. The honest comparison is per-unit price paid after allocated discounts against the per-unit price that same cart would pay today.
+
+List price is not what it costs today either. Automatic discounts, volume breaks, market-specific pricing and B2B catalogue prices do not live on the variant. A 25 percent automatic discount shows a $100 list price and charges $75.
+
+Some orders have already been adjusted. The second promo of the month catches the same customer twice, and the second calculation has to run against the already-reduced effective price, not the original.
+
+Shipping thresholds move. Take $20 off a $95 order that earned free shipping over $85 and you have quietly given away the shipping too.
+
+Get this wrong in your favor and you look cheap in public. Get it wrong the other way across a 200-order sweep and the adjustment costs more than the promotion did.
+
+## The costs nobody counts
+
+You keep the fee on money you gave back. With Shopify Payments, refunds do not return your credit card fees, and the same holds on a third-party gateway in a country where Shopify Payments is available. Only merchants on a third-party gateway in a country without Shopify Payments get transaction fees back proportionally, and only on refunds issued through the admin.
+
+It lands in your numbers as a refund, not as promo spend. A price adjustment is a discount granted late, and Shopify files it under refunds. Your promotion looks cheaper than it was, your refund rate looks worse than it is, and nobody can tell you what the last sale actually cost.
+
+The requests you never see cost the most. The customer who does not email returns the whole order and rebuys at the sale price, which costs you a label, a restock, a possibly scuffed unit and the processing twice. Or they open a dispute. Or they say nothing at all and simply wait for the next sale, forever.
+
+Time matters too. Refunds are generally possible for up to 120 days after the order, with anything older depending on the customer's bank. A request sitting in a shared inbox for five weeks is not a free request.
+
+## The playbook worth building
+
+```
+# trigger
+Every price change, plus every
+inbound price adjustment request
+
+# steps
+1. Snapshot prices daily and before
+   any bulk price edit
+2. Classify each drop: promotion,
+   mispricing, or permanent reprice
+3. Pull orders inside the window
+   holding that variant
+4. Compute the real per-unit delta,
+   after allocated discounts on
+   both sides
+5. Apply the policy: window, floor,
+   cap, exclusions, already adjusted
+6. Settle: store credit by default,
+   cash above the threshold, code
+   where neither fits
+7. Speak first, before the customer
+   has to ask
+8. Book it against the promotion,
+   not against refunds
+```
+
+Step two is the step that prevents a disaster. Not every price drop is a sale. A typo correction from $249 to $24.90 and back, a currency rounding fix, a clearance markdown on a discontinued line, a supplier-driven reprice: all of them look identical to a rule that only reads a number. Refund against the typo and you refund most of the product.
+
+Step six decides what this costs you. Store credit keeps the money in the business, and most customers take it when it is offered in the first reply with a straight explanation rather than after two rounds of argument. Cash to the original method is the right answer above whatever figure makes credit feel like a dodge, which for most baskets sits somewhere between twenty and fifty dollars.
+
+Step seven is the entire return on this build. The same twelve dollars buys a completely different reaction depending on who speaks first. Sent unprompted on Friday morning it reads as a store that pays attention. Sent on Monday after two emails and a screenshot, it reads as a store that had to be pushed.
+
+## The policy is the configuration
+
+Most stores do not have a price adjustment problem. They have an undocumented one, which is why every request turns into a small negotiation and two people give different answers in the same week.
+
+Write down five things and publish them. The window in days from the order date. The smallest difference worth processing. The largest you will adjust without a manager. The exclusions, meaning final sale, clearance, bundles, gift cards, wholesale and orders that already used a code. And what the customer receives. Published, that page stops a good share of the requests from arriving and pre-answers the rest. Written down, those same five numbers are the whole configuration of the automation.
+
+## Where AI earns its place
+
+The first judgement is on the way in. These requests never arrive as a clean form. They arrive as the blue hoodie I got last week is cheaper now, with a screenshot, sometimes about a variant the customer did not buy, sometimes about a competitor's price, sometimes from somebody who has asked three times this quarter. A model matches the sentence to the order and the line item, reads the screenshot, runs the real calculation on both sides, checks it against your policy and drafts the reply with the actual number in it. What reaches a human is a decision, not a search.
+
+The second is on the way out, and it is the one worth paying for: judging whether a price movement is a promotion at all. That call wants context. Is a campaign running. Is this product discontinued. Is the drop plausible as a percentage for this category. Did it arrive alongside a bulk edit of 400 other variants. A threshold cannot see any of that, which is exactly why a threshold gets this confidently wrong.
+
+Two things stay human. The policy itself, because it is a margin decision rather than an operational one. And any adjustment above your cap, which should land in a queue with the number already worked out and a one-line recommendation attached.
+
+## Set it up this week
+
+Export your current variant prices to a CSV today. That file is your first snapshot and it costs four minutes.
+
+Then pull every partial refund from the last sixty days with no return attached and add them up. That number is what price adjustments already cost you, and in most stores nobody has ever looked at it.
+
+Then write the five numbers down and publish them. The automation is straightforward once a policy exists. It is impossible while one does not.
+
+## FAQ
+
+**Does Shopify have a price adjustment feature?** No. There is no price adjustment setting, no price protection window and no policy field anywhere in the Shopify admin. What you have is the ordinary partial refund: open the order, click Refund, enter a quantity, then edit the Refund amount field in the Summary section to the figure you actually want to give back, deselect Restock items so the unit is not added back to stock, and submit. You can keep issuing further partial refunds against that order until you reach the total available to refund, and you can send the money to the original payment method, to store credit, or split it across both. The mechanism works. What is missing is everything around it: no way to detect the price drop that caused the request, no record of what the product used to cost, no policy enforcement and no reporting that separates a price adjustment from a return.
+
+**How do I refund the price difference on a Shopify order?** Open the order, click Refund, set the quantity for the line item involved, then overwrite the number in the Refund amount field with the difference rather than the item price. Deselect Restock items, because nothing is coming back. Add an internal note saying which promotion the adjustment relates to, since nothing else in the order will record that. Choose the original payment method or store credit as the destination. Two cautions. Your credit card fees are not returned on a refund with Shopify Payments, or with a third party gateway in a country where Shopify Payments is available, so the adjustment costs you the difference plus processing you already paid. And refunds are generally possible for up to 120 days after the order, with older ones depending on the customer's bank, so a request that sits in an inbox is not free.
+
+**Can Shopify Flow trigger when a product price changes?** Not today. Flow's product triggers cover product created, product deleted, product status updated, product variant added, product variant deleted, product variant back in stock, product variant out of stock and product variant inventory quantity changed. None of them fire on price. A long running community thread puts it plainly: there is no Shopify event for price updated. In October 2026 a Shopify staff member on that thread said the Flow team is testing a product updated trigger that can fire on selected product and variant fields including price, available to testers only, with no general availability announced. Until it ships, the native workaround is a scheduled workflow that runs daily and looks for products changed since the last run. Flow also has no refund action: refund created exists as a trigger, and the write has to go through Send Admin API request.
+
+**What should a Shopify price adjustment policy say?** Five numbers, published where customers and staff can both read them. The window, in days from the order date, usually seven to fourteen. The minimum difference you will bother processing, so a ninety cent adjustment does not consume four minutes of somebody's afternoon. The maximum you will adjust without a manager, which also becomes the cap your automation respects. The exclusions: final sale, clearance, bundles, gift cards, wholesale orders and orders that already used a discount code. And what the customer actually receives, meaning store credit, a refund to the original payment method, or a code for next time. Those five numbers do two jobs. Published, they stop roughly half the requests from arriving at all and pre-answer the rest. Written down, they are the entire configuration of the automation.
+
+**Can AI handle price adjustment requests on Shopify?** It can do the two parts that actually take judgement. On the way in, a request arrives as a sentence, not a form: the blue hoodie I ordered last week is cheaper now, often with a screenshot, sometimes naming a variant the customer did not buy. A model matches that to the right order and line item, reads the screenshot, computes the per unit difference after allocated discounts on both sides, checks it against your policy and drafts the reply with the real number in it. On the way out, the harder call is deciding whether a price movement is a promotion at all, because a typo correction, a currency rounding fix, a clearance markdown on a discontinued line and a supplier driven reprice all look identical to a rule that only reads a number. Refund against a mispriced item and you refund most of its value. Keep two things human: the policy itself, and any adjustment above your cap.
+
+---
+
+# How to make Shopify wholesale customers tax exempt without checking certificates by hand
+
+URL: https://blog.dugong.live/how-to-make-shopify-wholesale-customers-tax-exempt.html
+Dispatch: Nº 122
+Author: Priya Singh, Commerce Research, Dugong
+Published: 2026-10-10. Updated: 2026-10-10
+
+Shopify stores the conclusion of your certificate check and throws away the check: a boolean and a list of state codes, with no number, no form, no expiry and no document. Here is the setup that reads every certificate, sets the right state exemption, and renews it before it lapses.
+
+A new wholesale account in Florida places a $2,400 order on a Tuesday and emails forty minutes later: we are tax exempt, certificate attached. The attachment is a photograph of a form lying on a desk, one corner outside the frame, the signature line empty.
+
+Somebody spends eleven minutes on it. They squint at the form, open the customer in Shopify, flip the tax setting, refund the tax, and move on. Nobody writes down the number. Nobody writes down the expiry. In Florida, that certificate dies on December 31.
+
+## The short answer
+
+Shopify's tax exemption is a switch, not a record. Store the certificate itself, its number and a computed expiry date in customer metafields, set the per-state exemption rather than the blanket one, keep new accounts on taxed checkout until a human approves the document, and sweep the expiry dates on a schedule. Shopify Flow has no action to set tax exemption, and the reading and judging is the part that actually takes the time, which is why this belongs with an agent rather than a condition builder.
+
+## What Shopify actually gives you
+
+Open a customer, open the menu in the Customer section, choose Manage tax settings, and pick either "Don't collect tax", which zeroes tax everywhere for that buyer, or "Collect tax unless exemptions apply", where you select specific exemptions. Underneath, those are a boolean, `taxExempt`, and a list, `taxExemptions`, holding per-jurisdiction codes such as `US_CA_RESELLER_EXEMPTION` and `US_FL_RESELLER_EXEMPTION`, one per state, plus Canadian and EU equivalents.
+
+What is not in that list: the certificate number, the issuing form, the signature date, the expiry date, the document, and any record of who approved it or what they checked.
+
+Three more mechanics matter before you build on top:
+
+- The exemption follows the customer, not the cart. It applies to the whole customer rather than specific products, and it overrides your product and shipping tax overrides.
+- It only fires under the right email. Shopify applies the exemption when the buyer checks out with the email address on their account, so guest checkouts, second work addresses, wallet relay addresses and counter sales are taxed in full.
+- B2B company locations are a separate system. On plans that support Shopify B2B you can set tax settings per company location, which fits better when one business buys through several contacts.
+
+## Three ways this costs money
+
+1. You charge tax to a buyer who should not pay it. They email, you refund, you apologise. Visible and survivable.
+2. You do not charge tax to someone who should have paid it, because the flag is on and the paper behind it is not good. When a state comes asking, it asks you. An expired certificate offers no protection.
+3. The exemption outlives its certificate, quietly, for years.
+
+## The expiry rules live nowhere in Shopify
+
+Florida's annual resale certificate expires at the end of each calendar year. Alabama runs a year. Louisiana resale certificates were cut to a year. Connecticut and Iowa run three, Rhode Island and Washington four, Maryland and Nevada five. Illinois resale runs three. Michigan runs four unless there is a recurring business relationship. Kansas ties validity to activity, with no more than twelve months between purchases. California, New York, Texas, New Jersey and most other states set no fixed term, but their certificates go invalid when the buyer's name, address, permit status or qualifying activity changes. Record retention is a separate clock, commonly three to four years after the sale.
+
+These are operations notes, not tax advice. Check every rule against the relevant state's department of revenue before encoding it.
+
+## Why Shopify Flow does not reach this
+
+Flow's customer actions are adding and removing customer tags, updating a customer metafield, updating the customer note, getting customer data and looking a customer up in a segment. There is no tax exemption action. You can reach the mutation through the Send Admin API request action, which runs most mutations not yet exposed as actions, so the write is solved.
+
+The write was never the hard part. The hard part is opening a crooked photo and deciding whether it is the right form for that state, complete, signed and dated, in the name of the business in your customer list, with a number in that state's format, against a resale claim that is plausible for the order attached. Merchants in the Shopify community make the same point about character recognition: it speeds data entry and will not tell you whether a document is valid.
+
+## The playbook
+
+```
+# trigger
+Every certificate upload and new
+wholesale application, plus a
+daily expiry sweep
+
+# steps
+1. Collect through one door: state,
+   form, number, signer and the
+   document itself
+2. Read the file: form type, state,
+   number, business name, address,
+   signature, dates
+3. Validate: right form for that
+   state, fully completed, signed,
+   name matches the account,
+   number in the right format
+4. Check the state register where
+   one exists, flag plainly where
+   it does not
+5. Set the per-state exemption,
+   not the blanket switch, plus
+   tag and metafields for number
+   and expiry
+6. Keep checkout taxed until a
+   human approves
+7. Sweep expiries by state rule:
+   chase at 60, 30 and 7 days,
+   revoke on lapse
+8. File the evidence: document,
+   every check, every decision,
+   dated
+```
+
+Step five is where most stores go wrong. "Don't collect tax" is one click and always works, and it also removes tax in states where the buyer holds no certificate at all.
+
+Step six is the one that saves you. Exemption is the result of an approved certificate, never a checkbox a buyer ticks at signup.
+
+Step seven revokes, and that is the uncomfortable part. Chase early, name the date in the message, and turn the exemption off on the day it lapses.
+
+## The two reports nobody runs
+
+The first lists orders where tax was charged to an account marked exempt, which catches email mismatches, guest checkouts and counter sales. The second lists untaxed orders shipping into a state where you hold no valid certificate for that buyer, which catches flags that drifted out of scope. Both are cheap to fix in the month they happen.
+
+## Where AI earns its place
+
+Certificates arrive as crooked phone photos, scans with a staple shadow across the number, and PDFs filled in with a touchpad. A model pulls the state, form, number, business name, address and dates, then reasons about them: this is the Florida annual form and not a Georgia one, the buyer signed but never dated it, Acme LLC dba Acme Supply is the Acme Supply Co in your customer list, this number is four digits short. It also holds the state rulebook and computes the expiry the moment it reads the signature date.
+
+The limits are real. Where a state publishes no lookup, and New Jersey is the standard example, reading a document does not turn it into a verified fact, so the honest output is a flag rather than a verdict. Professional license checks are worse, since every board has its own portal and no shared interface. The final tax position belongs to a person who owns it. The automation's job is to keep that person's queue small, their evidence complete, and their certificates never silently expired.
+
+## Set it up this week
+
+Export your customer list filtered to tax exempt. For each account, answer two questions: can you find the certificate in under a minute, and can you state its expiry date. The accounts that fail both are your exposure.
+
+Then write down the states you are registered in, the validity rule for each, and the single place certificates will live from now on. That list is the whole configuration.
+
+## Frequently asked questions
+
+**How do I make a customer tax exempt on Shopify?** Open Customers, click the customer, open the menu in the Customer section and choose Manage tax settings. Pick either Don't collect tax, which zeroes tax everywhere, or Collect tax unless exemptions apply, which lets you select specific exemptions such as a reseller exemption in one state. Save, and it applies when that customer checks out with the email address on their account. The exemption covers the whole customer rather than specific products, and it overrides your product and shipping tax overrides. On plans that support Shopify B2B you can set tax settings per company location instead.
+
+**Does Shopify track resale certificate expiry dates?** No. Shopify stores a flag on the customer, taxExempt, plus an optional list of per-state exemptions such as US_CA_RESELLER_EXEMPTION. There is no field for the certificate number, the form, the signature date, the expiry or the document, and nothing warns you when one lapses. Store the number and a computed expiry in customer metafields and sweep them.
+
+**Can Shopify Flow set a customer as tax exempt?** Not with a built-in action. Flow's customer actions are tags, metafields, notes, customer data and segment lookups. You can reach the mutation through the Send Admin API request action. What Flow cannot do is read a certificate and judge whether it is valid.
+
+**Why is Shopify charging tax to my tax exempt wholesale customer?** Usually because the order did not travel under the account you flagged: a guest checkout, a second work email, an express wallet relay address or a counter sale. The other common cause is scope, since an exemption selected for one state does nothing for an order shipping to another. If your prices are tax inclusive, an exempt customer pays the same listed price, so the exemption appears in tax reporting rather than as a visible discount.
+
+**Can AI verify resale certificates for Shopify wholesale customers?** It can do most of the work and should not do all of it. A model reads the document, extracts the fields, checks the form against the state, matches a trading name to the account, flags a blank signature, computes the expiry and queries a state lookup where one exists. It cannot certify a position in a state that publishes no lookup, and the final decision belongs to a person.
+
+---
+
 # How to stop taking Shopify orders when you hit your daily capacity
 
 URL: https://blog.dugong.live/how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html
@@ -241,7 +487,7 @@ There is a fifth status that deserves its own mention, because merchants consist
 
 Rate limited means the workflow was using too many resources, so Flow limited the execution. It is not an error. It will not trip the error trigger. It arrives during exactly the periods you care about most, which are the flash sale, the drop, the Black Friday hour when six hundred orders land in ninety minutes and every one of them fans out into four workflows.
 
-Shopify's optimisation guidance is honest about the arithmetic behind it. Your shop is limited in how many requests it can handle at once by the API limits, and workflows using a Get data action are designed to return a maximum of 100 objects per workflow. The store-wide limits are real, they are shared across every workflow and every app you run, and a workflow that loops over line items will hit them faster than you expect.
+Shopify's optimization guidance is honest about the arithmetic behind it. Your shop is limited in how many requests it can handle at once by the API limits, and workflows using a Get data action are designed to return a maximum of 100 objects per workflow. The store-wide limits are real, they are shared across every workflow and every app you run, and a workflow that loops over line items will hit them faster than you expect.
 
 Worth knowing alongside it: Flow caps a store at 1,000 workflows, a workflow at 40 wait steps and 90 days of total waiting, a config field at 50 kB, and every workflow section at a combined 36 hours of execution. Those ceilings do not announce themselves either.
 
@@ -299,7 +545,7 @@ Step four is the one that catches the expensive failure. Errors are easy and abs
 
 Step five is cheap insurance. Pull the run list every day, keep it somewhere of your own, and you own a history rather than renting a two week window. The first time somebody asks how long has this been broken, that archive answers in seconds instead of never.
 
-Step seven is the correction to the once per thirty days design. The right behaviour is not more email. It is one open incident per broken automation, which stays open, updates itself with a count, and closes when the outcome starts arriving again. You want to be told once and reminded until it is fixed, which is the opposite of being told once and never again.
+Step seven is the correction to the once per thirty days design. The right behavior is not more email. It is one open incident per broken automation, which stays open, updates itself with a count, and closes when the outcome starts arriving again. You want to be told once and reminded until it is fixed, which is the opposite of being told once and never again.
 
 ## Why this is a compiler problem, not an app problem
 
@@ -362,7 +608,7 @@ You will spend Monday refunding it and writing an apology that has to sound like
 
 ## Shopify restricts by zone, not by product
 
-Shipping in Shopify is organised around zones. A zone is a list of countries and, inside a country, a list of states or provinces that you are willing to quote rates for. Uncheck Idaho and you have stopped shipping to Idaho. All of it. The gummies, the t-shirts, the sticker packs, the thing your best customer in Boise orders every month.
+Shipping in Shopify is organized around zones. A zone is a list of countries and, inside a country, a list of states or provinces that you are willing to quote rates for. Uncheck Idaho and you have stopped shipping to Idaho. All of it. The gummies, the t-shirts, the sticker packs, the thing your best customer in Boise orders every month.
 
 That is the answer merchants get first, and it is why the follow-up question always arrives about a week later. On November 13, 2023 someone asked the plain version, how to sell in the USA but not in all states, and was told to build a US zone and deselect the states they did not want. Correct, and store-wide, which is the opposite of what a restricted-product merchant needs.
 
@@ -376,7 +622,7 @@ This approach has been the standing recommendation for years. On June 18, 2021 a
 
 The first break is the bill. Shopify's own documentation on combining rates across profiles says the separate shipping rates for each product are combined and a single shipping rate is displayed to your customer at checkout, and that rates with the same name are added together, even those in different shipping profiles. Added together. Not the higher of the two. A cart with one restricted item and one ordinary one pays shipping twice.
 
-A merchant named it on May 8, 2023, in the flat tone of someone who had already argued about it: charging twice as it s the default shopify behaviour, it cannot be changed. Another came back to the same thread on June 17, 2024 to report that customers get double-charged shipping, and added the line that ends most of these threads. After talking to Shopify Support they have no solution.
+A merchant named it on May 8, 2023, in the flat tone of someone who had already argued about it: charging twice as it's the default shopify behavior, it cannot be changed. Another came back to the same thread on June 17, 2024 to report that customers get double-charged shipping, and added the line that ends most of these threads. After talking to Shopify Support they have no solution.
 
 The second break costs more and gets discussed less. When the restricted profile has no rate to the buyer's state, checkout does not quietly drop that one item. It fails the whole delivery step. The customer is told you do not ship to their address, and the legal half of the basket goes down with the illegal half. You have not blocked a sale you were not allowed to make. You have blocked a customer.
 
@@ -390,7 +636,7 @@ June 18, 2021, CBD into four states: use shipping profiles, answered by a modera
 
 The most recent entry is the most telling. On August 7, 2026 a merchant returned to the 2023 thread to point out that checkout extensibility now gives apps a validation hook that avoids the double-charge trap, and framed it exactly right: there is still no native fix. Five years, and the platform answer is the same absence of a rate it was in 2021.
 
-> ◆ NOTE: The record, compressed: zones are store-wide, profiles are the only product-level lever, and a profile restricts by having no rate. Mixed carts either pay twice, default behaviour, cannot be changed, or fail entirely and take the legal items with them. Asked June 2021, answered with profiles. Asked May 2023, answered with profiles and an app. Asked October 2025 below the state line, answered not possible. Noted August 2026: still no native fix.
+> ◆ NOTE: The record, compressed: zones are store-wide, profiles are the only product-level lever, and a profile restricts by having no rate. Mixed carts either pay twice, default behavior, cannot be changed, or fail entirely and take the legal items with them. Asked June 2021, answered with profiles. Asked May 2023, answered with profiles and an app. Asked October 2025 below the state line, answered not possible. Noted August 2026: still no native fix.
 
 ## The map moves faster than the setting
 
@@ -462,7 +708,7 @@ Every app in these threads solves one slice. Some hide shipping methods by state
 
 The reason this stays unsolved is that the rule is not really about shipping. It is a sentence about your business, and it sounds like this: we do not send anything containing THC to the states that ban it, we do not send spirits into dry counties, we never send aerosols by air, and if a cart has one of those in it we block the line and sell the rest. That sentence is already complete. What has been missing is anything that can turn it into a check that runs at checkout.
 
-That is the whole argument for describing workflows in language and compiling them. The merchant holds the judgment, which is theirs by law and by licence. The compiler holds the plumbing: the classification pass, the address resolution, the line-level decision, the validation function, the log. Nobody has to translate a compliance policy into an absence of shipping rates and then remember, a year later, why Idaho is missing from a table.
+That is the whole argument for describing workflows in language and compiling them. The merchant holds the judgment, which is theirs by law and by license. The compiler holds the plumbing: the classification pass, the address resolution, the line-level decision, the validation function, the log. Nobody has to translate a compliance policy into an absence of shipping rates and then remember, a year later, why Idaho is missing from a table.
 
 ## The workflow worth building this week
 
@@ -482,7 +728,7 @@ Not directly, and that is the whole problem. Shopify restricts shipping with zon
 
 ### Why does Shopify charge shipping twice when I use two shipping profiles?
 
-Because that is what Shopify does by design when one cart draws from more than one profile. The documentation is explicit: the separate shipping rates for each product are combined and a single shipping rate is displayed to your customer at checkout, and rates with the same name are added together, even those in different shipping profiles. Add together is the operative phrase. A cart with one item from your general profile and one from your restricted profile gets the sum of two rates, not the higher of them. A merchant put it flatly on May 8, 2023: charging twice as it s the default shopify behaviour, it cannot be changed. Another merchant reported in June 2024 that customers get double-charged shipping and added, after talking to Shopify Support they have no solution. The usual workaround is to name the rates identically and hope the arithmetic lands somewhere defensible, or to apply a discount equal to the smaller rate, which is a coupon covering a bug.
+Because that is what Shopify does by design when one cart draws from more than one profile. The documentation is explicit: the separate shipping rates for each product are combined and a single shipping rate is displayed to your customer at checkout, and rates with the same name are added together, even those in different shipping profiles. Add together is the operative phrase. A cart with one item from your general profile and one from your restricted profile gets the sum of two rates, not the higher of them. A merchant put it flatly on May 8, 2023: charging twice as it's the default shopify behavior, it cannot be changed. Another merchant reported in June 2024 that customers get double-charged shipping and added, after talking to Shopify Support they have no solution. The usual workaround is to name the rates identically and hope the arithmetic lands somewhere defensible, or to apply a discount equal to the smaller rate, which is a coupon covering a bug.
 
 ### Can Shopify block shipping to a specific ZIP code or county?
 
@@ -494,7 +740,7 @@ No. Flow is an order-level automation that runs after the order exists, so the e
 
 ### Can AI handle state shipping restrictions on a Shopify store?
 
-Yes, because the hard parts of this job are reading and matching, not enforcement. There are three of them. Classifying the catalog: deciding that this tin is a hemp product, that bottle is a spirit and that folding knife is blade-length restricted, read from titles, descriptions, ingredients and supplier sheets rather than from a tag somebody remembered to add. Resolving the destination below the state line when the rule is drawn by county or township. Keeping the rule set current, which is the part that quietly rots, since state law changes on its own schedule and the federal hemp THC restrictions alone moved from November 12, 2026 to December 11, 2026 on a bill passed on September 1, 2026. An automation like Dugong holds those rules in plain language, classifies every new product as it is saved, checks each cart line by line so only the restricted line is blocked and the rest of the basket still checks out, writes the explanation the customer sees, and logs every block against the rule and the date that caused it. The honest limits: it will not tell you whether you hold the licence a state requires, and a rule change needs a human to accept it before it starts refusing orders.
+Yes, because the hard parts of this job are reading and matching, not enforcement. There are three of them. Classifying the catalog: deciding that this tin is a hemp product, that bottle is a spirit and that folding knife is blade-length restricted, read from titles, descriptions, ingredients and supplier sheets rather than from a tag somebody remembered to add. Resolving the destination below the state line when the rule is drawn by county or township. Keeping the rule set current, which is the part that quietly rots, since state law changes on its own schedule and the federal hemp THC restrictions alone moved from November 12, 2026 to December 11, 2026 on a bill passed on September 1, 2026. An automation like Dugong holds those rules in plain language, classifies every new product as it is saved, checks each cart line by line so only the restricted line is blocked and the rest of the basket still checks out, writes the explanation the customer sees, and logs every block against the rule and the date that caused it. The honest limits: it will not tell you whether you hold the license a state requires, and a rule change needs a human to accept it before it starts refusing orders.
 
 ---
 # How to fix Shopify shipping rates that ignore product dimensions
@@ -633,7 +879,7 @@ If you are a Shopify merchant with a dimensional weight story, the lamp that shi
 
 ### Does Shopify have a product dimensions field?
 
-No. A Shopify variant has a weight field and no length, width or height field anywhere on the product, the variant, or the shipping section of the admin. The platform stores how heavy a thing is and not how big it is. What it offers instead is one default package saved in Shipping settings, and every carrier-calculated quote your store makes describes that same box whether the cart holds a phone case or a rug. A September 2023 community thread summarised it exactly: when it comes to Shopify shipping, there is a limitation, you can only designate a single default shipping box. This is long-standing and acknowledged. A Shopify moderator answered the first dimensions request on February 5, 2021 with one sentence, that Shopify does not have support for that and they use an app called Boxify, and the same app was still being recommended by staff in a March 2024 reply. Merchants who sell long, light or bulky items are the ones who feel it, because those are exactly the products whose price depends on volume rather than weight.
+No. A Shopify variant has a weight field and no length, width or height field anywhere on the product, the variant, or the shipping section of the admin. The platform stores how heavy a thing is and not how big it is. What it offers instead is one default package saved in Shipping settings, and every carrier-calculated quote your store makes describes that same box whether the cart holds a phone case or a rug. A September 2023 community thread summarized it exactly: when it comes to Shopify shipping, there is a limitation, you can only designate a single default shipping box. This is long-standing and acknowledged. A Shopify moderator answered the first dimensions request on February 5, 2021 with one sentence, that Shopify does not have support for that and they use an app called Boxify, and the same app was still being recommended by staff in a March 2024 reply. Merchants who sell long, light or bulky items are the ones who feel it, because those are exactly the products whose price depends on volume rather than weight.
 
 ### Why is Shopify undercharging for shipping?
 
@@ -954,7 +1200,7 @@ Option two is the Pause and Build plan, nine dollars a month, and it is built fo
 
 The feature request is old enough to vote. In July 2022 a merchant posted the spec in three bullet points: a popup telling shoppers that orders will be delayed until a certain date, an option to turn off the checkout, and a holiday mode order confirmation that reconfirms the delay if someone buys anyway. Shopify staff replied warmly, and pointed the merchant to Pause and Build plus the password page. Which is to say: to close.
 
-Then the workaround itself broke. In September 2024 a merchant who had quietly used Pause and Build as a vacation mode for a year reported that the behaviour had changed: instead of switching immediately and crediting the difference, Shopify now insisted on running out the current term first. He was on an annual plan. His pause would take effect in July 2025, ten months after he asked for it. Support told him this is how it works now. His closing line named the benchmark: even eBay has an excellent vacation mode.
+Then the workaround itself broke. In September 2024 a merchant who had quietly used Pause and Build as a vacation mode for a year reported that the behavior had changed: instead of switching immediately and crediting the difference, Shopify now insisted on running out the current term first. He was on an annual plan. His pause would take effect in July 2025, ten months after he asked for it. Support told him this is how it works now. His closing line named the benchmark: even eBay has an excellent vacation mode.
 
 The replies stacked up the way these threads always do. December 2024: a merchant gave up and removed the buy button from product pages by hand, calling it ridiculous that there's no holiday mode built in. January 2025: this is a DISASTER. February 2025: how are we supposed to plan a pause a month or even a year in advance? June 2025: a merchant with a broken machine, unable to fulfill anything, was told the pause would start on the 20th, and that resuming would take a further full month. And in the same thread, the sentence that explains the whole problem better than any feature request: I'm quite happy to keep paying the full monthly price, I just want to stop selling so I can go on holiday. The whole point of Shopify was to be my own boss, and I'm still being dictated to by companies.
 
