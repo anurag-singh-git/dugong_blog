@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to catch Shopify Flow workflows that fail silently | Dugong Field Notes</title>
+<title>How to catch Shopify Flow workflows that fail silently</title>
 <meta name="description" content="Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html" />
 <meta name="author" content="Priya Singh" />
@@ -567,6 +567,30 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .pill { padding: 0.6rem 1rem; }
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
+@media (max-width: 560px) {
+  .tag { font-size: 12px; letter-spacing: 0.05em; }
+  .post-meta { font-size: 12px; }
+  .post-read { font-size: 12px; }
+  .card-foot { font-size: 12px; }
+  .card-date, .card-author { font-size: 12px; }
+  .byline-avatar { font-size: 12px; }
+  .callout-mark { font-size: 12px; }
+  .cta-fine { font-size: 12px; }
+  .foot-h { font-size: 12px; }
+  .stat-label { font-size: 12px; }
+  .pb-status, .pb-tag, .pb-node-sub, .pb-branch-arm { font-size: 12px; }
+  .foot-bot, .foot-bot span, .foot-bot a { font-size: 12px; }
+  .art-coord { font-size: 12px; }
+  .signup-label { font-size: 12px; }
+  .signup-fine { font-size: 12px; }
+  .arch-date { font-size: 12px; }
+  .author-role { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 12px; padding: 7px 9px; }
+}
 </style>
 </head>
 <body>
@@ -868,7 +892,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         releases, type coercion, app updates and scope changes
         all break automations that you will swear you have not
         touched. Version pinning does not exist here. The only
-        defence is checking that the outcome still arrives.
+        defense is checking that the outcome still arrives.
       </span>
     </div>
 
@@ -1174,6 +1198,22 @@ every workflow edit
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The refund you gave for nothing</h3>
+        <p class="card-dek">
+          Shopify has seven return triggers and not one fires when nothing happens, so a return that goes quiet goes unnoticed. The AI playbook that catches it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 11</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-handle-price-adjustment-requests-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1183,6 +1223,22 @@ every workflow edit
         <h3 class="card-title">The sale that starts the day after they buy</h3>
         <p class="card-dek">
           Shopify has no price adjustment feature, no trigger for a price change and no refund action. The AI playbook that settles the difference before they ask.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 10</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-make-shopify-wholesale-customers-tax-exempt.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The certificate nobody checks</h3>
+        <p class="card-dek">
+          Shopify gives you a tax exempt switch and no certificate record: no number, no expiry, no document. The AI playbook that reads and renews every one.
         </p>
         <div class="card-foot">
           <span class="card-date">OCT 10</span>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to reduce 'where is my order?' (WISMO) tickets on Shopify | Dugong Field Notes</title>
+<title>How to reduce 'where is my order' tickets on Shopify</title>
 <meta name="description" content="WISMO ('where is my order?') is the most common ecommerce support ticket, ~18% of inbox volume. The AI playbook that answers tracking questions automatically." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Dugong Field Notes" />
 <meta property="og:title" content="How to reduce 'where is my order?' (WISMO) tickets on Shopify" />
-<meta property="og:description" content="WISMO is the single most common ecommerce support ticket, ~18% of inbox volume, over 50% during a sale. Why merchants still answer by hand, and the AI playbook that closes the loop." />
+<meta property="og:description" content="WISMO ('where is my order?') is the most common ecommerce support ticket, ~18% of inbox volume. The AI playbook that answers tracking questions automatically." />
 <meta property="og:url" content="https://blog.dugong.live/how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -34,7 +34,7 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="How to reduce 'where is my order?' (WISMO) tickets on Shopify" />
-<meta name="twitter:description" content="WISMO is the single most common ecommerce support ticket, ~18% of inbox volume, over 50% during a sale. The AI playbook that answers before customers ask." />
+<meta name="twitter:description" content="WISMO ('where is my order?') is the most common ecommerce support ticket, ~18% of inbox volume. The AI playbook that answers tracking questions automatically." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
     <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 
@@ -710,6 +710,30 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .pill { padding: 0.6rem 1rem; }
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
+@media (max-width: 560px) {
+  .tag { font-size: 12px; letter-spacing: 0.05em; }
+  .post-meta { font-size: 12px; }
+  .post-read { font-size: 12px; }
+  .card-foot { font-size: 12px; }
+  .card-date, .card-author { font-size: 12px; }
+  .byline-avatar { font-size: 12px; }
+  .callout-mark { font-size: 12px; }
+  .cta-fine { font-size: 12px; }
+  .foot-h { font-size: 12px; }
+  .stat-label { font-size: 12px; }
+  .pb-status, .pb-tag, .pb-node-sub, .pb-branch-arm { font-size: 12px; }
+  .foot-bot, .foot-bot span, .foot-bot a { font-size: 12px; }
+  .art-coord { font-size: 12px; }
+  .signup-label { font-size: 12px; }
+  .signup-fine { font-size: 12px; }
+  .arch-date { font-size: 12px; }
+  .author-role { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 12px; padding: 7px 9px; }
+}
 </style>
 </head>
 <body>
@@ -1050,6 +1074,22 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The refund you gave for nothing</h3>
+        <p class="card-dek">
+          Shopify has seven return triggers and not one fires when nothing happens, so a return that goes quiet goes unnoticed. The AI playbook that catches it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 11</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-handle-price-adjustment-requests-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1059,6 +1099,22 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         <h3 class="card-title">The sale that starts the day after they buy</h3>
         <p class="card-dek">
           Shopify has no price adjustment feature, no trigger for a price change and no refund action. The AI playbook that settles the difference before they ask.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 10</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-make-shopify-wholesale-customers-tax-exempt.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The certificate nobody checks</h3>
+        <p class="card-dek">
+          Shopify gives you a tax exempt switch and no certificate record: no number, no expiry, no document. The AI playbook that reads and renews every one.
         </p>
         <div class="card-foot">
           <span class="card-date">OCT 10</span>

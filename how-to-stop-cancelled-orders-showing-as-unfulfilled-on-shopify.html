@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to stop cancelled orders showing as unfulfilled on Shopify | Dugong Field Notes</title>
+<title>How to stop cancelled Shopify orders showing unfulfilled</title>
 <meta name="description" content="Cancelled and refunded Shopify orders stay stamped unfulfilled forever, burying the real queue. The AI playbook that keeps your fulfillment list honest." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html" />
 <meta name="author" content="Priya Singh" />
@@ -152,7 +152,7 @@
           "name": "How do I remove cancelled and refunded orders from my unfulfilled orders list on Shopify?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You cannot clear the unfulfilled badge itself, but you can get the orders out of the working queue. Archiving is the supported route: select the cancelled and refunded orders on the Orders page and archive them, which removes them from the open list and the open order count, and enable the setting that archives completed orders automatically so the number stays roughly honest going forward. Shopify Flow can archive on cancellation as well. The community has also developed folklore for the badge: before cancelling, edit the order and add a $0 non-physical custom item, fulfill that phantom item with notifications off, then archive, and the badge turns grey. It works, but only before cancellation, because cancelled orders cannot be edited, and the fulfill-first-then-refund ritual risks sending a shipping confirmation for goods that never ship. Two cautions from the community record: archiving does not change the fulfillment status that some 3PL integrations and reports read, one merchant's warehouse reshipped refunded items that came back into stock precisely because the orders still read as open work, and a blanket sweep can bury a partially refunded order that still owes the customer items. Sort before you archive: an order is only noise when the money and the merchandise are both settled."
+            "text": "You cannot clear the unfulfilled badge itself, but you can get the orders out of the working queue. Archiving is the supported route: select the cancelled and refunded orders on the Orders page and archive them, which removes them from the open list and the open order count, and enable the setting that archives completed orders automatically so the number stays roughly honest going forward. Shopify Flow can archive on cancellation as well. The community has also developed folklore for the badge: before cancelling, edit the order and add a $0 non-physical custom item, fulfill that phantom item with notifications off, then archive, and the badge turns gray. It works, but only before cancellation, because cancelled orders cannot be edited, and the fulfill-first-then-refund ritual risks sending a shipping confirmation for goods that never ship. Two cautions from the community record: archiving does not change the fulfillment status that some 3PL integrations and reports read, one merchant's warehouse reshipped refunded items that came back into stock precisely because the orders still read as open work, and a blanket sweep can bury a partially refunded order that still owes the customer items. Sort before you archive: an order is only noise when the money and the merchandise are both settled."
           }
         },
         {
@@ -548,6 +548,30 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .pill { padding: 0.6rem 1rem; }
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
+@media (max-width: 560px) {
+  .tag { font-size: 12px; letter-spacing: 0.05em; }
+  .post-meta { font-size: 12px; }
+  .post-read { font-size: 12px; }
+  .card-foot { font-size: 12px; }
+  .card-date, .card-author { font-size: 12px; }
+  .byline-avatar { font-size: 12px; }
+  .callout-mark { font-size: 12px; }
+  .cta-fine { font-size: 12px; }
+  .foot-h { font-size: 12px; }
+  .stat-label { font-size: 12px; }
+  .pb-status, .pb-tag, .pb-node-sub, .pb-branch-arm { font-size: 12px; }
+  .foot-bot, .foot-bot span, .foot-bot a { font-size: 12px; }
+  .art-coord { font-size: 12px; }
+  .signup-label { font-size: 12px; }
+  .signup-fine { font-size: 12px; }
+  .arch-date { font-size: 12px; }
+  .author-role { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 12px; padding: 7px 9px; }
+}
 </style>
 </head>
 <body>
@@ -747,7 +771,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       recalibrates. It works. Read it again and appreciate what
       the state of the art is here: a fake product, invented so
       a dead order can pretend to ship, so a yellow chip will
-      turn grey.
+      turn gray.
     </p>
 
     <p>
@@ -1009,7 +1033,7 @@ and every morning for the queue
     <p>
       If you are a Shopify merchant with a queue story, the
       count stuck at 872, the 3PL that shipped a refund, the
-      phantom item you invented to turn a yellow chip grey, the
+      phantom item you invented to turn a yellow chip gray, the
       inbox is open: <code>field-notes@dugong.live</code>. We
       are collecting case studies for the next issue.
     </p>
@@ -1039,7 +1063,7 @@ and every morning for the queue
     </div>
     <div class="faq-item">
       <h2 class="faq-q">How do I remove cancelled and refunded orders from my unfulfilled orders list on Shopify?</h2>
-      <p class="faq-a">You cannot clear the unfulfilled badge itself, but you can get the orders out of the working queue. Archiving is the supported route: select the cancelled and refunded orders on the Orders page and archive them, which removes them from the open list and the open order count, and enable the setting that archives completed orders automatically so the number stays roughly honest going forward. Shopify Flow can archive on cancellation as well. The community has also developed folklore for the badge: before cancelling, edit the order and add a $0 non-physical custom item, fulfill that phantom item with notifications off, then archive, and the badge turns grey. It works, but only before cancellation, because cancelled orders cannot be edited, and the fulfill-first-then-refund ritual risks sending a shipping confirmation for goods that never ship. Two cautions from the community record: archiving does not change the fulfillment status that some 3PL integrations and reports read, one merchant's warehouse reshipped refunded items that came back into stock precisely because the orders still read as open work, and a blanket sweep can bury a partially refunded order that still owes the customer items. Sort before you archive: an order is only noise when the money and the merchandise are both settled.</p>
+      <p class="faq-a">You cannot clear the unfulfilled badge itself, but you can get the orders out of the working queue. Archiving is the supported route: select the cancelled and refunded orders on the Orders page and archive them, which removes them from the open list and the open order count, and enable the setting that archives completed orders automatically so the number stays roughly honest going forward. Shopify Flow can archive on cancellation as well. The community has also developed folklore for the badge: before cancelling, edit the order and add a $0 non-physical custom item, fulfill that phantom item with notifications off, then archive, and the badge turns gray. It works, but only before cancellation, because cancelled orders cannot be edited, and the fulfill-first-then-refund ritual risks sending a shipping confirmation for goods that never ship. Two cautions from the community record: archiving does not change the fulfillment status that some 3PL integrations and reports read, one merchant's warehouse reshipped refunded items that came back into stock precisely because the orders still read as open work, and a blanket sweep can bury a partially refunded order that still owes the customer items. Sort before you archive: an order is only noise when the money and the merchandise are both settled.</p>
     </div>
     <div class="faq-item">
       <h2 class="faq-q">Can AI keep my Shopify unfulfilled orders queue clean automatically?</h2>
@@ -1062,6 +1086,22 @@ and every morning for the queue
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The refund you gave for nothing</h3>
+        <p class="card-dek">
+          Shopify has seven return triggers and not one fires when nothing happens, so a return that goes quiet goes unnoticed. The AI playbook that catches it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 11</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-handle-price-adjustment-requests-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1071,6 +1111,22 @@ and every morning for the queue
         <h3 class="card-title">The sale that starts the day after they buy</h3>
         <p class="card-dek">
           Shopify has no price adjustment feature, no trigger for a price change and no refund action. The AI playbook that settles the difference before they ask.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 10</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-make-shopify-wholesale-customers-tax-exempt.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The certificate nobody checks</h3>
+        <p class="card-dek">
+          Shopify gives you a tax exempt switch and no certificate record: no number, no expiry, no document. The AI playbook that reads and renews every one.
         </p>
         <div class="card-foot">
           <span class="card-date">OCT 10</span>

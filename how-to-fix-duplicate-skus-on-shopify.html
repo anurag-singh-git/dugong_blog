@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>How to find and fix duplicate SKUs on Shopify before they break your inventory | Dugong Field Notes</title>
+<title>How to find and fix duplicate SKUs on Shopify | Dugong</title>
 <meta name="description" content="Shopify says SKUs must be unique, then lets two products share one and splits the stock. The AI playbook that finds every collision and fixes it." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html" />
 <meta name="author" content="Priya Singh" />
@@ -50,7 +50,7 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html",
       "headline": "How to find and fix duplicate SKUs on Shopify before they break your inventory",
-      "description": "The customer ordered the midnight blue mug from your bundle page nine days ago and it has not shipped, because that page says zero. The same mug sits on its own product page with 14 in stock, selling all week. Same shelf, same characters in the SKU field, two products, two inventory numbers, and nothing in Shopify that ever thought to mention they were the same thing. Shopify's own documentation says SKUs within your admin must be unique and that duplicate SKUs can cause issues with third-party integrations and inventory tracking, and then enforces none of it: the warning is a line of grey text, the save goes through, the import goes through, and SKUs are case-sensitive, so ABC123 and abc123 pass every check and fail every match. Merchants have been asking since a thread opened on August 7, 2019 that was still collecting replies in November 2022, where the answer never changed, Shopify does not keep inventory in sync for products that share a SKU, and one merchant asked the obvious question: I dont understand why they would even allow duplicate a product if you cant sync the inventory. No staff answered, and the thread filled with apps at five, fourteen, and twenty-nine dollars a month. A May 2024 thread showed the problem is structural: Shopify asks a fulfillment service for one available number per SKU but subtracts a different committed quantity from each duplicate variant, so no single number can be correct for both at once, asked again in May 2025, still unanswered. And on September 15, 2026 a developer filed the front-door bug, duplicating a variant duplicates the SKU even when you tell it not to. Meanwhile there is no duplicate SKU report anywhere in the admin, the standard fix is a CSV export and a spreadsheet, and the bill compounds, because a duplicate found in week one is a rename and one found in year two has order history attached to it. The AI playbook that scans the whole catalog on a schedule, normalizes case and whitespace, tells the deliberate collisions from the accidents, keeps the bundles in sync, renames the defects on your format, guards every new variant within minutes of the save, and reports weekly.",
+      "description": "The customer ordered the midnight blue mug from your bundle page nine days ago and it has not shipped, because that page says zero. The same mug sits on its own product page with 14 in stock, selling all week. Same shelf, same characters in the SKU field, two products, two inventory numbers, and nothing in Shopify that ever thought to mention they were the same thing. Shopify's own documentation says SKUs within your admin must be unique and that duplicate SKUs can cause issues with third-party integrations and inventory tracking, and then enforces none of it: the warning is a line of gray text, the save goes through, the import goes through, and SKUs are case-sensitive, so ABC123 and abc123 pass every check and fail every match. Merchants have been asking since a thread opened on August 7, 2019 that was still collecting replies in November 2022, where the answer never changed, Shopify does not keep inventory in sync for products that share a SKU, and one merchant asked the obvious question: I dont understand why they would even allow duplicate a product if you cant sync the inventory. No staff answered, and the thread filled with apps at five, fourteen, and twenty-nine dollars a month. A May 2024 thread showed the problem is structural: Shopify asks a fulfillment service for one available number per SKU but subtracts a different committed quantity from each duplicate variant, so no single number can be correct for both at once, asked again in May 2025, still unanswered. And on September 15, 2026 a developer filed the front-door bug, duplicating a variant duplicates the SKU even when you tell it not to. Meanwhile there is no duplicate SKU report anywhere in the admin, the standard fix is a CSV export and a spreadsheet, and the bill compounds, because a duplicate found in week one is a rename and one found in year two has order history attached to it. The AI playbook that scans the whole catalog on a schedule, normalizes case and whitespace, tells the deliberate collisions from the accidents, keeps the bundles in sync, renames the defects on your format, guards every new variant within minutes of the save, and reports weekly.",
       "datePublished": "2026-09-17",
       "dateModified": "2026-09-17",
       "articleSection": "Research",
@@ -562,6 +562,30 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .pill { padding: 0.6rem 1rem; }
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
+@media (max-width: 560px) {
+  .tag { font-size: 12px; letter-spacing: 0.05em; }
+  .post-meta { font-size: 12px; }
+  .post-read { font-size: 12px; }
+  .card-foot { font-size: 12px; }
+  .card-date, .card-author { font-size: 12px; }
+  .byline-avatar { font-size: 12px; }
+  .callout-mark { font-size: 12px; }
+  .cta-fine { font-size: 12px; }
+  .foot-h { font-size: 12px; }
+  .stat-label { font-size: 12px; }
+  .pb-status, .pb-tag, .pb-node-sub, .pb-branch-arm { font-size: 12px; }
+  .foot-bot, .foot-bot span, .foot-bot a { font-size: 12px; }
+  .art-coord { font-size: 12px; }
+  .signup-label { font-size: 12px; }
+  .signup-fine { font-size: 12px; }
+  .arch-date { font-size: 12px; }
+  .author-role { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 12px; padding: 7px 9px; }
+}
 </style>
 </head>
 <body>
@@ -670,7 +694,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <p>
-      That is the entire enforcement. A line of grey text near
+      That is the entire enforcement. A line of gray text near
       a field. It does not block the save. It does not block a
       CSV import. It does not block an app writing through the
       API. And it never goes back to look at the duplicates
@@ -1102,6 +1126,22 @@ during the day
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The refund you gave for nothing</h3>
+        <p class="card-dek">
+          Shopify has seven return triggers and not one fires when nothing happens, so a return that goes quiet goes unnoticed. The AI playbook that catches it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 11</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-handle-price-adjustment-requests-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1111,6 +1151,22 @@ during the day
         <h3 class="card-title">The sale that starts the day after they buy</h3>
         <p class="card-dek">
           Shopify has no price adjustment feature, no trigger for a price change and no refund action. The AI playbook that settles the difference before they ask.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 10</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-make-shopify-wholesale-customers-tax-exempt.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The certificate nobody checks</h3>
+        <p class="card-dek">
+          Shopify gives you a tax exempt switch and no certificate record: no number, no expiry, no document. The AI playbook that reads and renews every one.
         </p>
         <div class="card-foot">
           <span class="card-date">OCT 10</span>
