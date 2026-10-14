@@ -94,7 +94,95 @@
         "@id": "https://blog.dugong.live/#organization"
       },
       "inLanguage": "en",
+      "hasPart": [
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-order-management-automation.html#collection",
+          "url": "https://blog.dugong.live/shopify-order-management-automation.html",
+          "name": "Shopify order management automation"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-inventory-automation.html#collection",
+          "url": "https://blog.dugong.live/shopify-inventory-automation.html",
+          "name": "Shopify inventory automation"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-shipping-and-fulfillment-automation.html#collection",
+          "url": "https://blog.dugong.live/shopify-shipping-and-fulfillment-automation.html",
+          "name": "Shopify shipping and fulfillment automation"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-returns-and-refunds-automation.html#collection",
+          "url": "https://blog.dugong.live/shopify-returns-and-refunds-automation.html",
+          "name": "Shopify returns and refunds automation"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-fraud-and-risk-automation.html#collection",
+          "url": "https://blog.dugong.live/shopify-fraud-and-risk-automation.html",
+          "name": "Shopify fraud and risk automation"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-discounts-and-promotions-automation.html#collection",
+          "url": "https://blog.dugong.live/shopify-discounts-and-promotions-automation.html",
+          "name": "Shopify discounts and promotions automation"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-customer-and-wholesale-automation.html#collection",
+          "url": "https://blog.dugong.live/shopify-customer-and-wholesale-automation.html",
+          "name": "Shopify customer and wholesale automation"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-catalog-and-storefront-operations.html#collection",
+          "url": "https://blog.dugong.live/shopify-catalog-and-storefront-operations.html",
+          "name": "Shopify catalog and storefront operations"
+        }
+      ],
       "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#article",
+          "headline": "How to catch Shopify shipping label adjustments before they eat your margin",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html",
+          "mainEntityOfPage": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html",
+          "description": "Carriers re-measure your parcel and bill the difference weeks later. The AI playbook that finds each Shopify label adjustment, disputes it in time and fixes the box.",
+          "datePublished": "2026-10-13",
+          "dateModified": "2026-10-13",
+          "author": {
+            "@id": "https://blog.dugong.live/#priya-singh"
+          },
+          "publisher": {
+            "@id": "https://blog.dugong.live/#organization"
+          },
+          "image": "https://blog.dugong.live/og-image.png",
+          "inLanguage": "en",
+          "wordCount": 2277
+        },
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html#article",
+          "headline": "How to fix Shopify committed inventory that never clears",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html",
+          "mainEntityOfPage": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html",
+          "description": "Committed is read-only and Shopify will not tell you which orders hold it. The AI playbook that finds the stuck orders and gets your shelf selling again.",
+          "datePublished": "2026-10-12",
+          "dateModified": "2026-10-12",
+          "author": {
+            "@id": "https://blog.dugong.live/#priya-singh"
+          },
+          "publisher": {
+            "@id": "https://blog.dugong.live/#organization"
+          },
+          "image": "https://blog.dugong.live/og-image.png",
+          "inLanguage": "en",
+          "wordCount": 2166
+        },
         {
           "@type": "BlogPosting",
           "@id": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html#article",
@@ -1596,7 +1684,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
 <style>
 /* =========================================================
-   DUGONG FIELD NOTES — matches dugong.live
+   DUGONG FIELD NOTES - matches dugong.live
    Lime + warm off-white · Hanken Grotesk / Inter · easy to read
    ========================================================= */
 
@@ -1649,7 +1737,7 @@ body {
 }
 ::selection { background: var(--lime); color: #11110e; }
 
-/* atmospheric background — lime glow + faint grid (from dugong.live) */
+/* atmospheric background - lime glow + faint grid (from dugong.live) */
 body::before {
   content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
   background:
@@ -1750,7 +1838,7 @@ em { font-style: italic; }
   color: var(--text-faint); margin-bottom: 1.75rem;
 }
 .hero-issue { color: var(--lime-deep); font-weight: 500; }
-.hero-divider { color: var(--border-strong); }
+.hero-divider { color: rgba(15,15,12,.45); } /* QA 2026-10-12 */
 .hero-pulse { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--lime-deep); }
 .dot { width: 6px; height: 6px; background: var(--lime-deep); border-radius: 50%; box-shadow: 0 0 0 4px var(--lime-tint); animation: pulse 1.8s ease-in-out infinite; }
 @keyframes pulse { 50% { opacity: 0.45; transform: scale(0.85); } }
@@ -1846,7 +1934,7 @@ em { font-style: italic; }
 .post-byline { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.5rem; font-family: var(--mono); font-size: 0.78rem; }
 .byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
 .byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
-.byline-divider { color: var(--border-strong); }
+.byline-divider { color: rgba(15,15,12,.45); } /* QA 2026-10-12 */
 .byline-role { color: var(--text-faint); }
 .featured-arrow { font-family: var(--display); font-weight: 700; font-size: 0.85rem; color: var(--lime-deep); letter-spacing: 0.01em; transition: color 0.3s, transform 0.3s; align-self: flex-start; }
 
@@ -2008,7 +2096,7 @@ a.card:hover .card-title, .card[data-nav]:hover .card-title { color: var(--lime-
 .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 @media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
 
-/* ---- CTA band (to dugong.live) — mirrors the site's final card ---- */
+/* ---- CTA band (to dugong.live) - mirrors the site's final card ---- */
 .hero-cta { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-bottom: 3rem; }
 .cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
 .cta-band-inner {
@@ -2103,6 +2191,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .nav-cta { font-size: 12px; padding: 7px 9px; }
 }
 </style>
+
+<style>
+/* SEO 2026-10-12 long inline code must break rather than widen the page */
+.article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  /* decorative separators strand at the end of a wrapped line on phones */
+  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta { column-gap: 1rem; }
+}
+</style>
 </head>
 <body>
 
@@ -2116,11 +2214,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
     <span>◆ FIELD NOTES VOL. 04 · 2026</span>
     <span>◆ FROM THE DUGONG RESEARCH DESK</span>
     <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
-    <span>◆ 3 NEW DISPATCHES THIS MONTH</span>
+    <span>◆ 5 NEW DISPATCHES THIS MONTH</span>
     <span>◆ FIELD NOTES VOL. 04 · 2026</span>
     <span>◆ FROM THE DUGONG RESEARCH DESK</span>
     <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
-    <span>◆ 3 NEW DISPATCHES THIS MONTH</span>
+    <span>◆ 5 NEW DISPATCHES THIS MONTH</span>
   </div>
 </div>
 
@@ -2141,10 +2239,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
 <section class="hero">
   <div class="hero-meta">
-    <span class="hero-issue">ISSUE Nº 124</span>
-    <span class="hero-divider">·</span>
-    <span class="hero-date">OCT 11 · 2026</span>
-    <span class="hero-divider">·</span>
+    <span class="hero-issue">ISSUE Nº 126</span>
+    <span class="hero-divider" aria-hidden="true">·</span>
+    <span class="hero-date">OCT 13 · 2026</span>
+    <span class="hero-divider" aria-hidden="true">·</span>
     <span class="hero-pulse"><span class="dot"></span>LATEST DISPATCH</span>
   </div>
 
@@ -2166,7 +2264,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
   <div class="hero-stats">
     <div class="stat">
-      <span class="stat-num">124</span>
+      <span class="stat-num">126</span>
       <span class="stat-label">dispatches&nbsp;published</span>
     </div>
     <div class="stat">
@@ -2247,7 +2345,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
       <div class="post-byline">
         <span class="byline-avatar" style="background:#a35c38;">AR</span>
         <span class="byline-name">Aanya Rao</span>
-        <span class="byline-divider">·</span>
+        <span class="byline-divider" aria-hidden="true">·</span>
         <span class="byline-role">Head of Research</span>
       </div>
       <span class="featured-arrow">read the dispatch →</span>
@@ -2271,11 +2369,45 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
   <div class="article-grid">
 
-        <a class="card card-tall" href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" style="text-decoration:none;">
-      <div class="card-art card-art-2">
-        <span class="art-glyph">&#9711;</span>
-        <span class="art-coord">RETURN&nbsp;IN&nbsp;PROGRESS&nbsp;&middot;&nbsp;DAY&nbsp;58</span>
+        <a class="card card-tall" href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" style="text-decoration:none;">
+      <div class="card-art card-art-1">
+        <span class="art-glyph">&#9635;</span>
+        <span class="art-coord">PAID&nbsp;$8.40&nbsp;&middot;&nbsp;BILLED&nbsp;$22</span>
       </div>
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify shipping label adjustments <em>before they eat your margin</em></h3>
+        <p class="card-dek">
+          You paid $8.40 for the label. Three weeks later the carrier re-measured the box, Shopify billed you $22, and the only record of it is one line buried in one order's timeline. The price you pay at purchase is only a quote: Shopify's billing documentation says that after you ship, the carrier verifies the correct label price and debits or credits the difference. The parcel is usually delivered anyway, so nothing fails and nobody looks. Three details make it impossible to catch by hand. It is late, because the carrier measures at the hub and bills whenever its own billing gets to it. It is split in half, because the adjustment and the carrier's reason land in the order timeline while the money lands aggregated on your next Shopify bill, and nothing joins them. And there is no report, no filter, no export column, no notification, no Flow trigger for a label purchase or a label adjustment, and no labelCost field in the Admin GraphQL API, which a developer requested on 12 June 2026 with the note that the only workaround is shopifyPaymentsAccount.balanceTransactions. Then there is the July 2026 reason your bills drifted: USPS moved its dimensional divisor from 166 to 139 and now rounds every fractional inch up, which lifts billable weight around 19 percent on anything over a cubic foot without you changing a thing. The forum record runs four years and four carriers, from out of control in November 2022 to 25 adjustments of $22 in one July 2023 evening to a merchant in November 2025 who simply wanted a report that would make future disputes easier after some of his had already passed the window. Six causes look identical on the invoice and need six different responses, and the dispute window is both short and unpublished. The AI playbook that reads every order timeline, attributes each adjustment to the SKU and package preset that produced the label, classifies which of the six it is, files the carrier errors within three days with tape and scale photographs attached, fixes the preset so the same parcel is not adjusted twice, and feeds measured cost per SKU back into your rates.
+        </p>
+        <div class="card-foot">
+          <time class="card-date" datetime="2026-10-13">OCT 13</time>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+        <a class="card" href="how-to-fix-shopify-committed-inventory-that-never-clears.html" style="text-decoration:none;">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to fix Shopify committed inventory that <em>never clears</em></h3>
+        <p class="card-dek">
+          There are fourteen on the shelf, boxed and labeled, and the product page says sold out. The admin agrees with both: on hand fourteen, available zero. The difference is sitting in committed for orders that shipped in August. Now try to fix it. There is no edit field on committed, no release button, no app that clears it, no Flow action that touches it and no API call that moves it, because Shopify's own developer documentation states that you cannot use the GraphQL Admin API to adjust or move inventory quantities in the committed state. Everything else is writable. Committed is not, because it is an effect rather than a setting: line items on orders placed but not fulfilled, items reserved against a draft order, and transfers marked ready to ship. All three are correct on the day they happen, and nothing in Shopify ever ages them. There is no stale commitment report and no alert when one outlives the order that made it. You cannot even query the breakdown: the admin popover reads a non-public field called activeLedgerDocuments, and a developer who asked in May 2025 for the public equivalent was told to approximate it with an orders search on unfulfilled and open. The public record of it going wrong runs from a 2020 thread about being unable to de-stock a location through a January 2024 report of committed counting a fulfilled order, with three merchants confirming and no staff reply, to a February 2023 case of committed going negative that Shopify called a known issue. The AI playbook that rebuilds the per-order breakdown Shopify will not give you, reconciles it against committed every night, ages every commitment from the day it was created, classifies why each unit is stuck across six distinct causes, applies the one release that fits each, expires stale draft reserves on a rule, and escalates the genuine miscounts with the evidence attached.
+        </p>
+        <div class="card-foot">
+          <time class="card-date" datetime="2026-10-12">OCT 12</time>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+        <a class="card" href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" style="text-decoration:none;">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2453,7 +2585,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
         </div>
         <h3 class="card-title">How to handle Shopify pickup orders customers <em>never collect</em></h3>
         <p class="card-dek">
-          The shelf behind the register tells the story: eleven paper bags with sticky notes, and the oldest is from March. The customer paid in full, you packed the order, marked it ready, Shopify sent its one email, and then everyone went quiet. Merchants have been asking for the obvious fix since October 2021, in a thread that ran 27 replies and was still collecting posts in April 2025: a Hawaii tea merchant whose customers sometimes forget about their order for a month or more, sending personal reminder emails one at a time, asking for a resend button in the order timeline. Shopify staff confirmed the feature does not exist and suggested watching the changelog. The thread aged the way these threads do: almost a year and no fix, August 2022; a resend button visible in the timeline but greyed out, October 2022, still greyed out in a screenshot posted August 2023; it is completely asinine that this is not an existing feature, March 2024; it has been YEARS, lol, September 2024. A second thread asked again in May 2024 and closed on the same note in June 2025: how is this not an option yet. And the operational cost was documented back in March 2021 by a schoolwear shop that ended one peak season with hundreds of uncollected orders and sifted through every last one to send reminders by hand, while bags sat for months, inventory stayed committed, and the only app anyone could name charged ten dollars a month for what one merchant called a one in a hundred problem. The AI playbook that starts a clock the moment an order is marked ready, reminds on a schedule through a door that opens, catches the notification that bounced or went to a typo, offers shipping or a refund when the shelf date passes, restocks and closes per your policy, and reports weekly on shelf age and recovered sales.
+          The shelf behind the register tells the story: eleven paper bags with sticky notes, and the oldest is from March. The customer paid in full, you packed the order, marked it ready, Shopify sent its one email, and then everyone went quiet. Merchants have been asking for the obvious fix since October 2021, in a thread that ran 27 replies and was still collecting posts in April 2025: a Hawaii tea merchant whose customers sometimes forget about their order for a month or more, sending personal reminder emails one at a time, asking for a resend button in the order timeline. Shopify staff confirmed the feature does not exist and suggested watching the changelog. The thread aged the way these threads do: almost a year and no fix, August 2022; a resend button visible in the timeline but grayed out, October 2022, still grayed out in a screenshot posted August 2023; it is completely asinine that this is not an existing feature, March 2024; it has been YEARS, lol, September 2024. A second thread asked again in May 2024 and closed on the same note in June 2025: how is this not an option yet. And the operational cost was documented back in March 2021 by a schoolwear shop that ended one peak season with hundreds of uncollected orders and sifted through every last one to send reminders by hand, while bags sat for months, inventory stayed committed, and the only app anyone could name charged ten dollars a month for what one merchant called a one in a hundred problem. The AI playbook that starts a clock the moment an order is marked ready, reminds on a schedule through a door that opens, catches the notification that bounced or went to a typo, offers shipping or a refund when the shelf date passes, restocks and closes per your policy, and reports weekly on shelf age and recovered sales.
         </p>
         <div class="card-foot">
           <time class="card-date" datetime="2026-08-24">AUG 24</time>
@@ -2726,7 +2858,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
         </div>
         <h3 class="card-title">How to let customers cancel their own orders <em>on Shopify</em></h3>
         <p class="card-dek">
-          The request lands seventeen minutes after checkout: wrong size, tapped Request cancellation, confirmation email received, caught in time by any human measure. But on Shopify a pending cancellation request changes nothing: the help center states that a request does not change the order's state on its own, so the order stays in every fulfillment feed, the 3PL pulls it Monday at 6:02 a.m., and the tracking number arrives two messages above the request. The cancel button Shopify added on June 18, 2026, one day before the EU's withdrawal function deadline, files requests and nothing more: no hold, no pause, no Shopify app notification, no legacy account support, and most cancellation intent still arrives by email reply, chat, and DM anyway. So merchants keep refunding orders in full after paying to ship them, then paying again to ship them back, and the customer who did everything right watches the thing she canceled arrive at her door. The AI playbook that hears cancellation intent on every channel, matches it to the right order, holds fulfillment in seconds before any decision is made, cancels the clean cases end to end with refund, restock, tag, and reply, escalates the picked and the shipped with context attached, opens the return path honestly when it lost the race, and reports weekly on what keeps causing the requests so checkout stops generating them.
+          The request lands seventeen minutes after checkout: wrong size, tapped Request cancellation, confirmation email received, caught in time by any human measure. But on Shopify a pending cancellation request changes nothing: the help center states that a request does not change the order's state on its own, so the order stays in every fulfillment feed, the 3PL pulls it Monday at 6:02 a.m., and the tracking number arrives two messages above the request. The cancel button Shopify added on June 18, 2026, one day before the EU's withdrawal function deadline, files requests and nothing more: no hold, no pause, no Shopify app notification, no legacy account support, and most cancellation intent still arrives by email reply, chat, and DM anyway. So merchants keep refunding orders in full after paying to ship them, then paying again to ship them back, and the customer who did everything right watches the thing she cancelled arrive at her door. The AI playbook that hears cancellation intent on every channel, matches it to the right order, holds fulfillment in seconds before any decision is made, cancels the clean cases end to end with refund, restock, tag, and reply, escalates the picked and the shipped with context attached, opens the return path honestly when it lost the race, and reports weekly on what keeps causing the requests so checkout stops generating them.
         </p>
         <div class="card-foot">
           <time class="card-date" datetime="2026-08-02">AUG 2</time>
@@ -2965,7 +3097,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
           Somebody double-tapped the pay button on a slow checkout, or retried after a card error
           that had actually captured, and now one customer has paid twice for one box. Shopify has
           no duplicate detection anywhere in the admin, so nothing warns you the orders match.
-          Orders cannot be deleted, only canceled, and the processing fees on the refund are
+          Orders cannot be deleted, only cancelled, and the processing fees on the refund are
           generally lost. Shopify Flow cannot make the catch at all, because its Order created
           trigger sees each order alone and cannot compare line items against the customer's other
           recent orders. If nobody notices, the 3PL ships both boxes, and if the customer notices
@@ -4105,6 +4237,28 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   </div>
 </section>
 
+<section class="topics" id="guides">
+  <div class="section-head">
+    <span class="section-eyebrow">&#9670; TOPIC GUIDES</span>
+    <span class="section-rule"></span>
+  </div>
+  <p class="article-dek" style="max-width: 46rem; margin-bottom: 1.5rem;">
+    Every dispatch sorted into eight guides, one per corner of a Shopify operation. Each guide
+    lists the failure modes in that area, newest first.
+  </p>
+  <div class="topic-cloud">
+    <a href="shopify-order-management-automation.html" class="topic" style="--topic-size:2.0rem;">Shopify&nbsp;order&nbsp;management&nbsp;automation</a>
+    <a href="shopify-inventory-automation.html" class="topic" style="--topic-size:1.9rem;">Shopify&nbsp;inventory&nbsp;automation</a>
+    <a href="shopify-shipping-and-fulfillment-automation.html" class="topic" style="--topic-size:1.9rem;">Shopify&nbsp;shipping&nbsp;and&nbsp;fulfillment&nbsp;automation</a>
+    <a href="shopify-returns-and-refunds-automation.html" class="topic" style="--topic-size:1.6rem;">Shopify&nbsp;returns&nbsp;and&nbsp;refunds&nbsp;automation</a>
+    <a href="shopify-fraud-and-risk-automation.html" class="topic" style="--topic-size:1.6rem;">Shopify&nbsp;fraud&nbsp;and&nbsp;risk&nbsp;automation</a>
+    <a href="shopify-discounts-and-promotions-automation.html" class="topic" style="--topic-size:1.6rem;">Shopify&nbsp;discounts&nbsp;and&nbsp;promotions&nbsp;automation</a>
+    <a href="shopify-customer-and-wholesale-automation.html" class="topic" style="--topic-size:1.5rem;">Shopify&nbsp;customer&nbsp;and&nbsp;wholesale&nbsp;automation</a>
+    <a href="shopify-catalog-and-storefront-operations.html" class="topic" style="--topic-size:1.5rem;">Shopify&nbsp;catalog&nbsp;and&nbsp;storefront&nbsp;operations</a>
+  </div>
+  <a href="#latest" class="archive-more">or browse every dispatch &darr;</a>
+</section>
+
 <section class="topics" id="tags">
   <div class="section-head">
     <span class="section-eyebrow">◆ BROWSE BY TOPIC</span>
@@ -4112,6 +4266,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   </div>
   <div class="topic-cloud">
     <a href="best-shopify-automations-to-set-up.html" class="topic" style="--topic-size:2.4rem;">shopify</a>
+    <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="topic" style="--topic-size:2.3rem;">shipping&nbsp;label&nbsp;adjustments</a>
+    <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="topic" style="--topic-size:1.4rem;">dimensional&nbsp;weight</a>
+    <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="topic" style="--topic-size:1.2rem;">carrier&nbsp;billing&nbsp;disputes</a>
+    <a href="how-to-fix-shopify-committed-inventory-that-never-clears.html" class="topic" style="--topic-size:1.8rem;">committed&nbsp;inventory</a>
+    <a href="how-to-fix-shopify-committed-inventory-that-never-clears.html" class="topic" style="--topic-size:1.4rem;">sold&nbsp;out&nbsp;with&nbsp;stock</a>
+    <a href="how-to-fix-shopify-committed-inventory-that-never-clears.html" class="topic" style="--topic-size:1.2rem;">available&nbsp;vs&nbsp;on&nbsp;hand</a>
     <a href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" class="topic" style="--topic-size:2.3rem;">quiet&nbsp;returns</a>
     <a href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" class="topic" style="--topic-size:1.4rem;">return&nbsp;never&nbsp;shipped</a>
     <a href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" class="topic" style="--topic-size:1.2rem;">closing&nbsp;open&nbsp;returns</a>
@@ -4442,9 +4602,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   <div class="article-meta">
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH Nº 47</span>
-    <span style="color: var(--line-2);">·</span>
+    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span>
     <time datetime="2026-05-28" style="color: var(--cream-dim);">MAY 28, 2026</time>
-    <span style="color: var(--line-2);">·</span>
+    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span>
     <span style="color: var(--cream-dim);">4 MIN READ</span>
   </div>
 
@@ -4462,7 +4622,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--sand);">AR</span>
     <span class="byline-name">Aanya Rao</span>
-    <span class="byline-divider">·</span>
+    <span class="byline-divider" aria-hidden="true">·</span>
     <span class="byline-role">Head of Research, Dugong</span>
   </div>
 

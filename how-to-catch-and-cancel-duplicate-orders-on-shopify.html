@@ -46,12 +46,15 @@
       "@type": "BlogPosting",
       "@id": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#article",
       "isPartOf": {
-        "@id": "https://blog.dugong.live/#blog"
+        "@type": "Blog",
+        "@id": "https://blog.dugong.live/#blog",
+        "name": "Dugong Field Notes",
+        "url": "https://blog.dugong.live/"
       },
       "mainEntityOfPage": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html",
       "headline": "How to catch and cancel duplicate orders on Shopify automatically",
-      "description": "Two identical orders land in the admin four minutes apart: same items, same quantities, same address, same card. Somebody double-clicked the pay button on a slow checkout, or retried after a card error that had actually gone through, and now one customer has paid twice for one box. Shopify offers no help at any point in this story. There is no duplicate order detection anywhere in the admin, so nothing warns you the two orders match. Orders cannot be deleted, only canceled and refunded, and payment processing fees are generally not returned on refunds, so even the cleanest catch costs money. Shopify Flow cannot make the catch at all: the Order created trigger hands the workflow one order in isolation, and its conditions cannot look sideways at the customer's other recent orders to compare line items, which is exactly the comparison a duplicate requires. If nobody notices in time, the warehouse or 3PL fulfills both copies and two boxes ship, and if the customer notices the double charge before you do, the second order comes back as a chargeback instead of a refund. The AI playbook that looks back at the customer's recent orders on every new order, compares whole orders instead of single fields, judges duplicate or deliberate from the pattern, cancels the unfulfilled copy before the label prints and restocks it, tells the customer plainly before they find the double charge, and holds the genuinely ambiguous case for a human instead of guessing.",
+      "description": "Two identical orders land in the admin four minutes apart: same items, same quantities, same address, same card. Somebody double-clicked the pay button on a slow checkout, or retried after a card error that had actually gone through, and now one customer has paid twice for one box. Shopify offers no help at any point in this story. There is no duplicate order detection anywhere in the admin, so nothing warns you the two orders match. Orders cannot be deleted, only cancelled and refunded, and payment processing fees are generally not returned on refunds, so even the cleanest catch costs money. Shopify Flow cannot make the catch at all: the Order created trigger hands the workflow one order in isolation, and its conditions cannot look sideways at the customer's other recent orders to compare line items, which is exactly the comparison a duplicate requires. If nobody notices in time, the warehouse or 3PL fulfills both copies and two boxes ship, and if the customer notices the double charge before you do, the second order comes back as a chargeback instead of a refund. The AI playbook that looks back at the customer's recent orders on every new order, compares whole orders instead of single fields, judges duplicate or deliberate from the pattern, cancels the unfulfilled copy before the label prints and restocks it, tells the customer plainly before they find the double charge, and holds the genuinely ambiguous case for a human instead of guessing.",
       "datePublished": "2026-07-24",
       "dateModified": "2026-08-10",
       "articleSection": "Research",
@@ -141,6 +144,12 @@
         {
           "@type": "ListItem",
           "position": 2,
+          "name": "Shopify order management automation",
+          "item": "https://blog.dugong.live/shopify-order-management-automation.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
           "name": "The order your customer placed twice",
           "item": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html"
         }
@@ -183,7 +192,7 @@
         },
         {
           "@type": "Question",
-          "name": "Which of two duplicate orders should be canceled?",
+          "name": "Which of two duplicate orders should be cancelled?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "The unfulfilled copy, and when both are unfulfilled, the later one, so the order number in the customer's confirmation email stays true. Speed decides how clean this is: a 3PL pulls new orders on a schedule measured in minutes, so the catch has to run at order creation and cancel before the label prints; once a copy has been picked, the honest move is flagging it for intercept, not pretending. The cleanup is more than the cancellation: refund the copy, restock its units, file the reason so reporting stays legible, and tag both orders so support sees the whole story when the confused email arrives. Then tell the customer before their bank does, because a double charge discovered on a statement from a silent store is how an accident becomes a dispute. And three duplicates in one week is a checkout bug, not three clumsy customers."
@@ -195,7 +204,7 @@
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#howto",
       "name": "The order your customer placed twice",
-      "description": "The AI playbook that catches accidental duplicate orders on Shopify: looking back at the customer's recent orders on every new order, comparing whole orders instead of single fields, judging duplicate or deliberate from the pattern, canceling the unfulfilled copy before the label prints and restocking, telling the customer before they find the double charge, and holding the ambiguous case for a human.",
+      "description": "The AI playbook that catches accidental duplicate orders on Shopify: looking back at the customer's recent orders on every new order, comparing whole orders instead of single fields, judging duplicate or deliberate from the pattern, cancelling the unfulfilled copy before the label prints and restocking, telling the customer before they find the double charge, and holding the ambiguous case for a human.",
       "inLanguage": "en",
       "totalTime": "PT10M",
       "step": [
@@ -231,7 +240,7 @@
           "@type": "HowToStep",
           "position": 5,
           "name": "Tell the customer before they find the charge",
-          "text": "Send a plain email that says what happened, what was canceled, and when the refund lands, before the statement does",
+          "text": "Send a plain email that says what happened, what was cancelled, and when the refund lands, before the statement does",
           "url": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#playbook"
         },
         {
@@ -251,7 +260,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
 <style>
 /* =========================================================
-   DUGONG FIELD NOTES — matches dugong.live
+   DUGONG FIELD NOTES - matches dugong.live
    Lime + warm off-white · Hanken Grotesk / Inter · easy to read
    ========================================================= */
 
@@ -304,7 +313,7 @@ body {
 }
 ::selection { background: var(--lime); color: #11110e; }
 
-/* atmospheric background — lime glow + faint grid (from dugong.live) */
+/* atmospheric background - lime glow + faint grid (from dugong.live) */
 body::before {
   content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
   background:
@@ -393,6 +402,11 @@ em { font-style: italic; }
   .nav-cta { font-size: 11.5px; padding: 7px 10px; }
 }
 
+/* QA 2026-10-12: 24px minimum tap target for the standalone topic-guide link */
+@media (max-width: 560px) {
+  .hub-more { padding-top: 5px; padding-bottom: 5px; }
+}
+
 /* SECTION HEAD */
 .section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
 .section-eyebrow {
@@ -455,7 +469,7 @@ em { font-style: italic; }
 .article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
 .byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
 .byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
-.byline-divider { color: var(--border-strong); }
+.byline-divider { color: rgba(15,15,12,.45); } /* QA 2026-10-12 */
 .byline-role { color: var(--text-faint); }
 
 .article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
@@ -503,7 +517,7 @@ em { font-style: italic; }
 .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
 @media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
 
-/* ---- CTA band (to dugong.live) — mirrors the site's final card ---- */
+/* ---- CTA band (to dugong.live) - mirrors the site's final card ---- */
 .cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
 .cta-band-inner {
   display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
@@ -579,6 +593,22 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .nav-cta { font-size: 12px; padding: 7px 9px; }
 }
 </style>
+
+<style>
+/* SEO 2026-10-12 topic guide link */
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+</style>
+
+<style>
+/* SEO 2026-10-12 long inline code must break rather than widen the page */
+.article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  /* decorative separators strand at the end of a wrapped line on phones */
+  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta { column-gap: 1rem; }
+}
+</style>
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -617,11 +647,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 90</span>
-    <span style="color: var(--line-2);">&middot;</span>
+    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
     <time datetime="2026-07-24" style="color: var(--cream-dim);">JUL 24, 2026</time>
-    <span style="color: var(--line-2);">&middot;</span>
+    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
     <span style="color: var(--cream-dim);">10 MIN READ</span>
-    <span style="color: var(--line-2);">&middot;</span>
+    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
     <time datetime="2026-08-10" style="color: var(--cream-dim);">UPDATED AUG 10, 2026</time>
   </div>
 
@@ -641,7 +671,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
     <span class="byline-name">Priya Singh</span>
-    <span class="byline-divider">&middot;</span>
+    <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
 
@@ -691,8 +721,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     <p>
       Then the cleanup, which is worse than it sounds. Orders cannot be
-      deleted in Shopify, only canceled, so the accident lives in your
-      reports either way. Canceling means refunding, and payment processing
+      deleted in Shopify, only cancelled, so the accident lives in your
+      reports either way. Cancelling means refunding, and payment processing
       fees are generally not returned on refunds, so the cleanest possible
       outcome of a duplicate still costs you the fees on a sale that never
       existed. That is the same quiet tax that makes <a
@@ -763,7 +793,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       minutes after the first because they forgot an item, and that person
       wants both orders, ideally <a
       href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html">combined
-      into one shipment</a> rather than either canceled. Cancel a deliberate
+      into one shipment</a> rather than either cancelled. Cancel a deliberate
       order on a hunch and you have refunded revenue, confused a customer
       mid-experience, and taught your team to distrust the process. The
       manual scan swings between missing true duplicates at speed and
@@ -810,10 +840,10 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       warehouse to the label, and when the copy has already been picked,
       flagging it for intercept instead of pretending. <a
       href="how-to-automatically-tag-orders-on-shopify.html">Tagging the
-      canceled copy and the survivor</a> so support sees the whole story
+      cancelled copy and the survivor</a> so support sees the whole story
       before answering the confused email. Writing the note that turns the
       accident into a good story: you appear to have been charged twice, we
-      canceled the extra order, your refund is on its way, your real order
+      cancelled the extra order, your refund is on its way, your real order
       ships tomorrow. And noticing the meta-pattern a human would miss,
       because three duplicates in one week is not three clumsy customers, it
       is a checkout bug wearing customer clothing, and the playbook should
@@ -836,7 +866,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <h2>Why this is a compiler problem, not an app problem</h2>
 
     <p>
-      The mechanical part of this, canceling and refunding an order, is one
+      The mechanical part of this, cancelling and refunding an order, is one
       API call, and it was never the hard part. The hard part is the
       decision attached to the call: are these two orders one intention or
       two; which copy dies and which survives; is this cancellation safe to
@@ -855,7 +885,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html">the
       second order that arrives before the first ships</a>, the mirror-image
       case where both orders are wanted and the right move is merging boxes
-      instead of canceling one. The identity questions underneath are the
+      instead of cancelling one. The identity questions underneath are the
       same ones that power <a
       href="how-to-merge-duplicate-customer-profiles-on-shopify.html">merging
       the customer Shopify counts three times</a>. The race against the
@@ -976,7 +1006,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <p class="faq-a">Read the whole pattern, not one field. An identical cart, the same items, quantities, total, address, and card, placed minutes apart with a card error sitting in the payment log between the two attempts, is a misfire. The same product ordered again next week is a fan restocking. A second order twenty minutes later with one new item is a customer who forgot something and wants both, ideally combined into one shipment, and the same gift box sent twice to the same address can be exactly what a gift buyer intended. This is why the tempting rule, auto-cancel any repeated SKU within 24 hours, eventually refunds a real sale: a rule cannot ask what the customer meant. The safe design judges the identical-cart-minutes-apart cases confidently, and for the orders that rhyme without matching, pauses fulfillment briefly and asks the customer instead of guessing.</p>
     </div>
     <div class="faq-item">
-      <h2 class="faq-q">Which of two duplicate orders should be canceled?</h2>
+      <h2 class="faq-q">Which of two duplicate orders should be cancelled?</h2>
       <p class="faq-a">The unfulfilled copy, and when both are unfulfilled, the later one, so the order number in the customer's confirmation email stays true. Speed decides how clean this is: a 3PL pulls new orders on a schedule measured in minutes, so the catch has to run at order creation and cancel before the label prints; once a copy has been picked, the honest move is flagging it for intercept, not pretending. The cleanup is more than the cancellation: refund the copy, restock its units, file the reason so reporting stays legible, and tag both orders so support sees the whole story when the confused email arrives. Then tell the customer before their bank does, because a double charge discovered on a statement from a silent store is how an accident becomes a dispute. And three duplicates in one week is a checkout bug, not three clumsy customers.</p>
     </div>
   </div>
@@ -988,6 +1018,38 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping charge that lands three weeks later</h3>
+        <p class="card-dek">
+          Carriers re-measure your parcel and bill the difference weeks later, with no report, no Flow trigger and no API field anywhere. The AI playbook that finds every adjustment, disputes it in time, and fixes the box.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 13</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-shopify-committed-inventory-that-never-clears.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <p class="card-dek">
+          There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 12</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1734,6 +1796,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </div>
     </a>
   </div>
+  <a href="shopify-order-management-automation.html" class="hub-more">more on shopify order management automation &rarr;</a>
 </section>
 
 <footer class="foot">

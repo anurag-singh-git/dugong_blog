@@ -46,7 +46,10 @@
       "@type": "BlogPosting",
       "@id": "https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html#article",
       "isPartOf": {
-        "@id": "https://blog.dugong.live/#blog"
+        "@type": "Blog",
+        "@id": "https://blog.dugong.live/#blog",
+        "name": "Dugong Field Notes",
+        "url": "https://blog.dugong.live/"
       },
       "mainEntityOfPage": "https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html",
@@ -131,6 +134,12 @@
         {
           "@type": "ListItem",
           "position": 2,
+          "name": "Shopify shipping and fulfillment automation",
+          "item": "https://blog.dugong.live/shopify-shipping-and-fulfillment-automation.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
           "name": "The bad address that ships anyway",
           "item": "https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html"
         }
@@ -241,7 +250,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
 <style>
 /* =========================================================
-   DUGONG FIELD NOTES — matches dugong.live
+   DUGONG FIELD NOTES - matches dugong.live
    Lime + warm off-white · Hanken Grotesk / Inter · easy to read
    ========================================================= */
 
@@ -294,7 +303,7 @@ body {
 }
 ::selection { background: var(--lime); color: #11110e; }
 
-/* atmospheric background — lime glow + faint grid (from dugong.live) */
+/* atmospheric background - lime glow + faint grid (from dugong.live) */
 body::before {
   content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
   background:
@@ -383,6 +392,11 @@ em { font-style: italic; }
   .nav-cta { font-size: 11.5px; padding: 7px 10px; }
 }
 
+/* QA 2026-10-12: 24px minimum tap target for the standalone topic-guide link */
+@media (max-width: 560px) {
+  .hub-more { padding-top: 5px; padding-bottom: 5px; }
+}
+
 /* SECTION HEAD */
 .section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
 .section-eyebrow {
@@ -445,7 +459,7 @@ em { font-style: italic; }
 .article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
 .byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
 .byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
-.byline-divider { color: var(--border-strong); }
+.byline-divider { color: rgba(15,15,12,.45); } /* QA 2026-10-12 */
 .byline-role { color: var(--text-faint); }
 
 .article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
@@ -493,7 +507,7 @@ em { font-style: italic; }
 .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
 @media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
 
-/* ---- CTA band (to dugong.live) — mirrors the site's final card ---- */
+/* ---- CTA band (to dugong.live) - mirrors the site's final card ---- */
 .cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
 .cta-band-inner {
   display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
@@ -569,6 +583,22 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .nav-cta { font-size: 12px; padding: 7px 9px; }
 }
 </style>
+
+<style>
+/* SEO 2026-10-12 topic guide link */
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+</style>
+
+<style>
+/* SEO 2026-10-12 long inline code must break rather than widen the page */
+.article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  /* decorative separators strand at the end of a wrapped line on phones */
+  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta { column-gap: 1rem; }
+}
+</style>
 </head>
 <body>
 
@@ -609,11 +639,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH Nº 52</span>
-    <span style="color: var(--line-2);">·</span>
+    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span>
     <time datetime="2026-06-06" style="color: var(--cream-dim);">JUN 6, 2026</time>
-    <span style="color: var(--line-2);">·</span>
+    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span>
     <span style="color: var(--cream-dim);">7 MIN READ</span>
-    <span style="color: var(--line-2);">&middot;</span>
+    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
     <time datetime="2026-08-10" style="color: var(--cream-dim);">UPDATED AUG 10, 2026</time>
   </div>
 
@@ -630,7 +660,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
     <span class="byline-name">Priya Singh</span>
-    <span class="byline-divider">·</span>
+    <span class="byline-divider" aria-hidden="true">·</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
 
@@ -936,6 +966,38 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping charge that lands three weeks later</h3>
+        <p class="card-dek">
+          Carriers re-measure your parcel and bill the difference weeks later, with no report, no Flow trigger and no API field anywhere. The AI playbook that finds every adjustment, disputes it in time, and fixes the box.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 13</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-shopify-committed-inventory-that-never-clears.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <p class="card-dek">
+          There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 12</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -2188,6 +2250,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <span class="cta-fine">free &middot; no credit card required</span>
     </div>
   </div>
+  <a href="shopify-shipping-and-fulfillment-automation.html" class="hub-more">more on shopify shipping and fulfillment automation &rarr;</a>
 </section>
 
 <footer class="foot">

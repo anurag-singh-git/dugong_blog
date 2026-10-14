@@ -46,7 +46,10 @@
       "@type": "BlogPosting",
       "@id": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html#article",
       "isPartOf": {
-        "@id": "https://blog.dugong.live/#blog"
+        "@type": "Blog",
+        "@id": "https://blog.dugong.live/#blog",
+        "name": "Dugong Field Notes",
+        "url": "https://blog.dugong.live/"
       },
       "mainEntityOfPage": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html",
       "url": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html",
@@ -166,6 +169,12 @@
         {
           "@type": "ListItem",
           "position": 2,
+          "name": "Shopify returns and refunds automation",
+          "item": "https://blog.dugong.live/shopify-returns-and-refunds-automation.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
           "name": "The refund you gave for nothing",
           "item": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html"
         }
@@ -211,7 +220,7 @@
           "name": "Can AI handle Shopify returns that never come back?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "This is a good fit, because the work is classification and writing rather than arithmetic. Three silences look identical in the admin: the customer never shipped, the parcel shipped and is lost, and the parcel arrived and is sitting unopened in your receiving area. A model can separate them by reading the carrier scan history, the inbound parcel log and the receiving photos, and it can match an unlabelled box with no paperwork to the one open return whose items and address fit. It can then write the three messages that actually recover the item, each one with the real deadline in it, and escalate only the decisions worth a human. It can also see the pattern nobody has time to look for: the same buyer, or the same address under three names, opening returns that never ship. Keep two things human. The write off threshold, because that is a margin call. And the first accusation of abuse, because being wrong about that costs more than the item."
+            "text": "This is a good fit, because the work is classification and writing rather than arithmetic. Three silences look identical in the admin: the customer never shipped, the parcel shipped and is lost, and the parcel arrived and is sitting unopened in your receiving area. A model can separate them by reading the carrier scan history, the inbound parcel log and the receiving photos, and it can match an unlabeled box with no paperwork to the one open return whose items and address fit. It can then write the three messages that actually recover the item, each one with the real deadline in it, and escalate only the decisions worth a human. It can also see the pattern nobody has time to look for: the same buyer, or the same address under three names, opening returns that never ship. Keep two things human. The write off threshold, because that is a margin call. And the first accusation of abuse, because being wrong about that costs more than the item."
           }
         }
       ]
@@ -285,6 +294,9 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
 <style>
 /* =========================================================
    DUGONG FIELD NOTES - matches dugong.live
@@ -429,6 +441,11 @@ em { font-style: italic; }
   .nav-cta { font-size: 11.5px; padding: 7px 10px; }
 }
 
+/* QA 2026-10-12: 24px minimum tap target for the standalone topic-guide link */
+@media (max-width: 560px) {
+  .hub-more { padding-top: 5px; padding-bottom: 5px; }
+}
+
 /* SECTION HEAD */
 .section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
 .section-eyebrow {
@@ -491,7 +508,7 @@ em { font-style: italic; }
 .article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
 .byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
 .byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
-.byline-divider { color: var(--border-strong); }
+.byline-divider { color: rgba(15,15,12,.45); } /* QA 2026-10-12 */
 .byline-role { color: var(--text-faint); }
 
 .article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
@@ -614,7 +631,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 @media (max-width: 360px) {
   .nav-cta { font-size: 12px; padding: 7px 9px; }
 }
-</style></head>
+</style>
+<style>
+/* SEO 2026-10-12 topic guide link */
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+</style>
+
+<style>
+/* SEO 2026-10-12 long inline code must break rather than widen the page */
+.article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  /* decorative separators strand at the end of a wrapped line on phones */
+  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta { column-gap: 1rem; }
+}
+</style>
+</head>
 <body>
 <div class="grain" aria-hidden="true"></div>
 
@@ -652,9 +685,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="article-meta">
     <span class="tag tag-research">research</span>
     <span style="color: var(--cream-dim);">DISPATCH N&ordm; 124</span>
-    <span style="color: var(--line-2);">&middot;</span>
+    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
     <time datetime="2026-10-11" style="color: var(--cream-dim);">OCT 11, 2026</time>
-    <span style="color: var(--line-2);">&middot;</span>
+    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
     <span style="color: var(--cream-dim);">8 MIN READ</span>
   </div>
 
@@ -669,7 +702,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
     <span class="byline-name">Priya Singh</span>
-    <span class="byline-divider">&middot;</span>
+    <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
 
@@ -859,7 +892,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <strong>Inventory you are still counting.</strong> Returns
       do not restock until you process them. Every open return is
       a unit your forecast believes is coming back, which means
-      your reorder maths is running on stock that does not exist.
+      your reorder math is running on stock that does not exist.
       Thirty open returns on a seasonal line is a purchase order
       you did not raise.
     </p>
@@ -992,7 +1025,7 @@ the receiving bench
     </p>
 
     <p>
-      <strong>Matching the orphan box.</strong> An unlabelled
+      <strong>Matching the orphan box.</strong> An unlabeled
       parcel with a hoodie in it and a handwritten note. One open
       return in your list is for that variant, to that
       postcode, opened eleven days ago. That match is obvious to
@@ -1092,7 +1125,7 @@ the receiving bench
     </div>
     <div class="faq-item">
       <h2 class="faq-q">Can AI handle Shopify returns that never come back?</h2>
-      <p class="faq-a">This is a good fit, because the work is classification and writing rather than arithmetic. Three silences look identical in the admin: the customer never shipped, the parcel shipped and is lost, and the parcel arrived and is sitting unopened in your receiving area. A model can separate them by reading carrier scan history, the inbound parcel log and the receiving photos, and it can match an unlabelled box with no paperwork to the one open return whose items and address fit. It can then write the three messages that actually recover the item, each with the real deadline in it, and escalate only the decisions worth a human. It can also see the pattern nobody has time to look for: the same buyer, or the same address under three names, opening returns that never ship. Keep two things human. The write off threshold, because that is a margin call. And the first accusation of abuse, because being wrong about that costs more than the item.</p>
+      <p class="faq-a">This is a good fit, because the work is classification and writing rather than arithmetic. Three silences look identical in the admin: the customer never shipped, the parcel shipped and is lost, and the parcel arrived and is sitting unopened in your receiving area. A model can separate them by reading carrier scan history, the inbound parcel log and the receiving photos, and it can match an unlabeled box with no paperwork to the one open return whose items and address fit. It can then write the three messages that actually recover the item, each with the real deadline in it, and escalate only the decisions worth a human. It can also see the pattern nobody has time to look for: the same buyer, or the same address under three names, opening returns that never ship. Keep two things human. The write off threshold, because that is a margin call. And the first accusation of abuse, because being wrong about that costs more than the item.</p>
     </div>
   </div>
 </section>
@@ -1103,6 +1136,38 @@ the receiving bench
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping charge that lands three weeks later</h3>
+        <p class="card-dek">
+          Carriers re-measure your parcel and bill the difference weeks later, with no report, no Flow trigger and no API field anywhere. The AI playbook that finds every adjustment, disputes it in time, and fixes the box.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 13</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-shopify-committed-inventory-that-never-clears.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <p class="card-dek">
+          There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 12</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-automatically-restock-returns-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1152,6 +1217,7 @@ the receiving bench
       </div>
     </a>
   </div>
+  <a href="shopify-returns-and-refunds-automation.html" class="hub-more">more on shopify returns and refunds automation &rarr;</a>
 </section>
 <footer class="foot">
   <div class="foot-top">

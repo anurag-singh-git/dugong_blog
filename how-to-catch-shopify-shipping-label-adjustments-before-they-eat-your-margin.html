@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to catch Shopify shipping label adjustments early</title>
+<meta name="description" content="Carriers re-measure your parcel and bill the difference weeks later. The AI playbook that finds each Shopify label adjustment, disputes it in time and fixes the box." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="shopify shipping label adjustment, shipping label price adjustment, why did shopify charge me extra for shipping, usps label price adjustment, dispute shipping label adjustment shopify, shopify label adjustment report, ups shipping label adjustments, dimensional weight shopify, shopify shipping label cost api, usps dim divisor 139, shopify label adjustment timeline, Dugong" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &middot; RSS" href="/feed.xml" />
+<meta property="article:published_time" content="2026-10-13" />
+<meta property="article:modified_time" content="2026-10-13" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to catch Shopify shipping label adjustments before they eat your margin" />
+<meta property="og:description" content="Carriers re-measure your parcel and bill the difference weeks later. The AI playbook that finds each Shopify label adjustment, disputes it in time and fixes the box." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to catch Shopify shipping label adjustments before they eat your margin" />
+<meta name="twitter:description" content="Carriers re-measure your parcel and bill the difference weeks later. The AI playbook that finds each Shopify label adjustment, disputes it in time and fixes the box." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+<meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#article",
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://blog.dugong.live/#blog",
+        "name": "Dugong Field Notes",
+        "url": "https://blog.dugong.live/"
+      },
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html",
+      "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html",
+      "headline": "How to catch Shopify shipping label adjustments before they eat your margin",
+      "description": "The label cost 8 dollars and 40 cents. Three weeks later the carrier re-measured the box and Shopify billed you 22. The adjustment is written into one order's timeline, the charge arrives aggregated on your bill, there is no report, no Flow trigger and no API field, and the dispute window is both short and unpublished. The AI playbook that finds every adjustment, names which of six causes produced it, disputes the carrier errors in time, and fixes the preset so the same parcel is not adjusted twice.",
+      "datePublished": "2026-10-13",
+      "dateModified": "2026-10-13",
+      "articleSection": "Research",
+      "keywords": "shopify shipping label adjustment, shipping label price adjustment, usps label price adjustment, dispute shipping label adjustment shopify, dimensional weight shopify, usps dim divisor 139, shopify shipping label cost api, ups shipping label adjustments",
+      "wordCount": 2277,
+      "timeRequired": "PT8M",
+      "inLanguage": "en",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Dimensional weight",
+          "sameAs": "https://en.wikipedia.org/wiki/Dimensional_weight"
+        },
+        {
+          "@type": "Thing",
+          "name": "Freight audit",
+          "sameAs": "https://en.wikipedia.org/wiki/Freight_audit"
+        },
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://blog.dugong.live/#priya-singh",
+        "name": "Priya Singh",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shipping label billing, taxes and price adjustments",
+          "url": "https://help.shopify.com/en/manual/fulfillment/fulfilling-orders/shipping-labels/billing-and-taxes"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Shipping label price adjustments out of control",
+          "url": "https://community.shopify.com/t/shipping-label-price-adjustments-out-of-control/166705"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Experiencing unusual USPS label price adjustments",
+          "url": "https://community.shopify.com/t/experiencing-unusual-usps-label-price-adjustments/230247"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Incorrect UPS shipping label adjustments disputes",
+          "url": "https://community.shopify.com/t/incorrect-ups-shipping-label-adjustments-disputes/403852"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | The weight I was charged extra for was correct",
+          "url": "https://community.shopify.com/t/the-weight-i-was-charged-extra-for-was-correct/629526"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | 8x overcharge, Shopify billing refuses to dispute a 202.21 pound FedEx fee",
+          "url": "https://community.shopify.com/t/8x-overcharge-shopify-billing-refuses-to-dispute-absurd-202-21-fedex-fee/657677"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Request, expose shipping label cost per order via Admin GraphQL API",
+          "url": "https://community.shopify.com/t/request-expose-shipping-label-cost-per-order-via-admin-graphql-api/636585"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Cannot assign different packages to different products",
+          "url": "https://community.shopify.com/t/so-whats-up-with-not-being-able-to-assign-different-packages-to-different-products-workarounds/384072"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Ship.com | New USPS dimensional weight rules, July 2026",
+          "url": "https://www.ship.com/post/usps-dimensional-weight-rules-2026"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shopify shipping and fulfillment automation",
+          "item": "https://blog.dugong.live/shopify-shipping-and-fulfillment-automation.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The shipping charge that lands three weeks later",
+          "item": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why did Shopify charge me extra after I already paid for a shipping label?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because the price you paid was only a quote based on what you told the carrier. Shopify's own billing documentation says that after you ship, the shipping carrier verifies the correct label price, and if the information you entered was inaccurate the carrier debits or credits the difference. The parcel usually gets delivered anyway, so there is no delivery failure to warn you. The adjustment and the carrier's stated reason appear in that order's timeline, and the money appears on your next Shopify bill, which is why the two halves of the story almost never meet. Common triggers are a declared weight or set of dimensions that do not match what the carrier measured, the wrong mail class or package type, a flat rate used on a parcel that should have been weight based, and carrier fees for address correction, residential delivery, package preparation or return to sender. Over maximum limit fees are the extreme case: Shopify's page notes a UPS package over 150 pounds can incur more than 875 US dollars."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get a report of all my Shopify shipping label adjustments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not natively, and this is the gap merchants keep running into. Each adjustment is written into one order's timeline. There is no adjustments page, no filter on the orders list, no export column and no notification, so the only way to find them by hand is to open orders one at a time and read to the bottom. The billed total is the inverse problem: it arrives aggregated on your Shopify bill, where it is a figure without order numbers attached. A merchant on the UPS adjustments thread in November 2025 said exactly this, that he was looking for a report that would make future disputes easier, after some of his adjustments had already passed the dispute window. The API does not close the gap either. A developer requested a labelCost or shippingLabelCost field on the Fulfillment or Order object in the Admin GraphQL API on 12 June 2026 and noted that the only workaround is shopifyPaymentsAccount.balanceTransactions, which requires Shopify Payments. A second request for the same field followed. Neither has a staff answer. So any report you want, you build."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long do I have to dispute a Shopify shipping label adjustment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nobody will give you a number, which is the practical problem. Shopify's billing page says only that dispute timelines vary by carrier and warns that delayed disputes might not be eligible for review. Merchants on the July 2023 adjustment thread were working to a 60 day window. Carriers set their own, they are not published in your admin, and the clock starts when the adjustment is raised rather than when you notice it. Treat it as short and unknown. The working rule is to get the dispute out within three days of the adjustment appearing, because every day you spend finding it is a day off a deadline you cannot see. The evidence Shopify asks for is the adjustment reason from the order timeline, the actual weight and dimensions, photographs of the sealed parcel next to a measuring tape, a photograph of it on a scale for weight disputes, and the tracking number. Gather that at pack time, not at dispute time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why did my USPS label adjustments suddenly increase in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because the dimensional weight math changed on 12 July 2026, and nothing about your packing had to change for your bills to. USPS moved its dimensional divisor from 166 to 139, and it now rounds every fractional inch up rather than to the nearest inch. Dimensional pricing applies to parcels larger than one cubic foot, which is 1,728 cubic inches; anything at or under that is still billed on actual weight. Base rates did not move on that date, so the whole effect is in the billable weight. The divisor change alone lifts billable weight by roughly 19 percent, and the round-up rule adds more on any box with fractional dimensions, since a parcel measuring 12.1 by 10.4 by 6.2 inches is now priced as 13 by 11 by 7. If your presets were approximately right before, they are systematically low now, and the difference comes back to you as adjustments rather than as a higher quote at label purchase."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Shopify Flow alert me when a shipping label is adjusted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Flow has a deep bench on fulfillment, including fulfillment created, fulfillment event created for carrier tracking updates, fulfillment order placed on hold, holds released, moved, split, merged, cancelled and rescheduled, plus order created, paid, fulfilled, cancelled and transaction created. None of them is about labels or label prices. There is no label purchased trigger, no label adjusted trigger and no shipping cost changed trigger, so there is nothing for a workflow to listen to. The closest native signal is the order timeline entry, which Flow cannot read. That leaves two routes. If you are on Shopify Payments, poll shopifyPaymentsAccount.balanceTransactions on a schedule and match shipping label charges back to orders yourself. Otherwise, watch the order timeline directly for the adjustment entries and the carrier reasons, which is the route that also gives you the reason text you need for a dispute."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can AI handle Shopify shipping label adjustments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It suits this one well, because the work is reading and attribution rather than arithmetic. The amount is the easy part. The hard part is that the adjustment is prose in a timeline, the carrier reason codes are inconsistent between USPS, UPS, FedEx and DHL, and the same charge can mean six different things that each need a different response: a package preset that was never right, a variant weight somebody guessed in year one, a box with fractional dimensions now rounding up, the wrong service or package type on the label, a legitimate surcharge like address correction or residential delivery, and a genuine carrier measurement error. A model can read the entry, name which of the six it is, attribute it to the SKU and the preset that produced the label rather than to the order, and assemble the dispute packet while the window is still open. Keep two things human. Anything that changes what customers pay, because a shipping rate is a pricing decision. And accepting a repeated adjustment as the new true cost of shipping a product, because that is a margin decision and it belongs to whoever owns the margin."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#howto",
+      "name": "The shipping charge that lands three weeks later",
+      "description": "The AI playbook for Shopify shipping label price adjustments: reading the adjustment out of every order timeline, attributing it to the SKU and package preset that caused it, classifying which of six causes produced it, disputing carrier errors before the unpublished window closes, and repricing the true cost to serve.",
+      "inLanguage": "en",
+      "totalTime": "PT8M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Read every timeline",
+          "text": "Pull the order timeline on every order with a label and extract the adjustment entries and carrier reasons",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Normalise the entry",
+          "text": "Record order, SKUs, carrier, service, declared versus billed weight and dimensions, reason, amount and date",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Attribute to the source",
+          "text": "Tie each adjustment to the SKU and the package preset that produced the label, not just to the order",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Classify the cause",
+          "text": "Preset wrong, weight wrong, fractional round-up, wrong service, legitimate surcharge, or carrier error",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Dispute inside three days",
+          "text": "File carrier errors immediately with the reason, actual measurements, scale and tape photographs and tracking",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Fix what produced it",
+          "text": "Correct the preset, the variant weight, the box choice or the service rule so the same parcel is not adjusted twice",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Reprice the true cost",
+          "text": "Feed measured label cost per SKU back into your shipping rates and free shipping thresholds",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Alert on repeats",
+          "text": "Flag any SKU adjusted twice, and any single adjustment above your absorb threshold, the day it lands",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#playbook"
+        }
+      ]
+    }
+  ]
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES - matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #71716a;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background - lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0 var(--gutter); min-height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; min-width: 0; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  white-space: nowrap; flex-shrink: 0;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+@media (max-width: 820px) { .nav-links a:not(.nav-cta) { display: none; } }
+@media (max-width: 480px) {
+  .brand-slash, .brand-section { display: none; }
+  .nav-cta { font-size: 12.5px; padding: 8px 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 11.5px; padding: 7px 10px; }
+}
+
+/* QA 2026-10-12: 24px minimum tap target for the standalone topic-guide link */
+@media (max-width: 560px) {
+  .hub-more { padding-top: 5px; padding-bottom: 5px; }
+}
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+/* GRID (for related cards) */
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 560px) { .foot-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; } }
+@media (max-width: 340px) { .foot-cols { grid-template-columns: 1fr; } }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+/* highlight wraps at every width: nowrap overflowed the text column on long phrases */
+.article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.article-title em::after { content: none; }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: rgba(15,15,12,.45); } /* QA 2026-10-12 */
+.byline-role { color: var(--text-faint); }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
+.article-body pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) - mirrors the site's final card ---- */
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+
+/* ACCESSIBILITY */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
+
+/* QA 2026-10-10: mobile tap targets + ticker legibility */
+@media (max-width: 560px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+  .foot-cols > div { gap: 0.1rem; }
+  .foot-cols a { padding: 0.45rem 0; }
+  .article-back { min-height: 40px; padding: 0.55rem 0; }
+  .pill { padding: 0.6rem 1rem; }
+  .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
+@media (max-width: 560px) {
+  .tag { font-size: 12px; letter-spacing: 0.05em; }
+  .post-meta { font-size: 12px; }
+  .post-read { font-size: 12px; }
+  .card-foot { font-size: 12px; }
+  .card-date, .card-author { font-size: 12px; }
+  .byline-avatar { font-size: 12px; }
+  .callout-mark { font-size: 12px; }
+  .cta-fine { font-size: 12px; }
+  .foot-h { font-size: 12px; }
+  .stat-label { font-size: 12px; }
+  .pb-status, .pb-tag, .pb-node-sub, .pb-branch-arm { font-size: 12px; }
+  .foot-bot, .foot-bot span, .foot-bot a { font-size: 12px; }
+  .art-coord { font-size: 12px; }
+  .signup-label { font-size: 12px; }
+  .signup-fine { font-size: 12px; }
+  .arch-date { font-size: 12px; }
+  .author-role { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 12px; padding: 7px 9px; }
+}
+</style>
+<style>
+/* SEO 2026-10-12 topic guide link */
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+</style>
+
+<style>
+/* SEO 2026-10-12 long inline code must break rather than widen the page */
+.article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+</style>
+
+<style>
+/* 2026-10-13 long API identifiers in FAQ answers must break rather than widen the page */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  /* decorative separators strand at the end of a wrapped line on phones */
+  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta { column-gap: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>&#9670; DISPATCH N&ordm; 126 &middot; OCT 13, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 8 MIN READ &middot; 2,277 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+    <span>&#9670; DISPATCH N&ordm; 126 &middot; OCT 13, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 8 MIN READ &middot; 2,277 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+  </nav>
+</header>
+<article class="article" role="main">
+
+  <a href="index.html" class="article-back">&larr; back to field notes</a>
+
+  <div class="article-meta">
+    <span class="tag tag-research">research</span>
+    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 126</span>
+    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
+    <time datetime="2026-10-13" style="color: var(--cream-dim);">OCT 13, 2026</time>
+    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
+    <span style="color: var(--cream-dim);">8 MIN READ</span>
+  </div>
+
+  <h1 class="article-title">
+    How to catch Shopify shipping label adjustments <em>before they eat your margin</em>
+  </h1>
+
+  <p class="article-dek">
+    You paid $8.40 for the label. Three weeks later the carrier re-measured the box, Shopify billed you $22, and the only record of it is one line buried in one order's timeline. Here is how to find every one of them, dispute the wrong ones while you still can, and stop paying twice for the same parcel.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name">Priya Singh</span>
+    <span class="byline-divider" aria-hidden="true">&middot;</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      The bill arrives before the explanation. Your Shopify
+      invoice is heavier than last month, the line that did it
+      says shipping label adjustments, and the figure comes with
+      no order numbers, no SKUs and no reasons attached. You paid
+      for those labels when you bought them. Now you are paying
+      again, and the invoice will not tell you for what.
+    </p>
+
+    <p>
+      Every one of those charges has a story, and every story is
+      sitting in a place you will never look: the timeline of a
+      single order you fulfilled and stopped thinking about weeks
+      ago.
+    </p>
+
+    <h2>What an adjustment actually is</h2>
+
+    <p>
+      The price you pay at label purchase is a quote based on
+      what you declared. Shopify's own billing documentation is
+      clear about what happens next: after you ship, the shipping
+      carrier verifies the correct label price. If the
+      information you entered was inaccurate, the carrier debits
+      or credits the difference.
+    </p>
+
+    <p>
+      Three details make this almost impossible to catch by hand.
+    </p>
+
+    <p>
+      <strong>It is late.</strong> The carrier measures when the
+      parcel passes through a hub, and the charge follows
+      whenever the carrier's billing gets to it. Shopify's page
+      notes that carrier processing times can delay the charge or
+      the credit. Days is normal. Weeks is common.
+    </p>
+
+    <p>
+      <strong>It is split in half.</strong> The adjustment and
+      the carrier's reason land in the order timeline. The money
+      lands on your next Shopify bill. One is per order and
+      unsearchable, the other is aggregated and anonymous, and
+      nothing joins them.
+    </p>
+
+    <p>
+      <strong>Nothing fails.</strong> The parcel is usually
+      delivered anyway. There is no exception, no held order and
+      no unhappy customer to make you look. The only symptom is a
+      number on an invoice, and invoices get approved.
+    </p>
+
+    <h2>Why your adjustments got worse in July</h2>
+
+    <p>
+      If your shipping costs drifted this summer and nobody could
+      say why, this is probably it. On 12 July 2026 USPS changed
+      how it calculates dimensional weight. The divisor moved
+      from 166 to 139, and measurements now round every
+      fractional inch up rather than to the nearest inch.
+      Dimensional pricing applies to parcels larger than one
+      cubic foot, which is 1,728 cubic inches. Anything at or
+      under that is still billed on actual weight.
+    </p>
+
+    <p>
+      Base rates did not move on that date, so the entire effect
+      landed in billable weight. The divisor change on its own
+      lifts billable weight by roughly 19 percent. The round-up
+      rule adds more: a parcel measuring 12.1 by 10.4 by 6.2
+      inches is now priced as 13 by 11 by 7. UPS and FedEx have
+      used 139 for years, so this was USPS closing a gap, not
+      opening one.
+    </p>
+
+    <p>
+      Nothing about your packing had to change for your bills to.
+      If your package presets were roughly right in June, they
+      are systematically low now, and the difference comes back
+      to you as adjustments rather than as a higher price at the
+      moment you buy the label.
+    </p>
+
+    <h2>Shopify cannot show you this, and that is documented</h2>
+
+    <p>
+      Here is the part that turns an accounting annoyance into an
+      automation problem.
+    </p>
+
+    <p>
+      <strong>There is no report.</strong> Each adjustment is
+      written into one order's timeline. There is no adjustments
+      page, no filter on the orders list, no export column and no
+      notification. Finding them by hand means opening orders one
+      at a time and reading to the bottom.
+    </p>
+
+    <p>
+      <strong>There is no Flow trigger.</strong> Flow has a deep
+      bench on fulfillment: fulfillment created, fulfillment
+      event created for carrier tracking updates, fulfillment
+      order placed on hold, holds released, moved, split, merged,
+      cancelled, rescheduled. Not one of them is about labels or
+      label prices. There is no label purchased trigger, no label
+      adjusted trigger and no shipping cost changed trigger, so
+      there is nothing for a workflow to listen to.
+    </p>
+
+    <p>
+      <strong>There is no API field.</strong> A developer asked
+      on 12 June 2026 for a <code>labelCost</code> or
+      <code>shippingLabelCost</code> field on the Fulfillment or
+      Order object in the Admin GraphQL API, and noted that the
+      only workaround is
+      <code>shopifyPaymentsAccount.balanceTransactions</code>,
+      which requires Shopify Payments. A second merchant filed
+      the same request. Neither has a staff reply.
+    </p>
+
+    <p>
+      So the cost of shipping an order, which is one of the four
+      or five numbers that decide whether you have a business,
+      exists in exactly one place a human can read and no place a
+      machine can.
+    </p>
+
+    <h2>Four years of the same thread</h2>
+
+    <p>
+      The public record is unusually consistent, which is what
+      tells you this is structural rather than a bad month.
+    </p>
+
+    <p>
+      November 2022, a merchant posts under the title shipping
+      label price adjustments out of control. The complaint is
+      about being charged for tenths of an inch off on a box or
+      hundredths of a pound, and the line that carries it is: it
+      is killing my profits. Replies arrive in March 2023, July
+      2023 and March 2025 asking whether anyone ever found a
+      resolution. Nobody answers.
+    </p>
+
+    <p>
+      July 2023 is the spike. A thread titled experiencing
+      unusual USPS label price adjustments fills up over two
+      days. One merchant reports more than thirty adjustments in
+      a single evening totalling around 700 dollars. Another
+      reports roughly 5,000 dollars charged on 4 July alone. A
+      third gets 25 adjustments of 22 dollars each and calls it
+      quite the financial emergency. A fourth is charged 22
+      dollars on a parcel declared at half a pound that actually
+      weighed 0.31 of a pound. A fifth totals 19 charges at 22
+      dollars or 21.67, over 400 dollars, more than half of them
+      on parcels whose weight had been <em>overstated</em>.
+      Support tells that merchant the fault could touch as many
+      as 50,000 charges and that refunds must wait for technical
+      review. No timeline is given.
+    </p>
+
+    <p>
+      March 2025, UPS, a merchant running hundreds of dollars a
+      month in adjustments. She photographs the larger parcels
+      and files disputes. The first couple are corrected. The
+      rest are denied, with the answer that carrier audits show
+      adjustments are correct as scanners are calibrated
+      correctly.
+    </p>
+
+    <p>
+      November 2025, the reply that names the real problem. A
+      merchant hit across UPS, USPS and DHL contacts support,
+      never hears back on which charges are still disputable,
+      finds some have already passed the window, and says what he
+      actually wants: a report that would make future disputes
+      easier.
+    </p>
+
+    <p>
+      May 2026, a 1.30 dollar adjustment on a parcel declared at
+      25 ounces that the carrier measured at 24.96. July 2026, a
+      UK merchant posts about a 202.21 pound FedEx fee, roughly
+      eight times the label, on a 26 pound shipment, and reports
+      that Shopify's billing team declined to file the dispute at
+      all.
+    </p>
+
+    <p>
+      Four years, four carriers, no native report, no alert, and
+      a dispute window that merchants discover by missing it.
+    </p>
+
+    <h2>The six reasons you get adjusted</h2>
+
+    <p>
+      They look identical on the invoice and they need six
+      different responses, which is the whole reason this cannot
+      be solved by being more careful.
+    </p>
+
+    <p>
+      <strong>1. The box is not the box.</strong> Shopify has no
+      per-product dimensions field. A merchant put it plainly in
+      January 2025: I cannot assign different dimensions to
+      different products for calculating shipping. The reply
+      confirms Shopify's default shipping system does not allow
+      assigning different package sizes to different products
+      natively. So every label leans on a saved package preset,
+      and a preset is an average. Averages get adjusted.
+    </p>
+
+    <p>
+      <strong>2. The weight was a guess.</strong> Variant weight
+      is a field most catalogs filled once, in year one, from a
+      supplier spec sheet, and never audited. Packaging weight is
+      usually not in it at all.
+    </p>
+
+    <p>
+      <strong>3. The fractional inch.</strong> Post July 2026,
+      every part-inch rounds up. A preset that was honest to the
+      tenth is now short by a full inch on each side.
+    </p>
+
+    <p>
+      <strong>4. The wrong service.</strong> Wrong mail class,
+      wrong package type, a flat rate used on a parcel that
+      should have been priced by weight. Shopify lists all of
+      these as adjustment reasons.
+    </p>
+
+    <p>
+      <strong>5. Fees that are not mistakes.</strong> Address
+      correction, residential delivery, package preparation,
+      return to sender, fuel, oversize. These are not
+      measurement errors and they are not disputable. They are
+      costs you are not pricing for.
+    </p>
+
+    <p>
+      <strong>6. The carrier is wrong.</strong> It happens, and
+      it happens at scale, as July 2023 showed. A hub laser can
+      measure the wrong item. A scale can round to the next
+      pound. This is the only category where a dispute wins, and
+      it is the category you are least equipped to prove.
+    </p>
+
+    <h2>What it costs while you do not know</h2>
+
+    <p>
+      <strong>The window closes.</strong> Shopify's billing page
+      says only that dispute timelines vary by carrier, and warns
+      that delayed disputes might not be eligible for review.
+      There is no number, no countdown in the admin, and the
+      clock starts when the adjustment is raised rather than when
+      you notice it. Every day spent finding an adjustment is a
+      day off a deadline you cannot see.
+    </p>
+
+    <p>
+      <strong>It repeats.</strong> An adjustment is a measurement
+      error about a product, not about an order. The preset that
+      cost you 14 dollars today will cost you 14 dollars on every
+      unit of that SKU you ship this quarter. Merchants describe
+      this as hundreds of dollars a month precisely because
+      nobody traces a charge back to the box that caused it.
+    </p>
+
+    <p>
+      <strong>It poisons your pricing.</strong> Your free
+      shipping threshold, your flat rate and your margin by
+      product are all built on a label cost you believe. If the
+      real cost is 30 percent higher on your bulkiest SKUs, your
+      best selling product may be your least profitable one and
+      your reporting will never say so.
+    </p>
+
+    <p>
+      <strong>It is invisible in the P and L.</strong>
+      Adjustments arrive as a Shopify platform charge, not as
+      shipping cost against an order. Cost of delivery per order
+      looks fine. The money is just gone somewhere else.
+    </p>
+
+    <h2>The playbook worth building</h2>
+
+    <p>
+      As a Dugong playbook, in plain language:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">Daily</span>, over every order
+fulfilled in the last 90 days
+that carries a label
+
+<span class="c"># steps</span>
+1. <span class="k">Read</span> each order timeline to
+   the bottom, pull every
+   adjustment line and its
+   carrier reason text
+2. <span class="k">Normalise</span> it: order, SKUs,
+   carrier, service, declared
+   vs billed weight and dims,
+   reason, amount, date
+3. <span class="k">Attribute</span> it to the SKU and
+   the package preset that
+   produced the label, not to
+   the order
+4. <span class="k">Classify</span>: preset wrong,
+   weight wrong, round-up,
+   wrong service, legitimate
+   surcharge, carrier error
+5. <span class="k">Dispute</span> carrier errors within
+   three days, with reason,
+   tape and scale photos, and
+   tracking attached
+6. <span class="k">Fix</span> the source: the preset,
+   the variant weight, the box
+   choice, the service rule
+7. <span class="k">Reprice</span> using measured label
+   cost per SKU, and recheck
+   your free shipping floor
+8. <span class="k">Alert</span> when one SKU is
+   adjusted twice, or any
+   single charge clears your
+   absorb threshold
+</code></pre>
+
+    <p>
+      <strong>Step three is the one everyone skips.</strong>
+      Logging an adjustment against an order gives you a tidy
+      spreadsheet of money you have already lost. Logging it
+      against the SKU and the preset gives you the one fix that
+      stops it. Same data, completely different outcome.
+    </p>
+
+    <p>
+      <strong>Step five has to be fast, not thorough.</strong>
+      The window is unpublished and short, so a same-week dispute
+      with decent evidence beats a perfect one filed next month.
+      Photograph the sealed parcel beside a tape measure and on a
+      scale at pack time, keyed to the order, and the evidence is
+      already waiting when the charge lands.
+    </p>
+
+    <h2>Three numbers to write down</h2>
+
+    <p>
+      The build is a day. The decisions are what stall people,
+      and all three are small. The amount below which an
+      adjustment is absorbed rather than disputed, because a 1.30
+      dollar charge is not worth a photograph. The number of days
+      between an adjustment appearing and the dispute going out,
+      which should be three. And how many adjustments one SKU may
+      collect before somebody physically re-measures the box,
+      which should be two. Pick those and the rest is
+      configuration.
+    </p>
+
+    <h2>Where AI earns its place</h2>
+
+    <p>
+      Three jobs, and none of them is adding up a column.
+    </p>
+
+    <p>
+      <strong>Reading.</strong> The adjustment is prose in a
+      timeline and the reason codes are inconsistent across USPS,
+      UPS, FedEx and DHL. Deciding that a given entry means a
+      dimensional re-measure rather than an address correction
+      fee is a language problem before it is a logistics one.
+    </p>
+
+    <p>
+      <strong>Attribution.</strong> Working back from an order to
+      the preset and the SKUs that produced its label, across
+      every order you shipped, is the step nobody has time for by
+      hand and the only step that changes next month's bill.
+    </p>
+
+    <p>
+      <strong>Evidence.</strong> Assembling a dispute packet with
+      the reason, the declared and measured figures, the
+      photographs and the tracking number, inside three days,
+      every time, is clerical work with a deadline. That is the
+      easiest thing in this whole article to hand to a machine.
+    </p>
+
+    <p>
+      Keep two things human. Anything that changes what customers
+      pay, because a shipping rate is a pricing decision. And
+      accepting a repeated adjustment as the real cost of
+      shipping a product, because that is a margin call and it
+      belongs to whoever owns the margin.
+    </p>
+
+    <h2>Do this before you close the laptop</h2>
+
+    <p>
+      Open your three most recently fulfilled orders for your
+      bestselling product and read each timeline all the way to
+      the bottom. Then open your last Shopify bill and find the
+      shipping label charges. If that total is larger than the
+      labels you remember buying, the difference is the number
+      this article is about, and you now know it exists before
+      your accountant asks.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">&#9670; READING</span>
+      <span>
+        Two companion pieces if this one landed:
+        <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html">The shipping rate that ignores your box</a>,
+        on charging the right amount at checkout, and
+        <a href="how-to-reconcile-shopify-payouts-with-your-sales.html">The payout that never matches your sales</a>,
+        on tying platform charges back to the orders that caused them.
+      </span>
+    </div>
+
+    <p>
+      Sitting on a month of adjustments nobody can explain, a
+      dispute that was denied with photographs attached, or one
+      SKU that gets re-measured every single time it ships? The
+      inbox is open: <code>field-notes@dugong.live</code>. We are
+      collecting case studies for the next issue.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-tactics">tactics</span>
+    </div>
+    <span class="article-end-share">share &middot; copy link &middot; &#10022;</span>
+  </div>
+
+</article>
+
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">&#9670; COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h2 class="faq-q">Why did Shopify charge me extra after I already paid for a shipping label?</h2>
+      <p class="faq-a">Because the price you paid was only a quote based on what you told the carrier. Shopify's own billing documentation says that after you ship, the shipping carrier verifies the correct label price, and if the information you entered was inaccurate the carrier debits or credits the difference. The parcel usually gets delivered anyway, so there is no delivery failure to warn you. The adjustment and the carrier's stated reason appear in that order's timeline, and the money appears on your next Shopify bill, which is why the two halves of the story almost never meet. Common triggers are a declared weight or set of dimensions that do not match what the carrier measured, the wrong mail class or package type, a flat rate used on a parcel that should have been weight based, and carrier fees for address correction, residential delivery, package preparation or return to sender. Over maximum limit fees are the extreme case: Shopify's page notes a UPS package over 150 pounds can incur more than 875 US dollars.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Can I get a report of all my Shopify shipping label adjustments?</h2>
+      <p class="faq-a">Not natively, and this is the gap merchants keep running into. Each adjustment is written into one order's timeline. There is no adjustments page, no filter on the orders list, no export column and no notification, so the only way to find them by hand is to open orders one at a time and read to the bottom. The billed total is the inverse problem: it arrives aggregated on your Shopify bill, where it is a figure without order numbers attached. A merchant on the UPS adjustments thread in November 2025 said exactly this, that he was looking for a report that would make future disputes easier, after some of his adjustments had already passed the dispute window. The API does not close the gap either. A developer requested a labelCost or shippingLabelCost field on the Fulfillment or Order object in the Admin GraphQL API on 12 June 2026 and noted that the only workaround is shopifyPaymentsAccount.balanceTransactions, which requires Shopify Payments. A second request for the same field followed. Neither has a staff answer. So any report you want, you build.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">How long do I have to dispute a Shopify shipping label adjustment?</h2>
+      <p class="faq-a">Nobody will give you a number, which is the practical problem. Shopify's billing page says only that dispute timelines vary by carrier and warns that delayed disputes might not be eligible for review. Merchants on the July 2023 adjustment thread were working to a 60 day window. Carriers set their own, they are not published in your admin, and the clock starts when the adjustment is raised rather than when you notice it. Treat it as short and unknown. The working rule is to get the dispute out within three days of the adjustment appearing, because every day you spend finding it is a day off a deadline you cannot see. The evidence Shopify asks for is the adjustment reason from the order timeline, the actual weight and dimensions, photographs of the sealed parcel next to a measuring tape, a photograph of it on a scale for weight disputes, and the tracking number. Gather that at pack time, not at dispute time.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Why did my USPS label adjustments suddenly increase in 2026?</h2>
+      <p class="faq-a">Because the dimensional weight math changed on 12 July 2026, and nothing about your packing had to change for your bills to. USPS moved its dimensional divisor from 166 to 139, and it now rounds every fractional inch up rather than to the nearest inch. Dimensional pricing applies to parcels larger than one cubic foot, which is 1,728 cubic inches; anything at or under that is still billed on actual weight. Base rates did not move on that date, so the whole effect is in the billable weight. The divisor change alone lifts billable weight by roughly 19 percent, and the round-up rule adds more on any box with fractional dimensions, since a parcel measuring 12.1 by 10.4 by 6.2 inches is now priced as 13 by 11 by 7. If your presets were approximately right before, they are systematically low now, and the difference comes back to you as adjustments rather than as a higher quote at label purchase.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Can Shopify Flow alert me when a shipping label is adjusted?</h2>
+      <p class="faq-a">No. Flow has a deep bench on fulfillment, including fulfillment created, fulfillment event created for carrier tracking updates, fulfillment order placed on hold, holds released, moved, split, merged, cancelled and rescheduled, plus order created, paid, fulfilled, cancelled and transaction created. None of them is about labels or label prices. There is no label purchased trigger, no label adjusted trigger and no shipping cost changed trigger, so there is nothing for a workflow to listen to. The closest native signal is the order timeline entry, which Flow cannot read. That leaves two routes. If you are on Shopify Payments, poll shopifyPaymentsAccount.balanceTransactions on a schedule and match shipping label charges back to orders yourself. Otherwise, watch the order timeline directly for the adjustment entries and the carrier reasons, which is the route that also gives you the reason text you need for a dispute.</p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Can AI handle Shopify shipping label adjustments?</h2>
+      <p class="faq-a">It suits this one well, because the work is reading and attribution rather than arithmetic. The amount is the easy part. The hard part is that the adjustment is prose in a timeline, the carrier reason codes are inconsistent between USPS, UPS, FedEx and DHL, and the same charge can mean six different things that each need a different response: a package preset that was never right, a variant weight somebody guessed in year one, a box with fractional dimensions now rounding up, the wrong service or package type on the label, a legitimate surcharge like address correction or residential delivery, and a genuine carrier measurement error. A model can read the entry, name which of the six it is, attribute it to the SKU and the preset that produced the label rather than to the order, and assemble the dispute packet while the window is still open. Keep two things human. Anything that changes what customers pay, because a shipping rate is a pricing decision. And accepting a repeated adjustment as the new true cost of shipping a product, because that is a margin decision and it belongs to whoever owns the margin.</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="section-head">
+    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order from one default box. The AI playbook that prices dimensional weight before checkout, not after.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-reconcile-shopify-payouts-with-your-sales.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The payout that never matches your sales</h3>
+        <p class="card-dek">
+          Shopify nets each payout down by fees, refunds, and reserves, then pays in a batch, so it never matches your sales. The AI playbook that ties payouts to orders.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 29</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-missing-hs-codes-on-shopify-before-customs-holds-your-orders.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The parcel customs sends back</h3>
+        <p class="card-dek">
+          De minimis is gone and every parcel needs the HS codes your catalog never carried. The AI playbook that classifies products before customs bills your customer.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">AUG 13</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+  </div>
+  <a href="shopify-shipping-and-fulfillment-automation.html" class="hub-more">more on shopify shipping and fulfillment automation &rarr;</a>
+</section>
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html">Latest</a>
+        <a href="index.html">Essays</a>
+        <a href="index.html">Post-mortems</a>
+        <a href="index.html">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>&copy; 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>
