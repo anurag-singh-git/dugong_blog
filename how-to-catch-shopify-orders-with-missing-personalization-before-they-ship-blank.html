@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &middot; RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-16" />
 <meta property="article:modified_time" content="2026-08-16" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2400,
       "timeRequired": "PT10M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -96,6 +98,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -468,6 +471,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -603,8 +607,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -612,7 +619,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -652,13 +659,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 110</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-16" style="color: var(--cream-dim);">AUG 16, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 110</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-16" style="color: var(--cream-dim);">AUG 16, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+</div>
 
   <h1 class="article-title">
     How to catch Shopify orders with <em>missing personalization</em> before they ship blank
@@ -670,7 +675,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1066,27 +1071,28 @@ personalized product
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Why is personalization text missing from my Shopify orders?</h2>
       <p class="faq-a">The text travels as a line item property, and it only attaches if the input field sits inside the product form and the customer goes through that form. Three failures cover most cases. First, the input is outside the form tag: paste the snippet into the wrong place in the theme and the field renders, accepts text, and submits nothing, which is how the classic not receiving customers' engraving text threads on the Shopify community end, with a developer moving one div. Second, the customer used Buy it now or an express checkout: dynamic checkout buttons have a long documented history of skipping the cart form, with community threads on the subject running since 2019, a Shopify fix announced, and merchants still reporting dropped properties after it. Third, the field was optional in practice: the required checkbox in Shopify's UI Elements Generator does not actually block checkout, so a determined or distracted customer sails past it. Audit which door each blank order came through before assuming the customer skipped the box.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">How do I make personalization fields required on Shopify?</h2>
       <p class="faq-a">The honest answer is that front end enforcement is necessary and not sufficient. Adding the required attribute to the input helps only when the theme's add to cart flow submits the form natively; themes that add to cart with JavaScript bypass it, which is why merchants in the Blank Field for Customer Personalisation thread found customers checking out past a required field. Product options apps do better, validating before add to cart. Hiding dynamic checkout buttons on personalized products closes the express checkout hole, at the cost of a faster checkout. But none of that covers the order that still slips through, and some always do. The durable setup is both layers: a validated form at the front, and an order level check behind it that reads every personalized order after payment and holds anything incomplete before production sees it.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Do line item properties show in Shopify order confirmation emails?</h2>
       <p class="faq-a">Not by default. The order confirmation notification renders the product title and variant, and custom line item properties are omitted unless you edit the notification template's Liquid to loop through line.properties and print each name and value. Merchants discover this the expensive way: the engraving text is visible in the admin, the customer's email shows only the product, and the typo nobody saw ships. The template edit is documented and takes minutes, and it matters beyond tidiness, because the confirmation email is the one moment the customer rereads their own personalization while there is still time to fix it. Print the properties in the confirmation, and pair it with an order level check that flags blanks and suspicious values, so both sides of the order see the text before the machine does.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Can Shopify Flow catch orders with missing personalization?</h2>
       <p class="faq-a">Partially. Flow can iterate an order's line items, check whether a property exists or equals a value, and tag the order or send a notification, so a rule like tag orders where the engraving property is absent is buildable and worth having. What Flow cannot do is read. It cannot tell that asdfgh is not a name, that an emoji will not cut into brass, that 42 characters will not fit a 20 character die, or that the customer typed their email address into the engraving box. It also cannot hold a conversation: the fix for a blank is an email to the customer naming the product and the missing line, a reminder when they do not answer, and writing the reply back onto the order, which is workflow, not a condition. Use Flow for the existence check if you like, and put judgment and follow up in an agent that treats the property's content as something to evaluate, not just a field to detect.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">What should I do when a customer never replies with their personalization details?</h2>
       <p class="faq-a">Decide the policy once, write it down, and let the workflow run it, because sellers of personalized goods report that getting post purchase answers is the hardest part, with community threads describing it as near impossible to get customers to respond and orders cancelled for silence. A working pattern: ask within minutes of the order, not days, since reply rates fall as the purchase leaves the customer's mind; remind at 24 and 72 hours through email rather than a storefront inbox nobody rechecks; state the deadline plainly in the second message, we hold custom orders seven days, then refund; and at the deadline either refund automatically or, for products where it is acceptable, ship the non personalized version with a note, whichever your policy says. Keep every ask and every silence on the order timeline, so a later dispute shows you asked three times before acting.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1095,6 +1101,22 @@ personalized product
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1117,7 +1139,7 @@ personalized product
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1261,7 +1283,7 @@ personalized product
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1277,7 +1299,7 @@ personalized product
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>

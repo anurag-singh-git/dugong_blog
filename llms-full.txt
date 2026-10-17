@@ -5,10 +5,463 @@
 Site: https://blog.dugong.live
 Publisher: Dugong (https://dugong.live)
 Index with summaries: https://blog.dugong.live/llms.txt
-This file contains the complete text of every dispatch on the site, newest first. Each article begins with a level-one heading and a metadata block (URL, author, dates). Fenced blocks are plain-language playbook specs quoted verbatim from the articles. FAQ sections carry the same text as each page’s FAQPage structured data.
+Per-article Markdown: https://blog.dugong.live/md/<slug>.md, one file per dispatch, 10 to 25 KB each. This file is roughly 1.5 MB in total, so if your fetcher truncates long responses, read the per-article files instead: take the article URL, drop the .html, and fetch /md/<slug>.md. Every one of the 83 is listed under "Markdown versions" in llms.txt.
+This file contains the complete text of every dispatch on the site, newest first. Each article begins with a level-one heading and a metadata block (URL, author, dates). Fenced blocks are plain-language playbook specs quoted verbatim from the articles. FAQ sections carry the same text as each page's FAQPage structured data.
 
-The site’s lead essay, The death of the drag-and-drop builder (Dispatch Nº 47, by Aanya Rao, 2026-05-28), lives at https://blog.dugong.live/ and is summarized in llms.txt.
+The site's lead essay, The death of the drag-and-drop builder (Dispatch Nº 47, by Aanya Rao, 2026-05-28), now has its own page at https://blog.dugong.live/the-death-of-the-drag-and-drop-builder.html and its full text is the last entry in this file.
 
+---
+
+# How to handle return to sender orders on Shopify
+
+URL: https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html
+Dispatch: Nº 129
+Author: Priya Singh, Commerce Research, Dugong
+Published: 2026-10-16. Updated: 2026-10-16
+
+The carrier gave up on day three and turned the parcel around. Shopify still says fulfilled, the report still counts the sale, and the box is in your own back room. Here is why no status exists for this, and the playbook that catches it the same hour.
+
+## The short answer
+
+Shopify has no status that means a parcel is coming back to you. The 2026-10 Admin GraphQL FulfillmentEventStatus enum has eleven values and none of them is returning to sender, the value exists only in the unstable version of the API, and the order stays Fulfilled while the box sits in your own receiving area. Flow has no trigger that fires on a carrier turnaround and no condition to test against, voiding the original label is almost always impossible because voiding requires a label under 30 days old with no tracking events, and the community reship workarounds all distort either revenue or inventory. Shopify also files a return to origin as a customer return, which is why return rates in RTS-heavy markets are mostly couriers rather than products. The playbook reads the carrier feed hourly, flags the turnaround the hour it happens, names the cause, emails the customer for a corrected address before they ask, applies one reship or refund rule, restocks on physical arrival, and reports RTS separately from returns.
+
+Day eleven, 9:14am, a one line email: hi, any update on my order? You open the order and everything looks finished. Fulfilled. Tracking number right there. The sale is in last week's numbers, the stock left your count a week and a half ago, and the carrier page, when you finally click through, has been saying the same thing since day three. Returning to sender.
+
+Then somebody finds the box. It has been on the floor behind the printer for two days, which is roughly how long it has been back in the building, unopened, because no part of your store ever said it was coming.
+
+## The word Shopify has not shipped
+
+Here is the whole problem in one list. The 2026-10 Admin GraphQL FulfillmentEventStatus enum, the thing that describes where a shipment is, has eleven values: attempted delivery, carrier picked up, confirmed, delayed, delivered, failure, in transit, label printed, label purchased, out for delivery, ready for pickup. Read them again and look for the one that means the parcel is coming back to you. It is not there.
+
+The closest candidate, failure, is documented as the fulfillment request failing, which is a different event entirely: that is your warehouse or your 3PL refusing the job, not a courier reversing a van. Delayed is for a parcel that is still trying. Attempted delivery fires and then fires again and tells you nothing about what happens after the third attempt.
+
+The genuinely odd part is that Shopify has written the word down. In the unstable version of the same enum there is a RETURNING_TO_SENDER value, described as the fulfillment being returned to the sender, sitting beside a BUYER_ACTION_REQUIRED that would also be useful. Neither is in a stable version. So the concept exists in Shopify's vocabulary and not in anything you, your developer, or any app in the store can build on today. Everyone in this category is working around a value that has been drafted and not released.
+
+Meanwhile the order object does what it was told. It went to Fulfilled when the label printed, and nothing after that is allowed to change its mind. An order whose contents are physically in your own receiving area reads exactly like an order sitting happily on a customer's kitchen table.
+
+## Flow has nothing to fire on
+
+The reasonable next thought is to automate around it with Shopify Flow, and the reasonable next thought runs into the same hole. In August 2024 a merchant asked the simplest version of the question: he wanted an automation to run once an order is delivered, and asked which parameter to use. The community answer was the fulfillment event created trigger. Four days later he reported back that it does not work, because delivery happens around 48 hours after fulfillment, so by the time the carrier says anything the workflow has already run and finished. The person who suggested it asked whether a delivered event really fails to start the trigger. Nobody from Shopify answered. The thread stops there.
+
+That is the trigger side. The condition side is worse, because even a trigger that fired on every scan would have nothing to compare against: there is no returning to sender status in the stable API for a Flow condition to test. This is the same shape as the parcel that stops moving and never gets flagged, and it has the same root cause. Shopify models the moment you hand the box over. It does not model the days afterwards.
+
+## Shopify calls it a return, and it is not one
+
+When the box does come back, the admin offers you the returns flow, which is the wrong drawer. A customer return is a statement about a product. A return to origin is a statement about an address, a delivery window or a courier. Filing them together quietly poisons the only number anyone looks at.
+
+A merchant made this case to Shopify in a May 2026 feature request, asking for a dedicated RTO status separate from customer-initiated returns, on the grounds that mixing them creates misleading return-rate data and makes performance analysis inaccurate. He asked for four things: a separate status, separate reporting, its own webhooks, and filters in Orders and Analytics. The replies are the useful part. One operations lead wrote that an RTO and a customer-initiated return are completely different events operationally, that reporting gets noisy and people start making wrong decisions off the same dashboard, and that manual tags work for a while but break down once order volume increases or multiple people touch fulfillment.
+
+Then the number that should make you check your own dashboard. Another reply described a brand whose return rate looked alarming until they split the data, at which point about 60 percent of it turned out to be RTOs from bad pin codes rather than product issues. Splitting it stopped them discontinuing SKUs that were selling perfectly well. Three months later an app builder in the COD-heavy Indian market added the cleanest summary of the gap: RTO is not a returns problem, it is a fulfillment risk problem, and every app in this space, including his own, has to reconstruct the RTO signal from fulfillment and tracking events instead of getting a clean, structured status.
+
+◆ NOTE If your return rate has ever been used to kill a product, it is worth asking how much of it was ever about the product. An undelivered parcel, a refused delivery and an uncollected pickup all land in the same bucket as a genuine I did not like it, and only one of those is a reason to change the catalog.
+
+## The workarounds, and what each one breaks
+
+There is no reship button, so merchants have built their own, and the thread where they did it is six years long. January 2020: a package came back because the customer typed the wrong address, and the merchant wanted a new label without her reports showing two items sold where one was. Shopify Support answered twice. First, void the original label if you still can, fix the address on the order and buy a new one. Second, if the void window has closed, duplicate the order and apply a 100 percent discount, which keeps revenue honest and then needs a manual inventory adjustment, because the duplicate takes the stock again.
+
+The void route mostly fails, and the Help Center says why. A label can be voided only if it is under 30 days old, has no tracking events at all, was not bought on USPS First Class Mail, and was not added to a manifest in the last 15 minutes. A parcel that travelled far enough for a courier to give up on it has tracking events by definition. You are paying for that label whatever happens, and you will pay for a second one.
+
+So the community built the third way. Edit the original order, add a custom line item called something like Corrected Shipping Address, mark it as requiring shipping, fix the address, and buy a label against that item at the real weight. No zero dollar order, a fresh tracking number, reports roughly intact. It works, people in the thread confirm it still works years later, and the cost is that your customer receives a shipping confirmation for a line item that is not the thing they bought. In August 2024 a merchant looked at all of this and asked the question that belongs in the title of the feature request: why is this not a standard button.
+
+One more wrinkle, and it is the one that catches accounting. A merchant in March 2024 described his process, mark the order returned, create a return with no label, restock, then either refund or reship free, and reported that Shopify had started deducting returned products from daily sales automatically even when they are not refunded, and flagging the order refund owed, which he said is untrue about 90 percent of the time because the goods went back out at no charge. The only reply, four months later, was another merchant saying he wished he had a solution and wished Shopify supported this natively.
+
+## What the silence costs
+
+Price one RTS honestly. Outbound freight, already spent, unvoidable. Return freight, charged by most carriers. A second label if you reship. Eleven days of a customer who has paid and has nothing, which is the part that becomes a chargeback or a public review. Units missing from your sellable count the whole time, so the reorder math reads a shelf that is wrong and the storefront may sell stock that is sitting in a sealed box twelve feet from the packing bench. Then a refund request two months later, from a merchant's own numbers in the community: a 165 dollar order that cost 17.40 to ship, returned after two failed attempts, with the refund conversation starting nine weeks after the parcel came home.
+
+None of those line items is the real cost. The real cost is the eleven days, because every single thing you would do about an RTS gets cheaper the earlier you do it. On day three the customer is still thinking about the order and will happily send you a corrected address. On day eleven they have asked for a refund and your reship has become an argument. The event is the same; the delay is what prices it.
+
+## What the automation actually has to do
+
+As a Dugong playbook, in plain prose:
+
+```
+# trigger
+Every hour, every open
+shipment's tracking feed,
+plus a daily age sweep
+
+# steps
+1. Read the scans Shopify
+   does not model, every
+   carrier, every wording
+2. Flag the turnaround the
+   hour it happens: tag the
+   order, note the timeline
+3. Name the cause: bad
+   address, refused,
+   uncollected, customs
+4. Email the customer first
+   and ask for the corrected
+   address while it matters
+5. Apply your rule: reship
+   at whose cost, or refund
+   less the shipping
+6. Reconcile the box on
+   arrival, restock what is
+   sellable, close the order
+7. Report RTS on its own,
+   by courier, by region, by
+   repeat customer
+```
+
+Step one is the whole trick and it is unglamorous. Nobody can give you a status Shopify has not released, so you read the thing that does know: the carrier. The scan text is inconsistent across couriers and that is fine, because recognizing returning to sender, return to shipper, refused by recipient, unclaimed, undeliverable as addressed and a dozen regional variants as the same event is exactly the sort of judgment a language model is better at than a regular expression. The output is one boolean and one reason code, written back onto the order where the rest of your automation can see it.
+
+Steps two and three turn that into something a person can act on. The tag lands on the order within the hour, the timeline gets a line saying what the carrier said and when, and the cause decides the route. A wrong address goes to the customer, immediately, because the address was probably wrong at checkout and you now have a second chance to fix it. A refused delivery goes to support, because refusal often means a dispute you have not heard about yet. An uncollected parcel at a pickup point is the same failure as a local pickup nobody comes for, and wants a reminder, not a refund. A customs rejection goes to whoever owns paperwork, because it will happen again on the next order to that country.
+
+Step four is where the money actually is. One email, on the day of the turnaround: your parcel is on its way back to us, here is the address we have, reply with a correction and we will send it straight out. Customers answer that email, because it arrives while they are still waiting for a box. The same email on day eleven gets a refund request, and it was the identical email. This is the same economics as telling people about a delay before they ask, and it is the main reason to automate the detection rather than the paperwork.
+
+Steps five and six keep the books straight. The reship or refund rule is yours, applied the same way every time, with the second label priced to your policy rather than to whoever is on chat that afternoon. Then the physical reconciliation, which matters more than it sounds: restocking should happen when somebody has opened the carton and looked, not when the scan appeared, because restocking on faith is how you promise stock you do not have. What comes back damaged or opened gets written off rather than resold. The order closes with a real outcome attached, not a dangling fulfilled.
+
+## Why this is a compiler problem, not an app problem
+
+Everything above sounds like a feature, and that is exactly why it keeps not existing. Look at what step five requires: one store reships free once and refuses twice, one deducts the original shipping, one is COD-heavy and blocks the customer's third attempt entirely, one sells perishables and never reships at all. Step three has the same spread: in India the dominant cause is a bad pin code and the fix is address intelligence at checkout, in the US it is apartment numbers and porch refusals, in the EU it is uncollected parcels at pickup points, and for cross-border it is paperwork. Those are not settings on a toggle. They are paragraphs about your shop, and the paragraph is different in every building.
+
+Which is why an app sells you its paragraph and you spend a quarter bending your operation to fit it. A compiler takes yours as written, the same principle behind every automation worth building: describe the RTS policy the way you would explain it to a new hire on their first morning, and let the automation be that explanation, running hourly, in the one place where the carrier is still telling the truth and your store has stopped listening.
+
+## Do this before you close the laptop
+
+Two things, both quick. First, pull every order from the last 60 days that is marked fulfilled and has no delivery scan, then open the tracking for each one. Most stores find at least one parcel already home and unrecorded, and a couple still in motion in the wrong direction. That list is your actual RTS rate, which you have probably never seen, because it has been hiding inside your return rate.
+
+Second, write the policy down in four sentences before you automate anything. When we reship free. When the customer pays for the second label. When we refund and what we deduct. Who we will not ship to a second time without a verified address. If you cannot write those four without a meeting, that is the finding, and the first hour of RTS detection will force the meeting anyway.
+
+Then say the brief out loud the way you would say it to someone who starts on Monday. Watch every shipment. The hour a carrier turns one around, tag the order, tell me why, and email the customer for a corrected address. If they answer in two days, reship on our rule; if they do not, refund less shipping and close it. When the box lands, open it, restock what is good, write off what is not. And never, ever put these in the return numbers. The compiler turns that into the workflow, and day eleven stops being when you find out.
+
+◆ READING Two companion pieces if this one landed: the parcel that stopped moving, on shipments that go quiet without ever coming back, and delivered but not received, on the opposite failure, where the carrier says it arrived and the customer says it did not.
+
+If you are a Shopify merchant with a return to sender story, the box that sat behind the printer, the reship that broke your reports, the return rate that turned out to be couriers, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
+
+## FAQ
+
+**Does Shopify have a return to sender status?** No. The order keeps whatever status it had when the parcel left, which is Fulfilled, and the shipment keeps whatever the carrier last reported. The 2026-10 Admin GraphQL FulfillmentEventStatus enum has eleven values, ATTEMPTED_DELIVERY, CARRIER_PICKED_UP, CONFIRMED, DELAYED, DELIVERED, FAILURE, IN_TRANSIT, LABEL_PRINTED, LABEL_PURCHASED, OUT_FOR_DELIVERY and READY_FOR_PICKUP, and none of them means the box is on its way back to you. RETURNING_TO_SENDER appears only in the unstable version of the API, so the word exists in Shopify's vocabulary but not in any version a merchant or an app can rely on today. In practice a return to sender is invisible until the box physically arrives, which is why most stores find out from a customer email rather than from their own store. Catching it early means watching the carrier's tracking events yourself and treating the turnaround scan as the event Shopify does not model.
+
+**Can Shopify Flow trigger when a package is returned to sender?** Not reliably, and not for this. The nearest thing on the Flow bench is the fulfillment event created trigger, and it is built around fulfillment being created rather than the carrier changing its mind later. In August 2024 a merchant asked how to automate on delivery and was pointed at that trigger, then reported back that it does not work, because delivery happens roughly 48 hours after fulfillment and the workflow never fires. No Shopify staff replied and the thread never reached an answer. Even if the trigger fired on every scan, there is no returning to sender status in the stable API for a condition to test, so the workflow would have nothing to match on. The working pattern is the other way round: read the carrier tracking feed on your own schedule, recognize the turnaround language in the scan, and write the result back onto the order as a tag and a timeline note so the rest of your automation has something to react to.
+
+**What should I do when a Shopify order is returned to sender?** Decide three things in order, and decide them before the box arrives rather than after. First, cause: a wrong or incomplete address, a refused delivery, an uncollected parcel at a pickup point, or a customs rejection are four different problems with four different answers. Second, outcome: reship to a corrected address, or refund. Most policies reship once at your cost when the carrier or your own label was at fault, and ask the customer to cover the second label when the address was wrong, which is roughly what merchants in the community threads settled on, refund the product and deduct the original shipping cost plus any carrier return fee. Third, the record: restock the units when the box is physically back and checked, not when the scan appears, and keep the whole thing out of your customer return rate, because an undelivered parcel is a fulfillment failure, not a product someone disliked. The expensive part is never the decision, it is the eleven days before anyone noticed there was one to make.
+
+**How do I reship a returned to sender order on Shopify without breaking my reports?** Shopify has no reship button, and the workarounds merchants trade all distort something. Shopify Support's own answer in January 2020 was to void the original label if it still qualifies and buy a new one after correcting the address, and otherwise to duplicate the order and apply a 100 percent discount, which keeps revenue honest but double counts the units and needs a manual inventory adjustment. The most upvoted community method is to edit the original order and add a custom line item titled something like Corrected Shipping Address, then buy a label against that item, which avoids a zero dollar order and produces a new tracking number, at the cost of the customer seeing a line item that is not their product. A merchant asked in August 2024 why this is not a standard button, which is the honest summary. Voiding usually fails anyway: the Help Center requires a label under 30 days old with no tracking events, not bought on USPS First Class Mail, and not manifested in the last 15 minutes, and a parcel that travelled far enough to be turned around has tracking events by definition. An automation can do the whole sequence consistently, correct the address, create the reship, carry the original order number forward in the note, and record the second label cost against the first order so the margin story stays true.
+
+**Why does return to sender wreck my Shopify return rate?** Because Shopify files it as a return, and it is not one. A customer-initiated return says something about the product. A return to origin says something about an address, a delivery window or a courier. In a May 2026 feature request a merchant asked Shopify for a separate RTO status on exactly this ground, that mixing the two creates misleading return-rate data and makes performance analysis inaccurate. A reply in the same thread described a brand where about 60 percent of the headline return rate turned out to be RTOs from bad pin codes rather than product issues, and said splitting the data stopped them discontinuing SKUs that were actually selling well. Another reply, from someone building in the category, admitted that every app in this space has to reconstruct the RTO signal from fulfillment and tracking events instead of getting a clean, structured status. Until Shopify ships the status, the separation has to be yours: tag the order with the cause when the turnaround is detected, keep RTS out of the return numbers you report on, and report it where it belongs, next to delivery success by courier and by region.
+
+**Can AI handle return to sender orders on my Shopify store?** Yes, and this is a gap worth automating because every part of it is reading and routing rather than judgment. An automation like Dugong watches the tracking feed for every open shipment, recognizes the turnaround however the carrier words it, and does within the hour what a person does eleven days late: tag the order, name the likely cause, email the customer before they email you, ask for a corrected address while they are still paying attention, and park the order in a queue with a clock on it. When the box lands it reconciles the physical arrival with the scan, restocks what is sellable, flags what is not, applies your reship or refund rule, charges or waives the second label, and keeps the event out of your return rate. The honest limits: nothing can inspect the carton, so somebody still opens it; carrier wording varies and a thin tracking feed will miss a scan, so the undelivered age sweep is the backstop; and the policy calls, who pays for the second label, how many attempts before you refund, which addresses you refuse to ship to twice, are yours to write. What the automation removes is the silence between the turnaround and the discovery.
+
+---
+
+# How to stop reordering Shopify stock you already have on order
+
+URL: https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html
+Dispatch: Nº 128
+Author: Priya Singh, Commerce Research, Dugong
+Published: 2026-10-15. Updated: 2026-10-15
+
+The pallet is sitting at your supplier. Your incoming count says zero, your low stock report says buy more, so you bought more. Here is why Shopify hides most of what you have on order, and the playbook that gives you the number back.
+
+## The short answer
+
+Incoming inventory on Shopify counts units in transit, not units you have bought, so a purchase order the supplier has not shipped reads as zero and the low stock report tells you to buy it again. The purchase order and its linked inventory transfer operate independently by design, Shopify Flow cannot read incoming quantities or purchase order data at all, and the purchase order API that landed in the 2026-10 Admin GraphQL version carries exactly two statuses, DRAFT and ORDERED, with no received state and no expected arrival date. The playbook builds the on order number Shopify does not give you, dates every open purchase order, flags the late ones, and warns the buyer before the same pallet is ordered twice.
+
+The second pallet arrives on a Thursday and nobody ordered it. Except somebody did, twice, six weeks apart, because the first purchase order never showed up as anything. The stock sat at the supplier, the incoming column read zero, the low stock report put the SKU back on the buy list, and a reasonable person bought it again. Now there is four thousand dollars of inventory in the aisle, the supplier is confused, and the person who placed both orders did nothing wrong.
+
+This is the most expensive Shopify gap I know of that almost nobody writes about, and it comes down to one word being defined more narrowly than everyone assumes.
+
+## Incoming does not mean on order
+
+Shopify's Help Center says incoming inventory is inventory that is on its way to your location from inventory transfers or apps. Units that have not been received are excluded from on hand and cannot be sold. Available, the number your storefront reads, explicitly excludes incoming as well.
+
+Read that definition again and notice what it is about. It is about movement. A merchant who tested this on a development store in September 2026 put it plainly: the number shown as incoming on a product is narrower than it looks, because incoming counts units that are in transit. Transfers still in draft add nothing. Transfers marked ready to ship but not yet dispatched add nothing. A purchase order you placed three weeks ago that the supplier has not shipped shows as zero.
+
+So incoming is a transit number. The number you need for a buying decision is an on order number: what you have committed to buy and not yet received, regardless of whether it has moved. Shopify has no field for that, no column for it, and no report that shows it.
+
+## And then the reports tell you to buy it again
+
+On 24 July 2026 a merchant posted the consequence exactly. His custom purchasing reports depend on incoming quantities, and after the new purchase order system launched, incoming stopped reflecting open purchase orders. His line was: my reports keep telling me to procure what is already in process. He asked for the old purchase order system back and flagged the obvious risk to capital management. No staff reply.
+
+Thirty minutes later he posted his own workaround, which is the part worth sitting with. Create a transfer from the purchase order and mark it in transit before it has shipped. In other words, tell Shopify the goods are moving when they are not, so the number comes out right. He called the extra steps frustrating. They are also now standard practice in a lot of stores.
+
+Another member explained the mechanics the same evening. Incoming is derived from transfers and shipments, not from purchase orders, so the transfer step is mandatory. Then the warning that matters most: editing the purchase order afterwards, or receiving a short shipment, will not update the transfer, which can silently re-create overcounting. His suggestion was to store the purchase order number in a transfer metafield so reports can join the two records back together.
+
+That is the whole trap in three sentences. Undercounting makes you double order. The fix for undercounting creates overcounting. And the join between the two records is something you have to build yourself out of a metafield.
+
+## The purchase order and its transfer stop talking
+
+On 16 September 2026 a merchant asked for something that sounds like it should already be true: when you add products to a purchase order, the linked inventory transfer should update too. His words were that the current workflow requires duplicate manual edits. The reply quoted Shopify's own documentation back at him. Once a purchase order and an inventory transfer are linked, they operate independently.
+
+So you keep two records of the same delivery. One is the commercial agreement and one is the count, they are linked in name only, and every edit after the link has to be made twice. Nothing tells you when they drift.
+
+## Two years, two systems, the same hole
+
+This is not new and it did not arrive with the new system. In April 2024 the same merchant asked why Stocky purchase orders were not syncing to Shopify's incoming inventory. A week later another merchant replied that he had at least five active or partially received purchase orders and that Stocky was completely unaware of these incoming inventories, which made the low stock report useless. Support told him to re-enter the data manually. In July 2024 a third merchant asked whether anyone had solved it. No staff reply, no resolution.
+
+Stocky shut down on 31 August 2026 and the native purchase order screen inherited the job. In the thread where merchants worked out what to do about the sunset, one of them wrote in May 2026 that the native purchase order system is fundamentally incomplete. Another reported that the only option support offered was to pay for an ERP. A third shared a support table listing minimum and maximum replenishment as not planned for 2026, and bulk CSV import as not currently available.
+
+◆ FROM THE FORUMS February 2026, a merchant asking what replaces Stocky for purchase orders is told by support that the path forward is to buy an ERP. Eight months later the same thread is still open, the sunset has happened, and the answer has not improved. The gap between a $39 app and an ERP is where most of the Shopify catalog lives.
+
+## Flow cannot see any of this
+
+On 26 January 2026 a merchant asked for a workflow that lists products with incoming inventory above zero, sorted by purchase order and vendor. He had already asked Sidekick, Shopify's own assistant, and quoted the answer: Shopify Flow cannot access incoming inventory quantities for reporting and automation. The thread was revived on 5 October 2026 and two developers confirmed nothing had changed, pointing at a custom app or a scheduled job against the Admin API instead.
+
+Flow's inventory bench is short and entirely event-driven: inventory item created, inventory item deleted, inventory transfer completed, inventory transfer ready to ship, product variant back in stock, product variant out of stock, product variant inventory quantity changed. Every one of them needs something to happen.
+
+A late purchase order is the absence of something happening. There is no trigger for a delivery date that passed, because Shopify does not hold a delivery date to pass. The only native shape left is the scheduled time trigger driving a sweep that you build and maintain. It is the right shape. It is not a feature.
+
+## The API finally got purchase orders, two weeks ago
+
+Here is the genuinely new part, and most of the advice online has not caught up with it yet. The 2026-10 Admin GraphQL version exposes inventoryPurchaseOrders and inventoryPurchaseOrder, behind a read_inventory_purchase_orders scope. A Shopify engineer confirmed on 2 October 2026 that the scope is available to all apps now, outside the preview.
+
+Getting there was messy enough to explain why nobody has written about it. On 11 August a developer hit ACCESS_DENIED on the query, found the scope was absent from both the public access scopes reference and the dashboard selector, and was told by a Shopify engineer that declaring it in shopify.app.toml passes validation and then fails at deploy. Shopify patched it server side on 14 August so existing read_inventory access would work on preview stores. Before that, every feature request since June 2026 had gone unanswered, including one on 30 July asking for a firm yes or no on whether the API would arrive inside twelve months.
+
+So it exists. Now read what it actually gives you. The object is defined as an agreement from a merchant to buy goods or services from a supplier, and it carries the name, the supplier as origin, the destination location, dateCreated, orderedAt, the line items, which can be searched by unit cost, variant id, supplier SKU and incoming quantity, and a transfers connection.
+
+And the status enum has exactly two values. DRAFT, open and not marked as ordered yet. ORDERED, open and marked as ordered. That is the entire lifecycle. There is no received, no partially received, no closed and no late. There is an orderedAt timestamp and no expected arrival anywhere on the object.
+
+Which means the two questions you actually have, how much of this is still outstanding and which of these should have landed by now, are both things you compute from the linked transfers. The same transfers that, per Shopify's own documentation, operate independently of the purchase order.
+
+## What it costs while nobody counts
+
+Take a store carrying four hundred SKUs across a dozen suppliers, with an average purchase order around four thousand dollars. Two duplicate orders a month is eight thousand dollars of working capital converted into stock you already owned, plus the storage, plus the markdown on whatever does not sell at full price. That is the loud half.
+
+The quiet half is worse. Purchase orders that are simply late, with nothing watching the date. A thirty five day lead time slips by three weeks and nobody finds out until the shelf is empty and the product page says sold out. Then you are paying for air freight, or losing the sale, or both.
+
+Both halves come from the same missing object: a list of what is on order, with a date on it, that something checks every night. Everything else here is a symptom.
+
+## The playbook worth building
+
+As a Dugong playbook, in plain language:
+
+```
+# trigger
+Nightly, and on every purchase
+order status change, over all
+open purchase orders
+
+# steps
+1. Pull every PO marked ordered
+   and not fully received, with
+   lines, supplier, destination
+2. Reconcile: sum the linked
+   transfers and shipments per
+   line, keep the remainder
+3. Date it: expected arrival
+   from supplier lead time when
+   the PO carries none
+4. Flag late: past expected,
+   remainder still open, aged
+   in days not listed by date
+5. Publish on order per variant:
+   ordered minus received, per
+   location, beside available
+6. Block the duplicate: warn at
+   the moment someone drafts a
+   PO for a SKU already on order
+7. Chase the supplier with the
+   PO number, the open lines
+   and the days late
+8. Score lead time actual vs
+   promised, and short ship
+   rate, per supplier
+```
+
+Step five is the one everyone skips. Everything else is housekeeping. This one changes the decision. Write a real on order quantity per variant per location somewhere your reorder logic can read it, a metafield is fine, and the low stock report stops lying the same week. Until that number exists, every buying decision in the store is made against a count that is missing the orders you already placed.
+
+Step six is where the money is. A warning at the moment someone drafts the order is worth more than any dashboard, because the duplicate order is not a reporting failure, it is a decision made with the wrong number in front of a person who is in a hurry.
+
+## Three numbers to write down
+
+The build is a day. The decisions are what stall people, and all three are small. How many days past expected arrival makes a purchase order late, which is usually seven for domestic and fourteen for ocean freight. What short ship percentage you let through without chasing, which for most stores is about two percent. And the purchase order value above which a human reviews it before it goes to the supplier. Pick those three and the rest is configuration.
+
+## Where AI earns its place
+
+Three jobs here, and none of them is running a query.
+
+Matching the delivery to the order. Pulling open purchase orders is mechanical. Working out what arrived is not. The supplier's packing slip uses their part numbers, their case packs and their own wording for each line, and real deliveries come short, split across two shipments, or substituted. The purchase order line does carry a supplier SKU field, which helps on the clean ones and not at all on the rest. A model reads the supplier's document against your lines and proposes the match, which is what makes the remainder number trustworthy.
+
+Finding the real date. Expected arrival almost never lives in Shopify. It lives in an email saying shipping Friday, a second one moving it to the week of the tenth, and a PDF with a carrier reference buried in it. A model reads that thread and keeps one honest date per purchase order, which is the input every other step depends on.
+
+Writing the chase. The purchase order number, the lines still outstanding, the days past the date the supplier themselves gave you, in a tone that keeps the relationship. Most late deliveries move when somebody asks on day three instead of day thirty.
+
+Keep three things human. Sending a purchase order above whatever value you set. Accepting a substitution. And any change to agreed cost.
+
+## Do this before you close the laptop
+
+Open Products, then Purchase orders, filter to ordered, and sort oldest first. Count how many were created more than one supplier lead time ago and are still sitting there. Then take three of them, pick one variant from each, and look at its incoming count. In most stores at least one of the three reads zero, which means your reorder report has been treating that stock as if it does not exist since the day you bought it.
+
+◆ READING Two companion pieces if this one landed: The reorder you always make too late, on deciding what to buy and when, and The stock Shopify won't let you sell, on the same arithmetic going wrong at the other end.
+
+Sitting on purchase orders nobody has looked at since they were sent, a supplier who is three weeks late and does not know you noticed, or a low stock report you have stopped trusting? The inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
+
+## FAQ
+
+**Why does Shopify show zero incoming inventory when I have a purchase order open?** Because incoming counts units that are moving, not units you have bought. Shopify's Help Center defines incoming inventory as inventory that is on its way to your location from inventory transfers or apps, and says units that have not been received are excluded and cannot be sold. In practice the number is narrower still. A merchant who tested this on a development store in September 2026 reported that incoming counts units in transit, that transfers sitting in draft or marked ready to ship but not yet dispatched add nothing to the number, and that an order placed weeks earlier which the supplier has not shipped shows as zero. So a confirmed purchase order with a signed price, a quantity and a delivery date contributes nothing to incoming until somebody creates a transfer against it and marks it in transit. Incoming is a transit number. On order is the number you actually need for buying decisions, and Shopify does not have a field for it.
+
+**Does Shopify count purchase orders in incoming inventory?** The documentation says yes and merchants report otherwise. The Help Center names purchase orders in its incoming section and says that clicking a variant's incoming quantity shows which transfers, purchase orders or apps make up the number. On 24 July 2026 a merchant posted that incoming quantities stopped reflecting open purchase orders after the new purchase order system launched, and that his reports keep telling him to procure what is already in process. He asked for the old system back. There was no staff reply. Within the hour he posted his own workaround, which is to create a transfer from the purchase order and mark it in transit before the goods have shipped. Another member explained the mechanics: incoming is derived from transfers and shipments rather than from purchase orders, so the transfer step is mandatory, and he warned that editing the purchase order afterwards, or receiving a short shipment, will not update the transfer, which silently re-creates an overcount. The practical answer is that a purchase order on its own does not move incoming.
+
+**How do I see how much of a product is already on order in Shopify?** There is no on order column in the admin, so you have to build the number. As of the 2026-10 Admin GraphQL API you can query inventoryPurchaseOrders and inventoryPurchaseOrder with the read_inventory_purchase_orders scope, which Shopify staff confirmed on 2 October 2026 is available to all apps outside the preview. The purchase order object gives you the name, the supplier as origin, the destination location, dateCreated, orderedAt, the line items, which can be searched by unit cost, variant id, supplier SKU and incoming quantity, and a transfers connection. On order per variant is then ordered quantity minus what the linked transfers and shipments show as received, summed per line and per location. Nothing in Shopify calculates that for you and no report exposes it, so it is a nightly job you run and write back somewhere your buying decisions can read it, usually a metafield or an outside planning tool.
+
+**Is there a Shopify purchase order API?** Yes, as of the 2026-10 Admin GraphQL version, and it is new enough that most of the advice online still says there is not. Developers asked for it repeatedly through 2026. A feature request on 16 June 2026 asked for read, create and receive, noting that the inventory transfer and shipment types do not cover supplier or purchase order level tracking, and got no staff reply. A separate thread on 30 July 2026 asked for a firm answer on whether the API would arrive within twelve months. Access was awkward at first: on 11 August 2026 a developer hit ACCESS_DENIED on inventoryPurchaseOrders, found that read_inventory_purchase_orders was not in the public access scopes reference or the dashboard selector, and a Shopify engineer confirmed that declaring it in shopify.app.toml passes validation but fails at deploy. Shopify patched it server side on 14 August so that read_inventory would work on preview stores, and the dedicated scope went generally available in 2026-10. Read the status enum before you plan around it, though. It has exactly two values, DRAFT and ORDERED. There is no received, no partially received and no closed, so lifecycle state is something you derive from the linked transfers.
+
+**Can Shopify Flow alert me when a purchase order is late?** No, on two counts. Flow cannot read incoming quantities or purchase order data at all. A merchant asked on 26 January 2026 for a workflow listing products with incoming above zero sorted by purchase order and vendor, and quoted Sidekick saying that Shopify Flow cannot access incoming inventory quantities for reporting and automation. The thread was revived on 5 October 2026 and two developers confirmed nothing had changed, suggesting a custom app or a scheduled job against the Admin API instead. The second problem is structural. Flow's inventory bench is inventory item created, inventory item deleted, inventory transfer completed, inventory transfer ready to ship, product variant back in stock, product variant out of stock and product variant inventory quantity changed. Every one of them needs an event. A late purchase order is the absence of an event, so there is nothing for Flow to listen to. The only native shape is the scheduled time trigger driving a sweep you build and maintain yourself.
+
+**Can AI handle purchase order tracking for a Shopify store?** It fits this problem well, because the hard parts are reading and matching rather than counting. Pulling open purchase orders is a query once you have API access. Reconciling what arrived against what you ordered is not, because the supplier's packing slip uses their part numbers, their case packs and their own description of each line, while your purchase order uses yours. The purchase order line item does carry a supplier SKU field, but real deliveries arrive short, split across two shipments, or substituted, and a model can read the supplier's document against your lines and propose the match. The second job is dates. Expected arrival almost never lives in Shopify. It lives in an email saying shipping Friday, a later one moving it to the week of the tenth, and a PDF with a carrier reference, and a model can read that thread and keep one honest date per purchase order. The third is writing the chase: the purchase order number, the lines still outstanding, the days past the date the supplier gave you. Keep three things human. Sending a purchase order above whatever value you set, accepting a substitution, and any change to agreed cost.
+---
+
+# How to catch Shopify orders where half the order never ships
+
+URL: https://blog.dugong.live/how-to-catch-shopify-orders-where-half-the-order-never-ships.html
+Dispatch: Nº 127
+Author: Priya Singh, Commerce Research, Dugong
+Published: 2026-10-14. Updated: 2026-10-14
+
+Two of the three items went out the next morning. The third never moved, nobody noticed for nine days, and the customer found it before you did. Here is why the leftover falls out of every report you check, and the playbook that clears it.
+
+## The short answer
+
+Two of the three items shipped the next morning. The third never moved, and Shopify marked the order Partially fulfilled, which is the platform agreeing that something is missing and then doing nothing about it. The remainder falls out of the reports you actually read, because report filters work at the order level and not the line item level. The AI playbook that sweeps for every open remainder nightly, ages it from the last shipment rather than the order date, names which of seven causes produced it, tells the customer what is still coming before they ask, and closes it honestly.
+
+The email arrives on day nine. Where is the rest of my order. You open it, and the story is right there: two items picked and shipped the morning after checkout, tracking says delivered, and the third line sitting exactly where it was. No failed sync, no error, no flag. The order is marked Partially fulfilled, which is Shopify agreeing that something is missing and then doing nothing else about it.
+
+Shipping part of an order is usually the right call. Send what you have, follow with the rest, keep the customer moving. The problem is never the split. It is the follow. Shopify tracks a shipment beautifully. It does not track the remainder.
+
+## What partially fulfilled actually means
+
+Shopify's own definition is one sentence. The Help Center says you get the Partially fulfilled status when you fulfill part of the items in an order. The Admin API enum is no more generous: some of the items in the order have been fulfilled. That is the whole of it. A label on the order, with no owner and no clock.
+
+Underneath, the model is more useful than the label. Shopify splits every order into fulfillment orders, which the developer documentation describes as either an item or a group of items in an order that are expected to be fulfilled from the same location. Shopify creates them automatically, you cannot create them by hand, and an order can carry several, including more than one at the same location. The same docs note that multiple fulfillments can exist for a single order when items either ship separately or from different locations.
+
+So a half shipped order is not one ambiguous thing. It is one fulfillment order that is finished and at least one that is still open. The open one is a real piece of work sitting in your store. Nothing in the admin presents it as work.
+
+## Eleven statuses, and four of them hide a job
+
+The order display fulfillment status list has eleven values. Four of them mean something still has to ship, and all four read like a conclusion rather than a task. Partially fulfilled, some items gone. On hold, where every unfulfilled item in the order is paused. Scheduled, where every unfulfilled item is set to ship at a later time. And In progress, which is the one that catches people, because it means a request for fulfillment was sent to the fulfillment service, or you marked it in progress yourself while picking.
+
+In progress is your 3PL confirming it received the job. It is not the 3PL doing the job. If you need evidence that the gap between those two is a real operational problem, Shopify Flow ships a trigger literally named fulfillment order fulfillment service failed to complete fulfillment. There is a fifth status worth watching too, Request declined, which means the fulfillment service rejected some of the items.
+
+Nothing in the admin ages any of them. The status tells you what the order is. It never tells you how long it has been that way, which is the only part that matters.
+
+## The reporting hole merchants keep finding
+
+Here is the mechanical reason these orders go missing rather than merely getting forgotten. A merchant posted it precisely on 7 August 2026: when filtering reports by fulfillment status, the filter operates at the order level, not the line item level. Their example was order 2312, twenty five items, twenty four fulfilled, one unfulfilled, and it does not appear in the unfulfilled items report at all. No staff reply. No resolution. They also mentioned that the feedback link the support chatbot gave them returned a 404.
+
+Two and a half months earlier, on 20 May 2026, another merchant filed the matching feature request: the ShopifyQL FROM sales dataset does not expose a line_item_fulfillment_status field for filtering. The only substantive reply said they did not expect ShopifyQL to add it any time soon, suggested the GraphQL Admin API fulfillmentOrders query as a workaround, and said they would vote for the request anyway. No staff answer there either.
+
+Put those together and you get the perverse bit. The bigger the order, the more invisible the leftover. A single item order that never ships reads as Unfulfilled and turns up in every view you own. A twenty five item order with one item outstanding reads as Partially fulfilled and turns up in none of them.
+
+People have been trying to work around this for years. In May 2024 a merchant asked how to isolate orders where one specific product was the unfulfilled line. The answer was a Flow with a for each loop, plus the useful caveat that Flow has no action that marks an order itself as fulfilled, only fulfillment orders. The thread ends with the original poster still asking how the loop behaves and a second merchant, three months later, asking whether it ever worked. Nobody replied.
+
+## Seven ways an order goes out half done
+
+Worth naming these, because the response is different for each and because most of them are not mistakes.
+
+One. Stock sits at two locations, so Shopify creates a fulfillment order per location, and one location ships today while the other has not been picked. Two. A line is out of stock, oversold or on backorder. Three. A preorder or made to order item is riding along with in stock items. Four. Part of the order is on hold. Worth knowing that checkout upsell offers set a temporary hold automatically, and that releasing a hold returns the items to Unfulfilled, so a nine day old remainder can suddenly look like a brand new job. Five. A fulfillment service accepted the request and went quiet, or declined part of it. Six. A personalized or built to order line is waiting on production. Seven. Somebody shipped what was on the bench to clear the screen, and fully intended to come back to it.
+
+Only two of those are errors. The rest are ordinary operations missing a follow through step, which is exactly why being more careful never fixes it.
+
+## Your customer gets told half the story
+
+The shipping confirmation is built around the fulfillment, not the order. The customer receives a tracking number for what left the building and no word at all about what stayed behind.
+
+A merchant who said they often partially fulfill orders asked for the fix on 18 July 2024: a way to tweak the email templates to show the line items that are unfulfilled. One person replied, suggesting a test of the fulfillment.fulfillment_line_items variable, documented as a list of fulfillment line items to be fulfilled, and said testing was needed to know what it actually returns. Nobody ever confirmed. The thread is still open.
+
+So the customer reads a shipping notification, sees tracking, and concludes the order is on its way. The light box is a surprise, and surprise is the expensive part. Best case it arrives as a where is my order ticket. Worst case it is a missing item claim or a card dispute, and you are now arguing about a parcel you can prove you sent, for an item you can prove you did not.
+
+◆ FROM THE FORUMS October 2023, a merchant with a two item order: one shipped, one cancelled by the vendor. Their questions were how to update the order status and why the customer was never notified of the cancellation. One reply, from another merchant, said refund the cancelled item, email the customer the reason, and write yourself an SOP. No staff answer. That is still the state of the art.
+
+## The Flow trap on top
+
+You would reasonably assume the Order fulfilled trigger means the order is fulfilled. It does not. Shopify's own page says the trigger starts a workflow when fulfillment of one or more line items in a fulfillment order is successful, and warns that it is possible for this trigger to start a workflow multiple times for the same order. The same page's meta description says it starts when all the line items in an order are fulfilled. The documentation contradicts itself, and the behavior is the first one.
+
+Which means every workflow you hung off Order fulfilled is firing on the half order: the thank you email, the review request, the loyalty points, the accounting sync, the rate your delivery prompt. Some fire twice. You are asking for a review of a product that has not arrived.
+
+And the trigger you actually want does not exist. Flow's fulfillment bench is long: fulfillment created, fulfillment event created, fulfillment order placed on hold, holds released, merged, split, moved, rescheduled, ready to fulfill, line items prepared for pickup or local delivery, fulfillment request submitted, accepted and rejected, cancellation request submitted, accepted and rejected, and the service failure one. Every single one needs something to happen. Your problem is that nothing is happening.
+
+The one native route is the Scheduled time trigger: runs on a clock, at most once every ten minutes, repeating in days, weeks or months up to a year, carrying no order data of its own, so you add a get order data step and loop over the results. That is a nightly sweep that you build and maintain. It is the correct shape. It is just not a feature.
+
+## What it costs while nobody counts
+
+Run twelve hundred orders a month with five percent going out partially fulfilled and you have sixty open remainders a month. Most close in a day. Say ten do not. That is ten support threads you did not start, a handful of goodwill refunds, and ten orders that will never close.
+
+The inventory cost is the one people miss. An unfulfilled line holds committed stock, so the unit is unavailable to sell while sitting against a sale that is never completing. Your product page says sold out and the shelf says otherwise, and the cause is three orders you half shipped in August. The stock Shopify will not let you sell is that problem from the other end.
+
+## The playbook worth building
+
+As a Dugong playbook, in plain language:
+
+```
+# trigger
+Nightly, and four hours after
+every fulfillment, over all
+open orders
+
+# steps
+1. Sweep for any order with a
+   fulfillment order still
+   open, in progress, on hold
+   or scheduled, holding at
+   least one unfulfilled unit
+2. Age each remainder from the
+   last shipment, not from the
+   order date
+3. Name the cause: stock, hold,
+   declined request, scheduled,
+   split location, silent
+   service, custom build
+4. Route it to the one person
+   who can clear that cause
+5. Tell the customer which item
+   is still coming, and a date
+   you can keep
+6. Escalate: flag at 24 hours,
+   chase at 5 days, force a
+   decision at 10
+7. Close it: ship it, or cancel
+   and refund the remainder,
+   restock the unit, release
+   the committed stock
+8. Count leftover rate per SKU
+   and per location, and hours
+   from first to last shipment
+```
+
+Step two is the one everyone skips. Age these from the order date and the list lies to you, because the order looks handled: it shipped, it has tracking, it is nine days old and so is everything else from that week. Age from the last shipment and the number is honest. Nine days since anything moved on this order is a sentence nobody can argue with.
+
+Step five is where the money is. Most of these never become tickets if the customer hears it from you first. One line naming the item and a date turns a complaint into a non event, and it costs you nothing but the sending.
+
+## Three numbers to write down
+
+The build is an afternoon. The decisions are what stall people, and all three are small. How many hours after a partial fulfillment the remainder gets flagged, which should be twenty four. How many days you wait before you stop waiting and refund, which should be ten. And the order value above which a human reads the case before anything is cancelled. Pick those three and the rest is configuration.
+
+## Where AI earns its place
+
+Three jobs here, and none of them is running a query.
+
+Reading the reason. Finding the orders is mechanical. Knowing why each remainder is stuck is not, because the answer is scattered: a hold reason, the text of a declined fulfillment request, inventory at the assigned location, a note somebody typed into the timeline, sometimes a supplier email that never touched Shopify at all. A model reads all of it and names the cause, which is what makes routing possible.
+
+Writing the note. Not a template with a merge field. The specific item, the honest date, and the tone of someone who already knew. That is the difference between a customer who waits and a customer who disputes.
+
+The small economic calls. Whether a four dollar remainder is worth a nine dollar parcel of its own, or whether it should be refunded with an apology and a note on the SKU.
+
+Keep two things human. Cancelling and refunding above whatever value you set, because that is money and a relationship. And anything that changes what the customer pays.
+
+## Do this before you close the laptop
+
+Filter your orders by Partially fulfilled, sort oldest first, and count the list. That number is your backlog and it has been sitting there the whole time. Then open the oldest three and find the remainder in each. In most stores one is waiting on stock that arrived weeks ago, one is waiting on a person who no longer works there, and one should have been refunded in September.
+
+◆ READING Two companion pieces if this one landed: The order your warehouse never heard about, on orders that never reach the 3PL at all, and The preorder that holds your order hostage, on splitting the wait from the ship on purpose.
+
+Sitting on a pile of partially fulfilled orders nobody owns, a 3PL that accepts requests and goes quiet, or one SKU that leaves a remainder every time it sells? The inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
+
+## FAQ
+
+**Why does Shopify say my order is partially fulfilled?** Because some of the items shipped and some did not. Shopify's Help Center defines the status in one line: you get Partially fulfilled when you fulfill part of the items in an order. The Admin API enum says the same thing, that some of the items in the order have been fulfilled. Underneath, Shopify splits every order into fulfillment orders, which the developer documentation describes as either an item or a group of items in an order that are expected to be fulfilled from the same location, created automatically, with more than one possible per order and even more than one at the same location. A half shipped order is therefore one fulfillment order that is closed and at least one that is still open. The open one is real work. Nothing in the admin presents it as work, gives it an owner, or starts a clock on it, which is why these orders sit.
+
+**How do I find Shopify orders with unfulfilled items when the order shows as partially fulfilled?** Not through the reports, and that is the trap. A merchant posted the mechanics on 7 August 2026: when filtering reports by fulfillment status, the filter operates at the order level, not the line item level. Their example was order 2312 with 25 items, 24 fulfilled and one unfulfilled, which never appears in the unfulfilled items report. No staff reply, no resolution. A second merchant filed a feature request on 20 May 2026 because the ShopifyQL FROM sales dataset does not expose a line_item_fulfillment_status field for filtering, and the only reply said not to expect ShopifyQL to add it soon and to use the GraphQL Admin API fulfillmentOrders query instead. So the practical answer is the API. Query each order's fulfillment orders, keep the ones whose status is still open or in progress, and read the unfulfilled quantity on their line items. The perverse part is that the bigger the order, the more invisible the leftover: a single item order that never ships reads as Unfulfilled and appears everywhere, while a 25 item order with one item left reads as Partially fulfilled and appears nowhere.
+
+**Does Shopify tell the customer which items have not shipped yet?** No. The shipping confirmation is built around the fulfillment, not the order, so the customer gets a tracking number for what went out and no mention of what stayed behind. A merchant who said they often partially fulfill orders asked on 18 July 2024 for a way to tweak the email templates to show the line items that are unfulfilled. The one reply suggested testing the fulfillment.fulfillment_line_items variable, documented as a list of fulfillment line items to be fulfilled, and said testing was needed to know what it returns. Nobody confirmed it worked and the thread is still open. The result is predictable. A customer reads a shipping notification, sees tracking, and concludes the order is on its way, so the light box is a surprise. That surprise arrives as a where is my order ticket if you are lucky and as a missing item claim or a card dispute if you are not. Until Shopify changes the template, the fix is to send your own short note naming the item that is still coming and when.
+
+**Can Shopify Flow alert me when an order is still partially fulfilled after a few days?** Not with an event trigger, because nothing is happening and Flow listens for things happening. The fulfillment bench is long: fulfillment created, fulfillment event created, fulfillment order placed on hold, holds released, merged, split, moved, rescheduled, ready to fulfill, line items prepared for pickup or local delivery, fulfillment request submitted, accepted and rejected, cancellation request submitted, accepted and rejected, and fulfillment service failed to complete fulfillment. None of them fires because a remainder has been sitting for nine days. There is also a trap worth knowing: the Order fulfilled trigger does not mean the order is complete. Shopify's own page says it starts a workflow when fulfillment of one or more line items in a fulfillment order is successful, and warns that it is possible for this trigger to start a workflow multiple times for the same order, while the same page's meta description says it starts when all the line items in an order are fulfilled. The behavior is the first one, so review requests, thank you emails, loyalty points and accounting syncs hung off Order fulfilled all fire on the half order. The only native route to an aging alert is the Scheduled time trigger, which runs on a clock at most once every ten minutes, repeats in days, weeks or months up to a year, and carries no order data, so you add a get order data step and a loop. That is a nightly sweep you build and maintain yourself.
+
+**What is the difference between In progress and Partially fulfilled on a Shopify order?** Partially fulfilled means something physically shipped and something did not. In progress means nothing has shipped yet and a request for fulfillment has been sent to the fulfillment service, or you marked it in progress yourself while picking. In other words, In progress is your 3PL saying it received the job, not that it did the job. Both are easy to read as resolved. Of the eleven values in the order display fulfillment status list, four of them mean work is still outstanding while reading like a conclusion: Partially fulfilled, In progress, On hold, where every unfulfilled item in the order is paused, and Scheduled, where every unfulfilled item is set to ship later. Request declined is a fifth, and it means the fulfillment service rejected some of the items. Flow even carries a trigger called fulfillment order fulfillment service failed to complete fulfillment, which tells you how often a service accepts a request and then does not finish. Nothing in the admin ages any of these, so the difference that actually matters is not the label, it is how long it has carried it.
+
+**Can AI manage partially fulfilled Shopify orders?** It fits this one well, because the hard part is reading scattered context rather than counting. Finding the orders is a query. Knowing why each remainder is stuck is not, since the reason is spread across a hold reason, the text of a declined fulfillment request, inventory at the assigned location, a note somebody typed into the timeline, and sometimes a supplier email that never touched Shopify. A model can read all of that, name which of seven causes applies, and route the order to the one person who can clear it. It can also write the customer note that names the exact item and gives a date you can keep, which is the single thing that stops most of these from becoming tickets. And it can make the small economic call on whether a four dollar remainder is worth a nine dollar parcel of its own. Keep two decisions human. Cancelling and refunding a remainder above whatever value you set, because that is money and a customer relationship. And anything that changes what the customer pays.
 ---
 
 # How to catch Shopify shipping label adjustments before they eat your margin
@@ -106,7 +559,7 @@ It is invisible in the P and L. Adjustments arrive as a Shopify platform charge,
 
 As a Dugong playbook, in plain language:
 
-# trigger Daily, over every order fulfilled in the last 90 days that carries a label # steps 1. Read each order timeline to the bottom, pull every adjustment line and its carrier reason text 2. Normalise it: order, SKUs, carrier, service, declared vs billed weight and dims, reason, amount, date 3. Attribute it to the SKU and the package preset that produced the label, not to the order 4. Classify: preset wrong, weight wrong, round-up, wrong service, legitimate surcharge, carrier error 5. Dispute carrier errors within three days, with reason, tape and scale photos, and tracking attached 6. Fix the source: the preset, the variant weight, the box choice, the service rule 7. Reprice using measured label cost per SKU, and recheck your free shipping floor 8. Alert when one SKU is adjusted twice, or any single charge clears your absorb threshold Step three is the one everyone skips. Logging an adjustment against an order gives you a tidy spreadsheet of money you have already lost. Logging it against the SKU and the preset gives you the one fix that stops it. Same data, completely different outcome.
+# trigger Daily, over every order fulfilled in the last 90 days that carries a label # steps 1. Read each order timeline to the bottom, pull every adjustment line and its carrier reason text 2. Normalize it: order, SKUs, carrier, service, declared vs billed weight and dims, reason, amount, date 3. Attribute it to the SKU and the package preset that produced the label, not to the order 4. Classify: preset wrong, weight wrong, round-up, wrong service, legitimate surcharge, carrier error 5. Dispute carrier errors within three days, with reason, tape and scale photos, and tracking attached 6. Fix the source: the preset, the variant weight, the box choice, the service rule 7. Reprice using measured label cost per SKU, and recheck your free shipping floor 8. Alert when one SKU is adjusted twice, or any single charge clears your absorb threshold Step three is the one everyone skips. Logging an adjustment against an order gives you a tidy spreadsheet of money you have already lost. Logging it against the SKU and the preset gives you the one fix that stops it. Same data, completely different outcome.
 
 Step five has to be fast, not thorough. The window is unpublished and short, so a same-week dispute with decent evidence beats a perfect one filed next month. Photograph the sealed parcel beside a tape measure and on a scale at pack time, keyed to the order, and the evidence is already waiting when the charge lands.
 
@@ -727,7 +1180,7 @@ The closest native tool is inventory. Set a product's stock to your daily limit 
 
 ## Merchants are asking this right now
 
-On August 22, 2026 a merchant posted the exact question in the Shopify Community. With room for about 20 orders a day: “When you reach your limit, how would you prevent the next customer from ordering?”
+On August 22, 2026 a merchant posted the exact question in the Shopify Community. With room for about 20 orders a day: "When you reach your limit, how would you prevent the next customer from ordering?"
 
 Replies came in within a day, and together they map the whole problem:
 
@@ -750,7 +1203,7 @@ Stock set to 20, reset at midnight, is the standard advice. It fails in five pre
 
 4. The reset overwrites real numbers. A cancellation at 4pm should free a slot. The midnight job wipes it. And if you also sell ready-made items, a blanket reset destroys those counts too.
 
-5. Other channels do not ask. Shopify's own help page notes that the continue selling setting “doesn't apply to orders placed from Shopify POS”. Phone orders, draft orders and wholesale all use the same hands, and none of them checks your cap.
+5. Other channels do not ask. Shopify's own help page notes that the continue selling setting "doesn't apply to orders placed from Shopify POS". Phone orders, draft orders and wholesale all use the same hands, and none of them checks your cap.
 
 > ◆ NOTE: Shopify Flow can run the nightly reset. Its Scheduled time trigger runs at most once every 10 minutes and defaults to your store's time zone. That fixes the timing. It does not fix the other four problems.
 
@@ -817,7 +1270,7 @@ Step seven turns the cap into a planning tool. If Friday is full by Tuesday ever
 
 ## Where AI earns its place
 
-The counting is simple arithmetic. The hard part is the mess around it. A delivery date typed into a cart note. “For my mom's birthday on the 14th”, which means it has to be made on the 13th. A custom order with six extra lines that is obviously a big job. Rules break on all of that. A model reads it the way your staff would.
+The counting is simple arithmetic. The hard part is the mess around it. A delivery date typed into a cart note. "For my mom's birthday on the 14th", which means it has to be made on the 13th. A custom order with six extra lines that is obviously a big job. Rules break on all of that. A model reads it the way your staff would.
 
 The honest limit: a storefront cap cuts overselling, it does not make it impossible. The only layer that can refuse a checkout outright is checkout validation with Shopify Functions, and orders still arrive through POS and drafts. That is why step six exists.
 
@@ -827,7 +1280,7 @@ Write down your real daily number. List your three heaviest products and what ea
 
 Then count last month's orders by the day they were made, not the day they were placed. Most shops that do this find two or three days they overbooked without noticing. Those days are exactly where the cap pays for itself.
 
-> ◆ READING: Two companion pieces if this one landed: The pre-order that holds your whole order hostage (https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html), on letting customers buy ahead without breaking the stock you actually hold, and The vacation your store won’t let you take (https://blog.dugong.live/how-to-put-your-shopify-store-on-vacation-mode-without-losing-sales.html), on closing the shop for a week without losing the orders.
+> ◆ READING: Two companion pieces if this one landed: The pre-order that holds your whole order hostage (https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html), on letting customers buy ahead without breaking the stock you actually hold, and The vacation your store won't let you take (https://blog.dugong.live/how-to-put-your-shopify-store-on-vacation-mode-without-losing-sales.html), on closing the shop for a week without losing the orders.
 
 Running a made-to-order shop with a capacity story, the Saturday with 31 orders, the app that forgot about POS, the week you turned the store off to catch up? The inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
 
@@ -2713,7 +3166,7 @@ Fix the top of that list first, by hand or with the classifier proposing and you
 
 Then say the brief out loud, the way you would hand customs to a new hire. Every variant carries an HS code, an origin, and a weight, and you tell me our coverage number when I ask. Propose codes for anything new the hour it publishes; publish the confident ones with a record of what changed, bring me the doubtful ones, send the truly odd ones to the broker and remember the answer. Hold any international order carrying a blank. Compare what checkout charged with what the carrier billed, and treat a big gap as a wrong code until proven otherwise. Once a month, show me coverage, changes, and every duty complaint. That is the whole paragraph. The compiler turns it into the workflow, and the next card the carrier leaves is for a parcel that is not yours.
 
-> ◆ READING: Two companion pieces if this one landed: the image alt text no one writes, on the other catalog field everyone skips until it costs them, and the bad address that ships anyway, on catching order data problems before the label prints. Also worth reading: the order from a state you can’t ship to, on the other compliance field Shopify will happily let you sell without.
+> ◆ READING: Two companion pieces if this one landed: the image alt text no one writes, on the other catalog field everyone skips until it costs them, and the bad address that ships anyway, on catching order data problems before the label prints. Also worth reading: the order from a state you can't ship to, on the other compliance field Shopify will happily let you sell without.
 
 If you are a Shopify merchant with a customs story, the parcel that came back with a bill, the duty calculated at double the price, the classification you still argue about, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
 
@@ -3926,7 +4379,7 @@ Then automate the reading before the acting. For the first two weeks, let the wo
 
 Describe it the way you would brief a merchandiser on their first Monday. Every week, tell me what stopped selling and what it is costing us to keep. Propose the move for each one, and mark things down with the margin protected, the sale price honest, and an end date attached. When something goes to clearance, make the whole store agree: collection, ads, codes, everything. If a move does not work in two weeks, escalate it. And tell buying what to stop reordering. That is the brief. The compiler handles the schedules, the tags, and the price edits, and the shorts get cleared in August at 30 percent off instead of surviving to haunt the January sale.
 
-> ◆ READING: Two companion pieces if this one landed: the reorder you always make too late, on the same loop from the buying side, and the sale you have to start by hand, on the mechanics of moving prices on time. Also worth reading: the expiry date your store can’t see, on the stock that does not just sit, it spoils.
+> ◆ READING: Two companion pieces if this one landed: the reorder you always make too late, on the same loop from the buying side, and the sale you have to start by hand, on the mechanics of moving prices on time. Also worth reading: the expiry date your store can't see, on the stock that does not just sit, it spoils.
 
 If you are a Shopify merchant with a stockroom shelf you avoid looking at, a January sale that is really a confession, or a spreadsheet named clearance_final_v3, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
 
@@ -6097,7 +6550,7 @@ If you run drops, collabs, flash sales, or seasonal lines, and you have ever wat
 
 Describe it the way you would brief a sharp launch manager: at this minute put the whole drop live on every channel it belongs on, but only the products that are actually ready, and at that minute take it all back down and send the old links somewhere useful, and bring me anything that is not ready or that clashes with something else running. That is the whole brief. The compiler does the readiness check, the publish, the take-down, and the link safety, across the set, on time. Your launch lands everywhere at once, and it ends when you said it would, without anyone sitting up to make it happen.
 
-> ◆ READING: If this resonates, two companion pieces: our dispatch on the sale you have to start by hand, the pricing side of scheduling a promotion and reverting it, and the deleted product that 404s your customers, where a product coming down needs its old URL pointed at a live page instead of a dead end. Also worth reading: the vacation your store won’t let you take, on scheduling the whole storefront down and back up without losing the orders in between.
+> ◆ READING: If this resonates, two companion pieces: our dispatch on the sale you have to start by hand, the pricing side of scheduling a promotion and reverting it, and the deleted product that 404s your customers, where a product coming down needs its old URL pointed at a live page instead of a dead end. Also worth reading: the vacation your store won't let you take, on scheduling the whole storefront down and back up without losing the orders in between.
 
 If you are a Shopify merchant who has built something that publishes a drop across every channel on time and pulls it when the window closes, or you have a story about a launch that went live on the online store and nowhere else, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
 
@@ -9434,3 +9887,66 @@ Start where the labor actually scales with order volume, not where the builder m
 ### Can Shopify Flow build the automations that are actually worth it?
 
 Flow is genuinely good at the trigger, condition, action shape: when an order is paid, if value crosses a threshold, add a tag. That is why tagging is 14% of shipped workflows, and why 67% of the 1,374 workflows we studied had four or fewer steps. The high-value jobs are a different shape. Refund triage has to read a complaint and its photos, judge damage against a dollar threshold, check whether this is the customer's third return in 60 days, and route the gray cases to a human. Chargeback evidence lives in five systems: Shopify holds the order, Stripe the auth log, Gorgias the conversation, ShipStation the tracking, the 3PL the proof-of-delivery scan. Work like that needs an agent that can read messages and evidence and follow a prose playbook, which is the gap the compiler approach exists to close. Use Flow for the rules; describe the judgment calls in plain English.
+
+---
+
+# The death of the drag-and-drop builder
+
+URL: https://blog.dugong.live/the-death-of-the-drag-and-drop-builder.html
+Dispatch: Nº 47
+Author: Aanya Rao, Head of Research, Dugong
+Published: 2026-05-28. Updated: 2026-05-28
+
+For fifteen years, workflow automation looked like a canvas of rectangles connected by lines. After watching three million runs across twelve thousand teams, we're convinced the canvas was always the problem.
+
+There is a particular kind of fatigue that sets in around the twentieth node of a Zapier zap. You know the one. The connecting lines start to cross. The error-handling branch you added last week now has its own error-handling branch. Someone on the team named a step "Step 7 (FINAL) (USE THIS ONE)." You open it on a Monday morning, stare at the canvas for forty seconds, and quietly close the tab.
+
+We've spent the past eighteen months instrumenting that moment. What we found surprised us: the canvas isn't failing because the workflows got more complex. The workflows got more complex because the canvas required them to be.
+
+## The canvas tax
+
+Every drag-and-drop builder shares an unspoken bargain: in exchange for a visual representation of your logic, you agree to express that logic in nodes. One node, one action. Two actions, two nodes and a line. A branch becomes a diamond and three lines. A retry becomes a node that points back at itself in a way that looks vaguely alarming.
+
+> The canvas didn't help us think clearly about workflows. It forced us to think about nodes.
+
+The cost shows up in our data. Across the 12,000 teams we studied, median Zapier zaps grew 31% in node count year over year, but the work they accomplished grew by only 9%. The rest was scaffolding: wrapper nodes, formatter steps, lookup nodes, glue. The canvas was eating itself.
+
+## The natural-language alternative
+
+What happens if you stop drawing the workflow and start describing it? We thought we knew. We assumed natural language would be a thin layer over the same model, a different input method for the same canvas. It is not.
+
+Here is a workflow our customer Anika at Resend wrote on a Tuesday afternoon, in plain prose, in our editor:
+
+```
+# trigger
+When a new customer signs up on our website
+
+# steps
+1. Look up their company info using Clearbit
+2. Score the lead with AI: company size, industry, role
+3. If score > 80, create a Salesforce deal + assign rep
+4. Send a welcome email via Gmail with their name
+5. Log to Google Sheets and post to Slack #signups
+```
+
+What the compiler produced from this prose was an 8-node playbook with one branch, five API integrations, and, critically, an error shield Anika never asked for, because the AI knew Clearbit sometimes times out and Salesforce sometimes rate-limits.
+
+In a drag-and-drop tool, Anika would have spent the next two hours adding retry logic, formatter steps, and conditional fallbacks. In ours, she spent six minutes describing what the workflow should do, and the compiler handled what it should be.
+
+## The compiler is the product
+
+The interesting work, it turns out, isn't the editor. It's the compiler. Translating "if the score is high" into a branching condition is the easy part; what's hard is knowing that the score might be missing, that the field might be a string instead of a number, that the Salesforce API will occasionally return a duplicate-key error and you should treat that as success.
+
+That kind of knowledge isn't visible in the editor. It lives in the compiler. And once you accept that the compiler is doing the real work, the editor stops needing to look like a canvas. It can look like writing.
+
+## Three predictions
+
+We think the next three years of workflow automation will be shaped by three forces:
+
+- Workflows will be read more than written. The unit of authorship becomes the prose, not the diagram. Reviewing a teammate's workflow becomes reading a paragraph instead of tracing arrows.
+- Error handling moves below the line. Retries, fallbacks, and rate-limit logic will be invisible unless you ask to see them. The compiler will assume you want them; you'll opt out, not opt in.
+- Integrations stop being a menu. "Send to Slack" is enough. "Update the CRM" is enough. The resolver picks the tool. You don't browse a directory of 4,000 apps; you mention what you need.
+
+None of this means the canvas disappears overnight. There are workflows where a diagram is genuinely the right representation: complex state machines, multi-week orchestrations, anything with significant parallel branches. But those are a minority. For the long tail of "when X happens, do Y and Z," prose is better. It always was. We just didn't have the compiler.
+
+We'll keep writing as the data accumulates. If you're building workflows, in any tool, and you want to share what you're seeing, the inbox is open: field-notes@dugong.live.

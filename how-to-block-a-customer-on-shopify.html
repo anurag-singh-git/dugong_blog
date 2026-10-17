@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-block-a-customer-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-23" />
     <meta property="article:modified_time" content="2026-08-14" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2290,
       "timeRequired": "PT10M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -106,6 +108,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -461,6 +464,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -596,8 +600,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -605,7 +612,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -645,15 +652,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 89</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-07-23" style="color: var(--cream-dim);">JUL 23, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-14" style="color: var(--cream-dim);">UPDATED AUG 14, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 89</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-07-23" style="color: var(--cream-dim);">JUL 23, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-14" style="color: var(--cream-dim);">UPDATED AUG 14, 2026</time></span>
+</div>
 
   <h1 class="article-title">
     How to <em>block a customer</em> on Shopify from placing orders
@@ -670,7 +674,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -984,27 +988,28 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Can I block a customer from placing orders on Shopify?</h2>
       <p class="faq-a">Not natively. Shopify has no block or ban feature anywhere in the admin. Deleting or disabling a customer's account only affects their ability to log in, and guest checkout remains open to anyone with an email address, so the same person can order again immediately. Shopify's fraud analysis does not help either, because it is built to flag stolen payment methods, and a serial returner paying with their own valid card registers as low risk. Merchants make a block stick by automating the whole loop: keep a blocklist built on identity rather than one email string, check every incoming order against it, and cancel and restock before fulfillment when a match is confirmed.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Can Shopify Flow block a customer from ordering?</h2>
       <p class="faq-a">Flow cannot prevent an order, only react to one. The standard workaround is to tag the customer as blocked and build a workflow on the Order created trigger that checks the tag or email and cancels the order, restocks the items, and optionally notifies the customer. It works, but the order still gets placed and paid: the payment is captured and then refunded, and payment processing fees are generally not returned on refunds, so every blocked order costs money. The match is also literal, so a plus-addressed alias or a brand-new email walks straight past the condition, and the customer just tries again since nothing stops the next checkout.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Can I block someone's IP address on Shopify?</h2>
       <p class="faq-a">There is no native IP blocking in Shopify. Third-party apps can block IP addresses or countries at the storefront level, but as a way to ban a specific person it is weak on both sides: the determined returner switches to a VPN or their phone's network in seconds, while a shared address like an office, a campus, or a mobile carrier's network can lock out innocent shoppers along with the one you meant. IP is one useful signal among several for recognizing a returning bad actor, but it cannot carry a block on its own, which is why identity-based matching across email variants, phone, and shipping address works better.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Can I stop a blocked customer at checkout on Shopify, before they pay?</h2>
       <p class="faq-a">Only with checkout validation functions, and they come with a maintenance bill. Validation functions are the one tool that can truly decline a checkout before it completes, which fixes the worst property of the Flow workaround, where the order is placed, the payment is captured, and the processing fees are lost to the refund. But they live inside a custom app that someone has to build and maintain, which puts them out of reach of most stores without a developer, and they match on the same literal fields as everything else, so a fresh email address walks past them exactly as it walks past a Flow condition. The honest summary: cancel-after-order costs fees per catch and teaches the blocked customer the shape of the wall, decline-at-checkout costs an app build, and neither solves the matching problem, which is recognizing the person rather than the string they typed.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">How do I avoid blocking the wrong person on Shopify?</h2>
       <p class="faq-a">Match on the whole record, never on one string, because a false positive costs more than a miss. A blocklist matched on surname will eventually cancel a wedding gift from the blocked customer's cousin, or a genuine order from a flatmate at the same address, and that person tells the story forever. The judgment runs on evidence. A shared surname is nothing. A fresh email shipping to the same flat with the same phone number is close to certain. The durable identity is the shipping address, the phone, and the payment fingerprint, not the last email address the person happened to use. The borderline case should not be settled by tired pattern-matching at eight in the morning; it belongs in front of a human with the history attached. And every confirmed block should carry the reason it exists, so the list can be argued with later, entry by entry.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1013,6 +1018,22 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1035,7 +1056,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1179,7 +1200,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1195,7 +1216,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>

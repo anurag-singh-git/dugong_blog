@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-automate-gift-card-delivery-and-reminders-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-10" />
     <meta property="article:modified_time" content="2026-08-13" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2600,
       "timeRequired": "PT10M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -106,6 +108,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -468,6 +471,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -603,8 +607,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -612,7 +619,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -652,15 +659,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 104</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-10" style="color: var(--cream-dim);">AUG 10, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-13" style="color: var(--cream-dim);">UPDATED AUG 13, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 104</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-10" style="color: var(--cream-dim);">AUG 10, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-13" style="color: var(--cream-dim);">UPDATED AUG 13, 2026</time></span>
+</div>
 
   <h1 class="article-title">
     How to automate gift card delivery and reminders <em>on Shopify</em>
@@ -675,7 +679,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1080,27 +1084,28 @@ it is minted to the day it hits zero
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Why didn't my customer receive their Shopify gift card email?</h2>
       <p class="faq-a">Work through four suspects in order. First, fulfillment: the gift card email goes out when the card is fulfilled, and while gift cards fulfill automatically on payment by default, a store switched to manual fulfillment leaves the card waiting for a click, and medium and high risk orders skip automatic gift card fulfillment entirely, so a fraud flag can hold the send in silence. Second, the recipient form: unless your theme supports the form, it is activated in the theme editor, and the buyer filled it in through the standard Add to Cart flow, the card goes to the purchaser rather than the recipient, and accelerated checkout buttons bypass the form's validation altogether. Third, the address itself: a typo in the recipient email neither errors nor bounces anywhere you can see, because the admin has no delivered or bounced state, only sent. Fourth, spam. The repair is the Resend gift card button on the card's page under Products, then Gift cards, and since the admin shows only the last four characters of any code after creation, resending is the only repair there is.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Can customers schedule a Shopify gift card to send on a specific date?</h2>
       <p class="faq-a">Yes, within boundaries worth knowing before you promise anyone a birthday. The recipient form's optional Send on date schedules a card at most 90 days in the future, and scheduled cards go out approximately between 4:00 am and 10:00 am in the purchasing customer's timezone, so the delivery morning keys off the buyer's clock unless the theme passes the recipient's timezone offset along. The form itself is a theme feature: it arrived in v9.0.0 of Shopify's free Online Store 2.0 themes, lives in Dawn and the Horizon family, does not exist on vintage themes, and stays off until the Show recipient information form for gift card products checkbox is enabled in the Buy buttons block. And the form's validation supports only the Add to Cart flow, so a buyer who pays with an accelerated checkout button can lose the recipient details, in which case the card sends immediately to the buyer and no schedule exists. If a specific date genuinely matters, an automation that queues the send itself and confirms to the buyer when the card lands is the only version of the promise you fully control.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Do Shopify gift cards expire, and should you set an expiry?</h2>
       <p class="faq-a">By default Shopify gift cards never expire, and the setting lives under Settings, then Payments, in the Default expiration section. If you switch expiry on, the default term is five years, which matches the floor the US CARD Act of 2009 sets for how quickly gift card funds can expire; several states are stricter, some ban gift card expiration outright, and in many states balances that sit unredeemed long enough become unclaimed property owed to the state rather than kept by the store, so check the rules everywhere you sell before touching the setting. The better question is what happens before any expiry: Shopify sends no balance reminders and no expiry warnings, and Bankrate's survey work counts about $27 billion of unused gift card value held by 43 percent of American adults, an average of $244 per person. A reminded card gets spent, and a spent card is usually a new customer's first visit to your store; an expired card is a small grudge with your brand's name on it. Remind first, and treat expiry as a legal detail rather than a revenue plan.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Can Shopify Flow send gift card reminders?</h2>
       <p class="faq-a">Not from a trigger, because Flow has no gift card trigger of any kind: nothing fires when a card is created, sent, redeemed, or approaches its expiry date. What Flow does have, since the Get data actions arrived, is Get gift card data, which can query up to 100 cards at a time on a schedule and loop over the results, so the raw material for a reminder program sits one query away. The program itself is the part that exists nowhere as a checkbox: a nudge at 30 and 90 days of stillness with the balance stated and the code re-attached so nobody digs through old email, plain warnings at 60 and 14 days where an expiry term is set and lawful, and a monthly report of outstanding balance, redemption rate, aging cards, and breakage, routed to whoever does your books.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Why is my customized gift card email missing the recipient details?</h2>
       <p class="faq-a">Because two separate notification templates carry gift cards, and customizations age badly. New gift card goes to the recipient and Gift card receipt goes to the buyer; customize either, or carry customizations from before the recipient feature existed, and the recipient fields can simply be absent from the email, along with the Add to Apple Wallet button that was supposed to put the card somewhere it could not be lost. The reliable diagnostic is two test orders for your own card: one through Add to Cart with the recipient form filled in, one through the express checkout button, then watch which inbox each email reaches, since the form validates only on the Add to Cart flow and an express button sends the card to the buyer. Most stores learn something from the second test that they are glad to have learned on purpose.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1109,6 +1114,22 @@ it is minted to the day it hits zero
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1131,7 +1152,7 @@ it is minted to the day it hits zero
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1275,7 +1296,7 @@ it is minted to the day it hits zero
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1291,7 +1312,7 @@ it is minted to the day it hits zero
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>
@@ -1591,7 +1612,7 @@ it is minted to the day it hits zero
         </div>
         <h3 class="card-title">The high-risk flag that makes you guess</h3>
         <p class="card-dek">
-          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
+          Shopify's "high-risk" flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 6</span>

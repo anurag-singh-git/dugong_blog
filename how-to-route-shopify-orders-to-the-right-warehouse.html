@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-route-shopify-orders-to-the-right-warehouse.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-27" />
     <meta property="article:modified_time" content="2026-08-15" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2450,
       "timeRequired": "PT10M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -106,6 +108,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -471,6 +474,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -606,8 +610,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -615,7 +622,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -655,15 +662,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 93</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-07-27" style="color: var(--cream-dim);">JUL 27, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-15" style="color: var(--cream-dim);">UPDATED AUG 15, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 93</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-07-27" style="color: var(--cream-dim);">JUL 27, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-15" style="color: var(--cream-dim);">UPDATED AUG 15, 2026</time></span>
+</div>
 
   <h1 class="article-title">
     How to stop Shopify routing orders to the <em>wrong warehouse</em>
@@ -680,7 +684,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1062,27 +1066,28 @@ changes before a label is bought
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Why does Shopify ship from a far warehouse when a closer location has the item?</h2>
       <p class="faq-a">Usually because a rule above the distance rule already made the decision. Shopify's default routing strategy runs Minimize split fulfillments first, then Stay within the destination market, then Ship from closest location, and each rule filters the list the next one sees. A far location that stocks every line in the order outranks a near one that stocks three lines out of four, because the first rule has already eliminated the near one. Four other things send orders the long way. The closest location may have the option to fulfill online orders switched off. Its stock may exist but be committed to earlier orders. It may not be in the shipping profile that produced the rate the customer paid. And closest is measured as straight-line distance, which Shopify's own documentation says is not driving distance, so a location across a bay or a mountain range can win on the map and lose on the truck.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Can Shopify Flow change the fulfillment location of an order?</h2>
       <p class="faq-a">Partly. Flow has a Move fulfillment order action, and it works well for rules you already know, such as sending every order over a certain weight to the warehouse that stocks pallets. It has two hard limits. The destination has to stock every line item in that fulfillment order or the run fails outright, which rules out most of the interesting cases. And you cannot move a fulfillment order once a fulfillment service has the request in a submitted or accepted state, which is exactly the moment your 3PL already has it and the mistake is about to cost money. Flow also cannot compare carrier rates, measure driving distance, check a cutoff time, or ask whether a location is running behind today, so it can execute a routing decision but it cannot make one.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">How do I stop Shopify splitting one order into two shipments?</h2>
       <p class="faq-a">Put the Minimize split fulfillments rule at the top of your order routing strategy in Settings, Shipping and delivery, Order routing. That tells Shopify to prefer any single location holding the whole order over a closer location holding part of it. The catch is that you have now answered the question once for every order you will ever take. Sometimes one box crossing the country costs more than two boxes traveling one zone each, and sometimes the customer would rather have two thirds of the order tomorrow than all of it on Friday. Shopify gives you one lever for a decision that has a different right answer depending on weight, zone, margin, and how badly that customer needs the item. Splitting is not the problem. Splitting without doing the arithmetic is.</p>
     </div>
-      <div class="faq-item">
+      <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Can Shopify order routing choose the cheapest shipping rate?</h2>
       <p class="faq-a">No. None of the available routing rules reads a shipping rate: there is no rule for cheapest label, carrier zone, dimensional weight, or the pick fee your 3PL charges that your own warehouse does not. Ship from closest location measures straight-line distance, and Shopify's own documentation is upfront that this is not driving distance, so near a zone boundary or across a bay the nearest pin and the cheapest label are different answers. The escape hatch exists but is closed to most stores: custom routing rules are implemented as Shopify Functions through the Order Routing Location Rule API, and they require Shopify Plus, early access by request, Partners enrollment, and deploying your own app. For everyone else, cost-aware routing means scoring the eligible locations per order on the real rate, the cutoff, and the backlog, then moving the fulfillment order inside the window, before a fulfillment service accepts it.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">How much does wrong warehouse routing cost a Shopify store?</h2>
       <p class="faq-a">Usually two to six dollars an order, and it is invisible because Shopify has no report for it. Nothing in the admin compares what your routing cost last month against the best assignment available at the time, so the loss never arrives as an incident. It arrives as a shipping line that runs a bit over budget every month, plus split shipments that quietly generate where is my order tickets because the customer got one box and no explanation. The way to size it is an audit: export last month's orders with the location each one shipped from, and for each order compute what the best eligible location would have cost. Two hundred orders is enough to see the shape. Most multi-location stores find the gap concentrated in a handful of repeating patterns: one lane, one product that only lives in the far warehouse, one showroom that keeps getting picked because it is close on the map.</p>
     </div>
 </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1091,6 +1096,22 @@ changes before a label is bought
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1113,7 +1134,7 @@ changes before a label is bought
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1257,7 +1278,7 @@ changes before a label is bought
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1273,7 +1294,7 @@ changes before a label is bought
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>

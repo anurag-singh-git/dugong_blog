@@ -521,6 +521,7 @@ a.card:hover .card-title, .card[data-nav]:hover .card-title { color: var(--lime-
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -675,7 +676,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -702,11 +703,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">topic guide</span>
-    <span style="color: var(--cream-dim);">8 DISPATCHES</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">JUN 06 &rarr; AUG 14 2026</span>
-  </div>
+<span class="tag tag-research">topic guide</span>
+<span style="color: var(--cream-dim);">8 DISPATCHES</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">JUN 06 &rarr; AUG 14 2026</span></span>
+</div>
 
   <h1 class="article-title">Shopify fraud and risk automation</h1>
 
@@ -715,6 +715,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   <p class="article-dek" style="font-size: 0.95rem;">
     Every dispatch below is a single failure mode: what Shopify does natively, where it stops,
     and the playbook that closes the gap. Newest first.
+  </p>
+
+  <p class="article-dek" style="font-size: 0.95rem;">
+    Every question these dispatches answer is also listed in the
+    <a href="shopify-automation-questions.html">Shopify automation question index</a>.
   </p>
 
 </main>

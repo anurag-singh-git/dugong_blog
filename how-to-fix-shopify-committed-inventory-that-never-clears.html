@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes &middot; RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-fix-shopify-committed-inventory-that-never-clears.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-10-12" />
 <meta property="article:modified_time" content="2026-10-12" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2166,
       "timeRequired": "PT8M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -96,6 +98,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -518,6 +521,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -652,8 +656,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 </style>
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -661,7 +668,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -701,13 +708,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 125</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-10-12" style="color: var(--cream-dim);">OCT 12, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">8 MIN READ</span>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 125</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-10-12" style="color: var(--cream-dim);">OCT 12, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">8 MIN READ</span></span>
+</div>
 
   <h1 class="article-title">
     How to fix Shopify committed inventory that <em>never clears</em>
@@ -719,7 +724,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1150,31 +1155,32 @@ above zero
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Why does my Shopify product show sold out when I have stock on the shelf?</h2>
       <p class="faq-a">Because your store sells the available number, not the on hand number, and the two are different by whatever is sitting in committed. Shopify splits every location's stock into on hand, which is everything physically there, and available, which is what is left after committed, reserved, damaged, safety stock and quality control are taken out. On hand equals the sum of all of them. So a variant with fourteen on hand and fourteen committed reads as sold out on the product page while fourteen units sit on the shelf. Three things put units into committed: line items on orders that are placed but not yet fulfilled, items reserved on a draft order, and transfers marked ready to ship. The number is almost always correct on the day it appears. It becomes a problem when the order that created it never finishes, because nothing in Shopify ages committed inventory or tells you it has gone stale.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">How do I clear committed inventory on Shopify?</h2>
       <p class="faq-a">Not directly, and this catches almost everybody. There is no edit field on committed in the admin and no button that releases it, because committed is an effect rather than a setting. The only way to move it is to finish or undo the thing that created it. Fulfill the line item and the units leave committed. Cancel the order with restock ticked and they go back to available. Reassign the line item to a different location and the commitment moves with it. Complete or delete the draft order and the reserve ends. Receive or cancel the transfer and the ready-to-ship hold goes. The community workaround for a line item you cannot fulfill, posted on the five-year-old thread about being unable to de-stock a location with unfulfilled orders, is exactly this: unarchive the order if you have to, then fulfill the line or change its location, then archive it again. Tedious on one order, impossible by hand on two hundred, which is the whole reason this is an automation problem rather than an admin problem.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Can I adjust committed inventory through the Shopify API or Shopify Flow?</h2>
       <p class="faq-a">No, and Shopify says so in plain words in its own developer documentation: you cannot use the GraphQL Admin API to adjust or move inventory quantities in the committed state. Available, reserved, damaged, safety stock and quality control are all writable through inventoryAdjustQuantities, inventoryMoveQuantities or inventorySetQuantities. Committed is not. Shopify manages it itself through order creation and fulfillment, draft order reservations and transfer readiness. Flow inherits the same ceiling, since its inventory actions go through the same API, and Flow cannot even read committed natively: a merchant asking in August 2025 how to compare incoming against committed was told to use a send admin API request step or a third-party GraphQL action to pull quantities with names committed and incoming, then compare the values in a run code step. So any fix you build acts on orders, not on the inventory number.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">How do I find out which orders are holding my committed inventory?</h2>
       <p class="faq-a">In the admin you click the committed number and a popover lists the orders. Through the API you cannot, and that gap is documented. A developer building a 3PL integration asked for the same breakdown in May 2025 and pointed out that the admin gets it from a non-public field called activeLedgerDocuments, then asked whether there is any way to accomplish the same thing with public Shopify GraphQL. Shopify's answer was to approximate it with an orders search, filtering on fulfillment_status unfulfilled, status open and the SKU. A second developer hit the same wall for safety stock in September 2025 and was told that currently you can only narrow this down to the name, not a specific app or reference URI. The thread is still open. In practice that means you rebuild the breakdown yourself: list every open, unfulfilled line item for that variant at that location, sum the quantities, and compare the total against committed. When the two agree you know which orders to chase. When they do not, you have found a different bug.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Why does committed inventory still show orders I have already fulfilled?</h2>
       <p class="faq-a">Because committed can simply be wrong, and the public record of it goes back years with no fix attached. A merchant reported in January 2024 that an order was fulfilled and committed inventory still counted it. Three more merchants arrived underneath with the same symptom, one of them noting that a sixteen item order was showing eighteen in the committed list, another reporting it across many orders and products, another concluding that we have to wait, I guess. No Shopify staff reply, no accepted solution, last post still asking for an update. In February 2023 the inverse appeared, committed going negative, with a staff member confirming your committed quantity should not be showing negative values and a merchant reporting that our inventory now shows hundreds more items than are actually available. The lesson is operational rather than technical. Treat committed as a claim to be checked, not a fact. Reconcile it nightly against the open unfulfilled line items you can count yourself, and alert on the difference, because the difference is either an order nobody is working or a number that needs support.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-6">
       <h2 class="faq-q">Can AI fix Shopify committed inventory that never clears?</h2>
       <p class="faq-a">It fits well, because the work is attribution and judgement rather than arithmetic. The hard part is not seeing that committed is nine. It is reconstructing which nine units those are, from open unfulfilled line items, draft reserves and transfers marked ready, then deciding what each stuck one deserves. A cancelled order that never got its restock, an order sitting on a fulfillment hold nobody released, a draft reserve from a quote that went quiet in July, a line item pointing at a location that stopped picking, and a genuine Shopify miscount all look identical in the admin as one number, and each one needs a different release: fulfill, cancel and restock, reassign, release the hold, end the reserve, or open a support ticket with the evidence attached. A model can read the order timeline and tell them apart, and it can do it across every variant at every location every night, which is the part nobody has time for. Keep two things human. Cancelling a customer's order to free stock, because that is a customer decision and not an inventory one. And any release above your variance threshold, because the alternative to a phantom unit is an oversell.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1183,6 +1189,22 @@ above zero
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">

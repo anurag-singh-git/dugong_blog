@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-18" />
     <meta property="article:modified_time" content="2026-08-15" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2090,
       "timeRequired": "PT10M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -106,6 +108,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -468,6 +471,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -603,8 +607,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -612,7 +619,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -655,15 +662,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 85</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-07-18" style="color: var(--cream-dim);">JUL 18, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-15" style="color: var(--cream-dim);">UPDATED AUG 15, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 85</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-07-18" style="color: var(--cream-dim);">JUL 18, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-15" style="color: var(--cream-dim);">UPDATED AUG 15, 2026</time></span>
+</div>
 
   <h1 class="article-title">
     How to add a <em>gift message</em> and gift wrap option at checkout on Shopify
@@ -679,7 +683,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -932,27 +936,28 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Does Shopify have a gift message option at checkout?</h2>
       <p class="faq-a">Not as a real, dedicated field on a standard store. The only native place for a shopper to leave a note is the cart order-note box, which is a single freeform field for the whole order, unlabeled unless you rename it, and off by default in many themes. It was built for delivery instructions, not gifting, so a gift message shares one field with everything else, does not attach to a specific item, and has no validation. Gift wrap at checkout is native only for Shopify Plus stores using Checkout Extensibility, and even there it is a bare option rather than a fee, a line item, and a packing instruction. Everyone else stitches gifting together with the order note, theme edits, and apps.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Why doesn't my Shopify gift note show on the packing slip?</h2>
       <p class="faq-a">Because the packing slip is one template for every order, and the order note does not print on it unless you edit the Liquid template to pull the note in. Even after you do, the note prints on every order that has one, gift or not, and it prints alongside the full prices, because there is no native switch to hide prices for a gift. So the recipient can open a box that shows what the sender paid, which is the opposite of a gift. Getting the message onto the slip and the prices off it, for gift orders only, is theme code plus a manual habit, and it breaks the first time an order is edited or a warehouse app takes over fulfillment.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">How do I hide prices on a Shopify gift receipt?</h2>
       <p class="faq-a">There is no native per-order toggle that says this order is a gift, hide the prices. The packing slip template is shared across the whole store, so hiding prices there hides them for every order, and leaving them shows them on gifts too. The dependable way is to mark an order as a gift the moment it is placed, then generate a separate gift packing slip for those orders that carries the message and omits every price and total, while normal orders keep their standard slip. That means detecting the gift, tagging the order, and branching the document, which is exactly the judgment a shared template cannot make on its own.</p>
     </div>
-      <div class="faq-item">
+      <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Why should gift messages be validated before printing?</h2>
       <p class="faq-a">Because a text field will print whatever it holds, and some of what it holds should never reach the box. The order note has no length limit and no validation, so the messages that arrive include empty submissions, a tracking URL or address pasted into the wrong box, and occasionally an abusive note aimed at the recipient, which a busy packing bench will fold into a present unread. Validation is a small step that runs the moment a gift order lands: check the message for length and empties, tidy the formatting, and hold anything offensive or oversized for a human before it prints. The judgment calls sit right next to it: a gift shipping to a different address than the buyer needs its own handling, and on a split shipment the message and the wrap have to travel with the right box. A person loses that thread during a rush; the workflow does not.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">What happens when a Shopify cart is half gift and half regular order?</h2>
       <p class="faq-a">By default, nothing good, because the order note is one field for the whole order. A cart holding one gift and one thing for the buyer has nowhere to say which item the message belongs to, so a note meant for a birthday recipient rides along with the buyer's own purchase, the wrap can end up on the wrong item, and hiding prices on the packing slip hides them for the part the buyer keeps too. The fix is to capture gifting as structured intent instead of one buried note, per item where it matters: which line is the gift, which gets wrapped, where the message goes, and whether it ships to the buyer or straight to the recipient. Once that is captured, the wrap charge lands on the right line, the slip hides prices for the gift only, and the odd cases, a multi-address gift or a cart nobody can parse, go to a person.</p>
     </div>
 </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -961,6 +966,22 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -983,7 +1004,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1127,7 +1148,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1143,7 +1164,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>
@@ -1575,7 +1596,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The customer you can&rsquo;t ban</h3>
+        <h3 class="card-title">The customer you can't ban</h3>
         <p class="card-dek">
           Shopify has no block button: deleting the account leaves guest checkout open, and Flow can only cancel after the money moved. The AI playbook that keeps a real blocklist and makes a block stick.
         </p>

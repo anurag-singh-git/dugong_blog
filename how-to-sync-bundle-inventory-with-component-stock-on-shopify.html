@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-sync-bundle-inventory-with-component-stock-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-15" />
     <meta property="article:modified_time" content="2026-08-15" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2140,
       "timeRequired": "PT10M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -106,6 +108,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -473,6 +476,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -608,8 +612,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -617,7 +624,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -660,15 +667,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 83</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-07-15" style="color: var(--cream-dim);">JUL 15, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-15" style="color: var(--cream-dim);">UPDATED AUG 15, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 83</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-07-15" style="color: var(--cream-dim);">JUL 15, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-15" style="color: var(--cream-dim);">UPDATED AUG 15, 2026</time></span>
+</div>
 
   <h1 class="article-title">
     How to automatically sync <em>bundle inventory</em> with component stock on Shopify
@@ -686,7 +690,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -940,27 +944,28 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Does Shopify deduct component stock when a bundle is sold?</h2>
       <p class="faq-a">Only if you build the bundle through the native Shopify Bundles app, and even then with limits. By default Shopify treats a bundle as its own product with its own inventory number, so selling the bundle does not reduce the products inside it and selling one of those products does not reduce how many bundles remain. The free Bundles app does link a fixed bundle to its components and shows the bundle as available based on the lowest-stock component, which handles the simple case. But it caps the number of components, does not cover true mix-and-match inventory cleanly, tracks by overall stock rather than per location, and does nothing for the many bundles merchants built the older way as a standalone product or a variant. There is no native rule that keeps a bundle, its components, and every other bundle or product page that shares a component in sync in real time.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Why does my Shopify bundle oversell or show sold out when the items are in stock?</h2>
       <p class="faq-a">Because the bundle and its parts are counting stock separately. If a bundle carries its own inventory number, it keeps selling after the components behind it are gone, so you oversell and cannot fulfill, and a component sold on its own page keeps selling because nothing told it that ten of it just left inside bundles. The reverse also happens: a bundle can show sold out while its components sit in stock, because the bundle's own number was never topped up when you restocked the parts. Both are the same root cause, a bundle SKU and its component SKUs that are not linked, so one never moves the other and the two counts drift apart until a customer or a warehouse finds the gap.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">How do I keep a shared component in sync across multiple bundles on Shopify?</h2>
       <p class="faq-a">You need component-level tracking that cascades. When one candle sits inside a starter kit, a gift set, and its own product page, selling any one of those should reduce the real candle count, and that single deduction should update how many of each bundle can still be built. Shopify does not cascade this on its own, so the moment a component is reused across bundles the counts fall out of step after the first few sales. The dependable fix is to treat every component as the source of truth, deduct from it on any sale that consumes it, and recompute each bundle's availability from the parts it needs, per location, so a sale in one place cannot promise a bundle another location cannot build.</p>
     </div>
-      <div class="faq-item">
+      <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Does the Shopify Bundles app track inventory per location?</h2>
       <p class="faq-a">No, and that is one of its sharpest limits. The free Bundles app tracks a bundle against overall component stock rather than per location, so a store shipping from two warehouses can sell a bundle in a place that cannot actually assemble it: the parts exist, but not together, and the availability math never notices. The other edges of the happy path sit nearby. A fixed bundle is capped at a limited number of components and variants, so a big mix-and-match builder outgrows it, and the build your own six-pack offer, the one that most needs component math, is the one it handles worst. And it does nothing for bundles built the older way, as a standalone product or a variant with its own inventory number, which is still how a lot of buy the set and save listings exist. Those carry a count that no component sale ever touches, per location or otherwise.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Do Shopify bundles stay in sync after order edits and marketplace syncs?</h2>
       <p class="faq-a">No, and these are the two seams that break even a properly linked bundle. Edit an order after it is placed, remove a bundle, add one, or change a quantity, and the component math does not re-run, because Shopify never modeled the relationship as something an edit should recalculate. Sync your catalog to a marketplace and the bundle usually travels as one atomic SKU, so selling ten kits on your store leaves the component still showing its full quantity on Amazon, and you oversell the part on the channel you were not even watching. Returns have the same shape: a returned gift set may come back with two of its three items, so crediting a whole bundle's worth of stock back is wrong. Each of these needs the recipe re-resolved and the cascade re-run, per location and across every channel, with partial returns and negative counts held for a person rather than guessed at.</p>
     </div>
 </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -969,6 +974,22 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -991,7 +1012,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1135,7 +1156,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1151,7 +1172,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>
@@ -1583,7 +1604,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The customer you can&rsquo;t ban</h3>
+        <h3 class="card-title">The customer you can't ban</h3>
         <p class="card-dek">
           Shopify has no block button: deleting the account leaves guest checkout open, and Flow can only cancel after the money moved. The AI playbook that keeps a real blocklist and makes a block stick.
         </p>

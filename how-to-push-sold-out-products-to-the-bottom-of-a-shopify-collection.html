@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-06-13" />
     <meta property="article:modified_time" content="2026-08-16" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2130,
       "timeRequired": "PT9M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -96,6 +98,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -458,6 +461,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -593,8 +597,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -602,7 +609,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -644,15 +651,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">← back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH Nº 57</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span>
-    <time datetime="2026-06-13" style="color: var(--cream-dim);">JUN 13, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span>
-    <span style="color: var(--cream-dim);">9 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-16" style="color: var(--cream-dim);">UPDATED AUG 16, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH Nº 57</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span><time datetime="2026-06-13" style="color: var(--cream-dim);">JUN 13, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span><span style="color: var(--cream-dim);">9 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-16" style="color: var(--cream-dim);">UPDATED AUG 16, 2026</time></span>
+</div>
 
   <h1 class="article-title">How to push <em>sold-out products</em> to the bottom of a Shopify collection</h1>
 
@@ -666,7 +670,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">·</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -979,27 +983,28 @@ direction, on any collection or search surface
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Can Shopify automatically move out-of-stock products to the bottom of a collection?</h2>
       <p class="faq-a">Not reliably. Shopify has no true sort-by-stock that pushes sold-out items to the end of a whole collection. Some sort options and theme code can push out-of-stock down within a single page, but once pagination kicks in each page sorts itself, so a later page can be all sold-out while the first page is mixed. Shopify's Liquid sort filter has no inventory quantity parameter, so theme code cannot sort cleanly across the collection either. The only native, reliable option is dragging products by hand in a manual sort, which does not scale past a few small collections.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Why not just hide sold-out products with a smart collection rule?</h2>
       <p class="faq-a">You can add an inventory stock is greater than zero condition to an automated collection so sold-out products drop out, and for some stores that is fine. But it only works on automated collections, not manual ones, and it does not apply to site search. It also removes the product entirely, which throws away the page's SEO and the back-in-stock signup that sits on it, and you have to trust the rule to re-publish the product on restock. For most stores, burying the product with an honest badge is better than hiding it outright.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">How much do out-of-stock products on a collection page actually cost?</h2>
       <p class="faq-a">More than the missing sale itself. Stockouts account for roughly 40 percent of lost sales, and when shoppers cannot find or buy what they came for, nearly 7 in 10 leave without buying anything, often for a competitor. Around 51 percent of products hit at least one stockout a year and stay unavailable for about 35 days on average, while the typical out-of-stock rate sits near 8 percent and climbs to about 10 percent on promotional items. A dead tile at the top of a collection does not just lose its own sale, it drags down the conversion of every in-stock product behind it.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">What should happen when a sold-out Shopify product comes back in stock?</h2>
       <p class="faq-a">Its original position should come back with it, automatically. The restock is where the two coping strategies quietly fail: a hand-sorted collection stays stale until someone remembers to drag the product back up, and a smart-collection hiding rule has to re-publish the page at exactly the right moment on its own. Demotion handles the return cleanly because the product never left. The URL stayed live, so its search ranking survived, and the notify-me form stayed on the page, so the waitlist kept growing while the shelf was empty. A product genuinely restocking within the week deserves different handling again: keep it visible with an honest back-soon badge instead of burying it, because a shopper who can see it is coming back may wait, where an empty gap sends them to a competitor. Restoring positions on restock is the half of re-merchandising the manual approaches never get to.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Should sold-out products be handled the same way in search and in collections?</h2>
       <p class="faq-a">No, each surface deserves its own rule. On browse pages, demote the sold-out tile below the in-stock items but keep it on the page with its URL and notify-me form alive. In site search, drop it, because a shopper who typed a query is further along than a browser and a dead result wastes the click. In hand-curated edits, the seasonal feature or the bestsellers row, leave the merchant's arrangement alone and flag rather than reorder. And some products should never be buried anywhere: a page that ranks on the first page of Google earned its position and draws traffic regardless of stock, so protect the hero products and alert a human instead of demoting them. If a whole collection goes mostly empty, the right move is not sorting at all but a warning, so you never quietly serve a wall of sold-out tiles to your best traffic.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1008,6 +1013,22 @@ direction, on any collection or search surface
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1030,7 +1051,7 @@ direction, on any collection or search surface
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1174,7 +1195,7 @@ direction, on any collection or search surface
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1190,7 +1211,7 @@ direction, on any collection or search surface
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>
@@ -1622,7 +1643,7 @@ direction, on any collection or search surface
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The customer you can&rsquo;t ban</h3>
+        <h3 class="card-title">The customer you can't ban</h3>
         <p class="card-dek">
           Shopify has no block button: deleting the account leaves guest checkout open, and Flow can only cancel after the money moved. The AI playbook that keeps a real blocklist and makes a block stick.
         </p>
@@ -2205,7 +2226,7 @@ direction, on any collection or search surface
         </div>
         <h3 class="card-title">The high-risk flag that makes you guess</h3>
         <p class="card-dek">
-          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
+          Shopify's "high-risk" flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 6</span>
@@ -2251,7 +2272,7 @@ direction, on any collection or search surface
           <span class="tag tag-research">research</span>
           <span class="post-read">6&nbsp;min</span>
         </div>
-        <h3 class="card-title">The &ldquo;where is my order?&rdquo; tickets that eat your afternoon</h3>
+        <h3 class="card-title">The "where is my order?" tickets that eat your afternoon</h3>
         <p class="card-dek">
           WISMO is ~18% of support tickets, over half during a sale. The AI playbook that answers before customers ask.
         </p>

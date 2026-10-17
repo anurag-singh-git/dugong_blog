@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-sync-inventory-between-two-shopify-stores.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-03" />
     <meta property="article:modified_time" content="2026-08-13" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2310,
       "timeRequired": "PT9M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -106,6 +108,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -478,6 +481,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -613,8 +617,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -622,7 +629,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -662,15 +669,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 100</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-03" style="color: var(--cream-dim);">AUG 3, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">9 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-13" style="color: var(--cream-dim);">UPDATED AUG 13, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 100</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-03" style="color: var(--cream-dim);">AUG 3, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">9 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-13" style="color: var(--cream-dim);">UPDATED AUG 13, 2026</time></span>
+</div>
 
   <h1 class="article-title">
     How to sync inventory between <em>two Shopify stores</em>
@@ -682,7 +686,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1045,27 +1049,28 @@ refund, cancellation, restock, manual edit
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Can two Shopify stores share the same inventory without an app?</h2>
       <p class="faq-a">Not natively. Each Shopify store is a separate account with its own products and its own counts, and nothing built into Shopify pushes an inventory change from one store to another. Locations do not help: a single store can track stock across multiple warehouses, but locations live inside one store, and a second store cannot read them. Shopify Flow runs inside a single store too, so there is no cross-store trigger to build on. When merchants ask on the community forums, in threads titled Can multiple Shopify websites share one inventory and Sync inventory between multiple Shopify stores, the staff answer is a list of third-party sync apps. The one partial exception is Shopify Collective, which does sync inventory between connected stores, but it is built for a retailer selling a separate supplier's products, is limited to US stores on Shopify Payments, and routes payouts between two businesses. For two storefronts you own sharing one stockroom, the real options are manual CSV transfers, a sync app, or an automation you control.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Why do two Shopify stores oversell the same last unit even with a sync app?</h2>
       <p class="faq-a">Because every sync has a window. An order on store A reaches store B by webhook, and in a quiet week the delay is seconds and invisible. The oversell lives in the exception: a drop, a sale weekend, a product that catches, exactly when both stores are moving fastest. If both stores each show one unit and both sell it inside the window, no app can conjure a second unit; the sync just delivers the bad news. The fix is not faster plumbing, it is judgment about last units: keep a small buffer on the mirrored store so the final units only sell in one place, and when the race happens anyway, read both orders and decide which one to keep rather than refunding whoever was unlucky by seconds. A first-time customer buying one unit and a stockist with three years of reorders are not the same order, and a timestamp cannot tell the difference.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">What is the safest way to set up inventory sync between two Shopify stores?</h2>
       <p class="faq-a">Audit SKUs first, mirror one way, and reconcile nightly. Sync tools match variants by SKU, so a blank or duplicated SKU becomes a silent miss or a wrong match; fix the catalog before wiring anything. Pick one store per SKU as the source of truth, usually the store attached to the physical shelf, and mirror changes outward instead of running two-way sync, which is how feedback loops corrupt both stores. Run the first two weeks in dry-run mode, where the automation reports what it would have changed and you check its arithmetic, then let the clear cases run and keep the odd ones for a human. Pause mirroring during bulk imports and supplier feed updates, and reconcile the full count nightly with a report naming the SKUs that keep drifting, because a sync that is quietly wrong is worse than no sync at all.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">How do I stop two Shopify stores from selling the same last unit?</h2>
       <p class="faq-a">With a buffer, because the double-sell is a policy problem before it is a speed problem: the final units of anything should be sellable in one place only. Holding two units back on the mirrored store means the wholesale site shows sold out while retail sells the last two at full margin, or the reverse if stockists are the priority, and which store wins the endgame is a decision about your business, which is exactly why no app ships it as a default. When the race happens inside the sync window anyway, a rule refunds whichever order arrived second, which on a bad night means refunding a stockist who reorders every quarter in favor of a first-time buyer an hour old. The better version weighs both orders, keeps the one the relationship says to keep, and sends the other customer an apology with a restock date inside the hour.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Should inventory sync keep running during a bulk import?</h2>
       <p class="faq-a">No. Pause the mirror while bulk imports and supplier feeds run, and reconcile before it resumes, because the mirror itself can become the weapon: a supplier CSV that zeroes a column, imported into the source store with the mirror live, becomes two zeroed catalogs at machine speed. The app reviews document the neighboring failures, one sync that rewrote SKUs and zeroed inventory across the catalog, where the recovery was a full physical recount, and a two-way sync that kept firing after the app was uninstalled, pushing stale counts back and forth while collections quietly dropped out of view. The habit that keeps any mirror honest is the nightly count comparison with the drift reported each morning and the repeat offenders named, because a SKU that drifts weekly has a physical cause standing in your stockroom, not a software one.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1074,6 +1079,22 @@ refund, cancellation, restock, manual edit
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1096,7 +1117,7 @@ refund, cancellation, restock, manual edit
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1240,7 +1261,7 @@ refund, cancellation, restock, manual edit
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1256,7 +1277,7 @@ refund, cancellation, restock, manual edit
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>

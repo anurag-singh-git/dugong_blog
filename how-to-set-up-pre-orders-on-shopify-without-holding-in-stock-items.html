@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-06-30" />
     <meta property="article:modified_time" content="2026-08-10" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2586,
       "timeRequired": "PT9M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -101,6 +103,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -463,6 +466,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -598,8 +602,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -607,7 +614,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -649,15 +656,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">← back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH Nº 72</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span>
-    <time datetime="2026-06-30" style="color: var(--cream-dim);">JUN 30, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span>
-    <span style="color: var(--cream-dim);">9 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-10" style="color: var(--cream-dim);">UPDATED AUG 10, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH Nº 72</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span><time datetime="2026-06-30" style="color: var(--cream-dim);">JUN 30, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span><span style="color: var(--cream-dim);">9 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-10" style="color: var(--cream-dim);">UPDATED AUG 10, 2026</time></span>
+</div>
 
   <h1 class="article-title">
     How to set up <em>pre-orders</em> on Shopify without holding in-stock items
@@ -675,7 +679,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">·</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1021,27 +1025,28 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Does Shopify support pre-orders without an app?</h2>
       <p class="faq-a">Not really. The only native lever is the Continue selling when out of stock checkbox on a variant, which lets a shopper buy an item once its stock hits zero. But it shows the same Add to Cart button as anything else, so the customer is never told the item is a pre-order, it carries no expected ship date, and it does not tag the order or the line item as a pre-order, so the order lands in your admin looking like a normal in-stock sale. There is no native Pre-order button, no badge, no deposit-now-charge-later, and no way to set a delivery window, which is why the Shopify App Store has a whole shelf of pre-order apps. If you want a customer to knowingly buy something that ships later, the native toggle is not it.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">What happens to a mixed cart with in-stock and pre-order items on Shopify?</h2>
       <p class="faq-a">Shopify lets a customer put an in-stock item and a pre-order item in the same cart and check out as a single order, and it does nothing to separate them. There is no automatic split by availability, so the order arrives whole, and if you ship it as one parcel the in-stock item waits weeks for the pre-order item to arrive. The correct handling is partial fulfillment: ship the in-stock line now and leave the pre-order line open until stock lands. But that is a manual step you take order by order in the admin, and nothing in Shopify reminds you to do it, tells the customer the order is shipping in two parts, or holds the pre-order line for the day it can finally go out.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Can Shopify Flow manage pre-orders?</h2>
       <p class="faq-a">No. Shopify Flow can react when an order is created, tag it, and send a notification, so you can use it to mark an order that contains an out-of-stock item. But Flow has no action that splits a mixed cart and fulfills only the in-stock lines, charges a held pre-order later, watches incoming inventory and fulfills the pre-order the moment it lands, emails the customer a real ship date, or turns the continue selling toggle back off when the run sells out so the store stops overselling. It can tell you a pre-order came in. It cannot run the pre-order from purchase to delivery, which is the part that actually takes the work.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">How do I ship the in-stock items now and the pre-order items later on Shopify?</h2>
       <p class="faq-a">The mechanism is partial fulfillment, and it exists, but only as a manual step taken order by order: open the order, select the lines that are ready, ship just those, and leave the pre-order lines open. Shopify does not flag which orders need the split, does not tell the customer the order is arriving in two parts, and does not remember to come back to the open line when stock lands, so at launch volume the manual path becomes a spreadsheet of who is still waiting on what. The automated version runs the same motion continuously: label the pre-order lines with their promised window, fulfill the ready lines immediately, tell the customer what ships now and what ships later with a real date, then watch incoming stock and fulfill the held lines the day it arrives, oldest order first, updating anyone whose date slips.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Is the continue selling when out of stock setting safe to use for pre-orders?</h2>
       <p class="faq-a">It is the only native lever, and it is a blunt one: permission to oversell with no tooling for the promise you just made. The shopper sees a normal Add to Cart button with no hint the item ships later, no expected ship date, and no deposit now with the balance later, and the order lands in the admin untagged, indistinguishable from an in-stock sale. The riskier end is the close of the run. The toggle does not turn itself off when stock arrives or when the incoming run is fully committed, so a store that forgets it keeps selling past the units it will actually receive, still silently, still untagged. That is how a controlled pre-order decays into plain overselling. If the toggle is doing the selling, something else has to do the labeling, the customer messaging, the split fulfillment, and the shutoff, because the checkbox does none of it.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1050,6 +1055,22 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1072,7 +1093,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1216,7 +1237,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1232,7 +1253,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>
@@ -1664,7 +1685,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The customer you can&rsquo;t ban</h3>
+        <h3 class="card-title">The customer you can't ban</h3>
         <p class="card-dek">
           Shopify has no block button: deleting the account leaves guest checkout open, and Flow can only cancel after the money moved. The AI playbook that keeps a real blocklist and makes a block stick.
         </p>
@@ -2167,7 +2188,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
         <h3 class="card-title">The high-risk flag that makes you guess</h3>
         <p class="card-dek">
-          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
+          Shopify's "high-risk" flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 6</span>
@@ -2181,7 +2202,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">6&nbsp;min</span>
         </div>
-        <h3 class="card-title">The &ldquo;where is my order?&rdquo; tickets that eat your afternoon</h3>
+        <h3 class="card-title">The "where is my order?" tickets that eat your afternoon</h3>
         <p class="card-dek">
           WISMO is ~18% of support tickets, over half during a sale. The AI playbook that reads the order and answers before customers ask.
         </p>

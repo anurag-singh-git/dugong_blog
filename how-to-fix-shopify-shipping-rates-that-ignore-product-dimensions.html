@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-09-18" />
 <meta property="article:modified_time" content="2026-09-18" />
 <meta property="article:author" content="Priya Singh" />
@@ -61,6 +62,7 @@
       "wordCount": 2450,
       "timeRequired": "PT10M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -95,6 +97,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -458,6 +461,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -593,8 +597,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -602,7 +609,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -642,13 +649,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 118</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-09-18" style="color: var(--cream-dim);">SEP 18, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 118</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-09-18" style="color: var(--cream-dim);">SEP 18, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+</div>
 
   <h1 class="article-title">
     How to fix Shopify shipping rates that <em>ignore product dimensions</em>
@@ -660,7 +665,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1100,27 +1105,28 @@ orders and carrier bills
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Does Shopify have a product dimensions field?</h2>
       <p class="faq-a">No. A Shopify variant has a weight field and no length, width or height field anywhere on the product, the variant, or the shipping section of the admin. The platform stores how heavy a thing is and not how big it is. What it offers instead is one default package saved in Shipping settings, and every carrier-calculated quote your store makes describes that same box whether the cart holds a phone case or a rug. A September 2023 community thread summarized it exactly: when it comes to Shopify shipping, there is a limitation, you can only designate a single default shipping box. This is long-standing and acknowledged. A Shopify moderator answered the first dimensions request on February 5, 2021 with one sentence, that Shopify does not have support for that and they use an app called Boxify, and the same app was still being recommended by staff in a March 2024 reply. Merchants who sell long, light or bulky items are the ones who feel it, because those are exactly the products whose price depends on volume rather than weight.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Why is Shopify undercharging for shipping?</h2>
       <p class="faq-a">Because the rate request your store sends the carrier describes a weight and a default box, and the carrier prices the real box you actually ship. UPS and FedEx bill the greater of actual weight and dimensional weight, where dimensional weight is length times width times height divided by 139. A 44 by 12 by 12 box is 6,336 cubic inches, which is 45.6 and bills as 46 pounds, so a nine pound floor lamp quoted on weight alone misses by 37 pounds of billable weight before any surcharge. Shopify staff have confirmed the mechanism in the community: the rates are provided via the carrier, not Shopify, and discrepancies occur when order dimensions are slightly larger than listed. Merchants have posted the receipts for years, including $9.69 collected against a label that cost nearly $13 in March 2023, and a $20 discrepancy on large and bulky items calculated with the default small box at checkout in March 2024. Two carrier changes have widened the gap since: from August 18, 2025 both carriers round every fractional inch up before dividing, and in January 2026 both set additional handling at 10,368 cubic inches and oversize at 17,280 cubic inches or 110 pounds.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Can I assign different package sizes to different products on Shopify?</h2>
       <p class="faq-a">Not natively. You can save several packages in Shipping settings, but only one is the default, and the default is what carrier-calculated rates are quoted against for the whole cart. There is no per-product or per-variant package assignment, which is why the request has stayed open in the community since 2021 and why the staff answer has been an app recommendation rather than a setting. Merchants regularly point out that Etsy and eBay listings do not have this problem, and one thread on the subject collected more than a hundred replies before it stopped. The workaround most stores end up with is either a box-packing app sitting on the Carrier Service API, or a flat rate set high enough to survive the largest item in the catalog, which protects the margin on bulky orders and quietly overcharges every small one.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">What is dimensional weight and what changed for 2025 and 2026?</h2>
       <p class="faq-a">Dimensional weight prices a parcel by the space it occupies rather than what it weighs. For UPS and FedEx the formula is length times width times height divided by 139, and you are billed on whichever is greater, the dimensional weight or the actual weight. Two changes matter for anyone quoting rates. From August 18, 2025 both carriers round every fractional inch up before the division, so 9.1 inches is measured as 10 and 5.01 as 6, which turned a box of 11.1 by 8.5 by 6.2 from 5 billable pounds into 6. Then in January 2026 both moved cubic volume thresholds onto the same footing, FedEx effective January 12 and UPS effective January 26, with additional handling applying over 10,368 cubic inches and oversize or large package charges over 17,280 cubic inches or 110 pounds. Those surcharges stack on top of the dimensional weight, and every one of them is triggered by a measurement Shopify never asked you for.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Can AI fix Shopify shipping rates that ignore box size?</h2>
       <p class="faq-a">Yes, and the fit is specific. The job is four parts, and off-the-shelf packing apps cover about one and a half. First, fill the catalog: read supplier spec sheets, packing lists and manufacturer pages to propose a length, width and height per variant with a confidence score, and queue the low-confidence ones for someone to measure. Second, keep a library of the boxes you actually own with inner dimensions, not one default package. Third, pack each cart into those boxes before quoting, compute dimensional weight on the current divisor with fractional inches rounded up, bill the greater of that and actual, and add a surcharge when the cubic volume crosses the threshold. Fourth, and this is the part nothing on the app store does, reconcile every order's quoted rate against its label cost and against the adjustment the carrier posts weeks later, then name the SKUs that keep quoting under and by how many dollars. An automation like Dugong can also enforce your own rules in plain language, such as never quoting below cost on a given product line or routing anything over a cubic threshold to a freight quote. The honest limits: it cannot invent a measurement for a product nobody has ever measured, so the first pass on a messy catalog needs a tape and a person, and a rate returned through the Carrier Service API has to answer inside the checkout's timeout, so the packing logic has to be fast, not merely clever.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1129,6 +1135,22 @@ orders and carrier bills
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1151,7 +1173,7 @@ orders and carrier bills
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1279,7 +1301,7 @@ orders and carrier bills
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>

@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to handle return to sender orders on Shopify | Dugong</title>
+<meta name="description" content="The carrier turned the parcel around and the order still reads Fulfilled, because Shopify has no status for it. The AI playbook that catches every return to sender." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="shopify return to sender, shopify RTS, shopify RTO, return to origin shopify, undeliverable package shopify, shopify refused delivery, returning to sender status shopify, shopify flow return to sender, shopify rts automation, restock returned to sender shopify, shopify reship wrong address, AI shipping automation, Dugong" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-handle-return-to-sender-orders-on-shopify.md" title="Markdown version for answer engines" />
+<meta property="article:published_time" content="2026-10-16" />
+<meta property="article:modified_time" content="2026-10-16" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to handle return to sender orders on Shopify before the customer asks where it is" />
+<meta property="og:description" content="The carrier turned the parcel around and the order still reads Fulfilled, because Shopify has no status for it. The AI playbook that catches every return to sender." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to handle return to sender orders on Shopify before the customer asks where it is" />
+<meta name="twitter:description" content="The carrier turned the parcel around and the order still reads Fulfilled, because Shopify has no status for it. The AI playbook that catches every return to sender." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+    <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#article",
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://blog.dugong.live/#blog",
+        "name": "Dugong Field Notes",
+        "url": "https://blog.dugong.live/"
+      },
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html",
+      "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html",
+      "headline": "How to handle return to sender orders on Shopify before the customer asks where it is",
+      "description": "The carrier gave up on day three and turned the parcel around, and nothing in your store said a word. Shopify's order still reads Fulfilled, the sales report still counts the sale, the stock is still gone, and the box is in your own back room behind the printer. The reason is a missing word in an enum: the 2026-10 Admin GraphQL FulfillmentEventStatus has eleven values, ATTEMPTED_DELIVERY, CARRIER_PICKED_UP, CONFIRMED, DELAYED, DELIVERED, FAILURE, IN_TRANSIT, LABEL_PRINTED, LABEL_PURCHASED, OUT_FOR_DELIVERY and READY_FOR_PICKUP, and not one of them means coming back to you. RETURNING_TO_SENDER exists only in the unstable version, so Shopify has written the word down and has not shipped it in anything you can build on. Merchants have been asking for years. January 2020: a package returned for a wrong address, and Shopify Support's answer was to void the label if you still can, or duplicate the order with a 100 percent discount. A merchant's own workaround, adding a custom line item called Corrected Shipping Address so the reship is not a zero dollar order, is the thread's most upvoted answer, and in August 2024 another merchant asked the question that sums up the gap: why is this not a standard button. March 2024: a merchant reports Shopify now deducts returned products from daily sales automatically, even if they are not refunded, and flags the order refund owed, which is untrue about 90 percent of the time because the goods were reshipped free. May 2024: we are getting more and more return to sender packages. May 2026: a feature request for a separate RTO status, because mixing it with customer returns creates misleading return-rate data, with one reply reporting a brand where 60 percent of the return rate was RTOs from bad pin codes, not actual product issues, and another from an app builder admitting every app in this space has to reconstruct RTO signal from fulfillment and tracking events instead of getting a clean, structured status. Flow cannot help: the nearest trigger is fulfillment event created, and a merchant asking for a delivered automation in August 2024 reported it does not fire, with no staff reply. Meanwhile the label cannot be voided, because voiding requires no tracking events and under 30 days, so you pay freight twice, the stock stays missing from your count, and the refund request lands two months later. The AI playbook that reads every tracking feed for the turnaround scans, flags the order the hour it reverses, tells the customer before they ask, decides reship against refund on your rules, restocks the box when it lands, bills or waives the second label, and keeps RTS out of your return rate.",
+      "datePublished": "2026-10-16",
+      "dateModified": "2026-10-16",
+      "articleSection": "Research",
+      "keywords": "shopify return to sender, shopify RTS, shopify RTO, return to origin shopify, undeliverable package shopify, shopify refused delivery, shopify flow return to sender, restock returned to sender shopify, AI shipping automation",
+      "wordCount": 2681,
+      "timeRequired": "PT9M",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Return to sender",
+          "sameAs": "https://en.wikipedia.org/wiki/Return_to_sender"
+        },
+        {
+          "@type": "Thing",
+          "name": "Order fulfillment",
+          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+        },
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://blog.dugong.live/#priya-singh",
+        "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Admin GraphQL API | FulfillmentEventStatus",
+          "url": "https://shopify.dev/docs/api/admin-graphql/2026-10/enums/FulfillmentEventStatus"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Voiding shipping labels",
+          "url": "https://help.shopify.com/en/manual/fulfillment/fulfilling-orders/shipping-labels/managing-labels/voiding-labels"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shopify shipping and fulfillment automation",
+          "item": "https://blog.dugong.live/shopify-shipping-and-fulfillment-automation.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The parcel that came back and told nobody",
+          "item": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Shopify have a return to sender status?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The order keeps whatever status it had when the parcel left, which is Fulfilled, and the shipment keeps whatever the carrier last reported. The 2026-10 Admin GraphQL FulfillmentEventStatus enum has eleven values, ATTEMPTED_DELIVERY, CARRIER_PICKED_UP, CONFIRMED, DELAYED, DELIVERED, FAILURE, IN_TRANSIT, LABEL_PRINTED, LABEL_PURCHASED, OUT_FOR_DELIVERY and READY_FOR_PICKUP, and none of them means the box is on its way back to you. RETURNING_TO_SENDER appears only in the unstable version of the API, so the word exists in Shopify's vocabulary but not in any version a merchant or an app can rely on today. In practice a return to sender is invisible until the box physically arrives, which is why most stores find out from a customer email rather than from their own store. Catching it early means watching the carrier's tracking events yourself and treating the turnaround scan as the event Shopify does not model."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Shopify Flow trigger when a package is returned to sender?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not reliably, and not for this. The nearest thing on the Flow bench is the fulfillment event created trigger, and it is built around fulfillment being created rather than the carrier changing its mind later. In August 2024 a merchant asked how to automate on delivery and was pointed at that trigger, then reported back that it does not work, because delivery happens roughly 48 hours after fulfillment and the workflow never fires. No Shopify staff replied and the thread never reached an answer. Even if the trigger fired on every scan, there is no returning to sender status in the stable API for a condition to test, so the workflow would have nothing to match on. The working pattern is the other way round: read the carrier tracking feed on your own schedule, recognize the turnaround language in the scan, and write the result back onto the order as a tag and a timeline note so the rest of your automation has something to react to."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I do when a Shopify order is returned to sender?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Decide three things in order, and decide them before the box arrives rather than after. First, cause: a wrong or incomplete address, a refused delivery, an uncollected parcel at a pickup point, or a customs rejection are four different problems with four different answers. Second, outcome: reship to a corrected address, or refund. Most policies reship once at your cost when the carrier or your own label was at fault, and ask the customer to cover the second label when the address was wrong, which is roughly what merchants in the community threads settled on, refund the product and deduct the original shipping cost plus any carrier return fee. Third, the record: restock the units when the box is physically back and checked, not when the scan appears, and keep the whole thing out of your customer return rate, because an undelivered parcel is a fulfillment failure, not a product someone disliked. The expensive part is never the decision, it is the eleven days before anyone noticed there was one to make."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I reship a returned to sender order on Shopify without breaking my reports?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Shopify has no reship button, and the workarounds merchants trade all distort something. Shopify Support's own answer in January 2020 was to void the original label if it still qualifies and buy a new one after correcting the address, and otherwise to duplicate the order and apply a 100 percent discount, which keeps revenue honest but double counts the units and needs a manual inventory adjustment. The most upvoted community method is to edit the original order and add a custom line item titled something like Corrected Shipping Address, then buy a label against that item, which avoids a zero dollar order and produces a new tracking number, at the cost of the customer seeing a line item that is not their product. A merchant asked in August 2024 why this is not a standard button, which is the honest summary. Voiding usually fails anyway: the Help Center requires a label under 30 days old with no tracking events, not bought on USPS First Class Mail, and not manifested in the last 15 minutes, and a parcel that travelled far enough to be turned around has tracking events by definition. An automation can do the whole sequence consistently, correct the address, create the reship, carry the original order number forward in the note, and record the second label cost against the first order so the margin story stays true."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does return to sender wreck my Shopify return rate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because Shopify files it as a return, and it is not one. A customer-initiated return says something about the product. A return to origin says something about an address, a delivery window or a courier. In a May 2026 feature request a merchant asked Shopify for a separate RTO status on exactly this ground, that mixing the two creates misleading return-rate data and makes performance analysis inaccurate. A reply in the same thread described a brand where about 60 percent of the headline return rate turned out to be RTOs from bad pin codes rather than product issues, and said splitting the data stopped them discontinuing SKUs that were actually selling well. Another reply, from someone building in the category, admitted that every app in this space has to reconstruct the RTO signal from fulfillment and tracking events instead of getting a clean, structured status. Until Shopify ships the status, the separation has to be yours: tag the order with the cause when the turnaround is detected, keep RTS out of the return numbers you report on, and report it where it belongs, next to delivery success by courier and by region."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can AI handle return to sender orders on my Shopify store?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and this is a gap worth automating because every part of it is reading and routing rather than judgment. An automation like Dugong watches the tracking feed for every open shipment, recognizes the turnaround however the carrier words it, and does within the hour what a person does eleven days late: tag the order, name the likely cause, email the customer before they email you, ask for a corrected address while they are still paying attention, and park the order in a queue with a clock on it. When the box lands it reconciles the physical arrival with the scan, restocks what is sellable, flags what is not, applies your reship or refund rule, charges or waives the second label, and keeps the event out of your return rate. The honest limits: nothing can inspect the carton, so somebody still opens it; carrier wording varies and a thin tracking feed will miss a scan, so the undelivered age sweep is the backstop; and the policy calls, who pays for the second label, how many attempts before you refund, which addresses you refuse to ship to twice, are yours to write. What the automation removes is the silence between the turnaround and the discovery."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#howto",
+      "name": "The parcel that came back and told nobody",
+      "description": "The AI playbook for return to sender orders on a Shopify store that has no return to sender status: watching every tracking feed for the turnaround scan, flagging the order the hour it reverses, naming the cause, contacting the customer before they ask, deciding reship against refund on your own rules, reconciling and restocking the box when it physically lands, settling the second label cost, and reporting RTS separately from customer returns.",
+      "inLanguage": "en",
+      "totalTime": "PT9M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Watch every tracking feed",
+          "text": "Read the carrier scans Shopify does not model, hourly",
+          "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Flag the turnaround",
+          "text": "Tag the order the hour the parcel reverses direction",
+          "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Name the cause",
+          "text": "Bad address, refused, uncollected or customs, each routed differently",
+          "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Reach the customer first",
+          "text": "Ask for a corrected address before they ask where it is",
+          "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Reship or refund on your rule",
+          "text": "One policy, applied the same way every time, second label priced",
+          "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Reconcile the box when it lands",
+          "text": "Restock what is sellable, write off what is not, close the order",
+          "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Report RTS on its own",
+          "text": "Out of the return rate, next to delivery success by courier",
+          "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#playbook"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES - matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #71716a;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background - lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0 var(--gutter); min-height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; min-width: 0; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  white-space: nowrap; flex-shrink: 0;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+@media (max-width: 820px) { .nav-links a:not(.nav-cta) { display: none; } }
+@media (max-width: 480px) {
+  .brand-slash, .brand-section { display: none; }
+  .nav-cta { font-size: 12.5px; padding: 8px 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 11.5px; padding: 7px 10px; }
+}
+
+/* QA 2026-10-12: 24px minimum tap target for the standalone topic-guide link */
+@media (max-width: 560px) {
+  .hub-more { padding-top: 5px; padding-bottom: 5px; }
+}
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+/* GRID (for related cards) */
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 560px) { .foot-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; } }
+@media (max-width: 340px) { .foot-cols { grid-template-columns: 1fr; } }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+/* highlight wraps at every width: nowrap overflowed the text column on long phrases */
+.article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.article-title em::after { content: none; }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: rgba(15,15,12,.45); } /* QA 2026-10-12 */
+.byline-role { color: var(--text-faint); }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
+.article-body pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) - mirrors the site's final card ---- */
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+
+/* ACCESSIBILITY */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
+
+/* QA 2026-10-10: mobile tap targets + ticker legibility */
+@media (max-width: 560px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+  .foot-cols > div { gap: 0.1rem; }
+  .foot-cols a { padding: 0.45rem 0; }
+  .article-back { min-height: 40px; padding: 0.55rem 0; }
+  .pill { padding: 0.6rem 1rem; }
+  .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
+@media (max-width: 560px) {
+  .tag { font-size: 12px; letter-spacing: 0.05em; }
+  .post-meta { font-size: 12px; }
+  .post-read { font-size: 12px; }
+  .card-foot { font-size: 12px; }
+  .card-date, .card-author { font-size: 12px; }
+  .byline-avatar { font-size: 12px; }
+  .callout-mark { font-size: 12px; }
+  .cta-fine { font-size: 12px; }
+  .foot-h { font-size: 12px; }
+  .stat-label { font-size: 12px; }
+  .pb-status, .pb-tag, .pb-node-sub, .pb-branch-arm { font-size: 12px; }
+  .foot-bot, .foot-bot span, .foot-bot a { font-size: 12px; }
+  .art-coord { font-size: 12px; }
+  .signup-label { font-size: 12px; }
+  .signup-fine { font-size: 12px; }
+  .arch-date { font-size: 12px; }
+  .author-role { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 12px; padding: 7px 9px; }
+}
+</style>
+<style>
+/* SEO 2026-10-12 topic guide link */
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
+.hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
+</style>
+
+<style>
+/* SEO 2026-10-12 long inline code must break rather than widen the page */
+.article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+</style>
+
+<style>
+/* 2026-10-13 long API identifiers in FAQ answers must break rather than widen the page */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  /* decorative separators strand at the end of a wrapped line on phones */
+  .article-meta span[aria-hidden="true"] { display: none; }
+  .article-meta { column-gap: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>&#9670; DISPATCH N&ordm; 129 &middot; OCT 16, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 9 MIN READ &middot; 2,680 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+    <span>&#9670; DISPATCH N&ordm; 129 &middot; OCT 16, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 9 MIN READ &middot; 2,680 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+  </nav>
+</header>
+<article class="article" role="main">
+
+  <a href="index.html" class="article-back">&larr; back to field notes</a>
+
+  <div class="article-meta">
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 129</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-10-16" style="color: var(--cream-dim);">OCT 16, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">9 MIN READ</span></span>
+</div>
+
+  <h1 class="article-title">
+    How to handle return to sender orders on Shopify <em>before the customer asks where it is</em>
+  </h1>
+
+  <p class="article-dek">
+    The carrier gave up on day three and turned the parcel around. Shopify still says fulfilled, the report still counts the sale, and the box is in your own back room. Here is why no status exists for this, and the playbook that catches it the same hour.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
+    <span class="byline-divider" aria-hidden="true">&middot;</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      Day eleven, 9:14am, a one line email: hi, any update on
+      my order? You open the order and everything looks
+      finished. Fulfilled. Tracking number right there. The
+      sale is in last week's numbers, the stock left your count
+      a week and a half ago, and the carrier page, when you
+      finally click through, has been saying the same thing
+      since day three. Returning to sender.
+    </p>
+
+    <p>
+      Then somebody finds the box. It has been on the floor
+      behind the printer for two days, which is roughly how
+      long it has been back in the building, unopened, because
+      no part of your store ever said it was coming.
+    </p>
+
+    <h2>The word Shopify has not shipped</h2>
+
+    <p>
+      Here is the whole problem in one list. The
+      <a href="https://shopify.dev/docs/api/admin-graphql/2026-10/enums/FulfillmentEventStatus" target="_blank" rel="noopener">2026-10
+      Admin GraphQL</a> <code>FulfillmentEventStatus</code>
+      enum, the thing that describes where a shipment is, has
+      eleven values: attempted delivery, carrier picked up,
+      confirmed, delayed, delivered, failure, in transit, label
+      printed, label purchased, out for delivery, ready for
+      pickup. Read them again and look for the one that means
+      the parcel is coming back to you. It is not there.
+    </p>
+
+    <p>
+      The closest candidate, failure, is documented as the
+      fulfillment request failing, which is a different event
+      entirely: that is your warehouse or your 3PL refusing the
+      job, not a courier reversing a van. Delayed is for a
+      parcel that is still trying. Attempted delivery fires and
+      then fires again and tells you nothing about what happens
+      after the third attempt.
+    </p>
+
+    <p>
+      The genuinely odd part is that Shopify has written the
+      word down. In the unstable version of the same enum there
+      is a <code>RETURNING_TO_SENDER</code> value, described as
+      the fulfillment being returned to the sender, sitting
+      beside a <code>BUYER_ACTION_REQUIRED</code> that would
+      also be useful. Neither is in a stable version. So the
+      concept exists in Shopify's vocabulary and not in
+      anything you, your developer, or any app in the store can
+      build on today. Everyone in this category is working
+      around a value that has been drafted and not released.
+    </p>
+
+    <p>
+      Meanwhile the order object does what it was told. It went
+      to Fulfilled when the label printed, and nothing after
+      that is allowed to change its mind. An order whose
+      contents are physically in your own receiving area reads
+      exactly like an order sitting happily on a customer's
+      kitchen table.
+    </p>
+
+    <h2>Flow has nothing to fire on</h2>
+
+    <p>
+      The reasonable next thought is to automate around it with
+      <a href="https://help.shopify.com/en/manual/shopify-flow" target="_blank" rel="noopener">Shopify
+      Flow</a>, and the reasonable next thought runs into the
+      same hole. In August 2024 a merchant asked the simplest
+      version of the question: he wanted an automation to run
+      once an order is delivered, and asked which parameter to
+      use. The community answer was the fulfillment event
+      created trigger. Four days later he reported back that it
+      does not work, because delivery happens around 48 hours
+      after fulfillment, so by the time the carrier says
+      anything the workflow has already run and finished. The
+      person who suggested it asked whether a delivered event
+      really fails to start the trigger. Nobody from Shopify
+      answered. The thread stops there.
+    </p>
+
+    <p>
+      That is the trigger side. The condition side is worse,
+      because even a trigger that fired on every scan would
+      have nothing to compare against: there is no returning to
+      sender status in the stable API for a Flow condition to
+      test. This is the same shape as
+      <a href="how-to-catch-shopify-orders-stuck-in-transit.html">the
+      parcel that stops moving and never gets flagged</a>, and
+      it has the same root cause. Shopify models the moment you
+      hand the box over. It does not model the days afterwards.
+    </p>
+
+    <h2>Shopify calls it a return, and it is not one</h2>
+
+    <p>
+      When the box does come back, the admin offers you the
+      returns flow, which is the wrong drawer. A customer
+      return is a statement about a product. A return to origin
+      is a statement about an address, a delivery window or a
+      courier. Filing them together quietly poisons the only
+      number anyone looks at.
+    </p>
+
+    <p>
+      A merchant made this case to Shopify in a May 2026
+      feature request, asking for a dedicated RTO status
+      separate from customer-initiated returns, on the grounds
+      that mixing them creates misleading return-rate data and
+      makes performance analysis inaccurate. He asked for four
+      things: a separate status, separate reporting, its own
+      webhooks, and filters in Orders and Analytics. The replies
+      are the useful part. One operations lead wrote that an RTO
+      and a customer-initiated return are completely different
+      events operationally, that reporting gets noisy and people
+      start making wrong decisions off the same dashboard, and
+      that manual tags work for a while but break down once
+      order volume increases or multiple people touch
+      fulfillment.
+    </p>
+
+    <p>
+      Then the number that should make you check your own
+      dashboard. Another reply described a brand whose return
+      rate looked alarming until they split the data, at which
+      point about 60 percent of it turned out to be RTOs from
+      bad pin codes rather than product issues. Splitting it
+      stopped them discontinuing SKUs that were selling
+      perfectly well. Three months later an app builder in the
+      COD-heavy Indian market added the cleanest summary of the
+      gap: RTO is not a returns problem, it is a fulfillment risk
+      problem, and every app in this space, including his own,
+      has to reconstruct the RTO signal from fulfillment and
+      tracking events instead of getting a clean, structured
+      status.
+    </p>
+
+    <div class="callout callout-sand">
+      <span class="callout-mark">&#9670; NOTE</span>
+      <span>
+        If your return rate has ever been used to kill a
+        product, it is worth asking how much of it was ever
+        about the product. An undelivered parcel, a refused
+        delivery and an uncollected pickup all land in the same
+        bucket as a genuine I did not like it, and only one of
+        those is a reason to change the catalog.
+      </span>
+    </div>
+
+    <h2>The workarounds, and what each one breaks</h2>
+
+    <p>
+      There is no reship button, so merchants have built their
+      own, and the thread where they did it is six years long.
+      January 2020: a package came back because the customer
+      typed the wrong address, and the merchant wanted a new
+      label without her reports showing two items sold where
+      one was. Shopify Support answered twice. First, void the
+      original label if you still can, fix the address on the
+      order and buy a new one. Second, if the void window has
+      closed, duplicate the order and apply a 100 percent
+      discount, which keeps revenue honest and then needs a
+      manual inventory adjustment, because the duplicate takes
+      the stock again.
+    </p>
+
+    <p>
+      The void route mostly fails, and the Help Center says why.
+      A label can be voided only if it is under 30 days old,
+      has no tracking events at all, was not bought on USPS
+      First Class Mail, and was not added to a manifest in the
+      last 15 minutes. A parcel that travelled far enough for a
+      courier to give up on it has tracking events by
+      definition. You are paying for that label whatever
+      happens, and you will pay for a second one.
+    </p>
+
+    <p>
+      So the community built the third way. Edit the original
+      order, add a custom line item called something like
+      Corrected Shipping Address, mark it as requiring
+      shipping, fix the address, and buy a label against that
+      item at the real weight. No zero dollar order, a fresh
+      tracking number, reports roughly intact. It works, people
+      in the thread confirm it still works years later, and the
+      cost is that your customer receives a shipping
+      confirmation for a line item that is not the thing they
+      bought. In August 2024 a merchant looked at all of this
+      and asked the question that belongs in the title of the
+      feature request: why is this not a standard button.
+    </p>
+
+    <p>
+      One more wrinkle, and it is the one that catches
+      accounting. A merchant in March 2024 described his
+      process, mark the order returned, create a return with no
+      label, restock, then either refund or reship free, and
+      reported that Shopify had started deducting returned
+      products from daily sales automatically even when they
+      are not refunded, and flagging the order refund owed,
+      which he said is untrue about 90 percent of the time
+      because the goods went back out at no charge. The only
+      reply, four months later, was another merchant saying he
+      wished he had a solution and wished Shopify supported
+      this natively.
+    </p>
+
+    <h2>What the silence costs</h2>
+
+    <p>
+      Price one RTS honestly. Outbound freight, already spent,
+      unvoidable. Return freight, charged by most carriers. A
+      second label if you reship. Eleven days of a customer who
+      has paid and has nothing, which is the part that becomes
+      a chargeback or a public review. Units missing from your
+      sellable count the whole time, so the
+      <a href="how-to-set-inventory-reorder-points-on-shopify.html">reorder
+      math</a> reads a shelf that is wrong and the storefront
+      may sell stock that is sitting in a sealed box twelve feet
+      from the packing bench. Then a refund request two months
+      later, from a merchant's own numbers in the community: a
+      165 dollar order that cost 17.40 to ship, returned after
+      two failed attempts, with the refund conversation starting
+      nine weeks after the parcel came home.
+    </p>
+
+    <p>
+      None of those line items is the real cost. The real cost
+      is the eleven days, because every single thing you would
+      do about an RTS gets cheaper the earlier you do it. On day
+      three the customer is still thinking about the order and
+      will happily send you a corrected address. On day eleven
+      they have asked for a refund and your reship has become an
+      argument. The event is the same; the delay is what prices
+      it.
+    </p>
+
+    <h2>What the automation actually has to do</h2>
+
+    <p>
+      As a Dugong playbook, in plain prose:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">Every</span> hour, every open
+shipment's tracking feed,
+plus a daily age sweep
+
+<span class="c"># steps</span>
+1. <span class="k">Read</span> the scans Shopify
+   does not model, every
+   carrier, every wording
+2. <span class="k">Flag</span> the turnaround the
+   hour it happens: tag the
+   order, note the timeline
+3. <span class="k">Name</span> the cause: bad
+   address, refused,
+   uncollected, customs
+4. <span class="k">Email</span> the customer first
+   and ask for the corrected
+   address while it matters
+5. <span class="k">Apply</span> your rule: reship
+   at whose cost, or refund
+   less the shipping
+6. <span class="k">Reconcile</span> the box on
+   arrival, restock what is
+   sellable, close the order
+7. <span class="k">Report</span> RTS on its own,
+   by courier, by region, by
+   repeat customer
+</code></pre>
+
+    <p>
+      Step one is the whole trick and it is unglamorous. Nobody
+      can give you a status Shopify has not released, so you
+      read the thing that does know: the carrier. The scan text
+      is inconsistent across couriers and that is fine, because
+      recognizing returning to sender, return to shipper,
+      refused by recipient, unclaimed, undeliverable as
+      addressed and a dozen regional variants as the same event
+      is exactly the sort of judgment a language model is
+      better at than a regular expression. The output is one
+      boolean and one reason code, written back onto the order
+      where the rest of your automation can see it.
+    </p>
+
+    <p>
+      Steps two and three turn that into something a person can
+      act on. The tag lands on the order within the hour, the
+      timeline gets a line saying what the carrier said and
+      when, and the cause decides the route. A wrong address
+      goes to the customer, immediately, because
+      <a href="how-to-validate-shipping-addresses-on-shopify.html">the
+      address was probably wrong at checkout</a> and you now
+      have a second chance to fix it. A refused delivery goes to
+      support, because refusal often means a dispute you have
+      not heard about yet. An uncollected parcel at a pickup
+      point is the same failure as
+      <a href="how-to-handle-shopify-pickup-orders-customers-never-collect.html">a
+      local pickup nobody comes for</a>, and wants a reminder,
+      not a refund. A customs rejection goes to whoever owns
+      <a href="how-to-fix-missing-hs-codes-on-shopify-before-customs-holds-your-orders.html">paperwork</a>,
+      because it will happen again on the next order to that
+      country.
+    </p>
+
+    <p>
+      Step four is where the money actually is. One email, on
+      the day of the turnaround: your parcel is on its way back
+      to us, here is the address we have, reply with a
+      correction and we will send it straight out. Customers
+      answer that email, because it arrives while they are still
+      waiting for a box. The same email on day eleven gets a
+      refund request, and it was the identical email. This is
+      the same economics as
+      <a href="how-to-notify-customers-of-shipping-delays-on-shopify.html">telling
+      people about a delay before they ask</a>, and it is the
+      main reason to automate the detection rather than the
+      paperwork.
+    </p>
+
+    <p>
+      Steps five and six keep the books straight. The reship or
+      refund rule is yours, applied the same way every time,
+      with the second label priced to your policy rather than to
+      whoever is on chat that afternoon. Then the physical
+      reconciliation, which matters more than it sounds:
+      restocking should happen when somebody has opened the
+      carton and looked, not when the scan appeared, because
+      <a href="how-to-automatically-restock-returns-on-shopify.html">restocking
+      on faith</a> is how you promise stock you do not have.
+      What comes back damaged or opened gets written off rather
+      than resold. The order closes with a real outcome
+      attached, not a dangling fulfilled.
+    </p>
+
+    <h2>Why this is a compiler problem, not an app problem</h2>
+
+    <p>
+      Everything above sounds like a feature, and that is
+      exactly why it keeps not existing. Look at what step five
+      requires: one store reships free once and refuses twice,
+      one deducts the original shipping, one is COD-heavy and
+      blocks the customer's third attempt entirely, one sells
+      perishables and never reships at all. Step three has the
+      same spread: in India the dominant cause is a bad pin code
+      and the fix is address intelligence at checkout, in the
+      US it is apartment numbers and porch refusals, in the EU
+      it is uncollected parcels at pickup points, and for
+      cross-border it is paperwork. Those are not settings on a
+      toggle. They are paragraphs about your shop, and the
+      paragraph is different in every building.
+    </p>
+
+    <p>
+      Which is why an app sells you its paragraph and you spend
+      a quarter bending your operation to fit it. A compiler
+      takes yours as written, the same principle behind
+      <a href="best-shopify-automations-to-set-up.html">every
+      automation worth building</a>: describe the RTS policy the
+      way you would explain it to a new hire on their first
+      morning, and let the automation be that explanation,
+      running hourly, in the one place where the carrier is
+      still telling the truth and your store has stopped
+      listening.
+    </p>
+
+    <hr />
+
+    <h2>Do this before you close the laptop</h2>
+
+    <p>
+      Two things, both quick. First, pull every order from the
+      last 60 days that is marked fulfilled and has no delivery
+      scan, then open the tracking for each one. Most stores
+      find at least one parcel already home and unrecorded, and
+      a couple still in motion in the wrong direction. That
+      list is your actual RTS rate, which you have probably
+      never seen, because it has been hiding inside your return
+      rate.
+    </p>
+
+    <p>
+      Second, write the policy down in four sentences before you
+      automate anything. When we reship free. When the customer
+      pays for the second label. When we refund and what we
+      deduct. Who we will not ship to a second time without a
+      verified address. If you cannot write those four without a
+      meeting, that is the finding, and the first hour of RTS
+      detection will force the meeting anyway.
+    </p>
+
+    <p>
+      Then say the brief out loud the way you would say it to
+      someone who starts on Monday. Watch every shipment.
+      The hour a carrier turns one around, tag the order, tell
+      me why, and email the customer for a corrected address.
+      If they answer in two days, reship on our rule; if they
+      do not, refund less shipping and close it. When the box
+      lands, open it, restock what is good, write off what is
+      not. And never, ever put these in the return numbers. The
+      compiler turns that into the workflow, and day eleven
+      stops being when you find out.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">&#9670; READING</span>
+      <span>
+        Two companion pieces if this one landed:
+        <a href="how-to-catch-shopify-orders-stuck-in-transit.html">the
+        parcel that stopped moving</a>, on shipments that go
+        quiet without ever coming back, and
+        <a href="how-to-handle-delivered-but-not-received-claims-on-shopify.html">delivered
+        but not received</a>, on the opposite failure, where
+        the carrier says it arrived and the customer says it
+        did not.
+      </span>
+    </div>
+
+    <p>
+      If you are a Shopify merchant with a return to sender
+      story, the box that sat behind the printer, the reship
+      that broke your reports, the return rate that turned out
+      to be couriers, the inbox is open:
+      <code>field-notes@dugong.live</code>. We are collecting
+      case studies for the next issue.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share &middot; copy link &middot; &#10022;</span>
+  </div>
+
+</article>
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">&#9670; COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item" id="faq-1">
+      <h2 class="faq-q">Does Shopify have a return to sender status?</h2>
+      <p class="faq-a">No. The order keeps whatever status it had when the parcel left, which is Fulfilled, and the shipment keeps whatever the carrier last reported. The 2026-10 Admin GraphQL FulfillmentEventStatus enum has eleven values, ATTEMPTED_DELIVERY, CARRIER_PICKED_UP, CONFIRMED, DELAYED, DELIVERED, FAILURE, IN_TRANSIT, LABEL_PRINTED, LABEL_PURCHASED, OUT_FOR_DELIVERY and READY_FOR_PICKUP, and none of them means the box is on its way back to you. RETURNING_TO_SENDER appears only in the unstable version of the API, so the word exists in Shopify's vocabulary but not in any version a merchant or an app can rely on today. In practice a return to sender is invisible until the box physically arrives, which is why most stores find out from a customer email rather than from their own store. Catching it early means watching the carrier's tracking events yourself and treating the turnaround scan as the event Shopify does not model.</p>
+    </div>
+    <div class="faq-item" id="faq-2">
+      <h2 class="faq-q">Can Shopify Flow trigger when a package is returned to sender?</h2>
+      <p class="faq-a">Not reliably, and not for this. The nearest thing on the Flow bench is the fulfillment event created trigger, and it is built around fulfillment being created rather than the carrier changing its mind later. In August 2024 a merchant asked how to automate on delivery and was pointed at that trigger, then reported back that it does not work, because delivery happens roughly 48 hours after fulfillment and the workflow never fires. No Shopify staff replied and the thread never reached an answer. Even if the trigger fired on every scan, there is no returning to sender status in the stable API for a condition to test, so the workflow would have nothing to match on. The working pattern is the other way round: read the carrier tracking feed on your own schedule, recognize the turnaround language in the scan, and write the result back onto the order as a tag and a timeline note so the rest of your automation has something to react to.</p>
+    </div>
+    <div class="faq-item" id="faq-3">
+      <h2 class="faq-q">What should I do when a Shopify order is returned to sender?</h2>
+      <p class="faq-a">Decide three things in order, and decide them before the box arrives rather than after. First, cause: a wrong or incomplete address, a refused delivery, an uncollected parcel at a pickup point, or a customs rejection are four different problems with four different answers. Second, outcome: reship to a corrected address, or refund. Most policies reship once at your cost when the carrier or your own label was at fault, and ask the customer to cover the second label when the address was wrong, which is roughly what merchants in the community threads settled on, refund the product and deduct the original shipping cost plus any carrier return fee. Third, the record: restock the units when the box is physically back and checked, not when the scan appears, and keep the whole thing out of your customer return rate, because an undelivered parcel is a fulfillment failure, not a product someone disliked. The expensive part is never the decision, it is the eleven days before anyone noticed there was one to make.</p>
+    </div>
+    <div class="faq-item" id="faq-4">
+      <h2 class="faq-q">How do I reship a returned to sender order on Shopify without breaking my reports?</h2>
+      <p class="faq-a">Shopify has no reship button, and the workarounds merchants trade all distort something. Shopify Support's own answer in January 2020 was to void the original label if it still qualifies and buy a new one after correcting the address, and otherwise to duplicate the order and apply a 100 percent discount, which keeps revenue honest but double counts the units and needs a manual inventory adjustment. The most upvoted community method is to edit the original order and add a custom line item titled something like Corrected Shipping Address, then buy a label against that item, which avoids a zero dollar order and produces a new tracking number, at the cost of the customer seeing a line item that is not their product. A merchant asked in August 2024 why this is not a standard button, which is the honest summary. Voiding usually fails anyway: the Help Center requires a label under 30 days old with no tracking events, not bought on USPS First Class Mail, and not manifested in the last 15 minutes, and a parcel that travelled far enough to be turned around has tracking events by definition. An automation can do the whole sequence consistently, correct the address, create the reship, carry the original order number forward in the note, and record the second label cost against the first order so the margin story stays true.</p>
+    </div>
+    <div class="faq-item" id="faq-5">
+      <h2 class="faq-q">Why does return to sender wreck my Shopify return rate?</h2>
+      <p class="faq-a">Because Shopify files it as a return, and it is not one. A customer-initiated return says something about the product. A return to origin says something about an address, a delivery window or a courier. In a May 2026 feature request a merchant asked Shopify for a separate RTO status on exactly this ground, that mixing the two creates misleading return-rate data and makes performance analysis inaccurate. A reply in the same thread described a brand where about 60 percent of the headline return rate turned out to be RTOs from bad pin codes rather than product issues, and said splitting the data stopped them discontinuing SKUs that were actually selling well. Another reply, from someone building in the category, admitted that every app in this space has to reconstruct the RTO signal from fulfillment and tracking events instead of getting a clean, structured status. Until Shopify ships the status, the separation has to be yours: tag the order with the cause when the turnaround is detected, keep RTS out of the return numbers you report on, and report it where it belongs, next to delivery success by courier and by region.</p>
+    </div>
+    <div class="faq-item" id="faq-6">
+      <h2 class="faq-q">Can AI handle return to sender orders on my Shopify store?</h2>
+      <p class="faq-a">Yes, and this is a gap worth automating because every part of it is reading and routing rather than judgment. An automation like Dugong watches the tracking feed for every open shipment, recognizes the turnaround however the carrier words it, and does within the hour what a person does eleven days late: tag the order, name the likely cause, email the customer before they email you, ask for a corrected address while they are still paying attention, and park the order in a queue with a clock on it. When the box lands it reconciles the physical arrival with the scan, restocks what is sellable, flags what is not, applies your reship or refund rule, charges or waives the second label, and keeps the event out of your return rate. The honest limits: nothing can inspect the carton, so somebody still opens it; carrier wording varies and a thin tracking feed will miss a scan, so the undelivered age sweep is the backstop; and the policy calls, who pays for the second label, how many attempts before you refund, which addresses you refuse to ship to twice, are yours to write. What the automation removes is the silence between the turnaround and the discovery.</p>
+    </div>
+  </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
+</section>
+
+<section class="related">
+  <div class="section-head">
+    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+<a href="how-to-catch-shopify-orders-stuck-in-transit.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The parcel that stopped moving</h3>
+        <p class="card-dek">
+          The first scan comes in, then six days of silence, and the customer notices before you do. The AI playbook that catches stuck Shopify shipments in time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">AUG 12</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-validate-shipping-addresses-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">7&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The address you shipped to anyway</h3>
+        <p class="card-dek">
+          Shopify warns about a bad address, you ship anyway, and the package bounces back. The AI playbook that catches undeliverable addresses before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN 06</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The refund you gave for nothing</h3>
+        <p class="card-dek">
+          Shopify has seven return triggers and not one fires when nothing happens, so a return that goes quiet goes unnoticed. The AI playbook that catches it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 11</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html">Latest</a>
+        <a href="index.html">Essays</a>
+        <a href="index.html">Post-mortems</a>
+        <a href="index.html">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>&copy; 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>

@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-restrict-shopify-products-from-shipping-to-certain-states.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-09-19" />
 <meta property="article:modified_time" content="2026-09-19" />
 <meta property="article:author" content="Priya Singh" />
@@ -61,6 +62,7 @@
       "wordCount": 2300,
       "timeRequired": "PT9M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -95,6 +97,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -472,6 +475,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -607,8 +611,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -616,7 +623,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -656,13 +663,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 119</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-09-19" style="color: var(--cream-dim);">SEP 19, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">9 MIN READ</span>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 119</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-09-19" style="color: var(--cream-dim);">SEP 19, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">9 MIN READ</span></span>
+</div>
 
   <h1 class="article-title">
     How to restrict Shopify products from shipping to <em>certain states</em>
@@ -674,7 +679,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1104,27 +1109,28 @@ catalog and rules pass
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Can I stop one Shopify product from shipping to certain states?</h2>
       <p class="faq-a">Not directly, and that is the whole problem. Shopify restricts shipping with zones, and a zone belongs to the store, so unchecking Idaho stops every product going there, not just the one that is restricted. The only product-level lever is a shipping profile, which is a set of shipping rules for specific products and locations. You move the restricted items into their own profile and simply give that profile no rate for the states in question, which makes the restriction an absence rather than a rule. That is the answer a Shopify moderator gave on June 18, 2021 to a merchant who needed to keep CBD out of four states, and the same answer merchants were still passing around in 2026. It works only while the restricted item is alone in the cart. There is no field on a product that says where it may not go, no report of which products are blocked where, and nothing that tells you when a rule changed.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Why does Shopify charge shipping twice when I use two shipping profiles?</h2>
       <p class="faq-a">Because that is what Shopify does by design when one cart draws from more than one profile. The documentation is explicit: the separate shipping rates for each product are combined and a single shipping rate is displayed to your customer at checkout, and rates with the same name are added together, even those in different shipping profiles. Add together is the operative phrase. A cart with one item from your general profile and one from your restricted profile gets the sum of two rates, not the higher of them. A merchant put it flatly on May 8, 2023: charging twice as it's the default shopify behavior, it cannot be changed. Another merchant reported in June 2024 that customers get double-charged shipping and added, after talking to Shopify Support they have no solution. The usual workaround is to name the rates identically and hope the arithmetic lands somewhere defensible, or to apply a discount equal to the smaller rate, which is a coupon covering a bug.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Can Shopify block shipping to a specific ZIP code or county?</h2>
       <p class="faq-a">Not natively. Shopify zones are built from countries and their states or provinces, and they stop there. A merchant asked on October 22, 2025 how to exclude specific areas within states, and the reply the next day was direct: Shopify's native shipping zones only let you include or exclude entire states or countries, so there isn't a way to blacklist specific postcodes without using a workaround. A second reply put it the same way, that Shopify only lets you block shipping at the state level. This matters more than it sounds, because several real restrictions are drawn below the state line. Six states restrict direct shipment of alcohol into dry territory, and those boundaries follow townships, precincts and county votes rather than ZIP codes or city limits, so a postcode list is an approximation that a single local election can invalidate. Getting below the state line means resolving the address against the boundary that actually governs it, which is work no shipping zone was designed to do.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Can Shopify Flow stop an order to a restricted state before it is placed?</h2>
       <p class="faq-a">No. Flow is an order-level automation that runs after the order exists, so the earliest it can act is to tag, hold or cancel an order you have already accepted and, in most setups, already charged. For a compliance restriction that is the wrong side of the line: you did not prevent the sale, you made a record of it and then wrote to the customer. The surface that can actually stop a checkout is a cart and checkout validation function, which runs on Shopify's servers and can block checkout progress when business rules are not met, with preventing shipping to restricted locations named as an example use. It is app territory rather than a setting, it needs the logic written and maintained, and it needs something to tell it which products are restricted where. The validation function is the enforcement point. It is not the answer to what the rule should be today.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Can AI handle state shipping restrictions on a Shopify store?</h2>
       <p class="faq-a">Yes, because the hard parts of this job are reading and matching, not enforcement. There are three of them. Classifying the catalog: deciding that this tin is a hemp product, that bottle is a spirit and that folding knife is blade-length restricted, read from titles, descriptions, ingredients and supplier sheets rather than from a tag somebody remembered to add. Resolving the destination below the state line when the rule is drawn by county or township. Keeping the rule set current, which is the part that quietly rots, since state law changes on its own schedule and the federal hemp THC restrictions alone moved from November 12, 2026 to December 11, 2026 on a bill passed on September 1, 2026. An automation like Dugong holds those rules in plain language, classifies every new product as it is saved, checks each cart line by line so only the restricted line is blocked and the rest of the basket still checks out, writes the explanation the customer sees, and logs every block against the rule and the date that caused it. The honest limits: it will not tell you whether you hold the license a state requires, and a rule change needs a human to accept it before it starts refusing orders.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1133,6 +1139,22 @@ catalog and rules pass
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1155,7 +1177,7 @@ catalog and rules pass
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1249,7 +1271,7 @@ catalog and rules pass
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
+          <span class="post-read">7&nbsp;min</span>
         </div>
         <h3 class="card-title">The bad address that ships anyway</h3>
         <p class="card-dek">
@@ -1299,7 +1321,7 @@ catalog and rules pass
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The customer you can&rsquo;t ban</h3>
+        <h3 class="card-title">The customer you can't ban</h3>
         <p class="card-dek">
           Shopify has no ban button: deleting an account leaves guest checkout open, and Flow cancels after the order exists. The AI playbook that makes a block stick.
         </p>
@@ -1313,7 +1335,7 @@ catalog and rules pass
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">10&nbsp;min</span>
+          <span class="post-read">9&nbsp;min</span>
         </div>
         <h3 class="card-title">The high-risk flag that makes you guess</h3>
         <p class="card-dek">
@@ -1347,7 +1369,7 @@ catalog and rules pass
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify counts your stock but never dates it: no expiry field, no batch tracking, and Flow cannot read date metafields. The AI playbook that sells it in time.
         </p>
@@ -1393,7 +1415,7 @@ catalog and rules pass
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
-          <span class="post-read">12&nbsp;min</span>
+          <span class="post-read">8&nbsp;min</span>
         </div>
         <h3 class="card-title">The Shopify automations no one builds</h3>
         <p class="card-dek">

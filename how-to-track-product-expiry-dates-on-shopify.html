@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-track-product-expiry-dates-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-29" />
 <meta property="article:modified_time" content="2026-08-29" />
 <meta property="article:author" content="Priya Singh" />
@@ -61,6 +62,7 @@
       "wordCount": 2400,
       "timeRequired": "PT10M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -95,6 +97,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -467,6 +470,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -602,8 +606,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -611,7 +618,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -651,13 +658,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 116</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-29" style="color: var(--cream-dim);">AUG 29, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 116</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-29" style="color: var(--cream-dim);">AUG 29, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+</div>
 
   <h1 class="article-title">
     How to track product expiry dates on Shopify <em>before the stock goes bad</em>
@@ -669,7 +674,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1064,27 +1069,28 @@ batch still on the shelf
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Does Shopify track product expiration dates?</h2>
       <p class="faq-a">No. Shopify inventory is a single quantity per variant per location: the admin can tell you that you have forty jars, but there is no field for how long those jars are good, no batch or lot dimension behind the number, and no report anywhere that mentions a date. The standard community answer is to create a date metafield on the product and type the best-before date in by hand, and it works until the second batch arrives. A product has one metafield and a shelf usually holds two batches, so the fresher delivery overwrites the older date and the oldest stock quietly ages out wearing a newer label. Real expiry tracking needs one record per batch, quantity plus lot number plus best-before date, kept in sync as stock sells through. Apps in the Shopify App Store add this as a separate system; an AI automation like Dugong can keep the batch records in your own store's metaobjects, one per delivery, so every quantity on the shelf keeps its own date.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Can Shopify Flow send an alert before a product expires?</h2>
       <p class="faq-a">Not natively, and Shopify staff have confirmed it repeatedly in the community threads. In October 2023 a merchant asked Flow to email ten days before a metafield date and staff replied that this is not currently possible. In June 2024 a grocery seller asked for ten, five and two day notices and staff named the missing piece: you cannot yet use metafields with Get product data, and it is not a Flow limitation, the underlying API does not support it. In January 2025 staff explained that a recent API change made querying products by metafield value possible, but you cannot yet query by dates, and that scanning six thousand products daily has no straight-forward path. In February 2025 the answer was still: you cannot query by date metafields currently, so not sure that use case is possible. The workarounds merchants traded, storing the date as plain text so it can be matched as a string, tagging products by hand, an inventory-trigger JavaScript hack offered with the caveat would need to test, all route around the same missing query. An automation that reads product data on its own daily schedule and does its own date arithmetic does not need that query to exist.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">How do I track batch or lot numbers on Shopify?</h2>
       <p class="faq-a">There is no native batch or lot field anywhere in Shopify: not on the variant, not on the inventory level, not on the order line. For supplement, food, and cosmetics sellers that is a compliance problem as much as a stock problem, because a recall arrives as a lot number and Shopify cannot tell you which orders contain that lot. The workable pattern is one batch record per delivery, kept in metaobjects: quantity received, lot number, best-before date, and a running count of what remains as orders sell the batch down in first-expiring-first-out order. Each shipped order gets annotated with the lot it drew from. Maintained by hand this is a spreadsheet that dies the first busy week; maintained by an automation it turns a recall from an email to every customer into a lookup that returns exactly the orders affected, and it gives every alert, markdown, and listing decision a real date to work from.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">How do I automatically discount products that are close to expiry on Shopify?</h2>
       <p class="faq-a">Decide the ladder while the stock is still fresh, then let the dates run it. A typical policy: at sixty days remaining, move the batch's product into a short-dated collection and take twenty percent off; at thirty days, forty percent; at ten days, sixty percent or the donation pile, whichever your category allows. Shopify will not run this ladder for you: discounts do not read metafields, Flow cannot query the dates, and the native tools leave you editing prices by hand the week everything converges. An automation runs it on the calendar: it computes days remaining per batch every morning, applies the markdown when a batch crosses each rung, moves the product in and out of the clearance collection, and reverses the price when a fresh batch becomes the one on sale. The point of the ladder is that short-dated stock recovers most of its value at sixty days and almost none at five, so the profit lives in the trigger firing on time, not in the size of the discount.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Can AI track expiry dates and clear short-dated stock on my Shopify store?</h2>
       <p class="faq-a">Yes, and this is a case where the automation does something the platform genuinely cannot. An automation like Dugong records a batch every time stock lands, quantity, lot, best-before date, then sweeps every batch daily and does the date arithmetic Shopify Flow cannot: sixty, thirty, and ten day alerts to the right person, markdowns applied on schedule, the listing pulled when the last good batch ages out, a first-expiring-first-out note for whoever picks orders, lot numbers stamped onto orders for recall lookups, and a weekly report of expiring value against what sold through. The honest limits: nothing reads the physical label, so batches must be logged when deliveries land, a one line habit at receiving; the automation can print pick notes but cannot rotate jars on a shelf, so physical first-out discipline stays with whoever packs; and the policy questions, how close to the date you stop selling, what gets donated versus binned, are category judgments that belong to you. What the automation removes is the part that fails silently: remembering, every day, to go look at the dates.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1093,6 +1099,22 @@ batch still on the shelf
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1115,7 +1137,7 @@ batch still on the shelf
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1259,7 +1281,7 @@ batch still on the shelf
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>
@@ -1384,7 +1406,7 @@ batch still on the shelf
 <a href="best-shopify-automations-to-set-up.html" class="card">
       <div class="card-body">
         <div class="post-meta">
-          <span class="tag tag-tactics">tactics</span>
+          <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
         <h3 class="card-title">The Shopify automations no one builds</h3>

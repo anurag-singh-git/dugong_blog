@@ -5,126 +5,251 @@
 
 User-agent: *
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 # Major AI / answer-engine crawlers (explicit allow)
 User-agent: GPTBot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: Claude-User
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: Applebot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: Bingbot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: CCBot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: Perplexity-User
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: MistralAI-User
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: AI2Bot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: Diffbot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: FirecrawlAgent
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: Timpibot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: omgili
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: ImagesiftBot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: Amazonbot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: Meta-ExternalAgent
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: meta-externalagent
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: DuckAssistBot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: cohere-ai
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: cohere-training-data-crawler
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: YouBot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: Google-CloudVertexBot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: PetalBot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: Bytespider
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: meta-externalfetcher
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: FacebookBot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: omgilibot
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: iaskspider
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: img2dataset
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: Webzio-Extended
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 User-agent: SemrushBot-OCOB
 Allow: /
+Disallow: /QA-report-
+Disallow: /blog-run-
+Disallow: /SEO-GEO-report-
 
 Sitemap: https://blog.dugong.live/sitemap.xml
+
+# Internal build logs (QA-report-*, blog-run-*, SEO-GEO-report-*) are disallowed above for
+# every agent. They are working notes, not articles, and they are not linked from any page.
+# Markdown renditions of every dispatch are allowed and welcome: /md/<slug>.md, one small
+# file per article. The full list is in llms.txt under "Markdown versions".
 
 # Site summary for answer engines (llms.txt convention):
 # https://blog.dugong.live/llms.txt

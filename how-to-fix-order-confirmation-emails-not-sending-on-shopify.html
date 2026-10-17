@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-fix-order-confirmation-emails-not-sending-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-23" />
 <meta property="article:modified_time" content="2026-08-23" />
 <meta property="article:author" content="Priya Singh" />
@@ -61,6 +62,7 @@
       "wordCount": 2600,
       "timeRequired": "PT10M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -95,6 +97,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -462,6 +465,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -597,8 +601,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -606,7 +613,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -646,13 +653,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 113</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-23" style="color: var(--cream-dim);">AUG 23, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 113</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-23" style="color: var(--cream-dim);">AUG 23, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+</div>
 
   <h1 class="article-title">
     How to fix order confirmation emails <em>not sending</em> on Shopify
@@ -664,7 +669,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1077,27 +1082,28 @@ and on a clock for the sweep
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Why are my Shopify order confirmation emails not sending?</h2>
       <p class="faq-a">There are five distinct causes, and the first job is telling them apart. The email may be sending and landing in spam, which happens at scale when your sending domain is not authenticated with SPF, DKIM, and DMARC. It may never have been sent because the order had no email address at the moment it was created, which covers phone orders, POS sales, and draft orders where the address was added a step late; Shopify permanently cannot send a confirmation for those orders. It may have gone to a typo'd address the customer entered at checkout. It may be suppressed by design: orders arriving through checkout links or the Storefront API's checkout URL show a source like via import, and Shopify deliberately withholds the confirmation because the order did not originate from the Online Store channel, a behavior confirmed in a July 2025 community thread. Or it was sent and bounced, which the admin records nowhere. Check the order timeline first: if the Order confirmation email sent line is missing, the email never went out, and the order source and the moment the address was added will usually tell you which door the silence came through.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">How do I resend a Shopify order confirmation that was never sent?</h2>
       <p class="faq-a">You cannot, natively. If the confirmation was sent, the timeline offers a resend; if it never sent, there is no button, and Shopify staff confirmed as much in an October 2021 community thread: there is no way within the admin to send an order confirmation if none went out the first time, including after you add or correct the email address on the order. The thread collected workarounds for four years. Send the customer the order status page link, found under More actions on the order, which any customer can open. Create and send an invoice from the order, since the invoice email can always be sent and carries the order contents. Or, as one merchant settled on, email a screenshot of the order page. Shopify Flow on Plus plans and the Admin API can trigger emails programmatically for channels that suppress them. The durable fix is not any single workaround but the noticing: a watcher that flags every order still missing its sent event a few minutes after creation, so the replacement receipt goes out the same morning instead of after the customer calls.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Why do Shopify order confirmation emails go to spam?</h2>
       <p class="faq-a">Because mailbox providers do not trust the sending setup, and transactional templates are not exempt from filtering. The biggest lever is domain authentication: if SPF, DKIM, and DMARC are not configured and aligned for your sending domain, Gmail and Outlook have every reason to file your receipts as spam or promotions, and community threads on confirmations landing in junk folders come back to authentication again and again. Verify your domain in Shopify's settings, check the three records, and test with a fresh mailbox before assuming delivery. Content matters at the margin, spammy subject lines and heavy images hurt, but authentication decides most cases. The deeper operational problem is that you get no signal either way: Shopify's timeline records that an email was sent and says nothing about placement, and when a merchant asked in a thread active in February 2025 whether there is a place to find emails that were not delivered, the answer was that no such log exists. Treat silence from customers as data. A cluster of never-got-it tickets from one mailbox provider in one week is your deliverability alarm, and a watcher can correlate that faster than an inbox can.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Do Shopify checkout links and Storefront API orders send confirmation emails?</h2>
       <p class="faq-a">No. Orders created through the Storefront API's checkout URL, which includes direct checkout links and QR code flows, arrive with a source like Direct, Checkout Links and QR, via import, and Shopify suppresses the order confirmation email for them by design, to prevent what it considers unintended or duplicate emails from orders that did not originate on the Online Store channel. A July 2025 community thread confirmed the behavior after a developer noticed the Order confirmation email sent line missing from the timeline on every such order despite valid emails and completed payments. Nothing in the admin warns you this is happening, and no setting turns it back on. The options are to send each confirmation manually from the order page, to use Shopify Flow on Plus plans, to trigger the notification through the Admin API, or to route the receipt through the invoice email, which can be sent for any order. If you sell through bio links, QR codes, or a headless storefront, assume the channel is silent until a test order proves otherwise, and give every order from it a receipt through a door that opens.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Can AI catch Shopify orders where the confirmation email never went out?</h2>
       <p class="faq-a">Yes, because the failure has a reliable signature: an order that reaches a few minutes old with no Order confirmation email sent event in its timeline. An automation like Dugong watches every new order for that event, and diagnoses the silent ones by cause: no email address on the order at creation, a suppressed source like via import, an address added after the fact, a domain that looks like a typo. The cause picks the response. Suppressed channels get a replacement receipt through the invoice door on your template, with the order status link inside, minutes after the order lands. Obvious typos like gmial.com get a correction request instead of a wasted send, while plausible addresses are flagged for a human rather than guessed at. Bounce reports and never-got-it tickets get matched back to their orders, so a one-off becomes a pattern you can see. The honest limits: nothing adds Shopify's missing resend button, fixes your DMARC records for you, or reaches inside a spam filter. What changes is discovery. The silent order is found at minute ten with the cause attached and the replacement sent, instead of at 4pm by the customer who thought she had been scammed.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1106,6 +1112,22 @@ and on a clock for the sweep
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1128,7 +1150,7 @@ and on a clock for the sweep
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1272,7 +1294,7 @@ and on a clock for the sweep
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1288,7 +1310,7 @@ and on a clock for the sweep
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>

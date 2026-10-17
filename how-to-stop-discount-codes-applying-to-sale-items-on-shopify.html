@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-20" />
     <meta property="article:modified_time" content="2026-08-15" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2010,
       "timeRequired": "PT10M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -106,6 +108,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -461,6 +464,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -596,8 +600,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -605,7 +612,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -646,15 +653,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 86</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-07-20" style="color: var(--cream-dim);">JUL 20, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-15" style="color: var(--cream-dim);">UPDATED AUG 15, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 86</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-07-20" style="color: var(--cream-dim);">JUL 20, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-15" style="color: var(--cream-dim);">UPDATED AUG 15, 2026</time></span>
+</div>
 
   <h1 class="article-title">
     How to stop <em>discount codes</em> from applying to sale items on Shopify
@@ -670,7 +674,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -944,27 +948,28 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Can I exclude sale items from discount codes natively on Shopify?</h2>
       <p class="faq-a">No. There is no exclude sale items setting anywhere in Shopify's discount screens. The combination settings decide how discounts combine with other discounts, but a sale you run by lowering prices and setting a compare-at price is not a discount to the engine, it is just a price, so codes apply to marked-down items exactly as they do to full-price ones. The nearest native route is eligibility: build an automated collection keyed off compare-at prices so sale items gather in one place, then scope codes to a full-price collection instead of the whole store. That holds only as long as every compare-at price is maintained and every new code, including the ones your apps generate, is pointed at the right collection at the moment it is created.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Why is my discount code applying on top of already reduced prices?</h2>
       <p class="faq-a">Because to Shopify a markdown is a price and a code is a discount, and the rules that prevent stacking only operate between discounts. When you reduce a product's price and keep the old price as compare-at, the discount engine never registers a discount, so a sitewide code sees a normal price and applies in full. If both the sale and the code were built as actual discounts, the combination settings could keep them apart, but most stores run sales as price edits because that is what drives the storefront strikethrough, the sale badges, and the collection sorting. The result is a double discount that is real to your margin and invisible to the settings page that looks like it should prevent it.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">How do I stop welcome popup codes from working on sale items?</h2>
       <p class="faq-a">The hard part is that popup, loyalty, and review apps mint their own codes, usually sitewide, and a setting you fix today does not govern the codes the app issues tomorrow. Some apps offer collection restrictions, many do not, and each one is a separate setting to remember. The dependable approach is to enforce the rule at the store rather than inside each app: watch for new codes as they are created, scope them to your full-price collection the moment they appear, and guard checkout so a code that still meets a marked-down item resolves to the single best discount instead of stacking. That way the policy holds no matter which app minted the code or when it was issued.</p>
     </div>
-      <div class="faq-item">
+      <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Why did discount codes suddenly start applying to my sale items in 2026?</h2>
       <p class="faq-a">Check whether a Shopify Script was doing the guarding. Plus merchants used to enforce exactly this rule, no codes on sale items, with a Script that stripped or reduced a discount the moment it met a markdown, and Shopify Scripts stopped executing on June 30, 2026. A store that quietly relied on one is now double-discounting in the open, and the change surfaces exactly the way merchants describe it: codes that never used to land on markdowns suddenly do, with no setting anywhere that changed. The durable replacement is to enforce the policy at the two points the platform still gives you. Scope every code at the moment it is created, including the codes minted by popup, loyalty, and review apps, and guard the checkout so a code meeting a marked-down item resolves to the single best discount you actually meant instead of the deepest stack that slipped through.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Should some discount codes be allowed to work on sale items?</h2>
       <p class="faq-a">Yes, and that is why a single toggle was never going to be enough. A service-recovery code your support team sends after a late order should probably work on anything, sale items included, because the goodwill matters more than the margin. A creator code during a launch might be allowed to touch the sale collection deliberately, and a loyalty voucher might be allowed to stack up to a floor and no further. The real policy is never simply codes off sale items, full stop. It is codes on sale items on these terms, and the terms differ by code, by campaign, and by how much margin the markdown already gave away. The workable shape is a written rule with named exceptions: codes stay off live markdowns unless the code itself says otherwise, no combination ever pushes an item below the floor, and anything that does not fit goes to a person before it ships.</p>
     </div>
 </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -973,6 +978,22 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -995,7 +1016,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1139,7 +1160,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1155,7 +1176,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>
@@ -1587,7 +1608,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The customer you can&rsquo;t ban</h3>
+        <h3 class="card-title">The customer you can't ban</h3>
         <p class="card-dek">
           Shopify has no block button: deleting the account leaves guest checkout open, and Flow can only cancel after the money moved. The AI playbook that keeps a real blocklist and makes a block stick.
         </p>

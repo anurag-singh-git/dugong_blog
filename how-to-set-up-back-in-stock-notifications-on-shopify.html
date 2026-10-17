@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-set-up-back-in-stock-notifications-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-06-13" />
     <meta property="article:modified_time" content="2026-08-10" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2010,
       "timeRequired": "PT9M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -96,6 +98,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -458,6 +461,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -593,8 +597,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -602,7 +609,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -644,15 +651,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">← back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH Nº 56</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span>
-    <time datetime="2026-06-13" style="color: var(--cream-dim);">JUN 13, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span>
-    <span style="color: var(--cream-dim);">9 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-10" style="color: var(--cream-dim);">UPDATED AUG 10, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH Nº 56</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span><time datetime="2026-06-13" style="color: var(--cream-dim);">JUN 13, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span><span style="color: var(--cream-dim);">9 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-10" style="color: var(--cream-dim);">UPDATED AUG 10, 2026</time></span>
+</div>
 
   <h1 class="article-title">How to set up <em>back-in-stock notifications</em> on Shopify</h1>
 
@@ -667,7 +671,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">·</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -961,27 +965,28 @@ available, and the count is actually synced
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Does Shopify send back-in-stock notifications automatically?</h2>
       <p class="faq-a">No, not in any real sense. Shopify has no built-in feature that emails or texts customers when an out-of-stock product is restocked. Some themes offer a basic notify me form, but it is too limited for most stores: it collects interest without reliably sending alerts, and it has no segmentation, no SMS, no priority order, and no throttle to stop the restock from selling out to the wrong people. The standard workaround is to export the requests and notify customers by hand, or to bolt on a third-party app. The native gap is why so many waitlists are quietly never answered.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">How much revenue do stockouts actually cost a store?</h2>
       <p class="faq-a">More than most merchants track. Stockouts account for roughly 40 percent of lost sales, and the lost sales ratio, the share of potential revenue missed because items were unavailable, averages around 20 to 30 percent in ecommerce. When a product is out of stock, about 69 percent of online shoppers will go buy from a competitor rather than wait, and a stocked-out product stays unavailable for an average of around 35 days. Every one of those is a customer who would have bought from you if the alert had reached them in time.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Why does blasting the whole waitlist at once cause problems?</h2>
       <p class="faq-a">Because a single restock rarely covers everyone who asked. If two hundred people are waiting and forty units land, one mass email sends all two hundred to the page at the same moment, the forty units sell to whoever clicks fastest, and the other hundred and sixty arrive to find it gone again. You can also oversell if the alert fires before inventory is truly synced. A good restock automation notifies in priority order, usually first-requested first, throttled to the units actually available, per variant, across email and SMS, so the people who waited longest get the real chance to buy.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">In what order should back-in-stock notifications be sent?</h2>
       <p class="faq-a">First requested, first told, metered to real stock. Pull the waitlist for the exact variant, rank it by how long each person has waited, and notify only as many people as there are units, with a little headroom, on the channel each subscriber chose, SMS for the fast movers and email otherwise. Release the next wave only if more stock lands, close the list when it sells through, and tell the people who missed that they are still in line. Fairness is half the value: a blast that rewards whoever refreshes fastest teaches your longest-waiting customers that the list is pointless, and with 200 people waiting on 40 units, one undifferentiated email manufactures 160 disappointments by design. Metered, ordered sends turn the same restock into 40 sales and a queue that still trusts you, and the store can add its own rules, like a thirty minute head start for VIP customers.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Can Shopify Flow send back-in-stock notifications?</h2>
       <p class="faq-a">Flow can react to the inventory event, and a basic app can hold the waitlist, but neither holds the judgment in the middle, which is the actual job. What matters at send time: whether the count that just went positive is real or a flicker from a return or a supplier feed, how many units truly landed, who has waited longest for exactly that variant, which channel each person chose, how many to tell now versus hold for the next wave, and when to stop because supply is gone. A simple trigger fires all at once or not at all, so it either blasts the whole list at forty units or sends nothing. Worse, a trigger wired to an unsynced count fires into thin air, points buyers at stock that is not really there, and converts the recovered sale into an oversell, a refund, and a support ticket.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -990,6 +995,22 @@ available, and the count is actually synced
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1012,7 +1033,7 @@ available, and the count is actually synced
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1156,7 +1177,7 @@ available, and the count is actually synced
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1172,7 +1193,7 @@ available, and the count is actually synced
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>
@@ -1604,7 +1625,7 @@ available, and the count is actually synced
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The customer you can&rsquo;t ban</h3>
+        <h3 class="card-title">The customer you can't ban</h3>
         <p class="card-dek">
           Shopify has no block button: deleting the account leaves guest checkout open, and Flow can only cancel after the money moved. The AI playbook that keeps a real blocklist and makes a block stick.
         </p>
@@ -2171,7 +2192,7 @@ available, and the count is actually synced
         </div>
         <h3 class="card-title">The high-risk flag that makes you guess</h3>
         <p class="card-dek">
-          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
+          Shopify's "high-risk" flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 6</span>
@@ -2233,7 +2254,7 @@ available, and the count is actually synced
           <span class="tag tag-research">research</span>
           <span class="post-read">6&nbsp;min</span>
         </div>
-        <h3 class="card-title">The &ldquo;where is my order?&rdquo; tickets that eat your afternoon</h3>
+        <h3 class="card-title">The "where is my order?" tickets that eat your afternoon</h3>
         <p class="card-dek">
           WISMO is ~18% of support tickets, over half during a sale. The AI playbook that answers before customers ask.
         </p>

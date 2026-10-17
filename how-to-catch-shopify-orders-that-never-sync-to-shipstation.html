@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-catch-shopify-orders-that-never-sync-to-shipstation.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-20" />
 <meta property="article:modified_time" content="2026-08-22" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2500,
       "timeRequired": "PT10M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -96,6 +98,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -463,6 +466,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -598,8 +602,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -607,7 +614,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -647,15 +654,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 111</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-20" style="color: var(--cream-dim);">AUG 20, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-22" style="color: var(--cream-dim);">UPDATED AUG 22, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 111</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-20" style="color: var(--cream-dim);">AUG 20, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-22" style="color: var(--cream-dim);">UPDATED AUG 22, 2026</time></span>
+</div>
 
   <h1 class="article-title">
     How to catch Shopify orders that <em>never sync</em> to ShipStation
@@ -667,7 +671,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1078,27 +1082,28 @@ and on a clock for the queue
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Why are my Shopify orders not syncing to ShipStation?</h2>
       <p class="faq-a">Usually because the order is in a state the integration will not import, and nothing tells you which state that is. The documented offenders: a payment authorization that was voided and repaid, which is the Shop Pay chain a March 2024 community thread mapped in detail, a new tax amount applied at checkout, the authorization voided, a payment failure email sent, the invoice paid again, and the order never exports. Orders already marked fulfilled in Shopify are skipped, which an October 2025 merchant identified as his whole problem. Manual and draft orders often do not flow the way online store orders do. Payment pending states, order holds, archived orders, and ShipStation-side filters, tags, or a second store connection can each hide an order, sometimes in a status other than Awaiting Shipment. The structural problem is that no one owns the seam: Shopify staff answered the 2024 thread twice by pointing at ShipStation, while ShipStation confirmed no import event ever reached their side. Check every status in ShipStation, force a manual store refresh, then read the order's payment timeline in Shopify for a voided authorization. And treat any one you find as evidence of others, because this failure never announces itself.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">How do I find Shopify orders that never imported into ShipStation or my 3PL?</h2>
       <p class="faq-a">Diff the two lists, because neither side will volunteer the gap. Export your open, paid, unfulfilled orders from Shopify for the window you care about, export everything from ShipStation across all statuses, not just Awaiting Shipment, and compare order numbers. Anything paid in Shopify with no row anywhere in ShipStation is a missing order. Before you conclude that, run a manual store refresh in ShipStation, since the scheduled pull can simply be late. The merchant who documented the Shop Pay export bug did exactly this diff and found about one missing order a week that he knew about, which is the honest phrasing, because you only ever count the ones you catch. His own words for doing it manually at scale: a nightmare in busy seasons where we'll have thousands of orders per day. That is the argument for making the diff continuous instead of heroic: a reconciliation that runs on a clock, knows how long a normal order takes to appear in the queue, and flags any paid order that misses its window, so the gap is found in minutes by a machine instead of in day nine by your customer.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Can AI catch Shopify orders that never reach my fulfillment software automatically?</h2>
       <p class="faq-a">Yes, and it is the right shape of work for it, because the job is reconciliation plus judgment. An automation like Dugong watches both sides of the seam: every paid, open, shippable Shopify order must have a matching row in ShipStation or the 3PL within the lag a normal order takes, and one that misses the window gets flagged with its story attached, how old it is, what the payment timeline shows, whether it matches a known signature like a voided and repaid authorization, a manual order, or a hold. The judgment matters at the edges: an order on a deliberate hold or failing address validation is not missing, it is waiting, and a blind rule cannot tell those apart. The same watch runs the pipe in reverse, catching shipments whose tracking never lands back on the Shopify order, which is its own quiet genre of customer confusion. What no automation can do is patch Shopify's export pipeline itself: if the platform never emits the event, the fix belongs to Shopify and ShipStation. What changes is the discovery time. The documented cases surfaced when customers asked where their orders were. A reconciled queue surfaces the same failure the hour it happens, with the evidence already gathered.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Do Shopify orders marked as fulfilled sync to ShipStation?</h2>
       <p class="faq-a">No. An order already marked fulfilled in Shopify is skipped by the import by design, which turned out to be the whole mystery for the merchant in an October 2025 community thread whose orders had stopped arriving. The skip list is longer than most merchants learn until something goes missing: manual and draft orders do not always flow the way online store orders do, a payment still pending keeps an order back, holds and archived orders sit outside the export, and on the ShipStation side a filter, a tag rule, or a second store connection can claim or hide the import. None of these announce themselves. The order looks normal in Shopify, and ShipStation cannot alert you about a row it never received, so the gap is invisible from inside either system. Before concluding an order is missing, check every status and every store connection in ShipStation, run a manual store refresh since the scheduled pull can simply be late, and then read the order itself for the state that kept it home: a fulfillment written too early, a hold, or a payment timeline that never settled.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Why is the tracking number from ShipStation not showing on my Shopify order?</h2>
       <p class="faq-a">Because the pipe leaks in both directions, and the return trip gets even less attention than the import. An order can ship perfectly and the tracking number never make it back onto the Shopify order, which leaves Shopify emailing nobody and the customer refreshing an order page that says unfulfilled forever. It is the same seam as the missing import, reversed: a fulfillment created on one side must land on the other within your store's normal lag, and neither dashboard tells you when it does not. The watch that catches it is the same reconciliation pointed the other way, one that knows how long tracking normally takes to land and flags the shipment that misses its window with the order and its age attached, so someone can push the number across by hand before the customer notices. The standing caveat applies in this direction too: no watcher patches the pipeline itself. If the platform never emits the event, the fix belongs to Shopify and ShipStation, and what the automation changes is the discovery time, from a customer complaint days later to an alert the hour it happens.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1107,6 +1112,22 @@ and on a clock for the queue
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1129,7 +1150,7 @@ and on a clock for the queue
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1273,7 +1294,7 @@ and on a clock for the queue
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1289,7 +1310,7 @@ and on a clock for the queue
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>

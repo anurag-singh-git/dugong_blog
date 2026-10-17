@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-03" />
     <meta property="article:modified_time" content="2026-08-15" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2410,
       "timeRequired": "PT9M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -106,6 +108,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -473,6 +476,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -608,8 +612,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -617,7 +624,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -657,15 +664,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 101</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-03" style="color: var(--cream-dim);">AUG 3, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">9 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-15" style="color: var(--cream-dim);">UPDATED AUG 15, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 101</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-03" style="color: var(--cream-dim);">AUG 3, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">9 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-15" style="color: var(--cream-dim);">UPDATED AUG 15, 2026</time></span>
+</div>
 
   <h1 class="article-title">
     How to automatically follow up on <em>unpaid draft orders</em> on Shopify
@@ -681,7 +685,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1041,27 +1045,28 @@ a daily sweep of open drafts
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Does Shopify automatically send reminders for unpaid draft order invoices?</h2>
       <p class="faq-a">No. Sending an invoice from a draft order sends exactly one email with a checkout link, and nothing follows it, ever. Shopify does have automatic payment reminders, up to five scheduled emails, but only for orders that have payment terms assigned, such as net 30, and a draft order has no due date for a reminder to count down from, so drafts are excluded entirely. Some merchants work around this by completing the draft as a pending payment order with short terms just to borrow the reminder machinery, but that turns every undecided quote into a real order that lands in reports, commits inventory, and needs a cancellation to undo when the customer never pays. The practical alternatives are a reminder app that resends on a fixed schedule, or an AI workflow that reads each draft and follows up the way a salesperson would, matching the cadence to the quote's value and stopping when the customer says no.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Do Shopify draft order invoice links expire?</h2>
       <p class="faq-a">Not on any schedule you control. The checkout link in a draft order invoice keeps working for as long as the draft exists, and because product prices in a draft are locked by default, a customer can open a months-old email and pay a price you have since raised. There is no cancelled status for draft orders, a gap merchants have a standing feature request open for, so the only way to kill a live link is to delete the draft itself. The single expiry Shopify applies is automatic deletion of drafts created on or after April 1, 2025 once they have sat inactive for a full year, and any edit resets that clock. A year is not a quote lifecycle. If your prices move, retiring old drafts deliberately, on a cutoff you choose, is the only real protection against last winter's quote being paid at last winter's price.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Can Shopify Flow follow up on unpaid draft orders?</h2>
       <p class="faq-a">Not with the customer. Flow has a Draft order created trigger, and it fires once, at the moment of creation, for drafts that contain products. There is no trigger for an invoice that has sat unpaid for a number of days, and the actions available against a draft are organizational, tagging mainly, with nothing that emails a customer about a draft at all. The accepted community workaround is a Scheduled time trigger that sends your own staff a list of open drafts on a schedule, which automates the reminder to you rather than the follow-up itself. A real follow-up means reading the draft's value, age, stock, and any reply that has already arrived before writing to a human being, then choosing between a nudge, an answer, an escalation, and retirement. That is judgment rather than a condition, and it is the part an AI workflow adds on top of what Flow can see.</p>
     </div>
-      <div class="faq-item">
+      <div class="faq-item" id="faq-4">
       <h2 class="faq-q">How do I see which Shopify draft orders are still unpaid?</h2>
       <p class="faq-a">Open the Drafts page and filter to Invoice sent, because that is all the visibility Shopify gives you. A draft has exactly three states, Open, Invoice sent, and Completed, and only a customer can reach the third one, by paying. There is no aging view, no overdue state, and no due date, so a draft wears the same badge on day forty that it wore in the first hour, and this month's live quotes sit interleaved with long-dead ones. The useful exercise is to count three things on that filtered list: how many drafts there are, how old the oldest is, and what they add up to, then check how many ever received a single follow-up. Most stores that quote at all discover a five-figure pipeline being run entirely on remorse, which is why so many merchants end up keeping the real list in a spreadsheet next to Shopify.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">What happens if a customer pays a draft order invoice after the stock has sold out?</h2>
       <p class="faq-a">The checkout refuses her, and the sale dies at the finish line. Shopify does not hold inventory for a draft order unless you deliberately reserve it, and nobody reserves stock for a maybe, so the customer who finally clicks the invoice link in week three can meet a checkout that declines the purchase because one line item sold out on Tuesday. Nobody alerts you when that happens either, so a quote that survived your silence is lost silently too. The protection is to check stock before every reminder: never chase payment for a quote you can no longer fill, and when a line has sold out, either re-quote honestly at current availability or decide whether to reserve the remaining units. A nudge that says pay now for items you cannot ship is worse than no nudge, because it converts your own follow-up into a refund and an apology.</p>
     </div>
 </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1070,6 +1075,22 @@ a daily sweep of open drafts
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1092,7 +1113,7 @@ a daily sweep of open drafts
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1236,7 +1257,7 @@ a daily sweep of open drafts
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1252,7 +1273,7 @@ a daily sweep of open drafts
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>

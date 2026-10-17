@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-handle-delivered-but-not-received-claims-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-07" />
     <meta property="article:modified_time" content="2026-08-12" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2540,
       "timeRequired": "PT10M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -106,6 +108,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -478,6 +481,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -613,8 +617,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -622,7 +629,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -662,15 +669,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 102</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-07" style="color: var(--cream-dim);">AUG 7, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-12" style="color: var(--cream-dim);">UPDATED AUG 12, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 102</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-07" style="color: var(--cream-dim);">AUG 7, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-12" style="color: var(--cream-dim);">UPDATED AUG 12, 2026</time></span>
+</div>
 
   <h1 class="article-title">
     How to handle delivered but not received claims <em>on Shopify</em>
@@ -685,7 +689,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1074,27 +1078,28 @@ package never arrived, on any channel
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Who is responsible when a package is marked delivered but the customer says it never arrived?</h2>
       <p class="faq-a">Practically, the merchant is. The carrier's contract ends at the delivery scan, and a package with a delivered status is nearly impossible to claim as lost: UPS and FedEx will open a delivery investigation, and USPS accepts a Missing Mail search after 7 business days, but a scan with GPS coordinates at the right address usually closes the case in the carrier's favor. The card networks point the same direction: if the customer disputes the charge as item not received, the burden of proof is on the merchant, and the winning evidence is delivery confirmation to the address on the order, an AVS match from checkout, a delivery photo, and a signature for high-value shipments. A shipping policy page that says not responsible for stolen packages does not bind the customer's bank. So the practical question is not who is responsible but what evidence you can produce and how fast: the photo, the GPS readback, and the correspondence, gathered while the claim is hours old, decide most cases either way.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Does Shopify Protect cover delivered but not received chargebacks?</h2>
       <p class="faq-a">No. Shopify Protect protects eligible Shop Pay orders against fraudulent and unrecognized chargebacks, the disputes where a cardholder says the purchase was not authorized or not recognized. A customer who says the package never arrived files under item not received, which is a different reason code and is not covered, even on an order wearing the protected badge. That distinction surprises merchants at the worst moment: the order says protected, the dispute arrives, and the response is still yours to build. For item not received disputes you respond with delivery evidence: tracking showing delivered to the address on the order, the delivery photo if the carrier took one, GPS coordinates from the carrier if you requested them, the AVS result from checkout, and your correspondence with the customer. Signature confirmation is the strongest single item and worth requiring automatically above a value threshold you choose.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Should I refund, reship, or deny when tracking shows the package was delivered?</h2>
       <p class="faq-a">Wait first, then decide by evidence and history, not by mood. Carriers mark packages delivered early often enough that the standard guidance is to give it 24 to 48 hours: reply in the first hour with the delivery photo and a short checklist covering household members, neighbors, side doors, and the building office, and a real share of claims close themselves when the package surfaces or the photo shows someone else's porch. If nothing surfaces, split by stakes. A first claim from a customer with clean history on a low-value order is a reship or refund: the goodwill costs you the product at cost, and fighting it costs more. A high-value order waits for the GPS readback and the carrier trace before anything moves, and ships again only with signature required. A repeat pattern, whether the same customer, the same address, or the same building cluster, gets a polite denial with the evidence file attached, because paying it once more buys the next claim. Put thresholds on those doors in advance so the queue stops improvising.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Do carriers provide photo proof of delivery for disputed packages?</h2>
       <p class="faq-a">Yes, and it is better evidence than most merchants realize they have. FedEx runs Picture Proof of Delivery on residential deliveries released without a signature in the US and Canada: the driver photographs the package where it sits, and the photo appears on the tracking page, free, with no account or login required. UPS attaches delivery photos to many residential stops the same way. USPS does not photograph doorsteps, but its delivered scan carries GPS coordinates, and your local Post Office counter can read them back if you ask there rather than calling the 800 number; at 7 business days you can also file a Missing Mail search. The catch is that none of it arrives on its own. The evidence sits scattered across three carrier sites, gated behind the right question, so at 8:04 on a Tuesday with a queue building, nobody pulls it.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Can Shopify Flow detect a delivered but not received claim?</h2>
       <p class="faq-a">No. The claim is a customer typing nothing came, and that is an email, not a webhook, so no Flow trigger exists for it. The closest trigger, Fulfillment event created, fires on updates from third-party fulfillment services as a package moves through picked up, in transit, and delivered, and the documentation adds the line that decides the matter for half the stores reading it: manual fulfillment events do not start workflows. Fulfill by hand and even the delivered scan may pass Flow by. So Flow can tag delivered orders, but it cannot hear a claim, and nothing native records one either. Shopify has no claim object, so an order that is delivered and disputed looks identical to one that is delivered and fine, and the third nothing-came from the same address this year opens exactly like the first.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1103,6 +1108,22 @@ package never arrived, on any channel
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1125,7 +1146,7 @@ package never arrived, on any channel
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1269,7 +1290,7 @@ package never arrived, on any channel
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1285,7 +1306,7 @@ package never arrived, on any channel
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>

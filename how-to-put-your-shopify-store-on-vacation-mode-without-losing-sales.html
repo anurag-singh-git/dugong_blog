@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-put-your-shopify-store-on-vacation-mode-without-losing-sales.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-25" />
 <meta property="article:modified_time" content="2026-08-25" />
 <meta property="article:author" content="Priya Singh" />
@@ -61,6 +62,7 @@
       "wordCount": 2500,
       "timeRequired": "PT10M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -95,6 +97,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -457,6 +460,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -592,8 +596,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -601,7 +608,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -641,13 +648,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 115</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-25" style="color: var(--cream-dim);">AUG 25, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 115</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-25" style="color: var(--cream-dim);">AUG 25, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+</div>
 
   <h1 class="article-title">
     How to put your Shopify store on vacation mode <em>without losing sales</em>
@@ -659,7 +664,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1052,27 +1057,28 @@ the break is running
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Does Shopify have a vacation mode?</h2>
       <p class="faq-a">No. Shopify's own help page on closing for vacations opens with the words: although Shopify doesn't have a vacation setting. The two official options are password protection, which hides your entire site behind a password page so nobody can browse, and the Pause and Build plan at nine dollars a month, which keeps the store visible but turns off checkout, POS, discounts, gift cards, and abandoned checkout recovery. Neither is a vacation mode in the sense Etsy or eBay merchants mean: a toggle that pauses purchases for a week and flips back off. Merchants have been requesting exactly that since at least July 2022, and the request threads were still collecting new replies in August 2026. Until Shopify builds it, the choice is between closing the store, hacking the theme to hide buy buttons, installing an app, or the option most guides skip: keeping the store open and automating the week you are away.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">How do I pause my Shopify store for one week without changing my plan?</h2>
       <p class="faq-a">You cannot do it through Shopify's billing settings anymore, and that is the trap. Pause and Build is a plan change, and since a change reported by merchants in September 2024, switching to it can be scheduled for the end of your current billing cycle instead of taking effect immediately. One annual plan merchant was told his pause would not begin until July 2025, ten months after he asked. The plan-free workarounds: hide the add to cart and checkout buttons in your theme with a few lines of Liquid and a banner announcing your return date, install a vacation mode app that blocks checkout between two dates, or password protect the store for a short trip if you can accept being invisible to browsers and to Google Shopping feeds. The alternative that avoids the pause entirely is to keep taking orders with a clearly promised ship date and let an automation set expectations, tag the orders, answer the inbox, and queue everything for your return.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">What does Pause and Build actually turn off, and why is it bad for short breaks?</h2>
       <p class="faq-a">Pause and Build drops your subscription to nine dollars a month and keeps the storefront browsable, but it deactivates the online checkout, the POS channel, discounts, gift cards, abandoned checkout recovery, and product publishing to third party channels like Google and Facebook. Apps with recurring charges keep billing. When you come back you cannot simply resume: your old plan is no longer valid and you must select a new one, which starts a new billing cycle. And since late 2024 the switch to Pause and Build may only take effect when your current cycle ends, which makes it useless for a spontaneous week off. Merchants in the community threads describe planning their pause a month in advance by first downgrading from annual to monthly billing just so the timing works. For a three month closure it is a reasonable tool. For a one week vacation it is, in one merchant's words from August 2026, a nightmare, because it is tied to the billing cycle and not your vacation week.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Can I keep my Shopify store open and selling while I'm on vacation?</h2>
       <p class="faq-a">Yes, and for most stores it is the better option, because closing costs more than the vacation. A password page hides you from customers and crawlers alike; one merchant noted in June 2025 that password protecting the store would lose all the work put into Google Merchant listings. What keeping the store open requires is expectation management done reliably: a banner and product page notice with your return date, a line in the order confirmation promising a ship-by date, and answers to the where is my order emails that arrive anyway. The pieces that break are the manual ones: the banner someone forgets to take down, the date that goes stale, the inbox nobody answers for nine days. An automation holds all of it: it dresses the store on your departure date, stamps every incoming order with a tag and a delay note, replies to routine mail with the real date, escalates the rare emergency to your phone, and takes the banner down the morning you are back.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Can AI run my Shopify store while I'm away?</h2>
       <p class="faq-a">It can run the week, if you write the policy. An automation like Dugong takes your dates and executes the away playbook: before you leave, it turns on the storefront notice and adds your ship-by promise to the order confirmation; while you are gone, it tags every order into a vacation queue, answers where is my order tickets with the promised date, watches for the things that cannot wait a week, like a card testing attack, a chargeback with a response deadline, or a product that sells out, and sends you one short daily digest plus an immediate ping for real fires; when you return, it removes the notice, hands you the queue oldest first, and emails every waiting customer that their order ships today. The honest limits: nothing packs boxes, so your ship-by promise must be one you can keep, and the judgment calls, like how long a promise your customers will accept, are yours to set. What the automation removes is the part that ruins the vacation: the checking.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1081,6 +1087,22 @@ the break is running
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1103,7 +1125,7 @@ the break is running
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1247,7 +1269,7 @@ the break is running
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1329,7 +1351,7 @@ the break is running
         </div>
         <h3 class="card-title">The high-risk flag that makes you guess</h3>
         <p class="card-dek">
-          Shopify&rsquo;s &ldquo;high-risk&rdquo; flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
+          Shopify's "high-risk" flag is a blackbox coin-flip between a chargeback and a false decline. The AI playbook that investigates.
         </p>
         <div class="card-foot">
           <span class="card-date">JUN 6</span>
@@ -1388,7 +1410,7 @@ the break is running
 <a href="best-shopify-automations-to-set-up.html" class="card">
       <div class="card-body">
         <div class="post-meta">
-          <span class="tag tag-tactics">tactics</span>
+          <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
         <h3 class="card-title">The Shopify automations no one builds</h3>

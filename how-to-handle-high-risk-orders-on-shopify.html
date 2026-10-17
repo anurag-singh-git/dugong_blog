@@ -7,6 +7,7 @@
 <meta name="description" content="Shopify's high-risk flag hands you a coin-flip: cancel a real customer or fulfill a fraudster. The AI playbook that decides each flagged order with evidence." />
 <link rel="canonical" href="https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-handle-high-risk-orders-on-shopify.md" title="Markdown version for answer engines" />
 <meta name="author" content="Priya Singh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <meta name="keywords" content="Shopify high-risk order, Shopify fraud analysis, fraud review automation, chargeback prevention Shopify, false decline, manual order review, ecommerce fraud automation, Shopify Flow fraud, Dugong" />
@@ -62,6 +63,7 @@
       "wordCount": 1550,
       "timeRequired": "PT9M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -96,6 +98,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -609,6 +612,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -750,8 +754,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -759,7 +766,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -801,15 +808,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">← back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH Nº 51</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span>
-    <time datetime="2026-06-06" style="color: var(--cream-dim);">JUN 6, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span>
-    <span style="color: var(--cream-dim);">9 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-07" style="color: var(--cream-dim);">UPDATED AUG 7, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH Nº 51</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span><time datetime="2026-06-06" style="color: var(--cream-dim);">JUN 6, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span><span style="color: var(--cream-dim);">9 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-07" style="color: var(--cream-dim);">UPDATED AUG 7, 2026</time></span>
+</div>
 
   <h1 class="article-title">
     How to handle <em>high-risk orders</em> on Shopify
@@ -825,7 +829,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">·</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1088,27 +1092,28 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">What does &#x27;high-risk&#x27; mean on a Shopify order?</h2>
       <p class="faq-a">Shopify&#x27;s fraud analysis scores each order low, medium, or high risk based on signals like address mismatches, proxy/VPN use, card-verification results, and how closely the order resembles past fraud. A &#x27;high-risk&#x27; flag is a warning that the order has fraud-like characteristics, but Shopify doesn&#x27;t show you all the data behind it, so it&#x27;s a prompt to investigate, not a verdict.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Why do merchants find Shopify&#x27;s fraud flag frustrating?</h2>
       <p class="faq-a">Because it&#x27;s a blackbox that pushes the decision back onto the merchant. The reason often reads only &#x27;characteristics similar to fraudulent orders observed in the past,&#x27; without saying which characteristics. That leaves the merchant to manually research each flagged order and choose between two bad outcomes: cancel a legitimate customer (a false decline) or fulfill and risk a chargeback.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Can fraud review on Shopify be automated?</h2>
       <p class="faq-a">Yes. An AI playbook can enrich each flagged order with the signals a human would check, order history, email and address age, device and geolocation, AVS/CVV results, order velocity, then approve clearly-good orders, hold or cancel clearly-bad ones, and escalate only the genuine gray-area cases to a person with the evidence already gathered. That cuts the manual queue without blindly cancelling good customers.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Should I automatically cancel every high-risk order on Shopify?</h2>
       <p class="faq-a">No. Auto-cancelling on the flag alone burns good customers at industry scale: false declines are estimated to cost merchants around $443 billion a year, roughly nine times the $48 billion lost to actual fraud, and among loyal buyers a single wrongful decline is followed by a 65% drop in reorder frequency, with 27% never returning at all. New customers are 5 to 7 times more likely to be wrongly declined, which means a blanket rule punishes exactly the people you paid the most to acquire. Reserve auto-cancel for the unambiguous cases, mismatched everything, card-testing patterns, disposable emails, and auto-approve known good customers whose history and signals line up. The genuinely gray middle should neither ship blind nor die silently: hold it, send the customer a light verification step, and queue it for a human with the full dossier already attached.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">What does a wrong call on a flagged Shopify order actually cost?</h2>
       <p class="faq-a">Both directions are expensive, which is what makes the coin-toss so corrosive. Ship a genuinely fraudulent order and the chargeback averages about $191, with the all-in damage running near $3.75 for every $1 of the original order once fees, product, shipping, and labor are counted; enough of them and your dispute rate drifts toward the 0.65% line where Visa starts watching and Shopify Payments can get throttled. Decline a good customer and the cost is quieter but compounds: retailers reject around 6% of all orders, somewhere between 2% and 10% of those rejections hit honest buyers, and the loyal ones respond to a false decline by ordering 65% less often or never again. The $180 do I ship it thread has no good answer precisely because either wrong guess costs more than the order itself.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1117,6 +1122,22 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1139,7 +1160,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1283,7 +1304,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1299,7 +1320,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>
@@ -1731,7 +1752,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The customer you can&rsquo;t ban</h3>
+        <h3 class="card-title">The customer you can't ban</h3>
         <p class="card-dek">
           Shopify has no block button: deleting the account leaves guest checkout open, and Flow can only cancel after the money moved. The AI playbook that keeps a real blocklist and makes a block stick.
         </p>
@@ -2360,7 +2381,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">6&nbsp;min</span>
         </div>
-        <h3 class="card-title">The &ldquo;where is my order?&rdquo; tickets that eat your afternoon</h3>
+        <h3 class="card-title">The "where is my order?" tickets that eat your afternoon</h3>
         <p class="card-dek">
           WISMO is ~18% of support tickets, over half during a sale. The AI playbook that answers before customers ask.
         </p>

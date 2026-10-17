@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-stop-your-shopify-inventory-changing-by-itself.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-22" />
 <meta property="article:modified_time" content="2026-08-22" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2800,
       "timeRequired": "PT11M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -96,6 +98,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -463,6 +466,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -598,8 +602,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -607,7 +614,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -647,13 +654,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 112</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-22" style="color: var(--cream-dim);">AUG 22, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">11 MIN READ</span>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 112</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-22" style="color: var(--cream-dim);">AUG 22, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">11 MIN READ</span></span>
+</div>
 
   <h1 class="article-title">
     How to stop your Shopify inventory <em>changing by itself</em>
@@ -665,7 +670,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1104,27 +1109,28 @@ and on a clock for the sweep
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Why does my Shopify inventory keep changing by itself?</h2>
       <p class="faq-a">Because something with write access is changing it, and nothing in the admin volunteers what. Shopify staff said it plainly in a June 2023 community reply: inventory numbers should not change without a user or an app making the change. In the documented cases the culprit was findable once someone looked. A wholesale marketplace connection wrote retail stock counts back into the store, which is how one merchant's sold out Christmas toys returned with their original numbers, twice, a year apart. A dropshipping app resynced on its own schedule. Duplicating a product, one merchant discovered, doubled its inventory. A bulk CSV import overwrote counts, a POS tap or staff edit went unlogged, an integration wrote Available when it meant On hand. The changes also cluster in patterns that name their source: the merchant whose digital products reset to zero at 9:20pm five nights running was watching a scheduled job, not a ghost. Start with the adjustment history on an affected variant and read the Created by column. If it names an app, you have your answer. If the history shows nothing at all, as it did for the store that woke to most of its catalog at zero, you are in the class of failure where the record itself missed, and the only reliable fix is watching adjustments as they happen instead of reconstructing them afterward.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">How do I find out what changed my Shopify inventory?</h2>
       <p class="faq-a">Open the product, pick the variant, and click View adjustment history. Every recorded change lists the date, the activity, and a Created by column naming the staff member, app, or sales channel that made it. Three limits matter. You can only view history one variant at a time, so auditing a catalog this way is a product by product march. The page reaches back 180 days; for anything older you need the Inventory adjustment changes report, which filters by SKU, location, staff member, app, and reason. And the labels are not always a story: an entry like Data correction is defined in Shopify's help docs as an error correction that was made automatically, which tells you a machine changed your number and little else. When merchants take unexplained changes to support, the request that comes back is a list of affected products and the window of time in which the values changed, which is exactly the evidence the admin makes laborious to gather. That is the case for keeping your own ledger: a watcher that records every adjustment as it lands, with its source attached, has the product list and the time window ready the day something goes wrong, and it does not expire at 180 days.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Can AI catch unexplained Shopify inventory changes automatically?</h2>
       <p class="faq-a">Yes, because the job is attribution, and attribution is a reading task. An automation like Dugong subscribes to inventory adjustments as they happen and asks of each one the question you would ask: what explains this? A sale explains a decrement. A refund with restock explains an increment. A transfer received, a purchase order, a named app doing what you configured it to do, all stories that close. What is left are the orphans: the increment with no order anywhere near it, the zero reset at 9:20pm, the sold out product that quietly refills to its pre sale count. Those get flagged in minutes with the evidence attached, the SKU, the size of the swing, what wrote it, and what the count was before, so the fix is a revert and an app permissions review instead of a store wide recount. The honest limit: automation cannot stop a misconfigured integration from writing to your store. Disconnecting or fixing it is your call to make with that vendor. What changes is that you learn about the write the hour it happens, with the culprit named, instead of at the next stock take, or worse, from a customer who just ordered a product you do not own.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Which apps and channels can change Shopify inventory without telling me?</h2>
       <p class="faq-a">Any of them with write access, and the list is longer than most merchants expect. A connected sales or purchasing channel is allowed to write inventory, which is how one toy shop's wholesale marketplace, doubling as its supplier, pushed its own idea of stock over hers and resurrected a sold out Christmas range. A dropshipping or product import app resyncs on its own schedule and restores whatever its remote source believes. Duplicating a product can double counts. A bulk CSV import made for a price change silently carries the inventory column from the day it was exported. Add a POS tap, a staff edit, a second store sync pointed the wrong way, a bundle app doing component math at the wrong moment, and an integration built on an old API writing Available when it meant On hand, and you have a number with more authors than you think. None of them is required to announce the edit. The way to find your store's culprits is the adjustment history's Created by column, checked on the SKUs that move, and an audit that matches every change against the sales that should explain it.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">How far back does Shopify's inventory adjustment history go?</h2>
       <p class="faq-a">180 days, viewed one variant at a time, and for anything older you are sent to a separate report. Within that window it records the date, the activity, and a Created by column naming the staff member, app, or sales channel behind every change, which makes it exactly the right tool for a spot check and a poor one for an audit: sweeping a thousand SKU catalog through it product by product is a career. Two of its limits matter in practice. Some labels close no case, since Data correction officially means an error correction that was made automatically, which names a machine and no motive. And in the documented zeroed catalog case the history showed nothing at all, so the record you were promised can have gaps precisely where you doubt it. Treat the history as evidence rather than the audit itself: the durable version is a ledger kept outside the window, where every movement is matched to an order, a return, or a named adjustment the hour it happens, and anything unexplained gets flagged while the trail is fresh.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1133,6 +1139,22 @@ and on a clock for the sweep
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1155,7 +1177,7 @@ and on a clock for the sweep
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1299,7 +1321,7 @@ and on a clock for the sweep
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1315,7 +1337,7 @@ and on a clock for the sweep
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>

@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-stop-fake-customer-accounts-and-spam-signups-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-14" />
     <meta property="article:modified_time" content="2026-08-15" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2600,
       "timeRequired": "PT10M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -101,6 +103,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -468,6 +471,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -603,8 +607,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -612,7 +619,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -652,15 +659,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 108</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-14" style="color: var(--cream-dim);">AUG 14, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-15" style="color: var(--cream-dim);">UPDATED AUG 15, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 108</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-14" style="color: var(--cream-dim);">AUG 14, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-15" style="color: var(--cream-dim);">UPDATED AUG 15, 2026</time></span>
+</div>
 
   <h1 class="article-title">
     How to stop <em>fake customer accounts</em> and spam signups on Shopify
@@ -672,7 +676,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1097,27 +1101,28 @@ and every hour for the backlog
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Why is my Shopify store getting hundreds of fake customer signups?</h2>
       <p class="faq-a">Because bots reach the account and newsletter endpoints directly, and nothing on the platform stops them. Merchants have documented waves of this for years: a March 2024 community thread describes hundreds to thousands of fake signups per week, and a May 2025 Shopify Plus thread maps a bot using more than 18,000 rotating IP addresses with browser-identical headers, hitting storefront pages to corrupt analytics and backend endpoints to spam carts and mint accounts. One reply reported 1,000 fake accounts a day, another 500 abandoned orders a day. The signups often appear on the account register route even when classic customer accounts are switched off, which is why removing the signup form from your theme does not end them. The motive hardly matters, list poisoning, competitor sabotage, or credential probing all look the same in your admin: a customer with a keyboard-mash name, a template address, zero sessions, zero orders, and a newsletter subscription. The practical consequence is that prevention is not fully in your hands, filtering happens at the web application firewall in front of Shopify's infrastructure, which only Shopify operates, so the merchant's working layer is containment: catching each fake profile the moment it is created and keeping it out of your email list.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Does reCAPTCHA stop fake customer accounts on Shopify?</h2>
       <p class="faq-a">Not reliably. Shopify's captcha setting protects storefront forms, but merchants report the accounts keep coming with it enabled: one wrote in April 2025 that both captcha settings were on and it made no difference, and followed up in June that hired Shopify Experts could not prevent the signups either. The current wave of bots does not fill in your form like a person, it addresses Shopify's endpoints directly with rotating IPs and browser-identical headers, so the challenge never happens where the abuse does. Blocking apps hit the same wall: as the Plus merchant who documented the exploit put it, apps operate after the request has already hit Shopify's infrastructure, and the fix would have to land at the WAF level that only Shopify controls. Captcha and double opt-in are still worth enabling, they filter the crude bots and keep unconfirmed emails out of your marketing sends, and double opt-in in particular protects deliverability because a bot that never clicks confirm never becomes a contactable subscriber in most ESPs. But treat both as seatbelts, not as the fix. The merchants who got their stores back did it with detection and cleanup: identify the fake profiles fast, keep them out of the email sync, and delete them on a schedule.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Can AI detect and delete fake customer accounts on Shopify?</h2>
       <p class="faq-a">Yes, and it closes the gap that defeated the hand-built rules. Merchants already run Shopify Flow automations that delete customers when the first name is empty or the address matches a known bot template, one merchant wiped nearly 50,000 fake accounts with five such rules. The weakness is that Flow matches exact strings: a stray comma breaks the condition, and every time the bot rotates its address template the rules go blind until someone writes a new one. Spotting a fake profile is a reading task, which is what a language model does well: keyboard-mash names, address templates with drifted house numbers, disposable email domains, a shipping city you have never sold to, an account with a newsletter subscription but no sessions and no orders, and a signup rate that jumped fifty-fold against the store's baseline. A model reads each new profile in context, scores it with a confidence and a reason, tags the confident fakes for deletion, and routes the ambiguous ones to a human. The two rules that keep it safe: quarantine the profile from your email platform before the sync can pick it up, and never silently delete a profile that has ever placed an order.</p>
     </div>
-      <div class="faq-item">
+      <div class="faq-item" id="faq-4">
       <h2 class="faq-q">What do fake customer accounts actually cost a Shopify store?</h2>
       <p class="faq-a">Three bills, and none of them says bots on the invoice. The first is sender reputation: a November 2023 merchant watched his welcome automation fire at a wave of fake signups, several of which reported the email as spam, teaching mailbox providers that his store sends junk. Reputation burns fast and rebuilds slowly, and re-warming a list is a slow and painful process. The second is subscription cost: email platforms bill by profile count, so a few thousand ghosts on a Klaviyo tier is real money every month, paid to send nothing to nobody, while bot-abandoned carts trigger yet more automated sends. The third is the one merchants say radicalized them: the numbers stop meaning anything. Sessions rise while conversion falls, attribution scatters, and Performance Max reads a store that stopped converting and quietly scales reach down. As one merchant put it after months of cleanup, I just cannot trust our numbers.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">How do I keep fake Shopify signups out of my email list?</h2>
       <p class="faq-a">Win the race between the signup and the sync. Deleting a fake profile in Shopify is not enough on its own, because the Shopify-to-Klaviyo sync can pick up a new profile before your cleanup runs, and your welcome email still fires at a ghost that no longer exists in the admin. The merchants who solved this push a bot marker into the email platform in the same breath the profile is scored, keep a standing quarantine segment there that no flow is allowed to touch, and only then delete in Shopify, in logged batches, never touching a profile that has ever placed an order. Keep double opt-in enabled as a seatbelt, since a bot that never clicks confirm never becomes a contactable subscriber in most ESPs. Then sweep the backlog, because the ghosts already on your list keep receiving sends and counting against billing until they are suppressed.</p>
     </div>
 </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1126,6 +1131,22 @@ and every hour for the backlog
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1148,7 +1169,7 @@ and every hour for the backlog
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1292,7 +1313,7 @@ and every hour for the backlog
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1308,7 +1329,7 @@ and every hour for the backlog
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>

@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-automatically-clear-dead-stock-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-01" />
     <meta property="article:modified_time" content="2026-08-13" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2173,
       "timeRequired": "PT9M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -106,6 +108,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -468,6 +471,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -603,8 +607,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -612,7 +619,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -652,15 +659,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 97</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-01" style="color: var(--cream-dim);">AUG 1, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">9 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-13" style="color: var(--cream-dim);">UPDATED AUG 13, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 97</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-01" style="color: var(--cream-dim);">AUG 1, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">9 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-13" style="color: var(--cream-dim);">UPDATED AUG 13, 2026</time></span>
+</div>
 
   <h1 class="article-title">
     How to automatically clear dead stock <em>on Shopify</em>
@@ -675,7 +679,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -976,7 +980,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         have to start by hand</a>, on the mechanics of moving prices on
         time.
       
-        Also worth reading: <a href="how-to-track-product-expiry-dates-on-shopify.html">the expiry date your store can&rsquo;t see</a>,
+        Also worth reading: <a href="how-to-track-product-expiry-dates-on-shopify.html">the expiry date your store can't see</a>,
         on the stock that does not just sit, it spoils.
       </span>
     </div>
@@ -1007,27 +1011,28 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">How do I find products that are not selling on Shopify?</h2>
       <p class="faq-a">Shopify will not surface them for you. The products list has no last sold column and cannot be sorted by sales recency, so the honest answers live in reports and exports. Start with the ABC analysis by product report, where grade C collects the bottom five percent of your revenue, and Days of inventory remaining, which divides stock on hand by recent velocity. Neither shows a plain last sold date, so for that you export orders, pivot by SKU, and take the most recent order date per product. Most merchants grade against thresholds by category, commonly 60 days for slowing, 90 for stalled, and 120 for dead, with seasonal exceptions applied by judgment. The catch is that all of this describes the problem on the day you run it. Nothing in Shopify alerts you when a product crosses 90 days without a sale, which is why dead stock is usually discovered at stocktake, months after it stopped moving.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Can Shopify automatically discount slow moving inventory?</h2>
       <p class="faq-a">Not natively. The bulk editor changes prices by hand, discounts target products and collections rather than sales velocity, and Shopify Flow has no trigger and no product field for time since last sale, so there is nothing to build the rule on. Automatic markdown apps exist and hold a threshold like 90 days then 20 percent off, which works until the exception list grows: brands that must never be discounted, margin floors that differ by category, products that are seasonal rather than dead, and markdowns that need compare-at prices handled cleanly and an end date attached. Whatever runs your markdowns also needs to keep stacking in check, because discount codes still apply on top of lowered prices unless you guard against it, and it should put prices back when a product starts selling again. That full loop, detect, decide, mark down, watch, and revert, is an automation job rather than a setting.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Can I create a Shopify collection of products that have not sold in 90 days?</h2>
       <p class="faq-a">Not with smart collection conditions. They match on things like title, type, vendor, price, tag, weight, and stock level, and none of them can see sales data, so a collection defined as has not sold in 90 days is impossible to express natively. It is the same gap that keeps new arrivals collections running on hand-applied tags. The working pattern is to let an automation compute last sold per product on a schedule, apply a tag such as aging-90 when a product crosses the line, and remove the tag if the product sells again. A smart collection keyed on that tag then stays current on its own, and it can drive both an outlet page on the storefront and internal saved views. The tag becomes the hook for everything downstream: markdowns, demotion in full-price collections, paused ads, and the weekly count of cash sitting in aged stock.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">How much does it cost to keep dead stock?</h2>
       <p class="faq-a">The standard estimate puts carrying cost at 25 to 30 percent of the inventory's value per year once storage, insurance, shrink, and the cost of the tied-up cash are counted, so the $9,300 of unsold shorts is not sitting still; it is quietly invoicing a couple of hundred dollars a month for the privilege of keeping the mistake, plus the 3PL storage line that arrives for the same units a fourth straight month. The bigger cost is the decay of options. Flagged at 60 days, an overbuy marks down 20 percent while the season is alive. Found at the fall stocktake, the choices left are 60 percent off in a January sale, bundling below cost, or a write-off. Meanwhile the ad account keeps paying full acquisition cost for products that died in June, and the next purchase order quietly reorders one of them.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">What should I do with dead stock besides discounting it?</h2>
       <p class="faq-a">Fit the move to the product, because a markdown is only the move everyone remembers at 11 p.m. on inventory weekend. Slow candles ride along as a gift with purchase that lifts the average order instead of cutting a price. A size run broken down to XS and XXL will never move at any discount and wants a bundle with its bestselling siblings or a spot in the outlet collection, not a price cut that insults the margin without shifting a unit. A product that died on your store but sells steadily wholesale wants a line on the next trade order. Guardrails hold it honest: nothing drops below 15 points of margin without a human saying so, a move that shows no lift in two weeks escalates to a deeper cut or a different move, and a product that wakes up gets its price back.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1036,6 +1041,22 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1058,7 +1079,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1202,7 +1223,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1218,7 +1239,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>

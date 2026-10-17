@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-12" />
     <meta property="article:modified_time" content="2026-08-13" />
 <meta property="article:author" content="Priya Singh" />
@@ -62,6 +63,7 @@
       "wordCount": 2700,
       "timeRequired": "PT10M",
       "inLanguage": "en",
+      "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
         "url": "https://blog.dugong.live/og-image.png",
@@ -101,6 +103,7 @@
         "@type": "Person",
         "@id": "https://blog.dugong.live/#priya-singh",
         "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
         "jobTitle": "Commerce Research, Dugong",
         "worksFor": {
           "@id": "https://blog.dugong.live/#organization"
@@ -473,6 +476,7 @@ em { font-style: italic; }
 .article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
@@ -608,8 +612,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <style>
 /* SEO 2026-10-12 topic guide link */
-.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 2px; }
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
 .hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
 </style>
 
 <style>
@@ -617,7 +624,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
-  .article-meta > span[aria-hidden="true"] { display: none; }
+  .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
 </style>
@@ -657,15 +664,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
-    <span class="tag tag-research">research</span>
-    <span style="color: var(--cream-dim);">DISPATCH N&ordm; 106</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-12" style="color: var(--cream-dim);">AUG 12, 2026</time>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <span style="color: var(--cream-dim);">10 MIN READ</span>
-    <span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span>
-    <time datetime="2026-08-13" style="color: var(--cream-dim);">UPDATED AUG 13, 2026</time>
-  </div>
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 106</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-12" style="color: var(--cream-dim);">AUG 12, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-13" style="color: var(--cream-dim);">UPDATED AUG 13, 2026</time></span>
+</div>
 
   <h1 class="article-title">
     How to catch <em>pricing errors</em> on Shopify before orders flood in
@@ -677,7 +681,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   <div class="article-byline">
     <span class="byline-avatar" style="background: var(--gold);">PS</span>
-    <span class="byline-name">Priya Singh</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
     <span class="byline-divider" aria-hidden="true">&middot;</span>
     <span class="byline-role">Commerce Research, Dugong</span>
   </div>
@@ -1082,27 +1086,28 @@ and every incoming order
     <span class="section-rule"></span>
   </div>
   <div class="faq-list">
-    <div class="faq-item">
+    <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Do I have to honor orders placed at a wrong price on Shopify?</h2>
       <p class="faq-a">Usually not, but the decision has a deadline. In most jurisdictions a displayed price is treated as an invitation to treat rather than a binding offer, and most store terms of service reserve the right to cancel orders placed on an obvious pricing error, so the standard path is to cancel and refund the affected orders before fulfillment with a fast, plain apology. For a large incident, confirm the position with a lawyer rather than a blog post. The practical catch is that the choice only exists while the orders are unshipped: auto fulfillment, a 3PL sync, or a digital product can close the window in minutes, which is what happened to Amazon sellers in the 2014 penny glitch when stock left the warehouse before anyone could react. Reputation runs the other direction: 6pm.com honored $1.6 million of mispriced orders in 2010 and bought a customer service story with it. A sane written policy is to honor small damage, cancel large damage unshipped within the hour, and never let the warehouse make the call by default.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Can Shopify Flow alert me when a product price changes?</h2>
       <p class="faq-a">No. Flow's product triggers are product created, product deleted, product status updated, product variant added, product variant deleted, product variant back in stock, product variant out of stock, and product variant inventory quantity changed. Inventory moving by one unit fires an event; a price moving by any amount fires nothing. Merchants have asked for the trigger since 2022, when staff replied that a product updated trigger did not exist yet, and in late 2024 a Flow team member put it flatly: there is no Shopify event for price updated. The scheduled workaround, a daily workflow that queries products and checks prices, reads current state rather than the change, so it cannot tell a price that just moved from a sale that has run for three weeks, it lands up to 24 hours late, and it re-fires every run without a processed guard. The real version requires storing every price and diffing the products update webhook, which reports neither the changed field nor the previous value. That storage and compare layer, plus rules about which changes matter, is exactly the watcher worth delegating to an agent.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-3">
       <h2 class="faq-q">How do pricing errors happen on Shopify stores?</h2>
       <p class="faq-a">Through any of the five doors that write to the price field, none of which has a checkpoint. Manual edits and the bulk editor carry the classic slipped decimal, $249 saved as $2.49. CSV imports add two of their own: a blank price cell can overwrite a live value, and regional number settings can silently multiply, which is how one merchant's ordinary export and re-import turned €16,99 into €1699,00 because his computer mixed UK language with Dutch regional formatting and dropped the separator. Apps with write scope are the biggest door: a supplier sync that loses an item can publish a 0.00 price that customers can then purchase, as one merchant reported after his feed disconnected, and a repricer bug priced thousands of Amazon UK listings at a penny in an hour in 2014. Sale setup adds the swap, price and compare-at price entered backwards. Every one of these goes live the moment it saves, and Shopify keeps no price history and no undo to walk it back.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Does Shopify keep a history of product price changes?</h2>
       <p class="faq-a">No. There is no version log, no undo, and no old value anywhere in the admin, and the store activity log records logins and app installs rather than product fields. The morning after a misprice, the two questions that decide everything, what was the price before and who changed it, are questions the platform cannot answer. The do-it-yourself route hits the same wall: the products update webhook fires on every edit to any product field, but the payload does not say which field changed and does not carry the previous value, so a watcher has to store every price itself and diff each payload against its own records. That is why the playbook's first step is a snapshot of price, compare-at, and cost per variant, kept as the history Shopify lacks, with a monthly report of who changes prices and through which doors.</p>
     </div>
-    <div class="faq-item">
+    <div class="faq-item" id="faq-5">
       <h2 class="faq-q">How do I audit my Shopify catalog for pricing errors?</h2>
       <p class="faq-a">Export the catalog with price, compare-at price, and cost per item, then sort it three ways: anything at zero or under a dollar that is not meant to be, anything priced below its own cost field, and anything whose price sits above its compare-at price, which is either a data entry error or a sale that ended wrong. Most stores find something in the first ten minutes, and whatever turns up has been live, findable, and purchasable for as long as nobody looked. Then run a watcher in draft mode for two weeks, snapshot, diff, and alert, reverting nothing, and audit its judgment against yours: did it flag the flash sale you meant, would the zero-price rule have caught the feed disconnect or tripped on the gift card. When its calls match yours, let the quarantine and the order holds run on the clean cases.</p>
     </div>
   </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
 <section class="related">
@@ -1111,6 +1116,22 @@ and every incoming order
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The half of the order that never ships</h3>
+        <p class="card-dek">
+          Two items shipped, the third never moved, and the leftover falls out of every report because Shopify filters fulfillment status at the order level. The AI playbook that finds every remainder and clears it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1133,7 +1154,7 @@ and every incoming order
           <span class="tag tag-research">research</span>
           <span class="post-read">8&nbsp;min</span>
         </div>
-        <h3 class="card-title">The stock Shopify won&rsquo;t let you sell</h3>
+        <h3 class="card-title">The stock Shopify won't let you sell</h3>
         <p class="card-dek">
           There are fourteen on the shelf and the page says sold out, because committed is holding them for orders that shipped in August. The AI playbook that finds the stuck orders and frees the stock.
         </p>
@@ -1277,7 +1298,7 @@ and every incoming order
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The expiry date your store can&rsquo;t see</h3>
+        <h3 class="card-title">The expiry date your store can't see</h3>
         <p class="card-dek">
           Shopify tracks one number per variant: no expiry field, no batches, and Flow cannot read date metafields. The AI playbook that records every batch, marks down short-dated stock on time, and makes a recall a lookup.
         </p>
@@ -1293,7 +1314,7 @@ and every incoming order
           <span class="tag tag-research">research</span>
           <span class="post-read">10&nbsp;min</span>
         </div>
-        <h3 class="card-title">The vacation your store won&rsquo;t let you take</h3>
+        <h3 class="card-title">The vacation your store won't let you take</h3>
         <p class="card-dek">
           Etsy sellers press Vacation Mode and eBay sellers press Time Away; Shopify admits it has no vacation setting. The AI playbook that dresses the store with your return date, queues every order that lands, and reopens in order the morning you are back.
         </p>
