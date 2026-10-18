@@ -196,7 +196,7 @@
           "name": "Can AI catch unexplained Shopify inventory changes automatically?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, because the job is attribution, and attribution is a reading task. An automation like Dugong subscribes to inventory adjustments as they happen and asks of each one the question you would ask: what explains this? A sale explains a decrement. A refund with restock explains an increment. A transfer received, a purchase order, a named app doing what you configured it to do, all stories that close. What is left are the orphans: the increment with no order anywhere near it, the zero reset at 9:20pm, the sold out product that quietly refills to its pre sale count. Those get flagged in minutes with the evidence attached, the SKU, the size of the swing, what wrote it, and what the count was before, so the fix is a revert and an app permissions review instead of a store wide recount. The honest limit: automation cannot stop a misconfigured integration from writing to your store. Disconnecting or fixing it is your call to make with that vendor. What changes is that you learn about the write the hour it happens, with the culprit named, instead of at the next stock take, or worse, from a customer who just ordered a product you do not own."
+            "text": "Yes, because the job is attribution, and attribution is a reading task. An automation like Dugong subscribes to inventory adjustments as they happen and asks of each one the question you would ask: what explains this? A sale explains a decrement. A refund with restock explains an increment. A transfer received, a purchase order, a named app doing what you configured it to do, all stories that close. What is left are the orphans: the increment with no order anywhere near it, the zero reset at 9:20pm, the sold out product that quietly refills to its pre-sale count. Those get flagged in minutes with the evidence attached, the SKU, the size of the swing, what wrote it, and what the count was before, so the fix is a revert and an app permissions review instead of a store wide recount. The honest limit: automation cannot stop a misconfigured integration from writing to your store. Disconnecting or fixing it is your call to make with that vendor. What changes is that you learn about the write the hour it happens, with the culprit named, instead of at the next stock take, or worse, from a customer who just ordered a product you do not own."
           }
         },
         {
@@ -417,7 +417,7 @@ em { font-style: italic; }
   transition: transform .15s ease, box-shadow .2s;
 }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
-@media (max-width: 820px) { .nav-links a:not(.nav-cta) { display: none; } }
+/* superseded by the QA 2026-10-18 wrapping nav below */
 @media (max-width: 480px) {
   .brand-slash, .brand-section { display: none; }
   .nav-cta { font-size: 12.5px; padding: 8px 12px; }
@@ -488,7 +488,7 @@ em { font-style: italic; }
 .article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
 .article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
-.article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 96%, transparent 96%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 57%, var(--lime) 57%, var(--lime) 81%, transparent 81%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .article-title em::after { content: none; }
 .article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
 .article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
@@ -636,6 +636,51 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .article-meta span[aria-hidden="true"] { display: none; }
   .article-meta { column-gap: 1rem; }
 }
+
+/* QA-2026-10-18-CSS
+   QA 2026-10-18: 24px minimum target size at every width, not only phones.
+   The 2026-10-10 pass put this inside @media (max-width:560px), so header and
+   footer links stayed at 23.2-23.5px on tablet and desktop. */
+.nav-links a:not(.nav-cta), .foot-cols a, .foot-bot a {
+  display: inline-flex; align-items: center; min-height: 24px;
+}
+
+/* QA 2026-10-18: the header nav used to vanish below 820px with nothing in its
+   place, so phone and tablet readers had no way back to Latest, Topics or the
+   Archive. Wrap it onto a second row instead of hiding it. */
+@media (max-width: 820px) {
+  .nav { flex-wrap: wrap; padding-top: 0.55rem; padding-bottom: 0.55rem; row-gap: 0.1rem; }
+  .brand { order: 1; }
+  .nav-cta { order: 2; margin-left: auto; }
+  .nav-links { order: 3; width: 100%; gap: 1.5rem; justify-content: flex-start;
+               font-size: 13.5px; padding-bottom: 0.1rem; }
+  .nav-links a:not(.nav-cta) { display: inline-flex; }
+}
+@media (max-width: 380px) { .nav-links { gap: 1.1rem; font-size: 13px; } }
+
+/* QA 2026-10-18: long API identifiers in deks and FAQ answers must break
+   rather than widen the page. Added 2026-10-13 to 5 pages only. */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+
+/* QA 2026-10-18: READ NEXT had grown to 79 cards on the oldest dispatches,
+   ~28,000px of card grid on a phone. The overflow now sits behind a
+   disclosure, so every link is still in the page and crawlable. */
+.related-more { max-width: var(--maxw); margin: 1.5rem auto 0; }
+.related-more > summary {
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-dim); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 0.5rem; min-height: 24px;
+  padding: 0.4rem 0.9rem; border: 1px solid var(--border-strong); border-radius: 999px;
+  list-style: none; transition: color .2s, border-color .2s, background .2s;
+}
+.related-more > summary::-webkit-details-marker { display: none; }
+.related-more > summary::after { content: "\002B"; font-size: 1rem; line-height: 1; }
+.related-more[open] > summary::after { content: "\2212"; }
+.related-more > summary:hover { color: var(--text); border-color: var(--text); background: var(--surface); }
+.related-more > .related-grid { margin-top: 1.5rem; }
+/* cards inside a closed disclosure never meet the IntersectionObserver that
+   clears .reveal, so they would open at opacity 0. */
+.related-more .reveal { opacity: 1; transform: none; }
 </style>
 </head>
 <body>
@@ -1138,7 +1183,7 @@ and on a clock for the sweep
     </div>
     <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Can AI catch unexplained Shopify inventory changes automatically?</h2>
-      <p class="faq-a">Yes, because the job is attribution, and attribution is a reading task. An automation like Dugong subscribes to inventory adjustments as they happen and asks of each one the question you would ask: what explains this? A sale explains a decrement. A refund with restock explains an increment. A transfer received, a purchase order, a named app doing what you configured it to do, all stories that close. What is left are the orphans: the increment with no order anywhere near it, the zero reset at 9:20pm, the sold out product that quietly refills to its pre sale count. Those get flagged in minutes with the evidence attached, the SKU, the size of the swing, what wrote it, and what the count was before, so the fix is a revert and an app permissions review instead of a store wide recount. The honest limit: automation cannot stop a misconfigured integration from writing to your store. Disconnecting or fixing it is your call to make with that vendor. What changes is that you learn about the write the hour it happens, with the culprit named, instead of at the next stock take, or worse, from a customer who just ordered a product you do not own.</p>
+      <p class="faq-a">Yes, because the job is attribution, and attribution is a reading task. An automation like Dugong subscribes to inventory adjustments as they happen and asks of each one the question you would ask: what explains this? A sale explains a decrement. A refund with restock explains an increment. A transfer received, a purchase order, a named app doing what you configured it to do, all stories that close. What is left are the orphans: the increment with no order anywhere near it, the zero reset at 9:20pm, the sold out product that quietly refills to its pre-sale count. Those get flagged in minutes with the evidence attached, the SKU, the size of the swing, what wrote it, and what the count was before, so the fix is a revert and an app permissions review instead of a store wide recount. The honest limit: automation cannot stop a misconfigured integration from writing to your store. Disconnecting or fixing it is your call to make with that vendor. What changes is that you learn about the write the hour it happens, with the culprit named, instead of at the next stock take, or worse, from a customer who just ordered a product you do not own.</p>
     </div>
     <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Which apps and channels can change Shopify inventory without telling me?</h2>
@@ -1254,7 +1299,10 @@ and on a clock for the sweep
         </div>
       </div>
     </a>
-<a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
+  </div>
+  <details class="related-more">
+    <summary>18 more dispatches in the archive</summary>
+    <div class="related-grid"><a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1374,7 +1422,7 @@ and on a clock for the sweep
         </div>
         <h3 class="card-title">The pickup order that never leaves the shelf</h3>
         <p class="card-dek">
-          The order is paid, packed, and marked ready, and the bag is still on the shelf three weeks later. Shopify sends one email and never asks again. The AI playbook that reminds on a schedule, offers shipping at the deadline, and clears the shelf per your policy.
+          Shopify sends one ready for pickup email and goes silent: no reminders, no resend button, no auto-cancel window. The AI playbook that clears the pickup shelf.
         </p>
         <div class="card-foot">
           <span class="card-date">AUG 24</span>
@@ -1390,7 +1438,7 @@ and on a clock for the sweep
         </div>
         <h3 class="card-title">The order confirmation that never arrives</h3>
         <p class="card-dek">
-          The customer paid at 9:47 and calls at four asking if she was scammed: the confirmation email never sent, and Shopify has no button to send one. The AI playbook that catches every silent order in minutes and sends the receipt through a door that opens.
+          Shopify order confirmations that never send: spam, typos, suppressed channels, no resend button. The AI playbook that catches every silent order in minutes.
         </p>
         <div class="card-foot">
           <span class="card-date">AUG 23</span>
@@ -1541,8 +1589,8 @@ and on a clock for the sweep
           <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </a>
-  </div>
+    </a></div>
+  </details>
   <a href="shopify-inventory-automation.html" class="hub-more">more on shopify inventory automation &rarr;</a>
 </section>
 
@@ -1555,10 +1603,10 @@ and on a clock for the sweep
     <div class="foot-cols">
       <div>
         <span class="foot-h">read</span>
-        <a href="index.html">Latest</a>
-        <a href="index.html">Essays</a>
-        <a href="index.html">Post-mortems</a>
-        <a href="index.html">Interviews</a>
+        <a href="index.html#latest">Latest</a>
+        <a href="index.html#essays">Essays</a>
+        <a href="index.html#post-mortems">Post-mortems</a>
+        <a href="index.html#interviews">Interviews</a>
       </div>
       <div>
         <span class="foot-h">product</span>
