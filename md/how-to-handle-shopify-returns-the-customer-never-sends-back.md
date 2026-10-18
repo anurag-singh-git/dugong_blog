@@ -107,7 +107,7 @@ the receiving bench
    customer and per address
 ```
 
-**Step one is the whole difference.** Ageing from the approval date treats a parcel crawling across a country the same as a label nobody printed. Ageing from first scan splits your pile in two on day three, before anything has gone cold, and each half gets a different message from a different person.
+**Step one is the whole difference.** Aging from the approval date treats a parcel crawling across a country the same as a label nobody printed. Aging from first scan splits your pile in two on day three, before anything has gone cold, and each half gets a different message from a different person.
 
 **Step three is where the money is hiding.** Reconciling the receiving bench against open returns, every day, finds items you have already paid for twice. It is also the least glamorous thing on this list, which is precisely why it is never anybody's job.
 

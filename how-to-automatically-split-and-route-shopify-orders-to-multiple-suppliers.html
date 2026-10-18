@@ -74,22 +74,34 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Order fulfillment",
-          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_fulfillment",
+            "https://www.wikidata.org/wiki/Q1473552"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Drop shipping",
-          "sameAs": "https://en.wikipedia.org/wiki/Drop_shipping"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Drop_shipping",
+            "https://www.wikidata.org/wiki/Q1542702"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         }
       ],
       "speakable": {
@@ -128,10 +140,19 @@
           "name": "Shopify Help Center | Shopify Flow",
           "url": "https://help.shopify.com/en/manual/shopify-flow"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -155,6 +176,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -209,50 +231,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Read the whole order",
-          "text": "On a paid order, take every line item with its vendor, SKU, product type, and weight, the destination, and the shipping speed the customer paid for, not just the order total",
+          "name": "Read the order: line items with vendor, SKU, type, weight",
+          "text": "Read the order: line items with vendor, SKU, type, weight, the destination, and the shipping speed paid for",
           "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Decide the split by who fulfills each line",
-          "text": "Group the line items by the supplier, dropshipper, warehouse, or 3PL that makes each one, honoring which location actually has stock, the destination region, and cost",
+          "name": "Group the lines by who fulfills each",
+          "text": "Group the lines by who fulfills each, honoring which location has stock, the destination region, and cost",
           "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Build a purchase order per supplier",
-          "text": "Assemble one purchase order for each supplier containing only their line items, the shipping address, and your reference, in the format that supplier accepts",
+          "name": "Build one purchase order per supplier with only their items",
+          "text": "Build one purchase order per supplier with only their items, the ship-to address, and your reference",
           "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Send each supplier their order automatically",
-          "text": "Deliver each purchase order to its supplier by email, CSV, or portal without a person copying line items, and record the split against the Shopify order so nothing is sent twice",
+          "name": "Send each supplier their PO in the format they accept",
+          "text": "Send each supplier their PO in the format they accept, and record the split against the order",
           "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Fulfill the right lines when tracking returns",
-          "text": "As each supplier ships, match their tracking to their line items and fulfill only those at the correct location, so the order closes part by part instead of all at once",
+          "name": "Fulfill only a supplier's lines when their tracking returns",
+          "text": "Fulfill only a supplier's lines when their tracking returns, at the right location, as a partial",
           "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Tell the customer once, clearly",
-          "text": "Send the buyer a single clear picture of what ships from where and when, rather than a confusing string of separate confirmations for one order",
+          "name": "Tell the customer once what ships from where and when",
+          "text": "Tell the customer once what ships from where and when, not a confirmation per fragment",
           "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Hold the edge cases for a human",
-          "text": "Surface an item no supplier covers, a backordered line, a split that would ship one item from two places, or a supplier that has gone silent, so a person makes the call",
+          "name": "Hold an uncovered item, a backordered line, a bad split, or",
+          "text": "Hold an uncovered item, a backordered line, a bad split, or a silent supplier for a human",
           "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html#playbook"
         }
       ]

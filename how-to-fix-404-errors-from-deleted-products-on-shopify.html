@@ -74,22 +74,34 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "HTTP 404",
-          "sameAs": "https://en.wikipedia.org/wiki/HTTP_404"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/HTTP_404",
+            "https://www.wikidata.org/wiki/Q404"
+          ]
         },
         {
           "@type": "Thing",
           "name": "URL redirection",
-          "sameAs": "https://en.wikipedia.org/wiki/URL_redirection"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/URL_redirection",
+            "https://www.wikidata.org/wiki/Q1236807"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Search engine optimization",
-          "sameAs": "https://en.wikipedia.org/wiki/Search_engine_optimization"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Search_engine_optimization",
+            "https://www.wikidata.org/wiki/Q180711"
+          ]
         }
       ],
       "speakable": {
@@ -128,10 +140,19 @@
           "name": "Shopify Help Center | Shopify Flow",
           "url": "https://help.shopify.com/en/manual/shopify-flow"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -155,6 +176,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -209,50 +231,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Catch the break as it happens",
-          "text": "Trigger on a product being deleted, unpublished, or having its handle changed, and capture the URL that is about to stop working",
+          "name": "Catch the URL that is about to stop working before it goes",
+          "text": "Catch the URL that is about to stop working before it goes cold",
           "url": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Read what the page was",
-          "text": "Pull the product type, collections, tags, and title so the replacement is chosen on what the page was actually about",
+          "name": "Read what the page was: product type, collections, tags, and",
+          "text": "Read what the page was: product type, collections, tags, and title",
           "url": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
           "name": "Find the closest live page",
-          "text": "Pick the best live destination: a direct replacement product, the same collection, or the nearest alternative, never a blanket homepage redirect",
+          "text": "Find the closest live page: a replacement product, the same collection, or the nearest alternative",
           "url": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Write the 301 redirect",
-          "text": "Create the permanent redirect from the broken URL to the chosen page so customers and crawlers land on something live",
+          "name": "Write a 301 redirect from the broken URL to that page",
+          "text": "Write a 301 redirect from the broken URL to that page",
           "url": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Keep the redirect honest over time",
-          "text": "If the target later goes out of stock or is itself deleted, repoint the redirect so it never chains into a fresh dead end",
+          "name": "Recheck later that the target is still live and in stock",
+          "text": "Recheck later that the target is still live and in stock, and repoint it if it is not",
           "url": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Flag the high-value URLs",
-          "text": "Hold pages with real traffic, rankings, or backlinks for a human to confirm the destination instead of auto-redirecting blindly",
+          "name": "Hold URLs with real traffic",
+          "text": "Hold URLs with real traffic, rankings, or backlinks for a human to confirm the destination",
           "url": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Log every redirect",
-          "text": "Record each broken URL, the chosen target, and why, so the redirect map stays auditable and nothing forwards silently",
+          "name": "Log every broken URL, the chosen target, and why",
+          "text": "Log every broken URL, the chosen target, and why",
           "url": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html#playbook"
         }
       ]

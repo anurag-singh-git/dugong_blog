@@ -74,22 +74,34 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Bank reconciliation",
-          "sameAs": "https://en.wikipedia.org/wiki/Reconciliation_(accounting)"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Reconciliation_(accounting)",
+            "https://www.wikidata.org/wiki/Q332836"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Bookkeeping",
-          "sameAs": "https://en.wikipedia.org/wiki/Bookkeeping"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Bookkeeping",
+            "https://www.wikidata.org/wiki/Q3707847"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Payment processor",
-          "sameAs": "https://en.wikipedia.org/wiki/Payment_processor"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Payment_processor",
+            "https://www.wikidata.org/wiki/Q12738586"
+          ]
         }
       ],
       "speakable": {
@@ -138,10 +150,19 @@
           "name": "Shopify Help Center | Shop Pay",
           "url": "https://help.shopify.com/en/manual/payments/shop-pay"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -165,6 +186,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -219,50 +241,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Trigger when a payout settles",
-          "text": "Start the reconciliation the moment a payout is marked paid or a deposit lands in the bank feed, instead of waiting for month-end to find the gap",
+          "name": "Decompose the payout into gross sales",
+          "text": "Decompose the payout into gross sales, fees, refunds, chargebacks, adjustments, and reserve",
           "url": "https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Decompose the payout into its parts",
-          "text": "Break the deposit into gross sales, processing fees, refunds, chargebacks and their fees, adjustments, and any held or released reserve",
+          "name": "Match every line back to the orders and refunds it came from",
+          "text": "Match every line back to the orders and refunds it came from",
           "url": "https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Match it to the orders and the bank deposit",
-          "text": "Tie every line in the payout back to the specific orders and refunds it came from, and match the net to the exact amount that hit the bank",
+          "name": "Tie the net to the exact amount that hit the bank",
+          "text": "Tie the net to the exact amount that hit the bank, to the cent",
           "url": "https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Categorize each piece to the right account",
-          "text": "Book sales to revenue, fees to processing expense, refunds against revenue, and collected tax to the sales tax liability account rather than recording one lump deposit",
+          "name": "Categorize sales, fees, refunds, and collected tax to the",
+          "text": "Categorize sales, fees, refunds, and collected tax to the right accounts",
           "url": "https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Split every gateway on its own",
-          "text": "Reconcile Shopify Payments, PayPal, Shop Pay Installments, and any other gateway separately, since each one deposits on its own schedule and nets its own fees",
+          "name": "Split each gateway on its own schedule and its own fees",
+          "text": "Split each gateway on its own schedule and its own fees",
           "url": "https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Hold anything that does not tie out",
-          "text": "Stop on a deposit that does not match to the cent, a missing order, a duplicated entry, or a reserve you did not expect, and surface it for review instead of forcing it to balance",
+          "name": "Hold any deposit that does not reconcile or is missing an",
+          "text": "Hold any deposit that does not reconcile or is missing an order for review",
           "url": "https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Post the entry and log the trail",
-          "text": "Write a clean summarized entry to your accounting software for the matched payout and record which orders and fees rolled into it, so the close is auditable and reversible",
+          "name": "Post the matched entry and log which orders rolled into it",
+          "text": "Post the matched entry and log which orders rolled into it",
           "url": "https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html#playbook"
         }
       ]

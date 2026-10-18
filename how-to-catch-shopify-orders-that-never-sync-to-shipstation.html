@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Order fulfillment",
-          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_fulfillment",
+            "https://www.wikidata.org/wiki/Q1473552"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Third-party logistics",
-          "sameAs": "https://en.wikipedia.org/wiki/Third-party_logistics"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Third-party_logistics",
+            "https://www.wikidata.org/wiki/Q1500317"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         }
       ],
       "speakable": {
@@ -128,10 +137,19 @@
           "name": "Shopify Help Center | Draft orders and invoices",
           "url": "https://help.shopify.com/en/manual/fulfillment/managing-orders/create-orders"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-orders-that-never-sync-to-shipstation.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-orders-that-never-sync-to-shipstation.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-orders-that-never-sync-to-shipstation.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -155,6 +173,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-orders-that-never-sync-to-shipstation.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -209,50 +228,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Baseline the lag",
-          "text": "Learn how long a normal order takes to appear in the fulfillment queue",
+          "name": "Baseline the lag: how long a normal order takes to appear in",
+          "text": "Baseline the lag: how long a normal order takes to appear in the fulfillment queue",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-that-never-sync-to-shipstation.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Reconcile on a clock",
-          "text": "Every paid open order must have a matching row, all statuses checked",
+          "name": "Reconcile on a clock: every paid open order has a matching",
+          "text": "Reconcile on a clock: every paid open order has a matching row, all statuses checked",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-that-never-sync-to-shipstation.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Read the seam",
-          "text": "Voided authorizations, repaid invoices, holds, manual orders: the signatures that predict a skip",
+          "name": "Read the seam: voided auths, repaid invoices, holds, manual",
+          "text": "Read the seam: voided auths, repaid invoices, holds, manual orders, the skip signatures",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-that-never-sync-to-shipstation.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Chase the gap",
-          "text": "Alert with the order, its age, and the probable cause attached",
+          "name": "Chase the gap: alert with the order, its age, and the",
+          "text": "Chase the gap: alert with the order, its age, and the probable cause attached",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-that-never-sync-to-shipstation.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Watch the way back",
-          "text": "A shipment whose tracking never lands in Shopify gets the same treatment",
+          "name": "Watch the way back: tracking that never lands in Shopify",
+          "text": "Watch the way back: tracking that never lands in Shopify gets the same treatment",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-that-never-sync-to-shipstation.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Digest every morning",
-          "text": "What synced, what lagged, what needed a hand",
+          "name": "Digest every morning: what synced, what lagged, what needed",
+          "text": "Digest every morning: what synced, what lagged, what needed a hand",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-that-never-sync-to-shipstation.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Report weekly",
-          "text": "Gaps caught, causes named, and the pipe's honest error rate",
+          "name": "Report weekly: gaps caught, causes named, the pipe's honest",
+          "text": "Report weekly: gaps caught, causes named, the pipe's honest error rate",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-that-never-sync-to-shipstation.html#playbook"
         }
       ]

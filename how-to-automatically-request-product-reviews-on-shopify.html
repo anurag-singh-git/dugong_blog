@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Customer review",
-          "sameAs": "https://en.wikipedia.org/wiki/Customer_review"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Customer_review",
+            "https://www.wikidata.org/wiki/Q5196473"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Social proof",
-          "sameAs": "https://en.wikipedia.org/wiki/Social_proof"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Social_proof",
+            "https://www.wikidata.org/wiki/Q2993355"
+          ]
         }
       ],
       "speakable": {
@@ -123,10 +132,19 @@
           "name": "Shopify Help Center | Shopify Flow",
           "url": "https://help.shopify.com/en/manual/shopify-flow"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -150,6 +168,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -204,49 +223,49 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Wait for delivery, not fulfillment",
-          "text": "Trigger on the order being marked delivered, then hold for a window tuned to the product so the customer has actually used what they bought",
+          "name": "Wait for the right window after delivery",
+          "text": "Wait for the right window after delivery: shorter for consumables, longer for things a customer has to live with first",
           "url": "https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Read the order before you ask",
-          "text": "Read who bought what, whether they are a repeat buyer, and whether there is an open return, refund, or support thread, and skip anyone mid-complaint",
+          "name": "Read the order before asking",
+          "text": "Read the order before asking: who bought what, repeat or first-time, and whether there is an open return, refund, or support thread",
           "url": "https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Ask for the actual product",
-          "text": "Write a personalized request that names the real items in the order instead of your recent order, so the customer knows exactly what to rate",
+          "name": "Skip anyone mid-complaint",
+          "text": "Skip anyone mid-complaint, and name the real product in the ask instead of \"your recent order\"",
           "url": "https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Send once, follow up once, then stop",
-          "text": "Send the request, follow up a single time if there is no response, and never ask the same customer for the same order again",
+          "name": "Send once, follow up a single time if there is no reply",
+          "text": "Send once, follow up a single time if there is no reply, then stop",
           "url": "https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Route the rating where it belongs",
-          "text": "Send a high rating to the public review and to your storefront, and route a low rating privately to support before it lands in public",
+          "name": "Route the rating: a high score to the public review and your",
+          "text": "Route the rating: a high score to the public review and your storefront, a low score privately to support before it lands in public",
           "url": "https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Remember who was asked",
-          "text": "Record who was asked and when, so no customer gets the same request twice and a multi-item order is handled as one ask",
+          "name": "Remember who was asked and when",
+          "text": "Remember who was asked and when, so no one is asked twice and a multi-item order is one ask, not four",
           "url": "https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Log results and flag edge cases",
+          "name": "Log every send, response, and rating, and flag the edge",
           "text": "Log every send, response, and rating, and flag the edge cases a human should eyeball",
           "url": "https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html#playbook"
         }

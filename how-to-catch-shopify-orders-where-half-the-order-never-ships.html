@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Order fulfillment",
-          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_fulfillment",
+            "https://www.wikidata.org/wiki/Q1473552"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Backorder",
-          "sameAs": "https://en.wikipedia.org/wiki/Backorder"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Backorder",
+            "https://www.wikidata.org/wiki/Q962928"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         }
       ],
       "speakable": {
@@ -168,10 +177,19 @@
           "name": "Shopify Help Center | Flow trigger, scheduled time",
           "url": "https://help.shopify.com/en/manual/shopify-flow/reference/triggers/scheduled-time"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-orders-where-half-the-order-never-ships.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-orders-where-half-the-order-never-ships.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-orders-where-half-the-order-never-ships.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -195,6 +213,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-orders-where-half-the-order-never-ships.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -257,63 +276,64 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Sweep for open remainders",
-          "text": "List every order with a fulfillment order still open, in progress, on hold or scheduled and at least one unfulfilled unit",
+          "name": "Sweep for any order with a fulfillment order still open",
+          "text": "Sweep for any order with a fulfillment order still open, in progress, on hold or scheduled, holding at least one unfulfilled unit",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-where-half-the-order-never-ships.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Age from the last shipment",
-          "text": "Clock each remainder from the most recent fulfillment, not from the order date, so handled orders stop hiding",
+          "name": "Age each remainder from the last shipment",
+          "text": "Age each remainder from the last shipment, not from the order date",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-where-half-the-order-never-ships.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Name the cause",
-          "text": "Out of stock, hold, declined request, scheduled, split location, silent fulfillment service, or custom build",
+          "name": "Name the cause: stock, hold, declined request, scheduled",
+          "text": "Name the cause: stock, hold, declined request, scheduled, split location, silent service, custom build",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-where-half-the-order-never-ships.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Route to one owner",
-          "text": "Send each remainder to the single person or queue that can actually clear that cause",
+          "name": "Route it to the one person who can clear that cause",
+          "text": "Route it to the one person who can clear that cause",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-where-half-the-order-never-ships.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Tell the customer first",
-          "text": "Send a short note naming the item still coming and a date you can keep, before they ask",
+          "name": "Tell the customer which item is still coming",
+          "text": "Tell the customer which item is still coming, and a date you can keep",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-where-half-the-order-never-ships.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Escalate on your own clock",
-          "text": "Flag at twenty four hours, chase the owner at five days, escalate to a decision at ten",
+          "name": "Escalate: flag at 24 hours, chase at 5 days, force a",
+          "text": "Escalate: flag at 24 hours, chase at 5 days, force a decision at 10",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-where-half-the-order-never-ships.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Close it honestly",
-          "text": "Ship the remainder, or cancel and refund it, restock the unit and release the committed stock",
+          "name": "Close it: ship it, or cancel and refund the remainder",
+          "text": "Close it: ship it, or cancel and refund the remainder, restock the unit, release the committed stock",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-where-half-the-order-never-ships.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 8,
-          "name": "Count the pattern",
-          "text": "Track leftover rate by SKU and location and median hours from first shipment to final shipment",
+          "name": "Count leftover rate per SKU and per location",
+          "text": "Count leftover rate per SKU and per location, and hours from first to last shipment",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-where-half-the-order-never-ships.html#playbook"
         }
       ]
     }
   ]
-}</script>
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

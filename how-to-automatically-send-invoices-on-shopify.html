@@ -74,22 +74,34 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Invoice",
-          "sameAs": "https://en.wikipedia.org/wiki/Invoice"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Invoice",
+            "https://www.wikidata.org/wiki/Q190581"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Value-added tax",
-          "sameAs": "https://en.wikipedia.org/wiki/Value-added_tax"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Value-added_tax",
+            "https://www.wikidata.org/wiki/Q128635"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         }
       ],
       "speakable": {
@@ -128,10 +140,19 @@
           "name": "Shopify Help Center | Shopify Tax",
           "url": "https://help.shopify.com/en/manual/taxes/shopify-tax"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -155,6 +176,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -209,50 +231,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Read the order and the customer",
-          "text": "On payment, and again on any refund, take the whole order: line items, taxes, discounts, shipping, the customer, and whether it is a consumer or a business buying for a company",
+          "name": "Read the order: line items, tax, discounts, shipping",
+          "text": "Read the order: line items, tax, discounts, shipping, customer, and consumer vs business",
           "url": "https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Decide which document the order needs",
-          "text": "Choose a plain receipt for an ordinary consumer order or a full tax invoice when there is a company name or a VAT number, and apply the format the buyer's country requires",
+          "name": "Decide the document: a receipt for a consumer, a full tax",
+          "text": "Decide the document: a receipt for a consumer, a full tax invoice when there is a company or VAT number",
           "url": "https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Fill in the missing tax details",
-          "text": "Pull the buyer's VAT or tax registration number from the order notes, a past order, or the customer record, and ask once if it is genuinely missing rather than shipping an invoice that is not compliant",
+          "name": "Fill the tax number from notes",
+          "text": "Fill the tax number from notes, a past order, or the customer record, and ask once if it is truly missing",
           "url": "https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Generate a compliant, numbered invoice",
-          "text": "Produce a PDF with your and the buyer's details, a correct tax breakdown, and a sequential invoice number with no gaps, so the document stands up to an accountant and an audit",
+          "name": "Generate a compliant, sequentially numbered PDF with your",
+          "text": "Generate a compliant, sequentially numbered PDF with your and the buyer's details and the tax breakdown",
           "url": "https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Send it automatically at the right moment",
-          "text": "Attach or link the invoice in the order email and send a copy to the buyer's accounts address, without waiting for the customer to ask for it",
+          "name": "Send it automatically in the order email and to the buyer's",
+          "text": "Send it automatically in the order email and to the buyer's accounts address, no request needed",
           "url": "https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Issue a credit note on a refund",
-          "text": "When an order is refunded in part or in full, generate a matching credit note against the original invoice number so the books balance instead of leaving a paid invoice with no offset",
+          "name": "Issue a matching credit note against the invoice when the",
+          "text": "Issue a matching credit note against the invoice when the order is refunded in part or full",
           "url": "https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Surface the judgment calls for a human",
-          "text": "Hold for review a VAT number that fails validation, a reverse-charge or export order, or an edited order whose invoice must be reissued, so a person makes the call",
+          "name": "Hold a failed VAT check, a reverse-charge order, or an",
+          "text": "Hold a failed VAT check, a reverse-charge order, or an edited order whose invoice must be reissued",
           "url": "https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html#playbook"
         }
       ]

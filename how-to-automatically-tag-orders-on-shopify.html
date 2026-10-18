@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Order fulfillment",
-          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_fulfillment",
+            "https://www.wikidata.org/wiki/Q1473552"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Tag (metadata)",
-          "sameAs": "https://en.wikipedia.org/wiki/Tag_(metadata)"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Tag_(metadata)",
+            "https://www.wikidata.org/wiki/Q658349"
+          ]
         }
       ],
       "speakable": {
@@ -123,10 +132,19 @@
           "name": "Shopify Help Center | Shopify Flow",
           "url": "https://help.shopify.com/en/manual/shopify-flow"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -150,6 +168,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -204,28 +223,28 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Read the whole order",
+          "name": "Read the whole order at once",
           "text": "Read the whole order at once: line items and their properties, the note and note attributes, the discount and source, the destination, and the customer's history",
           "url": "https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Decide the tags from plain-language rules",
-          "text": "Decide the tags from rules written in plain language, combining product, value, customer, destination, and free-text note signals instead of one condition at a time",
+          "name": "Decide the tags from rules in plain language",
+          "text": "Decide the tags from rules in plain language, combining product, value, customer, destination, and free-text note signals, not one condition at a time",
           "url": "https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Normalize against one vocabulary",
-          "text": "Normalize every tag against one controlled vocabulary, so no invalid characters, no near-duplicate casing, and nothing past the length limit",
+          "name": "Normalize every tag against one controlled vocabulary",
+          "text": "Normalize every tag against one controlled vocabulary: no invalid characters, no near-duplicate casing, nothing past the length limit",
           "url": "https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Write the tags back",
+          "name": "Write the tags back at the order level through the API",
           "text": "Write the tags back at the order level through the API, touching nothing else on the order",
           "url": "https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html#playbook"
         },
@@ -233,21 +252,21 @@
           "@type": "HowToStep",
           "position": 5,
           "name": "Trigger what the tag is for",
-          "text": "Trigger what the tag is for: route to the right location, place a hold, set a priority, or hand the order to the third-party logistics provider",
+          "text": "Trigger what the tag is for: route to the right location, place a hold, set a priority, or hand off to the 3PL",
           "url": "https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Backfill the past orders",
-          "text": "Backfill the orders that predate the rule, so segments and reports are not half-blind",
+          "name": "Backfill the orders that predate the rule so segments and",
+          "text": "Backfill the orders that predate the rule so segments and reports are not half-blind",
           "url": "https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Log every tag with its reason",
-          "text": "Log every tag set with the reason, and flag the orders too ambiguous to tag with confidence",
+          "name": "Log every tag with the reason",
+          "text": "Log every tag with the reason, and flag the orders too ambiguous to tag with confidence",
           "url": "https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html#playbook"
         }
       ]

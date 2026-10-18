@@ -74,27 +74,34 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Order fulfillment",
-          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_fulfillment",
+            "https://www.wikidata.org/wiki/Q1473552"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Customer service",
-          "sameAs": "https://en.wikipedia.org/wiki/Customer_service"
-        },
-        {
-          "@type": "Thing",
-          "name": "Transactional email",
-          "sameAs": "https://en.wikipedia.org/wiki/Email_marketing"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Customer_service",
+            "https://www.wikidata.org/wiki/Q1060653"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         }
       ],
       "speakable": {
@@ -133,10 +140,19 @@
           "name": "Shopify Help Center | Shopify Flow",
           "url": "https://help.shopify.com/en/manual/shopify-flow"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-notify-customers-of-shipping-delays-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-notify-customers-of-shipping-delays-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-notify-customers-of-shipping-delays-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -160,6 +176,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-notify-customers-of-shipping-delays-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -215,42 +232,42 @@
           "@type": "HowToStep",
           "position": 1,
           "name": "Watch each order against its real promise",
-          "text": "Track every open order against the ship time it was actually sold with: the shipping profile's promise, the preorder date, the supplier lead time",
+          "text": "Watch each order against its real promise: the shipping profile's ship time, the preorder date, the supplier lead time",
           "url": "https://blog.dugong.live/how-to-notify-customers-of-shipping-delays-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Catch the slip before the customer does",
-          "text": "Flag orders unfulfilled past the promise, labels with no carrier scan, and supplier batches gone quiet, instead of waiting for the support ticket",
+          "name": "Catch the slip early: unfulfilled past the promise, a label",
+          "text": "Catch the slip early: unfulfilled past the promise, a label with no carrier scan, a batch that stopped moving",
           "url": "https://blog.dugong.live/how-to-notify-customers-of-shipping-delays-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Diagnose the cause and the scope",
-          "text": "Work out whether it is one stuck order, one supplier's whole queue, or the entire store on pause, because the right message differs for each",
+          "name": "Diagnose cause and scope: one stuck order, one supplier's",
+          "text": "Diagnose cause and scope: one stuck order, one supplier's queue, or the whole store on pause",
           "url": "https://blog.dugong.live/how-to-notify-customers-of-shipping-delays-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
           "name": "Write the delay email per order",
-          "text": "Send a specific transactional email naming what happened, the new honest date, and options when the wait is long: keep waiting, swap, or refund",
+          "text": "Write the delay email per order: what happened, the new honest date, and options when the wait is long",
           "url": "https://blog.dugong.live/how-to-notify-customers-of-shipping-delays-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Tag, track, and keep the new promise",
-          "text": "Tag the order as delayed, brief support with the context, and email again with the truth if the new date slips too",
+          "name": "Tag the order, brief support, and email again with the truth",
+          "text": "Tag the order, brief support, and email again with the truth if the new date slips too",
           "url": "https://blog.dugong.live/how-to-notify-customers-of-shipping-delays-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Escalate where an apology will not do",
-          "text": "Route VIPs, high-value orders, second slips, and already-angry threads to a human with the history attached",
+          "name": "Escalate the VIPs, the high values, the second slips, and",
+          "text": "Escalate the VIPs, the high values, the second slips, and anyone already angry",
           "url": "https://blog.dugong.live/how-to-notify-customers-of-shipping-delays-on-shopify.html#playbook"
         }
       ]

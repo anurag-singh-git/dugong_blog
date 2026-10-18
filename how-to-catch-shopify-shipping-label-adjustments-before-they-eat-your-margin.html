@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Dimensional weight",
-          "sameAs": "https://en.wikipedia.org/wiki/Dimensional_weight"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Dimensional_weight",
+            "https://www.wikidata.org/wiki/Q2532935"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Freight audit",
-          "sameAs": "https://en.wikipedia.org/wiki/Freight_audit"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Freight_audit",
+            "https://www.wikidata.org/wiki/Q5501370"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         }
       ],
       "speakable": {
@@ -163,10 +172,19 @@
           "name": "Ship.com | New USPS dimensional weight rules, July 2026",
           "url": "https://www.ship.com/post/usps-dimensional-weight-rules-2026"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -190,6 +208,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -252,63 +271,64 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Read every timeline",
-          "text": "Pull the order timeline on every order with a label and extract the adjustment entries and carrier reasons",
+          "name": "Read each order timeline to the bottom",
+          "text": "Read each order timeline to the bottom, pull every adjustment line and its carrier reason text",
           "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Normalize the entry",
-          "text": "Record order, SKUs, carrier, service, declared versus billed weight and dimensions, reason, amount and date",
+          "name": "Normalize it: order, SKUs, carrier, service, declared vs",
+          "text": "Normalize it: order, SKUs, carrier, service, declared vs billed weight and dims, reason, amount, date",
           "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Attribute to the source",
-          "text": "Tie each adjustment to the SKU and the package preset that produced the label, not just to the order",
+          "name": "Attribute it to the SKU and the package preset that produced",
+          "text": "Attribute it to the SKU and the package preset that produced the label, not to the order",
           "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Classify the cause",
-          "text": "Preset wrong, weight wrong, fractional round-up, wrong service, legitimate surcharge, or carrier error",
+          "name": "Classify: preset wrong, weight wrong, round-up, wrong",
+          "text": "Classify: preset wrong, weight wrong, round-up, wrong service, legitimate surcharge, carrier error",
           "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Dispute inside three days",
-          "text": "File carrier errors immediately with the reason, actual measurements, scale and tape photographs and tracking",
+          "name": "Dispute carrier errors within three days",
+          "text": "Dispute carrier errors within three days, with reason, tape and scale photos, and tracking attached",
           "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Fix what produced it",
-          "text": "Correct the preset, the variant weight, the box choice or the service rule so the same parcel is not adjusted twice",
+          "name": "Fix the source: the preset, the variant weight, the box",
+          "text": "Fix the source: the preset, the variant weight, the box choice, the service rule",
           "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Reprice the true cost",
-          "text": "Feed measured label cost per SKU back into your shipping rates and free shipping thresholds",
+          "name": "Reprice using measured label cost per SKU",
+          "text": "Reprice using measured label cost per SKU, and recheck your free shipping floor",
           "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 8,
-          "name": "Alert on repeats",
-          "text": "Flag any SKU adjusted twice, and any single adjustment above your absorb threshold, the day it lands",
+          "name": "Alert when one SKU is adjusted twice",
+          "text": "Alert when one SKU is adjusted twice, or any single charge clears your absorb threshold",
           "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html#playbook"
         }
       ]
     }
   ]
-}</script>
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />

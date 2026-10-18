@@ -104,7 +104,7 @@ Write down five things and publish them. The window in days from the order date.
 
 ## Where AI earns its place
 
-Two judgement calls here, and neither of them is subtraction.
+Two judgment calls here, and neither of them is subtraction.
 
 The first is on the way in. These requests never arrive as a clean form. They arrive as *the blue hoodie I got last week is cheaper now*, with a screenshot, sometimes about a variant the customer did not buy, sometimes about a competitor's price, sometimes from somebody who has asked three times this quarter. A model matches the sentence to the order and the line item, reads the screenshot, runs the real calculation on both sides, checks it against your policy and drafts the reply with the actual number in it. What reaches a human is a decision, not a search.
 
@@ -154,7 +154,7 @@ Permalink: https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-s
 
 ### Can AI handle price adjustment requests on Shopify?
 
-It can do the two parts that take judgement. On the way in, a request arrives as a sentence rather than a form: the blue hoodie I ordered last week is cheaper now, often with a screenshot, sometimes naming a variant the customer never bought. A model matches that to the right order and line item, reads the screenshot, computes the per-unit difference after allocated discounts on both sides, checks it against your policy, and drafts the reply with the real number in it. On the way out, the harder call is deciding whether a price movement is a promotion at all, because a typo correction, a currency rounding fix, a clearance markdown on a discontinued line and a supplier-driven reprice all look identical to a rule that only reads a number. Refund against a mispriced item and you refund most of its value. So keep two things human: the policy itself, and any adjustment above your cap.
+It can do the two parts that take judgment. On the way in, a request arrives as a sentence rather than a form: the blue hoodie I ordered last week is cheaper now, often with a screenshot, sometimes naming a variant the customer never bought. A model matches that to the right order and line item, reads the screenshot, computes the per-unit difference after allocated discounts on both sides, checks it against your policy, and drafts the reply with the real number in it. On the way out, the harder call is deciding whether a price movement is a promotion at all, because a typo correction, a currency rounding fix, a clearance markdown on a discontinued line and a supplier-driven reprice all look identical to a rule that only reads a number. Refund against a mispriced item and you refund most of its value. So keep two things human: the policy itself, and any adjustment above your cap.
 
 Permalink: https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#faq-5
 

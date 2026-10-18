@@ -73,17 +73,26 @@
         {
           "@type": "Thing",
           "name": "Stock keeping unit",
-          "sameAs": "https://en.wikipedia.org/wiki/Stock_keeping_unit"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Stock_keeping_unit",
+            "https://www.wikidata.org/wiki/Q399757"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Inventory management",
-          "sameAs": "https://en.wikipedia.org/wiki/Inventory_management"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Inventory_management_(business)",
+            "https://www.wikidata.org/wiki/Q3761396"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         }
       ],
       "speakable": {
@@ -137,10 +146,19 @@
           "name": "Shopify Help Center | Sales channels",
           "url": "https://help.shopify.com/en/manual/online-sales-channels"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -164,6 +182,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -218,50 +237,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Scan the whole catalog",
-          "text": "Every variant, every code, on a schedule instead of on a bad Tuesday",
+          "name": "Scan every variant in the catalog and group them by SKU",
+          "text": "Scan every variant in the catalog and group them by SKU",
           "url": "https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Normalize before you compare",
-          "text": "Case and whitespace folded, so abc123 meets ABC123",
+          "name": "Normalize first: fold case, strip whitespace, then compare",
+          "text": "Normalize first: fold case, strip whitespace, then compare",
           "url": "https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
           "name": "Separate intent from accident",
-          "text": "Bundles and multipacks are decisions, clones are defects",
+          "text": "Separate intent from accident: bundle groups stay, clones do not",
           "url": "https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Keep the deliberate ones in sync",
-          "text": "One shelf, one number, however many listings point at it",
+          "name": "Sync the deliberate ones: one shelf, one number, many",
+          "text": "Sync the deliberate ones: one shelf, one number, many listings",
           "url": "https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Rename the accidents on your format",
-          "text": "Your code rule applied, with the history flagged for sign-off",
+          "name": "Rename the accidents on our code format",
+          "text": "Rename the accidents on our code format, history shown, human approves",
           "url": "https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Guard the front door",
-          "text": "Every new or edited variant checked within minutes of the save",
+          "name": "Guard the front door: new collisions flagged within the hour",
+          "text": "Guard the front door: new collisions flagged within the hour",
           "url": "https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Report weekly",
-          "text": "Collisions opened, closed, prevented, and what each one cost",
+          "name": "Report weekly: opened, closed, prevented, and what each one",
+          "text": "Report weekly: opened, closed, prevented, and what each one cost",
           "url": "https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html#playbook"
         }
       ]

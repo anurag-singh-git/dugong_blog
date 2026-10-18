@@ -74,22 +74,34 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Pre-order",
-          "sameAs": "https://en.wikipedia.org/wiki/Pre-order"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Pre-order",
+            "https://www.wikidata.org/wiki/Q4376555"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Order fulfillment",
-          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_fulfillment",
+            "https://www.wikidata.org/wiki/Q1473552"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Backorder",
-          "sameAs": "https://en.wikipedia.org/wiki/Backorder"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Backorder",
+            "https://www.wikidata.org/wiki/Q962928"
+          ]
         }
       ],
       "speakable": {
@@ -128,10 +140,19 @@
           "name": "Shopify Help Center | Shopify Flow",
           "url": "https://help.shopify.com/en/manual/shopify-flow"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -155,6 +176,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -209,50 +231,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Trigger when a pre-order or backorder is sold",
-          "text": "Start when an order contains an item bought past zero stock or flagged as a pre-order, instead of treating it as an ordinary in-stock sale",
+          "name": "Label the order and the specific line items as pre-order",
+          "text": "Label the order and the specific line items as pre-order, with the promised ship window",
           "url": "https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Label the order and the line items",
-          "text": "Tag the order and the specific line items as pre-order, record the promised ship window, so everything downstream can tell what ships now from what ships later",
+          "name": "Split the order: fulfill the in-stock lines now, hold the",
+          "text": "Split the order: fulfill the in-stock lines now, hold the pre-order lines open",
           "url": "https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Split the order and ship what is ready",
-          "text": "Fulfill the in-stock lines now as a partial shipment and leave the pre-order lines open, so the item on the shelf is not held hostage by the late one",
+          "name": "Tell the customer what ships now and what ships later",
+          "text": "Tell the customer what ships now and what ships later, with a real date",
           "url": "https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Keep the customer informed",
-          "text": "Confirm at purchase that part of the order ships later with a real date, update them if the date slips, and tell them when the pre-order part ships",
+          "name": "Watch incoming stock and fulfill each held line the day it",
+          "text": "Watch incoming stock and fulfill each held line the day it lands, oldest order first",
           "url": "https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Fulfill the moment stock lands",
-          "text": "Watch incoming inventory and ship each held pre-order line the day the restock arrives, oldest order first, rather than waiting for someone to notice",
+          "name": "Update the customer if the date slips",
+          "text": "Update the customer if the date slips, and confirm when the held part ships",
           "url": "https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Turn selling back off when the run is gone",
-          "text": "Once the pre-order run is fully committed, stop accepting more so the store does not keep overselling stock that is already promised",
+          "name": "Stop selling once the run is fully committed",
+          "text": "Stop selling once the run is fully committed, so it does not keep overselling",
           "url": "https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Hold the edge cases for a human",
-          "text": "Stop on an order oversold beyond the run, a refund that touches a mix of shipped and unshipped lines, or a ship date that slips badly, and surface it for review instead of guessing",
+          "name": "Hold oversells beyond the run",
+          "text": "Hold oversells beyond the run, mixed refunds, and bad date slips for review",
           "url": "https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html#playbook"
         }
       ]

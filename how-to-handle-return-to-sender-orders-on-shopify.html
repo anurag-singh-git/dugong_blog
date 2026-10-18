@@ -73,17 +73,26 @@
         {
           "@type": "Thing",
           "name": "Return to sender",
-          "sameAs": "https://en.wikipedia.org/wiki/Return_to_sender"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Return_to_sender",
+            "https://www.wikidata.org/wiki/Q2146483"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Order fulfillment",
-          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_fulfillment",
+            "https://www.wikidata.org/wiki/Q1473552"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         }
       ],
       "speakable": {
@@ -132,10 +141,19 @@
           "name": "Shopify Help Center | Shopify Flow",
           "url": "https://help.shopify.com/en/manual/shopify-flow"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -159,6 +177,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -221,50 +240,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Watch every tracking feed",
-          "text": "Read the carrier scans Shopify does not model, hourly",
+          "name": "Read the scans Shopify does not model",
+          "text": "Read the scans Shopify does not model, every carrier, every wording",
           "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Flag the turnaround",
-          "text": "Tag the order the hour the parcel reverses direction",
+          "name": "Flag the turnaround the hour it happens",
+          "text": "Flag the turnaround the hour it happens: tag the order, note the timeline",
           "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Name the cause",
-          "text": "Bad address, refused, uncollected or customs, each routed differently",
+          "name": "Name the cause: bad address, refused, uncollected, customs",
+          "text": "Name the cause: bad address, refused, uncollected, customs",
           "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Reach the customer first",
-          "text": "Ask for a corrected address before they ask where it is",
+          "name": "Email the customer first and ask for the corrected address",
+          "text": "Email the customer first and ask for the corrected address while it matters",
           "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Reship or refund on your rule",
-          "text": "One policy, applied the same way every time, second label priced",
+          "name": "Apply your rule: reship at whose cost, or refund less the",
+          "text": "Apply your rule: reship at whose cost, or refund less the shipping",
           "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Reconcile the box when it lands",
-          "text": "Restock what is sellable, write off what is not, close the order",
+          "name": "Reconcile the box on arrival",
+          "text": "Reconcile the box on arrival, restock what is sellable, close the order",
           "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Report RTS on its own",
-          "text": "Out of the return rate, next to delivery success by courier",
+          "name": "Report RTS on its own, by courier, by region, by repeat",
+          "text": "Report RTS on its own, by courier, by region, by repeat customer",
           "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#playbook"
         }
       ]

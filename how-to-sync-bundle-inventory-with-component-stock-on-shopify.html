@@ -74,27 +74,42 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Inventory",
-          "sameAs": "https://en.wikipedia.org/wiki/Inventory"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Inventory",
+            "https://www.wikidata.org/wiki/Q815410"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Product bundling",
-          "sameAs": "https://en.wikipedia.org/wiki/Product_bundling"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Product_bundling",
+            "https://www.wikidata.org/wiki/Q1020767"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Stock keeping unit",
-          "sameAs": "https://en.wikipedia.org/wiki/Stock_keeping_unit"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Stock_keeping_unit",
+            "https://www.wikidata.org/wiki/Q399757"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         }
       ],
       "speakable": {
@@ -138,10 +153,19 @@
           "name": "Shopify Help Center | Sales channels",
           "url": "https://help.shopify.com/en/manual/online-sales-channels"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -165,6 +189,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -219,50 +244,43 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Map each bundle to its components",
-          "text": "Record which products and quantities make up every bundle, including the components you never sell on their own, so each bundle has a real recipe rather than a standalone stock number",
+          "name": "Resolve the bundle to its recipe",
+          "text": "Resolve the bundle to its recipe: which components and how many of each, including hidden parts",
           "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Deduct components on a bundle sale",
-          "text": "When a bundle sells, reduce the stock of each product inside it by the right quantity, per location, so the parts reflect what just left the shelf",
+          "name": "Deduct each component's real stock",
+          "text": "Deduct each component's real stock, per location, by what the sale actually consumed",
           "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Recompute bundle availability from the parts",
-          "text": "After any change, set each bundle's availability to how many full sets its components can still build, so a bundle never sells past the stock behind it and never hides while the parts are in stock",
+          "name": "Recompute every bundle's availability from the parts it",
+          "text": "Recompute every bundle's availability from the parts it needs (lowest full set it can build)",
           "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Cascade shared components across bundles",
-          "text": "When a component sits in several bundles or has its own product page, apply one deduction to the real component and update every bundle and listing that depends on it",
+          "name": "Cascade a shared component to every bundle and product page",
+          "text": "Cascade a shared component to every bundle and product page that depends on it",
           "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Sync the signal to every channel",
-          "text": "Push the corrected component and bundle counts to the other sales channels so a marketplace is not still showing stock the bundle just consumed",
+          "name": "Sync the corrected counts to the other channels so nothing",
+          "text": "Sync the corrected counts to the other channels so nothing shows phantom stock",
           "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Reconcile on restocks, returns, and edits",
-          "text": "Add component stock back on a restock or a returned bundle, and re-run the math when an order is edited so removing or adding a bundle corrects the parts too",
-          "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook"
-        },
-        {
-          "@type": "HowToStep",
-          "position": 7,
-          "name": "Escalate the judgment calls",
-          "text": "Hold for review a component that has gone negative, a bundle that should switch to backorder rather than hide, or a partial return where only some parts came back, so a person makes the call",
+          "name": "Hold for review a negative component",
+          "text": "Hold for review a negative component, a partial return, or a bundle better sent to backorder",
           "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html#playbook"
         }
       ]

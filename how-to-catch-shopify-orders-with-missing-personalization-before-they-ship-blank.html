@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Personalization",
-          "sameAs": "https://en.wikipedia.org/wiki/Personalization"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Personalization",
+            "https://www.wikidata.org/wiki/Q1000371"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Engraving",
-          "sameAs": "https://en.wikipedia.org/wiki/Engraving"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Engraving",
+            "https://www.wikidata.org/wiki/Q139106"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         }
       ],
       "speakable": {
@@ -133,10 +142,19 @@
           "name": "Liquid reference",
           "url": "https://shopify.dev/docs/api/liquid"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -160,6 +178,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -214,50 +233,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Read the order",
-          "text": "Every order containing a personalized SKU, checked for its properties the minute it lands",
+          "name": "Read the order: every line item that should carry",
+          "text": "Read the order: every line item that should carry personalization, checked the minute the order lands",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Judge the text",
-          "text": "Blank, gibberish, emoji the engraver cannot cut, characters past the limit, wrong field entirely",
+          "name": "Judge the text: blank, gibberish, emoji the engraver cannot",
+          "text": "Judge the text: blank, gibberish, emoji the engraver cannot cut, 42 characters into a 20 character field, the wrong field entirely",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Hold production",
-          "text": "Tag and hold the incomplete order before the pick queue or the production sheet sees it",
+          "name": "Hold production: tag and hold the incomplete order before",
+          "text": "Hold production: tag and hold the incomplete order before the pick queue or the batch export sees it",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Ask the customer",
-          "text": "An email within minutes, naming the exact product and the exact missing line",
+          "name": "Ask the customer: email within minutes, naming the exact",
+          "text": "Ask the customer: email within minutes, naming the exact product and the exact missing line",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Remind and escalate",
-          "text": "Nudges at 24 and 72 hours, the deadline stated, escalation to a human after that",
+          "name": "Remind and escalate: nudge at 24 and 72 hours with the",
+          "text": "Remind and escalate: nudge at 24 and 72 hours with the deadline stated, then hand it to a human",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Release on answer",
-          "text": "The reply written onto the order with an audit trail, the hold dropped, production notified",
+          "name": "Release on answer: write the reply onto the order with an",
+          "text": "Release on answer: write the reply onto the order with an audit trail, drop the hold, notify production",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Report weekly",
-          "text": "Blanks by product, by field, and by checkout path, so the leak gets fixed at the source",
+          "name": "Report weekly: blanks by product, by field, and by checkout",
+          "text": "Report weekly: blanks by product, by field, and by checkout path, so the leak gets fixed at the source",
           "url": "https://blog.dugong.live/how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html#playbook"
         }
       ]

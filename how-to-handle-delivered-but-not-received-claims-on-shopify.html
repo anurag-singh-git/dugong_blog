@@ -74,27 +74,42 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Package theft",
-          "sameAs": "https://en.wikipedia.org/wiki/Package_theft"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Package_theft",
+            "https://www.wikidata.org/wiki/Q85791740"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Proof of delivery",
-          "sameAs": "https://en.wikipedia.org/wiki/Proof_of_delivery"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Proof_of_delivery",
+            "https://www.wikidata.org/wiki/Q322385"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Chargeback",
-          "sameAs": "https://en.wikipedia.org/wiki/Chargeback"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Chargeback",
+            "https://www.wikidata.org/wiki/Q3307525"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         }
       ],
       "speakable": {
@@ -143,10 +158,19 @@
           "name": "About webhooks",
           "url": "https://shopify.dev/docs/apps/build/webhooks"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -170,6 +194,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -224,50 +249,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Hear the claim on every channel",
-          "text": "Match the nothing-came message to its order no matter where it arrives, and open a case file on the order itself",
+          "name": "Hear the claim: match sender to order, open a case file on",
+          "text": "Hear the claim: match sender to order, open a case file on the order itself",
           "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
           "name": "Pull the proof while it is fresh",
-          "text": "Delivery scan time, carrier photo, GPS readback, address match, AVS result, and signature status, gathered in the first hour",
+          "text": "Pull the proof while it is fresh: scan time, carrier photo, GPS readback, address match, AVS, signature status",
           "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Run the 48 hour play",
-          "text": "Reply the same hour with the photo and the checklist, follow up on day 2, file the carrier trace and the USPS Missing Mail search on schedule",
+          "name": "Run the 48 hour play: same-hour reply with photo and",
+          "text": "Run the 48 hour play: same-hour reply with photo and checklist, day-2 follow up, trace and Missing Mail on schedule",
           "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Score the claim",
-          "text": "Order value against cost of goods, first claim or pattern, AVS match, and what the delivery photo actually shows",
+          "name": "Score the claim: value against cost, first time or pattern",
+          "text": "Score the claim: value against cost, first time or pattern, what the photo actually shows",
           "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Decide by policy",
-          "text": "Reship with signature, refund, hold for the trace, or deny with the file attached, on thresholds the store chose in advance",
+          "name": "Decide by policy: reship with signature, refund, hold for",
+          "text": "Decide by policy: reship with signature, refund, hold for the trace, or deny with the file attached",
           "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Execute end to end",
-          "text": "Duplicate the order with signature required, refund with a tagged reason, send the denial with evidence, and draft the chargeback response before it is needed",
+          "name": "Execute end to end: duplicate order, tagged refund",
+          "text": "Execute end to end: duplicate order, tagged refund, evidence-backed denial, chargeback response drafted early",
           "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Report weekly",
-          "text": "Claims by carrier, by zip, by SKU, cost per decision, signature threshold tuning, and the addresses that keep coming back",
+          "name": "Report weekly: claims by carrier, zip, and SKU, cost per",
+          "text": "Report weekly: claims by carrier, zip, and SKU, cost per decision, and the addresses that keep coming back",
           "url": "https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html#playbook"
         }
       ]

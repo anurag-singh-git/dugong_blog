@@ -74,22 +74,34 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Credit card fraud",
-          "sameAs": "https://en.wikipedia.org/wiki/Credit_card_fraud"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Credit_card_fraud",
+            "https://www.wikidata.org/wiki/Q83873"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Carding",
-          "sameAs": "https://en.wikipedia.org/wiki/Carding_(fraud)"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Carding_(fraud)",
+            "https://www.wikidata.org/wiki/Q21822514"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Internet bot",
-          "sameAs": "https://en.wikipedia.org/wiki/Internet_bot"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Internet_bot",
+            "https://www.wikidata.org/wiki/Q191865"
+          ]
         }
       ],
       "speakable": {
@@ -138,10 +150,19 @@
           "name": "Shopify Help Center | Recovering abandoned checkouts",
           "url": "https://help.shopify.com/en/manual/promoting-marketing/create-marketing/abandoned-checkouts"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -165,6 +186,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -219,50 +241,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Watch order and checkout velocity",
-          "text": "Track the rate of new orders and checkouts and the spread of cards, names, and IPs behind them, so a sudden burst of tiny orders reads as a pattern and not just traffic",
+          "name": "Read the burst as a whole",
+          "text": "Read the burst as a whole: order values, card and email spread, IPs, products, decline rate, window",
           "url": "https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Confirm it is an attack, not a real spike",
-          "text": "Check the signals that separate card testing from a genuine rush: low order values, many distinct cards and emails, repeated declines, one or two products, mismatched billing details, a narrow time window",
+          "name": "Decide attack vs. real spike from the pattern",
+          "text": "Decide attack vs. real spike from the pattern, not from any single order",
           "url": "https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Cancel and refund the junk orders",
-          "text": "Cancel the approved test orders, refund them before anything ships, and restock the units so the fake demand does not eat real inventory",
+          "name": "Cancel and refund the test orders before they ship",
+          "text": "Cancel and refund the test orders before they ship, and restock the units",
           "url": "https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Clean up the fake checkouts and tag the mess",
-          "text": "Tag every test order and checkout so it drops out of your revenue, conversion, and fraud metrics instead of poisoning them, and archive the abandoned-checkout noise",
+          "name": "Tag every test order and checkout so it drops out of revenue",
+          "text": "Tag every test order and checkout so it drops out of revenue, conversion, and fraud metrics",
           "url": "https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Block the source and slow the checkout",
-          "text": "Throttle or block the offending IPs, sessions, and patterns, tighten checkout during the attack, and keep the friction off the paths real customers use",
+          "name": "Throttle or block the offending IPs and sessions",
+          "text": "Throttle or block the offending IPs and sessions, tighten checkout while the attack runs",
           "url": "https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Alert a human with the evidence",
-          "text": "Send one alert that names the attack, the window, the count, and the estimated fee exposure, with the cancellations already done, instead of a hundred separate order notifications",
+          "name": "Alert a human once, with the window, the count, and the fee",
+          "text": "Alert a human once, with the window, the count, and the fee exposure, cleanup already done",
           "url": "https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Stand down and hold the edge cases",
-          "text": "Relax the extra friction when the attack stops, and surface for review any order that looks like a real customer caught in the net or an approved charge that already shipped",
+          "name": "Stand down when it stops, and surface any real customer",
+          "text": "Stand down when it stops, and surface any real customer caught in the net for review",
           "url": "https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html#playbook"
         }
       ]

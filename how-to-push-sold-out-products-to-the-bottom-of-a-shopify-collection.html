@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Business process automation",
-          "sameAs": "https://en.wikipedia.org/wiki/Business_process_automation"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Business_process_automation",
+            "https://www.wikidata.org/wiki/Q5001911"
+          ]
         }
       ],
       "speakable": {
@@ -123,10 +132,19 @@
           "name": "Liquid reference",
           "url": "https://shopify.dev/docs/api/liquid"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -150,6 +168,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -204,49 +223,49 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Find every collection and search result where the product currently",
+          "name": "Find every collection and search result where the product",
           "text": "Find every collection and search result where the product currently shows",
           "url": "https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "If it just sold out",
+          "name": "If it just sold out → move it below the in-stock items",
           "text": "If it just sold out → move it below the in-stock items, not off the page, and keep its URL and notify-me form alive",
           "url": "https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "If it's restocking within the week",
+          "name": "If it's restocking within the week → keep it visible with a",
           "text": "If it's restocking within the week → keep it visible with a back-soon badge instead of burying it",
           "url": "https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Protect the hero and high-ranking products",
+          "name": "Protect the hero and high-ranking products → never bury a",
           "text": "Protect the hero and high-ranking products → never bury a page I rank for; flag it for me instead",
           "url": "https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Apply per surface",
+          "name": "Apply per surface: demote on browse pages, drop from search",
           "text": "Apply per surface: demote on browse pages, drop from search, leave my hand-curated edits to my rules",
           "url": "https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "When it restocks",
+          "name": "When it restocks → restore its original position",
           "text": "When it restocks → restore its original position automatically",
           "url": "https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "If a whole collection goes mostly empty",
+          "name": "If a whole collection goes mostly empty → tell me",
           "text": "If a whole collection goes mostly empty → tell me, don't quietly serve a wall of sold-out",
           "url": "https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html#playbook"
         }

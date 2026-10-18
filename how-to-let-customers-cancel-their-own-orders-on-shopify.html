@@ -74,27 +74,42 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Order fulfillment",
-          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_fulfillment",
+            "https://www.wikidata.org/wiki/Q1473552"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Consumer protection",
-          "sameAs": "https://en.wikipedia.org/wiki/Consumer_protection"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Consumer_protection",
+            "https://www.wikidata.org/wiki/Q664183"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Chargeback",
-          "sameAs": "https://en.wikipedia.org/wiki/Chargeback"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Chargeback",
+            "https://www.wikidata.org/wiki/Q3307525"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Online shopping",
-          "sameAs": "https://en.wikipedia.org/wiki/Online_shopping"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Online_shopping",
+            "https://www.wikidata.org/wiki/Q212930"
+          ]
         }
       ],
       "speakable": {
@@ -133,10 +148,19 @@
           "name": "Shopify Help Center | Customer accounts",
           "url": "https://help.shopify.com/en/manual/customers/customer-accounts"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -160,6 +184,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -215,49 +240,49 @@
           "@type": "HowToStep",
           "position": 1,
           "name": "Match the message to its order",
-          "text": "Resolve every channel to one order: the self-serve request, the email reply, the chat message, and the DM, matched by email, name, address, and time",
+          "text": "Match the message to its order: request, email reply, chat, or DM, resolved by email, name, address, and time",
           "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Hold fulfillment first",
-          "text": "Place a fulfillment hold the second cancellation intent is detected, before any decision, so the order leaves every pick feed and label queue",
+          "name": "Hold fulfillment first, before any decision: the order",
+          "text": "Hold fulfillment first, before any decision: the order leaves every pick feed and label queue in seconds",
           "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Check the policy gates",
-          "text": "Confirm the order is unfulfilled, inside the cancellation window, not final sale, not personalized, and not a subscription contract",
+          "name": "Check the gates: unfulfilled, inside the window, not final",
+          "text": "Check the gates: unfulfilled, inside the window, not final sale, not personalized, not a subscription contract",
           "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
           "name": "Cancel the clean cases end to end",
-          "text": "Cancel, refund to the original payment, restock the units, tag the order, and send the customer a confirmation within minutes",
+          "text": "Cancel the clean cases end to end: refund to the original payment, restock, tag, and reply within minutes",
           "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
           "name": "Escalate the exceptions with context",
-          "text": "Route picked, digital, personalized, and late EU cases to a human with the order, the request, and the deadline attached",
+          "text": "Escalate the exceptions with context: picked at the 3PL, digital, personalized, or an EU order at day 13",
           "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
           "name": "Open the return path when it is too late",
-          "text": "If the order already shipped, say so honestly in minutes and start the return or intercept instead of going quiet",
+          "text": "Open the return path when it is too late: say so honestly, label attached, instead of going quiet",
           "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Report weekly",
-          "text": "Count requests, saves, and misses, and surface what keeps causing cancellations so checkout stops generating them",
+          "name": "Report weekly: requests, saves, misses, and what keeps",
+          "text": "Report weekly: requests, saves, misses, and what keeps causing them",
           "url": "https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html#playbook"
         }
       ]

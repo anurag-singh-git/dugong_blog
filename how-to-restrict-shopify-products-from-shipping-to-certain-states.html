@@ -73,17 +73,26 @@
         {
           "@type": "Thing",
           "name": "Regulatory compliance",
-          "sameAs": "https://en.wikipedia.org/wiki/Regulatory_compliance"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Regulatory_compliance",
+            "https://www.wikidata.org/wiki/Q626741"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shipping",
-          "sameAs": "https://en.wikipedia.org/wiki/Freight_transport"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Freight_transport",
+            "https://www.wikidata.org/wiki/Q651658"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         }
       ],
       "speakable": {
@@ -137,10 +146,19 @@
           "name": "Shopify Help Center | Shopify Flow",
           "url": "https://help.shopify.com/en/manual/shopify-flow"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -164,6 +182,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -218,50 +237,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Classify the catalog once",
-          "text": "What each product actually is, and which rules touch it",
+          "name": "Classify each product once",
+          "text": "Classify each product once: what it is, which rules touch it",
           "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
           "name": "Resolve the address below the state line",
-          "text": "County, township and postcode, not just the state field",
+          "text": "Resolve the address below the state line: county, township, ZIP",
           "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
           "name": "Check the cart line by line",
-          "text": "One basket can hold a legal item and an illegal one",
+          "text": "Check the cart line by line, not as a single basket",
           "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Block only what is restricted",
-          "text": "The rest of the order checks out and the revenue survives",
+          "name": "Block only the restricted lines",
+          "text": "Block only the restricted lines, let the rest of the order check out",
           "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Say why at the point of failure",
-          "text": "A named reason beats a generic no shipping available message",
+          "name": "Say why, in plain words, at the point where it fails",
+          "text": "Say why, in plain words, at the point where it fails",
           "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Re-read the rules on a schedule",
-          "text": "Dated changes surfaced for a human to accept",
+          "name": "Re-read the rule set nightly and surface every dated change",
+          "text": "Re-read the rule set nightly and surface every dated change",
           "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Log every block",
-          "text": "Which rule, which date, which order, kept for the auditor",
+          "name": "Log every block with the rule and date that caused it",
+          "text": "Log every block with the rule and date that caused it",
           "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#playbook"
         }
       ]

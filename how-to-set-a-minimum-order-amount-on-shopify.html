@@ -74,22 +74,26 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Point of sale",
-          "sameAs": "https://en.wikipedia.org/wiki/Point_of_sale"
-        },
-        {
-          "@type": "Thing",
-          "name": "Minimum order quantity",
-          "sameAs": "https://en.wikipedia.org/wiki/Minimum_order_quantity"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Point_of_sale",
+            "https://www.wikidata.org/wiki/Q386147"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         }
       ],
       "speakable": {
@@ -133,10 +137,19 @@
           "name": "Shopify Help Center | Shop Pay",
           "url": "https://help.shopify.com/en/manual/payments/shop-pay"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -160,6 +173,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -214,50 +228,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Read the cart on every path into checkout",
-          "text": "See the cart's subtotal, item count, and customer as checkout begins, whether it starts on the cart page, a wallet button, or a checkout permalink",
+          "name": "Read the cart: subtotal, item count, customer tag, and",
+          "text": "Read the cart: subtotal, item count, customer tag, and whether it is retail or wholesale",
           "url": "https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Decide the minimum that applies",
-          "text": "Choose the right floor for this shopper and this mix, a retail minimum, a wholesale minimum, or none, instead of one flat number for everyone",
+          "name": "Decide the minimum that applies here",
+          "text": "Decide the minimum that applies here, not one flat number for every shopper",
           "url": "https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Signal the shortfall early on the cart",
-          "text": "Tell the shopper how far under the floor they are and how much more clears it, while there is still time to add to the cart",
+          "name": "Signal early on the cart: how far under, and how much more",
+          "text": "Signal early on the cart: how far under, and how much more clears the floor",
           "url": "https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Enforce at checkout, not just the cart page",
-          "text": "Apply the minimum where checkout actually starts so a wallet button or a saved cart link cannot slip an order under it",
+          "name": "Enforce at checkout itself",
+          "text": "Enforce at checkout itself, so a wallet button or a saved link cannot slip under it",
           "url": "https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
           "name": "Exempt the carts that should always pass",
-          "text": "Let gift-card orders, set customer tags, and approved wholesale accounts through without hitting the retail floor",
+          "text": "Exempt the carts that should always pass: gift cards, set customer tags, approved accounts",
           "url": "https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Nudge the borderline cart over the line",
-          "text": "Suggest what gets a just-under cart to the minimum rather than only blocking it, so a small cart grows instead of bouncing",
+          "name": "Nudge, do not just block: suggest what gets the cart over",
+          "text": "Nudge, do not just block: suggest what gets the cart over the line",
           "url": "https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Surface the policy calls for a human",
-          "text": "Hold for review a wholesale exception, a one-off approval, or any case where enforcing the floor would cost more than the order is worth",
+          "name": "Hold for review a wholesale exception or a one-off approval",
+          "text": "Hold for review a wholesale exception or a one-off approval, so a person makes the policy call",
           "url": "https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html#playbook"
         }
       ]

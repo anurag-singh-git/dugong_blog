@@ -74,22 +74,34 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Order fulfillment",
-          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_fulfillment",
+            "https://www.wikidata.org/wiki/Q1473552"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Freight consolidation",
-          "sameAs": "https://en.wikipedia.org/wiki/Consolidation_(business)"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Consolidation_(business)",
+            "https://www.wikidata.org/wiki/Q3050847"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         }
       ],
       "speakable": {
@@ -128,10 +140,19 @@
           "name": "Shopify Help Center | Draft orders and invoices",
           "url": "https://help.shopify.com/en/manual/fulfillment/managing-orders/create-orders"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -155,6 +176,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -209,50 +231,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Watch for a repeat order before fulfillment",
-          "text": "Notice when a customer places a second order while an earlier one is still unfulfilled, matched by customer, email, and shipping address, before either label prints",
+          "name": "Match the pair by customer",
+          "text": "Match the pair by customer, email, and shipping address, both still unfulfilled and unshipped",
           "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Confirm the orders can safely combine",
-          "text": "Check that both orders ship to the same address, are unfulfilled and unshipped, use compatible shipping and payment, and are not blocked by risk, and stop if any of that fails",
+          "name": "Check they can safely combine",
+          "text": "Check they can safely combine: compatible shipping and payment, no risk flag, no paid express upgrade",
           "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Build one combined shipment",
-          "text": "Assemble the line items from both orders into a single shipment or draft, generate one label, and route it to the warehouse as one pick and pack",
+          "name": "Build one shipment with the line items of both",
+          "text": "Build one shipment with the line items of both, generate a single label for the warehouse",
           "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Refund the duplicate shipping",
-          "text": "Work out the fair combined shipping cost and refund the customer the delivery they paid twice, then record the refund against the right order",
+          "name": "Refund the duplicate shipping at the fair combined rate",
+          "text": "Refund the duplicate shipping at the fair combined rate, recorded against the right order",
           "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Reconcile the originals and keep inventory accurate",
-          "text": "Cancel or link the original orders so nothing ships twice, restock or move units correctly, and keep the payment, tax, and analytics records straight",
+          "name": "Cancel or link the originals",
+          "text": "Cancel or link the originals, restock correctly, keep payment, tax, and analytics straight",
           "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Tell the customer once",
-          "text": "Send a single message that says the orders are combining into one parcel, the shipping was refunded, and here is the tracking, instead of two separate shipping emails",
+          "name": "Tell the customer once: combining into one parcel, shipping",
+          "text": "Tell the customer once: combining into one parcel, shipping refunded, here is the tracking",
           "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Surface the edge cases for a human",
-          "text": "Hold for review any pair with mismatched addresses, a paid express upgrade, a partly shipped order, or a risk flag, so a person decides the calls a rule should not make",
+          "name": "Hold for review any mismatch",
+          "text": "Hold for review any mismatch, express upgrade, or partly shipped order a human should judge",
           "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html#playbook"
         }
       ]

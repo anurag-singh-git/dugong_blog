@@ -1,248 +1,415 @@
 # robots.txt — blog.dugong.live
+#
+# NOTE: this repository contains a .nojekyll file, so GitHub Pages serves it
+# raw and does NOT run Jekyll. Underscore-prefixed paths are therefore NOT
+# excluded from the live site the way they would be under Jekyll. Anything
+# committed under _qa_tmp/, _to_delete/ or _tools/ is fetchable on the live
+# domain, which is why they are disallowed below. robots.txt only asks
+# crawlers not to fetch; it does not make those paths private.
 
 # Search + AI crawlers welcome. Generative engines are explicitly allowed
 # so Dugong Field Notes can be cited in AI answers (GEO).
 
 User-agent: *
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 # Major AI / answer-engine crawlers (explicit allow)
 User-agent: GPTBot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: OAI-SearchBot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: ChatGPT-User
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: ClaudeBot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: Claude-User
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: Claude-SearchBot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: Claude-Web
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: anthropic-ai
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: PerplexityBot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: Google-Extended
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: Applebot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: Applebot-Extended
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: Bingbot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: CCBot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: Perplexity-User
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: MistralAI-User
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: AI2Bot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: Diffbot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: FirecrawlAgent
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: Timpibot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: omgili
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: ImagesiftBot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: Amazonbot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: Meta-ExternalAgent
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: meta-externalagent
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: DuckAssistBot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: cohere-ai
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: cohere-training-data-crawler
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: YouBot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: Google-CloudVertexBot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: PetalBot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: Bytespider
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: meta-externalfetcher
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: FacebookBot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: omgilibot
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: iaskspider
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: img2dataset
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: Webzio-Extended
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 User-agent: SemrushBot-OCOB
-Allow: /
 Disallow: /QA-report-
 Disallow: /blog-run-
 Disallow: /SEO-GEO-report-
+Disallow: /_qa_tmp/
+Disallow: /_to_delete/
+Disallow: /_tools/
+Disallow: /__deltest.tmp
+Allow: /
 
 Sitemap: https://blog.dugong.live/sitemap.xml
 

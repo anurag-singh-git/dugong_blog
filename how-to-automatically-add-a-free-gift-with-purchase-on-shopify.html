@@ -74,22 +74,34 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Promotion (marketing)",
-          "sameAs": "https://en.wikipedia.org/wiki/Promotion_(marketing)"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Promotion_(marketing)",
+            "https://www.wikidata.org/wiki/Q353163"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Discounts and allowances",
-          "sameAs": "https://en.wikipedia.org/wiki/Discounts_and_allowances"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Discounts_and_allowances",
+            "https://www.wikidata.org/wiki/Q291046"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         }
       ],
       "speakable": {
@@ -133,10 +145,19 @@
           "name": "Shopify Help Center | Shopify Flow",
           "url": "https://help.shopify.com/en/manual/shopify-flow"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -160,6 +181,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -214,50 +236,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Read the cart in real time",
-          "text": "On every change to the cart, read the subtotal after discounts, the items in it, and who the customer is, not just whether one qualifying product is present",
+          "name": "Read the cart: subtotal after discounts, the items in it",
+          "text": "Read the cart: subtotal after discounts, the items in it, and who the customer is",
           "url": "https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Decide the gift",
-          "text": "Choose the right gift for this cart from your rules, the threshold it crossed, the tier it reached, the customer segment, and any product exclusions, rather than one flat offer",
+          "name": "Decide the gift from your rules",
+          "text": "Decide the gift from your rules: the threshold crossed, the tier reached, the segment, any exclusions",
           "url": "https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Add it and price it to zero",
-          "text": "Place the gift in the cart automatically and set its price to zero, so the customer never has to find and add it, and never pays for it",
+          "name": "Add the gift and price it to zero",
+          "text": "Add the gift and price it to zero, so the customer never has to find it or pay for it",
           "url": "https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Hold on every path into checkout",
-          "text": "Make the gift apply on the cart page, on the wallet buttons, on a saved cart link, and on a direct checkout permalink, so no path lets the customer slip past it",
+          "name": "Hold on every path in: cart page, wallet buttons, saved",
+          "text": "Hold on every path in: cart page, wallet buttons, saved links, and checkout permalinks",
           "url": "https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Swap or remove when the cart changes",
-          "text": "If the cart drops below the threshold, pull the gift back out; if it crosses a higher tier, upgrade the gift; if the qualifying item is removed, take the gift with it",
+          "name": "Swap or remove the gift when the cart drops",
+          "text": "Swap or remove the gift when the cart drops, upgrades a tier, or loses the qualifying item",
           "url": "https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Honor stock and tell the customer",
-          "text": "Never gift an item you cannot ship, fall back to the next gift when one runs out, and show the customer clearly what they earned and how to reach the next tier",
+          "name": "Honor stock and tell the customer what they earned and how",
+          "text": "Honor stock and tell the customer what they earned and how far to the next tier",
           "url": "https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Hold the edge cases for a human",
-          "text": "Surface a gift about to sell out, a cart that games the rule for multiple gifts, a return that keeps a free gift, or a stacked promotion that would give too much, so a person makes the call",
+          "name": "Hold a near-empty gift, a gamed cart, a kept-gift return, or",
+          "text": "Hold a near-empty gift, a gamed cart, a kept-gift return, or a risky stack for a human",
           "url": "https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html#playbook"
         }
       ]

@@ -74,27 +74,42 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Discounts and allowances",
-          "sameAs": "https://en.wikipedia.org/wiki/Discounts_and_allowances"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Discounts_and_allowances",
+            "https://www.wikidata.org/wiki/Q291046"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Pricing",
-          "sameAs": "https://en.wikipedia.org/wiki/Pricing"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Pricing",
+            "https://www.wikidata.org/wiki/Q2516951"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Volume discount",
-          "sameAs": "https://en.wikipedia.org/wiki/Volume_discount"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Volume_discount",
+            "https://www.wikidata.org/wiki/Q291046"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         }
       ],
       "speakable": {
@@ -133,10 +148,19 @@
           "name": "About Shopify Functions",
           "url": "https://shopify.dev/docs/apps/build/functions"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -160,6 +184,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -214,50 +239,43 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Define the tier table",
-          "text": "Write the breaks in plain language: which products or collection, whether the tier keys off units or cart spend, and the saving at each step, so the ladder lives in one place you can change",
+          "name": "Read the tier table: the breaks, whether they key off units",
+          "text": "Read the tier table: the breaks, whether they key off units or cart spend, and the audience they apply to",
           "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Resolve the right tier per cart",
-          "text": "On every cart change, read the qualifying quantity or spend and select the single highest tier the cart has earned, rather than letting several discounts compete",
+          "name": "Resolve the single highest tier this cart has actually",
+          "text": "Resolve the single highest tier this cart has actually earned",
           "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Apply only that tier",
-          "text": "Apply just the chosen break to the right lines or the whole cart, so a shopper who qualifies for the deepest tier is never dropped onto a smaller one",
+          "name": "Apply only that tier, to the right lines or the whole cart",
+          "text": "Apply only that tier, to the right lines or the whole cart, never a smaller one by accident",
           "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Guard the stacking rules",
-          "text": "Decide whether the tier can combine with a code or a running sale, and enforce that choice so the volume break and a coupon do not quietly double up past your floor",
+          "name": "Guard stacking: enforce whether it can combine with a code",
+          "text": "Guard stacking: enforce whether it can combine with a code or a live sale, and hold every tier above its margin floor",
           "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Respect margin and audience",
-          "text": "Hold each tier above its margin floor and apply the right ladder to the right audience, so wholesale or logged-in buyers can get a deeper break than the open storefront",
+          "name": "Show the shopper the next rung (\"add 2 more to save 20",
+          "text": "Show the shopper the next rung (\"add 2 more to save 20 percent\") so the ladder does its own upselling",
           "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Show the next tier to the shopper",
-          "text": "Tell the cart how close it is to the next break, so add one more to save 20 percent nudges the order up instead of leaving the saving invisible",
-          "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook"
-        },
-        {
-          "@type": "HowToStep",
-          "position": 7,
-          "name": "Escalate the judgment calls",
-          "text": "Hold for review a tier that would cross a margin floor, a clash between a code and a volume break, or a new promotion that overlaps an existing ladder, so a person makes the call",
+          "name": "Hold for review a tier that crosses a floor",
+          "text": "Hold for review a tier that crosses a floor, a code clash, or a new promo that overlaps an existing ladder",
           "url": "https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html#playbook"
         }
       ]

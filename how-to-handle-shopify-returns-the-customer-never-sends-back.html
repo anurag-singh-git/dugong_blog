@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Product return",
-          "sameAs": "https://en.wikipedia.org/wiki/Product_return"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Product_return",
+            "https://www.wikidata.org/wiki/Q166778"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Reverse logistics",
-          "sameAs": "https://en.wikipedia.org/wiki/Reverse_logistics"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Reverse_logistics",
+            "https://www.wikidata.org/wiki/Q1345498"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         }
       ],
       "speakable": {
@@ -158,10 +167,19 @@
           "name": "Shopify Developer Changelog | Filter orders by return status",
           "url": "https://shopify.dev/changelog/filter-orders-by-return-status"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -185,13 +203,14 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
           "name": "How do I close a Shopify return the customer never sent back?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Open the order, find the return in progress, and cancel it. Shopify will only let you cancel an open return if it has not been refunded, restocked, marked as returned, labeled, or had a fulfillment cancelled, which is a real problem in practice because the returns you most want to close are usually the ones you created a label for. When the return is blocked, the honest route is to process it with a zero quantity received, close it, and record the write off against the order with a note. Two cautions. A cancelled return cannot be reopened, so if the parcel was only slow you have to create a second return and the customer sees two. And cancelling the return does nothing to the money: if you already refunded on approval, closing the record just tidies the admin while you remain out the item and the cash."
+            "text": "Open the order, find the return in progress, and cancel it. Shopify will only let you cancel an open return if it has not been refunded, restocked, marked as returned, labeled, or had a fulfillment cancelled, which is a real problem in practice because the returns you most want to close are usually the ones you created a label for. When the return is blocked, the honest route is to process it with nothing received, close it, and record the write off against the order with a note. Two cautions. A cancelled return cannot be reopened, so if the parcel was only slow you have to create a second return and the customer sees two. And cancelling the return does nothing to the money: if you already refunded on approval, closing the record just tidies the admin while you remain out the item and the cash."
           }
         },
         {
@@ -199,7 +218,7 @@
           "name": "Can Shopify Flow close or cancel old returns automatically?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Partly, and it has been able to since 16 August 2024, when Shopify shipped six return triggers (return requested, approved, declined, closed, cancelled and reopened), a cancel return action, and three templates including one called Cancel inactive returns. The changelog entry says in its own words that the action helps when buyers do not send products back. What it cannot do is notice. Every one of those triggers fires on a status change that somebody makes, and a return that goes quiet makes no change at all, so nothing fires. The native workaround is the Scheduled time trigger plus Get order data with a return status query, which is exactly what a merchant was told in a September 2024 community thread asking how to close returns older than thirty days. That thread never produced a working query, and Flow has no refund action either, so the money side has to go through Send Admin API request."
+            "text": "Partly, and it has been able to since 16 August 2024, when Shopify shipped six return triggers (return requested, approved, declined, closed, cancelled and reopened), a cancel return action, and three templates including one called cancel inactive returns. The changelog entry says in its own words that the action helps when buyers do not send products back. What it cannot do is notice. Every one of those triggers fires on a status change somebody makes, and a return that goes quiet makes no change at all, so nothing fires. The native workaround is the scheduled time trigger plus get order data with a return status query, which is exactly what a merchant was told in a September 2024 community thread asking how to close returns older than thirty days. That thread never produced a working query. Flow also has no refund action, so the money side has to go through send admin API request."
           }
         },
         {
@@ -207,7 +226,7 @@
           "name": "Why does return_status:open return no orders in the Shopify API?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because the value the orders query accepts and the value the documentation suggests are not the same thing. A developer reported this on the Shopify Community in November 2024: an unfiltered query showed an order with returnStatus IN_PROGRESS holding a return with status OPEN, the filter return_status:open returned nothing at all, and the filter return_status:in_progress returned the right order while the response carried the warning that in_progress is not an accepted value. No one replied and the thread is still open. The practical lesson is to test the filter against a store you can see rather than trusting either the documentation or the warning, and to verify your result count against the orders page before you point a cancel action at it."
+            "text": "Because the value the orders query accepts and the value the documentation suggests are not the same thing. A developer reported this on the Shopify Community in November 2024: an unfiltered query showed an order with a return status of IN_PROGRESS holding a return whose status was OPEN, the filter return_status:open returned nothing at all, and the filter return_status:in_progress returned the right order while the response carried a warning that in_progress is not an accepted value. No one replied and the thread is still open. The practical lesson is to test the filter against a store you can see rather than trusting the documentation or the warning, and to verify your result count against the orders page before you point a cancel action at it."
           }
         },
         {
@@ -215,7 +234,7 @@
           "name": "Should I refund a Shopify return before the item arrives?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Only deliberately, and only for customers and price points where you have decided the goodwill is worth the exposure. Refunding on approval is the single decision that converts a quiet return from an annoyance into a loss, because once the money has gone the only lever left is asking nicely. Three details make it worse than it looks. Shopify Payments does not return your credit card fees on a refund, so you are out the item, the cash and the processing. Inventory is not restocked until you process the return, so your forecast keeps counting a unit that is never coming. And on an exchange, inventory for the replacement is not reserved until you process the return, which means the replacement you shipped early is a gift if the original never lands. A better default is to refund on first carrier scan rather than on approval: the customer gets a date they can trust, and you only pay when the box is genuinely moving."
+            "text": "Only deliberately, and only for the customers and price points where you have decided the goodwill is worth the exposure. Refunding on approval is the single decision that turns a quiet return from an annoyance into a loss, because once the money has gone the only lever left is asking nicely. Three details make it worse than it looks. Shopify Payments does not return your credit card fees on a refund, so you are out the item, the cash and the processing. Inventory is not restocked until you process the return, so your forecast keeps counting a unit that is never coming. And on an exchange, inventory for the replacement is not reserved until you process the return, which means a replacement you shipped early is a gift if the original never lands. A better default is to refund on first carrier scan rather than on approval: the customer gets a date they can trust, and you only pay once the box is genuinely moving."
           }
         },
         {
@@ -223,7 +242,7 @@
           "name": "Can AI handle Shopify returns that never come back?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "This is a good fit, because the work is classification and writing rather than arithmetic. Three silences look identical in the admin: the customer never shipped, the parcel shipped and is lost, and the parcel arrived and is sitting unopened in your receiving area. A model can separate them by reading the carrier scan history, the inbound parcel log and the receiving photos, and it can match an unlabeled box with no paperwork to the one open return whose items and address fit. It can then write the three messages that actually recover the item, each one with the real deadline in it, and escalate only the decisions worth a human. It can also see the pattern nobody has time to look for: the same buyer, or the same address under three names, opening returns that never ship. Keep two things human. The write off threshold, because that is a margin call. And the first accusation of abuse, because being wrong about that costs more than the item."
+            "text": "This is a good fit, because the work is classification and writing rather than arithmetic. Three silences look identical in the admin: the customer never shipped, the parcel shipped and is lost, and the parcel arrived and is sitting unopened in your receiving area. A model can separate them by reading carrier scan history, the inbound parcel log and the receiving photos, and it can match an unlabeled box with no paperwork to the one open return whose items and address fit. It can then write the three messages that actually recover the item, each with the real deadline in it, and escalate only the decisions worth a human. It can also see the pattern nobody has time to look for: the same buyer, or the same address under three names, opening returns that never ship. Keep two things human. The write off threshold, because that is a margin call. And the first accusation of abuse, because being wrong about that costs more than the item."
           }
         }
       ]
@@ -239,57 +258,57 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Watch the scan, not the date",
-          "text": "Age every open return from its first carrier scan, or from approval if no scan ever happened, because the two mean completely different things",
+          "name": "Age each return from its first carrier scan",
+          "text": "Age each return from its first carrier scan, not from the approval date",
           "url": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Separate the three silences",
-          "text": "Never shipped, shipped and lost, and arrived but unprocessed are three different problems with three different owners",
+          "name": "Classify the silence: never shipped, stalled in transit, or",
+          "text": "Classify the silence: never shipped, stalled in transit, or sitting unprocessed here",
           "url": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Reconcile the receiving bench",
-          "text": "Match every inbound parcel to an open return daily, including the ones that arrive with no paperwork in the box",
+          "name": "Match every inbound box to an open return",
+          "text": "Match every inbound box to an open return, including the ones with no paperwork",
           "url": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Chase on a ladder",
-          "text": "A reminder at day seven, a dated final notice at day fourteen, and a decision at day twenty-one, each with the real deadline in it",
+          "name": "Chase on a ladder: day 7 reminder, day 14 dated final",
+          "text": "Chase on a ladder: day 7 reminder, day 14 dated final notice, day 21 decision",
           "url": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Hold the money until it lands",
-          "text": "Refund on first carrier scan by default, and keep refund on approval as a deliberate exception by customer and basket value",
+          "name": "Hold the refund until first scan",
+          "text": "Hold the refund until first scan, unless the customer and basket earn an exception",
           "url": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Close the exchange exposure",
-          "text": "Flag every exchange shipped before its return arrived, because that replacement is unpaid until the original lands",
+          "name": "Flag exchanges shipped against a return that has not landed",
+          "text": "Flag exchanges shipped against a return that has not landed",
           "url": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Close it honestly",
-          "text": "Cancel or zero-process the return, release the phantom unit from your forecast, and book the loss as shrinkage rather than a return",
+          "name": "Close it: cancel or zero- process, release the phantom unit",
+          "text": "Close it: cancel or zero- process, release the phantom unit, book it as shrinkage",
           "url": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 8,
-          "name": "Count the pattern",
-          "text": "Track quiet returns per customer and per address, and gate the next approval instead of accusing anyone on the first one",
+          "name": "Count quiet returns per customer and per address",
+          "text": "Count quiet returns per customer and per address",
           "url": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html#playbook"
         }
       ]
@@ -964,9 +983,9 @@ the receiving bench
 </code></pre>
 
     <p>
-      <strong>Step one is the whole difference.</strong> Ageing
+      <strong>Step one is the whole difference.</strong> Aging
       from the approval date treats a parcel crawling across a
-      country the same as a label nobody printed. Ageing from
+      country the same as a label nobody printed. Aging from
       first scan splits your pile in two on day three, before
       anything has gone cold, and each half gets a different
       message from a different person.

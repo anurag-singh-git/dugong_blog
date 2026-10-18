@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Alt attribute",
-          "sameAs": "https://en.wikipedia.org/wiki/Alt_attribute"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Alt_attribute",
+            "https://www.wikidata.org/wiki/Q1067764"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Web accessibility",
-          "sameAs": "https://en.wikipedia.org/wiki/Web_accessibility"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Web_accessibility",
+            "https://www.wikidata.org/wiki/Q808932"
+          ]
         }
       ],
       "speakable": {
@@ -123,10 +132,19 @@
           "name": "Shopify Help Center | Bulk editing",
           "url": "https://help.shopify.com/en/manual/shopify-admin/productivity-tools/bulk-editing"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -150,6 +168,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -204,49 +223,49 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Find every image missing or weak alt text",
+          "name": "Find every product, variant, collection, and content image",
           "text": "Find every product, variant, collection, and content image whose alt text is missing, duplicated, or just the file name",
           "url": "https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Look at the image itself",
+          "name": "Look at the image itself, plus the product context: title",
           "text": "Look at the image itself, plus the product context: title, type, the variant it belongs to, color and material",
           "url": "https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Write a concise accurate line",
-          "text": "Write a concise, accurate line that describes what the photo shows, in the store's voice, under about 125 characters",
+          "name": "Write a concise, accurate line that describes what the photo",
+          "text": "Write a concise, accurate line that describes what the photo shows, in the store's voice, under ~125 characters",
           "url": "https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Keep near-identical variant shots distinct",
-          "text": "Keep near-identical variant and angle shots distinct so a front and back, or two colorways, never read the same",
+          "name": "Keep near-identical variant and angle shots distinct",
+          "text": "Keep near-identical variant and angle shots distinct, so a front and a back, or two colorways, never read the same",
           "url": "https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Leave decorative images empty",
-          "text": "Leave genuinely decorative images with an empty alt so screen readers skip them instead of reading noise",
+          "name": "Leave genuinely decorative images with an empty alt so a",
+          "text": "Leave genuinely decorative images with an empty alt so a screen reader skips them instead of reading noise",
           "url": "https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Write the alt text back through the API",
+          "name": "Write the alt text back through the Admin API in batches",
           "text": "Write the alt text back through the Admin API in batches, touching nothing else on the product",
           "url": "https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Log every line and flag the unclear ones",
+          "name": "Log every line for a quick human spot-check",
           "text": "Log every line for a quick human spot-check, and flag the images too generic or low-quality to describe well",
           "url": "https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html#playbook"
         }

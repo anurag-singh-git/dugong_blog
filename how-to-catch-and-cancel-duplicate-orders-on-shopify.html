@@ -74,27 +74,42 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Order fulfillment",
-          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_fulfillment",
+            "https://www.wikidata.org/wiki/Q1473552"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Chargeback",
-          "sameAs": "https://en.wikipedia.org/wiki/Chargeback"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Chargeback",
+            "https://www.wikidata.org/wiki/Q3307525"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Customer service",
-          "sameAs": "https://en.wikipedia.org/wiki/Customer_service"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Customer_service",
+            "https://www.wikidata.org/wiki/Q1060653"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         }
       ],
       "speakable": {
@@ -133,10 +148,19 @@
           "name": "Shopify Help Center | Shopify Flow",
           "url": "https://help.shopify.com/en/manual/shopify-flow"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -160,6 +184,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -214,43 +239,43 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Look back on every new order",
-          "text": "When an order is created, pull the same customer's other orders from the last day and put them side by side",
+          "name": "Look back at the same customer's orders from the last day",
+          "text": "Look back at the same customer's orders from the last day and put them side by side",
           "url": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Compare whole orders, not single fields",
-          "text": "Match line items, quantities, totals, shipping address, payment method, and the minutes between them",
+          "name": "Compare whole orders: items, quantities, totals, ship-to",
+          "text": "Compare whole orders: items, quantities, totals, ship-to, payment, and the minutes between them",
           "url": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
           "name": "Judge duplicate or deliberate",
-          "text": "An identical order minutes later is a misfire; the same product a day later with a gift note is a customer who wants two",
+          "text": "Judge duplicate or deliberate: an identical cart minutes later is a misfire, the same product next week is a fan",
           "url": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Cancel the copy before the label prints",
-          "text": "Cancel the unfulfilled duplicate, refund it, restock the inventory, and file the reason on the order",
+          "name": "Cancel the unfulfilled copy before the label prints",
+          "text": "Cancel the unfulfilled copy before the label prints, refund it, restock, file the reason",
           "url": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Tell the customer before they find the charge",
-          "text": "Send a plain email that says what happened, what was cancelled, and when the refund lands, before the statement does",
+          "name": "Tell the customer plainly",
+          "text": "Tell the customer plainly, before the double charge finds them on a statement",
           "url": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Hold the close call for a human",
-          "text": "When the two orders rhyme but do not match, pause fulfillment briefly and ask the customer or the merchant instead of guessing",
+          "name": "Hold the close call: pause fulfillment briefly and ask",
+          "text": "Hold the close call: pause fulfillment briefly and ask, instead of guessing",
           "url": "https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html#playbook"
         }
       ]

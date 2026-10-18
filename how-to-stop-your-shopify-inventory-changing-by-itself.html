@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Inventory",
-          "sameAs": "https://en.wikipedia.org/wiki/Inventory"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Inventory",
+            "https://www.wikidata.org/wiki/Q815410"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Phantom inventory",
-          "sameAs": "https://en.wikipedia.org/wiki/Phantom_inventory"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Phantom_inventory",
+            "https://www.wikidata.org/wiki/Q7180610"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         }
       ],
       "speakable": {
@@ -128,10 +137,19 @@
           "name": "Shopify Help Center | Shopify Flow",
           "url": "https://help.shopify.com/en/manual/shopify-flow"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -155,6 +173,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -209,50 +228,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Baseline the flow",
-          "text": "Learn each SKU's normal daily movement and who legitimately writes to it",
+          "name": "Baseline the flow: each SKU's normal movement, and who is",
+          "text": "Baseline the flow: each SKU's normal movement, and who is allowed to write to it",
           "url": "https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Watch every adjustment",
-          "text": "Subscribe to changes as they land, all variants, all locations",
+          "name": "Watch every adjustment as it lands",
+          "text": "Watch every adjustment as it lands: all variants, all locations, no 180 day limit",
           "url": "https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
           "name": "Match each change to its story",
-          "text": "An order, a return restock, a transfer, a named app doing its configured job",
+          "text": "Match each change to its story: an order, a restock, a transfer, a named app",
           "url": "https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Flag the orphans",
-          "text": "A change with no story gets an alert in minutes, evidence attached",
+          "name": "Flag the orphans in minutes",
+          "text": "Flag the orphans in minutes: the change no story explains, evidence attached",
           "url": "https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Name the culprit",
-          "text": "Created by plus the pattern: nightly resets mean a scheduled job",
+          "name": "Name the culprit: Created by plus the pattern; 9:20pm",
+          "text": "Name the culprit: Created by plus the pattern; 9:20pm nightly means a schedule",
           "url": "https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Keep the ledger",
-          "text": "Your own audit trail, past the 180 day window, all variants at once",
+          "name": "Keep the ledger: your own audit trail, queryable, that never",
+          "text": "Keep the ledger: your own audit trail, queryable, that never expires",
           "url": "https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Report weekly",
-          "text": "What moved, what explained itself, and which door the rest came through",
+          "name": "Report weekly: what moved, what explained itself, which door",
+          "text": "Report weekly: what moved, what explained itself, which door the rest came through",
           "url": "https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html#playbook"
         }
       ]

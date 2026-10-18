@@ -74,22 +74,34 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Stock keeping unit",
-          "sameAs": "https://en.wikipedia.org/wiki/Stock_keeping_unit"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Stock_keeping_unit",
+            "https://www.wikidata.org/wiki/Q399757"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Merchandising",
-          "sameAs": "https://en.wikipedia.org/wiki/Merchandising"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Merchandising",
+            "https://www.wikidata.org/wiki/Q740777"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         }
       ],
       "speakable": {
@@ -128,10 +140,19 @@
           "name": "Liquid reference",
           "url": "https://shopify.dev/docs/api/liquid"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -155,6 +176,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -209,50 +231,43 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Watch inventory at the variant level",
-          "text": "Notice the moment a single variant's available quantity hits zero, per size, per color, per location, not just when a whole product sells out",
+          "name": "Read the variant: is it briefly out and restocking, or",
+          "text": "Read the variant: is it briefly out and restocking, or discontinued and gone for good",
           "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Decide hide versus keep with a signup",
-          "text": "Judge whether the variant is briefly out and restocking, so it should stay visible with a back-in-stock capture, or gone for good, so it should be hidden",
+          "name": "Hide the sold-out value from the storefront so it drops out",
+          "text": "Hide the sold-out value from the storefront so it drops out of the dropdown or swatch, product still live",
           "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Hide the variant without unpublishing the product",
-          "text": "Remove the sold-out option value from the storefront so it stops rendering in the dropdown or swatch, while the product and its in-stock variants stay live and buyable",
+          "name": "Collapse the whole option only if every value in it is gone",
+          "text": "Collapse the whole option only if every value in it is gone, never leave an empty selector",
           "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Collapse an option only when every value is gone",
-          "text": "If all values of an option have sold out, collapse the whole option cleanly instead of leaving an empty selector, and hold the case where every variant is gone",
+          "name": "Keep the demand: attach a back-in-stock signup to the hidden",
+          "text": "Keep the demand: attach a back-in-stock signup to the hidden or unavailable variant",
           "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Capture demand on the hidden variants",
-          "text": "Keep the demand for a hidden or unavailable variant with a back-in-stock signup so the interest is recorded instead of lost",
+          "name": "Restore the variant the moment inventory returns and notify",
+          "text": "Restore the variant the moment inventory returns and notify the waitlist",
           "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Restore the variant the moment stock returns",
-          "text": "Bring the variant back into the dropdown as soon as its inventory goes above zero, and notify the waitlist, without anyone re-editing the theme",
-          "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#playbook"
-        },
-        {
-          "@type": "HowToStep",
-          "position": 7,
-          "name": "Surface the judgment calls for a human",
-          "text": "Hold for review a variant that is discontinued, a core size that keeps flickering in and out, or a product where hiding would leave nothing to buy, so a person makes the merchandising call",
+          "name": "Hold for review a discontinued line",
+          "text": "Hold for review a discontinued line, a core size that keeps flickering, or a page left with nothing to buy",
           "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html#playbook"
         }
       ]

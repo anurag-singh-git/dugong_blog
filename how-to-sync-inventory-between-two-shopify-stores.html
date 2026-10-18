@@ -74,27 +74,42 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Inventory",
-          "sameAs": "https://en.wikipedia.org/wiki/Inventory"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Inventory",
+            "https://www.wikidata.org/wiki/Q815410"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Inventory management software",
-          "sameAs": "https://en.wikipedia.org/wiki/Inventory_management_software"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Inventory_management_software",
+            "https://www.wikidata.org/wiki/Q6059927"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Warehouse",
-          "sameAs": "https://en.wikipedia.org/wiki/Warehouse"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Warehouse",
+            "https://www.wikidata.org/wiki/Q181623"
+          ]
         }
       ],
       "speakable": {
@@ -143,10 +158,19 @@
           "name": "About webhooks",
           "url": "https://shopify.dev/docs/apps/build/webhooks"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -170,6 +194,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -225,49 +250,49 @@
           "@type": "HowToStep",
           "position": 1,
           "name": "Match variants across stores by SKU",
-          "text": "Map every variant in one store to its twin in the other by SKU, and report the blanks and duplicates instead of guessing",
+          "text": "Match variants across stores by SKU, and report the blanks and duplicates instead of guessing",
           "url": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
           "name": "Designate one source of truth per SKU",
-          "text": "Pick the store attached to the physical shelf as the master count, and treat the other store as a mirror",
+          "text": "Designate one source of truth per SKU, the store attached to the physical shelf",
           "url": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Mirror every change with the reason attached",
-          "text": "Push each sale, refund, cancellation, restock, and manual correction to the other store, labeled with why it happened",
+          "name": "Mirror every change to the other store with the reason",
+          "text": "Mirror every change to the other store with the reason attached: sold, restocked, returned, corrected",
           "url": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Hold a buffer on the mirrored store",
-          "text": "Keep the last units selling in one place only, sized by how fast each store moves the product",
+          "name": "Hold a buffer on the mirrored store so the last units sell",
+          "text": "Hold a buffer on the mirrored store so the last units sell in one place only",
           "url": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Catch the race when it happens anyway",
-          "text": "When both stores sell the same last unit inside the sync window, read both orders, keep the one that matters more, and tell the other customer the same hour",
+          "name": "Catch the race: both stores sell the same last unit, keep",
+          "text": "Catch the race: both stores sell the same last unit, keep the order that matters more, tell the other customer this hour",
           "url": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Pause mirroring during bulk imports",
-          "text": "Stop the mirror while supplier feeds and CSV imports run, then reconcile before switching back on",
+          "name": "Pause mirroring while bulk imports and supplier feeds run",
+          "text": "Pause mirroring while bulk imports and supplier feeds run, reconcile on resume",
           "url": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Reconcile nightly and name the drift",
-          "text": "Compare full counts every night, report the disagreements, and flag the SKUs that keep drifting",
+          "name": "Reconcile nightly, report the drift, and name the SKUs that",
+          "text": "Reconcile nightly, report the drift, and name the SKUs that keep drifting",
           "url": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html#playbook"
         }
       ]

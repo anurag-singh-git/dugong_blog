@@ -74,22 +74,34 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Inventory",
-          "sameAs": "https://en.wikipedia.org/wiki/Inventory"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Inventory",
+            "https://www.wikidata.org/wiki/Q815410"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Reseller",
-          "sameAs": "https://en.wikipedia.org/wiki/Reseller"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Reseller",
+            "https://www.wikidata.org/wiki/Q15080920"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         }
       ],
       "speakable": {
@@ -138,10 +150,19 @@
           "name": "Shopify Help Center | Draft orders and invoices",
           "url": "https://help.shopify.com/en/manual/fulfillment/managing-orders/create-orders"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -165,6 +186,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -219,50 +241,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Read the order and the limit",
-          "text": "On a new order or checkout, read the items and quantities, and the per-customer limit that applies to this product, collection, and launch window",
+          "name": "Read the items and quantities",
+          "text": "Read the items and quantities, and the per-customer limit for this product, collection, and launch window",
           "url": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
           "name": "Identify the buyer across orders",
-          "text": "Match this order against past ones by email, shipping and billing address, payment fingerprint, account, and device, not just the cart in front of you",
+          "text": "Identify the buyer across orders: email, shipping and billing address, payment fingerprint, account, device",
           "url": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Decide whether it breaches the limit",
-          "text": "Add this order's quantity to what the same buyer already took in the window and decide whether it goes over the limit for this product or collection",
+          "name": "Decide if this order takes them over the limit once you add",
+          "text": "Decide if this order takes them over the limit once you add what they already bought in the window",
           "url": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Enforce on every path into checkout",
-          "text": "Block the over-limit order at checkout itself, so the wallet buttons, buy-it-now, saved cart links, and checkout permalinks cannot slip a bulk order past the cart-page rule",
+          "name": "Enforce at checkout on every path in",
+          "text": "Enforce at checkout on every path in: cart, wallet buttons, buy-it-now, saved links, checkout permalinks",
           "url": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Clean up what slipped through",
-          "text": "For an over-limit order that already landed, cancel or trim the excess units, refund them, restock the inventory, and free it for real customers",
+          "name": "Clean up what slipped: cancel or trim the excess, refund it",
+          "text": "Clean up what slipped: cancel or trim the excess, refund it, restock the units for real customers",
           "url": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Tell the customer clearly",
-          "text": "Explain the per-customer limit at the point it applies, and confirm kindly when an order was trimmed to the cap so it never looks like a silent failure",
+          "name": "Tell the customer the limit clearly and confirm kindly when",
+          "text": "Tell the customer the limit clearly and confirm kindly when an order was trimmed to the cap",
           "url": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Hold the edge cases for a human",
-          "text": "Surface a genuine household or shared-address order, a wholesale buyer who should be exempt, a gift order, or a near-miss where the match is uncertain, so a person makes the call",
+          "name": "Hold a shared-address household",
+          "text": "Hold a shared-address household, a wholesale exempt, a gift, or an uncertain match for a human",
           "url": "https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html#playbook"
         }
       ]

@@ -73,17 +73,26 @@
         {
           "@type": "Thing",
           "name": "Observability (software)",
-          "sameAs": "https://en.wikipedia.org/wiki/Observability_(software)"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Observability_(software)",
+            "https://www.wikidata.org/wiki/Q115800581"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Business process automation",
-          "sameAs": "https://en.wikipedia.org/wiki/Business_process_automation"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Business_process_automation",
+            "https://www.wikidata.org/wiki/Q5001911"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         }
       ],
       "speakable": {
@@ -142,10 +151,19 @@
           "name": "Shopify Changelog | Flow: New actions to get data about workflow runs",
           "url": "https://changelog.shopify.com/posts/flow-new-actions-to-get-data-about-workflow-runs-abandoned-checkouts-inventory-items-catalogs-and-pages"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -169,6 +187,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -223,50 +242,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Inventory every automation",
-          "text": "What each one is supposed to leave behind in the store",
+          "name": "List every automation and the outcome it is supposed to",
+          "text": "List every automation and the outcome it is supposed to produce",
           "url": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Baseline how often it should fire",
-          "text": "A rate and a latency, per automation",
+          "name": "Baseline each one: how often it should fire and how fast",
+          "text": "Baseline each one: how often it should fire and how fast",
           "url": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Check the outcome, not the run log",
-          "text": "Query the store for the promise, not the process",
+          "name": "Check the outcome in the store data",
+          "text": "Check the outcome in the store data, not the run log",
           "url": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Alarm on silence, not just errors",
-          "text": "Zero runs is a result, and the expensive one",
+          "name": "Alarm on silence too, not just on errors: zero runs is a",
+          "text": "Alarm on silence too, not just on errors: zero runs is a result",
           "url": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Archive the runs before day fourteen",
-          "text": "Own the history instead of renting a two week window",
+          "name": "Copy run evidence out before day fourteen deletes it",
+          "text": "Copy run evidence out before day fourteen deletes it",
           "url": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Re-verify after every change",
-          "text": "Your edit, an app update, a platform release",
+          "name": "Re-verify after every edit",
+          "text": "Re-verify after every edit, app update and platform release",
           "url": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Keep one open incident per automation",
-          "text": "Told once, reminded until the outcome returns",
+          "name": "Open one incident per automation and keep it open until it",
+          "text": "Open one incident per automation and keep it open until it clears",
           "url": "https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html#playbook"
         }
       ]

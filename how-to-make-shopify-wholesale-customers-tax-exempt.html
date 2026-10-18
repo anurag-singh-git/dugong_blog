@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Sales tax",
-          "sameAs": "https://en.wikipedia.org/wiki/Sales_taxes_in_the_United_States"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Sales_tax",
+            "https://www.wikidata.org/wiki/Q11055488"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Reseller",
-          "sameAs": "https://en.wikipedia.org/wiki/Reseller"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Reseller",
+            "https://www.wikidata.org/wiki/Q15080920"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         }
       ],
       "speakable": {
@@ -133,10 +142,19 @@
           "name": "Shopify Help Center | Actions in Shopify Flow",
           "url": "https://help.shopify.com/en/manual/shopify-flow/reference/actions"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-make-shopify-wholesale-customers-tax-exempt.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-make-shopify-wholesale-customers-tax-exempt.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-make-shopify-wholesale-customers-tax-exempt.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -160,13 +178,14 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-make-shopify-wholesale-customers-tax-exempt.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
           "name": "How do I make a customer tax exempt on Shopify?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Open Customers, click the customer, open the menu in the Customer section and choose Manage tax settings. You then pick either Don't collect tax, which zeroes tax for that customer everywhere, or Collect tax unless exemptions apply, which lets you select specific exemptions such as a reseller exemption in one state. Save, and the exemption applies when that customer checks out with the email address on their account. Two things catch merchants out. The exemption covers the whole customer rather than specific products, so it also removes tax from anything else they buy, and it overrides your product and shipping tax overrides. On plans that support Shopify B2B you can instead set tax settings per company location, which is the better fit when one business buys through several contacts."
+            "text": "Open Customers, click the customer, open the menu in the Customer section and choose Manage tax settings. Then pick either Don't collect tax, which zeroes tax for that buyer everywhere, or Collect tax unless exemptions apply, which lets you select specific exemptions such as a reseller exemption in one state. Save, and it applies when that customer checks out with the email address on their account. Two things catch merchants out: the exemption covers the whole customer rather than specific products, and it overrides your product and shipping tax overrides. On plans that support Shopify B2B you can set tax settings per company location instead, which fits better when one business buys through several contacts."
           }
         },
         {
@@ -174,7 +193,7 @@
           "name": "Does Shopify track resale certificate expiry dates?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Shopify stores the exemption as a flag on the customer, taxExempt, plus an optional list of per-state exemptions such as US_CA_RESELLER_EXEMPTION or US_FL_RESELLER_EXEMPTION. There is no field for the certificate number, the issuing state's form, the signature date, the expiry date or the document itself, and nothing in the admin warns you when a certificate lapses. That matters because expiry rules differ sharply by state. Florida's annual resale certificate expires at the end of each calendar year, Alabama and Louisiana resale certificates run a year, Connecticut and Iowa three, Rhode Island and Washington four, Maryland and Nevada five, while California, New York, Texas and most others set no fixed term but go invalid when the buyer's name, address or permit status changes. The practical fix is to store the number and a computed expiry in customer metafields and run a sweep against them, because the switch alone will happily stay on for years."
+            "text": "No. Shopify stores a flag on the customer, taxExempt, plus an optional list of per-state exemptions such as US_CA_RESELLER_EXEMPTION. There is no field for the certificate number, the form, the signature date, the expiry or the document, and nothing warns you when one lapses. That matters because the rules differ sharply: Florida's annual resale certificate expires at the end of each calendar year, Alabama and Louisiana resale certificates run a year, Connecticut and Iowa three, Rhode Island and Washington four, Maryland and Nevada five, while California, New York, Texas and most others set no fixed term but go invalid when the buyer's name, address or permit status changes. Store the number and a computed expiry in customer metafields and sweep them, because the switch will happily stay on for years. Confirm each rule with the relevant state before you encode it."
           }
         },
         {
@@ -182,7 +201,7 @@
           "name": "Can Shopify Flow set a customer as tax exempt?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Not with a built-in action. Flow's customer actions cover adding and removing customer tags, updating a customer metafield, updating the customer note, getting customer data and looking a customer up in a segment. None of them touch tax exemption. You can reach the mutation through the Send Admin API request action, which can run most mutations that are not yet available as Flow actions, so the write itself is solvable. The part Flow cannot do is the part that takes the time: opening a phone photo of a certificate, deciding whether it is the right form for that state, whether it is complete and signed, whether the business name on it matches the account, and whether the number looks like that state's format."
+            "text": "Not with a built-in action. Flow's customer actions are adding and removing customer tags, updating a customer metafield, updating the customer note, getting customer data and looking a customer up in a segment. None touch tax exemption. You can reach the mutation through the Send Admin API request action, which runs most mutations not yet available as actions, so the write is solvable. What Flow cannot do is the part that takes the time: opening a phone photo of a certificate and deciding whether it is the right form for that state, complete, signed, in the right number format, and in the name of the business in your customer list."
           }
         },
         {
@@ -190,7 +209,7 @@
           "name": "Can AI verify resale certificates for Shopify wholesale customers?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It can do most of the work and should not do all of it. A model reads a crooked photo or a scanned PDF, extracts the state, form, certificate number, business name, address, signature and dates, checks the form against the state it was written for, compares the business name to the Shopify customer or company even when it arrives as a trading name, flags a blank signature or a missing date, and queries a state lookup where one is published. What it cannot honestly do is certify a tax position in a state that publishes no lookup at all, and New Jersey is the standard example. Merchants in the Shopify community make the same point about optical character recognition: it speeds data entry but does not confirm that a document is valid. So the automation's job is to shrink the human queue to the genuinely ambiguous cases, set exemptions only after approval, and make sure no certificate ever expires in silence."
+            "text": "It can do most of the work and should not do all of it. A model reads a crooked photo or a scanned PDF, extracts the state, form, number, business name, address, signature and dates, checks the form against the state it was written for, matches a trading name to the account, flags a blank signature or missing date, computes the expiry from that state's rule, and queries a state lookup where one is published. What it cannot honestly do is certify a position in a state that publishes no lookup, and New Jersey is the standard example, or query professional licensing boards that share no common interface. So the automation's job is to shrink the human queue to the genuinely ambiguous cases, set exemptions only after approval, and make sure no certificate expires in silence."
           }
         },
         {
@@ -198,7 +217,7 @@
           "name": "Why is Shopify charging tax to my tax exempt wholesale customer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Usually because the order did not travel under the account you flagged. Shopify applies a customer exemption when the buyer checks out with the email address on their customer account, so a guest checkout, a second work email, an express wallet carrying a relay address or an order rung up at your counter under a phone number can all be taxed in full. The other common cause is scope: an exemption selected for one state does nothing for an order shipping to another, which is correct behavior rather than a bug. One more trap, if your prices are tax inclusive: an exempt customer pays the same listed price, so the exemption shows up in your tax reporting rather than as a discount the buyer can see. The durable answer is a monthly reconciliation that lists exempt accounts charged tax and taxed states billed as exempt, so you catch both inside the window where a refund is still cheap."
+            "text": "Usually because the order did not travel under the account you flagged. Shopify applies the exemption when the buyer checks out with the email on their customer account, so a guest checkout, a second work email, an express wallet carrying a relay address or a counter sale under a phone number can all be taxed in full. The other common cause is scope: an exemption selected for one state does nothing for an order shipping to another, which is correct rather than a bug. One more trap if your prices are tax inclusive: an exempt customer pays the same listed price, so the exemption shows up in your tax reporting rather than as a visible discount. The fix is a monthly reconciliation of exempt accounts charged tax and untaxed orders with no certificate on file."
           }
         }
       ]
@@ -214,57 +233,57 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Collect through one door",
-          "text": "State, form, certificate number, signer and the document itself, captured at application and from the account",
+          "name": "Collect through one door: state, form, number, signer and",
+          "text": "Collect through one door: state, form, number, signer and the document itself",
           "url": "https://blog.dugong.live/how-to-make-shopify-wholesale-customers-tax-exempt.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Read the document",
-          "text": "Form type, state, number, business name, address, signature and dates pulled off the photo or PDF",
+          "name": "Read the file: form type, state, number, business name",
+          "text": "Read the file: form type, state, number, business name, address, signature, dates",
           "url": "https://blog.dugong.live/how-to-make-shopify-wholesale-customers-tax-exempt.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Validate it",
-          "text": "Right form for the state, fully completed, signed and dated, name matching the account, number in the state's format",
+          "name": "Validate: right form for that state, fully completed",
+          "text": "Validate: right form for that state, fully completed, signed, name matches the account, number in the right format",
           "url": "https://blog.dugong.live/how-to-make-shopify-wholesale-customers-tax-exempt.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Check the register",
-          "text": "Query the state lookup where one exists, and flag plainly where the state publishes none",
+          "name": "Check the state register where one exists",
+          "text": "Check the state register where one exists, flag plainly where it does not",
           "url": "https://blog.dugong.live/how-to-make-shopify-wholesale-customers-tax-exempt.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Set the right exemption",
-          "text": "The per-state exemption rather than the blanket switch, plus the tag and the metafields that hold number and expiry",
+          "name": "Set the per-state exemption",
+          "text": "Set the per-state exemption, not the blanket switch, plus tag and metafields for number and expiry",
           "url": "https://blog.dugong.live/how-to-make-shopify-wholesale-customers-tax-exempt.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Keep checkout taxed until approved",
-          "text": "Exemption is the result of an approved certificate, never a box the buyer ticks for themselves",
+          "name": "Keep checkout taxed until a human approves",
+          "text": "Keep checkout taxed until a human approves",
           "url": "https://blog.dugong.live/how-to-make-shopify-wholesale-customers-tax-exempt.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
           "name": "Sweep expiries by state rule",
-          "text": "Chase at sixty, thirty and seven days, then revoke on lapse instead of letting the flag ride",
+          "text": "Sweep expiries by state rule: chase at 60, 30 and 7 days, revoke on lapse",
           "url": "https://blog.dugong.live/how-to-make-shopify-wholesale-customers-tax-exempt.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 8,
-          "name": "File the evidence",
-          "text": "Document, every check, every decision and who made it, dated and attached to the customer",
+          "name": "File the evidence: document, every check, every decision",
+          "text": "File the evidence: document, every check, every decision, dated",
           "url": "https://blog.dugong.live/how-to-make-shopify-wholesale-customers-tax-exempt.html#playbook"
         }
       ]
@@ -852,7 +871,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       it is the business in your customer list, whether the
       number matches that state's format, and whether the
       resale claim is even plausible for the order attached to
-      it. Those are judgements. A condition builder cannot make
+      it. Those are judgments. A condition builder cannot make
       them, and merchants in that community thread say the same
       about plain character recognition: it speeds up data entry
       and will not tell you whether a document is valid.

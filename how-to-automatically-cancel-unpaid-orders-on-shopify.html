@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
-          "name": "Order management",
-          "sameAs": "https://en.wikipedia.org/wiki/Order_management_system"
+          "name": "Order processing",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_processing",
+            "https://www.wikidata.org/wiki/Q7100700"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Inventory",
-          "sameAs": "https://en.wikipedia.org/wiki/Inventory"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Inventory",
+            "https://www.wikidata.org/wiki/Q815410"
+          ]
         }
       ],
       "speakable": {
@@ -128,10 +137,19 @@
           "name": "Shopify Help Center | Draft orders and invoices",
           "url": "https://help.shopify.com/en/manual/fulfillment/managing-orders/create-orders"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -155,6 +173,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -209,50 +228,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Watch every pending order",
-          "text": "Trigger on an order sitting in pending payment, and read the payment method, the order value, and who the customer is",
+          "name": "Read the order: payment method, value, and whether the",
+          "text": "Read the order: payment method, value, and whether the customer is new, repeat, or a known wholesale account",
           "url": "https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Set the window by payment method",
-          "text": "Pick a wait that fits how that method settles: longer for a bank transfer or an agreed invoice, shorter for an abandoned manual checkout",
+          "name": "Set the window to fit the method",
+          "text": "Set the window to fit the method: longer for a bank transfer or agreed invoice, shorter for an abandoned manual checkout",
           "url": "https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
           "name": "Nudge the customer to pay",
-          "text": "Send a clear payment reminder with the amount and a way to complete it, once or twice, instead of going straight to cancel",
+          "text": "Nudge the customer to pay, once or twice, with the amount and a clear way to complete it",
           "url": "https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Recheck before you cancel",
-          "text": "Confirm the order is still unpaid at the moment of cancelling, so a customer who just paid is never cancelled by a stale timer",
+          "name": "Recheck at the deadline that it is still unpaid",
+          "text": "Recheck at the deadline that it is still unpaid, so a late payer is never cancelled by a stale timer",
           "url": "https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Cancel and restock together",
-          "text": "Cancel the cold order, release the held inventory back to the shelf, and record the reason as unpaid so reporting stays clean",
+          "name": "Cancel the cold ones and restock the held inventory in the",
+          "text": "Cancel the cold ones and restock the held inventory in the same step, with the reason logged as unpaid",
           "url": "https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
           "name": "Tell the customer it lapsed",
-          "text": "Send a short, friendly note that the order was cancelled for non-payment with a link to reorder, so the door stays open",
+          "text": "Tell the customer it lapsed, kindly, with a link to reorder so the door stays open",
           "url": "https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Flag the edge cases",
-          "text": "Hold high-value or known wholesale orders for a human, and log every nudge, cancel, and restock so nothing clears silently",
+          "name": "Hold high-value and wholesale orders for a human",
+          "text": "Hold high-value and wholesale orders for a human, and log every nudge, cancel, and restock",
           "url": "https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html#playbook"
         }
       ]

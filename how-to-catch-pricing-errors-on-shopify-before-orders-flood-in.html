@@ -74,22 +74,34 @@
         {
           "@type": "Thing",
           "name": "Price",
-          "sameAs": "https://en.wikipedia.org/wiki/Price"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Price",
+            "https://www.wikidata.org/wiki/Q160151"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Comma-separated values",
-          "sameAs": "https://en.wikipedia.org/wiki/Comma-separated_values"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Comma-separated_values",
+            "https://www.wikidata.org/wiki/Q935809"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         }
       ],
       "speakable": {
@@ -138,10 +150,19 @@
           "name": "Shopify Help Center | Shopify Flow",
           "url": "https://help.shopify.com/en/manual/shopify-flow"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -165,6 +186,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -219,50 +241,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Snapshot the catalog",
-          "text": "Keep price, compare-at price, and cost per variant as history, because Shopify does not",
+          "name": "Snapshot the catalog: price, compare-at, and cost per",
+          "text": "Snapshot the catalog: price, compare-at, and cost per variant, kept as the history Shopify lacks",
           "url": "https://blog.dugong.live/how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Watch every write",
-          "text": "Diff each product update against the snapshot, whichever door it came through",
+          "name": "Watch every write: diff each update against the snapshot",
+          "text": "Watch every write: diff each update against the snapshot, whichever door it came through",
           "url": "https://blog.dugong.live/how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Judge the change",
-          "text": "Zero or near zero, below cost, past the drop threshold with no sale on the calendar",
+          "name": "Judge the change: zero or near zero, below cost, past the",
+          "text": "Judge the change: zero or near zero, below cost, past the drop threshold with no sale on the calendar",
           "url": "https://blog.dugong.live/how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Quarantine first",
-          "text": "Unpublish or revert the anomaly, then alert with old price, new price, and source",
+          "name": "Quarantine first: unpublish or revert, alert with old price",
+          "text": "Quarantine first: unpublish or revert, alert with old price, new price, and source",
           "url": "https://blog.dugong.live/how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Circuit-break the orders",
-          "text": "Hold fulfillment on any order whose line price fails the same rules",
+          "name": "Circuit-break the orders: hold fulfillment where the line",
+          "text": "Circuit-break the orders: hold fulfillment where the line price fails the same rules",
           "url": "https://blog.dugong.live/how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Decide by policy",
-          "text": "Honor small damage, cancel large damage unshipped, message every buyer inside the hour",
+          "name": "Decide by policy: honor small damage, cancel large",
+          "text": "Decide by policy: honor small damage, cancel large unshipped, message buyers inside the hour",
           "url": "https://blog.dugong.live/how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Report the writes",
-          "text": "Who and what changed prices, with near misses, monthly",
+          "name": "Report the writes: who and what changes prices, near misses",
+          "text": "Report the writes: who and what changes prices, near misses included, monthly",
           "url": "https://blog.dugong.live/how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html#playbook"
         }
       ]

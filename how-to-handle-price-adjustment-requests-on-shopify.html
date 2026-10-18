@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Price adjustment",
-          "sameAs": "https://en.wikipedia.org/wiki/Price_adjustment_(retail)"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Price_adjustment_(retail)",
+            "https://www.wikidata.org/wiki/Q7242607"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Product return",
-          "sameAs": "https://en.wikipedia.org/wiki/Product_return"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Product_return",
+            "https://www.wikidata.org/wiki/Q166778"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         }
       ],
       "speakable": {
@@ -148,10 +157,19 @@
           "name": "Shopify Community | How can I trigger a flow automatically when a product's price changes?",
           "url": "https://community.shopify.com/t/how-can-i-trigger-a-flow-automatically-when-a-products-price-changes/153961"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -175,13 +193,14 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
           "name": "Does Shopify have a price adjustment feature?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. There is no price adjustment setting, no price protection window and no policy field anywhere in the Shopify admin. What you have is the ordinary partial refund: open the order, click Refund, enter a quantity, then edit the Refund amount field in the Summary section to the figure you actually want to give back, deselect Restock items so the unit is not added back to stock, and submit. You can keep issuing further partial refunds against that order until you reach the total available to refund, and you can send the money to the original payment method, to store credit, or split it across both. The mechanism works. What is missing is everything around it: no way to detect the price drop that caused the request, no record of what the product used to cost, no policy enforcement and no reporting that separates a price adjustment from a return."
+            "text": "No. There is no price adjustment setting, no price protection window and no policy field anywhere in the admin. What you have is the ordinary partial refund: open the order, click Refund, enter a quantity, then edit the Refund amount field in the Summary to the figure you actually want to give back, deselect Restock items so the unit is not added back to stock, and submit. You can keep issuing further partial refunds until you reach the total available to refund, and you can send the money to the original payment method, to store credit, or split it across both. The mechanism works. What is missing is everything around it: no way to notice the price drop that caused the request, no record of what the product used to cost, no policy enforcement, and no reporting that separates a price adjustment from a return."
           }
         },
         {
@@ -189,7 +208,7 @@
           "name": "How do I refund the price difference on a Shopify order?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Open the order, click Refund, set the quantity for the line item involved, then overwrite the number in the Refund amount field with the difference rather than the item price. Deselect Restock items, because nothing is coming back. Add an internal note saying which promotion the adjustment relates to, since nothing else in the order will record that. Choose the original payment method or store credit as the destination. Two cautions. Your credit card fees are not returned on a refund with Shopify Payments, or with a third party gateway in a country where Shopify Payments is available, so the adjustment costs you the difference plus processing you already paid. And refunds are generally possible for up to 120 days after the order, with older ones depending on the customer's bank, so a request that sits in an inbox is not free."
+            "text": "Open the order, click Refund, set the quantity on the line item involved, then overwrite the Refund amount field with the difference rather than the item price. Deselect Restock items, because nothing is coming back. Add an internal note naming the promotion, since nothing else on the order will record why the money moved. Then choose the original payment method or store credit as the destination. Two cautions. Your credit card fees are not returned on a refund with Shopify Payments, or on a third-party gateway in a country where Shopify Payments is available, so the adjustment costs you the difference plus processing you already paid on it. And refunds are generally possible for up to 120 days after the order, with older ones depending on the customer's bank, so a request that sits in a shared inbox is not free."
           }
         },
         {
@@ -197,7 +216,7 @@
           "name": "Can Shopify Flow trigger when a product price changes?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Not today. Flow's product triggers cover product created, product deleted, product status updated, product variant added, product variant deleted, product variant back in stock, product variant out of stock and product variant inventory quantity changed. None of them fire on price. A long running community thread puts it plainly: there is no Shopify event for price updated. In October 2026 a Shopify staff member on that thread said the Flow team is testing a product updated trigger that can fire on selected product and variant fields including price, available to testers only, with no general availability announced. Until it ships, the native workaround is a scheduled workflow that runs daily and looks for products changed since the last run. Flow also has no refund action: refund created exists as a trigger, and the write has to go through Send Admin API request."
+            "text": "Not today. Flow's product triggers cover product created, product deleted, product status updated, product variant added, product variant deleted, product variant back in stock, product variant out of stock and product variant inventory quantity changed. None of them fire on price. A long-running community thread puts it plainly: there is no Shopify event for price updated. In October 2026 a Shopify staff member on that thread said the Flow team is testing a product updated trigger that can fire on selected product and variant fields including price, available to testers only, with no general availability announced. Until it ships, the native workaround is a scheduled workflow that runs daily and looks for products changed since the last run. Note too that Flow has no refund action at all: refund created exists as a trigger, and the write has to go through Send Admin API request."
           }
         },
         {
@@ -205,7 +224,7 @@
           "name": "What should a Shopify price adjustment policy say?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Five numbers, published where customers and staff can both read them. The window, in days from the order date, usually seven to fourteen. The minimum difference you will bother processing, so a ninety cent adjustment does not consume four minutes of somebody's afternoon. The maximum you will adjust without a manager, which also becomes the cap your automation respects. The exclusions: final sale, clearance, bundles, gift cards, wholesale orders and orders that already used a discount code. And what the customer actually receives, meaning store credit, a refund to the original payment method, or a code for next time. Those five numbers do two jobs. Published, they stop roughly half the requests from arriving at all and pre-answer the rest. Written down, they are the entire configuration of the automation."
+            "text": "Five numbers, published where customers and staff can both read them. The window, in days from the order date, usually seven to fourteen. The minimum difference you will bother processing, so that a ninety cent adjustment does not consume four minutes of somebody's afternoon. The maximum you will adjust without a manager, which also becomes the cap your automation respects. The exclusions: final sale, clearance, bundles, gift cards, wholesale orders, and orders that already used a discount code. And what the customer actually receives, meaning store credit, a refund to the original payment method, or a code for next time. Those five numbers do two jobs at once. Published, they stop a good share of the requests from arriving and pre-answer the rest. Written down, they are the entire configuration of the automation."
           }
         },
         {
@@ -213,7 +232,7 @@
           "name": "Can AI handle price adjustment requests on Shopify?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It can do the two parts that actually take judgement. On the way in, a request arrives as a sentence, not a form: the blue hoodie I ordered last week is cheaper now, often with a screenshot, sometimes naming a variant the customer did not buy. A model matches that to the right order and line item, reads the screenshot, computes the per unit difference after allocated discounts on both sides, checks it against your policy and drafts the reply with the real number in it. On the way out, the harder call is deciding whether a price movement is a promotion at all, because a typo correction, a currency rounding fix, a clearance markdown on a discontinued line and a supplier driven reprice all look identical to a rule that only reads a number. Refund against a mispriced item and you refund most of its value. Keep two things human: the policy itself, and any adjustment above your cap."
+            "text": "It can do the two parts that take judgment. On the way in, a request arrives as a sentence rather than a form: the blue hoodie I ordered last week is cheaper now, often with a screenshot, sometimes naming a variant the customer never bought. A model matches that to the right order and line item, reads the screenshot, computes the per-unit difference after allocated discounts on both sides, checks it against your policy, and drafts the reply with the real number in it. On the way out, the harder call is deciding whether a price movement is a promotion at all, because a typo correction, a currency rounding fix, a clearance markdown on a discontinued line and a supplier-driven reprice all look identical to a rule that only reads a number. Refund against a mispriced item and you refund most of its value. So keep two things human: the policy itself, and any adjustment above your cap."
           }
         }
       ]
@@ -229,57 +248,57 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Snapshot prices",
-          "text": "Capture every variant price daily and immediately before any bulk price edit, because Shopify keeps no price history",
+          "name": "Snapshot prices daily and before any bulk price edit",
+          "text": "Snapshot prices daily and before any bulk price edit",
           "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Classify the drop",
-          "text": "Decide whether a price movement is a promotion, a typo correction or a permanent reprice before anything refunds",
+          "name": "Classify each drop: promotion, mispricing, or permanent",
+          "text": "Classify each drop: promotion, mispricing, or permanent reprice",
           "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Pull the affected orders",
-          "text": "Every order inside the policy window that contains the variant whose price fell",
+          "name": "Pull orders inside the window holding that variant",
+          "text": "Pull orders inside the window holding that variant",
           "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Compute the real difference",
-          "text": "Per unit price paid after allocated discounts against the per unit price that cart would pay today",
+          "name": "Compute the real per-unit delta",
+          "text": "Compute the real per-unit delta, after allocated discounts on both sides",
           "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Apply the policy",
-          "text": "Window, minimum difference, cap, exclusions, and orders already adjusted in this promotion",
+          "name": "Apply the policy: window, floor, cap, exclusions, already",
+          "text": "Apply the policy: window, floor, cap, exclusions, already adjusted",
           "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Settle it",
-          "text": "Store credit by default, cash to the original method above your threshold, a code where neither fits",
+          "name": "Settle: store credit by default, cash above the threshold",
+          "text": "Settle: store credit by default, cash above the threshold, code where neither fits",
           "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Speak first",
-          "text": "Tell eligible customers before they have to ask, because the same money buys a very different reaction",
+          "name": "Speak first, before the customer has to ask",
+          "text": "Speak first, before the customer has to ask",
           "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 8,
-          "name": "Book it to the promotion",
-          "text": "Record the adjustment as promotional spend rather than letting it sit in your refund rate",
+          "name": "Book it against the promotion",
+          "text": "Book it against the promotion, not against refunds",
           "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html#playbook"
         }
       ]
@@ -966,7 +985,7 @@ inbound price adjustment request
     <h2>Where AI earns its place</h2>
 
     <p>
-      Two judgement calls here, and neither of them is
+      Two judgment calls here, and neither of them is
       subtraction.
     </p>
 
@@ -1078,7 +1097,7 @@ inbound price adjustment request
     </div>
     <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Can AI handle price adjustment requests on Shopify?</h2>
-      <p class="faq-a">It can do the two parts that take judgement. On the way in, a request arrives as a sentence rather than a form: the blue hoodie I ordered last week is cheaper now, often with a screenshot, sometimes naming a variant the customer never bought. A model matches that to the right order and line item, reads the screenshot, computes the per-unit difference after allocated discounts on both sides, checks it against your policy, and drafts the reply with the real number in it. On the way out, the harder call is deciding whether a price movement is a promotion at all, because a typo correction, a currency rounding fix, a clearance markdown on a discontinued line and a supplier-driven reprice all look identical to a rule that only reads a number. Refund against a mispriced item and you refund most of its value. So keep two things human: the policy itself, and any adjustment above your cap.</p>
+      <p class="faq-a">It can do the two parts that take judgment. On the way in, a request arrives as a sentence rather than a form: the blue hoodie I ordered last week is cheaper now, often with a screenshot, sometimes naming a variant the customer never bought. A model matches that to the right order and line item, reads the screenshot, computes the per-unit difference after allocated discounts on both sides, checks it against your policy, and drafts the reply with the real number in it. On the way out, the harder call is deciding whether a price movement is a promotion at all, because a typo correction, a currency rounding fix, a clearance markdown on a discontinued line and a supplier-driven reprice all look identical to a rule that only reads a number. Refund against a mispriced item and you refund most of its value. So keep two things human: the policy itself, and any adjustment above your cap.</p>
     </div>
   </div>
   <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>

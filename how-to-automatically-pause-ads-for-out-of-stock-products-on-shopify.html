@@ -74,27 +74,42 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Google Ads",
-          "sameAs": "https://en.wikipedia.org/wiki/Google_Ads"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Google_Ads",
+            "https://www.wikidata.org/wiki/Q271982"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Online advertising",
-          "sameAs": "https://en.wikipedia.org/wiki/Online_advertising"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Online_advertising",
+            "https://www.wikidata.org/wiki/Q624902"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Inventory",
-          "sameAs": "https://en.wikipedia.org/wiki/Inventory"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Inventory",
+            "https://www.wikidata.org/wiki/Q815410"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         }
       ],
       "speakable": {
@@ -133,10 +148,19 @@
           "name": "Shopify Help Center | Sales channels",
           "url": "https://help.shopify.com/en/manual/online-sales-channels"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -160,6 +184,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -214,50 +239,43 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Watch inventory per product and variant",
-          "text": "Notice the moment a product or a variant crosses your stock threshold, per location, not just when the whole product hits an absolute zero",
+          "name": "Match the item to its ad placements",
+          "text": "Match the item to its ad placements: PMax listing group, standard-campaign ad, Meta catalog item / ad set",
           "url": "https://blog.dugong.live/how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Match the product to its ad placements",
-          "text": "Map each Shopify product and variant to its counterpart across Google Ads and Meta: the Performance Max listing group, the standard campaign ad, and the Meta catalog item or ad set",
+          "name": "Read the case: truly out, low but restocking soon, or out in",
+          "text": "Read the case: truly out, low but restocking soon, or out in one variant while others still sell",
           "url": "https://blog.dugong.live/how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Decide pause versus keep against a threshold",
-          "text": "Judge whether the item is truly out, low but restocking imminently, or out in one variant while others still sell, and set the pause only when spending would be wasted",
+          "name": "Pause only the affected placement",
+          "text": "Pause only the affected placement, never the whole campaign, so in-stock products keep running",
           "url": "https://blog.dugong.live/how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Pause only the affected ad object",
-          "text": "Pause the exact listing group, ad, ad set, or catalog item for the sold-out product without touching the campaign's in-stock products",
+          "name": "Fix the feed availability to match the live page so the",
+          "text": "Fix the feed availability to match the live page so the product stops getting disapproved",
           "url": "https://blog.dugong.live/how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Correct the feed so it stops getting disapproved",
-          "text": "Set the feed availability to match the live page so Google and Meta stop disapproving the product and the mismatch stops dragging on the account",
+          "name": "Resume the ad and the listing the moment inventory returns",
+          "text": "Resume the ad and the listing the moment inventory returns above the threshold",
           "url": "https://blog.dugong.live/how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Resume the moment stock returns",
-          "text": "Bring the ad and the feed listing back as soon as inventory goes back above the threshold, without anyone logging into the ad accounts",
-          "url": "https://blog.dugong.live/how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html#playbook"
-        },
-        {
-          "@type": "HowToStep",
-          "position": 7,
-          "name": "Surface the budget calls for a human",
-          "text": "Hold for review a bestseller that keeps flickering in and out, a case where paused spend should be reallocated to other products, or a restock landing within the hour, so a person makes the media call",
+          "name": "Hold for review a flickering bestseller",
+          "text": "Hold for review a flickering bestseller, a budget worth reallocating, or a restock landing within the hour",
           "url": "https://blog.dugong.live/how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html#playbook"
         }
       ]

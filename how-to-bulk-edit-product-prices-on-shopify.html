@@ -74,22 +74,34 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Pricing",
-          "sameAs": "https://en.wikipedia.org/wiki/Pricing"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Pricing",
+            "https://www.wikidata.org/wiki/Q2516951"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Price",
-          "sameAs": "https://en.wikipedia.org/wiki/Price"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Price",
+            "https://www.wikidata.org/wiki/Q160151"
+          ]
         },
         {
           "@type": "Thing",
-          "name": "Bulk operation",
-          "sameAs": "https://en.wikipedia.org/wiki/Bulk_operation"
+          "name": "Batch processing",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Batch_processing",
+            "https://www.wikidata.org/wiki/Q661613"
+          ]
         }
       ],
       "speakable": {
@@ -133,10 +145,19 @@
           "name": "Shopify Help Center | Bulk editing",
           "url": "https://help.shopify.com/en/manual/shopify-admin/productivity-tools/bulk-editing"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -160,6 +181,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -214,50 +236,50 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Trigger on the reason, not the clock",
-          "text": "Start the reprice when a supplier cost changes, a tariff or tax lands, a margin floor is breached, or a planned price update is due, instead of waiting for someone to notice",
+          "name": "Select the products and variants in scope by vendor",
+          "text": "Select the products and variants in scope by vendor, collection, tag, cost, or margin",
           "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Select the exact scope",
-          "text": "Pick the products and variants the change applies to by vendor, collection, tag, cost band, or margin, rather than the whole store or a page of fifty at a time",
+          "name": "Compute a new price per item from a percentage",
+          "text": "Compute a new price per item from a percentage, a fixed amount, or a target margin",
           "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Compute each new price by rule",
-          "text": "Apply the percentage, fixed amount, or target margin to each item's current price or cost, computing a distinct new value per product and per variant",
+          "name": "Round to the price endings you use",
+          "text": "Round to the price endings you use, like .99 or whole numbers",
           "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Apply your rounding and compare-at logic",
-          "text": "Round to the price endings you use, like .99 or whole numbers, and set or clear the compare-at price so a raise does not read as a fake discount",
+          "name": "Fix compare-at so a raise does not show as a fake discount",
+          "text": "Fix compare-at so a raise does not show as a fake discount",
           "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Hold the outliers for a human",
-          "text": "Stop on anything the rule would push below a margin floor, above a sane ceiling, or into a strange value, and surface it for review instead of writing it",
+          "name": "Hold anything below a margin floor",
+          "text": "Hold anything below a margin floor, above a ceiling, or on a strange value for review",
           "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Write the prices across every variant",
-          "text": "Update the price on each product and every variant in scope in one pass, without the fifty-per-page batching or the separate variant editing",
+          "name": "Write the new price across every variant in one pass",
+          "text": "Write the new price across every variant in one pass, no fifty-per-page batching",
           "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Log the before and after for rollback",
-          "text": "Record the old price, the new price, and the rule that set it for every item, so the change is auditable and reversible if a number was wrong",
+          "name": "Log the old price, the new price, and the rule, so the",
+          "text": "Log the old price, the new price, and the rule, so the change is reversible",
           "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html#playbook"
         }
       ]

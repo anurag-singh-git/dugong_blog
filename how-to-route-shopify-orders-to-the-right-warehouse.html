@@ -74,27 +74,42 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Order fulfillment",
-          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_fulfillment",
+            "https://www.wikidata.org/wiki/Q1473552"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Third-party logistics",
-          "sameAs": "https://en.wikipedia.org/wiki/Third-party_logistics"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Third-party_logistics",
+            "https://www.wikidata.org/wiki/Q1500317"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Distribution center",
-          "sameAs": "https://en.wikipedia.org/wiki/Distribution_center"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Distribution_center",
+            "https://www.wikidata.org/wiki/Q1229659"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Warehouse management system",
-          "sameAs": "https://en.wikipedia.org/wiki/Warehouse_management_system"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Warehouse_management_system",
+            "https://www.wikidata.org/wiki/Q278660"
+          ]
         }
       ],
       "speakable": {
@@ -143,10 +158,19 @@
           "name": "Shopify Help Center | Metafields",
           "url": "https://help.shopify.com/en/manual/custom-data/metafields"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -170,6 +194,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -225,42 +250,42 @@
           "@type": "HowToStep",
           "position": 1,
           "name": "Score every location that could send this order",
-          "text": "Rank eligible locations on real rate, carrier zone, cutoff time, backlog, and stock health rather than straight-line distance",
+          "text": "Score every location that could send this order: real rate, carrier zone, cutoff, backlog, stock health",
           "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Decide split or single per order",
-          "text": "Compare landed cost and promised delivery date for one shipment against two, order by order, instead of setting one global preference",
+          "name": "Decide split or single for this order",
+          "text": "Decide split or single for this order, on landed cost and promised date, not one global setting",
           "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Respect the constraints that are not negotiable",
-          "text": "Honor oversized and hazmat limits, market boundaries, personalization, and stock a retail floor needs to keep",
+          "name": "Respect what is not negotiable",
+          "text": "Respect what is not negotiable: oversized, hazmat, market, personalization, shop floor stock",
           "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Move it before the 3PL accepts it",
-          "text": "Reassign the fulfillment order inside the window where a move is still allowed, not after the request has been accepted",
+          "name": "Move the fulfillment order inside the window",
+          "text": "Move the fulfillment order inside the window, before a fulfillment service accepts it",
           "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
           "name": "Re-check when reality moves",
-          "text": "Revisit the assignment when a count turns out to be wrong, a location closes, or a cutoff is missed",
+          "text": "Re-check when reality moves: bad count, closed location, missed cutoff, storm",
           "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Tell the customer once, clearly",
-          "text": "Send one message explaining a genuine split shipment with both tracking numbers instead of two silent notifications",
+          "name": "Tell the customer once, in one message, when an order",
+          "text": "Tell the customer once, in one message, when an order genuinely does ship in two boxes",
           "url": "https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html#playbook"
         }
       ]

@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Order fulfillment",
-          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_fulfillment",
+            "https://www.wikidata.org/wiki/Q1473552"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Third-party logistics",
-          "sameAs": "https://en.wikipedia.org/wiki/Third-party_logistics"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Third-party_logistics",
+            "https://www.wikidata.org/wiki/Q1500317"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         }
       ],
       "speakable": {
@@ -123,10 +132,19 @@
           "name": "Shopify Help Center | Cancelling orders",
           "url": "https://help.shopify.com/en/manual/fulfillment/managing-orders/canceling-orders"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -150,6 +168,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -205,49 +224,49 @@
           "@type": "HowToStep",
           "position": 1,
           "name": "Classify every open order",
-          "text": "Real, noise, or partial, with the money and the merchandise both checked",
+          "text": "Classify every open order: real, noise, or partial, with the money and merchandise both checked",
           "url": "https://blog.dugong.live/how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Archive the noise",
-          "text": "Settled orders in logged batches, never an order that still owes the customer items",
+          "name": "Archive the noise: logged batches, never an order that still",
+          "text": "Archive the noise: logged batches, never an order that still owes the customer items",
           "url": "https://blog.dugong.live/how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Reconcile the pick queue",
-          "text": "The warehouse and 3PL never see a cancelled order as open work",
+          "name": "Reconcile the pick queue: the warehouse and 3PL never see a",
+          "text": "Reconcile the pick queue: the warehouse and 3PL never see a cancelled order as open work",
           "url": "https://blog.dugong.live/how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Age the real queue",
-          "text": "Every paid order against the store's shipping promise, late ones escalated",
+          "name": "Age the real queue: every paid order against your shipping",
+          "text": "Age the real queue: every paid order against your shipping promise, late ones escalated",
           "url": "https://blog.dugong.live/how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Catch the late cancel",
-          "text": "An order cancelled after the fulfillment request went out gets chased",
+          "name": "Catch the late cancel: an order cancelled after the pick",
+          "text": "Catch the late cancel: an order cancelled after the pick started gets chased, not filed",
           "url": "https://blog.dugong.live/how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Digest every morning",
-          "text": "The true count: what ships today and what is already late",
+          "name": "Digest every morning: the true count, what ships today, what",
+          "text": "Digest every morning: the true count, what ships today, what is already late",
           "url": "https://blog.dugong.live/how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Report weekly",
-          "text": "Noise archived, orders shipped on time, and the ones that nearly slipped",
+          "name": "Report weekly: noise archived, shipped on time, and the ones",
+          "text": "Report weekly: noise archived, shipped on time, and the ones that nearly slipped",
           "url": "https://blog.dugong.live/how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html#playbook"
         }
       ]

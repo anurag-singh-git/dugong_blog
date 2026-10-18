@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Inventory management",
-          "sameAs": "https://en.wikipedia.org/wiki/Inventory_management"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Inventory_management_(business)",
+            "https://www.wikidata.org/wiki/Q3761396"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Stock management",
-          "sameAs": "https://en.wikipedia.org/wiki/Stock_management"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Stock_management",
+            "https://www.wikidata.org/wiki/Q3761396"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         }
       ],
       "speakable": {
@@ -168,10 +177,19 @@
           "name": "Shopify Developer Community | Storefront API quantityAvailable returns a global total for every country context",
           "url": "https://community.shopify.dev/t/bug-storefront-api-quantityavailable-with-incontext-country-returns-global-negative-total-for-all-countries-when-net-across-locations-is-negative/24367"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -195,6 +213,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -241,7 +260,7 @@
           "name": "Can AI fix Shopify committed inventory that never clears?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It fits well, because the work is attribution and judgement rather than arithmetic. The hard part is not seeing that committed is nine. It is reconstructing which nine units those are, from open unfulfilled line items, draft reserves and transfers marked ready, then deciding what each stuck one deserves. A cancelled order that never got its restock, an order sitting on a fulfillment hold nobody released, a draft reserve from a quote that went quiet in July, a line item pointing at a location that stopped picking, and a genuine Shopify miscount all look identical in the admin as one number, and each one needs a different release: fulfill, cancel and restock, reassign, release the hold, end the reserve, or open a support ticket with the evidence attached. A model can read the order timeline and tell them apart, and it can do it across every variant at every location every night, which is the part nobody has time for. Keep two things human. Cancelling a customer's order to free stock, because that is a customer decision and not an inventory one. And any release above your variance threshold, because the alternative to a phantom unit is an oversell."
+            "text": "It fits well, because the work is attribution and judgment rather than arithmetic. The hard part is not seeing that committed is nine. It is reconstructing which nine units those are, from open unfulfilled line items, draft reserves and transfers marked ready, then deciding what each stuck one deserves. A cancelled order that never got its restock, an order sitting on a fulfillment hold nobody released, a draft reserve from a quote that went quiet in July, a line item pointing at a location that stopped picking, and a genuine Shopify miscount all look identical in the admin as one number, and each one needs a different release: fulfill, cancel and restock, reassign, release the hold, end the reserve, or open a support ticket with the evidence attached. A model can read the order timeline and tell them apart, and it can do it across every variant at every location every night, which is the part nobody has time for. Keep two things human. Cancelling a customer's order to free stock, because that is a customer decision and not an inventory one. And any release above your variance threshold, because the alternative to a phantom unit is an oversell."
           }
         }
       ]
@@ -257,57 +276,57 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Rebuild the breakdown",
-          "text": "List every open unfulfilled line item, draft reserve and ready-to-ship transfer per variant per location, and sum them",
+          "name": "Rebuild the breakdown: open unfulfilled line items, draft",
+          "text": "Rebuild the breakdown: open unfulfilled line items, draft reserves, ready transfers",
           "url": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Reconcile against committed",
-          "text": "Compare your own total to the committed quantity nightly, and treat any difference as an incident rather than noise",
+          "name": "Reconcile that total against committed",
+          "text": "Reconcile that total against committed, flag every unit you cannot account for",
           "url": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Age every commitment",
-          "text": "Put a clock on each committed unit from the moment it was created, because nothing in Shopify ages them",
+          "name": "Age each commitment from the day it was created",
+          "text": "Age each commitment from the day it was created, since Shopify ages nothing",
           "url": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Classify why it is stuck",
-          "text": "Cancelled without restock, held fulfillment, stale draft reserve, wrong location, dormant transfer, or a genuine miscount",
+          "name": "Classify the stuck ones: unfulfillable, held, stale reserve",
+          "text": "Classify the stuck ones: unfulfillable, held, stale reserve, wrong location, dormant transfer, miscount",
           "url": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Apply the matching release",
-          "text": "Fulfill, cancel and restock, reassign the location, release the hold, end the reserve, or receive the transfer",
+          "name": "Release with the one action that fits",
+          "text": "Release with the one action that fits: fulfill, cancel and restock, reassign, unhold, expire, receive",
           "url": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Expire draft reserves on a rule",
-          "text": "Every reserve gets an end date and a chase before it, so a quote that goes quiet does not hold stock forever",
+          "name": "Chase stale draft reserves before the date",
+          "text": "Chase stale draft reserves before the date, not after",
           "url": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Watch the storefront number",
-          "text": "Alert on any variant with on hand above zero and available at or below zero, per location and per market",
+          "name": "Alert on any variant with on hand above zero and available",
+          "text": "Alert on any variant with on hand above zero and available at or below zero",
           "url": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 8,
-          "name": "Escalate with evidence",
-          "text": "When committed cannot be explained by any order, open a ticket with the variant, location, your own count and the gap",
+          "name": "Escalate the unexplained with variant",
+          "text": "Escalate the unexplained with variant, location, your count and the gap attached",
           "url": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html#playbook"
         }
       ]
@@ -1083,7 +1102,7 @@ above zero
       Fulfilling a line item on an order the customer actually
       cancelled creates a phantom shipment. Cancelling with
       restock on an order waiting on a supplier loses a sale you
-      had already won. That judgement needs the order timeline,
+      had already won. That judgment needs the order timeline,
       the hold reason and the customer's last message read
       together, then stated in a sentence a human can approve in
       four seconds.
@@ -1177,7 +1196,7 @@ above zero
     </div>
     <div class="faq-item" id="faq-6">
       <h2 class="faq-q">Can AI fix Shopify committed inventory that never clears?</h2>
-      <p class="faq-a">It fits well, because the work is attribution and judgement rather than arithmetic. The hard part is not seeing that committed is nine. It is reconstructing which nine units those are, from open unfulfilled line items, draft reserves and transfers marked ready, then deciding what each stuck one deserves. A cancelled order that never got its restock, an order sitting on a fulfillment hold nobody released, a draft reserve from a quote that went quiet in July, a line item pointing at a location that stopped picking, and a genuine Shopify miscount all look identical in the admin as one number, and each one needs a different release: fulfill, cancel and restock, reassign, release the hold, end the reserve, or open a support ticket with the evidence attached. A model can read the order timeline and tell them apart, and it can do it across every variant at every location every night, which is the part nobody has time for. Keep two things human. Cancelling a customer's order to free stock, because that is a customer decision and not an inventory one. And any release above your variance threshold, because the alternative to a phantom unit is an oversell.</p>
+      <p class="faq-a">It fits well, because the work is attribution and judgment rather than arithmetic. The hard part is not seeing that committed is nine. It is reconstructing which nine units those are, from open unfulfilled line items, draft reserves and transfers marked ready, then deciding what each stuck one deserves. A cancelled order that never got its restock, an order sitting on a fulfillment hold nobody released, a draft reserve from a quote that went quiet in July, a line item pointing at a location that stopped picking, and a genuine Shopify miscount all look identical in the admin as one number, and each one needs a different release: fulfill, cancel and restock, reassign, release the hold, end the reserve, or open a support ticket with the evidence attached. A model can read the order timeline and tell them apart, and it can do it across every variant at every location every night, which is the part nobody has time for. Keep two things human. Cancelling a customer's order to free stock, because that is a customer decision and not an inventory one. And any release above your variance threshold, because the alternative to a phantom unit is an oversell.</p>
     </div>
   </div>
   <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>

@@ -74,27 +74,42 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Gift",
-          "sameAs": "https://en.wikipedia.org/wiki/Gift"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Gift",
+            "https://www.wikidata.org/wiki/Q184303"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Gift wrapping",
-          "sameAs": "https://en.wikipedia.org/wiki/Gift_wrapping"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Gift_wrapping",
+            "https://www.wikidata.org/wiki/Q1516291"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Order fulfillment",
-          "sameAs": "https://en.wikipedia.org/wiki/Order_fulfillment"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_fulfillment",
+            "https://www.wikidata.org/wiki/Q1473552"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         }
       ],
       "speakable": {
@@ -133,10 +148,19 @@
           "name": "Liquid reference",
           "url": "https://shopify.dev/docs/api/liquid"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -160,6 +184,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -214,50 +239,43 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Capture the gift intent and message",
-          "text": "Give the shopper a clear gift toggle, wrap choice, and message field, and store the answers as order attributes rather than one buried note so the intent is unambiguous",
+          "name": "Capture the gift toggle, wrap choice, and message as order",
+          "text": "Capture the gift toggle, wrap choice, and message as order attributes, not one buried note",
           "url": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Validate and clean the note",
-          "text": "Check the message for length, empty submissions, and anything offensive, tidy the formatting, and hold anything doubtful for a person before it prints",
+          "name": "Validate the message: length, empties, anything offensive",
+          "text": "Validate the message: length, empties, anything offensive, and tidy the formatting",
           "url": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Attach the wrap",
-          "text": "Add gift wrap as a real line item or fee where charged, and pass it through as a packing instruction where free, so the bench knows to wrap it",
+          "name": "Attach the wrap as a real line item or fee",
+          "text": "Attach the wrap as a real line item or fee, or as a packing instruction where it is free",
           "url": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Tag the order as a gift",
-          "text": "Mark the order as a gift so every downstream step, the slip, the routing, and the notifications can branch on it instead of guessing",
+          "name": "Tag the order as a gift so every later step can branch on it",
+          "text": "Tag the order as a gift so every later step can branch on it instead of guessing",
           "url": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
           "name": "Build a gift packing slip",
-          "text": "Generate a slip for gift orders that prints the message and omits every price and total, while normal orders keep their standard slip",
+          "text": "Build a gift packing slip: message in, every price and total out, and route it to the bench",
           "url": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Route it to the bench",
-          "text": "Send the gift order to the packing station with the wrap flag and the printed message attached, so nothing depends on someone spotting a note in the admin",
-          "url": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#playbook"
-        },
-        {
-          "@type": "HowToStep",
-          "position": 7,
-          "name": "Escalate the judgment calls",
-          "text": "Hold for review an offensive or oversized message, a gift that ships to multiple addresses, or a split shipment, so a person makes the call before it goes out",
+          "name": "Hold for review an offensive or oversized message",
+          "text": "Hold for review an offensive or oversized message, a multi-address gift, or a split shipment",
           "url": "https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html#playbook"
         }
       ]

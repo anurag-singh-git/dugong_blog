@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         },
         {
           "@type": "Thing",
           "name": "E-commerce",
-          "sameAs": "https://en.wikipedia.org/wiki/E-commerce"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Business process automation",
-          "sameAs": "https://en.wikipedia.org/wiki/Business_process_automation"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Business_process_automation",
+            "https://www.wikidata.org/wiki/Q5001911"
+          ]
         }
       ],
       "speakable": {
@@ -123,10 +132,19 @@
           "name": "Shopify Help Center | Shopify Flow",
           "url": "https://help.shopify.com/en/manual/shopify-flow"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -150,6 +168,7 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -204,14 +223,14 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Check the shipping address against an address-verification service",
+          "name": "Check the shipping address against an address-verification",
           "text": "Check the shipping address against an address-verification service (USPS/global)",
           "url": "https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "If it's valid as-is",
+          "name": "If it's valid as-is → let it flow straight to fulfillment",
           "text": "If it's valid as-is → let it flow straight to fulfillment, no one touched it",
           "url": "https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html#playbook"
         },
@@ -232,7 +251,7 @@
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "If they confirm",
+          "name": "If they confirm → update the order and release it",
           "text": "If they confirm → update the order and release it; if no reply in 48h → queue it for me",
           "url": "https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html#playbook"
         },

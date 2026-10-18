@@ -73,17 +73,26 @@
         {
           "@type": "Thing",
           "name": "Dimensional weight",
-          "sameAs": "https://en.wikipedia.org/wiki/Dimensional_weight"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Dimensional_weight",
+            "https://www.wikidata.org/wiki/Q2532935"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Freight rate",
-          "sameAs": "https://en.wikipedia.org/wiki/Freight_rate"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Freight_rate",
+            "https://www.wikidata.org/wiki/Q927345"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         }
       ],
       "speakable": {
@@ -132,10 +141,19 @@
           "name": "Shopify Help Center | Shopify Flow",
           "url": "https://help.shopify.com/en/manual/shopify-flow"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -212,43 +230,59 @@
       "step": [
         {
           "@type": "HowToStep",
-          "name": "Audit the catalog for missing dimensions",
-          "text": "List every sellable variant and separate the ones that carry a length, width and height from the ones that carry only a weight. On most Shopify stores that second group is nearly all of them, because the platform has never asked for the measurement."
+          "position": 1,
+          "name": "Audit every sellable variant for a length",
+          "text": "Audit every sellable variant for a length, width, height and weight",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html#playbook"
         },
         {
           "@type": "HowToStep",
-          "name": "Fill the gaps from source documents",
-          "text": "Pull dimensions from supplier spec sheets, packing lists and manufacturer product pages, proposing a length, width and height per variant with a confidence score, and queue the low-confidence ones for someone to measure with a tape."
+          "position": 2,
+          "name": "Fill the gaps from supplier sheets",
+          "text": "Fill the gaps from supplier sheets, with a confidence on each guess",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html#playbook"
         },
         {
           "@type": "HowToStep",
-          "name": "Build a real box library",
-          "text": "Replace the single default package with the boxes and mailers you actually own, recorded with inner dimensions rather than outer, so the packing arithmetic reflects what ships."
+          "position": 3,
+          "name": "Queue the low-confidence ones for a person with a tape",
+          "text": "Queue the low-confidence ones for a person with a tape measure",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html#playbook"
         },
         {
           "@type": "HowToStep",
-          "name": "Pack the cart before quoting it",
-          "text": "For each rate request, choose the smallest set of your real boxes that fits the items rather than quoting against the default package."
+          "position": 4,
+          "name": "Pack the cart into the boxes we really own",
+          "text": "Pack the cart into the boxes we really own, not one default package",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html#playbook"
         },
         {
           "@type": "HowToStep",
-          "name": "Price dimensional weight on current carrier rules",
-          "text": "Compute length times width times height divided by 139 with every fractional inch rounded up, bill the greater of dimensional and actual weight, and add additional handling or oversize surcharges when cubic volume crosses 10,368 or 17,280 cubic inches."
+          "position": 5,
+          "name": "Price dim weight at L x W x H over 139",
+          "text": "Price dim weight at L x W x H over 139, inches rounded up, plus surcharges",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html#playbook"
         },
         {
           "@type": "HowToStep",
-          "name": "Return the rate through the Carrier Service API",
-          "text": "Hand the packed, surcharged number back through a carrier service endpoint, since Shopify Flow cannot act during a rate request and Delivery Customization Functions can only hide, rename or reorder existing options."
+          "position": 6,
+          "name": "Quote the greater of dim and actual through the carrier",
+          "text": "Quote the greater of dim and actual through the carrier service endpoint",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html#playbook"
         },
         {
           "@type": "HowToStep",
-          "name": "Reconcile quotes against labels and adjustments",
-          "text": "Compare every order's quoted rate with its label cost and with any shipping label price adjustment the carrier posts later, then correct the stored dimensions for the SKUs that keep quoting under."
+          "position": 7,
+          "name": "Reconcile quoted against label and adjustment",
+          "text": "Reconcile quoted against label and adjustment, name the SKUs quoting under",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html#playbook"
         },
         {
           "@type": "HowToStep",
-          "name": "Guard new products",
-          "text": "Flag any new or edited variant saved without dimensions, or with dimensions that fit no box you own, before it is allowed to take an order."
+          "position": 8,
+          "name": "Guard new variants saved with no dimensions before they can",
+          "text": "Guard new variants saved with no dimensions before they can sell",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html#playbook"
         }
       ]
     }

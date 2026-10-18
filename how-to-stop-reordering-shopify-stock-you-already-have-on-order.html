@@ -74,17 +74,26 @@
         {
           "@type": "Thing",
           "name": "Purchase order",
-          "sameAs": "https://en.wikipedia.org/wiki/Purchase_order"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Purchase_order",
+            "https://www.wikidata.org/wiki/Q643327"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Inventory management",
-          "sameAs": "https://en.wikipedia.org/wiki/Inventory_management"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Inventory_management_(business)",
+            "https://www.wikidata.org/wiki/Q3761396"
+          ]
         },
         {
           "@type": "Thing",
           "name": "Shopify",
-          "sameAs": "https://en.wikipedia.org/wiki/Shopify"
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
         }
       ],
       "speakable": {
@@ -158,10 +167,19 @@
           "name": "Shopify Community: API endpoint coming soon for Purchase Orders, with Stocky sunset",
           "url": "https://community.shopify.com/t/api-endpoint-coming-soon-for-purchase-orders-with-stocky-sunset/587136"
         }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq"
+        }
       ]
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -248,63 +266,64 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Pull every open purchase order",
-          "text": "List each purchase order marked ordered and not fully received, with its line items, supplier and destination location",
+          "name": "Pull every PO marked ordered and not fully received",
+          "text": "Pull every PO marked ordered and not fully received, with lines, supplier, destination",
           "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Reconcile what has actually arrived",
-          "text": "Sum the linked transfers and shipments per line and keep the outstanding remainder, because the purchase order status will not tell you",
+          "name": "Reconcile: sum the linked transfers and shipments per line",
+          "text": "Reconcile: sum the linked transfers and shipments per line, keep the remainder",
           "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Give every purchase order a date",
-          "text": "Derive expected arrival from supplier lead time when the purchase order carries none, and update it from the supplier's own messages",
+          "name": "Date it: expected arrival from supplier lead time when the",
+          "text": "Date it: expected arrival from supplier lead time when the PO carries none",
           "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Flag the late ones",
-          "text": "Raise anything past its expected arrival with an outstanding remainder, aged in days rather than listed by date",
+          "name": "Flag late: past expected, remainder still open, aged in days",
+          "text": "Flag late: past expected, remainder still open, aged in days not listed by date",
           "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Publish a real on order quantity",
-          "text": "Write ordered minus received per variant and per location somewhere your low stock and reorder logic can read it",
+          "name": "Publish on order per variant",
+          "text": "Publish on order per variant: ordered minus received, per location, beside available",
           "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Block the duplicate order",
-          "text": "Warn at the moment a new purchase order is drafted for a variant that already has quantity on order",
+          "name": "Block the duplicate: warn at the moment someone drafts a PO",
+          "text": "Block the duplicate: warn at the moment someone drafts a PO for a SKU already on order",
           "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Chase the supplier",
-          "text": "Send the purchase order number, the lines still outstanding and the days late, before the shelf runs out",
+          "name": "Chase the supplier with the PO number",
+          "text": "Chase the supplier with the PO number, the open lines and the days late",
           "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#playbook"
         },
         {
           "@type": "HowToStep",
           "position": 8,
-          "name": "Score the supplier",
-          "text": "Track actual lead time against promised and short ship rate per line, and feed both back into reorder points",
+          "name": "Score lead time actual vs promised",
+          "text": "Score lead time actual vs promised, and short ship rate, per supplier",
           "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#playbook"
         }
       ]
     }
   ]
-}</script>
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
