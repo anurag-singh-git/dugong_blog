@@ -3,7 +3,7 @@
 > For fifteen years workflow automation meant a canvas of rectangles joined by lines. After three million runs across twelve thousand teams, the canvas is the problem.
 
 - Canonical: https://blog.dugong.live/the-death-of-the-drag-and-drop-builder.html
-- Author: Aanya Rao
+- Author: Aanya Rao (https://blog.dugong.live/aanya-rao.html)
 - Published: 2026-05-28
 - Section: Research
 - Word count: 820

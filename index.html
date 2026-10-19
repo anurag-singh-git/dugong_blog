@@ -103,7 +103,7 @@
       "@id": "https://blog.dugong.live/#blog",
       "url": "https://blog.dugong.live/",
       "name": "Dugong Field Notes",
-      "dateModified": "2026-10-18",
+      "dateModified": "2026-10-19",
       "description": "A working journal from the team building AI-native automation. Essays, post-mortems, and field experiments on the playbooks that quietly run the modern company.",
       "publisher": {
         "@id": "https://blog.dugong.live/#organization"
@@ -166,6 +166,25 @@
         }
       ],
       "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#article",
+          "headline": "How to stop shipping Shopify orders that say Payment pending",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html",
+          "mainEntityOfPage": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html",
+          "description": "The order looks exactly like every other order in your queue, it gets picked, packed and shipped, and nine days later the payment status quietly turns to Expired. The AI playbook that holds every pending Shopify order until the money lands.",
+          "datePublished": "2026-10-19",
+          "dateModified": "2026-10-19",
+          "author": {
+            "@id": "https://blog.dugong.live/#priya-singh"
+          },
+          "publisher": {
+            "@id": "https://blog.dugong.live/#organization"
+          },
+          "image": "https://blog.dugong.live/og-image.png",
+          "inLanguage": "en",
+          "wordCount": 2849
+        },
         {
           "@type": "BlogPosting",
           "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#article",
@@ -366,7 +385,9 @@
           "datePublished": "2026-05-28",
           "author": {
             "@type": "Person",
+            "@id": "https://blog.dugong.live/#aanya-rao",
             "name": "Aanya Rao",
+            "url": "https://blog.dugong.live/aanya-rao.html",
             "jobTitle": "Head of Research"
           },
           "publisher": {
@@ -2171,6 +2192,11 @@ a.card:hover .card-title, .card[data-nav]:hover .card-title { color: var(--lime-
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 57%, var(--lime) 57%, var(--lime) 81%, transparent 81%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .article-title em::after { content: none; }
 .article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+/* Editorial links inside a dek paragraph took the dek colour and no
+   underline, so 15 of them across 11 pages were indistinguishable from
+   surrounding text. Match .article-body a. */
+.article-dek a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-dek a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
 .article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
 
 .article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
@@ -2306,6 +2332,63 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 @media (max-width: 360px) {
   .nav-cta { font-size: 12px; padding: 7px 9px; }
 }
+
+/* QA 2026-10-19 */
+:root { color-scheme: light; }
+
+/* QA 2026-10-19: a skip link, so a keyboard or screen-reader visitor does not
+   walk the ticker, the brand and four nav links on every page (WCAG 2.4.1). */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  font-family: var(--display); font-weight: 700; font-size: 14px;
+  background: var(--lime); color: #11110e; border: 1px solid #11110e;
+  padding: 10px 18px; border-radius: 0 0 10px 0;
+}
+.skip-link:focus { left: 0; }
+
+/* QA 2026-10-19: the 2026-10-18 pass gave .nav-cta `order: 2` so the button
+   would ride on the brand's row below 820px, but the button was a child of
+   .nav-links, where `order` means nothing and margin-left:auto pushed it past
+   the gutter. It is a child of .nav now. These rules keep the old look. */
+.nav > .nav-cta { flex-shrink: 0; }
+@media (min-width: 821px) { .nav > .nav-cta { margin-left: 0; } }
+
+/* QA 2026-10-19: .callout is a flex row with a flex-shrink:0 label of
+   79-149px. On a 390px phone that left the quote a 136px column, ~20
+   characters a line, 25 lines for a single paragraph; at 320px, 96px and 41
+   lines, and one callout ran the page 7px wide. Stack below 700px. */
+@media (max-width: 700px) {
+  .callout { flex-direction: column; gap: 0.55rem; }
+  .callout-mark { padding-top: 0; }
+}
+
+/* QA 2026-10-19: .topic had line-height: 1, so a guide name that wrapped to a
+   second line on a phone collided with its own first line. */
+.topic { line-height: 1.18; }
+
+/* QA 2026-10-19: all 92 homepage cards in one column measured 33,416px of a
+   44,397px page on a 390px phone, so Topics, the archive, the signup and the
+   footer sat about 40 screens down. The overflow now sits behind a
+   disclosure; every card is still in the HTML and still crawlable, and
+   applyFilter() opens the disclosure whenever a type filter is active so a
+   filtered view can never hide a matching card. */
+.grid-more { margin: 1.75rem 0 0; position: relative; z-index: 2; }
+.grid-more > summary {
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-dim); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 0.5rem; min-height: 24px;
+  padding: 0.45rem 1rem; border: 1px solid var(--border-strong); border-radius: 999px;
+  list-style: none; transition: color .2s, border-color .2s, background .2s;
+}
+.grid-more > summary::-webkit-details-marker { display: none; }
+.grid-more > summary::after { content: "\002B"; font-size: 1rem; line-height: 1; }
+.grid-more[open] > summary::after { content: "\2212"; }
+.grid-more > summary:hover { color: var(--text); border-color: var(--text); background: var(--surface); }
+.grid-more > summary:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
+.grid-more > .article-grid { margin-top: 1.75rem; }
+/* cards inside a closed disclosure never meet the IntersectionObserver that
+   clears .reveal, so they would open at opacity 0. */
+.grid-more .reveal { opacity: 1; transform: none; }
 </style>
 
 <style>
@@ -2364,6 +2447,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 </style>
 </head>
 <body>
+<a class="skip-link" href="#view-home">Skip to content</a>
 
 <div class="grain" aria-hidden="true"></div>
 
@@ -2375,11 +2459,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
     <span>◆ FIELD NOTES VOL. 04 · 2026</span>
     <span>◆ FROM THE DUGONG RESEARCH DESK</span>
     <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
-    <span>◆ 10 NEW DISPATCHES THIS MONTH</span>
+    <span>◆ 11 NEW DISPATCHES THIS MONTH</span>
     <span>◆ FIELD NOTES VOL. 04 · 2026</span>
     <span>◆ FROM THE DUGONG RESEARCH DESK</span>
     <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
-    <span>◆ 10 NEW DISPATCHES THIS MONTH</span>
+    <span>◆ 11 NEW DISPATCHES THIS MONTH</span>
   </div>
 </div>
 
@@ -2394,15 +2478,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
     <a href="#latest">Latest</a>
     <a href="#tags">Topics</a>
     <a href="#archive">Archive</a>
-    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
   </nav>
+  <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
 </header>
 
 <section class="hero">
   <div class="hero-meta">
-    <span class="hero-issue">ISSUE Nº 131</span>
+    <span class="hero-issue">ISSUE Nº 132</span>
     <span class="hero-divider" aria-hidden="true">·</span>
-    <span class="hero-date">OCT 18 · 2026</span>
+    <span class="hero-date">OCT 19 · 2026</span>
     <span class="hero-divider" aria-hidden="true">·</span>
     <span class="hero-pulse"><span class="dot"></span>LATEST DISPATCH</span>
   </div>
@@ -2425,7 +2509,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
   <div class="hero-stats">
     <div class="stat">
-      <span class="stat-num">131</span>
+      <span class="stat-num">132</span>
       <span class="stat-label">dispatches&nbsp;published</span>
     </div>
     <div class="stat">
@@ -2530,11 +2614,28 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
   <div class="article-grid">
 
-        <a class="card card-tall" href="how-to-catch-shopify-shipping-labels-you-never-used.html" style="text-decoration:none;">
-      <div class="card-art card-art-2">
-        <span class="art-glyph">&#8999;</span>
-        <span class="art-coord">LABEL&nbsp;PAID&nbsp;&middot;&nbsp;NEVER&nbsp;SCANNED</span>
+        <a class="card card-tall" href="how-to-stop-shipping-shopify-orders-with-payment-pending.html" style="text-decoration:none;">
+      <div class="card-art card-art-1">
+        <span class="art-glyph">&#9203;</span>
+        <span class="art-coord">PAYMENT&nbsp;PENDING&nbsp;&middot;&nbsp;ALREADY&nbsp;SHIPPED</span>
       </div>
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to stop shipping Shopify orders <em>that say Payment pending</em></h3>
+        <p class="card-dek">
+          The order looks like every other order in your queue, it gets picked, packed and shipped, and nine days later the payment status quietly turns to Expired. The AI playbook that holds every one until the money lands.
+        </p>
+        <div class="card-foot">
+          <time class="card-date" datetime="2026-10-19">OCT 19</time>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+        <a class="card" href="how-to-catch-shopify-shipping-labels-you-never-used.html" style="text-decoration:none;">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2924,8 +3025,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
         </div>
       </div>
     </a>
+  </div>
 
-        <a class="card" href="how-to-stop-fake-customer-accounts-and-spam-signups-on-shopify.html" style="text-decoration:none;">
+  <details class="grid-more" id="grid-more">
+    <summary>69 more dispatches</summary>
+    <div class="article-grid">
+<a class="card" href="how-to-stop-fake-customer-accounts-and-spam-signups-on-shopify.html" style="text-decoration:none;">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -4147,8 +4252,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
         </div>
       </div>
     </article>
+    </div>
+  </details>
 
-  </div>
 </section>
 
 <section class="topics" id="guides">
@@ -4161,17 +4267,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
     lists the failure modes in that area, newest first.
   </p>
   <div class="topic-cloud">
-    <a href="shopify-order-management-automation.html" class="topic" style="--topic-size:2.0rem;">Shopify&nbsp;order&nbsp;management&nbsp;automation</a>
-    <a href="shopify-inventory-automation.html" class="topic" style="--topic-size:1.9rem;">Shopify&nbsp;inventory&nbsp;automation</a>
-    <a href="shopify-shipping-and-fulfillment-automation.html" class="topic" style="--topic-size:1.9rem;">Shopify&nbsp;shipping&nbsp;and&nbsp;fulfillment&nbsp;automation</a>
-    <a href="shopify-returns-and-refunds-automation.html" class="topic" style="--topic-size:1.6rem;">Shopify&nbsp;returns&nbsp;and&nbsp;refunds&nbsp;automation</a>
-    <a href="shopify-fraud-and-risk-automation.html" class="topic" style="--topic-size:1.6rem;">Shopify&nbsp;fraud&nbsp;and&nbsp;risk&nbsp;automation</a>
-    <a href="shopify-discounts-and-promotions-automation.html" class="topic" style="--topic-size:1.6rem;">Shopify&nbsp;discounts&nbsp;and&nbsp;promotions&nbsp;automation</a>
-    <a href="shopify-customer-and-wholesale-automation.html" class="topic" style="--topic-size:1.5rem;">Shopify&nbsp;customer&nbsp;and&nbsp;wholesale&nbsp;automation</a>
-    <a href="shopify-catalog-and-storefront-operations.html" class="topic" style="--topic-size:1.5rem;">Shopify&nbsp;catalog&nbsp;and&nbsp;storefront&nbsp;operations</a>
+    <a href="shopify-order-management-automation.html" class="topic" style="--topic-size:2.0rem;">Shopify order management automation</a>
+    <a href="shopify-inventory-automation.html" class="topic" style="--topic-size:1.9rem;">Shopify inventory automation</a>
+    <a href="shopify-shipping-and-fulfillment-automation.html" class="topic" style="--topic-size:1.9rem;">Shopify shipping and fulfillment automation</a>
+    <a href="shopify-returns-and-refunds-automation.html" class="topic" style="--topic-size:1.6rem;">Shopify returns and refunds automation</a>
+    <a href="shopify-fraud-and-risk-automation.html" class="topic" style="--topic-size:1.6rem;">Shopify fraud and risk automation</a>
+    <a href="shopify-discounts-and-promotions-automation.html" class="topic" style="--topic-size:1.6rem;">Shopify discounts and promotions automation</a>
+    <a href="shopify-customer-and-wholesale-automation.html" class="topic" style="--topic-size:1.5rem;">Shopify customer and wholesale automation</a>
+    <a href="shopify-catalog-and-storefront-operations.html" class="topic" style="--topic-size:1.5rem;">Shopify catalog and storefront operations</a>
   </div>
   <p class="article-dek" style="max-width: 46rem; margin: 1.4rem 0 0; font-size: 0.95rem;">
-    Looking for one specific answer? The <a href="shopify-automation-questions.html">question index</a> lists all 427 questions
+    Looking for one specific answer? The <a href="shopify-automation-questions.html">question index</a> lists all 433 questions
     these dispatches answer, grouped by guide.
   </p>
   <a href="#latest" class="archive-more">or browse every dispatch &darr;</a>
@@ -4184,204 +4290,207 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   </div>
   <div class="topic-cloud">
     <a href="best-shopify-automations-to-set-up.html" class="topic" style="--topic-size:2.4rem;">shopify</a>
-    <a href="how-to-catch-shopify-shipping-labels-you-never-used.html" class="topic" style="--topic-size:2.3rem;">unused&nbsp;shipping&nbsp;labels</a>
-    <a href="how-to-catch-shopify-shipping-labels-you-never-used.html" class="topic" style="--topic-size:1.4rem;">voiding&nbsp;shipping&nbsp;labels</a>
-    <a href="how-to-catch-shopify-shipping-labels-you-never-used.html" class="topic" style="--topic-size:1.2rem;">shipping&nbsp;label&nbsp;credits</a>
-    <a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="topic" style="--topic-size:2.2rem;">B2B&nbsp;catalog&nbsp;pricing</a>
-    <a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="topic" style="--topic-size:1.2rem;">wholesale&nbsp;discount&nbsp;stacking</a>
-    <a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="topic" style="--topic-size:1.2rem;">price&nbsp;list&nbsp;fixed&nbsp;prices</a>
-    <a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="topic" style="--topic-size:2.2rem;">return&nbsp;to&nbsp;sender</a>
-    <a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="topic" style="--topic-size:1.4rem;">RTO&nbsp;orders</a>
-    <a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="topic" style="--topic-size:1.2rem;">undeliverable&nbsp;parcels</a>
-    <a href="how-to-stop-reordering-shopify-stock-you-already-have-on-order.html" class="topic" style="--topic-size:2.2rem;">incoming&nbsp;inventory</a>
-    <a href="how-to-stop-reordering-shopify-stock-you-already-have-on-order.html" class="topic" style="--topic-size:1.4rem;">purchase&nbsp;order&nbsp;tracking</a>
-    <a href="how-to-stop-reordering-shopify-stock-you-already-have-on-order.html" class="topic" style="--topic-size:1.2rem;">supplier&nbsp;lead&nbsp;times</a>
-    <a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="topic" style="--topic-size:2.2rem;">partially&nbsp;fulfilled&nbsp;orders</a>
-    <a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="topic" style="--topic-size:1.4rem;">unfulfilled&nbsp;line&nbsp;items</a>
-    <a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="topic" style="--topic-size:1.2rem;">split&nbsp;shipments</a>
-    <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="topic" style="--topic-size:2.3rem;">shipping&nbsp;label&nbsp;adjustments</a>
-    <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="topic" style="--topic-size:1.4rem;">dimensional&nbsp;weight</a>
-    <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="topic" style="--topic-size:1.2rem;">carrier&nbsp;billing&nbsp;disputes</a>
-    <a href="how-to-fix-shopify-committed-inventory-that-never-clears.html" class="topic" style="--topic-size:1.8rem;">committed&nbsp;inventory</a>
-    <a href="how-to-fix-shopify-committed-inventory-that-never-clears.html" class="topic" style="--topic-size:1.4rem;">sold&nbsp;out&nbsp;with&nbsp;stock</a>
-    <a href="how-to-fix-shopify-committed-inventory-that-never-clears.html" class="topic" style="--topic-size:1.2rem;">available&nbsp;vs&nbsp;on&nbsp;hand</a>
-    <a href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" class="topic" style="--topic-size:2.3rem;">quiet&nbsp;returns</a>
-    <a href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" class="topic" style="--topic-size:1.4rem;">return&nbsp;never&nbsp;shipped</a>
-    <a href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" class="topic" style="--topic-size:1.2rem;">closing&nbsp;open&nbsp;returns</a>
-    <a href="how-to-handle-price-adjustment-requests-on-shopify.html" class="topic" style="--topic-size:2.3rem;">price&nbsp;adjustments</a>
-    <a href="how-to-handle-price-adjustment-requests-on-shopify.html" class="topic" style="--topic-size:1.4rem;">price&nbsp;drop&nbsp;refunds</a>
-    <a href="how-to-handle-price-adjustment-requests-on-shopify.html" class="topic" style="--topic-size:1.2rem;">partial&nbsp;refunds</a>
-    <a href="how-to-make-shopify-wholesale-customers-tax-exempt.html" class="topic" style="--topic-size:2.3rem;">tax&nbsp;exempt&nbsp;customers</a>
-    <a href="how-to-make-shopify-wholesale-customers-tax-exempt.html" class="topic" style="--topic-size:1.4rem;">resale&nbsp;certificates</a>
-    <a href="how-to-make-shopify-wholesale-customers-tax-exempt.html" class="topic" style="--topic-size:1.2rem;">b2b&nbsp;tax&nbsp;exemption</a>
-    <a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="topic" style="--topic-size:2.3rem;">daily&nbsp;capacity</a>
-    <a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="topic" style="--topic-size:1.4rem;">made&nbsp;to&nbsp;order</a>
-    <a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="topic" style="--topic-size:1.2rem;">order&nbsp;limits</a>
-    <a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="topic" style="--topic-size:2.3rem;">flow&nbsp;monitoring</a>
-    <a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="topic" style="--topic-size:1.4rem;">silent&nbsp;failures</a>
-    <a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="topic" style="--topic-size:1.2rem;">workflow&nbsp;runs</a>
-    <a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="topic" style="--topic-size:2.3rem;">state&nbsp;restrictions</a>
-    <a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="topic" style="--topic-size:1.4rem;">shipping&nbsp;profiles</a>
-    <a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="topic" style="--topic-size:1.2rem;">checkout&nbsp;validation</a>
-    <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="topic" style="--topic-size:2.3rem;">dimensional&nbsp;weight</a>
-    <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="topic" style="--topic-size:1.4rem;">product&nbsp;dimensions</a>
-    <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="topic" style="--topic-size:1.2rem;">shipping&nbsp;rates</a>
-    <a href="how-to-fix-duplicate-skus-on-shopify.html" class="topic" style="--topic-size:2.3rem;">duplicate&nbsp;SKUs</a>
-    <a href="how-to-fix-duplicate-skus-on-shopify.html" class="topic" style="--topic-size:1.4rem;">catalog&nbsp;hygiene</a>
-    <a href="how-to-fix-duplicate-skus-on-shopify.html" class="topic" style="--topic-size:1.2rem;">SKU&nbsp;collisions</a>
-    <a href="how-to-track-product-expiry-dates-on-shopify.html" class="topic" style="--topic-size:2.3rem;">expiry&nbsp;dates</a>
-    <a href="how-to-track-product-expiry-dates-on-shopify.html" class="topic" style="--topic-size:1.4rem;">batch&nbsp;tracking</a>
-    <a href="how-to-track-product-expiry-dates-on-shopify.html" class="topic" style="--topic-size:1.2rem;">short-dated&nbsp;stock</a>
-    <a href="how-to-put-your-shopify-store-on-vacation-mode-without-losing-sales.html" class="topic" style="--topic-size:2.3rem;">vacation&nbsp;mode</a>
-    <a href="how-to-put-your-shopify-store-on-vacation-mode-without-losing-sales.html" class="topic" style="--topic-size:1.4rem;">pause&nbsp;and&nbsp;build</a>
-    <a href="how-to-put-your-shopify-store-on-vacation-mode-without-losing-sales.html" class="topic" style="--topic-size:1.2rem;">store&nbsp;breaks</a>
-    <a href="how-to-handle-shopify-pickup-orders-customers-never-collect.html" class="topic" style="--topic-size:2.3rem;">pickup&nbsp;reminders</a>
-    <a href="how-to-handle-shopify-pickup-orders-customers-never-collect.html" class="topic" style="--topic-size:1.4rem;">uncollected&nbsp;orders</a>
-    <a href="how-to-handle-shopify-pickup-orders-customers-never-collect.html" class="topic" style="--topic-size:1.2rem;">local&nbsp;pickup</a>
-    <a href="how-to-fix-order-confirmation-emails-not-sending-on-shopify.html" class="topic" style="--topic-size:2.3rem;">confirmation&nbsp;emails</a>
-    <a href="how-to-fix-order-confirmation-emails-not-sending-on-shopify.html" class="topic" style="--topic-size:1.4rem;">email&nbsp;deliverability</a>
-    <a href="how-to-fix-order-confirmation-emails-not-sending-on-shopify.html" class="topic" style="--topic-size:1.2rem;">missing&nbsp;receipts</a>
-    <a href="how-to-stop-your-shopify-inventory-changing-by-itself.html" class="topic" style="--topic-size:2.3rem;">inventory&nbsp;drift</a>
-    <a href="how-to-stop-your-shopify-inventory-changing-by-itself.html" class="topic" style="--topic-size:1.4rem;">phantom&nbsp;inventory</a>
-    <a href="how-to-stop-your-shopify-inventory-changing-by-itself.html" class="topic" style="--topic-size:1.2rem;">adjustment&nbsp;history</a>
-    <a href="how-to-catch-shopify-orders-that-never-sync-to-shipstation.html" class="topic" style="--topic-size:2.3rem;">shipstation&nbsp;sync</a>
-    <a href="how-to-catch-shopify-orders-that-never-sync-to-shipstation.html" class="topic" style="--topic-size:1.4rem;">missing&nbsp;orders</a>
-    <a href="how-to-catch-shopify-orders-that-never-sync-to-shipstation.html" class="topic" style="--topic-size:1.2rem;">3PL&nbsp;integration</a>
-    <a href="how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html" class="topic" style="--topic-size:2.3rem;">missing&nbsp;personalization</a>
-    <a href="how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html" class="topic" style="--topic-size:1.4rem;">line&nbsp;item&nbsp;properties</a>
-    <a href="how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html" class="topic" style="--topic-size:1.2rem;">engraving&nbsp;orders</a>
-    <a href="how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html" class="topic" style="--topic-size:2.3rem;">cancelled&nbsp;orders</a>
-    <a href="how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html" class="topic" style="--topic-size:1.4rem;">unfulfilled&nbsp;badge</a>
-    <a href="how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html" class="topic" style="--topic-size:1.2rem;">order&nbsp;archiving</a>
-    <a href="how-to-stop-fake-customer-accounts-and-spam-signups-on-shopify.html" class="topic" style="--topic-size:2.3rem;">fake&nbsp;accounts</a>
-    <a href="how-to-stop-fake-customer-accounts-and-spam-signups-on-shopify.html" class="topic" style="--topic-size:1.4rem;">spam&nbsp;signups</a>
-    <a href="how-to-stop-fake-customer-accounts-and-spam-signups-on-shopify.html" class="topic" style="--topic-size:1.2rem;">bot&nbsp;traffic</a>
-    <a href="how-to-fix-missing-hs-codes-on-shopify-before-customs-holds-your-orders.html" class="topic" style="--topic-size:2.3rem;">hs&nbsp;codes</a>
-    <a href="how-to-fix-missing-hs-codes-on-shopify-before-customs-holds-your-orders.html" class="topic" style="--topic-size:1.4rem;">customs&nbsp;delays</a>
-    <a href="how-to-fix-missing-hs-codes-on-shopify-before-customs-holds-your-orders.html" class="topic" style="--topic-size:1.2rem;">country&nbsp;of&nbsp;origin</a>
-    <a href="how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html" class="topic" style="--topic-size:2.3rem;">pricing&nbsp;errors</a>
-    <a href="how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html" class="topic" style="--topic-size:1.4rem;">wrong&nbsp;price&nbsp;orders</a>
-    <a href="how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html" class="topic" style="--topic-size:1.2rem;">price&nbsp;change&nbsp;alerts</a>
-    <a href="how-to-catch-shopify-orders-stuck-in-transit.html" class="topic" style="--topic-size:2.3rem;">stuck&nbsp;in&nbsp;transit</a>
-    <a href="how-to-catch-shopify-orders-stuck-in-transit.html" class="topic" style="--topic-size:1.4rem;">tracking&nbsp;not&nbsp;updating</a>
-    <a href="how-to-catch-shopify-orders-stuck-in-transit.html" class="topic" style="--topic-size:1.2rem;">stalled&nbsp;shipments</a>
-    <a href="how-to-automate-gift-card-delivery-and-reminders-on-shopify.html" class="topic" style="--topic-size:2.3rem;">gift&nbsp;card&nbsp;delivery</a>
-    <a href="how-to-automate-gift-card-delivery-and-reminders-on-shopify.html" class="topic" style="--topic-size:1.4rem;">gift&nbsp;card&nbsp;reminders</a>
-    <a href="how-to-automate-gift-card-delivery-and-reminders-on-shopify.html" class="topic" style="--topic-size:1.2rem;">unspent&nbsp;balances</a>
-    <a href="how-to-automatically-restock-returns-on-shopify.html" class="topic" style="--topic-size:2.3rem;">restock&nbsp;returns</a>
-    <a href="how-to-automatically-restock-returns-on-shopify.html" class="topic" style="--topic-size:1.4rem;">returns&nbsp;receiving</a>
-    <a href="how-to-automatically-restock-returns-on-shopify.html" class="topic" style="--topic-size:1.2rem;">inventory&nbsp;shrinkage</a>
-    <a href="how-to-handle-delivered-but-not-received-claims-on-shopify.html" class="topic" style="--topic-size:2.3rem;">delivered&nbsp;but&nbsp;not&nbsp;received</a>
-    <a href="how-to-handle-delivered-but-not-received-claims-on-shopify.html" class="topic" style="--topic-size:1.4rem;">package&nbsp;marked&nbsp;delivered</a>
-    <a href="how-to-handle-delivered-but-not-received-claims-on-shopify.html" class="topic" style="--topic-size:1.2rem;">porch&nbsp;piracy&nbsp;claims</a>
-    <a href="how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html" class="topic" style="--topic-size:2.3rem;">draft&nbsp;order&nbsp;follow-ups</a>
-    <a href="how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html" class="topic" style="--topic-size:1.4rem;">unpaid&nbsp;invoices</a>
-    <a href="how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html" class="topic" style="--topic-size:1.2rem;">quote&nbsp;reminders</a>
-    <a href="how-to-sync-inventory-between-two-shopify-stores.html" class="topic" style="--topic-size:2.3rem;">two-store&nbsp;inventory&nbsp;sync</a>
-    <a href="how-to-sync-inventory-between-two-shopify-stores.html" class="topic" style="--topic-size:1.4rem;">multi-store&nbsp;stock</a>
-    <a href="how-to-sync-inventory-between-two-shopify-stores.html" class="topic" style="--topic-size:1.2rem;">oversell&nbsp;between&nbsp;stores</a>
-    <a href="how-to-automatically-capture-payments-on-shopify.html" class="topic" style="--topic-size:2.3rem;">payment&nbsp;capture</a>
-    <a href="how-to-automatically-capture-payments-on-shopify.html" class="topic" style="--topic-size:1.4rem;">expired&nbsp;authorizations</a>
-    <a href="how-to-automatically-capture-payments-on-shopify.html" class="topic" style="--topic-size:1.2rem;">authorized&nbsp;but&nbsp;not&nbsp;paid</a>
-    <a href="how-to-let-customers-cancel-their-own-orders-on-shopify.html" class="topic" style="--topic-size:2.3rem;">self-serve&nbsp;cancellations</a>
-    <a href="how-to-let-customers-cancel-their-own-orders-on-shopify.html" class="topic" style="--topic-size:1.4rem;">cancel&nbsp;requests</a>
-    <a href="how-to-let-customers-cancel-their-own-orders-on-shopify.html" class="topic" style="--topic-size:1.2rem;">order&nbsp;cancellation</a>
-    <a href="how-to-automatically-clear-dead-stock-on-shopify.html" class="topic" style="--topic-size:2.3rem;">dead&nbsp;stock</a>
-    <a href="how-to-automatically-clear-dead-stock-on-shopify.html" class="topic" style="--topic-size:1.4rem;">slow&nbsp;movers</a>
-    <a href="how-to-automatically-clear-dead-stock-on-shopify.html" class="topic" style="--topic-size:1.2rem;">markdown&nbsp;automation</a>
-    <a href="how-to-change-a-shopify-order-from-local-pickup-to-shipping.html" class="topic" style="--topic-size:2.3rem;">pickup&nbsp;to&nbsp;shipping</a>
-    <a href="how-to-change-a-shopify-order-from-local-pickup-to-shipping.html" class="topic" style="--topic-size:1.4rem;">wrong&nbsp;delivery&nbsp;method</a>
-    <a href="how-to-change-a-shopify-order-from-local-pickup-to-shipping.html" class="topic" style="--topic-size:1.2rem;">local&nbsp;pickup&nbsp;orders</a>
-    <a href="how-to-automatically-approve-wholesale-customers-on-shopify.html" class="topic" style="--topic-size:2.3rem;">wholesale&nbsp;approval</a>
-    <a href="how-to-automatically-approve-wholesale-customers-on-shopify.html" class="topic" style="--topic-size:1.4rem;">b2b&nbsp;account&nbsp;requests</a>
-    <a href="how-to-automatically-approve-wholesale-customers-on-shopify.html" class="topic" style="--topic-size:1.2rem;">wholesale&nbsp;vetting</a>
-    <a href="how-to-automatically-release-held-shopify-orders-when-stock-arrives.html" class="topic" style="--topic-size:2.3rem;">held&nbsp;orders</a>
-    <a href="how-to-automatically-release-held-shopify-orders-when-stock-arrives.html" class="topic" style="--topic-size:1.4rem;">release&nbsp;fulfillment&nbsp;hold</a>
-    <a href="how-to-automatically-release-held-shopify-orders-when-stock-arrives.html" class="topic" style="--topic-size:1.2rem;">backorder&nbsp;automation</a>
-    <a href="how-to-route-shopify-orders-to-the-right-warehouse.html" class="topic" style="--topic-size:2.2rem;">order&nbsp;routing</a>
-    <a href="how-to-route-shopify-orders-to-the-right-warehouse.html" class="topic" style="--topic-size:1.4rem;">wrong&nbsp;fulfillment&nbsp;location</a>
-    <a href="how-to-route-shopify-orders-to-the-right-warehouse.html" class="topic" style="--topic-size:1.2rem;">split&nbsp;shipments</a>
-    <a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="topic" style="--topic-size:2.2rem;">supplier&nbsp;stock&nbsp;sync</a>
-    <a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="topic" style="--topic-size:1.4rem;">inventory&nbsp;feed&nbsp;errors</a>
-    <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="topic" style="--topic-size:2.3rem;">discount&nbsp;code&nbsp;abuse</a>
-    <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="topic" style="--topic-size:1.4rem;">leaked&nbsp;coupon&nbsp;codes</a>
-    <a href="how-to-block-a-customer-on-shopify.html" class="topic" style="--topic-size:2.3rem;">block&nbsp;a&nbsp;customer</a>
-    <a href="how-to-block-a-customer-on-shopify.html" class="topic" style="--topic-size:1.4rem;">serial&nbsp;returners</a>
-    <a href="how-to-notify-customers-of-shipping-delays-on-shopify.html" class="topic" style="--topic-size:2.3rem;">shipping&nbsp;delay&nbsp;emails</a>
-    <a href="how-to-notify-customers-of-shipping-delays-on-shopify.html" class="topic" style="--topic-size:1.4rem;">delayed&nbsp;order&nbsp;notifications</a>
-    <a href="how-to-merge-duplicate-customer-profiles-on-shopify.html" class="topic" style="--topic-size:2.3rem;">merge&nbsp;duplicate&nbsp;customers</a>
-    <a href="how-to-merge-duplicate-customer-profiles-on-shopify.html" class="topic" style="--topic-size:1.4rem;">customer&nbsp;deduplication</a>
-    <a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="topic" style="--topic-size:2.3rem;">discount&nbsp;stacking</a>
-    <a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="topic" style="--topic-size:1.4rem;">exclude&nbsp;sale&nbsp;items</a>
-    <a href="how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html" class="topic" style="--topic-size:2.3rem;">gift&nbsp;messages</a>
-    <a href="how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html" class="topic" style="--topic-size:1.4rem;">gift&nbsp;wrap&nbsp;at&nbsp;checkout</a>
-    <a href="how-to-set-up-tiered-volume-discounts-on-shopify.html" class="topic" style="--topic-size:2.2rem;">tiered&nbsp;volume&nbsp;discounts</a>
-    <a href="how-to-set-up-tiered-volume-discounts-on-shopify.html" class="topic" style="--topic-size:1.3rem;">buy&nbsp;more&nbsp;save&nbsp;more</a>
-    <a href="how-to-sync-bundle-inventory-with-component-stock-on-shopify.html" class="topic" style="--topic-size:2.1rem;">bundle&nbsp;inventory&nbsp;sync</a>
-    <a href="how-to-sync-bundle-inventory-with-component-stock-on-shopify.html" class="topic" style="--topic-size:1.3rem;">component&nbsp;stock</a>
-    <a href="how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html" class="topic" style="--topic-size:2rem;">pause&nbsp;ads&nbsp;out&nbsp;of&nbsp;stock</a>
-    <a href="how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html" class="topic" style="--topic-size:1.2rem;">wasted&nbsp;ad&nbsp;spend</a>
-    <a href="how-to-limit-purchase-quantity-per-customer-on-shopify.html" class="topic" style="--topic-size:2rem;">limit&nbsp;quantity&nbsp;per&nbsp;customer</a>
-    <a href="how-to-limit-purchase-quantity-per-customer-on-shopify.html" class="topic" style="--topic-size:1.3rem;">purchase&nbsp;limits</a>
-    <a href="how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html" class="topic" style="--topic-size:2rem;">free&nbsp;gift&nbsp;with&nbsp;purchase</a>
-    <a href="how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html" class="topic" style="--topic-size:1.3rem;">auto-add&nbsp;to&nbsp;cart</a>
-    <a href="how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html" class="topic" style="--topic-size:1.9rem;">split&nbsp;orders&nbsp;by&nbsp;vendor</a>
-    <a href="how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html" class="topic" style="--topic-size:1.3rem;">multi-vendor&nbsp;fulfillment</a>
-    <a href="how-to-automatically-send-invoices-on-shopify.html" class="topic" style="--topic-size:1.9rem;">order&nbsp;invoices</a>
-    <a href="how-to-automatically-send-invoices-on-shopify.html" class="topic" style="--topic-size:1.3rem;">VAT&nbsp;invoices</a>
-    <a href="how-to-set-a-minimum-order-amount-on-shopify.html" class="topic" style="--topic-size:1.7rem;">minimum&nbsp;order&nbsp;amount</a>
-    <a href="how-to-set-a-minimum-order-amount-on-shopify.html" class="topic" style="--topic-size:1.2rem;">order&nbsp;minimums</a>
-    <a href="how-to-schedule-product-publishing-on-shopify.html" class="topic" style="--topic-size:1.8rem;">scheduled&nbsp;publishing</a>
-    <a href="how-to-schedule-product-publishing-on-shopify.html" class="topic" style="--topic-size:1.2rem;">product&nbsp;drops</a>
-    <a href="how-to-fix-404-errors-from-deleted-products-on-shopify.html" class="topic" style="--topic-size:1.7rem;">404&nbsp;redirects</a>
-    <a href="how-to-fix-404-errors-from-deleted-products-on-shopify.html" class="topic" style="--topic-size:1.2rem;">broken&nbsp;links</a>
-    <a href="how-to-bulk-edit-meta-descriptions-on-shopify.html" class="topic" style="--topic-size:1.7rem;">meta&nbsp;descriptions</a>
-    <a href="how-to-bulk-edit-meta-descriptions-on-shopify.html" class="topic" style="--topic-size:1.2rem;">product&nbsp;SEO</a>
-    <a href="how-to-generate-shopify-product-descriptions-with-ai.html" class="topic" style="--topic-size:1.7rem;">product&nbsp;descriptions</a>
-    <a href="how-to-generate-shopify-product-descriptions-with-ai.html" class="topic" style="--topic-size:1.2rem;">bulk&nbsp;copywriting</a>
-    <a href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html" class="topic" style="--topic-size:1.7rem;">image&nbsp;alt&nbsp;text</a>
-    <a href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html" class="topic" style="--topic-size:1.2rem;">image&nbsp;SEO</a>
-    <a href="how-to-automatically-tag-orders-on-shopify.html" class="topic" style="--topic-size:1.7rem;">order&nbsp;tags</a>
-    <a href="how-to-automatically-tag-orders-on-shopify.html" class="topic" style="--topic-size:1.2rem;">order&nbsp;routing</a>
-    <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html" class="topic" style="--topic-size:1.8rem;">tracking&nbsp;numbers</a>
-    <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html" class="topic" style="--topic-size:1.2rem;">order&nbsp;fulfillment</a>
-    <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="topic" style="--topic-size:1.8rem;">unpaid&nbsp;orders</a>
-    <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="topic" style="--topic-size:1.2rem;">pending&nbsp;payment</a>
-    <a href="how-to-automatically-request-product-reviews-on-shopify.html" class="topic" style="--topic-size:1.9rem;">review&nbsp;requests</a>
-    <a href="how-to-automatically-request-product-reviews-on-shopify.html" class="topic" style="--topic-size:1.2rem;">product&nbsp;reviews</a>
-    <a href="how-to-segment-repeat-customers-on-shopify.html" class="topic" style="--topic-size:1.8rem;">customer&nbsp;segments</a>
-    <a href="how-to-segment-repeat-customers-on-shopify.html" class="topic" style="--topic-size:1.2rem;">VIP&nbsp;tagging</a>
+    <a href="how-to-stop-shipping-shopify-orders-with-payment-pending.html" class="topic" style="--topic-size:2.3rem;">payment pending orders</a>
+    <a href="how-to-stop-shipping-shopify-orders-with-payment-pending.html" class="topic" style="--topic-size:1.4rem;">holding unpaid fulfillment</a>
+    <a href="how-to-stop-shipping-shopify-orders-with-payment-pending.html" class="topic" style="--topic-size:1.2rem;">expired payments</a>
+    <a href="how-to-catch-shopify-shipping-labels-you-never-used.html" class="topic" style="--topic-size:1.6rem;">unused shipping labels</a>
+    <a href="how-to-catch-shopify-shipping-labels-you-never-used.html" class="topic" style="--topic-size:1.2rem;">voiding shipping labels</a>
+    <a href="how-to-catch-shopify-shipping-labels-you-never-used.html" class="topic" style="--topic-size:1.2rem;">shipping label credits</a>
+    <a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="topic" style="--topic-size:2.2rem;">B2B catalog pricing</a>
+    <a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="topic" style="--topic-size:1.2rem;">wholesale discount stacking</a>
+    <a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="topic" style="--topic-size:1.2rem;">price list fixed prices</a>
+    <a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="topic" style="--topic-size:2.2rem;">return to sender</a>
+    <a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="topic" style="--topic-size:1.4rem;">RTO orders</a>
+    <a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="topic" style="--topic-size:1.2rem;">undeliverable parcels</a>
+    <a href="how-to-stop-reordering-shopify-stock-you-already-have-on-order.html" class="topic" style="--topic-size:2.2rem;">incoming inventory</a>
+    <a href="how-to-stop-reordering-shopify-stock-you-already-have-on-order.html" class="topic" style="--topic-size:1.4rem;">purchase order tracking</a>
+    <a href="how-to-stop-reordering-shopify-stock-you-already-have-on-order.html" class="topic" style="--topic-size:1.2rem;">supplier lead times</a>
+    <a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="topic" style="--topic-size:2.2rem;">partially fulfilled orders</a>
+    <a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="topic" style="--topic-size:1.4rem;">unfulfilled line items</a>
+    <a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="topic" style="--topic-size:1.2rem;">split shipments</a>
+    <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="topic" style="--topic-size:2.3rem;">shipping label adjustments</a>
+    <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="topic" style="--topic-size:1.4rem;">dimensional weight</a>
+    <a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="topic" style="--topic-size:1.2rem;">carrier billing disputes</a>
+    <a href="how-to-fix-shopify-committed-inventory-that-never-clears.html" class="topic" style="--topic-size:1.8rem;">committed inventory</a>
+    <a href="how-to-fix-shopify-committed-inventory-that-never-clears.html" class="topic" style="--topic-size:1.4rem;">sold out with stock</a>
+    <a href="how-to-fix-shopify-committed-inventory-that-never-clears.html" class="topic" style="--topic-size:1.2rem;">available vs on hand</a>
+    <a href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" class="topic" style="--topic-size:2.3rem;">quiet returns</a>
+    <a href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" class="topic" style="--topic-size:1.4rem;">return never shipped</a>
+    <a href="how-to-handle-shopify-returns-the-customer-never-sends-back.html" class="topic" style="--topic-size:1.2rem;">closing open returns</a>
+    <a href="how-to-handle-price-adjustment-requests-on-shopify.html" class="topic" style="--topic-size:2.3rem;">price adjustments</a>
+    <a href="how-to-handle-price-adjustment-requests-on-shopify.html" class="topic" style="--topic-size:1.4rem;">price drop refunds</a>
+    <a href="how-to-handle-price-adjustment-requests-on-shopify.html" class="topic" style="--topic-size:1.2rem;">partial refunds</a>
+    <a href="how-to-make-shopify-wholesale-customers-tax-exempt.html" class="topic" style="--topic-size:2.3rem;">tax exempt customers</a>
+    <a href="how-to-make-shopify-wholesale-customers-tax-exempt.html" class="topic" style="--topic-size:1.4rem;">resale certificates</a>
+    <a href="how-to-make-shopify-wholesale-customers-tax-exempt.html" class="topic" style="--topic-size:1.2rem;">b2b tax exemption</a>
+    <a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="topic" style="--topic-size:2.3rem;">daily capacity</a>
+    <a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="topic" style="--topic-size:1.4rem;">made to order</a>
+    <a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="topic" style="--topic-size:1.2rem;">order limits</a>
+    <a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="topic" style="--topic-size:2.3rem;">flow monitoring</a>
+    <a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="topic" style="--topic-size:1.4rem;">silent failures</a>
+    <a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="topic" style="--topic-size:1.2rem;">workflow runs</a>
+    <a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="topic" style="--topic-size:2.3rem;">state restrictions</a>
+    <a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="topic" style="--topic-size:1.4rem;">shipping profiles</a>
+    <a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="topic" style="--topic-size:1.2rem;">checkout validation</a>
+    <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="topic" style="--topic-size:2.3rem;">dimensional weight</a>
+    <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="topic" style="--topic-size:1.4rem;">product dimensions</a>
+    <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="topic" style="--topic-size:1.2rem;">shipping rates</a>
+    <a href="how-to-fix-duplicate-skus-on-shopify.html" class="topic" style="--topic-size:2.3rem;">duplicate SKUs</a>
+    <a href="how-to-fix-duplicate-skus-on-shopify.html" class="topic" style="--topic-size:1.4rem;">catalog hygiene</a>
+    <a href="how-to-fix-duplicate-skus-on-shopify.html" class="topic" style="--topic-size:1.2rem;">SKU collisions</a>
+    <a href="how-to-track-product-expiry-dates-on-shopify.html" class="topic" style="--topic-size:2.3rem;">expiry dates</a>
+    <a href="how-to-track-product-expiry-dates-on-shopify.html" class="topic" style="--topic-size:1.4rem;">batch tracking</a>
+    <a href="how-to-track-product-expiry-dates-on-shopify.html" class="topic" style="--topic-size:1.2rem;">short-dated stock</a>
+    <a href="how-to-put-your-shopify-store-on-vacation-mode-without-losing-sales.html" class="topic" style="--topic-size:2.3rem;">vacation mode</a>
+    <a href="how-to-put-your-shopify-store-on-vacation-mode-without-losing-sales.html" class="topic" style="--topic-size:1.4rem;">pause and build</a>
+    <a href="how-to-put-your-shopify-store-on-vacation-mode-without-losing-sales.html" class="topic" style="--topic-size:1.2rem;">store breaks</a>
+    <a href="how-to-handle-shopify-pickup-orders-customers-never-collect.html" class="topic" style="--topic-size:2.3rem;">pickup reminders</a>
+    <a href="how-to-handle-shopify-pickup-orders-customers-never-collect.html" class="topic" style="--topic-size:1.4rem;">uncollected orders</a>
+    <a href="how-to-handle-shopify-pickup-orders-customers-never-collect.html" class="topic" style="--topic-size:1.2rem;">local pickup</a>
+    <a href="how-to-fix-order-confirmation-emails-not-sending-on-shopify.html" class="topic" style="--topic-size:2.3rem;">confirmation emails</a>
+    <a href="how-to-fix-order-confirmation-emails-not-sending-on-shopify.html" class="topic" style="--topic-size:1.4rem;">email deliverability</a>
+    <a href="how-to-fix-order-confirmation-emails-not-sending-on-shopify.html" class="topic" style="--topic-size:1.2rem;">missing receipts</a>
+    <a href="how-to-stop-your-shopify-inventory-changing-by-itself.html" class="topic" style="--topic-size:2.3rem;">inventory drift</a>
+    <a href="how-to-stop-your-shopify-inventory-changing-by-itself.html" class="topic" style="--topic-size:1.4rem;">phantom inventory</a>
+    <a href="how-to-stop-your-shopify-inventory-changing-by-itself.html" class="topic" style="--topic-size:1.2rem;">adjustment history</a>
+    <a href="how-to-catch-shopify-orders-that-never-sync-to-shipstation.html" class="topic" style="--topic-size:2.3rem;">shipstation sync</a>
+    <a href="how-to-catch-shopify-orders-that-never-sync-to-shipstation.html" class="topic" style="--topic-size:1.4rem;">missing orders</a>
+    <a href="how-to-catch-shopify-orders-that-never-sync-to-shipstation.html" class="topic" style="--topic-size:1.2rem;">3PL integration</a>
+    <a href="how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html" class="topic" style="--topic-size:2.3rem;">missing personalization</a>
+    <a href="how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html" class="topic" style="--topic-size:1.4rem;">line item properties</a>
+    <a href="how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html" class="topic" style="--topic-size:1.2rem;">engraving orders</a>
+    <a href="how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html" class="topic" style="--topic-size:2.3rem;">cancelled orders</a>
+    <a href="how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html" class="topic" style="--topic-size:1.4rem;">unfulfilled badge</a>
+    <a href="how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html" class="topic" style="--topic-size:1.2rem;">order archiving</a>
+    <a href="how-to-stop-fake-customer-accounts-and-spam-signups-on-shopify.html" class="topic" style="--topic-size:2.3rem;">fake accounts</a>
+    <a href="how-to-stop-fake-customer-accounts-and-spam-signups-on-shopify.html" class="topic" style="--topic-size:1.4rem;">spam signups</a>
+    <a href="how-to-stop-fake-customer-accounts-and-spam-signups-on-shopify.html" class="topic" style="--topic-size:1.2rem;">bot traffic</a>
+    <a href="how-to-fix-missing-hs-codes-on-shopify-before-customs-holds-your-orders.html" class="topic" style="--topic-size:2.3rem;">hs codes</a>
+    <a href="how-to-fix-missing-hs-codes-on-shopify-before-customs-holds-your-orders.html" class="topic" style="--topic-size:1.4rem;">customs delays</a>
+    <a href="how-to-fix-missing-hs-codes-on-shopify-before-customs-holds-your-orders.html" class="topic" style="--topic-size:1.2rem;">country of origin</a>
+    <a href="how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html" class="topic" style="--topic-size:2.3rem;">pricing errors</a>
+    <a href="how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html" class="topic" style="--topic-size:1.4rem;">wrong price orders</a>
+    <a href="how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html" class="topic" style="--topic-size:1.2rem;">price change alerts</a>
+    <a href="how-to-catch-shopify-orders-stuck-in-transit.html" class="topic" style="--topic-size:2.3rem;">stuck in transit</a>
+    <a href="how-to-catch-shopify-orders-stuck-in-transit.html" class="topic" style="--topic-size:1.4rem;">tracking not updating</a>
+    <a href="how-to-catch-shopify-orders-stuck-in-transit.html" class="topic" style="--topic-size:1.2rem;">stalled shipments</a>
+    <a href="how-to-automate-gift-card-delivery-and-reminders-on-shopify.html" class="topic" style="--topic-size:2.3rem;">gift card delivery</a>
+    <a href="how-to-automate-gift-card-delivery-and-reminders-on-shopify.html" class="topic" style="--topic-size:1.4rem;">gift card reminders</a>
+    <a href="how-to-automate-gift-card-delivery-and-reminders-on-shopify.html" class="topic" style="--topic-size:1.2rem;">unspent balances</a>
+    <a href="how-to-automatically-restock-returns-on-shopify.html" class="topic" style="--topic-size:2.3rem;">restock returns</a>
+    <a href="how-to-automatically-restock-returns-on-shopify.html" class="topic" style="--topic-size:1.4rem;">returns receiving</a>
+    <a href="how-to-automatically-restock-returns-on-shopify.html" class="topic" style="--topic-size:1.2rem;">inventory shrinkage</a>
+    <a href="how-to-handle-delivered-but-not-received-claims-on-shopify.html" class="topic" style="--topic-size:2.3rem;">delivered but not received</a>
+    <a href="how-to-handle-delivered-but-not-received-claims-on-shopify.html" class="topic" style="--topic-size:1.4rem;">package marked delivered</a>
+    <a href="how-to-handle-delivered-but-not-received-claims-on-shopify.html" class="topic" style="--topic-size:1.2rem;">porch piracy claims</a>
+    <a href="how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html" class="topic" style="--topic-size:2.3rem;">draft order follow-ups</a>
+    <a href="how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html" class="topic" style="--topic-size:1.4rem;">unpaid invoices</a>
+    <a href="how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html" class="topic" style="--topic-size:1.2rem;">quote reminders</a>
+    <a href="how-to-sync-inventory-between-two-shopify-stores.html" class="topic" style="--topic-size:2.3rem;">two-store inventory sync</a>
+    <a href="how-to-sync-inventory-between-two-shopify-stores.html" class="topic" style="--topic-size:1.4rem;">multi-store stock</a>
+    <a href="how-to-sync-inventory-between-two-shopify-stores.html" class="topic" style="--topic-size:1.2rem;">oversell between stores</a>
+    <a href="how-to-automatically-capture-payments-on-shopify.html" class="topic" style="--topic-size:2.3rem;">payment capture</a>
+    <a href="how-to-automatically-capture-payments-on-shopify.html" class="topic" style="--topic-size:1.4rem;">expired authorizations</a>
+    <a href="how-to-automatically-capture-payments-on-shopify.html" class="topic" style="--topic-size:1.2rem;">authorized but not paid</a>
+    <a href="how-to-let-customers-cancel-their-own-orders-on-shopify.html" class="topic" style="--topic-size:2.3rem;">self-serve cancellations</a>
+    <a href="how-to-let-customers-cancel-their-own-orders-on-shopify.html" class="topic" style="--topic-size:1.4rem;">cancel requests</a>
+    <a href="how-to-let-customers-cancel-their-own-orders-on-shopify.html" class="topic" style="--topic-size:1.2rem;">order cancellation</a>
+    <a href="how-to-automatically-clear-dead-stock-on-shopify.html" class="topic" style="--topic-size:2.3rem;">dead stock</a>
+    <a href="how-to-automatically-clear-dead-stock-on-shopify.html" class="topic" style="--topic-size:1.4rem;">slow movers</a>
+    <a href="how-to-automatically-clear-dead-stock-on-shopify.html" class="topic" style="--topic-size:1.2rem;">markdown automation</a>
+    <a href="how-to-change-a-shopify-order-from-local-pickup-to-shipping.html" class="topic" style="--topic-size:2.3rem;">pickup to shipping</a>
+    <a href="how-to-change-a-shopify-order-from-local-pickup-to-shipping.html" class="topic" style="--topic-size:1.4rem;">wrong delivery method</a>
+    <a href="how-to-change-a-shopify-order-from-local-pickup-to-shipping.html" class="topic" style="--topic-size:1.2rem;">local pickup orders</a>
+    <a href="how-to-automatically-approve-wholesale-customers-on-shopify.html" class="topic" style="--topic-size:2.3rem;">wholesale approval</a>
+    <a href="how-to-automatically-approve-wholesale-customers-on-shopify.html" class="topic" style="--topic-size:1.4rem;">b2b account requests</a>
+    <a href="how-to-automatically-approve-wholesale-customers-on-shopify.html" class="topic" style="--topic-size:1.2rem;">wholesale vetting</a>
+    <a href="how-to-automatically-release-held-shopify-orders-when-stock-arrives.html" class="topic" style="--topic-size:2.3rem;">held orders</a>
+    <a href="how-to-automatically-release-held-shopify-orders-when-stock-arrives.html" class="topic" style="--topic-size:1.4rem;">release fulfillment hold</a>
+    <a href="how-to-automatically-release-held-shopify-orders-when-stock-arrives.html" class="topic" style="--topic-size:1.2rem;">backorder automation</a>
+    <a href="how-to-route-shopify-orders-to-the-right-warehouse.html" class="topic" style="--topic-size:2.2rem;">order routing</a>
+    <a href="how-to-route-shopify-orders-to-the-right-warehouse.html" class="topic" style="--topic-size:1.4rem;">wrong fulfillment location</a>
+    <a href="how-to-route-shopify-orders-to-the-right-warehouse.html" class="topic" style="--topic-size:1.2rem;">split shipments</a>
+    <a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="topic" style="--topic-size:2.2rem;">supplier stock sync</a>
+    <a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="topic" style="--topic-size:1.4rem;">inventory feed errors</a>
+    <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="topic" style="--topic-size:2.3rem;">discount code abuse</a>
+    <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="topic" style="--topic-size:1.4rem;">leaked coupon codes</a>
+    <a href="how-to-block-a-customer-on-shopify.html" class="topic" style="--topic-size:2.3rem;">block a customer</a>
+    <a href="how-to-block-a-customer-on-shopify.html" class="topic" style="--topic-size:1.4rem;">serial returners</a>
+    <a href="how-to-notify-customers-of-shipping-delays-on-shopify.html" class="topic" style="--topic-size:2.3rem;">shipping delay emails</a>
+    <a href="how-to-notify-customers-of-shipping-delays-on-shopify.html" class="topic" style="--topic-size:1.4rem;">delayed order notifications</a>
+    <a href="how-to-merge-duplicate-customer-profiles-on-shopify.html" class="topic" style="--topic-size:2.3rem;">merge duplicate customers</a>
+    <a href="how-to-merge-duplicate-customer-profiles-on-shopify.html" class="topic" style="--topic-size:1.4rem;">customer deduplication</a>
+    <a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="topic" style="--topic-size:2.3rem;">discount stacking</a>
+    <a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="topic" style="--topic-size:1.4rem;">exclude sale items</a>
+    <a href="how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html" class="topic" style="--topic-size:2.3rem;">gift messages</a>
+    <a href="how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html" class="topic" style="--topic-size:1.4rem;">gift wrap at checkout</a>
+    <a href="how-to-set-up-tiered-volume-discounts-on-shopify.html" class="topic" style="--topic-size:2.2rem;">tiered volume discounts</a>
+    <a href="how-to-set-up-tiered-volume-discounts-on-shopify.html" class="topic" style="--topic-size:1.3rem;">buy more save more</a>
+    <a href="how-to-sync-bundle-inventory-with-component-stock-on-shopify.html" class="topic" style="--topic-size:2.1rem;">bundle inventory sync</a>
+    <a href="how-to-sync-bundle-inventory-with-component-stock-on-shopify.html" class="topic" style="--topic-size:1.3rem;">component stock</a>
+    <a href="how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html" class="topic" style="--topic-size:2rem;">pause ads out of stock</a>
+    <a href="how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html" class="topic" style="--topic-size:1.2rem;">wasted ad spend</a>
+    <a href="how-to-limit-purchase-quantity-per-customer-on-shopify.html" class="topic" style="--topic-size:2rem;">limit quantity per customer</a>
+    <a href="how-to-limit-purchase-quantity-per-customer-on-shopify.html" class="topic" style="--topic-size:1.3rem;">purchase limits</a>
+    <a href="how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html" class="topic" style="--topic-size:2rem;">free gift with purchase</a>
+    <a href="how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html" class="topic" style="--topic-size:1.3rem;">auto-add to cart</a>
+    <a href="how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html" class="topic" style="--topic-size:1.9rem;">split orders by vendor</a>
+    <a href="how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html" class="topic" style="--topic-size:1.3rem;">multi-vendor fulfillment</a>
+    <a href="how-to-automatically-send-invoices-on-shopify.html" class="topic" style="--topic-size:1.9rem;">order invoices</a>
+    <a href="how-to-automatically-send-invoices-on-shopify.html" class="topic" style="--topic-size:1.3rem;">VAT invoices</a>
+    <a href="how-to-set-a-minimum-order-amount-on-shopify.html" class="topic" style="--topic-size:1.7rem;">minimum order amount</a>
+    <a href="how-to-set-a-minimum-order-amount-on-shopify.html" class="topic" style="--topic-size:1.2rem;">order minimums</a>
+    <a href="how-to-schedule-product-publishing-on-shopify.html" class="topic" style="--topic-size:1.8rem;">scheduled publishing</a>
+    <a href="how-to-schedule-product-publishing-on-shopify.html" class="topic" style="--topic-size:1.2rem;">product drops</a>
+    <a href="how-to-fix-404-errors-from-deleted-products-on-shopify.html" class="topic" style="--topic-size:1.7rem;">404 redirects</a>
+    <a href="how-to-fix-404-errors-from-deleted-products-on-shopify.html" class="topic" style="--topic-size:1.2rem;">broken links</a>
+    <a href="how-to-bulk-edit-meta-descriptions-on-shopify.html" class="topic" style="--topic-size:1.7rem;">meta descriptions</a>
+    <a href="how-to-bulk-edit-meta-descriptions-on-shopify.html" class="topic" style="--topic-size:1.2rem;">product SEO</a>
+    <a href="how-to-generate-shopify-product-descriptions-with-ai.html" class="topic" style="--topic-size:1.7rem;">product descriptions</a>
+    <a href="how-to-generate-shopify-product-descriptions-with-ai.html" class="topic" style="--topic-size:1.2rem;">bulk copywriting</a>
+    <a href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html" class="topic" style="--topic-size:1.7rem;">image alt text</a>
+    <a href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html" class="topic" style="--topic-size:1.2rem;">image SEO</a>
+    <a href="how-to-automatically-tag-orders-on-shopify.html" class="topic" style="--topic-size:1.7rem;">order tags</a>
+    <a href="how-to-automatically-tag-orders-on-shopify.html" class="topic" style="--topic-size:1.2rem;">order routing</a>
+    <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html" class="topic" style="--topic-size:1.8rem;">tracking numbers</a>
+    <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html" class="topic" style="--topic-size:1.2rem;">order fulfillment</a>
+    <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="topic" style="--topic-size:1.8rem;">unpaid orders</a>
+    <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="topic" style="--topic-size:1.2rem;">pending payment</a>
+    <a href="how-to-automatically-request-product-reviews-on-shopify.html" class="topic" style="--topic-size:1.9rem;">review requests</a>
+    <a href="how-to-automatically-request-product-reviews-on-shopify.html" class="topic" style="--topic-size:1.2rem;">product reviews</a>
+    <a href="how-to-segment-repeat-customers-on-shopify.html" class="topic" style="--topic-size:1.8rem;">customer segments</a>
+    <a href="how-to-segment-repeat-customers-on-shopify.html" class="topic" style="--topic-size:1.2rem;">VIP tagging</a>
     <a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" class="topic" style="--topic-size:1.3rem;">wismo</a>
-    <a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="topic" style="--topic-size:1.6rem;">inventory&nbsp;sync</a>
+    <a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="topic" style="--topic-size:1.6rem;">inventory sync</a>
     <a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="topic" style="--topic-size:1.2rem;">overselling</a>
-    <a href="how-to-set-inventory-reorder-points-on-shopify.html" class="topic" style="--topic-size:1.7rem;">reorder&nbsp;points</a>
-    <a href="how-to-set-inventory-reorder-points-on-shopify.html" class="topic" style="--topic-size:1.2rem;">purchase&nbsp;orders</a>
-    <a href="how-to-schedule-a-sale-on-shopify.html" class="topic" style="--topic-size:1.7rem;">scheduled&nbsp;sales</a>
-    <a href="how-to-schedule-a-sale-on-shopify.html" class="topic" style="--topic-size:1.2rem;">price&nbsp;changes</a>
-    <a href="how-to-bulk-edit-product-prices-on-shopify.html" class="topic" style="--topic-size:1.8rem;">bulk&nbsp;price&nbsp;editing</a>
+    <a href="how-to-set-inventory-reorder-points-on-shopify.html" class="topic" style="--topic-size:1.7rem;">reorder points</a>
+    <a href="how-to-set-inventory-reorder-points-on-shopify.html" class="topic" style="--topic-size:1.2rem;">purchase orders</a>
+    <a href="how-to-schedule-a-sale-on-shopify.html" class="topic" style="--topic-size:1.7rem;">scheduled sales</a>
+    <a href="how-to-schedule-a-sale-on-shopify.html" class="topic" style="--topic-size:1.2rem;">price changes</a>
+    <a href="how-to-bulk-edit-product-prices-on-shopify.html" class="topic" style="--topic-size:1.8rem;">bulk price editing</a>
     <a href="how-to-bulk-edit-product-prices-on-shopify.html" class="topic" style="--topic-size:1.2rem;">repricing</a>
-    <a href="how-to-set-up-back-in-stock-notifications-on-shopify.html" class="topic" style="--topic-size:1.6rem;">back&nbsp;in&nbsp;stock</a>
-    <a href="how-to-set-up-back-in-stock-notifications-on-shopify.html" class="topic" style="--topic-size:1.1rem;">restock&nbsp;alerts</a>
+    <a href="how-to-set-up-back-in-stock-notifications-on-shopify.html" class="topic" style="--topic-size:1.6rem;">back in stock</a>
+    <a href="how-to-set-up-back-in-stock-notifications-on-shopify.html" class="topic" style="--topic-size:1.1rem;">restock alerts</a>
     <a href="how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html" class="topic" style="--topic-size:1.5rem;">merchandising</a>
-    <a href="how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html" class="topic" style="--topic-size:1.1rem;">collection&nbsp;sort</a>
-    <a href="how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html" class="topic" style="--topic-size:1.7rem;">abandoned&nbsp;cart</a>
-    <a href="how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html" class="topic" style="--topic-size:1.2rem;">cart&nbsp;recovery</a>
-    <a href="how-to-handle-high-risk-orders-on-shopify.html" class="topic" style="--topic-size:1.7rem;">fraud&nbsp;review</a>
-    <a href="how-to-stop-card-testing-attacks-on-shopify.html" class="topic" style="--topic-size:1.9rem;">card&nbsp;testing</a>
-    <a href="how-to-stop-card-testing-attacks-on-shopify.html" class="topic" style="--topic-size:1.3rem;">bot&nbsp;orders</a>
-    <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" class="topic" style="--topic-size:1.9rem;">combine&nbsp;orders</a>
-    <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" class="topic" style="--topic-size:1.3rem;">order&nbsp;merging</a>
-    <a href="how-to-catch-and-cancel-duplicate-orders-on-shopify.html" class="topic" style="--topic-size:1.8rem;">duplicate&nbsp;orders</a>
-    <a href="how-to-catch-and-cancel-duplicate-orders-on-shopify.html" class="topic" style="--topic-size:1.2rem;">charged&nbsp;twice</a>
-    <a href="how-to-automatically-hide-sold-out-variants-on-shopify.html" class="topic" style="--topic-size:1.9rem;">hide&nbsp;sold-out&nbsp;variants</a>
-    <a href="how-to-automatically-hide-sold-out-variants-on-shopify.html" class="topic" style="--topic-size:1.3rem;">variant&nbsp;visibility</a>
+    <a href="how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html" class="topic" style="--topic-size:1.1rem;">collection sort</a>
+    <a href="how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html" class="topic" style="--topic-size:1.7rem;">abandoned cart</a>
+    <a href="how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html" class="topic" style="--topic-size:1.2rem;">cart recovery</a>
+    <a href="how-to-handle-high-risk-orders-on-shopify.html" class="topic" style="--topic-size:1.7rem;">fraud review</a>
+    <a href="how-to-stop-card-testing-attacks-on-shopify.html" class="topic" style="--topic-size:1.9rem;">card testing</a>
+    <a href="how-to-stop-card-testing-attacks-on-shopify.html" class="topic" style="--topic-size:1.3rem;">bot orders</a>
+    <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" class="topic" style="--topic-size:1.9rem;">combine orders</a>
+    <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" class="topic" style="--topic-size:1.3rem;">order merging</a>
+    <a href="how-to-catch-and-cancel-duplicate-orders-on-shopify.html" class="topic" style="--topic-size:1.8rem;">duplicate orders</a>
+    <a href="how-to-catch-and-cancel-duplicate-orders-on-shopify.html" class="topic" style="--topic-size:1.2rem;">charged twice</a>
+    <a href="how-to-automatically-hide-sold-out-variants-on-shopify.html" class="topic" style="--topic-size:1.9rem;">hide sold-out variants</a>
+    <a href="how-to-automatically-hide-sold-out-variants-on-shopify.html" class="topic" style="--topic-size:1.3rem;">variant visibility</a>
     <a href="how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html" class="topic" style="--topic-size:1.8rem;">pre-orders</a>
     <a href="how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html" class="topic" style="--topic-size:1.2rem;">backorders</a>
-    <a href="how-to-reconcile-shopify-payouts-with-your-sales.html" class="topic" style="--topic-size:1.8rem;">payout&nbsp;reconciliation</a>
-    <a href="how-to-reconcile-shopify-payouts-with-your-sales.html" class="topic" style="--topic-size:1.2rem;">Shopify&nbsp;bookkeeping</a>
+    <a href="how-to-reconcile-shopify-payouts-with-your-sales.html" class="topic" style="--topic-size:1.8rem;">payout reconciliation</a>
+    <a href="how-to-reconcile-shopify-payouts-with-your-sales.html" class="topic" style="--topic-size:1.2rem;">Shopify bookkeeping</a>
     <a href="how-to-win-chargeback-disputes-on-shopify.html" class="topic" style="--topic-size:1.5rem;">chargebacks</a>
     <a href="how-to-win-chargeback-disputes-on-shopify.html" class="topic" style="--topic-size:1.1rem;">disputes</a>
-    <a href="how-to-validate-shipping-addresses-on-shopify.html" class="topic" style="--topic-size:1.5rem;">address&nbsp;validation</a>
+    <a href="how-to-validate-shipping-addresses-on-shopify.html" class="topic" style="--topic-size:1.5rem;">address validation</a>
     <a href="how-to-validate-shipping-addresses-on-shopify.html" class="topic" style="--topic-size:1.1rem;">fulfillment</a>
     <a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" class="topic" style="--topic-size:1.1rem;">support</a>
     <a href="how-to-automate-returns-and-exchanges-on-shopify.html" class="topic" style="--topic-size:1.6rem;">returns</a>
@@ -4440,7 +4549,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
     <div>
       <h2 class="author-name"><a href="priya-singh.html" rel="author" style="color:inherit;">Priya Singh</a></h2>
       <p class="author-role">Commerce Research, Dugong</p>
-      <p class="author-text">Priya researches Shopify operations failure modes and writes the Dugong Field Notes commerce playbooks. Her raw material is merchant communities, Shopify changelogs, and the telemetry of 1,374 real automation workflows: authorizations that expire uncaptured, inventory that oversells across channels, fraud flags that punish good customers. Every dispatch is written as a playbook a merchant can actually run. See <a href="priya-singh.html">all 84 dispatches by Priya Singh</a>, or start with her field study of <a href="best-shopify-automations-to-set-up.html">the best Shopify automations to set up</a>, or follow new dispatches by <a href="/feed.xml">RSS</a>.</p>
+      <p class="author-text">Priya researches Shopify operations failure modes and writes the Dugong Field Notes commerce playbooks. Her raw material is merchant communities, Shopify changelogs, and the telemetry of 1,374 real automation workflows: authorizations that expire uncaptured, inventory that oversells across channels, fraud flags that punish good customers. Every dispatch is written as a playbook a merchant can actually run. See <a href="priya-singh.html">all 85 dispatches by Priya Singh</a>, or start with her field study of <a href="best-shopify-automations-to-set-up.html">the best Shopify automations to set up</a>, or follow new dispatches by <a href="/feed.xml">RSS</a>. The lead essay is by <a href="aanya-rao.html" rel="author">Aanya Rao</a>, Head of Research at Dugong.</p>
     </div>
   </div>
 </section>
@@ -4545,7 +4654,11 @@ function applyFilter(tagClass) {
     p.classList.toggle("pill-active", active);
     p.setAttribute("aria-pressed", String(active));
   });
-  document.querySelectorAll(".article-grid .card").forEach((card) => {
+    // QA 2026-10-19: open the overflow disclosure while a filter is active,
+  // so a matching card can never be hidden inside a closed <details>.
+  const more = document.getElementById("grid-more");
+  if (more) more.open = Boolean(tagClass);
+document.querySelectorAll(".article-grid .card").forEach((card) => {
     const show = !tagClass || card.querySelector("." + tagClass);
     card.style.display = show ? "" : "none";
     if (show) card.classList.add("in");

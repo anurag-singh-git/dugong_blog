@@ -55,6 +55,15 @@ EXCEPTIONS = {
     "noindex_allowed": {"404.html"},
     "orphan_allowed": {"404.html"},
     "sitemap_exempt": {"404.html"},
+    # Entities whose concept has a Wikidata item but no en.wikipedia article.
+    # Pointing these at the nearest Wikipedia page would be a disambiguation
+    # page or a near-miss concept, so they carry Wikidata alone. Verified
+    # 2026-10-19 against the Wikipedia and Wikidata APIs in both directions.
+    #   Click and collect -> Q15794580, "shopping in which merchandise is
+    #   purchased online and picked up at a local store". No sitelinks.
+    #   en.wikipedia.org/wiki/Click_and_collect is a disambiguation page
+    #   (Q101423394) and was the target until this pass.
+    "wikidata_only_entity": {"Click and collect"},
 }
 
 fails = defaultdict(list)
@@ -87,6 +96,31 @@ def visible_text(html):
     body = re.sub(r"<style.*?</style>", " ", body, flags=re.S)
     body = re.sub(r"<[^>]+>", " ", body)
     return folded(html_unescape(body))
+
+
+def element_contents(html, class_name):
+    """Yield the inner HTML of every element carrying class_name.
+
+    Walks tags so a container holding nested elements of the same name,
+    such as the <p> children of .article-body, is measured whole rather
+    than cut off at the first closing tag.
+    """
+    opener = re.compile(
+        r'<([a-z]+)[^>]*\bclass="[^"]*\b' + re.escape(class_name) + r'\b[^"]*"[^>]*>'
+    )
+    for match in opener.finditer(html):
+        tag = match.group(1)
+        depth, pos = 1, match.end()
+        token = re.compile(r"<(/?)" + tag + r"\b[^>]*>")
+        while depth and pos < len(html):
+            nxt = token.search(html, pos)
+            if not nxt:
+                break
+            depth += -1 if nxt.group(1) else 1
+            pos = nxt.end()
+            if depth == 0:
+                yield html[match.end():nxt.start()]
+                break
 
 
 def playbook_steps(html):
@@ -220,6 +254,23 @@ def main():
         if text.count("<style") != text.count("</style>"):
             fail("style_tag_balance", name)
 
+        # A link the reader cannot see is a link the reader cannot click.
+        # .article-dek had no anchor rule, so 15 editorial links across 11
+        # pages rendered in the dek's own colour with no underline.
+        style = re.search(r"<style>(.*?)</style>", text, re.S)
+        css = style.group(1) if style else ""
+        for container in ("article-dek", "article-body", "card-dek"):
+            linked = sum(
+                len(re.findall(r"<a ", chunk))
+                for chunk in element_contents(text, container)
+            )
+            if linked and f".{container} a" not in css:
+                fail(
+                    "unstyled_link_container",
+                    f"{name}: {linked} link(s) in .{container} with no "
+                    f"'.{container} a' rule",
+                )
+
         # Any page that declares a dateModified must agree with its sitemap
         # lastmod, not only the dispatches. The 2026-10-17 drift was on a
         # ProfilePage and two CollectionPages, which an Article-only sweep
@@ -250,12 +301,38 @@ def main():
                             f"{name}: '{label}' has only {same}",
                         )
                     elif isinstance(same, list):
-                        if not any("en.wikipedia.org/wiki/" in u for u in same):
+                        wiki_only = label in EXCEPTIONS["wikidata_only_entity"]
+                        has_wiki = any(
+                            "en.wikipedia.org/wiki/" in u for u in same
+                        )
+                        if not has_wiki and not wiki_only:
                             fail("entity_no_wikipedia", f"{name}: '{label}'")
+                        if has_wiki and wiki_only:
+                            fail(
+                                "entity_wikipedia_unexpected",
+                                f"{name}: '{label}' is documented as "
+                                "Wikidata-only but carries a Wikipedia URL",
+                            )
                         if not any("wikidata.org/wiki/Q" in u for u in same):
                             fail("entity_no_wikidata", f"{name}: '{label}'")
                     else:
                         fail("entity_no_sameas", f"{name}: '{label}'")
+                authors = node.get("author") or []
+                for person in authors if isinstance(authors, list) else [authors]:
+                    if not isinstance(person, dict):
+                        continue
+                    who = person.get("name", "?")
+                    if not person.get("url"):
+                        fail("author_without_url", f"{name}: '{who}'")
+                    if not person.get("@id"):
+                        fail("author_without_id", f"{name}: '{who}'")
+            elif kind == "CollectionPage":
+                about = node.get("about") or []
+                about = about if isinstance(about, list) else [about]
+                if not any(
+                    isinstance(t, dict) and t.get("sameAs") for t in about
+                ):
+                    fail("collection_about_ungrounded", name)
             elif kind == "FAQPage":
                 entities = node.get("mainEntity") or []
                 if not entities:
@@ -443,6 +520,53 @@ def main():
             fail("markdown_twin_missing", md)
         if 'type="text/markdown"' not in read(name):
             fail("markdown_alternate_missing", name)
+
+    # llms.txt carries three parallel lists of every dispatch: "Full index",
+    # "Articles" and "Markdown versions". A dispatch added to one and not the
+    # others is invisible to a reader of that list. On 2026-10-18 the newest
+    # dispatch was in two of the three.
+    for section, pattern in (
+        ("Full index", r"blog\.dugong\.live/([a-z0-9\-]+)\.html"),
+        ("Articles", r"blog\.dugong\.live/([a-z0-9\-]+)\.html"),
+        ("Markdown versions", r"blog\.dugong\.live/md/([a-z0-9\-]+)\.md"),
+    ):
+        block = re.search(
+            r"\n## " + re.escape(section) + r"\n(.*?)(?=\n## |\Z)", llms, re.S
+        )
+        if not block:
+            fail("llms_section_missing", section)
+            continue
+        listed = set(re.findall(pattern, block.group(1)))
+        for name in posts:
+            if name[:-5] not in listed:
+                fail("llms_list_incomplete", f"{section}: {name}")
+
+    # Each topic-guide line in llms.txt states a dispatch count. It has to
+    # agree with the guide page's own ItemList and its visible card grid.
+    # The inventory guide said 16 against 17 from 2026-10-15 to 2026-10-19.
+    for guide, claimed in re.findall(
+        r"blog\.dugong\.live/(shopify-[a-z\-]+\.html)\) \((\d+) dispatches\)",
+        llms,
+    ):
+        if not os.path.exists(guide):
+            fail("llms_guide_missing", guide)
+            continue
+        text = read(guide)
+        cards = len(set(re.findall(
+            r'<a href="([a-z0-9\-]+\.html)" class="card"', text
+        )))
+        counts = [
+            node.get("numberOfItems")
+            for node in nodes(jsonld(text, guide))
+            if node.get("@type") == "ItemList"
+        ]
+        listed = counts[0] if counts else None
+        if int(claimed) != cards or (listed is not None and listed != cards):
+            fail(
+                "llms_guide_count",
+                f"{guide}: llms.txt says {claimed}, ItemList says {listed}, "
+                f"page shows {cards} cards",
+            )
 
     # ------------------------------------------------------------- robots
     robots = read("robots.txt") if os.path.exists("robots.txt") else ""

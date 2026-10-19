@@ -1,0 +1,14 @@
+# Whole-site QA tarballs. These are working snapshots, not site content, and
+# robots.txt is a request rather than an access control: anything committed
+# here is publicly downloadable from the live domain.
+_qa_tmp/
+
+# Scratch created by the delete-permission probe and by staging.
+__deltest.tmp
+_to_delete/
+
+# Python bytecode from _tools/
+__pycache__/
+*.pyc
+
+.DS_Store

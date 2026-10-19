@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stop shipping Shopify orders that say Payment pending</title>
+<meta name="description" content="An order can read Payment pending and still sit in your queue looking normal. The AI playbook that holds every one until the money lands." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="shopify payment pending, shopify pending payment order, fulfill shopify order pending payment, shopify order shipped not paid, shopify payment status expired, hold fulfillment awaiting payment, shopify unpaid order fulfilled, shopify collective payment pending, shopify flow hold fulfillment, AWAITING_PAYMENT hold reason, orderPaymentStatus, Dugong" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-stop-shipping-shopify-orders-with-payment-pending.md" title="Markdown version for answer engines" />
+<meta property="article:published_time" content="2026-10-19" />
+<meta property="article:modified_time" content="2026-10-19" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to stop shipping Shopify orders that say Payment pending" />
+<meta property="og:description" content="An order can read Payment pending and still sit in your queue looking normal. The AI playbook that holds every one until the money lands." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to stop shipping Shopify orders that say Payment pending" />
+<meta name="twitter:description" content="An order can read Payment pending and still sit in your queue looking normal. The AI playbook that holds every one until the money lands." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+    <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#article",
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://blog.dugong.live/#blog",
+        "name": "Dugong Field Notes",
+        "url": "https://blog.dugong.live/"
+      },
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html",
+      "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html",
+      "headline": "How to stop shipping Shopify orders that say Payment pending",
+      "description": "An order that reads Payment pending looks identical to a paid order in the unfulfilled queue, and Shopify's own gate before fulfillment never checks the money: the Fulfillment order ready to fulfill trigger fires when an order has completed risk assessment and has inventory available for the order, and the automatic fulfillment setting offers one override, for high risk of fraud, with no payment condition at all. Shopify's pending payments page says you are not prevented from fulfilling these orders and asks you to wait until the payment status is Paid before fulfilling, which is the whole control. Unpaid is not a status but a documented grouping of four different risks, Authorized, Pending, Expired and Partially paid, so the filter that looks like the answer puts the safe case next to the unsafe one. Pending payments usually expire after about a week, the order status then changes to Expired, and while it is pending you may not be able to edit, restock, cancel, collect payment or mark the order as paid. The sources of pending volume keep growing: wire, cryptocurrency, barcodes, manual gateways such as bank deposit and cash on delivery, payment terms, and since 19 June 2024 Shopify Collective supplier orders from retailers without automatic payments, which now arrive marked Payment Pending rather than Paid while the supplier payments page tells suppliers not to ship them. On 9 October 2026 a Collective supplier asked the community how others prevent orders shipping before payment is secured and got no replies. Shopify already defines the exact lever: FulfillmentHoldReason carries AWAITING_PAYMENT, the fulfillment hold is applied because payment is pending, and nothing applies it for you. Flow can hold on Order created but cannot reliably release: Order paid excludes partially paid orders and authorized but uncaptured funds, and merchants have reported since 18 April 2022 that it does not fire for payments collected through Collect Payment, with no staff resolution. The Admin API's orderPaymentStatus query, built to monitor the processing status of deferred payments, shows the real shape of the fix, which is a poll rather than a trigger. The Dugong playbook reads the payment status rather than the fulfillment status, holds with AWAITING_PAYMENT on arrival, lets authorized and paid orders through untouched, polls and releases the hour the money lands, counts the days to expiry and chases while the Pay now link still works, flags every release done by hand while payment is pending, and closes out expired and failed payments the same day.",
+      "datePublished": "2026-10-19",
+      "dateModified": "2026-10-19",
+      "articleSection": "Research",
+      "keywords": "shopify payment pending, shopify pending payment order, fulfill shopify order pending payment, shopify order shipped not paid, shopify payment status expired, hold fulfillment awaiting payment, shopify collective payment pending, AI payment hold automation",
+      "wordCount": 2849,
+      "timeRequired": "PT9M",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Payment processor",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Payment_processor",
+            "https://www.wikidata.org/wiki/Q12738586"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "name": "Order fulfillment",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_fulfillment",
+            "https://www.wikidata.org/wiki/Q1473552"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://blog.dugong.live/#priya-singh",
+        "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Pending payments",
+          "url": "https://help.shopify.com/en/manual/fulfillment/managing-orders/payments/pending-payments"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Order status",
+          "url": "https://help.shopify.com/en/manual/fulfillment/managing-orders/order-status"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Deferred payments",
+          "url": "https://help.shopify.com/en/manual/fulfillment/managing-orders/payments/deferred-payments"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Order processing settings",
+          "url": "https://help.shopify.com/en/manual/checkout-settings/order-processing"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Hold fulfillment (Shopify Flow)",
+          "url": "https://help.shopify.com/en/manual/shopify-flow/reference/actions/hold-fulfillment"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Fulfillment order ready to fulfill (Shopify Flow)",
+          "url": "https://help.shopify.com/en/manual/shopify-flow/reference/triggers/order-ready-to-fulfill"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Order paid (Shopify Flow)",
+          "url": "https://help.shopify.com/en/manual/shopify-flow/reference/triggers/order-paid"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Collective supplier payments",
+          "url": "https://help.shopify.com/en/manual/online-sales-channels/shopify-collective/suppliers/payments"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Changelog | Changes to Shopify Collective supplier order payment status",
+          "url": "https://changelog.shopify.com/posts/changes-to-shopify-collective-supplier-order-payment-status"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Admin GraphQL API | FulfillmentHoldReason",
+          "url": "https://shopify.dev/docs/api/admin-graphql/latest/enums/FulfillmentHoldReason"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Admin GraphQL API | orderPaymentStatus",
+          "url": "https://shopify.dev/docs/api/admin-graphql/latest/queries/orderPaymentStatus"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Admin GraphQL API | fulfillmentOrderHold",
+          "url": "https://shopify.dev/docs/api/admin-graphql/latest/mutations/fulfillmentOrderHold"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Order Paid trigger not working for payments completed after initial order was created",
+          "url": "https://community.shopify.com/t/order-paid-trigger-not-working-for-payments-completed-after-initial-order-was-created/114741"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | How to set flow to look for order with pending payment and add specific tag?",
+          "url": "https://community.shopify.com/t/how-to-set-flow-to-look-for-order-with-pending-payment-and-add-specific-tag/268355"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Shopify Collective suppliers: how are you preventing orders from shipping before payment is secured?",
+          "url": "https://community.shopify.com/t/shopify-collective-suppliers-how-are-you-preventing-orders-from-shipping-before-payment-is-secured/695182"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shopify order management automation",
+          "item": "https://blog.dugong.live/shopify-order-management-automation.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The order you shipped before the money cleared",
+          "item": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does Payment pending mean on a Shopify order?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It means the payment provider has started processing the payment and needs more time, so no money has reached you yet. Shopify's documentation describes it as applying to payments made by cryptocurrency, wire, barcodes and other alternatives to credit card payments, and says processing can take several days depending on the payment type. It also covers manual methods you set up yourself, such as bank deposit, money order and cash on delivery, and orders that run on payment terms, where the status later becomes Due or Overdue. Pending is not the same as Authorized. Authorized means the provider verified the card and is holding the funds for you until you capture them, which is ordinary business to ship against. Pending means nothing is held and nothing is guaranteed. Shopify groups both of them, plus Expired and Partially paid, under the single label Unpaid, which is why the filter that looks like the answer puts the safe case and the unsafe case in the same list."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you fulfill a Shopify order with a pending payment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and that is the problem. Shopify's pending payments page states that you are not prevented from fulfilling these orders, and then asks you to wait until the payment status is Paid before fulfilling, to make sure you get paid. Nothing enforces it. The documented gate before fulfillment, the Fulfillment order ready to fulfill trigger, fires when an order has completed risk assessment and has inventory available for the order, and payment is not one of its conditions. The automatic fulfillment setting in order processing is the same story: it offers one override, to automatically fulfill all orders even those with a high risk of fraud, and carries no payment condition at all. So a pending order can be marked fulfilled by your own store settings while the money is still in flight, and the only thing standing between that and a shipped parcel is somebody reading a badge in a column on a busy morning."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a Shopify pending payment take to clear?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Shopify's guidance is that pending payments usually have an expiry date of about a week, and that your payment provider can confirm the exact expiry for a given payment. If the payment clears, the customer gets a confirmation email. If it fails, the customer gets an email saying the payment could not be processed with a Pay now link to retry. If it is not completed by the expiry date, the order status changes to Expired. Nothing in the admin counts those days down for you: there is no badge at day five, no report of pending orders by age and no warning on the fulfillment screen, so the recoverable window is roughly seven days wide and entirely invisible. Shopify also advises contacting the payment provider before cancelling an expired order, because the payment can sometimes still be captured, which is worth doing before you write anything off."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Shopify Flow hold an order until the payment clears?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Half of it, reliably. The Hold fulfillment action changes the order's status to On hold, takes a reason and reason notes, and works with Order created, which is an order level trigger and therefore holds every fulfillment order on the order. So holding a pending order on arrival is a workflow you can build in ten minutes. Releasing it is where Flow runs out. The natural release trigger, Order paid, documents two exclusions that matter here: partially paid orders do not start a workflow with it, and funds that are authorized but not captured do not either, which rules out deposits against payment terms. On top of that, merchants have reported since 18 April 2022 that the trigger does not fire for payments collected later through the Collect Payment button, only for orders manually marked as paid, and the Shopify reply on that thread is a promise to look into it with no follow up. Collect Payment is exactly how a pending order usually becomes paid."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why can't I cancel or edit a Shopify order with a pending payment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because Shopify locks the order while the provider is still working. The pending payments page lists what may be unavailable: editing the order's items, discounts or shipping address, restocking items, cancelling the order, manually collecting payment, and marking the order as paid. Those restrictions lift when the payment status changes. This is the detail that pushes staff into improvising, because the obvious response to a payment that looks doubtful, cancel it and restock, is not on the table while it is pending. The practical sequence is to hold the fulfillment rather than try to cancel the order, wait for the status to move to Paid or Expired, and only then clean up. If it expires, contact the payment provider before cancelling, since Shopify notes the payment can sometimes still be captured."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can AI stop Shopify orders shipping before the payment clears?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and it is a good fit for automation because it is a bookkeeping problem rather than a judgment call. An automation like Dugong reads the payment status rather than the fulfillment status on every new order, and holds the fulfillment with the typed reason AWAITING_PAYMENT the moment a pending order appears, which is a reason Shopify already defines as the fulfillment hold is applied because payment is pending. It lets authorized and paid orders through untouched, because authorized funds are held for you and holding them would get the whole thing switched off inside a week. Then it polls, using the orderPaymentStatus query that Shopify built to monitor the processing status of deferred payments, and releases the hold the hour the money lands. It counts the days to expiry and nudges the customer while the Pay now link still works, so you hear about it on day five rather than on day nine. And it logs every release done by hand while payment is pending, because overriding this for a trusted account is legitimate and forgetting that you did is what turns it into a write off. The honest limits: a hold stops fulfillment but not a determined human, a pending order cannot be edited or cancelled until Shopify lets go of it, and the real expiry date belongs to the payment provider, so the clock is an estimate until they say otherwise."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#howto",
+      "name": "The order you shipped before the money cleared",
+      "description": "The AI playbook for stopping Shopify orders shipping while the payment is pending: reading the payment status rather than the fulfillment status, holding with the AWAITING_PAYMENT reason the moment a pending order appears, letting authorized and paid orders through untouched, polling the money and releasing the hold the hour it lands, counting the days to expiry and chasing before the window shuts, flagging every release done by hand while payment is pending, and closing out expired and failed payments the same day.",
+      "inLanguage": "en",
+      "totalTime": "PT9M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Read the payment status, not the fulfillment status",
+          "text": "Read the payment status, not the fulfillment status",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Hold with AWAITING_PAYMENT the moment a pending order appears",
+          "text": "Hold with AWAITING_PAYMENT the moment a pending order appears",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Let authorized and paid orders through untouched",
+          "text": "Let authorized and paid orders through untouched",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Poll the money and release the hold the hour it lands",
+          "text": "Poll the money and release the hold the hour it lands",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Count the days to expiry and chase before the window shuts",
+          "text": "Count the days to expiry and chase before the window shuts",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Flag every release done by hand while payment is pending",
+          "text": "Flag every release done by hand while payment is pending",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Close out expired and failed payments the same day",
+          "text": "Close out expired and failed payments the same day",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#playbook"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES - matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #71716a;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background - lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0 var(--gutter); min-height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; min-width: 0; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  white-space: nowrap; flex-shrink: 0;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+/* superseded by the QA 2026-10-18 wrapping nav below */
+@media (max-width: 480px) {
+  .brand-slash, .brand-section { display: none; }
+  .nav-cta { font-size: 12.5px; padding: 8px 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 11.5px; padding: 7px 10px; }
+}
+
+/* QA 2026-10-12: 24px minimum tap target for the standalone topic-guide link */
+@media (max-width: 560px) {
+  .hub-more { padding-top: 5px; padding-bottom: 5px; }
+}
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+/* GRID (for related cards) */
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 560px) { .foot-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; } }
+@media (max-width: 340px) { .foot-cols { grid-template-columns: 1fr; } }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+/* highlight wraps at every width: nowrap overflowed the text column on long phrases */
+.article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 57%, var(--lime) 57%, var(--lime) 81%, transparent 81%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.article-title em::after { content: none; }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: rgba(15,15,12,.45); } /* QA 2026-10-12 */
+.byline-role { color: var(--text-faint); }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
+.article-body pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) - mirrors the site's final card ---- */
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+
+/* ACCESSIBILITY */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
+
+/* QA 2026-10-10: mobile tap targets + ticker legibility */
+@media (max-width: 560px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+  .foot-cols > div { gap: 0.1rem; }
+  .foot-cols a { padding: 0.45rem 0; }
+  .article-back { min-height: 40px; padding: 0.55rem 0; }
+  .pill { padding: 0.6rem 1rem; }
+  .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
+@media (max-width: 560px) {
+  .tag { font-size: 12px; letter-spacing: 0.05em; }
+  .post-meta { font-size: 12px; }
+  .post-read { font-size: 12px; }
+  .card-foot { font-size: 12px; }
+  .card-date, .card-author { font-size: 12px; }
+  .byline-avatar { font-size: 12px; }
+  .callout-mark { font-size: 12px; }
+  .cta-fine { font-size: 12px; }
+  .foot-h { font-size: 12px; }
+  .stat-label { font-size: 12px; }
+  .pb-status, .pb-tag, .pb-node-sub, .pb-branch-arm { font-size: 12px; }
+  .foot-bot, .foot-bot span, .foot-bot a { font-size: 12px; }
+  .art-coord { font-size: 12px; }
+  .signup-label { font-size: 12px; }
+  .signup-fine { font-size: 12px; }
+  .arch-date { font-size: 12px; }
+  .author-role { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 12px; padding: 7px 9px; }
+}
+
+/* QA 2026-10-19 */
+:root { color-scheme: light; }
+
+/* QA 2026-10-19: a skip link, so a keyboard or screen-reader visitor does not
+   walk the ticker, the brand and four nav links on every page (WCAG 2.4.1). */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  font-family: var(--display); font-weight: 700; font-size: 14px;
+  background: var(--lime); color: #11110e; border: 1px solid #11110e;
+  padding: 10px 18px; border-radius: 0 0 10px 0;
+}
+.skip-link:focus { left: 0; }
+
+/* QA 2026-10-19: the 2026-10-18 pass gave .nav-cta `order: 2` so the button
+   would ride on the brand's row below 820px, but the button was a child of
+   .nav-links, where `order` means nothing and margin-left:auto pushed it past
+   the gutter. It is a child of .nav now. These rules keep the old look. */
+.nav > .nav-cta { flex-shrink: 0; }
+@media (min-width: 821px) { .nav > .nav-cta { margin-left: 0; } }
+
+/* QA 2026-10-19: .callout is a flex row with a flex-shrink:0 label of
+   79-149px. On a 390px phone that left the quote a 136px column, ~20
+   characters a line, 25 lines for a single paragraph; at 320px, 96px and 41
+   lines, and one callout ran the page 7px wide. Stack below 700px. */
+@media (max-width: 700px) {
+  .callout { flex-direction: column; gap: 0.55rem; }
+  .callout-mark { padding-top: 0; }
+}
+</style>
+<style>
+/* SEO 2026-10-12 topic guide link */
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
+.hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
+</style>
+
+<style>
+/* SEO 2026-10-12 long inline code must break rather than widen the page */
+.article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+</style>
+
+<style>
+/* 2026-10-13 long API identifiers in FAQ answers must break rather than widen the page */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  /* decorative separators strand at the end of a wrapped line on phones */
+  .article-meta span[aria-hidden="true"] { display: none; }
+  .article-meta { column-gap: 1rem; }
+}
+
+/* QA-2026-10-18-CSS
+   QA 2026-10-18: 24px minimum target size at every width, not only phones.
+   The 2026-10-10 pass put this inside @media (max-width:560px), so header and
+   footer links stayed at 23.2-23.5px on tablet and desktop. */
+.nav-links a:not(.nav-cta), .foot-cols a, .foot-bot a {
+  display: inline-flex; align-items: center; min-height: 24px;
+}
+
+/* QA 2026-10-18: the header nav used to vanish below 820px with nothing in its
+   place, so phone and tablet readers had no way back to Latest, Topics or the
+   Archive. Wrap it onto a second row instead of hiding it. */
+@media (max-width: 820px) {
+  .nav { flex-wrap: wrap; padding-top: 0.55rem; padding-bottom: 0.55rem; row-gap: 0.1rem; }
+  .brand { order: 1; }
+  .nav-cta { order: 2; margin-left: auto; }
+  .nav-links { order: 3; width: 100%; gap: 1.5rem; justify-content: flex-start;
+               font-size: 13.5px; padding-bottom: 0.1rem; }
+  .nav-links a:not(.nav-cta) { display: inline-flex; }
+}
+@media (max-width: 380px) { .nav-links { gap: 1.1rem; font-size: 13px; } }
+
+/* QA 2026-10-18: long API identifiers in deks and FAQ answers must break
+   rather than widen the page. Added 2026-10-13 to 5 pages only. */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+
+/* QA 2026-10-18: READ NEXT had grown to 79 cards on the oldest dispatches,
+   ~28,000px of card grid on a phone. The overflow now sits behind a
+   disclosure, so every link is still in the page and crawlable. */
+.related-more { max-width: var(--maxw); margin: 1.5rem auto 0; }
+.related-more > summary {
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-dim); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 0.5rem; min-height: 24px;
+  padding: 0.4rem 0.9rem; border: 1px solid var(--border-strong); border-radius: 999px;
+  list-style: none; transition: color .2s, border-color .2s, background .2s;
+}
+.related-more > summary::-webkit-details-marker { display: none; }
+.related-more > summary::after { content: "\002B"; font-size: 1rem; line-height: 1; }
+.related-more[open] > summary::after { content: "\2212"; }
+.related-more > summary:hover { color: var(--text); border-color: var(--text); background: var(--surface); }
+.related-more > .related-grid { margin-top: 1.5rem; }
+/* cards inside a closed disclosure never meet the IntersectionObserver that
+   clears .reveal, so they would open at opacity 0. */
+.related-more .reveal { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>&#9670; DISPATCH N&ordm; 131 &middot; OCT 18, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 10 MIN READ &middot; 3,118 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+    <span>&#9670; DISPATCH N&ordm; 131 &middot; OCT 18, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 10 MIN READ &middot; 3,118 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+  </nav>
+  <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+</header>
+
+<article class="article" id="main" role="main">
+
+  <a href="index.html" class="article-back">&larr; back to field notes</a>
+
+  <div class="article-meta">
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 132</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-10-19" style="color: var(--cream-dim);">OCT 19, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">9 MIN READ</span></span>
+</div>
+
+  <h1 class="article-title">
+    How to stop shipping Shopify orders <em>that say Payment pending</em>
+  </h1>
+
+  <p class="article-dek">
+    The order looks exactly like every other order in your queue. It gets picked, packed, labelled and shipped, and nine days later the payment status quietly turns to Expired.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
+    <span class="byline-divider" aria-hidden="true">&middot;</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      Order 4417 came in on a Thursday afternoon. Two items,
+      a real address, a customer who had bought twice before.
+      It appeared in the unfulfilled queue between two other
+      orders, it went onto the pick list with them, it got a
+      label at eight the next morning and it left on the
+      midday collection.
+    </p>
+
+    <p>
+      Nobody looked at the payment status. There was no
+      reason to. It said Payment pending, the same two words
+      Shopify shows while a perfectly normal bank transfer
+      settles, and the badge sat in a column nobody reads
+      when the order is already on the pick list.
+    </p>
+
+    <p>
+      Nine days later it turned to Expired. The goods were
+      gone, the label was paid for, the customer stopped
+      replying, and there was no event anywhere in the admin
+      that said the word anybody needed to hear, which is
+      that you just shipped a parcel for free.
+    </p>
+
+    <h2>Unpaid is four different problems wearing one badge</h2>
+
+    <p>
+      Start with the vocabulary, because this is where most
+      stores lose the thread. Shopify's
+      <a href="https://help.shopify.com/en/manual/fulfillment/managing-orders/order-status">order
+      status documentation</a> defines Unpaid not as a status
+      but as a grouping, and it contains four things:
+      Authorized, Pending, Expired and Partially paid.
+    </p>
+
+    <p>
+      Those four are not the same risk at all. Authorized
+      means the provider has verified the card and the funds
+      are held for you until you capture them, so shipping
+      against it is ordinary business. Pending means the
+      provider has started processing and needs more time, so
+      shipping against it is a bet. Expired means the window
+      closed or the provider could not process the payment at
+      all. Partially paid means you captured less than the
+      total.
+    </p>
+
+    <p>
+      So the filter that looks like the answer is the filter
+      that hides the problem. Pull up Unpaid and you get the
+      safe case and the unsafe case in the same list, which
+      is exactly why staff stop using it after a week and go
+      back to working the unfulfilled queue instead. The
+      unfulfilled queue is sorted by fulfillment status and
+      says nothing at all about money.
+    </p>
+
+    <h2>Shopify's own ready to fulfill gate never checks the money</h2>
+
+    <p>
+      This is the part that surprises people who assume the
+      platform is quietly protecting them.
+    </p>
+
+    <p>
+      Shopify has a real gate before fulfillment, and it is
+      documented on the
+      <a href="https://help.shopify.com/en/manual/shopify-flow/reference/triggers/order-ready-to-fulfill">Fulfillment
+      order ready to fulfill</a> trigger. That trigger starts
+      a workflow when an order has completed risk assessment
+      and has inventory available for the order, after
+      Shopify releases its own initial hold. Read the two
+      conditions again. Risk assessment. Inventory
+      availability. Payment is not in the sentence.
+    </p>
+
+    <p>
+      The same gap is in the setting most stores turn on and
+      forget. In
+      <a href="https://help.shopify.com/en/manual/checkout-settings/order-processing">order
+      processing</a> you can choose to automatically fulfill
+      the order's line items, and the one escape hatch
+      offered next to it is to automatically fulfill all
+      orders, even those with a high risk of fraud. Shopify
+      thought carefully enough about that checkbox to build
+      a fraud override for it. There is no payment condition
+      on it anywhere, so a pending order can be marked
+      fulfilled by your own store settings while the money is
+      still in flight.
+    </p>
+
+    <p>
+      And on the only page where Shopify does address the
+      risk, the advice is a sentence to a human.
+      <a href="https://help.shopify.com/en/manual/fulfillment/managing-orders/payments/pending-payments">Pending
+      payments</a> says you are not prevented from fulfilling
+      these orders, and then asks you to wait until the
+      payment status is Paid before fulfilling, to make sure
+      you get paid. That is the whole control. Somebody
+      reading a column at eight in the morning.
+    </p>
+
+    <h2>Where Payment pending comes from, and why it is spreading</h2>
+
+    <p>
+      If you take card payments only, this reads like someone
+      else's problem. The list of ways a pending order lands
+      in your queue has been getting longer for three years.
+    </p>
+
+    <p>
+      Shopify's own description covers payments made by
+      cryptocurrency, wire, barcodes and other alternatives
+      to credit card payments, where the provider has started
+      processing but needs more time, and says processing can
+      take several days depending on the payment type. Then
+      there are manual methods you set up yourself, bank
+      deposit, money order, cash on delivery, where Shopify
+      notes that a manual payment gateway sends no email at
+      all and you have to read the order timeline to know
+      what was sent. Then there are orders with payment
+      terms, where the
+      <a href="https://help.shopify.com/en/manual/fulfillment/managing-orders/payments/deferred-payments">deferred
+      payments</a> documentation has the status become
+      Overdue when the due date passes, and Due the moment a
+      payment is due today.
+    </p>
+
+    <p>
+      Then there is the one that caught a lot of stores off
+      guard. On 19 June 2024 Shopify
+      <a href="https://changelog.shopify.com/posts/changes-to-shopify-collective-supplier-order-payment-status">changed
+      the payment status for Collective supplier orders</a>:
+      orders received from retailers who do not use automatic
+      payments are now marked Payment Pending rather than
+      Paid. If you supply other merchants through Collective,
+      a whole class of orders that used to arrive reading
+      Paid now arrives reading pending, and the
+      <a href="https://help.shopify.com/en/manual/online-sales-channels/shopify-collective/suppliers/payments">supplier
+      payments page</a> tells you plainly not to ship orders
+      in Payment pending status, while also explaining that
+      your funds do not transfer until after you fulfill.
+      Those two instructions live together and the ordering
+      between them is left to you.
+    </p>
+
+    <p>
+      Ten days ago, on 9 October 2026, a Collective supplier
+      posted in the Shopify community asking how other
+      suppliers prevent orders from shipping before payment
+      is secured, and described the failure precisely: an
+      order can still be marked Payment Pending while
+      fulfillment workflows treat it as ready to process, and
+      a single missed status check ships the goods. The thread
+      has no replies. That is the state of the art on the
+      open web: a question, a plug for an app, and silence.
+    </p>
+
+    <h2>The clock nobody is counting</h2>
+
+    <p>
+      Pending is not a steady state. It has an expiry, and
+      Shopify's guidance is that pending payments usually
+      expire after about a week, with the exact date held by
+      your payment provider rather than by Shopify. When it
+      runs out the order status changes to Expired. If the
+      payment fails outright, the customer gets an email
+      saying the payment could not be processed with a Pay
+      now link to retry, and if it succeeds they get a
+      confirmation. You are not in either email.
+    </p>
+
+    <p>
+      Which means the window where this is still recoverable
+      is roughly seven days wide, it opens the moment the
+      order is created, and nothing in the admin counts down.
+      There is no badge at day five, no report of pending
+      orders by age, no warning on the fulfillment screen. On
+      day eight the status word changes and a shipped parcel
+      becomes a write off.
+    </p>
+
+    <p>
+      The pending state also takes your tools away while it
+      lasts, which is the detail that makes staff improvise.
+      Shopify lists what you may not be able to do on a
+      pending order: edit the items, discounts or shipping
+      address, restock the items, cancel the order, manually
+      collect payment, or mark it as paid. The restrictions
+      lift when the payment status changes. So the obvious
+      instinct, cancel it and move on, is not available
+      either. Shopify even advises contacting the payment
+      provider before cancelling an expired order, in case
+      the payment can still be captured.
+    </p>
+
+    <h2>The hold reason Shopify built for this and never applies</h2>
+
+    <p>
+      Here is the part that makes this worth automating
+      rather than worth complaining about.
+    </p>
+
+    <p>
+      Shopify has a fulfillment hold system, and holds carry
+      a typed reason. The
+      <a href="https://shopify.dev/docs/api/admin-graphql/latest/enums/FulfillmentHoldReason">FulfillmentHoldReason</a>
+      enum has eight values, and the first one in the list is
+      AWAITING_PAYMENT, documented as the fulfillment hold is
+      applied because payment is pending. It sits alongside
+      HIGH_RISK_OF_FRAUD, INVENTORY_OUT_OF_STOCK and
+      INCORRECT_ADDRESS.
+    </p>
+
+    <p>
+      So the lever exists, it is named after exactly this
+      problem, and an order on hold is visible everywhere it
+      needs to be. Shopify's own order status page says that
+      while a fulfillment is On hold the inventory can be
+      reserved and the order cannot be fulfilled until the
+      hold is released, which is also the only state your
+      3PL, your warehouse app and your pick list all respect
+      without being told anything new.
+    </p>
+
+    <p>
+      Nothing in Shopify applies it for you when a payment is
+      pending. The reason was written, the plumbing was
+      built, and the decision to use it was left in the
+      admin, which is a sentence you could write about most
+      of the quiet leaks in a store.
+    </p>
+
+    <h2>Why Flow gets you most of the way and then stops</h2>
+
+    <p>
+      Flow can hold an order. The
+      <a href="https://help.shopify.com/en/manual/shopify-flow/reference/actions/hold-fulfillment">Hold
+      fulfillment</a> action changes the order's status to On
+      hold, takes a reason and reason notes, and can notify
+      the merchant. Order created is on its list of
+      compatible order level triggers, and an order level
+      trigger holds every fulfillment order on the order. So
+      the first half of this is a Flow anybody can build in
+      ten minutes: on order created, if the payment status is
+      pending, hold the fulfillment.
+    </p>
+
+    <p>
+      The release is where it comes apart, and it comes apart
+      in three separate places.
+    </p>
+
+    <p>
+      The obvious release trigger is
+      <a href="https://help.shopify.com/en/manual/shopify-flow/reference/triggers/order-paid">Order
+      paid</a>, which starts a workflow when an order's
+      payment status changes to paid. Its own documentation
+      rules out two of the cases you care about: partially
+      paid orders do not start a workflow with this trigger,
+      and funds that are authorized but not captured do not
+      either. A deposit against payment terms is a partial
+      payment, so the trigger that is supposed to free your
+      B2B order is documented as not firing on it.
+    </p>
+
+    <p>
+      Then there is the behaviour merchants have been
+      reporting since 18 April 2022, in a thread titled
+      <a href="https://community.shopify.com/t/order-paid-trigger-not-working-for-payments-completed-after-initial-order-was-created/114741">Order
+      Paid trigger not working for payments completed after
+      initial order was created</a>. The merchant found that
+      only orders manually marked as Paid started the Order
+      Paid automation, that payments collected later through
+      the Collect Payment button did not, and that this did
+      not use to behave this way previously. A Shopify staff
+      member replied three days later to say thanks for
+      reporting this, they would look into it and get back.
+      There is no later staff answer on the thread. Collect
+      Payment is precisely how a pending order gets paid.
+    </p>
+
+    <p>
+      And there is nothing on the bench that watches the
+      money itself. A merchant asked in November 2023 how to
+      make Flow find orders with a pending payment and tag
+      them; the only reply suggested reading
+      <code>displayFinancialStatus</code> for PENDING and
+      querying with a <code>financial_status:PENDING</code>
+      filter, pointed out that it was not clear when the
+      check should even run, and the thread closed with no
+      accepted answer. That is the honest shape of it. You
+      can ask what the payment status is, at a moment you
+      choose, and nothing will tell you when it changed.
+    </p>
+
+    <p>
+      Which is why the shape of the fix is a poll rather than
+      a trigger, and Shopify quietly agrees. The Admin API
+      now carries
+      <a href="https://shopify.dev/docs/api/admin-graphql/latest/queries/orderPaymentStatus">orderPaymentStatus</a>,
+      a query that retrieves the status of a deferred payment
+      by its payment reference ID so you can monitor the
+      processing status of payments, and returns the status,
+      an error message, a translated error message and the
+      transactions. It is built to be asked repeatedly. That
+      is a polling loop with a schema.
+    </p>
+
+    <h2>What this costs in a month</h2>
+
+    <p>
+      Run it on your own mix, because the rate depends
+      entirely on how much of your volume is not a captured
+      card. Take a store doing 900 orders a month at an 80
+      dollar average, where six percent of orders arrive
+      pending, so 54 orders in flight. If one in ten of those
+      pending orders never clears and half of those have
+      already shipped, that is 2 or 3 parcels a month gone
+      with the goods, the postage and the pick time, call it
+      250 dollars a month and 3,000 a year, on goods you
+      would have kept by waiting two days.
+    </p>
+
+    <p>
+      The second cost is the one stores feel first and never
+      book. Every pending order that your team is unsure
+      about gets handled twice: once when somebody notices
+      the badge and puts the picking slip aside, and again
+      when somebody else finds it and has to work out whether
+      the money arrived. That is the same tax as
+      <a href="how-to-automatically-capture-payments-on-shopify.html">an
+      authorization nobody captured in time</a>, except this
+      one is pointed in the opposite direction.
+    </p>
+
+    <h2>What the automation actually has to do</h2>
+
+    <p>
+      As a Dugong playbook, in plain prose:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">Order</span> created, order
+transaction created, order
+paid, plus a 30 minute sweep
+
+<span class="c"># steps</span>
+1. <span class="k">Read</span> the payment status, not
+   the fulfillment status
+2. <span class="k">Hold</span> with AWAITING_PAYMENT the
+   moment a pending order
+   appears
+3. <span class="k">Let</span> authorized and paid orders
+   through untouched
+4. <span class="k">Poll</span> the money and release the
+   hold the hour it lands
+5. <span class="k">Count</span> the days to expiry and
+   chase before the window
+   shuts
+6. <span class="k">Flag</span> every release done by hand
+   while payment is pending
+7. <span class="k">Close</span> out expired and failed
+   payments the same day
+</code></pre>
+
+    <p>
+      Step one is the whole design in one line. The queue
+      your team works from is sorted by fulfillment status,
+      and the fact that matters lives on a different field.
+      Everything downstream is just keeping those two
+      fields in the same sentence.
+    </p>
+
+    <p>
+      Step two is the one that pays. Hold on arrival rather
+      than warn on arrival, because a warning competes with
+      a pick list and a hold does not. Use the typed reason
+      rather than a tag, so the hold reads the same to your
+      warehouse app, your 3PL and the person covering on
+      Saturday.
+    </p>
+
+    <p>
+      Step three is what keeps the rest of it alive. If the
+      automation holds authorized orders too, somebody will
+      switch it off inside a week, and they will be right to.
+      Authorized funds are held for you. Pending funds are
+      not. The distinction is the product.
+    </p>
+
+    <p>
+      Step five is the step nobody builds by hand, because it
+      needs a clock. Pending has an expiry of about a week
+      and the exact date sits with the provider, so the
+      automation tracks age from order creation, nudges the
+      customer with the Pay now link while it still works,
+      and tells you on day five rather than on day nine, when
+      the only remaining options are a conversation with the
+      provider and a write off.
+    </p>
+
+    <p>
+      Step six exists because every real store overrides
+      this sometimes, and should. A trusted wholesale account
+      on net terms can ship before the money lands. What you
+      cannot afford is not knowing who did that, on which
+      order, and whether the payment ever followed. Log the
+      override as an event on the order, not as a memory.
+    </p>
+
+    <p>
+      The honest limits. A hold stops fulfillment, it does
+      not stop a human pressing fulfil anyway, which is why
+      step six is in the list rather than being a footnote.
+      A pending order cannot be edited, restocked, cancelled
+      or marked as paid while it is pending, so a failed one
+      has to wait for Shopify to let go before you can clean
+      it up. And the expiry date belongs to the payment
+      provider, so your clock is an estimate from order
+      creation until the provider tells you otherwise.
+    </p>
+
+    <h2>Why this is a workflow, not a feature request</h2>
+
+    <p>
+      Three facts have to meet, and Shopify keeps them in
+      three places with no relationship declared between
+      them. The order knows its payment status and when that
+      status last changed. The fulfillment order knows
+      whether it is open, on hold or already gone. The
+      provider knows the expiry date and whether the money is
+      actually coming.
+    </p>
+
+    <p>
+      No single feature joins them. A payment status column
+      would not stop the pick list. A hold would not know
+      when to let go. A better Order paid trigger would not
+      count the days to expiry. The only thing that closes
+      this is something holding all three at once on a short
+      clock, which is a workflow, and it has the shape every
+      quiet leak in a store has: the information exists, the
+      lever exists, and nothing stands between them.
+    </p>
+
+    <h2>Do this before you close the laptop</h2>
+
+    <p>
+      Three checks, fifteen minutes, no code.
+    </p>
+
+    <p>
+      Filter your orders by payment status to anything other
+      than Paid, then sort by date and look at the oldest
+      ones. Open each and check the fulfillment status. Every
+      order in that list that reads Fulfilled and has never
+      been paid is a parcel you have already given away, and
+      the count will tell you whether the rest of this is
+      worth building.
+    </p>
+
+    <p>
+      Then open Settings, then Checkout, and read your order
+      processing block. If automatically fulfill the order's
+      line items is on, you are not making this decision at
+      eight in the morning, your settings are making it at
+      the moment of checkout, for every payment method you
+      accept.
+    </p>
+
+    <p>
+      Then ask whoever picks on a Saturday what Payment
+      pending means. If the answer is anything other than
+      stop, the badge is not a control, it is decoration.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">&#9670; READING</span>
+      <span>
+        Two companion pieces if this one landed:
+        <a href="how-to-automatically-capture-payments-on-shopify.html">the
+        payment that expires before you capture it</a>, on
+        the same gap pointed the other way, and
+        <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html">the
+        unpaid order that never cancels itself</a>, on what
+        to do with the ones that never clear.
+      </span>
+    </div>
+
+    <p>
+      If you sell on Shopify and have a version of this
+      story, the wire that never arrived, the Collective
+      order you shipped on trust, the net 30 account that
+      went quiet, the inbox is open:
+      <code>field-notes@dugong.live</code>. We are collecting
+      case studies for the next issue.
+    </p>
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share &middot; copy link &middot; &#10022;</span>
+  </div>
+
+</article>
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">&#9670; COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item" id="faq-1">
+      <h2 class="faq-q">What does Payment pending mean on a Shopify order?</h2>
+      <p class="faq-a">It means the payment provider has started processing the payment and needs more time, so no money has reached you yet. Shopify's documentation describes it as applying to payments made by cryptocurrency, wire, barcodes and other alternatives to credit card payments, and says processing can take several days depending on the payment type. It also covers manual methods you set up yourself, such as bank deposit, money order and cash on delivery, and orders that run on payment terms, where the status later becomes Due or Overdue. Pending is not the same as Authorized. Authorized means the provider verified the card and is holding the funds for you until you capture them, which is ordinary business to ship against. Pending means nothing is held and nothing is guaranteed. Shopify groups both of them, plus Expired and Partially paid, under the single label Unpaid, which is why the filter that looks like the answer puts the safe case and the unsafe case in the same list.</p>
+    </div>
+    <div class="faq-item" id="faq-2">
+      <h2 class="faq-q">Can you fulfill a Shopify order with a pending payment?</h2>
+      <p class="faq-a">Yes, and that is the problem. Shopify's pending payments page states that you are not prevented from fulfilling these orders, and then asks you to wait until the payment status is Paid before fulfilling, to make sure you get paid. Nothing enforces it. The documented gate before fulfillment, the Fulfillment order ready to fulfill trigger, fires when an order has completed risk assessment and has inventory available for the order, and payment is not one of its conditions. The automatic fulfillment setting in order processing is the same story: it offers one override, to automatically fulfill all orders even those with a high risk of fraud, and carries no payment condition at all. So a pending order can be marked fulfilled by your own store settings while the money is still in flight, and the only thing standing between that and a shipped parcel is somebody reading a badge in a column on a busy morning.</p>
+    </div>
+    <div class="faq-item" id="faq-3">
+      <h2 class="faq-q">How long does a Shopify pending payment take to clear?</h2>
+      <p class="faq-a">Shopify's guidance is that pending payments usually have an expiry date of about a week, and that your payment provider can confirm the exact expiry for a given payment. If the payment clears, the customer gets a confirmation email. If it fails, the customer gets an email saying the payment could not be processed with a Pay now link to retry. If it is not completed by the expiry date, the order status changes to Expired. Nothing in the admin counts those days down for you: there is no badge at day five, no report of pending orders by age and no warning on the fulfillment screen, so the recoverable window is roughly seven days wide and entirely invisible. Shopify also advises contacting the payment provider before cancelling an expired order, because the payment can sometimes still be captured, which is worth doing before you write anything off.</p>
+    </div>
+    <div class="faq-item" id="faq-4">
+      <h2 class="faq-q">Can Shopify Flow hold an order until the payment clears?</h2>
+      <p class="faq-a">Half of it, reliably. The Hold fulfillment action changes the order's status to On hold, takes a reason and reason notes, and works with Order created, which is an order level trigger and therefore holds every fulfillment order on the order. So holding a pending order on arrival is a workflow you can build in ten minutes. Releasing it is where Flow runs out. The natural release trigger, Order paid, documents two exclusions that matter here: partially paid orders do not start a workflow with it, and funds that are authorized but not captured do not either, which rules out deposits against payment terms. On top of that, merchants have reported since 18 April 2022 that the trigger does not fire for payments collected later through the Collect Payment button, only for orders manually marked as paid, and the Shopify reply on that thread is a promise to look into it with no follow up. Collect Payment is exactly how a pending order usually becomes paid.</p>
+    </div>
+    <div class="faq-item" id="faq-5">
+      <h2 class="faq-q">Why can't I cancel or edit a Shopify order with a pending payment?</h2>
+      <p class="faq-a">Because Shopify locks the order while the provider is still working. The pending payments page lists what may be unavailable: editing the order's items, discounts or shipping address, restocking items, cancelling the order, manually collecting payment, and marking the order as paid. Those restrictions lift when the payment status changes. This is the detail that pushes staff into improvising, because the obvious response to a payment that looks doubtful, cancel it and restock, is not on the table while it is pending. The practical sequence is to hold the fulfillment rather than try to cancel the order, wait for the status to move to Paid or Expired, and only then clean up. If it expires, contact the payment provider before cancelling, since Shopify notes the payment can sometimes still be captured.</p>
+    </div>
+    <div class="faq-item" id="faq-6">
+      <h2 class="faq-q">Can AI stop Shopify orders shipping before the payment clears?</h2>
+      <p class="faq-a">Yes, and it is a good fit for automation because it is a bookkeeping problem rather than a judgment call. An automation like Dugong reads the payment status rather than the fulfillment status on every new order, and holds the fulfillment with the typed reason AWAITING_PAYMENT the moment a pending order appears, which is a reason Shopify already defines as the fulfillment hold is applied because payment is pending. It lets authorized and paid orders through untouched, because authorized funds are held for you and holding them would get the whole thing switched off inside a week. Then it polls, using the orderPaymentStatus query that Shopify built to monitor the processing status of deferred payments, and releases the hold the hour the money lands. It counts the days to expiry and nudges the customer while the Pay now link still works, so you hear about it on day five rather than on day nine. And it logs every release done by hand while payment is pending, because overriding this for a trusted account is legitimate and forgetting that you did is what turns it into a write off. The honest limits: a hold stops fulfillment but not a determined human, a pending order cannot be edited or cancelled until Shopify lets go of it, and the real expiry date belongs to the payment provider, so the clock is an estimate until they say otherwise.</p>
+    </div>
+  </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
+</section>
+
+<section class="related">
+  <div class="section-head">
+    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+<a href="how-to-automatically-capture-payments-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The payment that expires before you capture it</h3>
+        <p class="card-dek">
+          Authorized is not paid: Shopify gives you 7 days to capture before the hold expires. The AI playbook that captures every order before the clock runs out.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">AUG&nbsp;3</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The unpaid order that never cancels itself</h3>
+        <p class="card-dek">
+          A customer picks bank transfer or cash on delivery, then goes quiet, and the dead order sits in your admin holding stock. The AI playbook that chases payment, then cancels and restocks on time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN&nbsp;24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-automatically-release-held-shopify-orders-when-stock-arrives.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order on hold that nobody releases</h3>
+        <p class="card-dek">
+          Shopify has no event for stock arriving on a held order, so paid orders age in the On hold queue for days. The AI playbook that releases them the hour the pallet lands.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL&nbsp;28</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html#latest">Latest</a>
+        <a href="index.html#essays">Essays</a>
+        <a href="index.html#post-mortems">Post-mortems</a>
+        <a href="index.html#interviews">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>&copy; 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>

@@ -5,10 +5,196 @@
 Site: https://blog.dugong.live
 Publisher: Dugong (https://dugong.live)
 Index with summaries: https://blog.dugong.live/llms.txt
-Per-article Markdown: https://blog.dugong.live/md/<slug>.md, one file per dispatch, 10 to 25 KB each. This file is roughly 1.5 MB in total, so if your fetcher truncates long responses, read the per-article files instead: take the article URL, drop the .html, and fetch /md/<slug>.md. Every one of the 84 is listed under "Markdown versions" in llms.txt.
+Per-article Markdown: https://blog.dugong.live/md/<slug>.md, one file per dispatch, 10 to 25 KB each. This file is roughly 1.6 MB in total, so if your fetcher truncates long responses, read the per-article files instead: take the article URL, drop the .html, and fetch /md/<slug>.md. Every one of the 84 is listed under "Markdown versions" in llms.txt.
 This file contains the complete text of every dispatch on the site, newest first. Each article begins with a level-one heading and a metadata block (URL, author, dates). Fenced blocks are plain-language playbook specs quoted verbatim from the articles. FAQ sections carry the same text as each page's FAQPage structured data.
 
 The site's lead essay, The death of the drag-and-drop builder (Dispatch Nº 47, by Aanya Rao, 2026-05-28), now has its own page at https://blog.dugong.live/the-death-of-the-drag-and-drop-builder.html and its full text is the last entry in this file.
+
+---
+
+# How to stop shipping Shopify orders that say Payment pending
+
+URL: https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html
+Dispatch: Nº 132
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
+Published: 2026-10-19. Updated: 2026-10-19
+
+An order can read Payment pending and still sit in your queue looking normal. The AI playbook that holds every one until the money lands.
+
+## The short answer
+
+Shopify never blocks fulfillment on payment. An order whose payment status reads Payment pending sits in the unfulfilled queue looking like every other order, and the documented gate before fulfillment, the Fulfillment order ready to fulfill trigger, checks risk assessment and inventory availability only. Shopify's pending payments page asks you to wait until the payment status is Paid before fulfilling, and that request to a human is the entire control. Pending payments usually expire after about a week, at which point the order status becomes Expired, and while the payment is pending you may not be able to edit, restock, cancel, collect payment on or mark the order as paid. The fix is to hold the fulfillment with the reason Shopify already defines for it, AWAITING_PAYMENT, the moment a pending order appears, let authorized and paid orders through untouched, and poll the payment so the hold releases the hour the money lands.
+
+Order 4417 came in on a Thursday afternoon. Two items, a real address, a customer who had bought twice before. It appeared in the unfulfilled queue between two other orders, it went onto the pick list with them, it got a label at eight the next morning and it left on the midday collection.
+
+Nobody looked at the payment status. There was no reason to. It said Payment pending, the same two words Shopify shows while a perfectly normal bank transfer settles, and the badge sat in a column nobody reads when the order is already on the pick list.
+
+Nine days later it turned to Expired. The goods were gone, the label was paid for, the customer stopped replying, and there was no event anywhere in the admin that said the word anybody needed to hear, which is that you just shipped a parcel for free.
+
+## Unpaid is four different problems wearing one badge
+
+Start with the vocabulary, because this is where most stores lose the thread. Shopify's [order status documentation](https://help.shopify.com/en/manual/fulfillment/managing-orders/order-status) defines Unpaid not as a status but as a grouping, and it contains four things: Authorized, Pending, Expired and Partially paid.
+
+Those four are not the same risk at all. Authorized means the provider has verified the card and the funds are held for you until you capture them, so shipping against it is ordinary business. Pending means the provider has started processing and needs more time, so shipping against it is a bet. Expired means the window closed or the provider could not process the payment at all. Partially paid means you captured less than the total.
+
+So the filter that looks like the answer is the filter that hides the problem. Pull up Unpaid and you get the safe case and the unsafe case in the same list, which is exactly why staff stop using it after a week and go back to working the unfulfilled queue instead. The unfulfilled queue is sorted by fulfillment status and says nothing at all about money.
+
+## Shopify's own ready to fulfill gate never checks the money
+
+This is the part that surprises people who assume the platform is quietly protecting them.
+
+Shopify has a real gate before fulfillment, and it is documented on the [Fulfillment order ready to fulfill](https://help.shopify.com/en/manual/shopify-flow/reference/triggers/order-ready-to-fulfill) trigger. That trigger starts a workflow when an order has completed risk assessment and has inventory available for the order, after Shopify releases its own initial hold. Read the two conditions again. Risk assessment. Inventory availability. Payment is not in the sentence.
+
+The same gap is in the setting most stores turn on and forget. In [order processing](https://help.shopify.com/en/manual/checkout-settings/order-processing) you can choose to automatically fulfill the order's line items, and the one escape hatch offered next to it is to automatically fulfill all orders, even those with a high risk of fraud. Shopify thought carefully enough about that checkbox to build a fraud override for it. There is no payment condition on it anywhere, so a pending order can be marked fulfilled by your own store settings while the money is still in flight.
+
+And on the only page where Shopify does address the risk, the advice is a sentence to a human. [Pending payments](https://help.shopify.com/en/manual/fulfillment/managing-orders/payments/pending-payments) says you are not prevented from fulfilling these orders, and then asks you to wait until the payment status is Paid before fulfilling, to make sure you get paid. That is the whole control. Somebody reading a column at eight in the morning.
+
+## Where Payment pending comes from, and why it is spreading
+
+If you take card payments only, this reads like someone else's problem. The list of ways a pending order lands in your queue has been getting longer for three years.
+
+Shopify's own description covers payments made by cryptocurrency, wire, barcodes and other alternatives to credit card payments, where the provider has started processing but needs more time, and says processing can take several days depending on the payment type. Then there are manual methods you set up yourself, bank deposit, money order, cash on delivery, where Shopify notes that a manual payment gateway sends no email at all and you have to read the order timeline to know what was sent. Then there are orders with payment terms, where the [deferred payments](https://help.shopify.com/en/manual/fulfillment/managing-orders/payments/deferred-payments) documentation has the status become Overdue when the due date passes, and Due the moment a payment is due today.
+
+Then there is the one that caught a lot of stores off guard. On 19 June 2024 Shopify [changed the payment status for Collective supplier orders](https://changelog.shopify.com/posts/changes-to-shopify-collective-supplier-order-payment-status): orders received from retailers who do not use automatic payments are now marked Payment Pending rather than Paid. If you supply other merchants through Collective, a whole class of orders that used to arrive reading Paid now arrives reading pending, and the [supplier payments page](https://help.shopify.com/en/manual/online-sales-channels/shopify-collective/suppliers/payments) tells you plainly not to ship orders in Payment pending status, while also explaining that your funds do not transfer until after you fulfill. Those two instructions live together and the ordering between them is left to you.
+
+Ten days ago, on 9 October 2026, a Collective supplier posted in the Shopify community asking how other suppliers prevent orders from shipping before payment is secured, and described the failure precisely: an order can still be marked Payment Pending while fulfillment workflows treat it as ready to process, and a single missed status check ships the goods. The thread has no replies. That is the state of the art on the open web: a question, a plug for an app, and silence.
+
+## The clock nobody is counting
+
+Pending is not a steady state. It has an expiry, and Shopify's guidance is that pending payments usually expire after about a week, with the exact date held by your payment provider rather than by Shopify. When it runs out the order status changes to Expired. If the payment fails outright, the customer gets an email saying the payment could not be processed with a Pay now link to retry, and if it succeeds they get a confirmation. You are not in either email.
+
+Which means the window where this is still recoverable is roughly seven days wide, it opens the moment the order is created, and nothing in the admin counts down. There is no badge at day five, no report of pending orders by age, no warning on the fulfillment screen. On day eight the status word changes and a shipped parcel becomes a write off.
+
+The pending state also takes your tools away while it lasts, which is the detail that makes staff improvise. Shopify lists what you may not be able to do on a pending order: edit the items, discounts or shipping address, restock the items, cancel the order, manually collect payment, or mark it as paid. The restrictions lift when the payment status changes. So the obvious instinct, cancel it and move on, is not available either. Shopify even advises contacting the payment provider before cancelling an expired order, in case the payment can still be captured.
+
+## The hold reason Shopify built for this and never applies
+
+Here is the part that makes this worth automating rather than worth complaining about.
+
+Shopify has a fulfillment hold system, and holds carry a typed reason. The [FulfillmentHoldReason](https://shopify.dev/docs/api/admin-graphql/latest/enums/FulfillmentHoldReason) enum has eight values, and the first one in the list is AWAITING_PAYMENT, documented as the fulfillment hold is applied because payment is pending. It sits alongside HIGH_RISK_OF_FRAUD, INVENTORY_OUT_OF_STOCK and INCORRECT_ADDRESS.
+
+So the lever exists, it is named after exactly this problem, and an order on hold is visible everywhere it needs to be. Shopify's own order status page says that while a fulfillment is On hold the inventory can be reserved and the order cannot be fulfilled until the hold is released, which is also the only state your 3PL, your warehouse app and your pick list all respect without being told anything new.
+
+Nothing in Shopify applies it for you when a payment is pending. The reason was written, the plumbing was built, and the decision to use it was left in the admin, which is a sentence you could write about most of the quiet leaks in a store.
+
+## Why Flow gets you most of the way and then stops
+
+Flow can hold an order. The [Hold fulfillment](https://help.shopify.com/en/manual/shopify-flow/reference/actions/hold-fulfillment) action changes the order's status to On hold, takes a reason and reason notes, and can notify the merchant. Order created is on its list of compatible order level triggers, and an order level trigger holds every fulfillment order on the order. So the first half of this is a Flow anybody can build in ten minutes: on order created, if the payment status is pending, hold the fulfillment.
+
+The release is where it comes apart, and it comes apart in three separate places.
+
+The obvious release trigger is [Order paid](https://help.shopify.com/en/manual/shopify-flow/reference/triggers/order-paid), which starts a workflow when an order's payment status changes to paid. Its own documentation rules out two of the cases you care about: partially paid orders do not start a workflow with this trigger, and funds that are authorized but not captured do not either. A deposit against payment terms is a partial payment, so the trigger that is supposed to free your B2B order is documented as not firing on it.
+
+Then there is the behaviour merchants have been reporting since 18 April 2022, in a thread titled [Order Paid trigger not working for payments completed after initial order was created](https://community.shopify.com/t/order-paid-trigger-not-working-for-payments-completed-after-initial-order-was-created/114741). The merchant found that only orders manually marked as Paid started the Order Paid automation, that payments collected later through the Collect Payment button did not, and that this did not use to behave this way previously. A Shopify staff member replied three days later to say thanks for reporting this, they would look into it and get back. There is no later staff answer on the thread. Collect Payment is precisely how a pending order gets paid.
+
+And there is nothing on the bench that watches the money itself. A merchant asked in November 2023 how to make Flow find orders with a pending payment and tag them; the only reply suggested reading `displayFinancialStatus` for PENDING and querying with a `financial_status:PENDING` filter, pointed out that it was not clear when the check should even run, and the thread closed with no accepted answer. That is the honest shape of it. You can ask what the payment status is, at a moment you choose, and nothing will tell you when it changed.
+
+Which is why the shape of the fix is a poll rather than a trigger, and Shopify quietly agrees. The Admin API now carries [orderPaymentStatus](https://shopify.dev/docs/api/admin-graphql/latest/queries/orderPaymentStatus), a query that retrieves the status of a deferred payment by its payment reference ID so you can monitor the processing status of payments, and returns the status, an error message, a translated error message and the transactions. It is built to be asked repeatedly. That is a polling loop with a schema.
+
+## What this costs in a month
+
+Run it on your own mix, because the rate depends entirely on how much of your volume is not a captured card. Take a store doing 900 orders a month at an 80 dollar average, where six percent of orders arrive pending, so 54 orders in flight. If one in ten of those pending orders never clears and half of those have already shipped, that is 2 or 3 parcels a month gone with the goods, the postage and the pick time, call it 250 dollars a month and 3,000 a year, on goods you would have kept by waiting two days.
+
+The second cost is the one stores feel first and never book. Every pending order that your team is unsure about gets handled twice: once when somebody notices the badge and puts the picking slip aside, and again when somebody else finds it and has to work out whether the money arrived. That is the same tax as [an authorization nobody captured in time](https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html), except this one is pointed in the opposite direction.
+
+## What the automation actually has to do
+
+As a Dugong playbook, in plain prose:
+
+```
+# trigger
+Order created, order
+transaction created, order
+paid, plus a 30 minute sweep
+
+# steps
+1. Read the payment status, not
+   the fulfillment status
+2. Hold with AWAITING_PAYMENT the
+   moment a pending order
+   appears
+3. Let authorized and paid orders
+   through untouched
+4. Poll the money and release the
+   hold the hour it lands
+5. Count the days to expiry and
+   chase before the window
+   shuts
+6. Flag every release done by hand
+   while payment is pending
+7. Close out expired and failed
+   payments the same day
+```
+
+Step one is the whole design in one line. The queue your team works from is sorted by fulfillment status, and the fact that matters lives on a different field. Everything downstream is just keeping those two fields in the same sentence.
+
+Step two is the one that pays. Hold on arrival rather than warn on arrival, because a warning competes with a pick list and a hold does not. Use the typed reason rather than a tag, so the hold reads the same to your warehouse app, your 3PL and the person covering on Saturday.
+
+Step three is what keeps the rest of it alive. If the automation holds authorized orders too, somebody will switch it off inside a week, and they will be right to. Authorized funds are held for you. Pending funds are not. The distinction is the product.
+
+Step five is the step nobody builds by hand, because it needs a clock. Pending has an expiry of about a week and the exact date sits with the provider, so the automation tracks age from order creation, nudges the customer with the Pay now link while it still works, and tells you on day five rather than on day nine, when the only remaining options are a conversation with the provider and a write off.
+
+Step six exists because every real store overrides this sometimes, and should. A trusted wholesale account on net terms can ship before the money lands. What you cannot afford is not knowing who did that, on which order, and whether the payment ever followed. Log the override as an event on the order, not as a memory.
+
+The honest limits. A hold stops fulfillment, it does not stop a human pressing fulfil anyway, which is why step six is in the list rather than being a footnote. A pending order cannot be edited, restocked, cancelled or marked as paid while it is pending, so a failed one has to wait for Shopify to let go before you can clean it up. And the expiry date belongs to the payment provider, so your clock is an estimate from order creation until the provider tells you otherwise.
+
+## Why this is a workflow, not a feature request
+
+Three facts have to meet, and Shopify keeps them in three places with no relationship declared between them. The order knows its payment status and when that status last changed. The fulfillment order knows whether it is open, on hold or already gone. The provider knows the expiry date and whether the money is actually coming.
+
+No single feature joins them. A payment status column would not stop the pick list. A hold would not know when to let go. A better Order paid trigger would not count the days to expiry. The only thing that closes this is something holding all three at once on a short clock, which is a workflow, and it has the shape every quiet leak in a store has: the information exists, the lever exists, and nothing stands between them.
+
+## Do this before you close the laptop
+
+Three checks, fifteen minutes, no code.
+
+Filter your orders by payment status to anything other than Paid, then sort by date and look at the oldest ones. Open each and check the fulfillment status. Every order in that list that reads Fulfilled and has never been paid is a parcel you have already given away, and the count will tell you whether the rest of this is worth building.
+
+Then open Settings, then Checkout, and read your order processing block. If automatically fulfill the order's line items is on, you are not making this decision at eight in the morning, your settings are making it at the moment of checkout, for every payment method you accept.
+
+Then ask whoever picks on a Saturday what Payment pending means. If the answer is anything other than stop, the badge is not a control, it is decoration.
+
+> **&#9670; READING** Two companion pieces if this one landed: [the payment that expires before you capture it](https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html), on the same gap pointed the other way, and [the unpaid order that never cancels itself](https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html), on what to do with the ones that never clear.
+
+If you sell on Shopify and have a version of this story, the wire that never arrived, the Collective order you shipped on trust, the net 30 account that went quiet, the inbox is open: `field-notes@dugong.live`. We are collecting case studies for the next issue.
+
+## Common questions
+
+### What does Payment pending mean on a Shopify order?
+
+It means the payment provider has started processing the payment and needs more time, so no money has reached you yet. Shopify's documentation describes it as applying to payments made by cryptocurrency, wire, barcodes and other alternatives to credit card payments, and says processing can take several days depending on the payment type. It also covers manual methods you set up yourself, such as bank deposit, money order and cash on delivery, and orders that run on payment terms, where the status later becomes Due or Overdue. Pending is not the same as Authorized. Authorized means the provider verified the card and is holding the funds for you until you capture them, which is ordinary business to ship against. Pending means nothing is held and nothing is guaranteed. Shopify groups both of them, plus Expired and Partially paid, under the single label Unpaid, which is why the filter that looks like the answer puts the safe case and the unsafe case in the same list.
+
+Permalink: https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-1
+
+### Can you fulfill a Shopify order with a pending payment?
+
+Yes, and that is the problem. Shopify's pending payments page states that you are not prevented from fulfilling these orders, and then asks you to wait until the payment status is Paid before fulfilling, to make sure you get paid. Nothing enforces it. The documented gate before fulfillment, the Fulfillment order ready to fulfill trigger, fires when an order has completed risk assessment and has inventory available for the order, and payment is not one of its conditions. The automatic fulfillment setting in order processing is the same story: it offers one override, to automatically fulfill all orders even those with a high risk of fraud, and carries no payment condition at all. So a pending order can be marked fulfilled by your own store settings while the money is still in flight, and the only thing standing between that and a shipped parcel is somebody reading a badge in a column on a busy morning.
+
+Permalink: https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-2
+
+### How long does a Shopify pending payment take to clear?
+
+Shopify's guidance is that pending payments usually have an expiry date of about a week, and that your payment provider can confirm the exact expiry for a given payment. If the payment clears, the customer gets a confirmation email. If it fails, the customer gets an email saying the payment could not be processed with a Pay now link to retry. If it is not completed by the expiry date, the order status changes to Expired. Nothing in the admin counts those days down for you: there is no badge at day five, no report of pending orders by age and no warning on the fulfillment screen, so the recoverable window is roughly seven days wide and entirely invisible. Shopify also advises contacting the payment provider before cancelling an expired order, because the payment can sometimes still be captured, which is worth doing before you write anything off.
+
+Permalink: https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-3
+
+### Can Shopify Flow hold an order until the payment clears?
+
+Half of it, reliably. The Hold fulfillment action changes the order's status to On hold, takes a reason and reason notes, and works with Order created, which is an order level trigger and therefore holds every fulfillment order on the order. So holding a pending order on arrival is a workflow you can build in ten minutes. Releasing it is where Flow runs out. The natural release trigger, Order paid, documents two exclusions that matter here: partially paid orders do not start a workflow with it, and funds that are authorized but not captured do not either, which rules out deposits against payment terms. On top of that, merchants have reported since 18 April 2022 that the trigger does not fire for payments collected later through the Collect Payment button, only for orders manually marked as paid, and the Shopify reply on that thread is a promise to look into it with no follow up. Collect Payment is exactly how a pending order usually becomes paid.
+
+Permalink: https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-4
+
+### Why can't I cancel or edit a Shopify order with a pending payment?
+
+Because Shopify locks the order while the provider is still working. The pending payments page lists what may be unavailable: editing the order's items, discounts or shipping address, restocking items, cancelling the order, manually collecting payment, and marking the order as paid. Those restrictions lift when the payment status changes. This is the detail that pushes staff into improvising, because the obvious response to a payment that looks doubtful, cancel it and restock, is not on the table while it is pending. The practical sequence is to hold the fulfillment rather than try to cancel the order, wait for the status to move to Paid or Expired, and only then clean up. If it expires, contact the payment provider before cancelling, since Shopify notes the payment can sometimes still be captured.
+
+Permalink: https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-5
+
+### Can AI stop Shopify orders shipping before the payment clears?
+
+Yes, and it is a good fit for automation because it is a bookkeeping problem rather than a judgment call. An automation like Dugong reads the payment status rather than the fulfillment status on every new order, and holds the fulfillment with the typed reason AWAITING_PAYMENT the moment a pending order appears, which is a reason Shopify already defines as the fulfillment hold is applied because payment is pending. It lets authorized and paid orders through untouched, because authorized funds are held for you and holding them would get the whole thing switched off inside a week. Then it polls, using the orderPaymentStatus query that Shopify built to monitor the processing status of deferred payments, and releases the hold the hour the money lands. It counts the days to expiry and nudges the customer while the Pay now link still works, so you hear about it on day five rather than on day nine. And it logs every release done by hand while payment is pending, because overriding this for a trusted account is legitimate and forgetting that you did is what turns it into a write off. The honest limits: a hold stops fulfillment but not a determined human, a pending order cannot be edited or cancelled until Shopify lets go of it, and the real expiry date belongs to the payment provider, so the clock is an estimate until they say otherwise.
+
+Permalink: https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-6
 
 ---
 
@@ -16,7 +202,7 @@ The site's lead essay, The death of the drag-and-drop builder (Dispatch Nº 47, 
 
 URL: https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html
 Dispatch: Nº 131
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-10-18. Updated: 2026-10-18
 
 You cancelled the order, refunded the customer, and the label you bought that morning is still paid for. Shopify gives you 30 days to void it and never once mentions the clock.
@@ -202,7 +388,7 @@ Permalink: https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-nev
 
 URL: https://blog.dugong.live/how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html
 Dispatch: Nº 130
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-10-17. Updated: 2026-10-17
 
 You ran 25 percent off for the weekend and your stockists took it too, on top of their trade discount. Here is why a catalog percentage follows your sale price down, and the playbook that holds the wholesale floor.
@@ -359,7 +545,7 @@ If you run wholesale on Shopify and have a version of this story, the sale that 
 
 URL: https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html
 Dispatch: Nº 129
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-10-16. Updated: 2026-10-16
 
 The carrier gave up on day three and turned the parcel around. Shopify still says fulfilled, the report still counts the sale, and the box is in your own back room. Here is why no status exists for this, and the playbook that catches it the same hour.
@@ -494,7 +680,7 @@ If you are a Shopify merchant with a return to sender story, the box that sat be
 
 URL: https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html
 Dispatch: Nº 128
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-10-15. Updated: 2026-10-15
 
 The pallet is sitting at your supplier. Your incoming count says zero, your low stock report says buy more, so you bought more. Here is why Shopify hides most of what you have on order, and the playbook that gives you the number back.
@@ -651,7 +837,7 @@ Sitting on purchase orders nobody has looked at since they were sent, a supplier
 
 URL: https://blog.dugong.live/how-to-catch-shopify-orders-where-half-the-order-never-ships.html
 Dispatch: Nº 127
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-10-14. Updated: 2026-10-14
 
 Two of the three items went out the next morning. The third never moved, nobody noticed for nine days, and the customer found it before you did. Here is why the leftover falls out of every report you check, and the playbook that clears it.
@@ -811,7 +997,7 @@ Sitting on a pile of partially fulfilled orders nobody owns, a 3PL that accepts 
 
 URL: https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html
 Dispatch: Nº 126
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-10-13. Updated: 2026-10-13
 
 You paid $8.40 for the label. Three weeks later the carrier re-measured the box, Shopify billed you $22, and the only record of it is one line buried in one order's timeline. Here is how to find every one of them, dispute the wrong ones while you still can, and stop paying twice for the same parcel.
@@ -945,7 +1131,7 @@ Open your three most recently fulfilled orders for your bestselling product and 
 
 URL: https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html
 Dispatch: Nº 125
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-10-12. Updated: 2026-10-12
 
 There are fourteen on the shelf. The product page says sold out. Shopify is holding all fourteen as committed for orders that shipped in August, and there is no field, button or API call anywhere that releases them. Here is what actually frees the stock, and how to stop it happening again.
@@ -1102,7 +1288,7 @@ Sitting on stock your store insists you do not have, a committed figure that no 
 
 URL: https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html
 Dispatch: Nº 124
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-10-11. Updated: 2026-10-11
 
 You approved it, you emailed the label, you refunded because they seemed nice. Eight weeks later the order still says return in progress and the box has never existed. Shopify has seven return triggers and not one of them fires when nothing happens. Here is the playbook that catches a quiet return while it is still recoverable.
@@ -1258,7 +1444,7 @@ Then write down the three numbers and put them in the policy. The automation aft
 
 URL: https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html
 Dispatch: Nº 123
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-10-10. Updated: 2026-10-10
 
 The sale goes live at nine and the first email lands at 9:06: I bought this on Tuesday, it is 25 percent off today, can you refund me the difference. Shopify has no price adjustment feature, no way to notice the drop, and no memory of what the thing used to cost. Here is the playbook that settles every one of these, ideally before the customer has to ask.
@@ -1385,7 +1571,7 @@ Then write the five numbers down and publish them. The automation is straightfor
 
 URL: https://blog.dugong.live/how-to-make-shopify-wholesale-customers-tax-exempt.html
 Dispatch: Nº 122
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-10-10. Updated: 2026-10-10
 
 Shopify stores the conclusion of your certificate check and throws away the check: a boolean and a list of state codes, with no number, no form, no expiry and no document. Here is the setup that reads every certificate, sets the right state exemption, and renews it before it lapses.
@@ -1504,7 +1690,7 @@ Then write down the states you are registered in, the validity rule for each, an
 
 URL: https://blog.dugong.live/how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html
 Dispatch: Nº 121
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-09-21. Updated: 2026-09-21
 
 Shopify has no daily order limit. Stock counts cap products, not your kitchen, and a midnight reset breaks the moment you have lead times. Here is the setup that caps orders by the day you actually make them.
@@ -1655,7 +1841,7 @@ Yes. The arithmetic is simple; the hard part is reading orders the way staff do,
 
 URL: https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html
 Dispatch: Nº 120
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-09-20. Updated: 2026-09-20
 
 Shopify Flow marks a run Completed whether or not it worked, sends one alert a month, and deletes the evidence on day fourteen. Here is what has to be watched instead.
@@ -1838,7 +2024,7 @@ Yes, and the reason it fits is that the hard part is expressing and re-checking 
 
 URL: https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html
 Dispatch: Nº 119
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-09-19. Updated: 2026-09-19
 
 Shopify restricts shipping by zone. A zone belongs to the store, not to the product. Here is why the official workaround breaks in a mixed cart, and the playbook that blocks only the line that is actually restricted.
@@ -1990,7 +2176,7 @@ Yes, because the hard parts of this job are reading and matching, not enforcemen
 
 URL: https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html
 Dispatch: Nº 118
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-09-18. Updated: 2026-09-18
 
 Shopify stores a weight and no box. Every carrier quote your store makes describes one default package, so the long, light and bulky orders ship for a fraction of their label. Here is the community record, and the playbook that quotes what the carrier will actually bill.
@@ -2146,7 +2332,7 @@ Yes, and the fit is specific. The job is four parts, and off-the-shelf packing a
 
 URL: https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html
 Dispatch: Nº 117
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-09-17. Updated: 2026-09-17
 
 Shopify can tell you how many units carry a code. It cannot tell you that two different products carry the same one. Here is the community record, and the playbook that finds every collision.
@@ -2301,7 +2487,7 @@ Yes, and it fits because the job is two parts detection and one part judgment. D
 
 URL: https://blog.dugong.live/how-to-track-product-expiry-dates-on-shopify.html
 Dispatch: Nº 116
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-29. Updated: 2026-08-29
 
 Shopify can tell you that forty jars are on the shelf. It cannot tell you that twelve of them die in November. Here is the community record, and the playbook that sells the stock before the date does.
@@ -2424,7 +2610,7 @@ Yes, and this is a case where the automation does something the platform genuine
 
 URL: https://blog.dugong.live/how-to-put-your-shopify-store-on-vacation-mode-without-losing-sales.html
 Dispatch: Nº 115
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-25. Updated: 2026-08-25
 
 Shopify's own help page opens with the admission: there is no vacation setting. The official workarounds close your store or chain your week off to a billing cycle. Here is the community record, and the playbook that lets you leave while the store keeps selling.
@@ -2547,7 +2733,7 @@ It can run the week, if you write the policy. An automation like Dugong takes yo
 
 URL: https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html
 Dispatch: Nº 114
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-24. Updated: 2026-08-24
 
 The order is paid, packed, and marked ready, and the bag is still on the shelf three weeks later. Here is the community record of Shopify's one-email pickup flow, and the playbook that clears the shelf without you writing a single reminder.
@@ -2668,7 +2854,7 @@ Yes, because the whole failure is a timer problem, and timers are what automatio
 
 URL: https://blog.dugong.live/how-to-fix-order-confirmation-emails-not-sending-on-shopify.html
 Dispatch: Nº 113
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-23. Updated: 2026-08-23
 
 The customer paid this morning and by afternoon she is asking if you charged her at all. Here is the community record of Shopify confirmations that never send, the five doors the silence comes through, and the playbook that gets a receipt into her inbox before she thinks to call.
@@ -2788,7 +2974,7 @@ Yes, because the failure has a reliable signature: an order that reaches a few m
 
 URL: https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html
 Dispatch: Nº 112
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-22. Updated: 2026-08-22
 
 You counted the stock yourself. Shopify says otherwise, and it may say something different again by morning. Here is the community record of inventory that moves on its own, the reasons the admin cannot tell you what happened, and the playbook that puts a name and a timestamp on every unit that moves.
@@ -2914,7 +3100,7 @@ Any of them with write access, and the list is longer than most merchants expect
 
 URL: https://blog.dugong.live/how-to-catch-shopify-orders-that-never-sync-to-shipstation.html
 Dispatch: Nº 111
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-20. Updated: 2026-08-22
 
 Shopify says paid. The customer has a confirmation. And your fulfillment software has no row, because the order never arrived and nothing on either side told you. Here is the community record of the silent sync gap, why nobody owns the seam it falls through, and the playbook that catches the missing order in minutes instead of on day nine.
@@ -3038,7 +3224,7 @@ Because the pipe leaks in both directions, and the return trip gets even less at
 
 URL: https://blog.dugong.live/how-to-catch-shopify-orders-with-missing-personalization-before-they-ship-blank.html
 Dispatch: Nº 110
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-16
 
 The order is paid, the product is engraved to order, and the line that should say what to engrave says nothing. Now you are emailing a stranger about their own purchase and hoping they answer before the production slot closes. Here is where the text actually dies on Shopify, and the playbook that catches the blank in the first minute instead of the last.
@@ -3163,7 +3349,7 @@ Decide the policy once, write it down, and let the workflow run it, because sell
 
 URL: https://blog.dugong.live/how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html
 Dispatch: Nº 109
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-15. Updated: 2026-08-16
 
 The order is cancelled, the money is back, and the yellow badge stays forever: Shopify says that is by design. Here is what the polluted queue actually costs, the folklore merchants invented to clear it, and the playbook that sorts real orders from noise so the only number your team reads is a true one.
@@ -3289,7 +3475,7 @@ Because the same two-field design follows you to the phone. A merchant in Decemb
 
 URL: https://blog.dugong.live/how-to-stop-fake-customer-accounts-and-spam-signups-on-shopify.html
 Dispatch: Nº 108
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-14. Updated: 2026-08-15
 
 Captcha is on, double opt-in is on, and the fake accounts keep coming: gibberish names, template addresses, every one of them subscribed to your newsletter. Prevention lives at a layer only Shopify controls. Containment does not. Here is what the bots actually cost, why exact-match Flow rules keep losing, and the playbook that reads every new profile before it reaches your email list.
@@ -3417,7 +3603,7 @@ Win the race between the signup and the sync. Deleting a fake profile in Shopify
 
 URL: https://blog.dugong.live/how-to-fix-missing-hs-codes-on-shopify-before-customs-holds-your-orders.html
 Dispatch: Nº 107
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-13. Updated: 2026-08-14
 
 A year ago a blank HS code cost nothing, because low value parcels crossed borders duty free. Now the US taxes every shipment, the EU bills by tariff subheading, and the blanks in your catalog surface as doorstep bills, held parcels, and refused deliveries. Here is how the gap got expensive, and the playbook that closes it before the border finds it.
@@ -3541,7 +3727,7 @@ Yes. Collecting duties and import taxes at checkout costs 0.85 percent per order
 
 URL: https://blog.dugong.live/how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html
 Dispatch: Nº 106
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-12. Updated: 2026-08-13
 
 A wrong price on Shopify goes live the moment it saves, sells at the speed of your traffic, and rings no bell anywhere: no trigger, no history, no undo. Here is why a misprice surfaces as a morning full of orders, and the playbook that catches it in the first minute instead.
@@ -3661,7 +3847,7 @@ Export the catalog with price, compare-at price, and cost per item, then sort it
 
 URL: https://blog.dugong.live/how-to-catch-shopify-orders-stuck-in-transit.html
 Dispatch: Nº 105
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-12. Updated: 2026-08-13
 
 A shipped order that stops moving has no alarm anywhere in Shopify, because every notification fires on a scan and a stall is the absence of scans. Here is why stuck packages surface as angry emails, and the playbook that catches them while the carrier clocks still have time on them.
@@ -3783,7 +3969,7 @@ Yes, and the note has a deadline: it must exist before the second tracking-page 
 
 URL: https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html
 Dispatch: Nº 104
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-10. Updated: 2026-08-13
 
 A gift card is money inside an email, and Shopify never checks whether the email landed, arrived on the right day, or got spent. Here is where gift cards actually go after checkout, and the playbook that walks every card from minted to redeemed.
@@ -3903,7 +4089,7 @@ Because two separate notification templates carry gift cards, and customizations
 
 URL: https://blog.dugong.live/how-to-automatically-restock-returns-on-shopify.html
 Dispatch: Nº 103
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-09. Updated: 2026-08-14
 
 The refund is out the door, the box is back on your bench, and the shelf never hears about either one. Here is where returned inventory actually goes on Shopify, the four ways it disappears on the trip, and the playbook that walks every box back to sellable.
@@ -4031,7 +4217,7 @@ Because the Restock checkbox adds the returned quantity back at the location tha
 
 URL: https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html
 Dispatch: Nº 102
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-07. Updated: 2026-08-12
 
 The tracking says delivered. The customer says the porch is empty. One of four stories is true, each one has a different right answer, and Shopify will not help you pick. Here is the evidence that exists, where it hides, and the playbook that decides.
@@ -4154,7 +4340,7 @@ No. The claim is a customer typing nothing came, and that is an email, not a web
 
 URL: https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html
 Dispatch: Nº 101
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-03. Updated: 2026-08-15
 
 You build the quote, send the invoice, and Shopify's part is done: one email, one link, and never a reminder. Most quotes do not die from a no. They die from silence, and the follow-up that would have saved them is nobody's job. Here is the playbook that makes it someone's.
@@ -4274,7 +4460,7 @@ The checkout refuses her, and the sale dies at the finish line. Shopify does not
 
 URL: https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html
 Dispatch: Nº 100
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-03. Updated: 2026-08-13
 
 Two stores, one stockroom, and a hoodie two customers now own. Shopify has no native way for separate stores to share inventory, the manual version drifts by the hour, and the sync apps have sharp edges. Here is the playbook that mirrors stock the way an operations person would.
@@ -4398,7 +4584,7 @@ No. Pause the mirror while bulk imports and supplier feeds run, and reconcile be
 
 URL: https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html
 Dispatch: Nº 99
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-03. Updated: 2026-08-07
 
 Your store authorizes the card at checkout. You ship on Monday. The money goes home on Thursday night. On Shopify, authorized is not paid, and the seven day clock does not send reminders. Here is where the clock hides, and the playbook that beats it.
@@ -4519,7 +4705,7 @@ Yes, within one policy's worth of logic. The well-known Flow template that captu
 
 URL: https://blog.dugong.live/how-to-let-customers-cancel-their-own-orders-on-shopify.html
 Dispatch: Nº 98
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-02. Updated: 2026-08-13
 
 Your customer taps Request cancellation seventeen minutes after checkout. Nothing in Shopify pauses. At 6:02 on Monday morning the 3PL ships her order anyway. Here is why the new cancel button is half a fix, and the playbook that wins the race.
@@ -4640,7 +4826,7 @@ A large share are not; they are other requests wearing the cancel button. Wrong 
 
 URL: https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html
 Dispatch: Nº 97
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-08-01. Updated: 2026-08-13
 
 The linen shorts from the April buy stopped selling on June 9, and nothing in Shopify will ever mention it. Here is why dead stock hides in a dashboard you look at every day, and the playbook that finds it and moves it while it is still worth something.
@@ -4754,7 +4940,7 @@ Fit the move to the product, because a markdown is only the move everyone rememb
 
 URL: https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html
 Dispatch: Nº 96
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-31. Updated: 2026-08-15
 
 A customer in Georgia checks out in eleven seconds and the order lands as a pickup at your Denver shop, 1,400 miles away. She never chose pickup, and Shopify gives you no button to fix it. Here is why it keeps happening, and the playbook that converts the order the same hour.
@@ -4871,7 +5057,7 @@ No. There is no distance check anywhere in the platform, so an order for pickup 
 
 URL: https://blog.dugong.live/how-to-automatically-approve-wholesale-customers-on-shopify.html
 Dispatch: Nº 95
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-30. Updated: 2026-08-13
 
 A boutique owner fills out your wholesale form on Friday evening. You find it Monday, approve it Tuesday, and her opening order went to another brand on Saturday. Here is why Shopify makes approval a manual chore, and the playbook that answers in minutes.
@@ -4990,7 +5176,7 @@ Yes, the same day, kindly, because silence is the expensive option. The decline 
 
 URL: https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html
 Dispatch: Nº 94
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-28. Updated: 2026-08-14
 
 The restock landed on Wednesday. The order that was waiting for it shipped on Friday, because Shopify has no event for stock arriving on a held order and nobody opened the list. Here is why Flow cannot close that gap on its own, and the playbook that does.
@@ -5118,7 +5304,7 @@ Rank them, because the restock rarely covers everyone. When a pallet covers nine
 
 URL: https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html
 Dispatch: Nº 93
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-27. Updated: 2026-08-15
 
 A customer forty minutes from your Pennsylvania warehouse gets two boxes, one of them from Nevada, on a single flat shipping fee you charged once. Shopify routed it exactly the way its rules say it should. Here is what those rules can and cannot see, why moving the order after the fact usually fails, and the playbook that picks the location by what the shipment will actually cost.
@@ -5238,7 +5424,7 @@ Usually two to six dollars an order, and it is invisible because Shopify has no 
 
 URL: https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html
 Dispatch: Nº 92
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-26. Updated: 2026-08-15
 
 Your distributor drops a file at 6am the way they have every morning for two years. This morning they renamed one column. The matcher found nothing, the sync did exactly what you configured it to do at setup, and four hundred products are now out of stock without a single one of them selling. Here is why Shopify has no answer for this, why the sync apps can only hand you the question, and the playbook that reads a feed before it believes it.
@@ -5353,7 +5539,7 @@ Not one global number, which is the shape the sync apps offer and the wrong one.
 
 URL: https://blog.dugong.live/how-to-stop-discount-code-abuse-on-shopify.html
 Dispatch: Nº 91
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-25. Updated: 2026-08-10
 
 You gave one creator a code. Three weeks later it has 900 redemptions, almost all from first-time buyers, because a browser extension found it and now offers it to every cart in your store. Meanwhile your welcome code is on its fourth use by the same person under a fourth email address. Shopify gives you a redemption cap and a one-per-customer setting that is really one per email. Here is why the platform cannot see a leak, and the playbook that closes it while the margin is still there.
@@ -5458,7 +5644,7 @@ Not as a reflex, because the kill switch lands on the wrong people first. The cr
 
 URL: https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html
 Dispatch: Nº 90
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-24. Updated: 2026-08-10
 
 Two orders land four minutes apart: same items, same address, same card. Somebody double-tapped the pay button, or retried after a card error that had already gone through, and now one customer has paid twice for one box. Shopify will not warn you, Flow cannot compare the two orders, and the warehouse is about to ship both. Here is why the platform cannot see a duplicate, and the playbook that catches the copy before the label prints.
@@ -5559,7 +5745,7 @@ The unfulfilled copy, and when both are unfulfilled, the later one, so the order
 
 URL: https://blog.dugong.live/how-to-block-a-customer-on-shopify.html
 Dispatch: Nº 89
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-23. Updated: 2026-08-14
 
 A customer has returned nine of eleven orders, and their tenth order just landed in your admin. You go looking for the ban button, and there isn't one. Deleting the account leaves guest checkout wide open, fraud analysis calls their valid card low risk, and Flow can only cancel after the money has moved. Here is why Shopify cannot remember the people who burn you, and the playbook that makes a block actually stick.
@@ -5663,7 +5849,7 @@ Match on the whole record, never on one string, because a false positive costs m
 
 URL: https://blog.dugong.live/how-to-notify-customers-of-shipping-delays-on-shopify.html
 Dispatch: Nº 88
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-22. Updated: 2026-08-12
 
 An order sits unfulfilled on day seven of a two-day promise, and Shopify has sent your customer exactly one email: the confirmation. The platform has no delay notice, no trigger for an order going late, and a Flow tool that can find every overdue order but can only tell your own staff. Here is why the silence between checkout and shipment is the most expensive gap in your store, and the playbook that fills it before the customer has to ask.
@@ -5768,7 +5954,7 @@ It is faster than writing per-order emails, and it is usually worse. One blast t
 
 URL: https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html
 Dispatch: Nº 87
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-22. Updated: 2026-08-14
 
 One loyal customer checks out as a guest with her work email, taps Apple Pay with a relay address, and buys once at your market stall through the POS, and your admin now holds three strangers. Here is why Shopify only merges profiles two at a time, why some pairs will not merge at all, and the playbook that cleans the whole list without ever welding two real people together.
@@ -5872,7 +6058,7 @@ The admin will point out similar profiles while you are looking at one customer,
 
 URL: https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html
 Dispatch: Nº 86
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-20. Updated: 2026-08-15
 
 A shopper finds your 40 percent off sale, adds three marked-down items, then pastes the welcome code from your popup at checkout, and Shopify takes both. Here is why there is no exclude sale items switch, why the combination settings will not save you, and the playbook that keeps every code off your sale prices without killing the codes themselves.
@@ -5974,7 +6160,7 @@ Yes, and that is why a single toggle was never going to be enough. A service-rec
 
 URL: https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html
 Dispatch: Nº 85
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-18. Updated: 2026-08-15
 
 A shopper buys a present, types a few careful words at checkout, and pays a little extra to have it wrapped. Then the box arrives at the recipient with the sender's full invoice tucked inside and no message anywhere in sight. Here is why Shopify has no real gift field, why the order note keeps losing the note, and the playbook that gets the message into the box and the price off the slip.
@@ -6075,7 +6261,7 @@ By default, nothing good, because the order note is one field for the whole orde
 
 URL: https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html
 Dispatch: Nº 84
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-16. Updated: 2026-08-12
 
 You want the obvious offer: buy 3 and save 10 percent, buy 6 and save 20, buy 12 and save 30. You open Shopify's discount screen, build the first tier, go to add the second, and there is nowhere to put it, because a Shopify discount holds one rule and only one. Here is why buy-more-save-more never works natively, why Scripts are no longer the escape hatch, and the playbook that runs real quantity breaks across your whole catalog.
@@ -6176,7 +6362,7 @@ Twenty-five. That is the hard cap on active automatic discounts across the store
 
 URL: https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html
 Dispatch: Nº 83
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-15. Updated: 2026-08-15
 
 You sell a gift set and the candle, the soap, and the bath bomb inside it never move a single unit, because Shopify counts the bundle as its own product with its own stock number. So the parts oversell on their own pages, the bundle keeps selling after the shelf behind it is empty, and a shared component drifts out of step across every bundle it lives in. Here is why the bundle sale never touches the component stock, and the playbook that keeps the two counts honest in real time.
@@ -6275,7 +6461,7 @@ No, and these are the two seams that break even a properly linked bundle. Edit a
 
 URL: https://blog.dugong.live/how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html
 Dispatch: Nº 82
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-12. Updated: 2026-08-14
 
 A product sells out at two in the afternoon. Your Google and Meta ads keep running it until well past midnight, sending paid clicks to a page where the only button says Sold Out. Shopify never paused the ad, because it does not pause ads at all. It syncs a feed on a schedule, and the money keeps going out the door in the gap. Here is why the ad outlives the stock, and the playbook that pauses the exact ad for a sold-out product and turns it back on the moment inventory returns.
@@ -6374,7 +6560,7 @@ No. Not every stockout should go dark, and knowing the difference is most of the
 
 URL: https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html
 Dispatch: Nº 81
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-11. Updated: 2026-08-16
 
 You cap a hot product at two per person, the drop sells out in minutes, and the orders list tells the real story: one buyer took forty units across twenty tidy little orders. Shopify's add-to-cart limit is a per-cart rule, not a per-customer one, so it resets on every checkout and never notices the same buyer coming back. It also counts each color and size on its own. Here is why Shopify caps the cart but not the customer, and the playbook that enforces a real per-person limit on every path into checkout.
@@ -6486,7 +6672,7 @@ A small number of buyers clear the inventory in minutes. The pattern shows up in
 
 URL: https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html
 Dispatch: Nº 80
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-08. Updated: 2026-08-12
 
 You promise a free gift over seventy-five dollars, a customer fills a cart to eighty, and the gift never shows up, because a Shopify discount only makes an item cheaper, it never adds the item. There is no store-wide cart-value trigger, only one gift tier per discount, and a discount that quietly loses to a bigger one. So the gift you advertised either never lands, or a shopper who found it can drop below the threshold and keep it. Here is why Shopify leaves the gift to the customer, and the playbook that puts the right one in the cart on every path to checkout, automatically.
@@ -6596,7 +6782,7 @@ On most setups, they keep the gift. The cart is not a one-way street: a customer
 
 URL: https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html
 Dispatch: Nº 79
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-07. Updated: 2026-08-14
 
 One order lands with a mug from your ceramics supplier, a candle from a dropshipper, and a tote your own warehouse ships, and Shopify treats it as a single thing to fulfill from one place. There is no rule that sends each line to the vendor who makes it, no way to email each supplier a purchase order with just their items, and no button that splits the order by who ships what. So you read every order, work out who makes each line, and paste the right items into a separate email for each supplier, all day. Here is why Shopify leaves the split to you, and the playbook that routes each order to the right suppliers automatically.
@@ -6706,7 +6892,7 @@ Piece by piece, as partial fulfillments, and the matching is the actual job. Eac
 
 URL: https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html
 Dispatch: Nº 78
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-06. Updated: 2026-08-12
 
 A business customer buys from you, and a day later the email lands: can I get a proper invoice with our company name and VAT number on it. Shopify sent them an order confirmation, which is a receipt, not an invoice, and it has no field that captured their tax number and no button that makes the document they are asking for. So you open a template, retype their details, and email it back by hand, again, for every business order. Here is why Shopify leaves the invoice to you, and the playbook that sends the right one automatically after every order.
@@ -6816,7 +7002,7 @@ Yes, and treating every order the same is the trap. An invoice is not one docume
 
 URL: https://blog.dugong.live/how-to-schedule-product-publishing-on-shopify.html
 Dispatch: Nº 77
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-05. Updated: 2026-08-16
 
 You plan the drop for midnight, set the product to publish on a future date, and go to bed. It goes live on the online store and nowhere else. POS never got it, the Buy Button never got it, your marketplace channel never got it, and when the launch is meant to end there is no switch that pulls it back down. Shopify will schedule a product going live on one channel, and that is the whole of it. Here is why the native scheduler only does half the job, and the playbook that runs the launch on time and ends it on time.
@@ -6925,7 +7111,7 @@ Because a date is not the same as ready. The native scheduler publishes on the c
 
 URL: https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html
 Dispatch: Nº 76
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-05. Updated: 2026-08-16
 
 A customer adds one small item, checks out for a few dollars, and Shopify waves it straight through. By the time you pay the transaction fee, pick it, pack it, and ship it, the order cost you money to fulfill. You want a floor, a cart has to reach some amount before it can check out, and Shopify has no native setting for it. Here is why the too-small order sails through, and the playbook that sets a real minimum without breaking the carts that should pass.
@@ -7036,7 +7222,7 @@ Because the cost of fulfilling an order is largely fixed while the revenue is no
 
 URL: https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html
 Dispatch: Nº 75
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-03. Updated: 2026-08-12
 
 A shopper lands on your product page, picks their size or their color, and the button flips to Sold Out. Shopify kept the variant they cannot buy right there in the dropdown, grayed out next to the ones in stock. They read Sold Out, decide the product is gone, and close the tab, even though the size beside it was available the whole time. There is no native switch to hide it. Here is why the sold-out variant stays on the page, and the playbook that hides it and brings it back the moment stock returns.
@@ -7145,7 +7331,7 @@ Not with the usual fixes, and that is where they quietly cost the most. A Liquid
 
 URL: https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html
 Dispatch: Nº 74
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-02. Updated: 2026-08-14
 
 A customer buys, then remembers one more thing and buys again an hour later, before the first order has shipped. Now you have two orders, two shipping labels, two boxes, and a customer who paid for delivery twice on what should have been one parcel. Shopify has no button that merges them. Its own advice is a draft-order routine you run by hand, one careful pair at a time. Here is why combining orders is still a manual chore on Shopify, and the playbook that catches the pair and ships one box.
@@ -7256,7 +7442,7 @@ No, and the exceptions are exactly where merges go wrong. Same name is not enoug
 
 URL: https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html
 Dispatch: Nº 73
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-07-01. Updated: 2026-08-07
 
 You wake up to two hundred orders of one cheap item. All a few dollars, all different names, all different cards, most already declined. It is not a growth spurt. A bot found your checkout and is running stolen cards through it to see which ones still work, and Shopify billed you a fee for every attempt. Here is why card testing hits a Shopify store so easily, and the playbook that reads the attack, cancels the junk, and shuts it down before it costs you the payment account.
@@ -7371,7 +7557,7 @@ Work the burst as a unit, not order by order. Cancel and refund the test orders 
 
 URL: https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html
 Dispatch: Nº 72
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-30. Updated: 2026-08-10
 
 A customer buys two things in one cart: a hoodie that is sitting on your shelf, and a jacket that is on pre-order for six weeks out. Shopify treats it as one order, so the hoodie does not move until the jacket lands. There is no real pre-order, no ship date, and no tag, and nothing splits the cart so the ready item can go now. Here is why one cart with two delivery dates breaks Shopify, and the playbook that ships what is ready and runs the pre-order to the day stock arrives.
@@ -7486,7 +7672,7 @@ It is the only native lever, and it is a blunt one: permission to oversell with 
 
 URL: https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html
 Dispatch: Nº 71
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-29. Updated: 2026-08-12
 
 Your dashboard says you sold four thousand dollars this week. The deposit that lands in your bank is smaller, days late, and arrives with no breakdown attached. Shopify nets every payout down by fees, refunds, chargebacks, and a held reserve, then pays it in a batch that covers part of one day and part of the next, and leaves you to work out what each deposit was actually made of. Here is why reconciling payouts by hand is the month-end chore that quietly corrupts your books, and the playbook that ties every deposit back to its orders.
@@ -7601,7 +7787,7 @@ Under Finances in the admin, on the Payouts page. Open any payout and Shopify br
 
 URL: https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html
 Dispatch: Nº 70
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-28. Updated: 2026-08-12
 
 A supplier raised a cost. A tariff landed. You decided to defend your margin. Whatever the reason, every price in the catalog now needs to move, and Shopify hands you a bulk editor that shows fifty products at a time, has no math, and makes you compute and type each new number yourself. The CSV route turns you into a spreadsheet clerk, the Markets percentage tool is all or nothing for a whole market, and Flow cannot touch a price at all. Here is why repricing by hand is a tax that scales with your catalog, and the playbook that reprices it by rule.
@@ -7714,7 +7900,7 @@ They have to be handled in the same pass, and forgetting them is the classic bul
 
 URL: https://blog.dugong.live/how-to-automatically-add-tracking-numbers-to-shopify-orders.html
 Dispatch: Nº 69
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-27. Updated: 2026-08-13
 
 The order is paid. The supplier shipped it and emailed you a tracking number. Now you open the order in Shopify, hit mark as fulfilled, click into the tracking field, and paste it in. Then you do it again for the next one, and the one after that. Most orders do not fulfill themselves, and the few automations Shopify offers stop right before the part that actually clears the order. Here is why entering tracking is a tax you pay on every order, and the playbook that reads what your suppliers send and fulfills the order for you.
@@ -7826,7 +8012,7 @@ The mistake mails itself: the shipping confirmation fires off whatever you enter
 
 URL: https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html
 Dispatch: Nº 68
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-25. Updated: 2026-08-07
 
 You discontinue a product and delete it, or you tidy up a messy handle, and the job feels done. It is not. The old URL is still out there, still indexed by Google, still printed on an old email, still sitting in an ad you forgot to pause. Every click on it now lands on a Shopify page that says, politely, that the page does not exist. Shopify did not forward it anywhere. Here is why a deleted product is a slow SEO leak, and the playbook that catches the broken URL and sends it somewhere real.
@@ -7936,7 +8122,7 @@ Search Console is the honest mirror: its not found report lists the URLs Google 
 
 URL: https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html
 Dispatch: Nº 67
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-24. Updated: 2026-08-12
 
 A customer places an order, picks bank transfer or cash on delivery, and then goes quiet. The money never lands, but the order does not go away. It sits in your admin marked pending, holding the stock a paying customer wanted, until you remember it, open it, cancel it, and tick restock by hand. Shopify will not do any of that for you. Here is why unpaid orders are the quiet leak Shopify never plugged, and the playbook that chases payment, then clears the cold ones on time.
@@ -8048,7 +8234,7 @@ Yes. Cancelling an unpaid order without ever asking for the money first throws a
 
 URL: https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html
 Dispatch: Nº 66
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-22. Updated: 2026-08-12
 
 Every happy customer is a five-star review you have not asked for. The next buyer reads those reviews before they trust you, and Shopify gives you no native way to collect a single one. So the ask either never goes out, or it goes out as one untimed blast to the whole list, including the person whose order has not arrived. Here is why review collection is the lever Shopify never built, and the playbook that asks the right customer for the right product at the right time.
@@ -8162,7 +8348,7 @@ It is the right start and rarely the finish. The good apps supply the machinery 
 
 URL: https://blog.dugong.live/how-to-segment-repeat-customers-on-shopify.html
 Dispatch: Nº 65
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-21. Updated: 2026-08-16
 
 You have customers who have bought from you five times. Shopify knows it, and does nothing with it. Without a tag set by hand, a loyal regular, a one-time discount hunter, and a customer about to leave for good all look identical in the admin, so they all get the same generic blast. Here is why customer segmentation is the lever Shopify never built, and the playbook that reads each customer's whole history and tags them by what they actually do.
@@ -8277,7 +8463,7 @@ Remove a tag every time you add one, and re-evaluate on every order. Stale tags 
 
 URL: https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html
 Dispatch: Nº 64
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-20. Updated: 2026-08-12
 
 Shopify will store an alt text on every image you upload. What it will not do is write one, show you which images are blank, or let you fix them in bulk. So the line a screen reader reads aloud, and the line Google uses to rank your photos, sits empty on nearly every image in the catalog. Here is why alt text is the accessibility-and-SEO chore Shopify never finished, and the playbook that writes every line by actually looking at the picture.
@@ -8389,7 +8575,7 @@ Yes. Search engines cannot see what a photo shows the way a person can, so they 
 
 URL: https://blog.dugong.live/how-to-generate-shopify-product-descriptions-with-ai.html
 Dispatch: Nº 63
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-19. Updated: 2026-08-12
 
 Shopify Magic will write a product description. One product at a time, from a few keywords you type in. The trouble is that a real catalog is hundreds of products, each with its own variants, a spec sheet, images, and a brand voice the generator never sees. So the descriptions get written one SKU at a time, pasted from the supplier, or left blank, and the blank or duplicate page is the one that never ranks and never sells. Here is why writing product copy is the job Shopify half-automated, and the playbook that finishes the catalog.
@@ -8508,7 +8694,7 @@ No, and it is the most common way a blank field gets filled. The line you paste 
 
 URL: https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html
 Dispatch: Nº 62
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-18. Updated: 2026-08-12
 
 Shopify Flow will tag an order the moment one simple thing is true. The trouble is that real tagging is never one simple thing. It is the product, the order value, who the customer is, where it ships, and the line a buyer typed into the note, all read together. So the tags that route fulfillment, fire your flows, and build your segments still get set by hand, one order at a time. Here is why order tagging is the chore Shopify half-automated, and the playbook that finishes it.
@@ -8625,7 +8811,7 @@ With a one-time backfill, and it is the step most tagging setups skip. A rule cr
 
 URL: https://blog.dugong.live/how-to-bulk-edit-meta-descriptions-on-shopify.html
 Dispatch: Nº 61
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-17. Updated: 2026-08-12
 
 Shopify will happily store a meta description for every product. What it will not do is help you write a different one for each. Edit them in bulk and they all come out identical, which is the one thing you must not do. So you either type each one by hand, product by product, or leave the field blank and let Shopify fill the search result with whatever the page starts with. Here is why the unique meta is the SEO chore Shopify never finished, and the playbook that writes every one of them.
@@ -8738,7 +8924,7 @@ Every surface with its own URL: collection pages, the homepage, the standard pag
 
 URL: https://blog.dugong.live/how-to-schedule-a-sale-on-shopify.html
 Dispatch: Nº 60
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-16. Updated: 2026-08-12
 
 Shopify will happily let you drop a price. What it will not do is start the sale at midnight, put the prices back on Monday, or run it by rule. So a real person sits up to flip prices when the clock strikes, babysits the promotion, and prays they remember to undo it. Here is why the timed sale is the chore Shopify never automated, and the playbook that runs it start to finish.
@@ -8853,7 +9039,7 @@ Targeting is where the native tools stop entirely. A real sale is a rule with ex
 
 URL: https://blog.dugong.live/how-to-set-inventory-reorder-points-on-shopify.html
 Dispatch: Nº 59
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-15. Updated: 2026-08-10
 
 Shopify will tell you a product is running low. What it will never do is buy more of it. Its purchase orders are too basic to know which SKU to reorder, how many, or when, so the decision falls back on a spreadsheet and a gut feel, and your bestseller goes dark for weeks while your cash sits frozen in the stuff that does not move. Here is why replenishment is the quiet revenue leak no one automates, and the playbook that reorders on time.
@@ -8966,7 +9152,7 @@ An alert is not a plan. Flow can watch a variant and ping you when the count cro
 
 URL: https://blog.dugong.live/how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html
 Dispatch: Nº 58
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-14. Updated: 2026-08-07
 
 Seven in ten carts get filled and then left. Shopify answers with a single reminder, the same words for everyone, fired once on a preset timer. Then it goes quiet. And on one-page checkout it often never learns the email at all. Here is why the one email leaves most of the recovery on the table, and the playbook that brings back the demand you already paid to create.
@@ -9079,7 +9265,7 @@ Not by default, and never in the first message. A discount in touch one trains s
 
 URL: https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html
 Dispatch: Nº 57
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-13. Updated: 2026-08-16
 
 A product sells out and Shopify leaves it sitting at the top of your collection page, a grayed-out tile greeting the first customer who lands. They do not scroll past it to the thing in stock two rows down. They leave. Here is why the empty shelf stays up front, and the playbook that re-merchandises your storefront the moment stock moves.
@@ -9192,7 +9378,7 @@ No, each surface deserves its own rule. On browse pages, demote the sold-out til
 
 URL: https://blog.dugong.live/how-to-set-up-back-in-stock-notifications-on-shopify.html
 Dispatch: Nº 56
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-13. Updated: 2026-08-10
 
 A customer clicks notify me when this is back. The item comes back. And nothing happens, because Shopify does almost nothing with that request. The restock sells out to whoever happens to land on the page, while the people who actually waited never hear a word. Here is why the back-in-stock request quietly dies, and the playbook that turns a waitlist into recovered revenue.
@@ -9305,7 +9491,7 @@ Flow can react to the inventory event, and a basic app can hold the waitlist, bu
 
 URL: https://blog.dugong.live/how-to-win-chargeback-disputes-on-shopify.html
 Dispatch: Nº 55
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-11. Updated: 2026-08-07
 
 A dispute lands in your admin. Shopify quietly attaches the basic order data and, on the deadline, files it for you. You did nothing wrong, and you still lose, because nobody read the claim, matched it to your proof, or wrote the rebuttal. Here is why the dispute is lost the moment it arrives, and the playbook that builds the case and fights it before the clock runs out.
@@ -9418,7 +9604,7 @@ No, and the discipline of not fighting some is part of winning the rest. If a di
 
 URL: https://blog.dugong.live/how-to-automate-returns-and-exchanges-on-shopify.html
 Dispatch: Nº 54
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-09. Updated: 2026-08-10
 
 A customer wants a different size. The request lands in your returns queue and just sits there, waiting for someone to read it, decide it, and click approve. Then it gets worse: Shopify can't actually swap the item, so the easy path is a refund, and the sale you already made walks back out the door. Here is why returns quietly become a daily job, and the playbook that handles them on their own.
@@ -9531,7 +9717,7 @@ The ones where judgment is the point. A repeat returner, say a third return from
 
 URL: https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html
 Dispatch: Nº 53
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-08. Updated: 2026-08-12
 
 A customer checks out, then notices the mistake ninety seconds later: wrong size, wrong apartment number, meant to buy two. They fire off a quick "hey, can you change my order?" and assume it's handled. On your side it lands in an inbox you check between other things, and it's now in a footrace against your own warehouse. Whoever gets there first wins. Here's why that race is rigged against you, and the playbook that wins it automatically.
@@ -9642,7 +9828,7 @@ Because the request never arrives as an event. Flow is built to react to structu
 
 URL: https://blog.dugong.live/how-to-validate-shipping-addresses-on-shopify.html
 Dispatch: Nº 52
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-06. Updated: 2026-08-10
 
 Shopify shows you a little yellow triangle next to the shipping address, you're in a hurry, and you click "fulfill" anyway. Two weeks later the package comes back stamped return to sender, and now you owe a return fee, a re-ship, a refund, and an apology. Bad-address handling is the Shopify pain merchants only feel after it's already cost them. Here's why a warning isn't an automation, and what a playbook that actually fixes the address does instead.
@@ -9754,7 +9940,7 @@ No, and it is the quiet second cost of a fix. When someone corrects an address o
 
 URL: https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html
 Dispatch: Nº 51
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-06. Updated: 2026-08-07
 
 Shopify stamps an order "high-risk," and then hands the decision back to you with half the evidence hidden. Fulfill it and you might eat a chargeback. Cancel it and you might have just fired a real customer. Merchants do this dozens of times a week, by gut, on a blackbox score. Here's why the flag is the worst kind of automation, and what a playbook that actually investigates does instead.
@@ -9858,7 +10044,7 @@ Both directions are expensive, which is what makes the coin-toss so corrosive. S
 
 URL: https://blog.dugong.live/how-to-prevent-overselling-on-shopify-across-channels.html
 Dispatch: Nº 50
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-05. Updated: 2026-08-07
 
 Overselling, taking money for a unit you no longer have, is the Shopify pain point merchants dread most, because it's the one that's hardest to take back. It almost always starts the same way: two channels, one stock pool, and a human trying to keep the numbers in sync by hand. Here's why that breaks exactly when it matters, and what an AI playbook does instead.
@@ -9973,7 +10159,7 @@ Catch it before fulfillment, not after the label prints. The playbook treats any
 
 URL: https://blog.dugong.live/how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html
 Dispatch: Nº 49
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-06-04. Updated: 2026-08-10
 
 "Where is my order?" is the most common message in ecommerce, roughly 18% of all support tickets on a normal week, more than half of them during a sale. Most Shopify merchants still answer each one by hand. Here's why the canned auto-reply never worked, and what an AI playbook does instead.
@@ -10088,7 +10274,7 @@ Only at the edges. A Flow rule or help-desk macro can send a templated reply wit
 
 URL: https://blog.dugong.live/best-shopify-automations-to-set-up.html
 Dispatch: Nº 48
-Author: Priya Singh, Commerce Research, Dugong
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
 Published: 2026-05-28. Updated: 2026-08-07
 
 Tagging is 14% of every Shopify workflow merchants ship. Returns and refunds, the work that actually scales with order volume, are under 1%. A field study of 1,374 playbooks and the gap between what's easy to automate and what's worth automating.
@@ -10237,7 +10423,7 @@ Flow is genuinely good at the trigger, condition, action shape: when an order is
 
 URL: https://blog.dugong.live/the-death-of-the-drag-and-drop-builder.html
 Dispatch: Nº 47
-Author: Aanya Rao, Head of Research, Dugong
+Author: Aanya Rao, Head of Research, Dugong (https://blog.dugong.live/aanya-rao.html)
 Published: 2026-05-28. Updated: 2026-05-28
 
 For fifteen years, workflow automation looked like a canvas of rectangles connected by lines. After watching three million runs across twelve thousand teams, we're convinced the canvas was always the problem.

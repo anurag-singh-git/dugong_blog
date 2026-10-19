@@ -55,7 +55,7 @@
         "url": "https://blog.dugong.live/"
       },
       "inLanguage": "en",
-      "dateModified": "2026-10-18",
+      "dateModified": "2026-10-19",
       "publisher": {
         "@type": "Organization",
         "@id": "https://blog.dugong.live/#organization",
@@ -113,7 +113,7 @@
       "@type": "ItemList",
       "@id": "https://blog.dugong.live/shopify-automation-questions.html#questions",
       "name": "Shopify automation questions answered on Dugong Field Notes",
-      "numberOfItems": 427,
+      "numberOfItems": 433,
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
       "itemListElement": [
         {
@@ -2677,6 +2677,42 @@
           "position": 427,
           "name": "Can AI catch unused Shopify shipping labels before the window closes?",
           "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-6"
+        },
+        {
+          "@type": "ListItem",
+          "position": 428,
+          "name": "What does Payment pending mean on a Shopify order?",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-1"
+        },
+        {
+          "@type": "ListItem",
+          "position": 429,
+          "name": "Can you fulfill a Shopify order with a pending payment?",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-2"
+        },
+        {
+          "@type": "ListItem",
+          "position": 430,
+          "name": "How long does a Shopify pending payment take to clear?",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-3"
+        },
+        {
+          "@type": "ListItem",
+          "position": 431,
+          "name": "Can Shopify Flow hold an order until the payment clears?",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-4"
+        },
+        {
+          "@type": "ListItem",
+          "position": 432,
+          "name": "Why can't I cancel or edit a Shopify order with a pending payment?",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-5"
+        },
+        {
+          "@type": "ListItem",
+          "position": 433,
+          "name": "Can AI stop Shopify orders shipping before the payment clears?",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-6"
         }
       ]
     }
@@ -3194,6 +3230,39 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 @media (max-width: 360px) {
   .nav-cta { font-size: 12px; padding: 7px 9px; }
 }
+
+/* QA 2026-10-19 */
+:root { color-scheme: light; }
+
+/* QA 2026-10-19: a skip link, so a keyboard or screen-reader visitor does not
+   walk the ticker, the brand and four nav links on every page (WCAG 2.4.1). */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  font-family: var(--display); font-weight: 700; font-size: 14px;
+  background: var(--lime); color: #11110e; border: 1px solid #11110e;
+  padding: 10px 18px; border-radius: 0 0 10px 0;
+}
+.skip-link:focus { left: 0; }
+
+/* QA 2026-10-19: the 2026-10-18 pass gave .nav-cta `order: 2` so the button
+   would ride on the brand's row below 820px, but the button was a child of
+   .nav-links, where `order` means nothing and margin-left:auto pushed it past
+   the gutter. It is a child of .nav now. These rules keep the old look. */
+.nav > .nav-cta { flex-shrink: 0; }
+@media (min-width: 821px) { .nav > .nav-cta { margin-left: 0; } }
+
+/* QA 2026-10-19: .callout is a flex row with a flex-shrink:0 label of
+   79-149px. On a 390px phone that left the quote a 136px column, ~20
+   characters a line, 25 lines for a single paragraph; at 320px, 96px and 41
+   lines, and one callout ran the page 7px wide. Stack below 700px. */
+@media (max-width: 700px) {
+  .callout { flex-direction: column; gap: 0.55rem; }
+  .callout-mark { padding-top: 0; }
+}
+
+/* QA 2026-10-19: .topic had line-height: 1, so a guide name that wrapped to a
+   second line on a phone collided with its own first line. */
+.topic { line-height: 1.18; }
 </style>
 <style>
 /* SEO 2026-10-12 topic hub */
@@ -3274,6 +3343,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="grain" aria-hidden="true"></div>
 <header class="nav">
   <a href="index.html" class="brand">
@@ -3286,17 +3356,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
     <a href="index.html#latest">Latest</a>
     <a href="index.html#tags">Topics</a>
     <a href="index.html#archive">Archive</a>
-    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
   </nav>
+  <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
 </header>
 
-<main class="article hub-head" role="main">
+<main class="article hub-head" id="main" role="main">
 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
   <div class="article-meta">
 <span class="tag tag-research">question index</span>
-<span style="color: var(--cream-dim);">427 QUESTIONS</span>
+<span style="color: var(--cream-dim);">433 QUESTIONS</span>
 <span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">84 DISPATCHES</span></span>
 </div>
 
@@ -3306,7 +3376,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
   <p class="article-dek" style="font-size: 0.95rem;">
     Each dispatch ends with the questions merchants actually ask about that failure mode, answered
-    in full on the page. This index collects all 427 of them in one place. Follow a question to land
+    in full on the page. This index collects all 433 of them in one place. Follow a question to land
     on its answer; follow a dispatch title to read the whole playbook.
   </p>
 
@@ -3314,10 +3384,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
   <section class="qa-section" id="shopify-order-management-automation" aria-labelledby="h-shopify-order-management-automation">
     <div class="section-head">
-      <h2 class="section-eyebrow" id="h-shopify-order-management-automation">&#9670; SHOPIFY ORDER MANAGEMENT AUTOMATION &middot; 80 QUESTIONS</h2>
+      <h2 class="section-eyebrow" id="h-shopify-order-management-automation">&#9670; SHOPIFY ORDER MANAGEMENT AUTOMATION &middot; 86 QUESTIONS</h2>
       <span class="section-rule"></span>
     </div>
     <p class="qa-guide-link"><a href="shopify-order-management-automation.html">Read the shopify order management automation guide &rarr;</a></p>
+      <div class="qa-post">
+        <h3 class="qa-post-title"><a href="how-to-stop-shipping-shopify-orders-with-payment-pending.html">How to stop shipping Shopify orders that say Payment pending</a></h3>
+      </div>
+      <ul class="qa-list">
+        <li><a href="how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-1">What does Payment pending mean on a Shopify order?</a></li>
+        <li><a href="how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-2">Can you fulfill a Shopify order with a pending payment?</a></li>
+        <li><a href="how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-3">How long does a Shopify pending payment take to clear?</a></li>
+        <li><a href="how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-4">Can Shopify Flow hold an order until the payment clears?</a></li>
+        <li><a href="how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-5">Why can't I cancel or edit a Shopify order with a pending payment?</a></li>
+        <li><a href="how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-6">Can AI stop Shopify orders shipping before the payment clears?</a></li>
+      </ul>
       <div class="qa-post">
         <h3 class="qa-post-title"><a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html">How to stop taking Shopify orders when you hit your daily capacity</a></h3>
       </div>

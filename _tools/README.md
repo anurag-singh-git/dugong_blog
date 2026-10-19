@@ -25,7 +25,7 @@ reason it exists rather than a general-purpose linter:
 | `<title>` <= 60 chars and unique | Dispatch Nº 130 shipped a 74-char title on 2026-10-17 |
 | meta description 70-165 chars, unique, matching og: and twitter: | Dispatch Nº 129 shipped a 201-char description on 2026-10-16 |
 | every page's `dateModified` agrees with its sitemap `lastmod` | Drifted on 4 pages on 10-16 and 3 more on 10-17, each time because the run updated content and counts but not dates |
-| every `about` entity carries both a Wikipedia and a Wikidata `sameAs` | 3 of 115 Wikipedia targets turned out to be dead links and 1 pointed at a disambiguation page |
+| every `about` entity carries a Wikidata `sameAs`, and a Wikipedia one unless listed in `wikidata_only_entity` | 3 of 115 Wikipedia targets turned out to be dead links and 2 pointed at disambiguation pages |
 | JSON-LD parses; one h1; canonical == filename == og:url | Standing audit |
 | BlogPosting carries all 20 fields worth having | Standing audit |
 | FAQPage questions all have a non-empty acceptedAnswer | Standing audit |
@@ -41,14 +41,24 @@ reason it exists rather than a general-purpose linter:
 | no broken internal links, in-page anchors or cross-file anchors | Standing audit |
 | no duplicate element ids, no mojibake, no em or en dashes | House style |
 | robots.txt declares a Sitemap and disallows the three report prefixes in every user-agent group | A named group ignores the `*` group, so this has to be per-group |
+| every `author` node carries a `url` and an `@id` | Aanya Rao wrote the lead essay and had no author page for five months, so her author node was the only one of 86 that resolved to nothing |
+| every `CollectionPage` `about` includes at least one entity with a `sameAs` | The 8 topic guides each described themselves with a bare `Thing` name while the dispatches underneath them carried 316 grounded entity references |
+| every dispatch appears in all three llms.txt lists | Dispatch Nº 131 was in "Articles" and "Markdown versions" and missing from "Full index" |
+| each llms.txt topic-guide count equals the guide's ItemList and its visible card count | The inventory guide read 16 in llms.txt and 17 everywhere else for four days |
+| no container holding links lacks an anchor rule in that page's stylesheet | `.article-dek` had no `a` rule, so 15 editorial links on 11 pages rendered in the dek colour with no underline and read as plain text |
 
 ### Deliberate exceptions
 
 `EXCEPTIONS` near the top of the file holds the handful of cases where a
 check is intentionally not applied, each with the reason in a comment:
 `index.html` and `404.html` keep hand-written og:/twitter: copy, the lead
-essay's `lastmod` and `dateModified` legitimately differ, and `404.html` is
-noindex and unlinked by design. Add to it only with a reason.
+essay's `lastmod` and `dateModified` legitimately differ, `404.html` is
+noindex and unlinked by design, and `wikidata_only_entity` lists entities
+whose concept has a Wikidata item but no English Wikipedia article. That last
+one is a tightening rather than a loosening: an entity on that list must
+carry Wikidata and must **not** carry a Wikipedia URL, because the only
+candidate pages are disambiguation pages or near-miss concepts. Add to it only
+with a reason, and only after checking both APIs in both directions.
 
 ### If a check fires on something that is actually correct
 

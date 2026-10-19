@@ -83,8 +83,7 @@
           "@type": "Thing",
           "name": "Click and collect",
           "sameAs": [
-            "https://en.wikipedia.org/wiki/Click_and_collect",
-            "https://www.wikidata.org/wiki/Q101423394"
+            "https://www.wikidata.org/wiki/Q15794580"
           ]
         },
         {
@@ -633,6 +632,35 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 @media (max-width: 360px) {
   .nav-cta { font-size: 12px; padding: 7px 9px; }
 }
+
+/* QA 2026-10-19 */
+:root { color-scheme: light; }
+
+/* QA 2026-10-19: a skip link, so a keyboard or screen-reader visitor does not
+   walk the ticker, the brand and four nav links on every page (WCAG 2.4.1). */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  font-family: var(--display); font-weight: 700; font-size: 14px;
+  background: var(--lime); color: #11110e; border: 1px solid #11110e;
+  padding: 10px 18px; border-radius: 0 0 10px 0;
+}
+.skip-link:focus { left: 0; }
+
+/* QA 2026-10-19: the 2026-10-18 pass gave .nav-cta `order: 2` so the button
+   would ride on the brand's row below 820px, but the button was a child of
+   .nav-links, where `order` means nothing and margin-left:auto pushed it past
+   the gutter. It is a child of .nav now. These rules keep the old look. */
+.nav > .nav-cta { flex-shrink: 0; }
+@media (min-width: 821px) { .nav > .nav-cta { margin-left: 0; } }
+
+/* QA 2026-10-19: .callout is a flex row with a flex-shrink:0 label of
+   79-149px. On a 390px phone that left the quote a 136px column, ~20
+   characters a line, 25 lines for a single paragraph; at 320px, 96px and 41
+   lines, and one callout ran the page 7px wide. Stack below 700px. */
+@media (max-width: 700px) {
+  .callout { flex-direction: column; gap: 0.55rem; }
+  .callout-mark { padding-top: 0; }
+}
 </style>
 
 <style>
@@ -700,6 +728,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="grain" aria-hidden="true"></div>
 
 <div class="ticker" aria-hidden="true">
@@ -726,10 +755,10 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <a href="index.html#latest">Latest</a>
     <a href="index.html#tags">Topics</a>
     <a href="index.html#archive">Archive</a>
-    <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
   </nav>
+  <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
 </header>
-<article class="article" role="main">
+<article class="article" id="main" role="main">
 
   <a href="index.html" class="article-back">&larr; back to field notes</a>
 
