@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to bulk edit variant metafields on Shopify | Dugong</title>
+<meta name="description" content="Shopify's product CSV skips variant metafields and Flow cannot backfill them, so they get typed one variant at a time. The AI playbook that fills them in bulk." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="bulk edit variant metafields shopify, shopify variant metafield csv, shopify variant metafields bulk editor, update variant metafield shopify api, metafieldsSet variant, shopify flow update product variant metafield, shopify variant metafield import, AI metafield automation" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-bulk-edit-variant-metafields-on-shopify.md" title="Markdown version for answer engines" />
+<meta property="article:published_time" content="2026-10-21" />
+<meta property="article:modified_time" content="2026-10-21" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to bulk edit variant metafields on Shopify" />
+<meta property="og:description" content="Shopify's product CSV skips variant metafields and Flow cannot backfill them, so they get typed one variant at a time. The AI playbook that fills them in bulk." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Dugong Field Notes" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to bulk edit variant metafields on Shopify" />
+<meta name="twitter:description" content="Shopify's product CSV skips variant metafields and Flow cannot backfill them, so they get typed one variant at a time. The AI playbook that fills them in bulk." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+<meta name="twitter:image:alt" content="Dugong Field Notes" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html#article",
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://blog.dugong.live/#blog",
+        "name": "Dugong Field Notes",
+        "url": "https://blog.dugong.live/"
+      },
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html",
+      "url": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html",
+      "headline": "How to bulk edit variant metafields on Shopify",
+      "description": "Shopify's product CSV skips variant metafields and Flow cannot backfill them, so they get typed one variant at a time. The AI playbook that fills them in bulk.",
+      "datePublished": "2026-10-21",
+      "dateModified": "2026-10-21",
+      "articleSection": "Research",
+      "keywords": "bulk edit variant metafields shopify, shopify variant metafield csv, shopify variant metafields bulk editor, update variant metafield shopify api, metafieldsSet variant, shopify flow update product variant metafield, shopify variant metafield import, AI metafield automation",
+      "wordCount": 2872,
+      "timeRequired": "PT9M",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "name": "Comma-separated values",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Comma-separated_values",
+            "https://www.wikidata.org/wiki/Q935809"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "name": "Stock keeping unit",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Stock_keeping_unit",
+            "https://www.wikidata.org/wiki/Q399757"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "name": "Batch processing",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Batch_processing",
+            "https://www.wikidata.org/wiki/Q661613"
+          ]
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".faq"
+        ]
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://blog.dugong.live/#priya-singh",
+        "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Bulk edit metafields",
+          "url": "https://help.shopify.com/en/manual/custom-data/metafields/bulk-edit-metafields"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Using CSV files to import and export products",
+          "url": "https://help.shopify.com/en/manual/products/import-export/using-csv"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Update product variant metafield (Shopify Flow)",
+          "url": "https://help.shopify.com/en/manual/shopify-flow/reference/actions/update-product-variant-metafield"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Metafields in Shopify Flow",
+          "url": "https://help.shopify.com/en/manual/shopify-flow/getting-started/concepts/metafields"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify.dev | Metafield limits",
+          "url": "https://shopify.dev/docs/apps/build/metafields/metafield-limits"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify.dev | productVariantsBulkUpdate",
+          "url": "https://shopify.dev/docs/api/admin-graphql/latest/mutations/productVariantsBulkUpdate"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify.dev | Bulk import data with the GraphQL Admin API",
+          "url": "https://shopify.dev/docs/apps/build/apis/graphql-admin/bulk-operations/imports"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | How do you bulk edit variant metafields?",
+          "url": "https://community.shopify.com/t/how-do-you-bulk-edit-variant-metafields-native-bulk-editor-doesnt-expose-them/652699"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Cannot see variant metafields in bulk editing",
+          "url": "https://community.shopify.com/t/cannot-see-variant-metafields-in-bulk-editing/397411"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Feature request: native CSV import support for variant metafields",
+          "url": "https://community.shopify.com/t/feature-request-native-csv-import-support-for-variant-metafields/607347"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Developer Community | How to bulk edit product variant metafields in Shopify?",
+          "url": "https://community.shopify.dev/t/how-to-bulk-edit-product-variant-metafields-in-shopify/23443"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html#faq"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shopify catalog and storefront operations",
+          "item": "https://blog.dugong.live/shopify-catalog-and-storefront-operations.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The variant field no bulk editor will touch",
+          "item": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can you bulk edit variant metafields on Shopify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, but not from the product list and not through the product CSV. Shopify's bulk editing metafields page says metafields can be bulk edited for products, variants, collections and customers, then documents only the product route: Products, select with the checkboxes, Edit products, Columns, and pick from the Metafields section. That route shows product metafields because it lists products. For variants you need a view that lists variants, which merchants reach through Products, then Inventory, selecting everything and clicking Bulk edit, then adding the variant metafield columns from Columns. Two conditions have to hold. The definition has to exist at the variant level under Settings, Custom data, Variants, which is a separate definition from the product one. And the type has to be simple enough for the grid, which in practice means a single line text field rather than a list, a reference or JSON. When it works it is a grid you type into, so it is good for the same value across many cells and no help at all when the value has to be derived per variant. The product CSV is not an alternative: Shopify's own documentation states that variant metafields are not supported for product CSV import or export."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why don't variant metafields show up in the Shopify bulk editor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three reasons, in the order they usually turn out to be the cause. First, the definition is on the wrong owner. A product metafield and a variant metafield can carry the same name and namespace and are still separate definitions, and only one created under Settings, Custom data, Variants appears in a variant grid. Second, you are in a product view. The documented procedure starts from the Products list, which lists products, so the Columns control offers product metafields. Merchants who do get variant columns describe starting from the Inventory view instead, selecting everything and clicking Bulk edit. Third, the type: merchants report success with simple text fields and far less with lists, references and JSON. There is also precedent for the feature simply breaking. On 27 February 2025 merchants reported that variant metafields had disappeared from bulk editing, a developer said on 7 April that a custom app built around it had lost the capability, and that evening the original reporter said it was working again and suspected a regression that had been fixed, while another merchant the next day still saw product metafields only. If you have checked the owner, the view and the type, changing browser is a reasonable next step, because Shopify documents that Microsoft Edge can throw errors here due to a limited URL length."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the Shopify product CSV support variant metafields?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Product metafields are in the file: Shopify's CSV documentation says that once a product metafield is defined it is included in your product CSV exports, with a header in the form name (product.metafields.namespace.key), and that the bare product.metafields.namespace.key works as well. Variant metafields are excluded, and the documentation says so directly, that variant metafields are not supported for product CSV import or export, with a pointer to the variant bulk editor instead. This is the most commonly misunderstood fact in the area, partly because third party import apps do accept variant metafield columns, so a merchant who has used one reasonably assumes the format is native. On 12 April 2026 a merchant with roughly six thousand variants opened a formal feature request asking for variant metafields in the standard CSV import and export, explaining that they wanted per variant descriptions without paying for an app or building against the Admin API. It drew ten replies, mostly workarounds and tool recommendations, no response from Shopify staff, and its latest activity was 11 September 2026. Until that changes, a CSV route for variant metafields means a third party app implementing its own format, not Shopify's."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Shopify Flow update variant metafields in bulk?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Flow can keep them current and cannot backfill them. The action exists and is called Update product variant metafield. Shopify documents it as adding a metafield to the product variant that triggers the workflow, and notes that the product ID and product variant ID are set by default and cannot be changed. That is the constraint that matters, because it means the variant is whichever one the trigger handed over. The action is available only in workflows started by one of four triggers: inventory quantity changed, product variant added, variant back in stock, and variant out of stock. All four are inventory events. So Flow is excellent at the forward edge, where a new variant can get its country of origin the moment it is created and a variant that sells out can have a status field updated. It has no trigger that iterates the variants you already have, so a catalog of six thousand existing variants sits outside its reach regardless of how the conditions are arranged. The practical split is to let Flow handle everything from today onward, and to use something that can walk the whole catalog for the one time backfill."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you bulk update variant metafields with the Shopify API?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There are three routes and the right one depends on volume. metafieldsSet creates and updates in a single mutation and takes an ownerId, so a variant GID is all it needs; Shopify's metafield limits page caps it at 25 metafields per request with a maximum payload of 10MB. productVariantsBulkUpdate is documented as updating multiple product variants for a single product in one operation, so it batches by product, which makes a catalog of nine hundred products nine hundred calls. For large volumes Shopify's documented path is bulk operations: reserve an upload with stagedUploadsCreate, build a JSONL file where each line is one set of mutation variables, call bulkOperationRunMutation to run the mutation once per line, then either watch for the bulk_operations/finish webhook or poll bulkOperation(id:), which replaced currentBulkOperation in API version 2026-01, and download the JSONL results file when it completes. For deletions, metafieldsDelete accepts 250 per request, a figure that comes from the platform wide maximum input array size. The work that is not in the documentation is the surrounding part: resolving SKUs to variant GIDs, batching, retrying on throttle, and reading the results file to find out which rows failed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can AI bulk edit variant metafields on Shopify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and it fits automation better than most catalog work, because the values are nearly always derived from data the store already holds rather than invented. An automation like Dugong reads the metafield definition first, so it knows the owner, the type and the validations before it writes anything. Then it keys every row to a variant ID rather than a product title, and refuses to write a row whose SKU matches two variants or none, handing those back as a short exceptions list instead of guessing. It builds the value from what you already have, which is the step a grid can never do: a care instruction from the fabric, a country of origin from the supplier file, a JSON retail price block from the variant's own price. It writes in the batches the API accepts, twenty five metafields a request, and logs which variant received which value. Then it backfills the catalog once and holds the edge, filling new and changed variants as they appear. The honest limits: the automation writes the answer, it does not know it, so the mapping from fabric to care instruction is still yours to state; nothing reads a variant metafield unless your theme or app is built to, so check that before you fill six thousand of them; and for a quick correction to a dozen cells the grid is still faster than describing a rule."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html#howto",
+      "name": "The variant field no bulk editor will touch",
+      "description": "The AI playbook for bulk editing Shopify variant metafields: reading the definition before writing a single value, keying every row to a variant ID rather than a product title, refusing the write when a SKU matches two variants or none, building the value from the data you already hold, writing in the batches the API accepts and logging what landed, backfilling the catalog once and then holding the edge, and reporting what is still blank every morning.",
+      "inLanguage": "en",
+      "totalTime": "PT9M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Read the definition before writing a single value",
+          "text": "Read the definition before writing a single value",
+          "url": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Key every row to a variant ID, never to a product title",
+          "text": "Key every row to a variant ID, never to a product title",
+          "url": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Refuse the write when a SKU matches two variants or none",
+          "text": "Refuse the write when a SKU matches two variants or none",
+          "url": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Build the value from the data you already hold",
+          "text": "Build the value from the data you already hold",
+          "url": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Write in the batches the API accepts and log what landed",
+          "text": "Write in the batches the API accepts and log what landed",
+          "url": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Backfill the catalog once, then hold the edge",
+          "text": "Backfill the catalog once, then hold the edge",
+          "url": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Report what is still blank every morning",
+          "text": "Report what is still blank every morning",
+          "url": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html#playbook"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES - matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #71716a;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background - lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0 var(--gutter); min-height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; min-width: 0; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  white-space: nowrap; flex-shrink: 0;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+/* superseded by the QA 2026-10-18 wrapping nav below */
+@media (max-width: 480px) {
+  .brand-slash, .brand-section { display: none; }
+  .nav-cta { font-size: 12.5px; padding: 8px 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 11.5px; padding: 7px 10px; }
+}
+
+/* QA 2026-10-12: 24px minimum tap target for the standalone topic-guide link */
+@media (max-width: 560px) {
+  .hub-more { padding-top: 5px; padding-bottom: 5px; }
+}
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+/* GRID (for related cards) */
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 560px) { .foot-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; } }
+@media (max-width: 340px) { .foot-cols { grid-template-columns: 1fr; } }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+/* highlight wraps at every width: nowrap overflowed the text column on long phrases */
+.article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 57%, var(--lime) 57%, var(--lime) 81%, transparent 81%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.article-title em::after { content: none; }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: rgba(15,15,12,.45); } /* QA 2026-10-12 */
+.byline-role { color: var(--text-faint); }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
+.article-body pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) - mirrors the site's final card ---- */
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+
+/* ACCESSIBILITY */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
+
+/* QA 2026-10-10: mobile tap targets + ticker legibility */
+@media (max-width: 560px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+  .foot-cols > div { gap: 0.1rem; }
+  .foot-cols a { padding: 0.45rem 0; }
+  .article-back { min-height: 40px; padding: 0.55rem 0; }
+  .pill { padding: 0.6rem 1rem; }
+  .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
+}
+
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
+  .tag { font-size: 12px; letter-spacing: 0.05em; }
+  .post-meta { font-size: 12px; }
+  .post-read { font-size: 12px; }
+  .card-foot { font-size: 12px; }
+  .card-date, .card-author { font-size: 12px; }
+  .byline-avatar { font-size: 12px; }
+  .callout-mark { font-size: 12px; }
+  .cta-fine { font-size: 12px; }
+  .foot-h { font-size: 12px; }
+  .stat-label { font-size: 12px; }
+  .pb-status, .pb-tag, .pb-node-sub, .pb-branch-arm { font-size: 12px; }
+  .foot-bot, .foot-bot span, .foot-bot a { font-size: 12px; }
+  .art-coord { font-size: 12px; }
+  .signup-label { font-size: 12px; }
+  .signup-fine { font-size: 12px; }
+  .arch-date { font-size: 12px; }
+  .author-role { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 12px; padding: 7px 9px; }
+}
+
+/* QA 2026-10-19 */
+:root { color-scheme: light; }
+
+/* QA 2026-10-19: a skip link, so a keyboard or screen-reader visitor does not
+   walk the ticker, the brand and four nav links on every page (WCAG 2.4.1). */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  font-family: var(--display); font-weight: 700; font-size: 14px;
+  background: var(--lime); color: #11110e; border: 1px solid #11110e;
+  padding: 10px 18px; border-radius: 0 0 10px 0;
+}
+.skip-link:focus { left: 0; }
+
+/* QA 2026-10-19: the 2026-10-18 pass gave .nav-cta `order: 2` so the button
+   would ride on the brand's row below 820px, but the button was a child of
+   .nav-links, where `order` means nothing and margin-left:auto pushed it past
+   the gutter. It is a child of .nav now. These rules keep the old look. */
+.nav > .nav-cta { flex-shrink: 0; }
+@media (min-width: 821px) { .nav > .nav-cta { margin-left: 0; } }
+
+/* QA 2026-10-19: .callout is a flex row with a flex-shrink:0 label of
+   79-149px. On a 390px phone that left the quote a 136px column, ~20
+   characters a line, 25 lines for a single paragraph; at 320px, 96px and 41
+   lines, and one callout ran the page 7px wide. Stack below 700px. */
+@media (max-width: 700px) {
+  .callout { flex-direction: column; gap: 0.55rem; }
+  .callout-mark { padding-top: 0; }
+}
+</style>
+<style>
+/* SEO 2026-10-12 topic guide link */
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
+.hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
+</style>
+
+<style>
+/* SEO 2026-10-12 long inline code must break rather than widen the page */
+.article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
+</style>
+
+<style>
+/* 2026-10-13 long API identifiers in FAQ answers must break rather than widen the page */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  /* decorative separators strand at the end of a wrapped line on phones */
+  .article-meta span[aria-hidden="true"] { display: none; }
+  .article-meta { column-gap: 1rem; }
+}
+
+/* QA-2026-10-18-CSS
+   QA 2026-10-18: 24px minimum target size at every width, not only phones.
+   The 2026-10-10 pass put this inside @media (max-width:560px), so header and
+   footer links stayed at 23.2-23.5px on tablet and desktop. */
+.nav-links a:not(.nav-cta), .foot-cols a, .foot-bot a {
+  display: inline-flex; align-items: center; min-height: 24px;
+}
+
+/* QA 2026-10-18: the header nav used to vanish below 820px with nothing in its
+   place, so phone and tablet readers had no way back to Latest, Topics or the
+   Archive. Wrap it onto a second row instead of hiding it. */
+@media (max-width: 820px) {
+  .nav { flex-wrap: wrap; padding-top: 0.55rem; padding-bottom: 0.55rem; row-gap: 0.1rem; }
+  .brand { order: 1; }
+  .nav-cta { order: 2; margin-left: auto; }
+  .nav-links { order: 3; width: 100%; gap: 1.5rem; justify-content: flex-start;
+               font-size: 13.5px; padding-bottom: 0.1rem; }
+  .nav-links a:not(.nav-cta) { display: inline-flex; }
+}
+@media (max-width: 380px) { .nav-links { gap: 1.1rem; font-size: 13px; } }
+
+/* QA 2026-10-18: long API identifiers in deks and FAQ answers must break
+   rather than widen the page. Added 2026-10-13 to 5 pages only. */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+
+/* QA 2026-10-18: READ NEXT had grown to 79 cards on the oldest dispatches,
+   ~28,000px of card grid on a phone. The overflow now sits behind a
+   disclosure, so every link is still in the page and crawlable. */
+.related-more { max-width: var(--maxw); margin: 1.5rem auto 0; }
+.related-more > summary {
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-dim); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 0.5rem; min-height: 24px;
+  padding: 0.4rem 0.9rem; border: 1px solid var(--border-strong); border-radius: 999px;
+  list-style: none; transition: color .2s, border-color .2s, background .2s;
+}
+.related-more > summary::-webkit-details-marker { display: none; }
+.related-more > summary::after { content: "\002B"; font-size: 1rem; line-height: 1; }
+.related-more[open] > summary::after { content: "\2212"; }
+.related-more > summary:hover { color: var(--text); border-color: var(--text); background: var(--surface); }
+.related-more > .related-grid { margin-top: 1.5rem; }
+/* cards inside a closed disclosure never meet the IntersectionObserver that
+   clears .reveal, so they would open at opacity 0. */
+.related-more .reveal { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>&#9670; DISPATCH N&ordm; 133 &middot; OCT 21, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 9 MIN READ &middot; 2,687 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+    <span>&#9670; DISPATCH N&ordm; 133 &middot; OCT 21, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 9 MIN READ &middot; 2,687 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+  </nav>
+  <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+</header>
+
+<article class="article" id="main" role="main">
+
+  <a href="index.html" class="article-back">&larr; back to field notes</a>
+
+  <div class="article-meta">
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 133</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-10-21" style="color: var(--cream-dim);">OCT 21, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">9 MIN READ</span></span>
+</div>
+
+  <h1 class="article-title">
+    How to bulk edit variant metafields <em>on Shopify</em>
+  </h1>
+
+  <p class="article-dek">
+    The definition takes four minutes. Filling it in across six thousand variants is where the week goes, because the product CSV leaves these fields out and the grid that can edit them is not in the product list.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
+    <span class="byline-divider" aria-hidden="true">&middot;</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      The definition took four minutes. Settings, then Custom data, then
+      Variants, add a definition, single line text, call it material, save.
+      Then the merchant opened the first product, typed the fabric into three
+      variants, saved, and opened the second product.
+    </p>
+
+    <p>
+      There were several hundred more.
+    </p>
+
+    <p>
+      On 18 July 2026 that merchant asked Shopify's community the question in
+      its plainest form. They were setting up variant metafields for material
+      and care instructions across the catalog, <a
+      href="https://community.shopify.com/t/how-do-you-bulk-edit-variant-metafields-native-bulk-editor-doesnt-expose-them/652699">the
+      native bulk editor did not expose them</a>, editing product by product
+      was far too slow for hundreds of variants, and was there a tool they
+      were missing, or does everyone do this by hand?
+    </p>
+
+    <p>
+      The thread filled with app recommendations. Nobody from Shopify answered
+      it. Three weeks later another merchant asked whether the original poster
+      had got anywhere, and there is no reply to that either.
+    </p>
+
+    <h2>The short answer</h2>
+
+    <p>
+      Shopify will not bulk edit variant metafields the way it bulk edits product ones. The product CSV carries product metafields and the documentation states plainly that variant metafields are not supported for product CSV import or export.
+    </p>
+
+    <p>
+      The grid that can edit them exists but sits behind a view that lists variants rather than products, needs a definition created at the variant level, and in practice handles simple text fields only.
+    </p>
+
+    <p>
+      Shopify Flow has an Update product variant metafield action, but it is offered with four inventory triggers only and the variant ID comes from the trigger, so Flow can hold the forward edge and cannot touch the variants already in your catalog.
+    </p>
+
+    <p>
+      That leaves the Admin API, where metafieldsSet takes 25 metafields per request and productVariantsBulkUpdate works one product at a time, with bulk operations and a JSONL file for real volume.
+    </p>
+
+    <p>
+      The fix is a workflow that reads the definition first, keys every row to a variant ID, refuses any SKU that matches two variants or none, derives the value from data the store already holds, backfills once and then holds the edge.
+    </p>
+
+    <h2>Shopify answers this twice, in two different places, differently</h2>
+
+    <p>
+      Start with the CSV, because that is where everyone starts. Shopify's <a
+      href="https://help.shopify.com/en/manual/products/import-export/using-csv">product
+      CSV documentation</a> is clear that metafields belong in the file: once
+      a product metafield is defined it is included in your product CSV
+      exports, under a header in the form name
+      (product.metafields.namespace.key), and the bare
+      product.metafields.namespace.key works too if you prefer it without the
+      name.
+    </p>
+
+    <p>
+      Then comes the sentence that ends the conversation. Variant metafields
+      are not supported for product CSV import or export. The page's own
+      suggestion is to use the variant bulk editor and add metafield columns
+      there instead.
+    </p>
+
+    <p>
+      Now go to the other official surface. On 3 October 2025 a developer
+      asked the same thing in <a
+      href="https://community.shopify.dev/t/how-to-bulk-edit-product-variant-metafields-in-shopify/23443">Shopify's
+      developer community</a>: the default CSV import and export shows product
+      metafield columns and no variant ones, and the bulk edit interface does
+      the same. The answer, inside an hour, was that there is no view for bulk
+      updating variant metafields directly, and that the options are the Admin
+      API or a third party app.
+    </p>
+
+    <p>
+      One surface says use the grid. The other says the grid does not exist.
+      Both are partly right, which is the most expensive kind of documentation
+      there is.
+    </p>
+
+    <h2>The grid is real. Finding it is the trick.</h2>
+
+    <p>
+      Shopify's <a
+      href="https://help.shopify.com/en/manual/custom-data/metafields/bulk-edit-metafields">page
+      on bulk editing metafields</a> opens by saying you can bulk edit
+      metafields for products, variants, collections and customers, and then
+      documents exactly one of those four. The steps it gives are Products,
+      select with the checkboxes, Edit products, Columns, then pick what you
+      want from the Metafields section. Follow them and you get product
+      metafields, because you are in a view that lists products.
+    </p>
+
+    <p>
+      Variants need a view that lists variants. The route merchants report is
+      Products, then Inventory, tick the box at the top to select everything,
+      Bulk edit, then Columns, and the variant metafield columns are in that
+      list. Two things have to be true before they appear. The definition has
+      to exist at the variant level, which is a separate definition under
+      Settings, Custom data, Variants, not the product definition that looks
+      identical in every other respect. And the type has to be one the grid
+      can render, which in practice means a simple text field rather than a
+      list, a reference or JSON.
+    </p>
+
+    <p>
+      The feature also has a history, which is worth knowing before you
+      conclude you are doing it wrong. On 27 February 2025 a merchant reported
+      that variant metafields <a
+      href="https://community.shopify.com/t/cannot-see-variant-metafields-in-bulk-editing/397411">had
+      vanished from bulk editing</a>. On 7 April another said they had built a custom app around bulk editing them and lost the capability. That evening the first merchant said it was back and that they had used it,
+      suspecting a regression that had since been fixed. The next morning a
+      third merchant could still see product metafields only. In July 2026, on
+      that same thread, somebody asked whether the Inventory route works at
+      all, and said they were still editing hundreds of variants one by one.
+    </p>
+
+    <p>
+      The one limitation Shopify does document on the bulk editing page is a
+      browser note: Microsoft Edge can produce errors when you bulk edit
+      metafields because of a limited URL length, with Chrome, Firefox or
+      Safari suggested instead. Useful to know at row four hundred of a grid
+      that has just failed to save.
+    </p>
+
+    <h2>A grid is for typing. The work is deriving.</h2>
+
+    <p>
+      Suppose the grid behaves. It solves exactly one shape of problem, which
+      is the same literal value typed into many cells. Almost nothing that
+      creates this work has that shape.
+    </p>
+
+    <p>
+      Care instructions are keyed to fabric, so forty fabrics decide six
+      thousand values. Country of origin is keyed to the supplier, which lives
+      in a file somebody emails you. A size chart is keyed to the option
+      value, so every small variant in a product line wants one block and
+      every medium wants a different one. None of those are things you type.
+      They are things you look up, and then write.
+    </p>
+
+    <p>
+      The clearest version of this came up on 17 September 2025. A store
+      running a wholesale app saw only the wholesale price in B2B mode and
+      wanted the retail price shown struck through beside it. The app reads
+      that from a variant metafield, in a specific JSON shape, one per
+      variant. The number was already in Shopify, sitting on the variant as
+      its own price. The suggestions were to export, build the JSON with a
+      spreadsheet formula and re-import, which is the route Shopify's CSV page
+      says does not exist for variant metafields, or to buy a bulk editor with
+      formula rules.
+    </p>
+
+    <p>
+      That is the pattern every time. The data exists, the field exists, and
+      the only thing missing is something that will read one and write the
+      other six thousand times without a person in the middle.
+    </p>
+
+    <h2>Flow has the action and not the trigger</h2>
+
+    <p>
+      Shopify Flow has an action called <a
+      href="https://help.shopify.com/en/manual/shopify-flow/reference/actions/update-product-variant-metafield">Update
+      product variant metafield</a>, and it does what the name says: it adds a
+      metafield to the product variant that triggered the workflow, or updates
+      the one already there. The product ID and the product variant ID are set
+      by default and documented as fields you cannot change, which tells you
+      where the variant has to come from.
+    </p>
+
+    <p>
+      It comes from the trigger, and the action is offered with four of them:
+      inventory quantity changed, product variant added, variant back in
+      stock, and variant out of stock.
+    </p>
+
+    <p>
+      Read that list again. Every one is an inventory event. Flow will keep a
+      metafield current on variants that sell, restock or get created from the
+      day you switch it on, and that is genuinely useful, because it is the
+      forward edge of the problem handled for free. What it has no trigger for is the variants you already have. The rows already sitting in your
+      catalog are outside its reach however you arrange the conditions. Flow
+      holds the edge. It cannot do the backfill.
+    </p>
+
+    <h2>What the API will do, and what it costs you</h2>
+
+    <p>
+      The Admin API has three answers and they are three different shapes.
+    </p>
+
+    <p>
+      metafieldsSet creates and updates in one call and takes an ownerId,
+      which can be a variant, so it does not care about products at all.
+      Shopify's <a
+      href="https://shopify.dev/docs/apps/build/metafields/metafield-limits">metafield
+      limits</a> page caps it at 25 metafields per request with a maximum
+      payload of 10MB. Six thousand variants carrying three fields each is
+      eighteen thousand metafields, which is 720 requests.
+    </p>
+
+    <p>
+      <a
+      href="https://shopify.dev/docs/api/admin-graphql/latest/mutations/productVariantsBulkUpdate">productVariantsBulkUpdate</a>
+      is documented as updating multiple product variants for a single product
+      in one operation, and the phrase for a single product is the one that
+      sets your loop. Nine hundred products is nine hundred calls however you
+      arrange the batches inside them.
+    </p>
+
+    <p>
+      For anything larger, Shopify's own answer is <a
+      href="https://shopify.dev/docs/apps/build/apis/graphql-admin/bulk-operations/imports">bulk
+      operations</a>: reserve an upload with stagedUploadsCreate, write a
+      JSONL file where each line is one set of mutation variables, run
+      bulkOperationRunMutation so the mutation executes once per line, then
+      either subscribe to the bulk_operations/finish webhook or poll
+      bulkOperation(id:), which replaced currentBulkOperation in API version
+      2026-01, and finally download the JSONL results file to find out which
+      lines failed. One sibling limit is worth noting while you are on that
+      page: metafieldsDelete takes 250 per request, a number that comes from
+      the platform wide maximum input array size.
+    </p>
+
+    <p>
+      None of that is difficult. All of it is a project. Authentication,
+      paging the variant list, mapping SKUs to GIDs, batching to 25, backing
+      off when you get throttled, and a results file somebody actually has to
+      open. Which is why every thread on this ends at an app, and why on 12
+      April 2026 a merchant with roughly six thousand variants <a
+      href="https://community.shopify.com/t/feature-request-native-csv-import-support-for-variant-metafields/607347">formally
+      requested</a> that variant metafields be supported in the standard CSV
+      import and export, rather than pay for an app or build against the Admin
+      API. Ten replies, latest activity 11 September 2026, no Shopify staff in
+      the thread.
+    </p>
+
+    <h2>The failure that costs more than the typing</h2>
+
+    <p>
+      The best answer anyone gave on the July thread was not a tool. On 15
+      September 2026 a developer suggested keeping a source of truth sheet
+      keyed by SKU or variant ID and validating that the keys match before
+      applying anything, because the real risk is putting a valid metafield
+      value on the wrong variant.
+    </p>
+
+    <p>
+      That is the right fear, and it is worth being precise about why. An
+      empty metafield is visibly empty. You can count the blanks, filter for
+      them, and ship the feature when the count reaches zero. A wrong value is
+      not visible anywhere. The cotton care instruction on the polyester
+      version renders on the product page, feeds the filter somebody created
+      the definition for, goes out in the product feed, and reads as perfectly
+      ordinary data. Nothing flags it. You find out when a customer does, or
+      when the return arrives.
+    </p>
+
+    <p>
+      So key on the variant ID wherever you have it. Where you only have a
+      SKU, treat the match as a question rather than a lookup: a SKU that hits
+      two variants, or none, is not a row to write, it is a row to report.
+      Shopify will let two variants <a
+      href="how-to-fix-duplicate-skus-on-shopify.html">share a SKU</a> and
+      will let a variant have no SKU at all, which is the quiet reason a
+      careful import still lands on the wrong row.
+    </p>
+
+    <h2>What this costs in an afternoon</h2>
+
+    <p>
+      Take the catalog from that thread. Six thousand variants, three fields
+      each. In the grid, with the columns loaded and nothing breaking, four
+      seconds a cell is a fair rate for somebody who already knows what to
+      type. Eighteen thousand cells is twenty hours, and that is the typing
+      alone, after the fabric lookup has told you what goes in each one.
+    </p>
+
+    <p>
+      Product by product, which is where that merchant actually was, nine
+      hundred products at two minutes each is thirty hours. Then a new product
+      line lands in March and a share of it happens again.
+    </p>
+
+    <p>
+      The expensive version is neither of those. It is the one where the work
+      never happens, the fields stay blank, and the filter the definition was
+      created for never ships. That is the usual ending, and it does not
+      appear in any report you have.
+    </p>
+
+    <h2>What the automation actually has to do</h2>
+
+    <p>
+      As a Dugong playbook, in plain prose:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">Variant</span> created, variant
+updated, source sheet changed,
+plus a nightly sweep
+
+<span class="c"># steps</span>
+1. <span class="k">Read</span> the definition before
+   writing a single value
+2. <span class="k">Key</span> every row to a variant ID,
+   never to a product title
+3. <span class="k">Refuse</span> the write when a SKU
+   matches two variants or none
+4. <span class="k">Build</span> the value from the data
+   you already hold
+5. <span class="k">Write</span> in the batches the API
+   accepts and log what landed
+6. <span class="k">Backfill</span> the catalog once, then
+   hold the edge
+7. <span class="k">Report</span> what is still blank
+   every morning
+</code></pre>
+
+    <p>
+      Step one is not bureaucracy. A metafield definition carries a type and
+      its validations, and a value that does not match the type is rejected
+      rather than quietly coerced, so the first thing worth knowing is whether
+      the field you are filling is single line text, a list, a reference or
+      JSON, and whether the definition sits on the variant or on the product.
+      Half the cases reported as the bulk editor being broken are a product
+      level definition being looked for in a variant view.
+    </p>
+
+    <p>
+      Steps two and three are the same instinct twice, and they are what make
+      this safe enough to run unattended. A variant ID is unique. A SKU is a
+      promise nobody enforces. If your source sheet only carries SKUs, the
+      automation's job is not to do its best, it is to write the rows that
+      match exactly once and hand you a short list of everything else.
+    </p>
+
+    <p>
+      Step four is the part no grid will ever do. The value usually exists
+      somewhere in the store already, in the variant's own price, its option
+      values, the product type, or a supplier file that arrives every Monday.
+      Deriving it is a rule you describe once, not a value you type six
+      thousand times.
+    </p>
+
+    <p>
+      Step five is the dull engineering that decides whether this finishes at
+      all. Twenty five metafields per request, throttle responses that mean
+      wait rather than fail, and a written record of which variant received
+      which value, because the one thing worse than a blank catalog is an
+      unverifiable one.
+    </p>
+
+    <p>
+      Step six is the ordering that keeps it cheap. A backfill is one large
+      job you run once and check. The edge is a small job that runs forever,
+      on new variants and on changed ones. If the four triggers Flow offers
+      happen to cover your case, let Flow hold the edge for free and point the
+      automation at the backfill.
+    </p>
+
+    <p>
+      The honest limits. A variant metafield is only worth filling if
+      something reads it, so confirm your theme or your app actually does
+      before you fill six thousand of them. The grid is still better than any
+      automation for a quick correction to a dozen cells. And nothing here
+      removes the hard part, which is deciding what the correct value for each
+      variant is. Automation writes the answer. It does not know it.
+    </p>
+
+    <h2>Why this is a workflow, not a feature request</h2>
+
+    <p>
+      Three facts have to meet, and Shopify keeps them in three places with
+      nothing joining them. The definition knows the type and the validations.
+      The variant knows its own identity, its price and its option values. The
+      correct value lives in a sheet, in a supplier file, or in the store's
+      own data one field over.
+    </p>
+
+    <p>
+      No single feature joins those. A CSV column that accepted variant
+      metafields, which is the thing everybody is asking for and which Shopify
+      should ship, would still leave somebody deriving eighteen thousand
+      values in a spreadsheet and keying them by SKU. A better grid still
+      needs a person typing into it. A new Flow trigger still needs the
+      lookup. What closes this holds all three at once, which is a workflow,
+      and it has the shape every quiet gap in a store has: the data exists,
+      the field exists, and nothing stands between them.
+    </p>
+
+    <h2>Do this before you close the laptop</h2>
+
+    <p>
+      Three checks, ten minutes, no code.
+    </p>
+
+    <p>
+      Open Settings, then Custom data, and look at whether the definition you
+      have been fighting is listed under Variants or under Products. That
+      single check explains a surprising share of the threads.
+    </p>
+
+    <p>
+      Export your products to CSV and read the header row. Every metafield
+      column you find there is a product metafield. The fields you cannot find
+      in that file are the ones this dispatch is about, and now you know why.
+    </p>
+
+    <p>
+      Then multiply variants by fields. If the number is over a few hundred,
+      no afternoon exists that fixes it, and the question stops being whether
+      to automate and becomes what to key on.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">&#9670; READING</span>
+      <span>
+        Two companion pieces if this one landed: <a
+        href="how-to-bulk-edit-product-prices-on-shopify.html">the price change
+        you make one product at a time</a>, on the same gap in the pricing
+        field, and <a
+        href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html">the
+        image alt text no one writes</a>, on the catalog field nobody ever
+        fills.
+      </span>
+    </div>
+
+    <p>
+      If you sell on Shopify and have a version of this story, the fabric
+      sheet, the six thousand size charts, the metafield an app needs in a
+      shape nothing produces, the inbox is open:
+      <code>field-notes@dugong.live</code>. We are collecting case studies for
+      the next issue.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share &middot; copy link &middot; &#10022;</span>
+  </div>
+
+</article>
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">&#9670; COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item" id="faq-1">
+      <h2 class="faq-q">Can you bulk edit variant metafields on Shopify?</h2>
+      <p class="faq-a">Yes, but not from the product list and not through the product CSV. Shopify's bulk editing metafields page says metafields can be bulk edited for products, variants, collections and customers, then documents only the product route: Products, select with the checkboxes, Edit products, Columns, and pick from the Metafields section. That route shows product metafields because it lists products. For variants you need a view that lists variants, which merchants reach through Products, then Inventory, selecting everything and clicking Bulk edit, then adding the variant metafield columns from Columns. Two conditions have to hold. The definition has to exist at the variant level under Settings, Custom data, Variants, which is a separate definition from the product one. And the type has to be simple enough for the grid, which in practice means a single line text field rather than a list, a reference or JSON. When it works it is a grid you type into, so it is good for the same value across many cells and no help at all when the value has to be derived per variant. The product CSV is not an alternative: Shopify's own documentation states that variant metafields are not supported for product CSV import or export.</p>
+    </div>
+    <div class="faq-item" id="faq-2">
+      <h2 class="faq-q">Why don't variant metafields show up in the Shopify bulk editor?</h2>
+      <p class="faq-a">Three reasons, in the order they usually turn out to be the cause. First, the definition is on the wrong owner. A product metafield and a variant metafield can carry the same name and namespace and are still separate definitions, and only one created under Settings, Custom data, Variants appears in a variant grid. Second, you are in a product view. The documented procedure starts from the Products list, which lists products, so the Columns control offers product metafields. Merchants who do get variant columns describe starting from the Inventory view instead, selecting everything and clicking Bulk edit. Third, the type: merchants report success with simple text fields and far less with lists, references and JSON. There is also precedent for the feature simply breaking. On 27 February 2025 merchants reported that variant metafields had disappeared from bulk editing, a developer said on 7 April that a custom app built around it had lost the capability, and that evening the original reporter said it was working again and suspected a regression that had been fixed, while another merchant the next day still saw product metafields only. If you have checked the owner, the view and the type, changing browser is a reasonable next step, because Shopify documents that Microsoft Edge can throw errors here due to a limited URL length.</p>
+    </div>
+    <div class="faq-item" id="faq-3">
+      <h2 class="faq-q">Does the Shopify product CSV support variant metafields?</h2>
+      <p class="faq-a">No. Product metafields are in the file: Shopify's CSV documentation says that once a product metafield is defined it is included in your product CSV exports, with a header in the form name (product.metafields.namespace.key), and that the bare product.metafields.namespace.key works as well. Variant metafields are excluded, and the documentation says so directly, that variant metafields are not supported for product CSV import or export, with a pointer to the variant bulk editor instead. This is the most commonly misunderstood fact in the area, partly because third party import apps do accept variant metafield columns, so a merchant who has used one reasonably assumes the format is native. On 12 April 2026 a merchant with roughly six thousand variants opened a formal feature request asking for variant metafields in the standard CSV import and export, explaining that they wanted per variant descriptions without paying for an app or building against the Admin API. It drew ten replies, mostly workarounds and tool recommendations, no response from Shopify staff, and its latest activity was 11 September 2026. Until that changes, a CSV route for variant metafields means a third party app implementing its own format, not Shopify's.</p>
+    </div>
+    <div class="faq-item" id="faq-4">
+      <h2 class="faq-q">Can Shopify Flow update variant metafields in bulk?</h2>
+      <p class="faq-a">Flow can keep them current and cannot backfill them. The action exists and is called Update product variant metafield. Shopify documents it as adding a metafield to the product variant that triggers the workflow, and notes that the product ID and product variant ID are set by default and cannot be changed. That is the constraint that matters, because it means the variant is whichever one the trigger handed over. The action is available only in workflows started by one of four triggers: inventory quantity changed, product variant added, variant back in stock, and variant out of stock. All four are inventory events. So Flow is excellent at the forward edge, where a new variant can get its country of origin the moment it is created and a variant that sells out can have a status field updated. It has no trigger that iterates the variants you already have, so a catalog of six thousand existing variants sits outside its reach regardless of how the conditions are arranged. The practical split is to let Flow handle everything from today onward, and to use something that can walk the whole catalog for the one time backfill.</p>
+    </div>
+    <div class="faq-item" id="faq-5">
+      <h2 class="faq-q">How do you bulk update variant metafields with the Shopify API?</h2>
+      <p class="faq-a">There are three routes and the right one depends on volume. metafieldsSet creates and updates in a single mutation and takes an ownerId, so a variant GID is all it needs; Shopify's metafield limits page caps it at 25 metafields per request with a maximum payload of 10MB. productVariantsBulkUpdate is documented as updating multiple product variants for a single product in one operation, so it batches by product, which makes a catalog of nine hundred products nine hundred calls. For large volumes Shopify's documented path is bulk operations: reserve an upload with stagedUploadsCreate, build a JSONL file where each line is one set of mutation variables, call bulkOperationRunMutation to run the mutation once per line, then either watch for the bulk_operations/finish webhook or poll bulkOperation(id:), which replaced currentBulkOperation in API version 2026-01, and download the JSONL results file when it completes. For deletions, metafieldsDelete accepts 250 per request, a figure that comes from the platform wide maximum input array size. The work that is not in the documentation is the surrounding part: resolving SKUs to variant GIDs, batching, retrying on throttle, and reading the results file to find out which rows failed.</p>
+    </div>
+    <div class="faq-item" id="faq-6">
+      <h2 class="faq-q">Can AI bulk edit variant metafields on Shopify?</h2>
+      <p class="faq-a">Yes, and it fits automation better than most catalog work, because the values are nearly always derived from data the store already holds rather than invented. An automation like Dugong reads the metafield definition first, so it knows the owner, the type and the validations before it writes anything. Then it keys every row to a variant ID rather than a product title, and refuses to write a row whose SKU matches two variants or none, handing those back as a short exceptions list instead of guessing. It builds the value from what you already have, which is the step a grid can never do: a care instruction from the fabric, a country of origin from the supplier file, a JSON retail price block from the variant's own price. It writes in the batches the API accepts, twenty five metafields a request, and logs which variant received which value. Then it backfills the catalog once and holds the edge, filling new and changed variants as they appear. The honest limits: the automation writes the answer, it does not know it, so the mapping from fabric to care instruction is still yours to state; nothing reads a variant metafield unless your theme or app is built to, so check that before you fill six thousand of them; and for a quick correction to a dozen cells the grid is still faster than describing a rule.</p>
+    </div>
+  </div>
+  <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
+</section>
+
+<section class="related">
+  <div class="section-head">
+    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+<a href="how-to-bulk-edit-meta-descriptions-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The meta description you write one at a time</h3>
+        <p class="card-dek">
+          Shopify bulk edits meta descriptions only by making them identical, so unique ones get written one at a time or left blank. The AI playbook that fixes it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN&nbsp;17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The image alt text no one writes</h3>
+        <p class="card-dek">
+          Shopify never writes image alt text and has no bulk way to add it, so it sits blank across your catalog. The AI playbook that reads each photo and writes it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN&nbsp;20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-duplicate-skus-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The SKU two products share</h3>
+        <p class="card-dek">
+          Shopify says SKUs must be unique, then lets two products share one and splits the stock. The AI playbook that finds every collision and fixes it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP&nbsp;17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html#latest">Latest</a>
+        <a href="index.html#essays">Essays</a>
+        <a href="index.html#post-mortems">Post-mortems</a>
+        <a href="index.html#interviews">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>&copy; 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>

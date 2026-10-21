@@ -168,6 +168,13 @@ def jsonld(text, name):
     return out
 
 
+def date_days(value):
+    """Days since 2026-01-01 for a YYYY-MM-DD string, for comparing recency
+    without pulling in a clock. Only differences are ever used."""
+    year, month, day = (int(part) for part in value.split("-")[:3])
+    return (year - 2026) * 372 + month * 31 + day
+
+
 def nodes(docs):
     for doc in docs:
         for node in doc.get("@graph", [doc]) if isinstance(doc, dict) else doc:
@@ -187,6 +194,11 @@ def main():
         return 2
 
     rendered, stubs = classify()
+    stub_target = {}
+    for name in stubs:
+        hit = re.search(r'url=https://blog\.dugong\.live/([^"\']+)', read(name))
+        if hit:
+            stub_target[name] = hit.group(1)
     docs = {n: jsonld(read(n), n) for n in rendered}
     titles, descs = defaultdict(list), defaultdict(list)
     date_modified = {}
@@ -578,6 +590,138 @@ def main():
             agent = group.splitlines()[0].strip()
             if f"Disallow: {prefix}" not in group:
                 fail("robots_report_exposed", f"{agent} may crawl {prefix}*")
+
+
+    # ----------------------------------------------- internal link graph
+    # Added 2026-10-21. Two distinct failures found that day, both of which
+    # left recent dispatches almost invisible inside the site's own link
+    # graph while every format check passed:
+    #   * six dispatches published 2026-10-15 to 2026-10-21 appeared in 2 or
+    #     3 READ NEXT grids against 73 to 82 for every other dispatch,
+    #     because the archive grid is written at publication and no later run
+    #     goes back to extend it.
+    #   * nine dispatches had no editorial link from inside any other
+    #     article's prose at all, only card links.
+    published = {}
+    for name in rendered:
+        for node in nodes(docs[name]):
+            if node.get("@type") in ("BlogPosting", "Article") and node.get("datePublished"):
+                published[name] = node["datePublished"][:10]
+                break
+    newest_pub = max(published.values()) if published else ""
+
+    # Every archive-shaped READ NEXT grid must carry every dispatch newer
+    # than its own newest card. A grid counts as archive-shaped when it holds
+    # ten or more cards whose first ten dates run newest first; the short
+    # topical grids on recent dispatches are curated and exempt by shape.
+    collection_pages = {
+        name for name in rendered
+        if any(node.get("@type") in ("CollectionPage", "ProfilePage")
+               for node in nodes(docs[name]))
+    } | {"index.html", "404.html"}
+    for name in rendered:
+        # Topic guides, the author pages and the front page carry curated
+        # topical lists rather than the chronological archive, so they are
+        # exempt by kind rather than by shape.
+        if name in collection_pages:
+            continue
+        text = read(name)
+        start = text.find('<section class="related">')
+        if start < 0:
+            continue
+        section = text[start:text.find("</section>", start)]
+        hrefs = re.findall(r'<a href="([a-z0-9\-]+\.html)" class="card"', section)
+        dates = [published.get(h) for h in hrefs]
+        if len(hrefs) < 10 or any(d is None for d in dates):
+            continue
+        if dates[:10] != sorted(dates[:10], reverse=True):
+            continue
+        stale = sorted(
+            (d, h) for h, d in published.items()
+            if h != name and h not in hrefs and d > dates[0]
+        )
+        if stale:
+            fail(
+                "readnext_archive_stale",
+                f"{name}: archive newest card is {dates[0]}, missing "
+                f"{len(stale)} newer dispatch(es), e.g. {stale[-1][1]}",
+            )
+
+    # Every dispatch needs at least one editorial link, meaning an anchor
+    # inside another page's <article>. Card grids are navigation; a link in
+    # running prose is the one that carries topical meaning. A dispatch
+    # published within three days of the newest one is exempt, because the
+    # pages that will point at it are usually written after it.
+    editorial_in = defaultdict(int)
+    for src in rendered:
+        text = read(src)
+        article = re.search(r"<article.*?</article>", text, re.S)
+        if not article:
+            continue
+        for href in set(re.findall(r'href="([a-z0-9\-]+\.html)[^"]*"', article.group(0))):
+            target = href
+            seen = 0
+            while target in stub_target and seen < 5:
+                target = stub_target[target]
+                seen += 1
+            if target != src and target in published:
+                editorial_in[target] += 1
+    for name, when in sorted(published.items()):
+        if editorial_in[name] or name in EXCEPTIONS.get("editorial_inbound_exempt", set()):
+            continue
+        if newest_pub and (date_days(newest_pub) - date_days(when)) <= 3:
+            notes.append(f"{name} has no editorial inbound link yet, published {when}")
+            continue
+        fail("dispatch_no_editorial_inbound", f"{name} (published {when})")
+
+    # ------------------------------------- rendition parity: READING callout
+    # The md/ rendition is the alternate answer engines are pointed at, so a
+    # companion-reading block that exists on the page and not in the md means
+    # the two disagree about what the article links to.
+    for name in posts:
+        text = read(name)
+        callout = re.search(
+            r'<span class="callout-mark">&#9670; READING</span>\s*<span>(.*?)</span>',
+            text, re.S,
+        )
+        md_path = os.path.join("md", name[:-5] + ".md")
+        if not callout or not os.path.exists(md_path):
+            continue
+        on_page = set(re.findall(r'href="([a-z0-9\-]+\.html)"', callout.group(1)))
+        md_text = read(md_path)
+        md_line = re.search(r"^> \*\*\u25c6 READING\*\* (.*)$", md_text, re.M)
+        if not md_line:
+            fail("reading_callout_missing_in_md", name)
+            continue
+        in_md = set(re.findall(r"\]\(https://blog\.dugong\.live/([a-z0-9\-]+\.html)\)", md_line.group(1)))
+        if on_page != in_md:
+            fail(
+                "reading_callout_divergence",
+                f"{name}: page links {sorted(on_page)}, md links {sorted(in_md)}",
+            )
+
+    # ------------------------------------ rendition parity: the short answer
+    # llms-full.txt carries a "## The short answer" block for the recent
+    # dispatches. On 2026-10-21 eleven of the twelve existed only there: not
+    # on the page and not in the md, so the one paragraph written to be
+    # quoted back as the answer was invisible to every crawler that reads
+    # HTML. Whatever llms-full.txt claims the short answer is, the page and
+    # the md have to say it too.
+    if os.path.exists("llms-full.txt"):
+        for part in re.split(r"\n---\n", read("llms-full.txt")):
+            url = re.search(r"^URL: (\S+)", part, re.M)
+            short = re.search(r"^## The short answer\s*\n\s*\n(.+?)(?=\n\n)", part, re.M | re.S)
+            if not url or not short:
+                continue
+            name = url.group(1).rsplit("/", 1)[-1]
+            if name not in set(rendered):
+                continue
+            needle = folded(re.sub(r"\s+", " ", short.group(1)).strip())[:120]
+            if needle and needle not in visible_text(read(name)):
+                fail("short_answer_not_on_page", name)
+            md_path = os.path.join("md", name[:-5] + ".md")
+            if os.path.exists(md_path) and needle and needle not in folded(read(md_path)):
+                fail("short_answer_not_in_md", name)
 
     # --------------------------------------------------------------- report
     print(f"seo-check: {len(rendered)} rendered pages, {len(stubs)} redirect stubs, "

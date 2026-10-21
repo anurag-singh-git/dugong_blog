@@ -6,7 +6,7 @@
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-10-11
 - Section: Research
-- Word count: 2075
+- Word count: 2250
 - Dispatch: Nº 124 · Research · 8 min read
 - Full headline on page: How to handle Shopify returns when the customer *never sends the item back*
 - Keywords: shopify return never sent back, close shopify return in progress, cancel inactive returns shopify flow, return_status open shopify, shopify return label never used, refund before return received, shopify open returns, return abuse shopify
@@ -20,6 +20,12 @@ Each one is the same small story. A customer asked, you approved it because argu
 
 From inside the Shopify admin all four look exactly the same: a return, still open, no movement.
 
+
+## The short answer
+
+Shopify can close a quiet return but it cannot notice one. All seven Flow return triggers fire on a status change somebody makes, so a return that simply stops moving fires nothing, and the cancel return action shipped on 16 August 2024 only works on returns that were never refunded, restocked, marked as returned or labeled, which excludes most of the ones you want to close. Build the watching yourself.
+
+Age every open return from its first carrier scan rather than the approval date, separate never shipped from stalled in transit from arrived but unprocessed on your own bench, reconcile inbound parcels against open returns daily, chase on a dated ladder at seven, fourteen and twenty-one days, hold the refund until the first scan, flag exchanges shipped against returns that never landed, then close the remainder as shrinkage and count the pattern per customer and per address. The judgment, telling three identical-looking silences apart and matching an orphan box to the right return, is why this belongs with an agent rather than a condition builder.
 ## Nothing happening is not an event
 
 This is the mechanical reason the pile grows. Flow has seven return triggers: return requested, return approved, return declined, return processed, return closed, return cancelled and return reopened. Every one of them fires when somebody changes a status. A return that goes quiet changes nothing, so nothing fires, so nothing tells you.

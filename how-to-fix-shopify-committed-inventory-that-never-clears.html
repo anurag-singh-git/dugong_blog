@@ -60,7 +60,7 @@
       "dateModified": "2026-10-12",
       "articleSection": "Research",
       "keywords": "shopify committed inventory, committed inventory not clearing, shopify shows sold out but in stock, clear committed inventory shopify, which orders hold committed inventory, shopify committed inventory negative, shopify available vs on hand, draft order reserve inventory",
-      "wordCount": 2166,
+      "wordCount": 2351,
       "timeRequired": "PT8M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -649,8 +649,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
 
-/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
-@media (max-width: 560px) {
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
   .tag { font-size: 12px; letter-spacing: 0.05em; }
   .post-meta { font-size: 12px; }
   .post-read { font-size: 12px; }
@@ -714,6 +723,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <style>
 /* SEO 2026-10-12 long inline code must break rather than widen the page */
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
   .article-meta span[aria-hidden="true"] { display: none; }
@@ -846,6 +858,16 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       it. You have found the one number in Shopify inventory that
       you are not allowed to change, holding stock you can
       physically pick up.
+    </p>
+
+    <h2>The short answer</h2>
+
+    <p>
+      Shopify will not let you touch committed inventory and will not tell you which orders hold it. On hand is the sum of available, committed, reserved, damaged, safety stock and quality control, your storefront sells available, and committed is the one state the Admin API cannot adjust or move, so there is no field, button, app or Flow action that releases it. The only levers are the orders behind it: fulfill the line, cancel with restock, reassign the location, release the hold, end the draft reserve, or receive the transfer. Build the attribution yourself.
+    </p>
+
+    <p>
+      Rebuild the per-order breakdown nightly from open unfulfilled line items, draft reserves and ready transfers, reconcile the total against committed, age every commitment, classify why each stuck one is stuck, apply the one release that fits, alert on any variant with on hand above zero and available at or below zero, and escalate the units no order explains with the numbers attached. The judgment, deciding which release a stuck order deserves without inventing a shipment or losing a sale, is why this belongs with an agent rather than a condition builder.
     </p>
 
     <h2>What committed actually is</h2>
@@ -1218,7 +1240,9 @@ above zero
         <a href="how-to-stop-your-shopify-inventory-changing-by-itself.html">The stock count that changes overnight</a>,
         on adjustments nobody can trace, and
         <a href="how-to-prevent-overselling-on-shopify-across-channels.html">The overselling problem no one automates</a>,
-        on the gap that opens when two channels sell the same unit.
+        on the gap that opens when two channels sell the same unit. Also worth reading:
+        <a href="how-to-stop-reordering-shopify-stock-you-already-have-on-order.html">The reorder you already placed</a>,
+        on the other inventory number Shopify shows you without explaining what it counts.
       </span>
     </div>
 

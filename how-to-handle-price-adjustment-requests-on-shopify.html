@@ -60,7 +60,7 @@
       "dateModified": "2026-10-10",
       "articleSection": "Research",
       "keywords": "shopify price adjustment, price drop refund shopify, refund the price difference, shopify partial refund, shopify price protection, shopify flow price change trigger, price adjustment policy, store credit refund",
-      "wordCount": 1820,
+      "wordCount": 1963,
       "timeRequired": "PT7M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -621,8 +621,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
 
-/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
-@media (max-width: 560px) {
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
   .tag { font-size: 12px; letter-spacing: 0.05em; }
   .post-meta { font-size: 12px; }
   .post-read { font-size: 12px; }
@@ -686,6 +695,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <style>
 /* SEO 2026-10-12 long inline code must break rather than widen the page */
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
   .article-meta span[aria-hidden="true"] { display: none; }
@@ -826,6 +838,16 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       discount codes and dynamic offers make it harder, asked two
       clarifying questions, and that was that. The thread is
       still open. That is the state of the art.
+    </p>
+
+    <h2>The short answer</h2>
+
+    <p>
+      Shopify gives you the partial refund and nothing else: no price adjustment setting, no price protection window, no policy field, no price history, no Flow trigger for a price change and no Flow action that issues a refund. So the work is yours to build.
+    </p>
+
+    <p>
+      Snapshot variant prices daily and before every bulk edit, classify each drop as a promotion, a mispricing or a permanent reprice before anything refunds, compute the per-unit difference after allocated discounts on both sides, apply a published policy of window, minimum, cap and exclusions, settle in store credit by default and cash above a threshold, and reach eligible customers before they have to ask. The judgment, telling a sale apart from a typo and reading a request that arrives as a sentence rather than a form, is why this belongs with an agent rather than a condition builder.
     </p>
 
     <h2>Shopify has no price adjustment anything</h2>
@@ -1280,7 +1302,10 @@ inbound price adjustment request
         </div>
       </div>
     </a>
-<a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="card">
+  </div>
+  <details class="related-more">
+    <summary>2 more dispatches in the archive</summary>
+    <div class="related-grid"><a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1311,8 +1336,9 @@ inbound price adjustment request
           <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </a>
-  </div>
+    </a></div>
+  </details>
+
   <a href="shopify-returns-and-refunds-automation.html" class="hub-more">more on shopify returns and refunds automation &rarr;</a>
 </section>
 <footer class="foot">

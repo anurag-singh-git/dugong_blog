@@ -52,13 +52,22 @@
      margin:0 0 .9rem;padding-bottom:.6rem;border-bottom:1px solid var(--border)}
   ul{list-style:none;margin:0 0 2.5rem;padding:0}
   li{padding:.5rem 0;border-bottom:1px solid var(--border)}
-  li a{color:var(--text);text-decoration:none;font-weight:500}
+  li a{color:var(--text);text-decoration:none;font-weight:500;display:inline-block;line-height:24px} /* QA 2026-10-21: 24px tap target */
   li a:hover{color:var(--lime-deep);text-decoration:underline}
   .foot{font-size:.9rem;color:var(--text-faint)}
   .foot a{color:var(--lime-deep)}
 
-/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
-@media (max-width: 560px) {
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
   .tag { font-size: 12px; letter-spacing: 0.05em; }
   .post-meta { font-size: 12px; }
   .post-read { font-size: 12px; }
@@ -143,18 +152,16 @@
 
   <h2>Latest dispatches</h2>
   <ul>
-    <li><a href="/how-to-catch-shopify-orders-where-half-the-order-never-ships.html">How to catch Shopify orders where half the order never ships</a></li>
-    <li><a href="/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html">How to catch Shopify shipping label adjustments before they eat your margin</a></li>
+    <li><a href="/how-to-bulk-edit-variant-metafields-on-shopify.html">How to bulk edit variant metafields on Shopify | Dugong</a></li>
+    <li><a href="/how-to-stop-shipping-shopify-orders-with-payment-pending.html">Stop shipping Shopify orders that say Payment pending</a></li>
+    <li><a href="/how-to-catch-shopify-shipping-labels-you-never-used.html">How to find unused Shopify shipping labels before day 30</a></li>
+    <li><a href="/how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html">How to stop Shopify B2B prices dropping during a sale</a></li>
+    <li><a href="/how-to-handle-return-to-sender-orders-on-shopify.html">How to handle return to sender orders on Shopify | Dugong</a></li>
+    <li><a href="/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html">Stop reordering Shopify stock already on order | Dugong</a></li>
+    <li><a href="/how-to-catch-shopify-orders-where-half-the-order-never-ships.html">How to catch half-shipped Shopify orders | Dugong</a></li>
+    <li><a href="/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html">How to catch Shopify shipping label adjustments early</a></li>
     <li><a href="/how-to-fix-shopify-committed-inventory-that-never-clears.html">How to fix Shopify committed inventory that never clears</a></li>
-    <li><a href="/how-to-handle-shopify-returns-the-customer-never-sends-back.html">How to handle Shopify returns when the customer never sends the item back</a></li>
-    <li><a href="/how-to-handle-price-adjustment-requests-on-shopify.html">How to handle price adjustment requests on Shopify when your sale drops the day after they buy</a></li>
-    <li><a href="/how-to-make-shopify-wholesale-customers-tax-exempt.html">How to make Shopify wholesale customers tax exempt without checking certificates by hand</a></li>
-    <li><a href="/how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html">How to stop taking Shopify orders when you hit your daily capacity</a></li>
-    <li><a href="/how-to-catch-shopify-flow-workflows-that-fail-silently.html">How to catch Shopify Flow workflows that fail silently</a></li>
-    <li><a href="/how-to-restrict-shopify-products-from-shipping-to-certain-states.html">How to restrict Shopify products from shipping to certain states</a></li>
-    <li><a href="/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html">How to fix Shopify shipping rates that ignore product dimensions</a></li>
-    <li><a href="/how-to-fix-duplicate-skus-on-shopify.html">How to find and fix duplicate SKUs on Shopify before they break your inventory</a></li>
-    <li><a href="/how-to-track-product-expiry-dates-on-shopify.html">How to track product expiry dates on Shopify before the stock goes bad</a></li>
+    <li><a href="/how-to-handle-shopify-returns-the-customer-never-sends-back.html">How to close Shopify returns the customer never sends back</a></li>
   </ul>
 
   <p class="foot">Looking for machine-readable copies? There is a

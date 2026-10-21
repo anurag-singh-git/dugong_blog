@@ -60,7 +60,7 @@
       "dateModified": "2026-10-11",
       "articleSection": "Research",
       "keywords": "shopify return never sent back, close shopify return in progress, cancel inactive returns shopify flow, return_status open shopify, shopify return label never used, refund before return received, shopify open returns, return abuse shopify",
-      "wordCount": 2075,
+      "wordCount": 2250,
       "timeRequired": "PT8M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -631,8 +631,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
 
-/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
-@media (max-width: 560px) {
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
   .tag { font-size: 12px; letter-spacing: 0.05em; }
   .post-meta { font-size: 12px; }
   .post-read { font-size: 12px; }
@@ -696,6 +705,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <style>
 /* SEO 2026-10-12 long inline code must break rather than widen the page */
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
   .article-meta span[aria-hidden="true"] { display: none; }
@@ -828,6 +840,16 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <p>
       From inside the Shopify admin all four look exactly the
       same: a return, still open, no movement.
+    </p>
+
+    <h2>The short answer</h2>
+
+    <p>
+      Shopify can close a quiet return but it cannot notice one. All seven Flow return triggers fire on a status change somebody makes, so a return that simply stops moving fires nothing, and the cancel return action shipped on 16 August 2024 only works on returns that were never refunded, restocked, marked as returned or labeled, which excludes most of the ones you want to close. Build the watching yourself.
+    </p>
+
+    <p>
+      Age every open return from its first carrier scan rather than the approval date, separate never shipped from stalled in transit from arrived but unprocessed on your own bench, reconcile inbound parcels against open returns daily, chase on a dated ladder at seven, fourteen and twenty-one days, hold the refund until the first scan, flag exchanges shipped against returns that never landed, then close the remainder as shrinkage and count the pattern per customer and per address. The judgment, telling three identical-looking silences apart and matching an orphan box to the right return, is why this belongs with an agent rather than a condition builder.
     </p>
 
     <h2>Nothing happening is not an event</h2>

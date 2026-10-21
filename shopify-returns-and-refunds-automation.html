@@ -668,8 +668,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
 
-/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
-@media (max-width: 560px) {
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
   .tag { font-size: 12px; letter-spacing: 0.05em; }
   .post-meta { font-size: 12px; }
   .post-read { font-size: 12px; }
@@ -736,6 +745,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 <style>
 /* SEO 2026-10-12 long inline code must break rather than widen the page */
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
   .article-meta span[aria-hidden="true"] { display: none; }

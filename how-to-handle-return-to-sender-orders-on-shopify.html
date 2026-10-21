@@ -59,7 +59,7 @@
       "dateModified": "2026-10-16",
       "articleSection": "Research",
       "keywords": "shopify return to sender, shopify RTS, shopify RTO, return to origin shopify, undeliverable package shopify, shopify refused delivery, shopify flow return to sender, restock returned to sender shopify, AI shipping automation",
-      "wordCount": 2681,
+      "wordCount": 2852,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -606,8 +606,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
 
-/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
-@media (max-width: 560px) {
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
   .tag { font-size: 12px; letter-spacing: 0.05em; }
   .post-meta { font-size: 12px; }
   .post-read { font-size: 12px; }
@@ -671,6 +680,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <style>
 /* SEO 2026-10-12 long inline code must break rather than widen the page */
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
 </style>
 
 <style>
@@ -802,6 +814,20 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       behind the printer for two days, which is roughly how
       long it has been back in the building, unopened, because
       no part of your store ever said it was coming.
+    </p>
+
+    <h2>The short answer</h2>
+
+    <p>
+      Shopify has no status that means a parcel is coming back to you. The 2026-10 Admin GraphQL FulfillmentEventStatus enum has eleven values and none of them is returning to sender, the value exists only in the unstable version of the API, and the order stays Fulfilled while the box sits in your own receiving area.
+    </p>
+
+    <p>
+      Flow has no trigger that fires on a carrier turnaround and no condition to test against, voiding the original label is almost always impossible because voiding requires a label under 30 days old with no tracking events, and the community reship workarounds all distort either revenue or inventory. Shopify also files a return to origin as a customer return, which is why return rates in RTS-heavy markets are mostly couriers rather than products.
+    </p>
+
+    <p>
+      The playbook reads the carrier feed hourly, flags the turnaround the hour it happens, names the cause, emails the customer for a corrected address before they ask, applies one reship or refund rule, restocks on physical arrival, and reports RTS separately from returns.
     </p>
 
     <h2>The word Shopify has not shipped</h2>
@@ -1203,7 +1229,9 @@ plus a daily age sweep
         <a href="how-to-handle-delivered-but-not-received-claims-on-shopify.html">delivered
         but not received</a>, on the opposite failure, where
         the carrier says it arrived and the customer says it
-        did not.
+        did not. Also worth reading:
+        <a href="how-to-catch-shopify-shipping-labels-you-never-used.html">the shipping label you paid for and never used</a>,
+        on the label bought for a parcel that never went anywhere.
       </span>
     </div>
 

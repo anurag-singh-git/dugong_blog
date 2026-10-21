@@ -6,7 +6,7 @@
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-10-16
 - Section: Research
-- Word count: 2681
+- Word count: 2852
 - Dispatch: Nº 129 · Research · 9 min read
 - Full headline on page: How to handle return to sender orders on Shopify *before the customer asks where it is*
 - Keywords: shopify return to sender, shopify RTS, shopify RTO, return to origin shopify, undeliverable package shopify, shopify refused delivery, shopify flow return to sender, restock returned to sender shopify, AI shipping automation
@@ -18,6 +18,14 @@ Day eleven, 9:14am, a one line email: hi, any update on my order? You open the o
 
 Then somebody finds the box. It has been on the floor behind the printer for two days, which is roughly how long it has been back in the building, unopened, because no part of your store ever said it was coming.
 
+
+## The short answer
+
+Shopify has no status that means a parcel is coming back to you. The 2026-10 Admin GraphQL FulfillmentEventStatus enum has eleven values and none of them is returning to sender, the value exists only in the unstable version of the API, and the order stays Fulfilled while the box sits in your own receiving area.
+
+Flow has no trigger that fires on a carrier turnaround and no condition to test against, voiding the original label is almost always impossible because voiding requires a label under 30 days old with no tracking events, and the community reship workarounds all distort either revenue or inventory. Shopify also files a return to origin as a customer return, which is why return rates in RTS-heavy markets are mostly couriers rather than products.
+
+The playbook reads the carrier feed hourly, flags the turnaround the hour it happens, names the cause, emails the customer for a corrected address before they ask, applies one reship or refund rule, restocks on physical arrival, and reports RTS separately from returns.
 ## The word Shopify has not shipped
 
 Here is the whole problem in one list. The [2026-10 Admin GraphQL](https://shopify.dev/docs/api/admin-graphql/2026-10/enums/FulfillmentEventStatus) `FulfillmentEventStatus` enum, the thing that describes where a shipment is, has eleven values: attempted delivery, carrier picked up, confirmed, delayed, delivered, failure, in transit, label printed, label purchased, out for delivery, ready for pickup. Read them again and look for the one that means the parcel is coming back to you. It is not there.
@@ -116,7 +124,7 @@ Second, write the policy down in four sentences before you automate anything. Wh
 
 Then say the brief out loud the way you would say it to someone who starts on Monday. Watch every shipment. The hour a carrier turns one around, tag the order, tell me why, and email the customer for a corrected address. If they answer in two days, reship on our rule; if they do not, refund less shipping and close it. When the box lands, open it, restock what is good, write off what is not. And never, ever put these in the return numbers. The compiler turns that into the workflow, and day eleven stops being when you find out.
 
-> **◆ READING** Two companion pieces if this one landed: [the parcel that stopped moving](https://blog.dugong.live/how-to-catch-shopify-orders-stuck-in-transit.html), on shipments that go quiet without ever coming back, and [delivered but not received](https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html), on the opposite failure, where the carrier says it arrived and the customer says it did not.
+> **◆ READING** Two companion pieces if this one landed: [the parcel that stopped moving](https://blog.dugong.live/how-to-catch-shopify-orders-stuck-in-transit.html), on shipments that go quiet without ever coming back, and [delivered but not received](https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html), on the opposite failure, where the carrier says it arrived and the customer says it did not. Also worth reading: [the shipping label you paid for and never used](https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html), on the label bought for a parcel that never went anywhere.
 
 If you are a Shopify merchant with a return to sender story, the box that sat behind the printer, the reship that broke your reports, the return rate that turned out to be couriers, the inbox is open: `field-notes@dugong.live`. We are collecting case studies for the next issue.
 

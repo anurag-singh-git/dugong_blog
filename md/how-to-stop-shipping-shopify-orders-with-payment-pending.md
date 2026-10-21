@@ -6,7 +6,7 @@
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-10-19
 - Section: Research
-- Word count: 2849
+- Word count: 3001
 - Dispatch: Nº 132 · Research · 9 min read
 - Full headline on page: How to stop shipping Shopify orders *that say Payment pending*
 - Keywords: shopify payment pending, shopify pending payment order, fulfill shopify order pending payment, shopify order shipped not paid, shopify payment status expired, hold fulfillment awaiting payment, shopify collective payment pending, AI payment hold automation
@@ -20,6 +20,14 @@ Nobody looked at the payment status. There was no reason to. It said Payment pen
 
 Nine days later it turned to Expired. The goods were gone, the label was paid for, the customer stopped replying, and there was no event anywhere in the admin that said the word anybody needed to hear, which is that you just shipped a parcel for free.
 
+
+## The short answer
+
+Shopify never blocks fulfillment on payment. An order whose payment status reads Payment pending sits in the unfulfilled queue looking like every other order, and the documented gate before fulfillment, the Fulfillment order ready to fulfill trigger, checks risk assessment and inventory availability only.
+
+Shopify's pending payments page asks you to wait until the payment status is Paid before fulfilling, and that request to a human is the entire control. Pending payments usually expire after about a week, at which point the order status becomes Expired, and while the payment is pending you may not be able to edit, restock, cancel, collect payment on or mark the order as paid.
+
+The fix is to hold the fulfillment with the reason Shopify already defines for it, AWAITING_PAYMENT, the moment a pending order appears, let authorized and paid orders through untouched, and poll the payment so the hold releases the hour the money lands.
 ## Unpaid is four different problems wearing one badge
 
 Start with the vocabulary, because this is where most stores lose the thread. Shopify's [order status documentation](https://help.shopify.com/en/manual/fulfillment/managing-orders/order-status) defines Unpaid not as a status but as a grouping, and it contains four things: Authorized, Pending, Expired and Partially paid.
@@ -143,7 +151,7 @@ Then open Settings, then Checkout, and read your order processing block. If auto
 
 Then ask whoever picks on a Saturday what Payment pending means. If the answer is anything other than stop, the badge is not a control, it is decoration.
 
-> **&#9670; READING** Two companion pieces if this one landed: [the payment that expires before you capture it](https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html), on the same gap pointed the other way, and [the unpaid order that never cancels itself](https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html), on what to do with the ones that never clear.
+> **◆ READING** Two companion pieces if this one landed: [the payment that expires before you capture it](https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html), on the same gap pointed the other way, and [the unpaid order that never cancels itself](https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html), on what to do with the ones that never clear.
 
 If you sell on Shopify and have a version of this story, the wire that never arrived, the Collective order you shipped on trust, the net 30 account that went quiet, the inbox is open: `field-notes@dugong.live`. We are collecting case studies for the next issue.
 

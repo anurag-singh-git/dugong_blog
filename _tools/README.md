@@ -46,6 +46,10 @@ reason it exists rather than a general-purpose linter:
 | every dispatch appears in all three llms.txt lists | Dispatch Nº 131 was in "Articles" and "Markdown versions" and missing from "Full index" |
 | each llms.txt topic-guide count equals the guide's ItemList and its visible card count | The inventory guide read 16 in llms.txt and 17 everywhere else for four days |
 | no container holding links lacks an anchor rule in that page's stylesheet | `.article-dek` had no `a` rule, so 15 editorial links on 11 pages rendered in the dek colour with no underline and read as plain text |
+| every archive-shaped READ NEXT grid carries every dispatch newer than its own newest card | On 2026-10-21 six dispatches published 10-15 to 10-21 sat in 2 or 3 grids against 73 to 82 for every other dispatch. The grid is written at publication and no later run went back to extend it, so each new post stayed outside the site's own link graph |
+| every dispatch has at least one editorial inbound link, meaning an anchor inside another page's `<article>` | Nine dispatches had none on 2026-10-21. Card grids are navigation; a link in running prose is the one that carries topical meaning. A dispatch published within three days of the newest is exempt and reported as a note |
+| the READING callout's link set matches the md rendition's | The md alternate is what answer engines are pointed at. On 2026-10-21 one page's md carried the block indented as a code fence with no links parsed, one carried the sentence with no blockquote marker, and one wrote `&#9670;` into a Markdown file |
+| whatever llms-full.txt calls "The short answer" appears on the page and in the md | 11 of the 12 short answers existed only in llms-full.txt. The one paragraph written to be quoted back as the answer was invisible to every crawler that reads HTML |
 
 ### Deliberate exceptions
 

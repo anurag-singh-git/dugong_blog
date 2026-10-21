@@ -6,7 +6,7 @@
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-10-13
 - Section: Research
-- Word count: 2277
+- Word count: 2584
 - Dispatch: Nº 126 · Research · 8 min read
 - Full headline on page: How to catch Shopify shipping label adjustments *before they eat your margin*
 - Keywords: shopify shipping label adjustment, shipping label price adjustment, usps label price adjustment, dispute shipping label adjustment shopify, dimensional weight shopify, usps dim divisor 139, shopify shipping label cost api, ups shipping label adjustments
@@ -18,6 +18,16 @@ The bill arrives before the explanation. Your Shopify invoice is heavier than la
 
 Every one of those charges has a story, and every story is sitting in a place you will never look: the timeline of a single order you fulfilled and stopped thinking about weeks ago.
 
+
+## The short answer
+
+The price you pay at label purchase is only a quote. Shopify's billing documentation says that after you ship, the carrier verifies the correct label price and debits or credits the difference, and the parcel is usually delivered anyway, so nothing fails and nobody looks. The adjustment and the carrier's reason land in one order's timeline while the money lands aggregated on your next Shopify bill, and nothing joins them.
+
+There is no adjustments report, no filter, no export column and no notification. There is no Flow trigger for a label purchase or a label adjustment. And there is no labelCost field in the Admin GraphQL API, which a developer requested on 12 June 2026 with the note that the only workaround is shopifyPaymentsAccount.balanceTransactions, which requires Shopify Payments. Volumes rose in July 2026 because USPS moved its dimensional divisor from 166 to 139 and now rounds every fractional inch up, lifting billable weight roughly 19 percent on anything over a cubic foot.
+
+Six causes look identical on the invoice and need six different responses: a package preset that was never right, a guessed variant weight, the fractional round-up, the wrong service or package type, a legitimate surcharge like address correction or residential delivery, and a genuine carrier measurement error. The dispute window is short and unpublished, since Shopify says only that dispute timelines vary by carrier and that delayed disputes might not be eligible for review.
+
+Read every order timeline, attribute each adjustment to the SKU and the package preset that produced the label rather than to the order, classify which of the six it is, file the carrier errors within three days with tape and scale photographs and tracking attached, fix the preset so the same parcel is not adjusted twice, and feed measured cost per SKU back into your rates and your free shipping floor.
 ## What an adjustment actually is
 
 The price you pay at label purchase is a quote based on what you declared. Shopify's own billing documentation is clear about what happens next: after you ship, the shipping carrier verifies the correct label price. If the information you entered was inaccurate, the carrier debits or credits the difference.
@@ -159,7 +169,7 @@ Keep two things human. Anything that changes what customers pay, because a shipp
 
 Open your three most recently fulfilled orders for your bestselling product and read each timeline all the way to the bottom. Then open your last Shopify bill and find the shipping label charges. If that total is larger than the labels you remember buying, the difference is the number this article is about, and you now know it exists before your accountant asks.
 
-> **◆ READING** Two companion pieces if this one landed: [The shipping rate that ignores your box](https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html), on charging the right amount at checkout, and [The payout that never matches your sales](https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html), on tying platform charges back to the orders that caused them.
+> **◆ READING** Two companion pieces if this one landed: [The shipping rate that ignores your box](https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html), on charging the right amount at checkout, and [The payout that never matches your sales](https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html), on tying platform charges back to the orders that caused them. Also worth reading: [The shipping label you paid for and never used](https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html), on the labels that cost you money without ever touching a box, and the thirty day clock Shopify never mentions.
 
 Sitting on a month of adjustments nobody can explain, a dispute that was denied with photographs attached, or one SKU that gets re-measured every single time it ships? The inbox is open: `field-notes@dugong.live`. We are collecting case studies for the next issue.
 

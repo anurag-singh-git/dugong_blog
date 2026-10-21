@@ -59,7 +59,7 @@
       "dateModified": "2026-10-19",
       "articleSection": "Research",
       "keywords": "shopify payment pending, shopify pending payment order, fulfill shopify order pending payment, shopify order shipped not paid, shopify payment status expired, hold fulfillment awaiting payment, shopify collective payment pending, AI payment hold automation",
-      "wordCount": 2849,
+      "wordCount": 3001,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -666,8 +666,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
 
-/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
-@media (max-width: 560px) {
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
   .tag { font-size: 12px; letter-spacing: 0.05em; }
   .post-meta { font-size: 12px; }
   .post-read { font-size: 12px; }
@@ -731,6 +740,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <style>
 /* SEO 2026-10-12 long inline code must break rather than widen the page */
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
 </style>
 
 <style>
@@ -871,6 +883,20 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       replying, and there was no event anywhere in the admin
       that said the word anybody needed to hear, which is
       that you just shipped a parcel for free.
+    </p>
+
+    <h2>The short answer</h2>
+
+    <p>
+      Shopify never blocks fulfillment on payment. An order whose payment status reads Payment pending sits in the unfulfilled queue looking like every other order, and the documented gate before fulfillment, the Fulfillment order ready to fulfill trigger, checks risk assessment and inventory availability only.
+    </p>
+
+    <p>
+      Shopify's pending payments page asks you to wait until the payment status is Paid before fulfilling, and that request to a human is the entire control. Pending payments usually expire after about a week, at which point the order status becomes Expired, and while the payment is pending you may not be able to edit, restock, cancel, collect payment on or mark the order as paid.
+    </p>
+
+    <p>
+      The fix is to hold the fulfillment with the reason Shopify already defines for it, AWAITING_PAYMENT, the moment a pending order appears, let authorized and paid orders through untouched, and poll the payment so the hold releases the hour the money lands.
     </p>
 
     <h2>Unpaid is four different problems wearing one badge</h2>
@@ -1116,7 +1142,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <p>
-      Then there is the behaviour merchants have been
+      Then there is the behavior merchants have been
       reporting since 18 April 2022, in a thread titled
       <a href="https://community.shopify.com/t/order-paid-trigger-not-working-for-payments-completed-after-initial-order-was-created/114741">Order
       Paid trigger not working for payments completed after

@@ -60,7 +60,7 @@
       "dateModified": "2026-10-13",
       "articleSection": "Research",
       "keywords": "shopify shipping label adjustment, shipping label price adjustment, usps label price adjustment, dispute shipping label adjustment shopify, dimensional weight shopify, usps dim divisor 139, shopify shipping label cost api, ups shipping label adjustments",
-      "wordCount": 2277,
+      "wordCount": 2584,
       "timeRequired": "PT8M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -644,8 +644,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
 
-/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
-@media (max-width: 560px) {
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
   .tag { font-size: 12px; letter-spacing: 0.05em; }
   .post-meta { font-size: 12px; }
   .post-read { font-size: 12px; }
@@ -709,6 +718,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <style>
 /* SEO 2026-10-12 long inline code must break rather than widen the page */
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
 </style>
 
 <style>
@@ -839,6 +851,24 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       sitting in a place you will never look: the timeline of a
       single order you fulfilled and stopped thinking about weeks
       ago.
+    </p>
+
+    <h2>The short answer</h2>
+
+    <p>
+      The price you pay at label purchase is only a quote. Shopify's billing documentation says that after you ship, the carrier verifies the correct label price and debits or credits the difference, and the parcel is usually delivered anyway, so nothing fails and nobody looks. The adjustment and the carrier's reason land in one order's timeline while the money lands aggregated on your next Shopify bill, and nothing joins them.
+    </p>
+
+    <p>
+      There is no adjustments report, no filter, no export column and no notification. There is no Flow trigger for a label purchase or a label adjustment. And there is no labelCost field in the Admin GraphQL API, which a developer requested on 12 June 2026 with the note that the only workaround is shopifyPaymentsAccount.balanceTransactions, which requires Shopify Payments. Volumes rose in July 2026 because USPS moved its dimensional divisor from 166 to 139 and now rounds every fractional inch up, lifting billable weight roughly 19 percent on anything over a cubic foot.
+    </p>
+
+    <p>
+      Six causes look identical on the invoice and need six different responses: a package preset that was never right, a guessed variant weight, the fractional round-up, the wrong service or package type, a legitimate surcharge like address correction or residential delivery, and a genuine carrier measurement error. The dispute window is short and unpublished, since Shopify says only that dispute timelines vary by carrier and that delayed disputes might not be eligible for review.
+    </p>
+
+    <p>
+      Read every order timeline, attribute each adjustment to the SKU and the package preset that produced the label rather than to the order, classify which of the six it is, file the carrier errors within three days with tape and scale photographs and tracking attached, fix the preset so the same parcel is not adjusted twice, and feed measured cost per SKU back into your rates and your free shipping floor.
     </p>
 
     <h2>What an adjustment actually is</h2>
@@ -1243,7 +1273,9 @@ that carries a label
         <a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html">The shipping rate that ignores your box</a>,
         on charging the right amount at checkout, and
         <a href="how-to-reconcile-shopify-payouts-with-your-sales.html">The payout that never matches your sales</a>,
-        on tying platform charges back to the orders that caused them.
+        on tying platform charges back to the orders that caused them. Also worth reading:
+        <a href="how-to-catch-shopify-shipping-labels-you-never-used.html">The shipping label you paid for and never used</a>,
+        on the labels that cost you money without ever touching a box, and the thirty day clock Shopify never mentions.
       </span>
     </div>
 

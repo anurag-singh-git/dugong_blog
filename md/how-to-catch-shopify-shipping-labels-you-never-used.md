@@ -6,7 +6,7 @@
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-10-18
 - Section: Research
-- Word count: 3118
+- Word count: 3301
 - Dispatch: Nº 131 · Research · 10 min read
 - Full headline on page: How to catch Shopify shipping labels *you paid for and never used*
 - Keywords: void shopify shipping label, unused shopify shipping label refund, shopify label credit, shopify shipping label 30 days, cancel shipping label shopify, shopify void label after cancelling order, shopify shipping label billing, AI shipping label audit
@@ -20,6 +20,12 @@ The label is still paid for.
 
 Not pending. Paid. Shopify charged you the moment you bought it, and nothing about cancelling the order, refunding the customer or cancelling the fulfillment hands that money back. There is exactly one way to get it, it is a button you press yourself on that one order, you have 30 days, and nothing in Shopify will ever mention it again.
 
+
+## The short answer
+
+Shopify charges you for an outbound shipping label at purchase, not when the carrier scans it, so a label bought for an order you then cancel is already money spent. The only way back is to void it, and voiding needs four conditions true at once: under 30 days from the purchase date, no tracking events at all, not bought with USPS First Class Mail, and not added to a USPS shipping manifest in the last 15 minutes. The refund arrives as a shipping label credit against future label purchases rather than cash. Shopify counts none of this for you: there is no unused label filter, no age column, no countdown, no Flow trigger for a shipping label and no void mutation in the Admin API.
+
+What the API does give you is a cancellable boolean on the ShippingLabel object, which is Shopify evaluating all four conditions and handing back one field, so a register of every label with its day zero plus an hourly check of that field plus the bulk void limit of 250 labels per press is the whole solution.
 ## Outbound labels and return labels bill in opposite directions
 
 Start here, because this is where almost everyone's intuition is wrong, and it is wrong for a good reason.
@@ -137,13 +143,7 @@ Then take your refunded orders from the same window and check which still carry 
 
 Then open Settings, then Billing, and find the shipping label credit line for the current cycle. Count it against the labels you know you voided this month. If the two numbers disagree, you are the March 2024 thread, and a support ticket while the cycle is still open is worth more than one filed in January.
 
-> **◆ READING** 
-        Two companion pieces if this one landed:
-        [the shipping charge that lands three weeks later](https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html), on
-        the other half of your label spend that nobody
-        audits, and
-        [the parcel the carrier sends back](https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html), on what happens
-        when a label is used and the box still comes home.
+> **◆ READING** Two companion pieces if this one landed: [the shipping charge that lands three weeks later](https://blog.dugong.live/how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html), on the other half of your label spend that nobody audits, and [the parcel the carrier sends back](https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html), on what happens when a label is used and the box still comes home.
 
 If you ship on Shopify and have a version of this story, the Friday batch nobody picked, the credit that never appeared, the label you found on day 34, the inbox is open: `field-notes@dugong.live`. We are collecting case studies for the next issue.
 

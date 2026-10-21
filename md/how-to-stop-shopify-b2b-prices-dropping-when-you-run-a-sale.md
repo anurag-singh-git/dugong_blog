@@ -6,7 +6,7 @@
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-10-17
 - Section: Research
-- Word count: 2780
+- Word count: 3000
 - Dispatch: Nº 130 · Research · 9 min read
 - Full headline on page: How to stop Shopify B2B prices dropping *every time you run a sale*
 - Keywords: shopify b2b discount stacking, shopify wholesale price sale, shopify b2b catalog discount, shopify price list fixed prices, shopify b2b pricing automation, b2b catalog percentage adjustment shopify, shopify b2b markets discount eligibility, AI wholesale pricing automation
@@ -18,6 +18,16 @@ You find out on the invoice after the sale, not during it. Six cases of the mug 
 
 Nobody set that price. You set a sale. The sale walked into your wholesale catalog, because in Shopify a catalog is not a discount, and the number your trade accounts pay is pinned to the number your retail customers pay.
 
+
+## The short answer
+
+A B2B catalog is part of Shopify's pricing system, not its discount system, so a catalog percentage is calculated from the product's standard store price at the moment the buyer loads the page, which means every retail markdown moves your wholesale floor down with it.
+
+If the sale is an automatic discount or a code instead, Shopify documents that those apply as additional discounts on top of any price adjustments made through catalogs, and that in a blended store existing discounts apply to both B2B and D2C customers unless you assign a B2B market in the discount's eligibility settings. There is no setting that anchors a trade price to list price.
+
+Fixed prices are the only native lock, because after a fixed price is assigned any overall adjustments on the catalog no longer apply, and they go stale the next time you raise list prices, with no stale price report, a 250 price per request cap on priceListFixedPricesAdd and priceListFixedPricesUpdate, and a catalog CSV export that includes only fixed-price products.
+
+Flow has no price changed trigger and no price list action, so the fix is an external loop that sets the trade floor from list price and cost, writes a fixed price to hold it through every markdown, releases it afterwards, and scopes every promotion away from your B2B markets.
 ## Catalogs are pricing, discounts are discounts
 
 The clearest statement of this is not in Shopify's documentation, it is in a community reply from January 2026: catalogs are part of the pricing system, not the discount system. Everything that goes wrong here follows from that one sentence.

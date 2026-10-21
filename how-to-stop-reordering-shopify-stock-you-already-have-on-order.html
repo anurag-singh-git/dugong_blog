@@ -60,7 +60,7 @@
       "dateModified": "2026-10-15",
       "articleSection": "Research",
       "keywords": "shopify incoming inventory, shopify purchase order tracking, shopify purchase order api, inventoryPurchaseOrders, read_inventory_purchase_orders, shopify on order quantity, shopify late purchase order, shopify double ordering stock, stocky sunset replacement, shopify flow incoming inventory",
-      "wordCount": 2341,
+      "wordCount": 2462,
       "timeRequired": "PT8M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -639,8 +639,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
 
-/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
-@media (max-width: 560px) {
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
   .tag { font-size: 12px; letter-spacing: 0.05em; }
   .post-meta { font-size: 12px; }
   .post-read { font-size: 12px; }
@@ -704,6 +713,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <style>
 /* SEO 2026-10-12 long inline code must break rather than widen the page */
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
 </style>
 
 <style>
@@ -836,6 +848,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       This is the most expensive Shopify gap I know of that
       almost nobody writes about, and it comes down to one
       word being defined more narrowly than everyone assumes.
+    </p>
+
+    <h2>The short answer</h2>
+
+    <p>
+      Incoming inventory on Shopify counts units in transit, not units you have bought, so a purchase order the supplier has not shipped reads as zero and the low stock report tells you to buy it again. The purchase order and its linked inventory transfer operate independently by design, Shopify Flow cannot read incoming quantities or purchase order data at all, and the purchase order API that landed in the 2026-10 Admin GraphQL version carries exactly two statuses, DRAFT and ORDERED, with no received state and no expected arrival date. The playbook builds the on order number Shopify does not give you, dates every open purchase order, flags the late ones, and warns the buyer before the same pallet is ordered twice.
     </p>
 
     <h2>Incoming does not mean on order</h2>

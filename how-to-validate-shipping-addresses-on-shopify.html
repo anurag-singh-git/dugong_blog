@@ -582,8 +582,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
 
-/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
-@media (max-width: 560px) {
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
   .tag { font-size: 12px; letter-spacing: 0.05em; }
   .post-meta { font-size: 12px; }
   .post-read { font-size: 12px; }
@@ -648,6 +657,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <style>
 /* SEO 2026-10-12 long inline code must break rather than widen the page */
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
   .article-meta span[aria-hidden="true"] { display: none; }
@@ -1065,7 +1077,105 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
-<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+<a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to bulk edit variant metafields on Shopify</h3>
+        <p class="card-dek">
+          Shopify's product CSV leaves variant metafields out and the grid that edits them is not in the product list. The AI playbook that fills them in bulk.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-stop-shipping-shopify-orders-with-payment-pending.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to stop shipping Shopify orders that say Payment pending</h3>
+        <p class="card-dek">
+          An order can read Payment pending and still sit in your unfulfilled queue looking normal, and Shopify's own gate before fulfillment checks risk and stock but never the money. The AI playbook that holds every one until it lands.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-shipping-labels-you-never-used.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify shipping labels you paid for and never used</h3>
+        <p class="card-dek">
+          Shopify charges you for the outbound label at purchase, gives you 30 days to void an unused one, and never once counts the days. The AI playbook that finds every label you paid for and never used.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to stop Shopify B2B prices dropping every time you run a sale</h3>
+        <p class="card-dek">
+          A weekend sale on the storefront quietly cuts your wholesale prices too, because a catalog percentage is computed off the live price. The AI playbook that holds the B2B floor.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to handle return to sender orders on Shopify</h3>
+        <p class="card-dek">
+          Shopify has no status that means coming back to you, so the order still says fulfilled while the box sits behind the printer. The AI playbook that catches every return to sender the same hour.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 16</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-stop-reordering-shopify-stock-you-already-have-on-order.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to stop reordering Shopify stock you already have on order</h3>
+        <p class="card-dek">
+          Incoming counts units in transit, so a purchase order your supplier has not shipped reads as zero and the report tells you to buy it twice. The AI playbook that tracks what is really on order.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 15</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a></div>
+  <details class="related-more">
+    <summary>79 more dispatches in the archive</summary>
+    <div class="related-grid"><a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1161,10 +1271,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-  </div>
-  <details class="related-more">
-    <summary>73 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
+<a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1404,7 +1511,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
 <a href="how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1421,7 +1527,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
 <a href="how-to-catch-shopify-orders-stuck-in-transit.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1438,7 +1543,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
 <a href="how-to-automate-gift-card-delivery-and-reminders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1455,7 +1559,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
 <a href="how-to-automatically-restock-returns-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1472,7 +1575,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
 <a href="how-to-handle-delivered-but-not-received-claims-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1489,7 +1591,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
 <a href="how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1506,7 +1607,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
 <a href="how-to-sync-inventory-between-two-shopify-stores.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1523,7 +1623,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
 <a href="how-to-automatically-capture-payments-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1556,7 +1655,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
 <a href="how-to-automatically-clear-dead-stock-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1589,7 +1687,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
 <a href="how-to-automatically-approve-wholesale-customers-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1606,7 +1703,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
 <a href="how-to-automatically-release-held-shopify-orders-when-stock-arrives.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1623,7 +1719,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
 <a href="how-to-route-shopify-orders-to-the-right-warehouse.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1640,7 +1735,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
 <a href="how-to-sync-supplier-inventory-feeds-to-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1657,7 +1751,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
 <a href="how-to-stop-discount-code-abuse-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1674,7 +1767,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
 <a href="how-to-catch-and-cancel-duplicate-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1691,8 +1783,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
-    <a href="how-to-block-a-customer-on-shopify.html" class="card">
+<a href="how-to-block-a-customer-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1708,8 +1799,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
-    <a href="how-to-notify-customers-of-shipping-delays-on-shopify.html" class="card">
+<a href="how-to-notify-customers-of-shipping-delays-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1725,8 +1815,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
-    <a href="how-to-merge-duplicate-customer-profiles-on-shopify.html" class="card">
+<a href="how-to-merge-duplicate-customer-profiles-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1742,8 +1831,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
-    <a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="card">
+<a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1759,8 +1847,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
-    <a href="how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html" class="card">
+<a href="how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1776,8 +1863,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-
-    <a href="how-to-set-up-tiered-volume-discounts-on-shopify.html" class="card">
+<a href="how-to-set-up-tiered-volume-discounts-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1793,7 +1879,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-sync-bundle-inventory-with-component-stock-on-shopify.html" class="card">
+<a href="how-to-sync-bundle-inventory-with-component-stock-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1809,7 +1895,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html" class="card">
+<a href="how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1825,7 +1911,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-limit-purchase-quantity-per-customer-on-shopify.html" class="card">
+<a href="how-to-limit-purchase-quantity-per-customer-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1873,7 +1959,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-automatically-send-invoices-on-shopify.html" class="card">
+<a href="how-to-automatically-send-invoices-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1889,7 +1975,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-schedule-product-publishing-on-shopify.html" class="card">
+<a href="how-to-schedule-product-publishing-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1905,7 +1991,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-set-a-minimum-order-amount-on-shopify.html" class="card">
+<a href="how-to-set-a-minimum-order-amount-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1937,7 +2023,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" class="card">
+<a href="how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1953,7 +2039,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-stop-card-testing-attacks-on-shopify.html" class="card">
+<a href="how-to-stop-card-testing-attacks-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1969,7 +2055,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html" class="card">
+<a href="how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1985,7 +2071,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-reconcile-shopify-payouts-with-your-sales.html" class="card">
+<a href="how-to-reconcile-shopify-payouts-with-your-sales.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2001,7 +2087,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-bulk-edit-product-prices-on-shopify.html" class="card">
+<a href="how-to-bulk-edit-product-prices-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2017,7 +2103,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html" class="card">
+<a href="how-to-automatically-add-tracking-numbers-to-shopify-orders.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2033,7 +2119,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-fix-404-errors-from-deleted-products-on-shopify.html" class="card">
+<a href="how-to-fix-404-errors-from-deleted-products-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2049,7 +2135,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="card">
+<a href="how-to-automatically-cancel-unpaid-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2065,7 +2151,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-automatically-request-product-reviews-on-shopify.html" class="card">
+<a href="how-to-automatically-request-product-reviews-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2081,7 +2167,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-segment-repeat-customers-on-shopify.html" class="card">
+<a href="how-to-segment-repeat-customers-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2097,7 +2183,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html" class="card">
+<a href="how-to-add-alt-text-to-shopify-product-images-in-bulk.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2113,7 +2199,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-generate-shopify-product-descriptions-with-ai.html" class="card">
+<a href="how-to-generate-shopify-product-descriptions-with-ai.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2129,7 +2215,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-        <a href="how-to-automatically-tag-orders-on-shopify.html" class="card">
+<a href="how-to-automatically-tag-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2145,7 +2231,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-        <a href="how-to-bulk-edit-meta-descriptions-on-shopify.html" class="card">
+<a href="how-to-bulk-edit-meta-descriptions-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2161,7 +2247,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-        <a href="how-to-schedule-a-sale-on-shopify.html" class="card">
+<a href="how-to-schedule-a-sale-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2177,7 +2263,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-        <a href="how-to-set-inventory-reorder-points-on-shopify.html" class="card">
+<a href="how-to-set-inventory-reorder-points-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2193,7 +2279,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html" class="card">
+<a href="how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2209,7 +2295,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html" class="card">
+<a href="how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2225,7 +2311,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-set-up-back-in-stock-notifications-on-shopify.html" class="card">
+<a href="how-to-set-up-back-in-stock-notifications-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2241,7 +2327,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-win-chargeback-disputes-on-shopify.html" class="card">
+<a href="how-to-win-chargeback-disputes-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2257,7 +2343,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-automate-returns-and-exchanges-on-shopify.html" class="card">
+<a href="how-to-automate-returns-and-exchanges-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2273,7 +2359,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-edit-a-shopify-order-after-its-been-placed.html" class="card">
+<a href="how-to-edit-a-shopify-order-after-its-been-placed.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2289,7 +2375,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" class="card">
+<a href="how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2305,7 +2391,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="card">
+<a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2321,7 +2407,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="how-to-handle-high-risk-orders-on-shopify.html" class="card">
+<a href="how-to-handle-high-risk-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2337,7 +2423,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-    <a href="best-shopify-automations-to-set-up.html" class="card">
+<a href="best-shopify-automations-to-set-up.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -2354,6 +2440,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </div>
     </a></div>
   </details>
+
 </section>
 
 <section class="cta-band">

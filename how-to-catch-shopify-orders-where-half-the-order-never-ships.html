@@ -60,7 +60,7 @@
       "dateModified": "2026-10-14",
       "articleSection": "Research",
       "keywords": "shopify partially fulfilled, shopify order half shipped, shopify unfulfilled line items report, shopify fulfillment order still open, shopify in progress fulfillment status, shopify flow partially fulfilled trigger, line_item_fulfillment_status shopifyql, shopify split shipment customer notification",
-      "wordCount": 2367,
+      "wordCount": 2468,
       "timeRequired": "PT8M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -650,8 +650,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
 
-/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
-@media (max-width: 560px) {
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
   .tag { font-size: 12px; letter-spacing: 0.05em; }
   .post-meta { font-size: 12px; }
   .post-read { font-size: 12px; }
@@ -715,6 +724,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <style>
 /* SEO 2026-10-12 long inline code must break rather than widen the page */
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
 </style>
 
 <style>
@@ -848,6 +860,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       moving. The problem is never the split. It is the follow.
       Shopify tracks a shipment beautifully. It does not track
       the remainder.
+    </p>
+
+    <h2>The short answer</h2>
+
+    <p>
+      Two of the three items shipped the next morning. The third never moved, and Shopify marked the order Partially fulfilled, which is the platform agreeing that something is missing and then doing nothing about it. The remainder falls out of the reports you actually read, because report filters work at the order level and not the line item level. The AI playbook that sweeps for every open remainder nightly, ages it from the last shipment rather than the order date, names which of seven causes produced it, tells the customer what is still coming before they ask, and closes it honestly.
     </p>
 
     <h2>What partially fulfilled actually means</h2>

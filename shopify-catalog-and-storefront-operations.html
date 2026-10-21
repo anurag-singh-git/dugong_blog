@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shopify catalog operations guides | Dugong</title>
-<meta name="description" content="Playbooks for the catalog itself: bulk alt text and meta descriptions, AI product copy, scheduled publishing, 404s from deleted products and vacation mode." />
+<meta name="description" content="Playbooks for the catalog itself: variant metafields in bulk, alt text and meta descriptions, AI product copy, scheduled publishing, 404s and vacation mode." />
 <link rel="canonical" href="https://blog.dugong.live/shopify-catalog-and-storefront-operations.html" />
 <meta name="author" content="Priya Singh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -19,7 +19,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Dugong Field Notes" />
 <meta property="og:title" content="Shopify catalog and storefront operations" />
-<meta property="og:description" content="Playbooks for the catalog itself: bulk alt text and meta descriptions, AI product copy, scheduled publishing, 404s from deleted products and vacation mode." />
+<meta property="og:description" content="Playbooks for the catalog itself: variant metafields in bulk, alt text and meta descriptions, AI product copy, scheduled publishing, 404s and vacation mode." />
 <meta property="og:url" content="https://blog.dugong.live/shopify-catalog-and-storefront-operations.html" />
 <meta property="og:image" content="https://blog.dugong.live/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -30,7 +30,7 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Shopify catalog and storefront operations" />
-<meta name="twitter:description" content="Playbooks for the catalog itself: bulk alt text and meta descriptions, AI product copy, scheduled publishing, 404s from deleted products and vacation mode." />
+<meta name="twitter:description" content="Playbooks for the catalog itself: variant metafields in bulk, alt text and meta descriptions, AI product copy, scheduled publishing, 404s and vacation mode." />
 <meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
 <meta name="twitter:image:alt" content="Dugong Field Notes banner: &ldquo;Workflows, thought through.&rdquo; Field notes on AI-native workflow automation, agents, and the playbooks that run modern teams. blog.dugong.live" />
 
@@ -48,7 +48,7 @@
       "url": "https://blog.dugong.live/shopify-catalog-and-storefront-operations.html",
       "name": "Shopify catalog and storefront operations",
       "headline": "Shopify catalog and storefront operations",
-      "description": "Playbooks for the catalog itself: bulk alt text and meta descriptions, AI product copy, scheduled publishing, 404s from deleted products and vacation mode.",
+      "description": "Playbooks for the catalog itself: variant metafields in bulk, alt text and meta descriptions, AI product copy, scheduled publishing, 404s and vacation mode.",
       "isPartOf": {
         "@type": "Blog",
         "@id": "https://blog.dugong.live/#blog",
@@ -106,7 +106,7 @@
         }
       ],
       "inLanguage": "en",
-      "dateModified": "2026-08-25",
+      "dateModified": "2026-10-21",
       "mainEntity": {
         "@id": "https://blog.dugong.live/shopify-catalog-and-storefront-operations.html#list"
       },
@@ -136,43 +136,49 @@
       "@type": "ItemList",
       "@id": "https://blog.dugong.live/shopify-catalog-and-storefront-operations.html#list",
       "name": "Shopify catalog and storefront operations",
-      "description": "Playbooks for the catalog itself: bulk alt text and meta descriptions, AI product copy, scheduled publishing, 404s from deleted products and vacation mode.",
-      "numberOfItems": 6,
+      "description": "Playbooks for the catalog itself: variant metafields in bulk, alt text and meta descriptions, AI product copy, scheduled publishing, 404s and vacation mode.",
+      "numberOfItems": 7,
       "itemListOrder": "https://schema.org/ItemListOrderDescending",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
+          "url": "https://blog.dugong.live/how-to-bulk-edit-variant-metafields-on-shopify.html",
+          "name": "How to bulk edit variant metafields on Shopify"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
           "url": "https://blog.dugong.live/how-to-put-your-shopify-store-on-vacation-mode-without-losing-sales.html",
           "name": "How to put your Shopify store on vacation mode without losing sales"
         },
         {
           "@type": "ListItem",
-          "position": 2,
+          "position": 3,
           "url": "https://blog.dugong.live/how-to-schedule-product-publishing-on-shopify.html",
           "name": "How to automatically schedule product publishing on Shopify"
         },
         {
           "@type": "ListItem",
-          "position": 3,
+          "position": 4,
           "url": "https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html",
           "name": "How to fix 404 errors from deleted products on Shopify"
         },
         {
           "@type": "ListItem",
-          "position": 4,
+          "position": 5,
           "url": "https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html",
           "name": "How to add alt text to Shopify product images in bulk"
         },
         {
           "@type": "ListItem",
-          "position": 5,
+          "position": 6,
           "url": "https://blog.dugong.live/how-to-generate-shopify-product-descriptions-with-ai.html",
           "name": "How to generate Shopify product descriptions with AI"
         },
         {
           "@type": "ListItem",
-          "position": 6,
+          "position": 7,
           "url": "https://blog.dugong.live/how-to-bulk-edit-meta-descriptions-on-shopify.html",
           "name": "How to bulk edit meta descriptions on Shopify"
         }
@@ -674,8 +680,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
 
-/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
-@media (max-width: 560px) {
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
   .tag { font-size: 12px; letter-spacing: 0.05em; }
   .post-meta { font-size: 12px; }
   .post-read { font-size: 12px; }
@@ -742,6 +757,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 <style>
 /* SEO 2026-10-12 long inline code must break rather than widen the page */
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
   .article-meta span[aria-hidden="true"] { display: none; }
@@ -818,13 +836,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
   <div class="article-meta">
 <span class="tag tag-research">topic guide</span>
-<span style="color: var(--cream-dim);">6 DISPATCHES</span>
-<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">JUN 17 &rarr; AUG 25 2026</span></span>
+<span style="color: var(--cream-dim);">7 DISPATCHES</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">JUN 17 &rarr; OCT 21 2026</span></span>
 </div>
 
   <h1 class="article-title">Shopify catalog and storefront operations</h1>
 
-  <p class="article-dek">Playbooks for the catalog itself: bulk alt text and meta descriptions, AI product copy, scheduled publishing, 404s from deleted products and vacation mode.</p>
+  <p class="article-dek">Playbooks for the catalog itself: variant metafields in bulk, alt text and meta descriptions, AI product copy, scheduled publishing, 404s and vacation mode.</p>
 
   <p class="article-dek" style="font-size: 0.95rem;">
     Every dispatch below is a single failure mode: what Shopify does natively, where it stops,
@@ -840,10 +858,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
 <section class="related">
   <div class="section-head">
-    <h2 class="section-eyebrow">&#9670; 6 DISPATCHES IN THIS GUIDE</h2>
+    <h2 class="section-eyebrow">&#9670; 7 DISPATCHES IN THIS GUIDE</h2>
     <span class="section-rule"></span>
   </div>
   <div class="related-grid hub-grid">
+<a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to bulk edit variant metafields on Shopify</h3>
+        <p class="card-dek">Shopify's product CSV leaves variant metafields out and the grid that edits them is not in the product list. The AI playbook that fills them in bulk.</p>
+        <div class="card-foot">
+          <span class="card-date">OCT 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-put-your-shopify-store-on-vacation-mode-without-losing-sales.html" class="card">
       <div class="card-body">
         <div class="post-meta">

@@ -6,7 +6,7 @@
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-10-12
 - Section: Research
-- Word count: 2166
+- Word count: 2351
 - Dispatch: Nº 125 · Research · 8 min read
 - Full headline on page: How to fix Shopify committed inventory that *never clears*
 - Keywords: shopify committed inventory, committed inventory not clearing, shopify shows sold out but in stock, clear committed inventory shopify, which orders hold committed inventory, shopify committed inventory negative, shopify available vs on hand, draft order reserve inventory
@@ -20,6 +20,12 @@ The fourteen are in *committed*. Click the number and Shopify shows you a list o
 
 Now try to fix it. There is no edit field on committed. There is no release button. There is no app that clears it, no Flow action that touches it, and no API call that moves it. You have found the one number in Shopify inventory that you are not allowed to change, holding stock you can physically pick up.
 
+
+## The short answer
+
+Shopify will not let you touch committed inventory and will not tell you which orders hold it. On hand is the sum of available, committed, reserved, damaged, safety stock and quality control, your storefront sells available, and committed is the one state the Admin API cannot adjust or move, so there is no field, button, app or Flow action that releases it. The only levers are the orders behind it: fulfill the line, cancel with restock, reassign the location, release the hold, end the draft reserve, or receive the transfer. Build the attribution yourself.
+
+Rebuild the per-order breakdown nightly from open unfulfilled line items, draft reserves and ready transfers, reconcile the total against committed, age every commitment, classify why each stuck one is stuck, apply the one release that fits, alert on any variant with on hand above zero and available at or below zero, and escalate the units no order explains with the numbers attached. The judgment, deciding which release a stuck order deserves without inventing a shipment or losing a sale, is why this belongs with an agent rather than a condition builder.
 ## What committed actually is
 
 Worth being precise, because almost every wrong fix starts with a wrong mental model. Shopify splits the stock at each location into states. On hand is everything physically there. Available is what the storefront may sell. Between them sit committed, reserved, damaged, safety stock and quality control, and Shopify's developer docs state the arithmetic outright: on hand is the sum of all six.
@@ -140,7 +146,7 @@ Two things stay human. Cancelling a customer's order to free up stock, because t
 
 Export your inventory, filter to available at zero with on hand above zero, count the rows and multiply by price. Then open the oldest one, click committed, and read the date of the order holding it. That date is how long your store has been telling customers you were out of something you could have picked off a shelf.
 
-> **◆ READING** Two companion pieces if this one landed: [The stock count that changes overnight](https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html), on adjustments nobody can trace, and [The overselling problem no one automates](https://blog.dugong.live/how-to-prevent-overselling-on-shopify-across-channels.html), on the gap that opens when two channels sell the same unit.
+> **◆ READING** Two companion pieces if this one landed: [The stock count that changes overnight](https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html), on adjustments nobody can trace, and [The overselling problem no one automates](https://blog.dugong.live/how-to-prevent-overselling-on-shopify-across-channels.html), on the gap that opens when two channels sell the same unit. Also worth reading: [The reorder you already placed](https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html), on the other inventory number Shopify shows you without explaining what it counts.
 
 Sitting on stock your store insists you do not have, a committed figure that no order explains, or a draft reserve from last quarter nobody closed? The inbox is open: `field-notes@dugong.live`. We are collecting case studies for the next issue.
 

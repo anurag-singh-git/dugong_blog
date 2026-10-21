@@ -1,4 +1,4 @@
-# robots.txt — blog.dugong.live
+# robots.txt for blog.dugong.live
 #
 # NOTE: this repository contains a .nojekyll file, so GitHub Pages serves it
 # raw and does NOT run Jekyll. Underscore-prefixed paths are therefore NOT
@@ -6,6 +6,11 @@
 # committed under _qa_tmp/, _to_delete/ or _tools/ is fetchable on the live
 # domain, which is why they are disallowed below. robots.txt only asks
 # crawlers not to fetch; it does not make those paths private.
+#
+# 2026-10-21: _qa_tmp/ and _to_delete/ were untracked on 2026-10-19 and are
+# no longer in the served commit, so their rules are now belt and braces
+# against a future run committing them again. The __deltest.tmp rule was
+# removed because that file is gone from the repository and from disk.
 
 # Search + AI crawlers welcome. Generative engines are explicitly allowed
 # so Dugong Field Notes can be cited in AI answers (GEO).
@@ -17,7 +22,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 # Major AI / answer-engine crawlers (explicit allow)
@@ -28,7 +32,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: OAI-SearchBot
@@ -38,7 +41,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: ChatGPT-User
@@ -48,7 +50,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: ClaudeBot
@@ -58,7 +59,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: Claude-User
@@ -68,7 +68,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: Claude-SearchBot
@@ -78,7 +77,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: Claude-Web
@@ -88,7 +86,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: anthropic-ai
@@ -98,7 +95,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: PerplexityBot
@@ -108,7 +104,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: Google-Extended
@@ -118,7 +113,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: Applebot
@@ -128,7 +122,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: Applebot-Extended
@@ -138,7 +131,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: Bingbot
@@ -148,7 +140,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: CCBot
@@ -158,7 +149,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: Perplexity-User
@@ -168,7 +158,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: MistralAI-User
@@ -178,7 +167,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: AI2Bot
@@ -188,7 +176,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: Diffbot
@@ -198,7 +185,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: FirecrawlAgent
@@ -208,7 +194,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: Timpibot
@@ -218,7 +203,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: omgili
@@ -228,7 +212,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: ImagesiftBot
@@ -238,7 +221,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: Amazonbot
@@ -248,7 +230,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: Meta-ExternalAgent
@@ -258,7 +239,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: meta-externalagent
@@ -268,7 +248,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: DuckAssistBot
@@ -278,7 +257,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: cohere-ai
@@ -288,7 +266,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: cohere-training-data-crawler
@@ -298,7 +275,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: YouBot
@@ -308,7 +284,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: Google-CloudVertexBot
@@ -318,7 +293,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: PetalBot
@@ -328,7 +302,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: Bytespider
@@ -338,7 +311,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: meta-externalfetcher
@@ -348,7 +320,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: FacebookBot
@@ -358,7 +329,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: omgilibot
@@ -368,7 +338,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: iaskspider
@@ -378,7 +347,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: img2dataset
@@ -388,7 +356,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: Webzio-Extended
@@ -398,7 +365,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 User-agent: SemrushBot-OCOB
@@ -408,7 +374,6 @@ Disallow: /SEO-GEO-report-
 Disallow: /_qa_tmp/
 Disallow: /_to_delete/
 Disallow: /_tools/
-Disallow: /__deltest.tmp
 Allow: /
 
 Sitemap: https://blog.dugong.live/sitemap.xml

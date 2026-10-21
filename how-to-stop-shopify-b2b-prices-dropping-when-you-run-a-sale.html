@@ -59,7 +59,7 @@
       "dateModified": "2026-10-17",
       "articleSection": "Research",
       "keywords": "shopify b2b discount stacking, shopify wholesale price sale, shopify b2b catalog discount, shopify price list fixed prices, shopify b2b pricing automation, b2b catalog percentage adjustment shopify, shopify b2b markets discount eligibility, AI wholesale pricing automation",
-      "wordCount": 2780,
+      "wordCount": 3000,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -636,8 +636,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
 
-/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
-@media (max-width: 560px) {
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
   .tag { font-size: 12px; letter-spacing: 0.05em; }
   .post-meta { font-size: 12px; }
   .post-read { font-size: 12px; }
@@ -701,6 +710,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <style>
 /* SEO 2026-10-12 long inline code must break rather than widen the page */
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
 </style>
 
 <style>
@@ -832,6 +844,24 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       into your wholesale catalog, because in Shopify a catalog
       is not a discount, and the number your trade accounts pay
       is pinned to the number your retail customers pay.
+    </p>
+
+    <h2>The short answer</h2>
+
+    <p>
+      A B2B catalog is part of Shopify's pricing system, not its discount system, so a catalog percentage is calculated from the product's standard store price at the moment the buyer loads the page, which means every retail markdown moves your wholesale floor down with it.
+    </p>
+
+    <p>
+      If the sale is an automatic discount or a code instead, Shopify documents that those apply as additional discounts on top of any price adjustments made through catalogs, and that in a blended store existing discounts apply to both B2B and D2C customers unless you assign a B2B market in the discount's eligibility settings. There is no setting that anchors a trade price to list price.
+    </p>
+
+    <p>
+      Fixed prices are the only native lock, because after a fixed price is assigned any overall adjustments on the catalog no longer apply, and they go stale the next time you raise list prices, with no stale price report, a 250 price per request cap on priceListFixedPricesAdd and priceListFixedPricesUpdate, and a catalog CSV export that includes only fixed-price products.
+    </p>
+
+    <p>
+      Flow has no price changed trigger and no price list action, so the fix is an external loop that sets the trade floor from list price and cost, writes a fixed price to hold it through every markdown, releases it afterwards, and scopes every promotion away from your B2B markets.
     </p>
 
     <h2>Catalogs are pricing, discounts are discounts</h2>

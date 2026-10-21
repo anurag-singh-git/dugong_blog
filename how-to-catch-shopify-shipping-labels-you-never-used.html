@@ -59,7 +59,7 @@
       "dateModified": "2026-10-18",
       "articleSection": "Research",
       "keywords": "void shopify shipping label, unused shopify shipping label refund, shopify label credit, shopify shipping label 30 days, cancel shipping label shopify, shopify void label after cancelling order, shopify shipping label billing, AI shipping label audit",
-      "wordCount": 3118,
+      "wordCount": 3301,
       "timeRequired": "PT10M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -263,7 +263,7 @@
           "name": "Does cancelling an order on Shopify void the shipping label?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No, and this is the most expensive misunderstanding in the whole area. Cancelling an order restocks the inventory, because the Restock inventory option is selected by default, and it stops you collecting payment on an unpaid order, and it does nothing whatsoever about a label you already bought. Shopify's own canceling orders page carries the instruction, which tells you the behaviour was understood and left as a manual step: if you purchased a shipping label for this order, then you can void the label, and, before deleting an order, if you purchased a shipping label for the order but didn't use it, then void the label before deleting the order. Note what that means in practice. The one place where a merchant is guaranteed to be thinking about this order, the cancel dialog, contains no prompt, no checkbox and no mention of the label, while restocking is handled for you. A merchant asked about exactly this in July 2022, after refunding and cancelling an order and finding no void option he could locate, and posted eleven days later asking whether it was simply not possible. No Shopify staff member answered the thread."
+            "text": "No, and this is the most expensive misunderstanding in the whole area. Cancelling an order restocks the inventory, because the Restock inventory option is selected by default, and it stops you collecting payment on an unpaid order, and it does nothing whatsoever about a label you already bought. Shopify's own canceling orders page carries the instruction, which tells you the behavior was understood and left as a manual step: if you purchased a shipping label for this order, then you can void the label, and, before deleting an order, if you purchased a shipping label for the order but didn't use it, then void the label before deleting the order. Note what that means in practice. The one place where a merchant is guaranteed to be thinking about this order, the cancel dialog, contains no prompt, no checkbox and no mention of the label, while restocking is handled for you. A merchant asked about exactly this in July 2022, after refunding and cancelling an order and finding no void option he could locate, and posted eleven days later asking whether it was simply not possible. No Shopify staff member answered the thread."
           }
         },
         {
@@ -661,8 +661,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
 
-/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
-@media (max-width: 560px) {
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
   .tag { font-size: 12px; letter-spacing: 0.05em; }
   .post-meta { font-size: 12px; }
   .post-read { font-size: 12px; }
@@ -726,6 +735,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <style>
 /* SEO 2026-10-12 long inline code must break rather than widen the page */
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
 </style>
 
 <style>
@@ -863,6 +875,16 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       it, it is a button you press yourself on that one order,
       you have 30 days, and nothing in Shopify will ever
       mention it again.
+    </p>
+
+    <h2>The short answer</h2>
+
+    <p>
+      Shopify charges you for an outbound shipping label at purchase, not when the carrier scans it, so a label bought for an order you then cancel is already money spent. The only way back is to void it, and voiding needs four conditions true at once: under 30 days from the purchase date, no tracking events at all, not bought with USPS First Class Mail, and not added to a USPS shipping manifest in the last 15 minutes. The refund arrives as a shipping label credit against future label purchases rather than cash. Shopify counts none of this for you: there is no unused label filter, no age column, no countdown, no Flow trigger for a shipping label and no void mutation in the Admin API.
+    </p>
+
+    <p>
+      What the API does give you is a cancellable boolean on the ShippingLabel object, which is Shopify evaluating all four conditions and handing back one field, so a register of every label with its day zero plus an hourly check of that field plus the bulk void limit of 250 labels per press is the whole solution.
     </p>
 
     <h2>Outbound labels and return labels bill in opposite directions</h2>
@@ -1424,7 +1446,7 @@ plus an hourly sweep
     </div>
     <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Does cancelling an order on Shopify void the shipping label?</h2>
-      <p class="faq-a">No, and this is the most expensive misunderstanding in the whole area. Cancelling an order restocks the inventory, because the Restock inventory option is selected by default, and it stops you collecting payment on an unpaid order, and it does nothing whatsoever about a label you already bought. Shopify's own canceling orders page carries the instruction, which tells you the behaviour was understood and left as a manual step: if you purchased a shipping label for this order, then you can void the label, and, before deleting an order, if you purchased a shipping label for the order but didn't use it, then void the label before deleting the order. Note what that means in practice. The one place where a merchant is guaranteed to be thinking about this order, the cancel dialog, contains no prompt, no checkbox and no mention of the label, while restocking is handled for you. A merchant asked about exactly this in July 2022, after refunding and cancelling an order and finding no void option he could locate, and posted eleven days later asking whether it was simply not possible. No Shopify staff member answered the thread.</p>
+      <p class="faq-a">No, and this is the most expensive misunderstanding in the whole area. Cancelling an order restocks the inventory, because the Restock inventory option is selected by default, and it stops you collecting payment on an unpaid order, and it does nothing whatsoever about a label you already bought. Shopify's own canceling orders page carries the instruction, which tells you the behavior was understood and left as a manual step: if you purchased a shipping label for this order, then you can void the label, and, before deleting an order, if you purchased a shipping label for the order but didn't use it, then void the label before deleting the order. Note what that means in practice. The one place where a merchant is guaranteed to be thinking about this order, the cancel dialog, contains no prompt, no checkbox and no mention of the label, while restocking is handled for you. A merchant asked about exactly this in July 2022, after refunding and cancelling an order and finding no void option he could locate, and posted eleven days later asking whether it was simply not possible. No Shopify staff member answered the thread.</p>
     </div>
     <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Can Shopify Flow find unused shipping labels for me?</h2>

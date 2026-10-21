@@ -60,7 +60,7 @@
       "dateModified": "2026-10-10",
       "articleSection": "Research",
       "keywords": "shopify tax exempt customer, shopify wholesale tax exempt, shopify resale certificate, shopify b2b tax exemption, taxExemptions, resale certificate expiry, exemption certificate automation, verify resale certificate",
-      "wordCount": 1950,
+      "wordCount": 2037,
       "timeRequired": "PT8M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -606,8 +606,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
 }
 
-/* QA 2026-10-11: 12px legibility floor for micro-labels on phones (desktop unchanged) */
-@media (max-width: 560px) {
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
   .tag { font-size: 12px; letter-spacing: 0.05em; }
   .post-meta { font-size: 12px; }
   .post-read { font-size: 12px; }
@@ -672,6 +681,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <style>
 /* SEO 2026-10-12 long inline code must break rather than widen the page */
 .article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
   /* decorative separators strand at the end of a wrapped line on phones */
   .article-meta span[aria-hidden="true"] { display: none; }
@@ -813,6 +825,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       PDF, checking a state website, approving the customer by
       hand, and asks the obvious question of what happens when
       the account count grows.
+    </p>
+
+    <h2>The short answer</h2>
+
+    <p>
+      Shopify's tax exemption is a switch, not a record. Store the certificate itself, its number and a computed expiry date in customer metafields, set the per-state exemption rather than the blanket one, keep new accounts on taxed checkout until a human approves the document, and sweep the expiry dates on a schedule. Shopify Flow has no action to set tax exemption, and the reading and judging is the part that actually takes the time, which is why this belongs with an agent rather than a condition builder.
     </p>
 
     <h2>Shopify gives you a switch, not a record</h2>
@@ -1106,7 +1124,9 @@ daily expiry sweep
         <a href="how-to-automatically-approve-wholesale-customers-on-shopify.html">The wholesale application that sits all weekend</a>,
         on vetting and answering B2B signups in minutes instead of days, and
         <a href="how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html">The quote that goes quiet</a>,
-        on chasing the wholesale invoices Shopify never follows up on.
+        on chasing the wholesale invoices Shopify never follows up on. Also worth reading:
+        <a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html">The sale your stockists take too</a>,
+        on the weekend promotion that follows your trade prices down.
       </span>
     </div>
 
@@ -1262,7 +1282,10 @@ daily expiry sweep
         </div>
       </div>
     </a>
-<a href="how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html" class="card">
+  </div>
+  <details class="related-more">
+    <summary>2 more dispatches in the archive</summary>
+    <div class="related-grid"><a href="how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1293,8 +1316,9 @@ daily expiry sweep
           <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </a>
-  </div>
+    </a></div>
+  </details>
+
   <a href="shopify-customer-and-wholesale-automation.html" class="hub-more">more on shopify customer and wholesale automation &rarr;</a>
 </section>
 <footer class="foot">

@@ -6,7 +6,7 @@
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-10-10
 - Section: Research
-- Word count: 1950
+- Word count: 2037
 - Dispatch: Nº 122 · Research · 8 min read
 - Full headline on page: How to make Shopify wholesale customers *tax exempt* without checking certificates by hand
 - Keywords: shopify tax exempt customer, shopify wholesale tax exempt, shopify resale certificate, shopify b2b tax exemption, taxExemptions, resale certificate expiry, exemption certificate automation, verify resale certificate
@@ -20,6 +20,10 @@ Somebody on your team now spends eleven minutes on this. They squint at the form
 
 Do that forty times across twelve states and you have built something that looks like a wholesale program and functions like an unlabeled box of paper. Merchants ask about this in the open: a recent Shopify community thread, titled roughly *how are you verifying tax exempt certificates or professional licenses for B2B customers*, describes exactly this process, reading the PDF, checking a state website, approving the customer by hand, and asks the obvious question of what happens when the account count grows.
 
+
+## The short answer
+
+Shopify's tax exemption is a switch, not a record. Store the certificate itself, its number and a computed expiry date in customer metafields, set the per-state exemption rather than the blanket one, keep new accounts on taxed checkout until a human approves the document, and sweep the expiry dates on a schedule. Shopify Flow has no action to set tax exemption, and the reading and judging is the part that actually takes the time, which is why this belongs with an agent rather than a condition builder.
 ## Shopify gives you a switch, not a record
 
 The native mechanism is real and it works. Open a customer, open the menu in the Customer section, choose Manage tax settings, and pick one of two things: *Don't collect tax*, which zeroes tax for that buyer everywhere, or *Collect tax unless exemptions apply*, where you select specific exemptions. Under the hood those are a boolean, `taxExempt`, and a list, `taxExemptions`, whose values are per-jurisdiction codes: `US_CA_RESELLER_EXEMPTION`, `US_FL_RESELLER_EXEMPTION`, one for every state, plus Canadian and EU equivalents.
@@ -116,7 +120,7 @@ Export your customer list filtered to tax exempt. For each one, answer two quest
 
 Then write down the states you are registered in, the validity rule for each, and the single place certificates will live from now on. That list is the whole configuration. Everything after it is reading documents and sending reminders, which is exactly the work worth handing to an agent.
 
-> **◆ READING** Two companion pieces if this one landed: [The wholesale application that sits all weekend](https://blog.dugong.live/how-to-automatically-approve-wholesale-customers-on-shopify.html), on vetting and answering B2B signups in minutes instead of days, and [The quote that goes quiet](https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html), on chasing the wholesale invoices Shopify never follows up on.
+> **◆ READING** Two companion pieces if this one landed: [The wholesale application that sits all weekend](https://blog.dugong.live/how-to-automatically-approve-wholesale-customers-on-shopify.html), on vetting and answering B2B signups in minutes instead of days, and [The quote that goes quiet](https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html), on chasing the wholesale invoices Shopify never follows up on. Also worth reading: [The sale your stockists take too](https://blog.dugong.live/how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html), on the weekend promotion that follows your trade prices down.
 
 Running a wholesale channel with a certificate story, the audit letter, the buyer who has been exempt since 2023 on a document nobody can find, the Florida account that expired in January? The inbox is open: `field-notes@dugong.live`. We are collecting case studies for the next issue.
 
