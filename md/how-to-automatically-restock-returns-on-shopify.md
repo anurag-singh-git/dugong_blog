@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-automatically-restock-returns-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-08-09
-- Updated: 2026-08-14
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2660
+- Word count: 2900
 - Dispatch: Nº 103 · Research · 10 min read
 - Full headline on page: How to automatically restock returns *on Shopify*
 - Keywords: shopify restock returned items, shopify returns not restocked, shopify inventory wrong after return, restock checkbox shopify, restock returns different location shopify, shopify damaged inventory state, returns receiving workflow, reverse logistics shopify
@@ -20,6 +20,14 @@ The cardigan comes back on a Thursday. Tags attached, folded the way it left, a 
 Nothing about that bin is unusual. Americans returned $890 billion of merchandise in 2024, about 17 percent of everything retail sold, and online the rate runs closer to one order in five. The industry has a name for the trip those boxes make, [reverse logistics](https://en.wikipedia.org/wiki/Reverse_logistics), and the name is doing a lot of work, because the forward trip has checkout, payment, a pick list, a label, and tracking, and the return trip has a bin. Every returned unit has to cross a doorstep twice. The first crossing built your revenue. The second one, nobody staffs.
 
 Merchants meet this problem as a mystery. The count says three, the shelf says five. A customer buys a sweater that arrives smelling of someone else's perfume. The purchase order goes out for units that came back two weeks ago. Different symptoms, one disease: on Shopify, a return is a money event that is supposed to also be a shelf event, and the shelf half runs on memory.
+
+## The short answer
+
+The native machinery is one checkbox. Refunding an order shows a Restock option, ticked by default when you track inventory, and it adds the returned quantity straight back to available at the location that fulfilled the order, the minute you click. There is no arrival check and no condition step, so you can restock a box still in the customer's trunk and send the worn one back to the same shelf as the pristine one.
+
+Untick it and nothing follows. Shopify keeps no queue of unrestocked returns and never asks again, even though the API records the distinction exactly, every refund line carrying a restock type of `RETURN`, `CANCEL` or `NO_RESTOCK`. Flow cannot close the gap either: its return triggers all fire when a person clicks something in the admin, and none fire on the delivered scan at your door, which is the only event in the journey that means the unit is physically back.
+
+Build the receiving step the platform left out, and use the states it already has. Since August 2023 the Admin API carries `quality_control` and `damaged`, both counted inside on-hand, both shown as Unavailable and impossible to oversell. So watch the return label's own tracking to the delivered scan, open a receiving task that hour with the box matched to its order and a photo attached, grade each line new, open-box or damaged before anything moves, and route by *grade* rather than by refund.
 
 ## A refund is a money event, not a shelf event
 

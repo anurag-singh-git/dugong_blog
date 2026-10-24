@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-08-03
-- Updated: 2026-08-07
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2412
+- Word count: 2600
 - Dispatch: Nº 99 · Research · 10 min read
 - Full headline on page: How to automatically capture payments *on Shopify*
 - Keywords: capture payment Shopify, Shopify capture payment automatically, Shopify payment authorization expired, authorized but not paid Shopify, manual payment capture Shopify, Shopify 7 day authorization period, capture payment when order fulfilled, expired authorization Shopify
@@ -20,6 +20,14 @@ The order lands on a Sunday at 11:47 p.m.: two pairs of boots, $412, a new custo
 Nobody clicks Capture payment. Not out of carelessness, exactly. Fulfillment feels like the end of an order, the admin shows a tidy Fulfilled badge, and the one thing still open is a payment status quietly reading Authorized in a column nobody sorts by. The authorization [Shopify Payments](https://help.shopify.com/en/manual/payments/shopify-payments) created on Sunday night is good for 7 days. On Thursday at 11:47 p.m. it expires, the hold releases, and $412 goes back to the customer's available balance while her boots sit by her door.
 
 You find out three weeks later, doing the month's [payout reconciliation](https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html): an order that shipped, a payout that never included it, and a payment status you have to squint at to believe. The product is gone, the shipping is spent, and your only path to the $412 is an email asking a stranger to pay for boots she has worn twice. Merchants post this exact autopsy in the community every month, under titles like Payment Authorized but not Paid and Fulfilled orders are not paid. The answers are always the same, and always a week too late.
+
+## The short answer
+
+Authorized is not paid. Authorization checks the card and holds the amount; capture is when money moves, and Shopify Payments gives you a 7 day authorization period to do it. The help center is blunt about the stakes: capture before that period ends or you receive no money for the order, which is how a shipped parcel quietly becomes an unpaid one.
+
+Four settings live under Settings, then Payments: automatically at checkout, automatically when the entire order is fulfilled, automatically per fulfillment on Shopify Plus, and manually. The default captures at checkout and needs no attention. Every other choice starts a clock on every order, and manual capture's only safety net is a checkbox that emails one warning a single day before an authorization expires, into the same inbox as everything else.
+
+So pick the automatic trigger your policy actually wants, rather than leaving the charge to a human and a payment status nobody sorts by. If you review for fraud, capture when the review passes; if you ship made-to-order or preorders, capture at fulfillment or at the first shipment. Then watch each authorization against its real deadline, provider, card type and expiry hour included, and raise the alarm on the ones something is blocking instead of on the *day* before they die.
 
 ## Authorized is not paid
 

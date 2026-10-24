@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-change-a-shopify-order-from-local-pickup-to-shipping.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-31" />
-    <meta property="article:modified_time" content="2026-08-15" />
+    <meta property="article:modified_time" content="2026-10-24" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html",
       "url": "https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html",
       "headline": "How to change a Shopify order from local pickup to shipping",
+      "abstract": "You cannot change it. Order editing covers items, add one, remove one, adjust a quantity and collect the difference, and the delivery method is the one part of the order it does not touch. There is no supported way to turn a pickup order into a shipping order, and orders placed with local pickup or local delivery often refuse editing at all.",
       "description": "A customer in Marietta, Georgia checks out on her phone in eleven seconds, and the order lands as a pickup at your Denver shop, 1,400 miles away. She never chose pickup: Shopify checkout preselects the cheapest delivery option, local pickup is free, and Shop Pay carried her straight past the choice. Merchants report several of these a week, and the community thread asking Shopify to stop defaulting to pickup has been collecting replies for years, with a feature request logged and no timeline. The order cannot be fixed either: order editing does not touch the delivery method, and orders placed with local pickup or local delivery often cannot be edited at all, so the supported path is cancel, refund, rebuild as a draft order, and invoice the shipping. The half workaround of buying a label anyway leaves a pickup order that still sends pickup instructions and never collected a shipping fee. The AI playbook that reads every new order's delivery method against its address, distance, and history, asks the customer the same hour, converts the order cleanly when they meant shipping, confirms pickup when they meant pickup, keeps pickup orders out of the label queue, and counts the wrong-method orders so you can fix the checkout copy that causes them.",
       "datePublished": "2026-07-31",
-      "dateModified": "2026-08-15",
+      "dateModified": "2026-10-24",
       "articleSection": "Research",
       "keywords": "change Shopify order from local pickup to shipping, customer accidentally chose local pickup Shopify, Shop Pay defaults to local pickup, convert pickup order to shipping Shopify, edit delivery method Shopify order, local pickup order shipped by mistake, Shopify checkout preselects cheapest rate, wrong delivery method Shopify",
-      "wordCount": 2362,
+      "wordCount": 2600,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -115,6 +116,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -747,11 +749,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 96 &middot; JUL 31, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 9 MIN READ &middot; 2,362 WORDS</span>
+    <span>&#9670; 9 MIN READ &middot; 2,600 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 96 &middot; JUL 31, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 9 MIN READ &middot; 2,362 WORDS</span>
+    <span>&#9670; 9 MIN READ &middot; 2,600 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -834,6 +836,33 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       logged a feature request. That was the resolution. The thread is
       still collecting replies.
     </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        You cannot change it. Order editing covers items, add one, remove one, adjust a quantity and collect the
+        difference, and the delivery method is the one part of the order it does not touch. There is no supported
+        way to turn a pickup order into a shipping order, and orders placed with local pickup or local delivery
+        often refuse editing at all.
+      </p>
+
+      <p>
+        The cause is upstream and just as fixed. Checkout preselects the cheapest option for the cart, local pickup
+        is free, so on any store that offers it pickup sits at the top already selected for every eligible customer,
+        and a phone shopper gliding through saved details never reads the delivery section. There is no setting that
+        changes which method is preselected, no way to reorder the list, and no way to make pickup opt-in.
+      </p>
+
+      <p>
+        What works is refund and re-place, caught early enough that the customer still remembers checking out, plus
+        a check that runs before any of it. Read the delivery method against the shipping address, the distance to
+        the pickup location and the customer's history on every new order, flag the mismatches before fulfillment,
+        and ask in one same-hour email whether they meant to collect or to be shipped. The workarounds merchants
+        trade, a rate renamed FREE PICKUP with the street address inside it, buy clarity at checkout and change
+        <em>nothing</em> about the order you already have.
+      </p>
+    </div>
 
     <h2>Why checkout keeps picking pickup for your customers</h2>
 
@@ -1173,7 +1202,39 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid">
+  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">13&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify inventory transfers that never get received</h3>
+        <p class="card-dek">
+          Stock in an unreceived Shopify transfer counts as incoming, not available, so your storefront says sold out while the boxes sit in the back. The AI playbook that catches the stalled ones.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-find-shopify-products-missing-images-or-weights.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">12&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to find Shopify products missing images or weights</h3>
+        <p class="card-dek">
+          Shopify has no filter for a product with no image, and a blank weight exports as zero. The AI playbook that finds the half-finished products before customers do.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1238,7 +1299,10 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-<a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+  </div>
+  <details class="related-more">
+    <summary>42 more dispatches in the archive</summary>
+    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1269,10 +1333,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </a></div>
-  <details class="related-more">
-    <summary>40 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+    </a>
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1914,6 +1976,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </a></div>
   </details>
 
+  <a href="shopify-shipping-and-fulfillment-automation.html" class="hub-more">more on shopify shipping and fulfillment automation &rarr;</a>
 </section>
 
 <footer class="foot">
@@ -1933,7 +1996,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

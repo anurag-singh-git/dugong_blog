@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-catch-shopify-orders-stuck-in-transit.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-08-12
-- Updated: 2026-08-13
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2740
+- Word count: 2900
 - Dispatch: Nº 105 · Research · 10 min read
 - Full headline on page: How to catch Shopify orders *stuck in transit* before your customer does
 - Keywords: shopify order stuck in transit, shopify tracking not updating, package stuck in transit, tracking added not updating, shipment stopped moving, stalled shipment alert, shopify flow tracking, usps missing mail search, lost package claim, proactive shipping updates
@@ -20,6 +20,14 @@ Order 2213 ships on a Wednesday morning: a $140 dinnerware set, label bought in 
 The customer checks the link Tuesday, twice, the way people check a phone that has stopped ringing. Wednesday, day six, she writes: is my order lost? And that email is the first time anyone at the store learns something is wrong, because nothing in the stack was ever going to mention it. The order page looks perfect. Fulfilled, green, tracking attached. Support opens the same tracking page she did, sees the same lone scan, and types the sentence every merchant has typed with slightly gritted teeth: we are looking into it with the carrier. Nobody is looking into it with the carrier. Nobody knows how.
 
 The stuck package is the middle silence of shipping, and the genre has three. Before the label, there is the order that has not shipped yet, the [delay nobody announces](https://blog.dugong.live/how-to-notify-customers-of-shipping-delays-on-shopify.html). After the last scan, there is the box that says [delivered but never arrived](https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html). Between them sits the shipment that launched, scanned once, and went dark: the only shipping problem that consists entirely of nothing happening. It is also the one Shopify is structurally unable to see.
+
+## The short answer
+
+Nothing in Shopify will tell you, because every alert it has fires on an event arriving and a stalled package produces none. Scans advance the shipment status and send the milestone emails; six days of silence send six days of nothing. The event model even defines a `delayed` status, and it sits in the schema waiting for a carrier integration to post it, which mid-transit effectively none do.
+
+The blind spots have edges. Shipment status only advances for carriers Shopify recognizes, so a label from one it misdetects stays on Tracking added for an entire clean journey, and an order shipped with no tracking number stays On its way until a human marks it delivered. Flow has no duration-in-state trigger either: asked for one, staff offered storing the state yourself or parking every fulfillment in a Wait step and hoping the delay you picked suits every lane you ship.
+
+So the worker has to be external and run on a clock. Learn each carrier, service and destination's normal scan rhythm, treat no acceptance scan within 24 hours as a warehouse problem rather than a carrier one, open a case when silence runs past the lane's rhythm, roughly three days domestic and five to seven cross-border, and tell the customer before she asks. The carrier windows are short: USPS takes a Missing Mail search seven days after mailing, and UPS wants notice inside *60* days of the ship date.
 
 ## Every alert Shopify has needs an event
 

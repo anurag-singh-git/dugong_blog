@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-handle-delivered-but-not-received-claims-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-08-07
-- Updated: 2026-08-12
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2540
+- Word count: 2700
 - Dispatch: Nº 102 · Research · 10 min read
 - Full headline on page: How to handle delivered but not received claims *on Shopify*
 - Keywords: delivered but not received shopify, shopify package says delivered but customer never received, customer claims package not delivered, item not received chargeback shopify, proof of delivery, porch piracy, missing package refund or reship, delivery claim automation
@@ -20,6 +20,14 @@ The email arrives Tuesday at 8:04 a.m., subject line all lowercase: package neve
 You open the tracking page like it will settle something, and it says what she said it says. Delivered. That one word is your entire file, and it supports four different stories. The driver marked it delivered from the truck and it shows up tomorrow. It landed on the wrong porch, unit B instead of unit A, the gray house one street over. It landed on the right porch and someone [walked off with it](https://en.wikipedia.org/wiki/Package_theft). Or it is in the garage behind the paint cans, or nowhere at all, because a small share of these claims are not claims, they are refunds being farmed. Four stories, four different right answers, and the scan cannot tell you which one you are in.
 
 Merchants ask about this every week, under titles like Package marked delivered but never received and Customer claims non-delivery, tracking shows delivered, and the replies always split into the same two camps. Refund it, the goodwill is worth more than the box. Never refund without proof, you will train every porch in the zip code. Both camps are right about the failure mode of the other one, which is how you know that neither camp has a policy. They have a mood.
+
+## The short answer
+
+Pull the carrier's proof before you decide anything, because the delivered scan is an event in a handheld rather than a fact about a doorstep. GPS scanners let a driver mark a package delivered from the curb and batch-scan a street before walking it, which is why the standard carrier guidance is to wait: most of these parcels surface within 24 to 48 hours.
+
+The proof is better than merchants think and sits in three places. FedEx photographs residential deliveries released without a signature in the US and Canada and puts the picture on the tracking page, free and with no login. UPS attaches delivery photos to many residential stops. USPS photographs nothing, but the delivery scan carries GPS coordinates your local Post Office will read back at the counter, and a Missing Mail search opens at seven business days.
+
+Shopify holds none of it. Delivered is the last word the order timeline has, there is no claim object anywhere in the platform, and a disputed order looks exactly like a finished one. Shopify Protect does not close the gap either: it covers fraudulent and unrecognized chargebacks, and a customer saying the box never arrived files under item not received, which is a different reason code. So open a case on the order, gather the proof while it is fresh, run the 48 hour play, and decide by a *policy* you wrote down before the email landed.
 
 ## Delivered is a scan, not a doorstep
 

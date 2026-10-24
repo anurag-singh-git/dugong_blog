@@ -55,6 +55,7 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html",
       "url": "https://blog.dugong.live/how-to-handle-shopify-returns-the-customer-never-sends-back.html",
       "headline": "How to handle Shopify returns when the customer never sends the item back",
+      "abstract": "Shopify can close a quiet return but it cannot notice one. All seven Flow return triggers fire on a status change somebody makes, so a return that simply stops moving fires nothing, and the cancel return action shipped on 16 August 2024 only works on returns that were never refunded, restocked, marked as returned or labeled, which excludes most of the ones you want to close. Build the watching yourself.",
       "description": "Shopify has seven return triggers and every one of them fires on a status change, so a return that simply goes quiet fires nothing. The AI playbook that watches the carrier scan instead of the calendar, tells never shipped apart from lost and from sitting unprocessed on your own bench, chases on a ladder, holds the refund until the box lands, and closes the return without losing the money twice.",
       "datePublished": "2026-10-11",
       "dateModified": "2026-10-11",
@@ -100,6 +101,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -842,15 +844,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       same: a return, still open, no movement.
     </p>
 
-    <h2>The short answer</h2>
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
 
-    <p>
-      Shopify can close a quiet return but it cannot notice one. All seven Flow return triggers fire on a status change somebody makes, so a return that simply stops moving fires nothing, and the cancel return action shipped on 16 August 2024 only works on returns that were never refunded, restocked, marked as returned or labeled, which excludes most of the ones you want to close. Build the watching yourself.
-    </p>
+      <p>
+        Shopify can close a quiet return but it cannot notice one. All seven Flow return triggers fire on a status change somebody makes, so a return that simply stops moving fires nothing, and the cancel return action shipped on 16 August 2024 only works on returns that were never refunded, restocked, marked as returned or labeled, which excludes most of the ones you want to close. Build the watching yourself.
+      </p>
 
-    <p>
-      Age every open return from its first carrier scan rather than the approval date, separate never shipped from stalled in transit from arrived but unprocessed on your own bench, reconcile inbound parcels against open returns daily, chase on a dated ladder at seven, fourteen and twenty-one days, hold the refund until the first scan, flag exchanges shipped against returns that never landed, then close the remainder as shrinkage and count the pattern per customer and per address. The judgment, telling three identical-looking silences apart and matching an orphan box to the right return, is why this belongs with an agent rather than a condition builder.
-    </p>
+      <p>
+        Age every open return from its first carrier scan rather than the approval date, separate never shipped from stalled in transit from arrived but unprocessed on your own bench, reconcile inbound parcels against open returns daily, chase on a dated ladder at seven, fourteen and twenty-one days, hold the refund until the first scan, flag exchanges shipped against returns that never landed, then close the remainder as shrinkage and count the pattern per customer and per address. The judgment, telling three identical-looking silences apart and matching an orphan box to the right return, is why this belongs with an agent rather than a condition builder.
+      </p>
+    </div>
 
     <h2>Nothing happening is not an event</h2>
 
@@ -1374,7 +1378,7 @@ the receiving bench
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

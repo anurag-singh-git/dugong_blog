@@ -54,6 +54,7 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html",
       "headline": "How to handle return to sender orders on Shopify before the customer asks where it is",
+      "abstract": "Shopify has no status that means a parcel is coming back to you. The 2026-10 Admin GraphQL FulfillmentEventStatus enum has eleven values and none of them is returning to sender, the value exists only in the unstable version of the API, and the order stays Fulfilled while the box sits in your own receiving area.",
       "description": "The carrier gave up on day three and turned the parcel around, and nothing in your store said a word. Shopify's order still reads Fulfilled, the sales report still counts the sale, the stock is still gone, and the box is in your own back room behind the printer. The reason is a missing word in an enum: the 2026-10 Admin GraphQL FulfillmentEventStatus has eleven values, ATTEMPTED_DELIVERY, CARRIER_PICKED_UP, CONFIRMED, DELAYED, DELIVERED, FAILURE, IN_TRANSIT, LABEL_PRINTED, LABEL_PURCHASED, OUT_FOR_DELIVERY and READY_FOR_PICKUP, and not one of them means coming back to you. RETURNING_TO_SENDER exists only in the unstable version, so Shopify has written the word down and has not shipped it in anything you can build on. Merchants have been asking for years. January 2020: a package returned for a wrong address, and Shopify Support's answer was to void the label if you still can, or duplicate the order with a 100 percent discount. A merchant's own workaround, adding a custom line item called Corrected Shipping Address so the reship is not a zero dollar order, is the thread's most upvoted answer, and in August 2024 another merchant asked the question that sums up the gap: why is this not a standard button. March 2024: a merchant reports Shopify now deducts returned products from daily sales automatically, even if they are not refunded, and flags the order refund owed, which is untrue about 90 percent of the time because the goods were reshipped free. May 2024: we are getting more and more return to sender packages. May 2026: a feature request for a separate RTO status, because mixing it with customer returns creates misleading return-rate data, with one reply reporting a brand where 60 percent of the return rate was RTOs from bad pin codes, not actual product issues, and another from an app builder admitting every app in this space has to reconstruct RTO signal from fulfillment and tracking events instead of getting a clean, structured status. Flow cannot help: the nearest trigger is fulfillment event created, and a merchant asking for a delivered automation in August 2024 reported it does not fire, with no staff reply. Meanwhile the label cannot be voided, because voiding requires no tracking events and under 30 days, so you pay freight twice, the stock stays missing from your count, and the refund request lands two months later. The AI playbook that reads every tracking feed for the turnaround scans, flags the order the hour it reverses, tells the customer before they ask, decides reship against refund on your rules, restocks the box when it lands, bills or waives the second label, and keeps RTS out of your return rate.",
       "datePublished": "2026-10-16",
       "dateModified": "2026-10-16",
@@ -99,6 +100,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -208,7 +210,7 @@
           "name": "How do I reship a returned to sender order on Shopify without breaking my reports?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Shopify has no reship button, and the workarounds merchants trade all distort something. Shopify Support's own answer in January 2020 was to void the original label if it still qualifies and buy a new one after correcting the address, and otherwise to duplicate the order and apply a 100 percent discount, which keeps revenue honest but double counts the units and needs a manual inventory adjustment. The most upvoted community method is to edit the original order and add a custom line item titled something like Corrected Shipping Address, then buy a label against that item, which avoids a zero dollar order and produces a new tracking number, at the cost of the customer seeing a line item that is not their product. A merchant asked in August 2024 why this is not a standard button, which is the honest summary. Voiding usually fails anyway: the Help Center requires a label under 30 days old with no tracking events, not bought on USPS First Class Mail, and not manifested in the last 15 minutes, and a parcel that travelled far enough to be turned around has tracking events by definition. An automation can do the whole sequence consistently, correct the address, create the reship, carry the original order number forward in the note, and record the second label cost against the first order so the margin story stays true."
+            "text": "Shopify has no reship button, and the workarounds merchants trade all distort something. Shopify Support's own answer in January 2020 was to void the original label if it still qualifies and buy a new one after correcting the address, and otherwise to duplicate the order and apply a 100 percent discount, which keeps revenue honest but double counts the units and needs a manual inventory adjustment. The most upvoted community method is to edit the original order and add a custom line item titled something like Corrected Shipping Address, then buy a label against that item, which avoids a zero dollar order and produces a new tracking number, at the cost of the customer seeing a line item that is not their product. A merchant asked in August 2024 why this is not a standard button, which is the honest summary. Voiding usually fails anyway: the Help Center requires a label under 30 days old with no tracking events, not bought on USPS First Class Mail, and not manifested in the last 15 minutes, and a parcel that traveled far enough to be turned around has tracking events by definition. An automation can do the whole sequence consistently, correct the address, create the reship, carry the original order number forward in the note, and record the second label cost against the first order so the margin story stays true."
           }
         },
         {
@@ -816,19 +818,21 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       no part of your store ever said it was coming.
     </p>
 
-    <h2>The short answer</h2>
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
 
-    <p>
-      Shopify has no status that means a parcel is coming back to you. The 2026-10 Admin GraphQL FulfillmentEventStatus enum has eleven values and none of them is returning to sender, the value exists only in the unstable version of the API, and the order stays Fulfilled while the box sits in your own receiving area.
-    </p>
+      <p>
+        Shopify has no status that means a parcel is coming back to you. The 2026-10 Admin GraphQL FulfillmentEventStatus enum has eleven values and none of them is returning to sender, the value exists only in the unstable version of the API, and the order stays Fulfilled while the box sits in your own receiving area.
+      </p>
 
-    <p>
-      Flow has no trigger that fires on a carrier turnaround and no condition to test against, voiding the original label is almost always impossible because voiding requires a label under 30 days old with no tracking events, and the community reship workarounds all distort either revenue or inventory. Shopify also files a return to origin as a customer return, which is why return rates in RTS-heavy markets are mostly couriers rather than products.
-    </p>
+      <p>
+        Flow has no trigger that fires on a carrier turnaround and no condition to test against, voiding the original label is almost always impossible because voiding requires a label under 30 days old with no tracking events, and the community reship workarounds all distort either revenue or inventory. Shopify also files a return to origin as a customer return, which is why return rates in RTS-heavy markets are mostly couriers rather than products.
+      </p>
 
-    <p>
-      The playbook reads the carrier feed hourly, flags the turnaround the hour it happens, names the cause, emails the customer for a corrected address before they ask, applies one reship or refund rule, restocks on physical arrival, and reports RTS separately from returns.
-    </p>
+      <p>
+        The playbook reads the carrier feed hourly, flags the turnaround the hour it happens, names the cause, emails the customer for a corrected address before they ask, applies one reship or refund rule, restocks on physical arrival, and reports RTS separately from returns.
+      </p>
+    </div>
 
     <h2>The word Shopify has not shipped</h2>
 
@@ -985,7 +989,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       A label can be voided only if it is under 30 days old,
       has no tracking events at all, was not bought on USPS
       First Class Mail, and was not added to a manifest in the
-      last 15 minutes. A parcel that travelled far enough for a
+      last 15 minutes. A parcel that traveled far enough for a
       courier to give up on it has tracking events by
       definition. You are paying for that label whatever
       happens, and you will pay for a second one.
@@ -1275,7 +1279,7 @@ plus a daily age sweep
     </div>
     <div class="faq-item" id="faq-4">
       <h2 class="faq-q">How do I reship a returned to sender order on Shopify without breaking my reports?</h2>
-      <p class="faq-a">Shopify has no reship button, and the workarounds merchants trade all distort something. Shopify Support's own answer in January 2020 was to void the original label if it still qualifies and buy a new one after correcting the address, and otherwise to duplicate the order and apply a 100 percent discount, which keeps revenue honest but double counts the units and needs a manual inventory adjustment. The most upvoted community method is to edit the original order and add a custom line item titled something like Corrected Shipping Address, then buy a label against that item, which avoids a zero dollar order and produces a new tracking number, at the cost of the customer seeing a line item that is not their product. A merchant asked in August 2024 why this is not a standard button, which is the honest summary. Voiding usually fails anyway: the Help Center requires a label under 30 days old with no tracking events, not bought on USPS First Class Mail, and not manifested in the last 15 minutes, and a parcel that travelled far enough to be turned around has tracking events by definition. An automation can do the whole sequence consistently, correct the address, create the reship, carry the original order number forward in the note, and record the second label cost against the first order so the margin story stays true.</p>
+      <p class="faq-a">Shopify has no reship button, and the workarounds merchants trade all distort something. Shopify Support's own answer in January 2020 was to void the original label if it still qualifies and buy a new one after correcting the address, and otherwise to duplicate the order and apply a 100 percent discount, which keeps revenue honest but double counts the units and needs a manual inventory adjustment. The most upvoted community method is to edit the original order and add a custom line item titled something like Corrected Shipping Address, then buy a label against that item, which avoids a zero dollar order and produces a new tracking number, at the cost of the customer seeing a line item that is not their product. A merchant asked in August 2024 why this is not a standard button, which is the honest summary. Voiding usually fails anyway: the Help Center requires a label under 30 days old with no tracking events, not bought on USPS First Class Mail, and not manifested in the last 15 minutes, and a parcel that traveled far enough to be turned around has tracking events by definition. An automation can do the whole sequence consistently, correct the address, create the reship, carry the original order number forward in the note, and record the second label cost against the first order so the margin story stays true.</p>
     </div>
     <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Why does return to sender wreck my Shopify return rate?</h2>
@@ -1344,6 +1348,7 @@ plus a daily age sweep
       </div>
     </a>
   </div>
+  <a href="shopify-shipping-and-fulfillment-automation.html" class="hub-more">more on shopify shipping and fulfillment automation &rarr;</a>
 </section>
 <footer class="foot">
   <div class="foot-top">
@@ -1362,7 +1367,7 @@ plus a daily age sweep
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

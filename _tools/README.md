@@ -1,8 +1,13 @@
 # _tools
 
-Checked-in helpers for maintaining blog.dugong.live. The leading underscore
-keeps Jekyll from publishing this directory, so nothing here is reachable on
-the live domain.
+Checked-in helpers for maintaining blog.dugong.live.
+
+The leading underscore does **not** hide this directory. The repository has a
+`.nojekyll` file, so GitHub Pages serves it raw and never runs Jekyll, which
+means `_tools/` is fetchable on the live domain like any other path. robots.txt
+disallows it in every user-agent group and says so in its own header comment.
+Corrected 2026-10-24; the earlier wording here claimed the opposite and would
+have led a later run to commit something here believing it was unreachable.
 
 ## seo-check.py
 
@@ -46,10 +51,15 @@ reason it exists rather than a general-purpose linter:
 | every dispatch appears in all three llms.txt lists | Dispatch Nº 131 was in "Articles" and "Markdown versions" and missing from "Full index" |
 | each llms.txt topic-guide count equals the guide's ItemList and its visible card count | The inventory guide read 16 in llms.txt and 17 everywhere else for four days |
 | no container holding links lacks an anchor rule in that page's stylesheet | `.article-dek` had no `a` rule, so 15 editorial links on 11 pages rendered in the dek colour with no underline and read as plain text |
-| every archive-shaped READ NEXT grid carries every dispatch newer than its own newest card | On 2026-10-21 six dispatches published 10-15 to 10-21 sat in 2 or 3 grids against 73 to 82 for every other dispatch. The grid is written at publication and no later run went back to extend it, so each new post stayed outside the site's own link graph |
+| every archive-shaped READ NEXT grid carries every dispatch newer than its own newest card. A grid is archive-shaped when it holds ten or more cards and its *leading run* of newest-first dates is at least six long | On 2026-10-21 six dispatches published 10-15 to 10-21 sat in 2 or 3 grids against 73 to 82 for every other dispatch. The grid is written at publication and no later run went back to extend it, so each new post stayed outside the site's own link graph. Tightened 2026-10-24: the first version tested the first ten dates and exempted any grid that failed, which let Nos 119, 120 and 121 through. Each has a newest-first head of six or seven followed by a curated tail, so the tenth date broke the sort and the whole grid read as curated, while the head had in fact stopped at 2026-10-14 |
 | every dispatch has at least one editorial inbound link, meaning an anchor inside another page's `<article>` | Nine dispatches had none on 2026-10-21. Card grids are navigation; a link in running prose is the one that carries topical meaning. A dispatch published within three days of the newest is exempt and reported as a note |
 | the READING callout's link set matches the md rendition's | The md alternate is what answer engines are pointed at. On 2026-10-21 one page's md carried the block indented as a code fence with no links parsed, one carried the sentence with no blockquote marker, and one wrote `&#9670;` into a Markdown file |
+| the short answer sits in a `.short-answer` container with a single `id="short-answer"`, is named in the article's `speakable` selectors, and is carried in a `BlogPosting.abstract` that appears in the visible page | Added 2026-10-24. The block was a bare `h2` plus paragraphs with no class, `speakable` named only `.article-title` and `.faq`, and no page carried an `abstract`, so the one paragraph written to be lifted whole as the answer was the single piece of the page no machine had been told about |
 | whatever llms-full.txt calls "The short answer" appears on the page and in the md | 11 of the 12 short answers existed only in llms-full.txt. The one paragraph written to be quoted back as the answer was invisible to every crawler that reads HTML |
+| every count a page writes next to a list it owns agrees with that list: each topic guide's masthead and `N DISPATCHES IN THIS GUIDE` heading against its ItemList and card count, the question index masthead against the eight guides, and the homepage's question count against the index | Added 2026-10-24 (second run). The run that shipped Nº 135 added it to the inventory guide's ItemList, card grid and llms.txt and left the guide's own two visible counts behind: the masthead said 17 and the list heading said 3 against 18 actually listed. The question index said 87 dispatches against 88, and the homepage's question count drifted twice in one day, by twelve in the morning and by six again by mid-morning |
+| claimed words divided by claimed minutes falls between 150 and 320 | Added 2026-10-24 (second run). Both dispatches shipped that day were labelled 10 min, putting them at 356 and 326 claimed words per minute against 172 to 312 for the other 87. 13 and 12 min put them at 274 and 272, in line with the two 3,000-word dispatches already at 11 min |
+| no `pubDate` or `lastBuildDate` in feed.xml is in the future | Added 2026-10-24 (second run). The feed went out with lastBuildDate at 13:30 UTC and its two newest items at 13:30 and 12:00, against a real time of 10:14. Aggregators suppress or mis-sort a future-dated item, and a lastBuildDate in the future is simply untrue |
+| llms-full.txt carries each dispatch's READING callout as the md writes it, verbatim | Added 2026-10-24, second pass. The page-to-md check above says nothing about the third rendition, and that is the one an answer engine is pointed at. 74 of 89 segments carried the callout as `> ◆ READING:` with every URL stripped, 4 had lost the blockquote marker, 1 wrote `&#9670;` into a plain-text file and 6 had no callout at all. 9 editorial URLs survived in the whole file against 209 in the md renditions, so the one block in llms-full.txt that exists for its links was the only block without any |
 
 ### Deliberate exceptions
 

@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-sync-inventory-between-two-shopify-stores.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-03" />
-    <meta property="article:modified_time" content="2026-08-13" />
+    <meta property="article:modified_time" content="2026-10-24" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html",
       "url": "https://blog.dugong.live/how-to-sync-inventory-between-two-shopify-stores.html",
       "headline": "How to sync inventory between two Shopify stores",
+      "abstract": "There is no native way to do it. Two Shopify stores are two separate accounts with separate products, separate counts and separate admins, so a sale in either one decrements that ledger alone while the other keeps advertising stock you no longer have. Multi-location inventory does solve this inside a single store, but locations live inside one account and a second store cannot read them, subscribe to them, or see that they exist.",
       "description": "At 9:41 on a Saturday night your retail store sells the last Meridian hoodie in medium, and seconds later your wholesale store sells it again. Neither store did anything wrong: two Shopify stores are two sealed inventories, and nothing native bridges them. Locations only work inside one store, Flow cannot cross accounts, and when merchants ask in community threads titled Can multiple Shopify websites share one inventory, the staff answer is a list of third-party apps. The apps match variants by SKU and sync on a delay, which is exactly where the trouble lives: blank SKUs miss silently, two-way loops have corrupted both catalogs, and the last-unit race happens inside the webhook window on the busiest weekend of the quarter. The AI playbook that treats sync as judgment instead of plumbing: match variants by SKU and report the blanks, pick one source of truth per SKU, mirror every change with the reason attached, hold the last units back from the mirrored store, read both orders when the race happens anyway and keep the one that matters more, pause during supplier feeds, and reconcile nightly with the drift named.",
       "datePublished": "2026-08-03",
-      "dateModified": "2026-08-13",
+      "dateModified": "2026-10-24",
       "articleSection": "Research",
       "keywords": "sync inventory between two Shopify stores, multiple Shopify stores same inventory, share inventory between Shopify stores, multi store inventory sync Shopify, two Shopify stores one warehouse, Shopify multi store sync, wholesale and retail Shopify stores shared inventory, Shopify oversell two stores",
-      "wordCount": 2310,
+      "wordCount": 2500,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -116,6 +117,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -753,11 +755,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 100 &middot; AUG 3, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 9 MIN READ &middot; 2,310 WORDS</span>
+    <span>&#9670; 9 MIN READ &middot; 2,500 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 100 &middot; AUG 3, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 9 MIN READ &middot; 2,310 WORDS</span>
+    <span>&#9670; 9 MIN READ &middot; 2,500 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -832,6 +834,34 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       I sync products across two different stores?</em> The answer
       never changes. Not natively. Here is a list of apps.
     </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        There is no native way to do it. Two Shopify stores are two separate accounts with separate products,
+        separate counts and separate admins, so a sale in either one decrements that ledger alone while the other
+        keeps advertising stock you no longer have. Multi-location inventory does solve this inside a single store,
+        but locations live inside one account and a second store cannot read them, subscribe to them, or see that
+        they exist.
+      </p>
+
+      <p>
+        Flow stops at the same wall, automating one store at a time with no trigger that reaches across accounts.
+        The nearest native bridge is Shopify Collective, which syncs a supplier's inventory and prices into a
+        retailer's catalog and pays the wholesale cut automatically. It is built for two businesses trading with
+        each other, so using it on two stores of your own means onboarding yourself as your own supplier and routing
+        a payout between your own bank accounts to move a number between two admins.
+      </p>
+
+      <p>
+        So the sync is yours to run, and the hard part is arbitration rather than writing. Match variants across
+        stores by SKU and report the blanks and duplicates instead of guessing at them, name one store the source of
+        truth for each SKU, the one attached to the physical shelf, mirror every change with its reason attached,
+        sold, restocked, returned or corrected, and hold a buffer on the last units so two checkouts never race for
+        one <em>hoodie</em>.
+      </p>
+    </div>
 
     <h2>Why one business ends up with two stores</h2>
 
@@ -1190,7 +1220,39 @@ refund, cancellation, restock, manual edit
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid">
+  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">13&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify inventory transfers that never get received</h3>
+        <p class="card-dek">
+          Stock in an unreceived Shopify transfer counts as incoming, not available, so your storefront says sold out while the boxes sit in the back. The AI playbook that catches the stalled ones.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-find-shopify-products-missing-images-or-weights.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">12&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to find Shopify products missing images or weights</h3>
+        <p class="card-dek">
+          Shopify has no filter for a product with no image, and a blank weight exports as zero. The AI playbook that finds the half-finished products before customers do.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1255,7 +1317,10 @@ refund, cancellation, restock, manual edit
         </div>
       </div>
     </a>
-<a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+  </div>
+  <details class="related-more">
+    <summary>41 more dispatches in the archive</summary>
+    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1286,10 +1351,8 @@ refund, cancellation, restock, manual edit
           <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </a></div>
-  <details class="related-more">
-    <summary>39 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+    </a>
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1915,6 +1978,7 @@ refund, cancellation, restock, manual edit
     </a></div>
   </details>
 
+  <a href="shopify-inventory-automation.html" class="hub-more">more on shopify inventory automation &rarr;</a>
 </section>
 
 <footer class="foot">
@@ -1934,7 +1998,7 @@ refund, cancellation, restock, manual edit
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

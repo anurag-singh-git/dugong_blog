@@ -55,6 +55,7 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html",
       "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html",
       "headline": "How to stop reordering Shopify stock you already have on order",
+      "abstract": "Incoming inventory on Shopify counts units in transit, not units you have bought, so a purchase order the supplier has not shipped reads as zero and the low stock report tells you to buy it again. The purchase order and its linked inventory transfer operate independently by design, Shopify Flow cannot read incoming quantities or purchase order data at all, and the purchase order API that landed in the 2026-10 Admin GraphQL version carries exactly two statuses, DRAFT and ORDERED, with no received state and no expected arrival date. The playbook builds the on order number Shopify does not give you, dates every open purchase order, flags the late ones, and warns the buyer before the same pallet is ordered twice.",
       "description": "Shopify defines incoming inventory as stock on its way to your location, but in practice it counts units in transit, so a purchase order the supplier has not shipped reads as zero. Your low stock report then tells you to buy what you already bought. The AI playbook that builds the on order number Shopify does not give you, dates every open purchase order, flags the late ones, and warns you before you place the same order twice.",
       "datePublished": "2026-10-15",
       "dateModified": "2026-10-15",
@@ -100,6 +101,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -850,11 +852,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       word being defined more narrowly than everyone assumes.
     </p>
 
-    <h2>The short answer</h2>
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
 
-    <p>
-      Incoming inventory on Shopify counts units in transit, not units you have bought, so a purchase order the supplier has not shipped reads as zero and the low stock report tells you to buy it again. The purchase order and its linked inventory transfer operate independently by design, Shopify Flow cannot read incoming quantities or purchase order data at all, and the purchase order API that landed in the 2026-10 Admin GraphQL version carries exactly two statuses, DRAFT and ORDERED, with no received state and no expected arrival date. The playbook builds the on order number Shopify does not give you, dates every open purchase order, flags the late ones, and warns the buyer before the same pallet is ordered twice.
-    </p>
+      <p>
+        Incoming inventory on Shopify counts units in transit, not units you have bought, so a purchase order the supplier has not shipped reads as zero and the low stock report tells you to buy it again. The purchase order and its linked inventory transfer operate independently by design, Shopify Flow cannot read incoming quantities or purchase order data at all, and the purchase order API that landed in the 2026-10 Admin GraphQL version carries exactly two statuses, DRAFT and ORDERED, with no received state and no expected arrival date. The playbook builds the on order number Shopify does not give you, dates every open purchase order, flags the late ones, and warns the buyer before the same pallet is ordered twice.
+      </p>
+    </div>
 
     <h2>Incoming does not mean on order</h2>
 
@@ -1237,7 +1241,9 @@ open purchase orders
         <a href="how-to-set-inventory-reorder-points-on-shopify.html">The reorder you always make too late</a>,
         on deciding what to buy and when, and
         <a href="how-to-fix-shopify-committed-inventory-that-never-clears.html">The stock Shopify won't let you sell</a>,
-        on the same arithmetic going wrong at the other end.
+        on the same arithmetic going wrong at the other end. And when the pallet
+        does land, <a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html">The stock in your building your store will not sell</a>,
+        on the transfer nobody receives and the stock that stays unsellable because of it.
       </span>
     </div>
 
@@ -1371,7 +1377,7 @@ open purchase orders
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

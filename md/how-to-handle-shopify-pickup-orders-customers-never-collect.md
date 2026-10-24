@@ -5,8 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-08-24
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2600
+- Word count: 2800
 - Dispatch: Nº 114 · Research · 10 min read
 - Full headline on page: How to handle Shopify pickup orders customers *never collect*
 - Keywords: pickup reminder email, resend ready for pickup notification, local pickup order not collected, uncollected pickup orders, ready for pickup resend button grayed out, cancel pickup order not collected, automatic pickup reminders, local pickup automation, AI order monitoring
@@ -17,6 +18,14 @@
 The shelf behind the register tells the story better than any report. Eleven paper bags, each with a sticky note: a name, an order number, a date. The newest is from Saturday. The oldest is from March. Every one of them is a completed sale, paid in full, picked and packed by someone on your payroll, and every one of them is also a small standing question: does she know it's here? Did the email land? Do we call? At what point does a sold candle become a stored candle become a problem?
 
 Shopify's answer to that question is one email. When you mark a pickup order ready, the customer gets a [Ready for pickup notification](https://help.shopify.com/en/manual/fulfillment/setup/delivery-methods/pickup-in-store), once. If it goes to spam, that was the notification. If she reads it on a busy Tuesday and forgets, that was the notification. There is no reminder after three days, no resend button when she calls to say she never got it, no expiry date on the shelf, and no policy engine deciding what happens next. The flow assumes every customer collects promptly, and the shelf is where that assumption goes to age.
+
+## The short answer
+
+Give the shelf a policy and a clock: start counting the day the order is marked ready, remind the customer on a fixed schedule, and decide in advance what happens when the window closes. Shopify does none of this. It sends one Ready for pickup email at the moment you mark an order ready, and then it goes quiet.
+
+There is no resend for that notification anywhere in the admin or the POS app, and the control that does appear in the order timeline sits grayed out and unclickable. There is no reminder schedule and no pickup window either, so a bag marked ready in March looks exactly like yesterday's in the fulfillment queue.
+
+Reminders therefore have to go out through whatever still works: a manual email, an SMS, the contact customer template, or the order status page link. The piece worth building is the column the admin lacks, a shelf age on every bag, with a friendly nudge at day two, a named deadline at day five, a ship-it-or-refund-it choice at day seven, and a cancel, refund and restock when the window closes. Most high street chains return goods to stock after about a week. Pick your own number and make the dates fire without anyone remembering them.
 
 ## The shelf is money standing still
 

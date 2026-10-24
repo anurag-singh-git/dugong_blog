@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-catch-shopify-orders-that-never-sync-to-shipstation.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-20" />
-<meta property="article:modified_time" content="2026-08-22" />
+<meta property="article:modified_time" content="2026-10-24" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-catch-shopify-orders-that-never-sync-to-shipstation.html",
       "url": "https://blog.dugong.live/how-to-catch-shopify-orders-that-never-sync-to-shipstation.html",
       "headline": "How to catch Shopify orders that never sync to ShipStation",
+      "abstract": "There is no alert for this failure, so you have to go looking: diff the paid orders in Shopify against everything in ShipStation across every status, and treat any paid order with no row anywhere as missing. Neither dashboard will tell you, because each one is right about its own half. The order was not rejected by the import. It was never offered to it.",
       "description": "The order lands on a Tuesday: paid in full, confirmation sent, another green row in a busy week. Nine days later the customer emails asking where it is, you open ShipStation to check the label, and there is no label, because there is no order. Shopify never sent it. No error on either dashboard, no email, nothing to click: the order fell into the gap between the store and the warehouse and aged there until the customer found it for you. Merchants have the receipts. A March 2024 thread mapped one failure precisely: customer pays, a new tax amount is applied, the authorization is voided, Shopify emails the customer a payment failure notice, the invoice is paid again, and the order never exports. About one a week that we know about, the merchant wrote, then at least half a dozen a week by the next update. ShipStation confirmed no event ever reached their side. Shopify staff answered twice, and both answers were the same: talk to ShipStation. The genre is older than that thread. In February 2021 a merchant learned Printful never received two orders his customers had already been charged for, and the official advice was to refund them. In March 2022 another reported orders not flowing with everything connected correctly, in a thread still collecting replies in May 2025. In October 2025 a merchant posted his own YouTube workaround to a thread that got zero replies. The failure has a dozen mundane causes, a voided authorization, an order already marked fulfilled, a manual draft order, a hold, a status filter, and one shape: every system reports that it is fine, and the order is nowhere. The only defense merchants have found is diffing two order lists by hand, which the March 2024 merchant called a nightmare in busy seasons where we'll have thousands of orders per day. The AI playbook that reconciles Shopify against ShipStation or any 3PL on a clock, flags every paid order missing from the pick queue within the hour, reads the payment timeline for the signatures that predict a skip, chases each gap with the probable cause attached, watches the tracking on the way back, and reports weekly on where the pipe leaked.",
       "datePublished": "2026-08-20",
-      "dateModified": "2026-08-22",
+      "dateModified": "2026-10-24",
       "articleSection": "Research",
       "keywords": "shopify orders not syncing to shipstation, order not importing shipstation, order missing in shipstation, order never sent to 3PL, printful never received order, fulfillment sync failure, order export failed, order reconciliation, AI sync monitoring, silent integration failure",
-      "wordCount": 2500,
+      "wordCount": 2700,
       "timeRequired": "PT10M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -100,6 +101,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -732,11 +734,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 111 &middot; AUG 20, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,500 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,700 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 111 &middot; AUG 20, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,500 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,700 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -804,6 +806,22 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       email, and no dashboard, and your order spent nine days at
       the bottom of it until a customer went looking for you.
     </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        There is no alert for this failure, so you have to go looking: diff the paid orders in Shopify against everything in ShipStation across every status, and treat any paid order with no row anywhere as missing. Neither dashboard will tell you, because each one is right about its own half. The order was not rejected by the import. It was never offered to it.
+      </p>
+
+      <p>
+        The states that get skipped are known. An authorization voided and repaid, the Shop Pay chain a March 2024 community thread mapped in full. An order already marked fulfilled in Shopify. Manual and draft orders, holds, archived orders, pending payments, and on the ShipStation side a filter, a tag rule, or a second store connection. Run a manual store refresh before calling one missing, because the scheduled pull can simply be late.
+      </p>
+
+      <p>
+        No merchant can fix the export itself. Shopify staff answered that thread twice by pointing at ShipStation, ShipStation confirmed no import event ever arrived, and the seam stays unowned. What you can change is <em>discovery time</em>. Put the diff on a clock, let it learn how long a normal order takes to appear, and flag the paid order that misses its window, so the gap surfaces as an alert the same hour instead of as a polite customer email nine days later.
+      </p>
+    </div>
 
     <h2>A failure with no error message</h2>
 
@@ -1219,7 +1237,39 @@ and on a clock for the queue
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid">
+  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">13&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify inventory transfers that never get received</h3>
+        <p class="card-dek">
+          Stock in an unreceived Shopify transfer counts as incoming, not available, so your storefront says sold out while the boxes sit in the back. The AI playbook that catches the stalled ones.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-find-shopify-products-missing-images-or-weights.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">12&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to find Shopify products missing images or weights</h3>
+        <p class="card-dek">
+          Shopify has no filter for a product with no image, and a blank weight exports as zero. The AI playbook that finds the half-finished products before customers do.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1284,7 +1334,10 @@ and on a clock for the queue
         </div>
       </div>
     </a>
-<a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+  </div>
+  <details class="related-more">
+    <summary>27 more dispatches in the archive</summary>
+    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1315,10 +1368,8 @@ and on a clock for the queue
           <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </a></div>
-  <details class="related-more">
-    <summary>25 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+    </a>
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1720,6 +1771,7 @@ and on a clock for the queue
     </a></div>
   </details>
 
+  <a href="shopify-shipping-and-fulfillment-automation.html" class="hub-more">more on shopify shipping and fulfillment automation &rarr;</a>
 </section>
 
 <footer class="foot">
@@ -1739,7 +1791,7 @@ and on a clock for the queue
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

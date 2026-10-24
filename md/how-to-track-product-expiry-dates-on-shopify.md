@@ -5,8 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-track-product-expiry-dates-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-08-29
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2400
+- Word count: 2600
 - Dispatch: Nº 116 · Research · 10 min read
 - Full headline on page: How to track product expiry dates on Shopify *before the stock goes bad*
 - Keywords: shopify expiry date tracking, shopify product expiration dates, track expiry dates shopify, shopify batch tracking, shopify lot number tracking, shopify flow date metafield, discount expiring products shopify, shopify best before date, AI inventory automation
@@ -17,6 +18,14 @@
 The pallet lands on a Tuesday. Sixty jars of the bestselling collagen blend, fresh from the co-packer, best before next June. Forty older jars are already on the shelf, best before November. You receive the delivery the only way Shopify knows how: 40 becomes 100.
 
 And somewhere inside that addition, the one fact that decides whether you sell those jars or bin them, which jars go bad first, stops existing. The admin will tell you how many, all day, to the unit, across every location. It will never tell you how long.
+
+## The short answer
+
+Record each delivery as its own batch, with quantity, lot number, and best-before date, then read those dates on a daily schedule. Shopify gives you nowhere to put them. Inventory is a single quantity per variant per location, with no expiry field, no batch or lot dimension behind the number, and no date in any inventory report.
+
+The community workaround is a date metafield on the product, and it fails on the second delivery. One product holds one metafield while a shelf holds two batches, so the fresher date overwrites the older one and the oldest stock ages out wearing a newer label. Shopify Flow cannot rescue it either. Staff have said repeatedly that you cannot use metafields with Get product data and cannot query by date metafields, so the alert everyone asks for cannot be built there.
+
+What works is a batch ledger swept every morning for days remaining, per batch and per location. That is what makes the rest possible: tiered alerts at sixty, thirty, and ten days, markdowns that run on the calendar instead of memory, the listing pulled when the last good batch ages out, oldest dates picked first, and a recall that becomes a lookup of which orders drew from one lot rather than an email to every customer.
 
 ## The field that does not exist
 

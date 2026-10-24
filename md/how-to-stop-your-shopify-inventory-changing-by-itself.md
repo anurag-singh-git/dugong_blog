@@ -5,8 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-08-22
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2800
+- Word count: 3000
 - Dispatch: Nº 112 · Research · 11 min read
 - Full headline on page: How to stop your Shopify inventory *changing by itself*
 - Keywords: shopify inventory changed by itself, inventory keeps changing, inventory reset to zero, inventory increasing on its own, stock count wrong, adjustment history, who changed my inventory, phantom inventory, inventory audit trail, AI inventory monitoring
@@ -17,6 +18,14 @@
 The number is wrong on a Tuesday morning. The linen shirt in medium, the one you packed the last unit of on Saturday with your own hands, shows 41 available. You own one store, you did the year-end count yourself, and you know the true number is zero. You set it to zero, save, and get on with the day.
 
 Thursday, it is 41 again. Nothing in the admin blinked. No app sent an email, no staff member owns up, no order or return touched the product. The count simply moved, the way it apparently has been moving for a while, because now that you are looking, other numbers are off too. And the store sells whatever the number says it has. Somewhere between Tuesday and Thursday your shop began cheerfully promising customers forty shirts that do not exist.
+
+## The short answer
+
+Stop correcting the number and find the author, because something with write access is moving it. Shopify's own position is that inventory does not change without a user or an app making the change, and in the documented cases the culprit was findable: a wholesale purchasing connection writing its stock counts over yours, an import app resyncing on its own schedule, a duplicated product doubling its count, a CSV import carrying a stale inventory column.
+
+The native tool for that is a variant's adjustment history, where a Created by column names the staff member, app or sales channel behind each change. It is built for spot checks, not audits. You read it one variant at a time, it reaches back 180 days, and a label like *Data correction* means only that a machine corrected something. One merchant woke to most of a catalog at zero and the history showed nothing at all.
+
+So write down which apps, channels and people are allowed to write inventory and to which locations, then match every adjustment against the order, return or transfer that should explain it. What is left over is the short list worth waking someone for: a sold out product refilling to its pre-sale count, a zero reset landing at the same minute five nights running, a forty-unit jump on a product that never sold twelve. Keep that ledger yourself, because the admin's expires and support will ask you for the affected products and the window of time.
 
 ## A poltergeist with write access
 

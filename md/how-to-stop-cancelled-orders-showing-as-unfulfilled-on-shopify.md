@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-stop-cancelled-orders-showing-as-unfulfilled-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-08-15
-- Updated: 2026-08-16
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2700
+- Word count: 2900
 - Dispatch: Nº 109 · Research · 10 min read
 - Full headline on page: How to stop *cancelled orders* showing as unfulfilled on Shopify
 - Keywords: cancelled order unfulfilled shopify, refunded order unfulfilled, remove unfulfilled tag, archive cancelled orders, unfulfilled orders count wrong, fulfillment queue cleanup, unfulfilled orders alert, order archiving, 3PL double shipment, AI queue cleanup
@@ -18,6 +18,14 @@
 The orders page says 61 unfulfilled. It is Friday morning, the picker is waiting, and you walk the list with coffee going cold: 34 orders actually need to leave the building today. The other 27 are cancelled or refunded, some of them closed out months ago, and every one wears the same yellow unfulfilled badge as the order that landed an hour ago. The number at the top of your admin is not a to-do list. It is a to-do list stapled to a graveyard, and Shopify does not tell you which rows are which.
 
 If you have ever tried to fix this, you already know the punchline: you cannot. [Cancel or refund an order](https://help.shopify.com/en/manual/fulfillment/managing-orders/canceling-orders) before it ships and the unfulfilled badge is permanent. There is no button that removes it, no setting that hides it, and no way to fulfill your way out, because Shopify will not let you fulfill an order that no longer exists.
+
+## The short answer
+
+You cannot. Once you cancel or refund an order that never shipped, the unfulfilled badge stays on it for good. Order status and fulfillment status are two separate fields, cancelling changes one and never touches the other, and Shopify said on the record in 2021 and again in December 2023 that this is expected behavior rather than a bug. No setting hides it, and the platform will not let you fulfill an order that no longer exists.
+
+Archiving is the supported route and the one worth using. It takes those orders off the open list and out of the open order count, and a setting can archive completed orders automatically so the backlog does not rebuild. What archiving does not do is change the fulfillment status that some 3PL integrations and reports read, which is how one merchant's warehouse shipped refunded items again once they came back into stock.
+
+So sort before you archive. An order is only noise when the money and the merchandise are both settled, every item refunded or restocked and nothing owed to anyone. A partial refund that still owes a customer two mugs is real work and belongs in the queue. Keep the lists your team and your warehouse actually read honest, put a clock on what is left, and the badge becomes a *detail* on a closed order that nobody needs to open.
 
 ## Five years of the same thread
 

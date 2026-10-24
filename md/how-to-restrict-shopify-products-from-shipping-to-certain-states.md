@@ -5,8 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-09-19
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2300
+- Word count: 2500
 - Dispatch: Nº 119 · Research · 9 min read
 - Full headline on page: How to restrict Shopify products from shipping to *certain states*
 - Keywords: shopify restrict shipping to certain states, shopify block states, restrict product by state shopify, shopify shipping profiles state restriction, shopify restrict shipping by zip code, shopify checkout validation, shopify state compliance, AI compliance automation
@@ -19,6 +20,14 @@ The order lands at 11:40 on a Saturday night. Four tins of hemp gummies, paid in
 Idaho is one of the states you cannot send that to. Your store took the money anyway, printed a label option, and sent a cheerful confirmation email. Nothing in Shopify knows which of your products are legal where, so nothing in Shopify had an opinion.
 
 You will spend Monday refunding it and writing an apology that has to sound like a policy rather than a mistake. Then it happens again, because the setting you are about to go looking for does not exist.
+
+## The short answer
+
+Shopify restricts shipping by zone, and a zone belongs to the whole store, so unchecking Idaho stops every product reaching Idaho. No field on a product says where that product may not go. The only product-level lever is the shipping profile, and you get up to 99 custom ones, so you move the restricted items into a profile of their own and leave the banned states with no rate at all.
+
+The restriction is then an absence rather than a rule, and it breaks in two places. Shopify adds rates together across profiles, so a cart holding one restricted item and one ordinary one pays shipping twice, which the documentation describes as intended. And when the restricted profile has no rate for the buyer's state, checkout fails the whole delivery step, so the legal items in the basket go down with the banned one.
+
+Zones also stop at the state line, so a dry county or a township cannot be expressed at all, and nothing in the settings records when a rule last changed. Enforcement has to run before the charge. A cart and checkout validation function can block checkout progress when business rules are not met, and Shopify names restricted shipping locations as an example use, but it is an empty box until something classifies your catalog and keeps the rules current. Flow runs after the order exists, so it can only tag, hold or cancel a sale you have already taken.
 
 ## Shopify restricts by zone, not by product
 

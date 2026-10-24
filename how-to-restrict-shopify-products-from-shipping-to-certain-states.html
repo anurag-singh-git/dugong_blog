@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-restrict-shopify-products-from-shipping-to-certain-states.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-09-19" />
-<meta property="article:modified_time" content="2026-09-19" />
+<meta property="article:modified_time" content="2026-10-24" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -54,12 +54,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html",
       "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html",
       "headline": "How to restrict Shopify products from shipping to certain states",
+      "abstract": "Shopify restricts shipping by zone, and a zone belongs to the whole store, so unchecking Idaho stops every product reaching Idaho. No field on a product says where that product may not go. The only product-level lever is the shipping profile, and you get up to 99 custom ones, so you move the restricted items into a profile of their own and leave the banned states with no rate at all.",
       "description": "Shopify restricts shipping by zone, not by product. The only product-level lever is a shipping profile with no rate to the restricted state, and that workaround breaks the moment a cart holds one restricted item and one ordinary one: Shopify combines rates across profiles, so the buyer is either charged shipping twice or told the whole order cannot be delivered. Merchants have asked since June 18, 2021 and the answer has not changed. Meanwhile the legal map moves faster than the setting, and Shopify zones stop at the state line, with no way to exclude a county or a postcode. The AI playbook that classifies each product once, resolves the destination below the state line, blocks only the lines a jurisdiction bans while the rest of the cart checks out, and keeps every rule dated.",
       "datePublished": "2026-09-19",
-      "dateModified": "2026-09-19",
+      "dateModified": "2026-10-24",
       "articleSection": "Research",
       "keywords": "shopify restrict shipping to certain states, shopify block states, restrict product by state shopify, shopify shipping profiles state restriction, shopify restrict shipping by zip code, shopify checkout validation, shopify state compliance, AI compliance automation",
-      "wordCount": 2300,
+      "wordCount": 2500,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -99,6 +100,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -741,11 +743,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 119 &middot; SEP 19, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 9 MIN READ &middot; 2,300 WORDS</span>
+    <span>&#9670; 9 MIN READ &middot; 2,500 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 119 &middot; SEP 19, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 9 MIN READ &middot; 2,300 WORDS</span>
+    <span>&#9670; 9 MIN READ &middot; 2,500 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -812,6 +814,22 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       mistake. Then it happens again, because the setting you
       are about to go looking for does not exist.
     </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Shopify restricts shipping by zone, and a zone belongs to the whole store, so unchecking Idaho stops every product reaching Idaho. No field on a product says where that product may not go. The only product-level lever is the shipping profile, and you get up to 99 custom ones, so you move the restricted items into a profile of their own and leave the banned states with no rate at all.
+      </p>
+
+      <p>
+        The restriction is then an absence rather than a rule, and it breaks in two places. Shopify adds rates together across profiles, so a cart holding one restricted item and one ordinary one pays shipping twice, which the documentation describes as intended. And when the restricted profile has no rate for the buyer's state, checkout fails the whole delivery step, so the legal items in the basket go down with the banned one.
+      </p>
+
+      <p>
+        Zones also stop at the state line, so a dry county or a township cannot be expressed at all, and nothing in the settings records when a rule last changed. Enforcement has to run before the charge. A cart and checkout validation function can block checkout progress when business rules are not met, and Shopify names restricted shipping locations as an example use, but it is an empty box until something classifies your catalog and keeps the rules current. Flow runs after the order exists, so it can only tag, hold or cancel a sale you have already taken.
+      </p>
+    </div>
 
     <h2>Shopify restricts by zone, not by product</h2>
 
@@ -1244,7 +1262,138 @@ catalog and rules pass
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid">
+  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">13&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify inventory transfers that never get received</h3>
+        <p class="card-dek">
+          Stock in an unreceived Shopify transfer counts as incoming, not available, so your storefront says sold out while the boxes sit in the back. The AI playbook that catches the stalled ones.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-find-shopify-products-missing-images-or-weights.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">12&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to find Shopify products missing images or weights</h3>
+        <p class="card-dek">
+          Shopify has no filter for a product with no image, and a blank weight exports as zero. The AI playbook that finds the half-finished products before customers do.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to bulk edit variant metafields on Shopify</h3>
+        <p class="card-dek">
+          Shopify's product CSV leaves variant metafields out and the grid that edits them is not in the product list. The AI playbook that fills them in bulk.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-stop-shipping-shopify-orders-with-payment-pending.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to stop shipping Shopify orders that say Payment pending</h3>
+        <p class="card-dek">
+          An order can read Payment pending and still sit in your unfulfilled queue looking normal, and Shopify's own gate before fulfillment checks risk and stock but never the money. The AI playbook that holds every one until it lands.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-shipping-labels-you-never-used.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify shipping labels you paid for and never used</h3>
+        <p class="card-dek">
+          Shopify charges you for the outbound label at purchase, gives you 30 days to void an unused one, and never once counts the days. The AI playbook that finds every label you paid for and never used.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to stop Shopify B2B prices dropping every time you run a sale</h3>
+        <p class="card-dek">
+          A weekend sale on the storefront quietly cuts your wholesale prices too, because a catalog percentage is computed off the live price. The AI playbook that holds the B2B floor.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+  </div>
+  <details class="related-more">
+    <summary>20 more dispatches in the archive</summary>
+    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to handle return to sender orders on Shopify</h3>
+        <p class="card-dek">
+          Shopify has no status that means coming back to you, so the order still says fulfilled while the box sits behind the printer. The AI playbook that catches every return to sender the same hour.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 16</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-stop-reordering-shopify-stock-you-already-have-on-order.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to stop reordering Shopify stock you already have on order</h3>
+        <p class="card-dek">
+          Incoming counts units in transit, so a purchase order your supplier has not shipped reads as zero and the report tells you to buy it twice. The AI playbook that tracks what is really on order.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 15</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1341,10 +1490,7 @@ catalog and rules pass
         </div>
       </div>
     </a>
-  </div>
-  <details class="related-more">
-    <summary>12 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
+<a href="how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1557,7 +1703,7 @@ catalog and rules pass
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

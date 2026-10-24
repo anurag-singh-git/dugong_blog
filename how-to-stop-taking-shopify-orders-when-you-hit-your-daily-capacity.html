@@ -54,6 +54,7 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html",
       "url": "https://blog.dugong.live/how-to-stop-taking-shopify-orders-when-you-hit-your-daily-capacity.html",
       "headline": "How to stop taking Shopify orders when you hit your daily capacity",
+      "abstract": "Cap orders by the day you fulfill them, not the day they are placed, and count every sales channel against the same number. Shopify cannot do this natively. There is no daily order limit setting anywhere in the admin.",
       "description": "Shopify has no daily order limit. Stock counts cap products, not your kitchen, and a midnight reset breaks the moment you have lead times. Here is the setup that caps orders by the day you actually make them.",
       "datePublished": "2026-09-21",
       "dateModified": "2026-09-21",
@@ -99,6 +100,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -804,15 +806,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       If you run a bakery, a florist, a meal prep kitchen, a print shop or anything else made to order, this is the problem that decides whether Saturday is profitable or a mess. Here is how to fix it properly.
     </p>
 
-    <h2>The short answer</h2>
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
 
-    <p>
-      Cap orders by the day you fulfill them, not the day they are placed, and count every sales channel against the same number. Shopify cannot do this natively. There is no daily order limit setting anywhere in the admin.
-    </p>
+      <p>
+        Cap orders by the day you fulfill them, not the day they are placed, and count every sales channel against the same number. Shopify cannot do this natively. There is no daily order limit setting anywhere in the admin.
+      </p>
 
-    <p>
-      The closest native tool is inventory. Set a product's stock to your daily limit and it sells out when you hit it. That works for one product with no lead time. For everything else you need something that counts committed work per day and closes the <em>date</em>, not the product, when it fills.
-    </p>
+      <p>
+        The closest native tool is inventory. Set a product's stock to your daily limit and it sells out when you hit it. That works for one product with no lead time. For everything else you need something that counts committed work per day and closes the <em>date</em>, not the product, when it fills.
+      </p>
+    </div>
 
     <h2>Merchants are asking this right now</h2>
 
@@ -1032,7 +1036,138 @@ order from any channel, plus a
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid">
+  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">13&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify inventory transfers that never get received</h3>
+        <p class="card-dek">
+          Stock in an unreceived Shopify transfer counts as incoming, not available, so your storefront says sold out while the boxes sit in the back. The AI playbook that catches the stalled ones.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-find-shopify-products-missing-images-or-weights.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">12&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to find Shopify products missing images or weights</h3>
+        <p class="card-dek">
+          Shopify has no filter for a product with no image, and a blank weight exports as zero. The AI playbook that finds the half-finished products before customers do.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to bulk edit variant metafields on Shopify</h3>
+        <p class="card-dek">
+          Shopify's product CSV leaves variant metafields out and the grid that edits them is not in the product list. The AI playbook that fills them in bulk.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 21</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-stop-shipping-shopify-orders-with-payment-pending.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to stop shipping Shopify orders that say Payment pending</h3>
+        <p class="card-dek">
+          An order can read Payment pending and still sit in your unfulfilled queue looking normal, and Shopify's own gate before fulfillment checks risk and stock but never the money. The AI playbook that holds every one until it lands.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-shipping-labels-you-never-used.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify shipping labels you paid for and never used</h3>
+        <p class="card-dek">
+          Shopify charges you for the outbound label at purchase, gives you 30 days to void an unused one, and never once counts the days. The AI playbook that finds every label you paid for and never used.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to stop Shopify B2B prices dropping every time you run a sale</h3>
+        <p class="card-dek">
+          A weekend sale on the storefront quietly cuts your wholesale prices too, because a catalog percentage is computed off the live price. The AI playbook that holds the B2B floor.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+  </div>
+  <details class="related-more">
+    <summary>17 more dispatches in the archive</summary>
+    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to handle return to sender orders on Shopify</h3>
+        <p class="card-dek">
+          Shopify has no status that means coming back to you, so the order still says fulfilled while the box sits behind the printer. The AI playbook that catches every return to sender the same hour.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 16</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-stop-reordering-shopify-stock-you-already-have-on-order.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to stop reordering Shopify stock you already have on order</h3>
+        <p class="card-dek">
+          Incoming counts units in transit, so a purchase order your supplier has not shipped reads as zero and the report tells you to buy it twice. The AI playbook that tracks what is really on order.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 15</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1129,10 +1264,7 @@ order from any channel, plus a
         </div>
       </div>
     </a>
-  </div>
-  <details class="related-more">
-    <summary>9 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="card">
+<a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1297,7 +1429,7 @@ order from any channel, plus a
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

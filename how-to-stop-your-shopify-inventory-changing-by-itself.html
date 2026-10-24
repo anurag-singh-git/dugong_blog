@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-stop-your-shopify-inventory-changing-by-itself.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-22" />
-<meta property="article:modified_time" content="2026-08-22" />
+<meta property="article:modified_time" content="2026-10-24" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html",
       "url": "https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html",
       "headline": "How to stop your Shopify inventory changing by itself",
+      "abstract": "Stop correcting the number and find the author, because something with write access is moving it. Shopify's own position is that inventory does not change without a user or an app making the change, and in the documented cases the culprit was findable: a wholesale purchasing connection writing its stock counts over yours, an import app resyncing on its own schedule, a duplicated product doubling its count, a CSV import carrying a stale inventory column.",
       "description": "The number is wrong on a Tuesday morning: a product you counted by hand last week shows 41 units, and you own 1. Nothing in the admin says why. Merchants have been comparing notes on this for years in a thread opened in May 2022 and still collecting replies in February 2025: sold out Christmas toys back in stock with their original numbers, in a store that had definitely sold them; items with 1 unit showing more than 40; a merchant who watched it happen at least once a month for two years while support was unable to assist. One merchant's low stock alert became an accidental monitoring system: every night at 9:20pm his digital products reset to zero, he set them back to 1000, and the next night they were zero again, five nights running. Another discovered that duplicating a product doubled its inventory, and summed up the aftermath: overselling, refunds, and Shopify's response just blames the user. In a second thread a store woke to the majority of its catalog reset to zero overnight, with no inventory apps installed and an adjustment history showing no evidence of the change; ten months later the only update was another merchant asking, was this resolved? Having the same issue today and no one can help. Shopify's own position, from staff in the thread: inventory should not change without a user or an app making the change. Which is true, and is precisely the problem, because the admin shows you the number, not the story. Adjustment history runs 180 days, reads one variant at a time, and files some mysteries under Data correction, defined in the help docs as an error correction that was made automatically. The causes are findable: a wholesale channel writing retail counts, a dropship app resyncing, a duplicate doubling, a CSV overwriting, a POS tap. The merchants' workaround is a standing stock take, and one settled for showing one less unit than he owns. The AI playbook that watches every adjustment as it lands, matches each one to an order, transfer, return, or named app, flags the orphans in minutes, keeps its own ledger past the 180 day window, and reports weekly on which door the changes came through.",
       "datePublished": "2026-08-22",
-      "dateModified": "2026-08-22",
+      "dateModified": "2026-10-24",
       "articleSection": "Research",
       "keywords": "shopify inventory changed by itself, inventory keeps changing, inventory reset to zero, inventory increasing on its own, stock count wrong, adjustment history, who changed my inventory, phantom inventory, inventory audit trail, AI inventory monitoring",
-      "wordCount": 2800,
+      "wordCount": 3000,
       "timeRequired": "PT11M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -100,6 +101,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -732,11 +734,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 112 &middot; AUG 22, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 11 MIN READ &middot; 2,800 WORDS</span>
+    <span>&#9670; 11 MIN READ &middot; 3,000 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 112 &middot; AUG 22, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 11 MIN READ &middot; 2,800 WORDS</span>
+    <span>&#9670; 11 MIN READ &middot; 3,000 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -802,6 +804,22 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       Tuesday and Thursday your shop began cheerfully promising
       customers forty shirts that do not exist.
     </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Stop correcting the number and find the author, because something with write access is moving it. Shopify's own position is that inventory does not change without a user or an app making the change, and in the documented cases the culprit was findable: a wholesale purchasing connection writing its stock counts over yours, an import app resyncing on its own schedule, a duplicated product doubling its count, a CSV import carrying a stale inventory column.
+      </p>
+
+      <p>
+        The native tool for that is a variant's adjustment history, where a Created by column names the staff member, app or sales channel behind each change. It is built for spot checks, not audits. You read it one variant at a time, it reaches back 180 days, and a label like <em>Data correction</em> means only that a machine corrected something. One merchant woke to most of a catalog at zero and the history showed nothing at all.
+      </p>
+
+      <p>
+        So write down which apps, channels and people are allowed to write inventory and to which locations, then match every adjustment against the order, return or transfer that should explain it. What is left over is the short list worth waking someone for: a sold out product refilling to its pre-sale count, a zero reset landing at the same minute five nights running, a forty-unit jump on a product that never sold twelve. Keep that ledger yourself, because the admin's expires and support will ask you for the affected products and the window of time.
+      </p>
+    </div>
 
     <h2>A poltergeist with write access</h2>
 
@@ -1244,7 +1262,39 @@ and on a clock for the sweep
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid">
+  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">13&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify inventory transfers that never get received</h3>
+        <p class="card-dek">
+          Stock in an unreceived Shopify transfer counts as incoming, not available, so your storefront says sold out while the boxes sit in the back. The AI playbook that catches the stalled ones.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-find-shopify-products-missing-images-or-weights.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">12&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to find Shopify products missing images or weights</h3>
+        <p class="card-dek">
+          Shopify has no filter for a product with no image, and a blank weight exports as zero. The AI playbook that finds the half-finished products before customers do.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1309,7 +1359,10 @@ and on a clock for the sweep
         </div>
       </div>
     </a>
-<a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+  </div>
+  <details class="related-more">
+    <summary>26 more dispatches in the archive</summary>
+    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1340,10 +1393,8 @@ and on a clock for the sweep
           <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </a></div>
-  <details class="related-more">
-    <summary>24 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+    </a>
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1729,6 +1780,7 @@ and on a clock for the sweep
     </a></div>
   </details>
 
+  <a href="shopify-inventory-automation.html" class="hub-more">more on shopify inventory automation &rarr;</a>
 </section>
 
 <footer class="foot">
@@ -1748,7 +1800,7 @@ and on a clock for the sweep
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

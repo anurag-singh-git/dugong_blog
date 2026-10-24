@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-08-03
-- Updated: 2026-08-15
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2410
+- Word count: 2600
 - Dispatch: Nº 101 · Research · 9 min read
 - Full headline on page: How to automatically follow up on *unpaid draft orders* on Shopify
 - Keywords: Shopify draft order follow up, unpaid draft order invoice Shopify, Shopify draft order payment reminder, Shopify quote follow up automation, draft order invoice link expires, auto cancel draft orders Shopify, Shopify Flow draft order trigger, B2B quote follow up Shopify
@@ -20,6 +20,14 @@ An interior designer in Savannah emails a lighting studio about twelve brass pen
 Because that is the entire feature. One email, one checkout link, and the platform's part is over. If the designer opens the invoice on her phone between site visits, means to pay on Friday, and forgets, nothing happens. Not to her: no reminder, no nudge, no second email, ever. And not to you: no alert, no aging view, no overdue state. The draft wears the same badge on day forty that it wore in the first hour.
 
 The forums have been asking about this for years. The thread titled *How to automate unpaid invoice reminders?* gets pointed at apps. The one titled *auto cancel [draft orders](https://help.shopify.com/en/manual/fulfillment/managing-orders/create-orders)* gets pointed at scripts. And the merchants inside them describe the same Drafts page: dozens or hundreds of open quotes, some alive, some long dead, and no way inside Shopify to tell which is which, let alone to do anything about either.
+
+## The short answer
+
+Shopify sends one invoice email and then stops. A draft order has three states, Open, Invoice sent and Completed, and only the customer reaches the third by paying. There is no due date, no overdue status and no second email unless a human opens the draft and sends it, so a quote wears the same badge on day forty as in its first hour.
+
+The reminder machinery exists one screen away and excludes you. Orders carrying payment terms can send up to five scheduled reminders on and after the due date; a draft has no due date, so nothing counts down and nothing fires. Completing the draft as a pending payment order with Net 7 attached borrows those reminders, at the price of turning every undecided quote into a live order that commits stock and needs a cancellation to bury it.
+
+Stale quotes are the other half, and a draft has no cancelled status: leave it or delete it. Leaving it keeps the checkout link live, with prices locked by default, so a January email can be paid at January prices in July. The only expiry is self-deletion after a full year of inactivity, and only for drafts created on or after April 1, 2025. So run the follow-up yourself on a cadence the quote's value deserves, answer replies the same hour, check stock before every nudge, and retire a quote on a clock you *chose*.
 
 ## One email, then the machinery goes quiet
 

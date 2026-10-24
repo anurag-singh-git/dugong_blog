@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-change-a-shopify-order-from-local-pickup-to-shipping.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-31
-- Updated: 2026-08-15
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2362
+- Word count: 2600
 - Dispatch: Nº 96 · Research · 9 min read
 - Full headline on page: How to change a Shopify order from local pickup *to shipping*
 - Keywords: change Shopify order from local pickup to shipping, customer accidentally chose local pickup Shopify, Shop Pay defaults to local pickup, convert pickup order to shipping Shopify, edit delivery method Shopify order, local pickup order shipped by mistake, Shopify checkout preselects cheapest rate, wrong delivery method Shopify
@@ -20,6 +20,14 @@ A customer in Marietta, Georgia finds your candle brand on Instagram and checks 
 She replies to the confirmation within the hour, half apologetic and half annoyed, asking you to just ship it. And this is where your afternoon actually goes sideways, because there is no button in Shopify for what she is asking. You cannot open the order and change local pickup to shipping. The delivery method is the one part of an order that [order editing](https://blog.dugong.live/how-to-edit-a-shopify-order-after-its-been-placed.html) does not touch.
 
 If this happened once, it would be a funny support email. Merchants on the Shopify community forums report several wrong-method orders a week, every week, and the thread asking Shopify to stop defaulting checkout to pickup carries the title *Shop Pay defaulting to local pick up instead of letting customer decide is causing major issues*. Shopify staff replied, acknowledged the problem, and logged a feature request. That was the resolution. The thread is still collecting replies.
+
+## The short answer
+
+You cannot change it. Order editing covers items, add one, remove one, adjust a quantity and collect the difference, and the delivery method is the one part of the order it does not touch. There is no supported way to turn a pickup order into a shipping order, and orders placed with local pickup or local delivery often refuse editing at all.
+
+The cause is upstream and just as fixed. Checkout preselects the cheapest option for the cart, local pickup is free, so on any store that offers it pickup sits at the top already selected for every eligible customer, and a phone shopper gliding through saved details never reads the delivery section. There is no setting that changes which method is preselected, no way to reorder the list, and no way to make pickup opt-in.
+
+What works is refund and re-place, caught early enough that the customer still remembers checking out, plus a check that runs before any of it. Read the delivery method against the shipping address, the distance to the pickup location and the customer's history on every new order, flag the mismatches before fulfillment, and ask in one same-hour email whether they meant to collect or to be shipped. The workarounds merchants trade, a rate renamed FREE PICKUP with the street address inside it, buy clarity at checkout and change *nothing* about the order you already have.
 
 ## Why checkout keeps picking pickup for your customers
 

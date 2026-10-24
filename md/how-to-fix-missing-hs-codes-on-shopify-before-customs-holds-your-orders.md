@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-fix-missing-hs-codes-on-shopify-before-customs-holds-your-orders.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-08-13
-- Updated: 2026-08-14
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2800
+- Word count: 3000
 - Dispatch: Nº 107 · Research · 10 min read
 - Full headline on page: How to fix *missing HS codes* on Shopify before customs holds your orders
 - Keywords: shopify hs codes, add hs codes shopify, missing hs code, bulk edit hs codes, country of origin shopify, customs information, duties wrong at checkout, de minimis, customs hold, AI hs code classification
@@ -20,6 +20,14 @@ The email lands Thursday at 7:52 am, from a customer in Denver. There is a card 
 Two years ago that parcel was invisible. Anything valued under $800 entered the United States duty free under the de minimis rule, which meant the two customs fields on a Shopify product, the HS code and the country of origin, could stay blank for an entire business lifetime without costing a cent. Executive Order 14324, signed July 30, 2025, ended that on August 29, 2025, for every country and every value at once. The response told you how unprepared the world's parcel infrastructure was: in the last week of that August, more than 20 national postal operators, Japan Post announcing on the 25th, Australia Post and Royal Mail stopping on the 26th, much of Europe in the same few days, paused US-bound parcels in whole or in part rather than guess at paperwork they had never been asked for. A temporary flat fee of $80 to $200 per postal package softened the landing for six months; that window closed at the end of February 2026. Then on July 1, 2026, the European Union removed its own 150 euro exemption and replaced it with a flat 3 euro duty counted per product category, and the category is the six digit tariff subheading: a parcel spanning three headings pays three times. Read that twice, because it quietly redefines the field in your admin. The HS code is no longer paperwork that travels with the parcel. It is the unit the bill is counted in.
 
 Your catalog was not built for that. Most catalogs were not. The fields were optional when every product in them was created, no import requires them, no theme displays them, and nothing in the admin has ever chased you about the blanks. The border chases your customer instead.
+
+## The short answer
+
+Fill the HS code and the country of origin on every variant, because both fields live on the variant rather than the product and nothing in Shopify enforces them. A product created tonight publishes, sells and ships without either. Shopify added a store level default for country of origin in May 2025, and there is still no equivalent for HS codes: no default, no product level value, no inheritance.
+
+Leave them blank and duties at checkout fall back to the description and the product category, which the help center itself calls likely to be inaccurate, and warns might put additional duties on your customer at delivery. That is the carrier texting a payment link to someone who already paid. A wrong code fails in the other direction: one merchant measured duties computed at 95 to 100 percent of the price where the correct rate was 3.5 to 5 percent, and nobody checks out through that.
+
+Three native routes exist: one variant at a time on the product page, the bulk editor, and the duties CSV under Settings, then Taxes and duties, which exports the products with information missing and is the closest thing to a coverage report. None survives 400 products at three variants, which is 1,200 fields. What does is proposing six digit codes from title, description and materials with confidence attached, sending confident batches to the bulk editor and the tail to a human, and flagging any product that goes live without codes the same *hour*.
 
 ## Two fields nobody filled in
 

@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-stop-fake-customer-accounts-and-spam-signups-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-14" />
-    <meta property="article:modified_time" content="2026-08-15" />
+    <meta property="article:modified_time" content="2026-10-24" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-stop-fake-customer-accounts-and-spam-signups-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-stop-fake-customer-accounts-and-spam-signups-on-shopify.html",
       "headline": "How to stop fake customer accounts and spam signups on Shopify",
+      "abstract": "You cannot stop them at the door. Captcha and double opt-in are the standard advice, and merchants who turned both on report no change, because the bots address Shopify's backend endpoints directly and never load the storefront form the challenge sits on. The one place traffic can be blocked before it reaches the platform is the web application firewall, and that belongs to Shopify rather than to you or to any app in the store.",
       "description": "The count is there when you open the admin Monday morning: 340 new customers overnight, in a store that logged 19 sessions. The names are keyboard mash, the addresses repeat, and every one of them is subscribed to your newsletter. Merchants have been reporting this for years and are still reporting it now: a March 2024 thread describes hundreds and thousands of fake signups per week wrecking email marketing, and a May 2025 Shopify Plus thread maps the current wave, a bot running more than 18,000 rotating IPs with browser-identical headers, hitting storefront routes to corrupt analytics and backend endpoints to spam carts and mint accounts. The replies read like a casualty list: 1,000 fake accounts a day, 500 abandoned orders a day, domain reputation sliding as welcome emails fire at addresses that report them as spam. Captcha does not stop it: one merchant had both captcha settings enabled and called the result no difference, then hired Shopify Experts who could not prevent it either. Apps operate after the request has already hit Shopify's infrastructure, the fix lives at the WAF level only Shopify controls, and the platform points merchants back to apps. So merchants built their own defense out of Shopify Flow: rules that delete customers when the first name is empty or the address equals a known bot template, and one merchant wiped nearly 50,000 fake accounts that way. The rules work until the bot rotates: Flow matches exact strings, a stray comma breaks the match, every new address template needs a new rule, and the Shopify-to-Klaviyo sync can push a bot profile into your email list before the delete lands. Meanwhile the fallout compounds quietly: ESPs bill by profile count, abandoned cart flows email bots, sessions rise while conversion falls, and Performance Max reads the polluted data as a store that stopped converting and scales your reach down. The AI playbook that reads every new profile the way a merchant's eye does, scores it against the patterns bots cannot hide, quarantines it before the email sync, deletes with an audit trail, sweeps the backlog, alerts on signup storms, and reports what it caught weekly.",
       "datePublished": "2026-08-14",
-      "dateModified": "2026-08-15",
+      "dateModified": "2026-10-24",
       "articleSection": "Research",
       "keywords": "shopify fake customer accounts, spam customer signups, bot signups shopify, fake newsletter subscribers, delete spam customers, shopify bot attack, fake abandoned checkouts, captcha not working, customer list cleanup, AI bot detection",
-      "wordCount": 2600,
+      "wordCount": 2800,
       "timeRequired": "PT10M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -108,6 +109,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -740,11 +742,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 108 &middot; AUG 14, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,600 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,800 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 108 &middot; AUG 14, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,600 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,800 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -824,6 +826,34 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       merchant again: these solutions do not work, I have hired
       Shopify Experts and they cannot prevent this either.
     </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        You cannot stop them at the door. Captcha and double opt-in are the standard advice, and merchants who
+        turned both on report no change, because the bots address Shopify's backend endpoints directly and never
+        load the storefront form the challenge sits on. The one place traffic can be blocked before it reaches the
+        platform is the web application firewall, and that belongs to Shopify rather than to you or to any app in
+        the store.
+      </p>
+
+      <p>
+        So the work is containment. The merchants who got it working ran Shopify <code>Flow</code> on customer
+        created, deleting a profile when the first name is empty or the address matches the template their wave was
+        stamping out; one reported the set catching 99.9 percent of his bots, and segment sweeps on the same
+        criteria clearing nearly 50,000 fake accounts. The seam is that Flow compares strings exactly, so another
+        merchant's rule caught nothing over a comma his data did not have.
+      </p>
+
+      <p>
+        Rotate the template and every rule goes blind until a human reads the new pattern and writes the next one.
+        What holds is judgment rather than equality: score each new profile on name, address, email domain,
+        geography and session behavior, quarantine the suspects before they reach any marketing flow, delete only
+        in logged batches and never a profile with an order, and page a human when signup velocity leaves the
+        store's <em>baseline</em>.
+      </p>
+    </div>
 
     <h2>The signup nothing stops</h2>
 
@@ -1239,7 +1269,39 @@ and every hour for the backlog
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid">
+  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">13&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify inventory transfers that never get received</h3>
+        <p class="card-dek">
+          Stock in an unreceived Shopify transfer counts as incoming, not available, so your storefront says sold out while the boxes sit in the back. The AI playbook that catches the stalled ones.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-find-shopify-products-missing-images-or-weights.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">12&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to find Shopify products missing images or weights</h3>
+        <p class="card-dek">
+          Shopify has no filter for a product with no image, and a blank weight exports as zero. The AI playbook that finds the half-finished products before customers do.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1304,7 +1366,10 @@ and every hour for the backlog
         </div>
       </div>
     </a>
-<a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+  </div>
+  <details class="related-more">
+    <summary>30 more dispatches in the archive</summary>
+    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1335,10 +1400,8 @@ and every hour for the backlog
           <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </a></div>
-  <details class="related-more">
-    <summary>28 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+    </a>
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1788,6 +1851,7 @@ and every hour for the backlog
     </a></div>
   </details>
 
+  <a href="shopify-fraud-and-risk-automation.html" class="hub-more">more on shopify fraud and risk automation &rarr;</a>
 </section>
 
 <footer class="foot">
@@ -1807,7 +1871,7 @@ and every hour for the backlog
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

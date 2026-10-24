@@ -55,6 +55,7 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html",
       "url": "https://blog.dugong.live/how-to-fix-shopify-committed-inventory-that-never-clears.html",
       "headline": "How to fix Shopify committed inventory that never clears",
+      "abstract": "Shopify will not let you touch committed inventory and will not tell you which orders hold it. On hand is the sum of available, committed, reserved, damaged, safety stock and quality control, your storefront sells available, and committed is the one state the Admin API cannot adjust or move, so there is no field, button, app or Flow action that releases it. The only levers are the orders behind it: fulfill the line, cancel with restock, reassign the location, release the hold, end the draft reserve, or receive the transfer. Build the attribution yourself.",
       "description": "On hand is right, available is wrong, and the difference is sitting in committed for an order that shipped two months ago. Committed is the one inventory state Shopify will not let you adjust, move or query by order, so the only way out is through the orders holding it. The AI playbook that attributes every committed unit to an order, picks the right release for each one, and gets the shelf selling again.",
       "datePublished": "2026-10-12",
       "dateModified": "2026-10-12",
@@ -100,6 +101,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -860,15 +862,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       physically pick up.
     </p>
 
-    <h2>The short answer</h2>
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
 
-    <p>
-      Shopify will not let you touch committed inventory and will not tell you which orders hold it. On hand is the sum of available, committed, reserved, damaged, safety stock and quality control, your storefront sells available, and committed is the one state the Admin API cannot adjust or move, so there is no field, button, app or Flow action that releases it. The only levers are the orders behind it: fulfill the line, cancel with restock, reassign the location, release the hold, end the draft reserve, or receive the transfer. Build the attribution yourself.
-    </p>
+      <p>
+        Shopify will not let you touch committed inventory and will not tell you which orders hold it. On hand is the sum of available, committed, reserved, damaged, safety stock and quality control, your storefront sells available, and committed is the one state the Admin API cannot adjust or move, so there is no field, button, app or Flow action that releases it. The only levers are the orders behind it: fulfill the line, cancel with restock, reassign the location, release the hold, end the draft reserve, or receive the transfer. Build the attribution yourself.
+      </p>
 
-    <p>
-      Rebuild the per-order breakdown nightly from open unfulfilled line items, draft reserves and ready transfers, reconcile the total against committed, age every commitment, classify why each stuck one is stuck, apply the one release that fits, alert on any variant with on hand above zero and available at or below zero, and escalate the units no order explains with the numbers attached. The judgment, deciding which release a stuck order deserves without inventing a shipment or losing a sale, is why this belongs with an agent rather than a condition builder.
-    </p>
+      <p>
+        Rebuild the per-order breakdown nightly from open unfulfilled line items, draft reserves and ready transfers, reconcile the total against committed, age every commitment, classify why each stuck one is stuck, apply the one release that fits, alert on any variant with on hand above zero and available at or below zero, and escalate the units no order explains with the numbers attached. The judgment, deciding which release a stuck order deserves without inventing a shipment or losing a sale, is why this belongs with an agent rather than a condition builder.
+      </p>
+    </div>
 
     <h2>What committed actually is</h2>
 
@@ -1407,7 +1411,7 @@ above zero
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

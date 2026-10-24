@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-stop-fake-customer-accounts-and-spam-signups-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-08-14
-- Updated: 2026-08-15
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2600
+- Word count: 2800
 - Dispatch: Nº 108 · Research · 10 min read
 - Full headline on page: How to stop *fake customer accounts* and spam signups on Shopify
 - Keywords: shopify fake customer accounts, spam customer signups, bot signups shopify, fake newsletter subscribers, delete spam customers, shopify bot attack, fake abandoned checkouts, captcha not working, customer list cleanup, AI bot detection
@@ -20,6 +20,14 @@ The count is there when you open the admin Monday at 6:12 am: 340 new customers 
 This is not a new problem having a moment. It is an old problem that never got fixed. A community thread asking how to stop spam bots signing up for accounts has been collecting replies for years and sat at 3,107 views with activity as recent as May 2025. In March 2024 a merchant opened a thread titled 1000s of fake customer account sign ups, all caps, saying they were getting flooded with hundreds and thousands of fake signups a week, that it was completely messing up their email marketing, and that they had already torn the newsletter form out of their theme without effect. The replies said what replies always say: turn on captcha, turn on double opt-in.
 
 Then in April 2025 a merchant posted the follow-up the genre had been waiting for: both captcha settings enabled, and it made no difference. Two months later, the same merchant again: these solutions do not work, I have hired Shopify Experts and they cannot prevent this either.
+
+## The short answer
+
+You cannot stop them at the door. Captcha and double opt-in are the standard advice, and merchants who turned both on report no change, because the bots address Shopify's backend endpoints directly and never load the storefront form the challenge sits on. The one place traffic can be blocked before it reaches the platform is the web application firewall, and that belongs to Shopify rather than to you or to any app in the store.
+
+So the work is containment. The merchants who got it working ran Shopify `Flow` on customer created, deleting a profile when the first name is empty or the address matches the template their wave was stamping out; one reported the set catching 99.9 percent of his bots, and segment sweeps on the same criteria clearing nearly 50,000 fake accounts. The seam is that Flow compares strings exactly, so another merchant's rule caught nothing over a comma his data did not have.
+
+Rotate the template and every rule goes blind until a human reads the new pattern and writes the next one. What holds is judgment rather than equality: score each new profile on name, address, email domain, geography and session behavior, quarantine the suspects before they reach any marketing flow, delete only in logged batches and never a profile with an order, and page a human when signup velocity leaves the store's *baseline*.
 
 ## The signup nothing stops
 

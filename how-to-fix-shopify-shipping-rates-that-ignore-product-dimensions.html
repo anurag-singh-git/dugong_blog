@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-09-18" />
-<meta property="article:modified_time" content="2026-09-18" />
+<meta property="article:modified_time" content="2026-10-24" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -54,12 +54,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html",
       "url": "https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html",
       "headline": "How to fix Shopify shipping rates that ignore product dimensions",
+      "abstract": "Shopify has nowhere to store a box. A variant carries a weight and no length, width or height, not on the product, not on the variant, not in the shipping section of the admin. What the platform offers instead is one default package saved in Shipping settings, and every carrier-calculated quote your store sends out describes that same box whether the cart holds a phone case or a rug.",
       "description": "The order landed at 9:40 on a Friday night: one floor lamp, nine pounds on the scale, $11.40 of shipping collected at checkout. Monday you box it 44 by 12 by 12, because a floor lamp is 44 inches long, and the label costs $38. Nothing malfunctioned. Shopify quoted the only fact your store knows how to send, the weight, because a Shopify variant has a weight field and no length, width or height field anywhere, and every carrier-calculated quote goes out describing one default package whether the cart holds a phone case or a rug. A Shopify moderator answered the first dimensions request on February 5, 2021 in one sentence, Shopify doesn't have support for that, we use an app called boxify, and staff were still naming the same app in March 2024. In between: a November 2021 developer asking how to pass length, height and width into a CarrierService rate request, unanswered, asked again in April 2024, unanswered; $9.69 collected in March 2023 against a label that cost nearly $13, with staff confirming discrepancies occur when order dimensions are slightly larger than listed; a February 2024 merchant, the calculation is completely wrong and under charging my customers due to lack of product dimensions, this should be a problem addressed by Shopify, not third party apps; a March 2024 thread past a hundred replies naming the $20 discrepancy on large and bulky items calculated with the default small box; and January 2025, how on earth does it make sense for Shopify to only calculate shipping based on one default package. Meanwhile UPS and FedEx bill the greater of actual and dimensional weight at length times width times height over 139, that lamp dims at 46 pounds against nine, both carriers began rounding every fractional inch up on August 18, 2025, and in January 2026 both set additional handling at 10,368 cubic inches and oversize at 17,280. The gap arrives twice and never at checkout: the label on the day, and a price adjustment weeks later when the carrier finds the package dimensions specified on the label do not match the actual dimensions of shipment. Flow cannot be present for a rate request and Delivery Customization Functions can only hide, rename and reorder, never create an option or change a price. The AI playbook that fills the missing dimensions from supplier sheets with a confidence score, keeps a library of the boxes you really own, packs each cart before quoting it, and reconciles every quote against its label and its adjustment so the SKUs that keep quoting under name themselves.",
       "datePublished": "2026-09-18",
-      "dateModified": "2026-09-18",
+      "dateModified": "2026-10-24",
       "articleSection": "Research",
       "keywords": "shopify product dimensions, shopify dimensional weight, shopify undercharging shipping, shopify shipping rates wrong at checkout, shopify default package size, shopify carrier calculated shipping, dimensional weight divisor 139, AI shipping automation",
-      "wordCount": 2450,
+      "wordCount": 2650,
       "timeRequired": "PT10M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -99,6 +100,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -742,11 +744,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 118 &middot; SEP 18, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,450 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,650 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 118 &middot; SEP 18, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,450 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,650 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -812,6 +814,22 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       box never entered the conversation, because there is
       nowhere in Shopify to put one.
     </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Shopify has nowhere to store a box. A variant carries a weight and no length, width or height, not on the product, not on the variant, not in the shipping section of the admin. What the platform offers instead is one default package saved in Shipping settings, and every carrier-calculated quote your store sends out describes that same box whether the cart holds a phone case or a rug.
+      </p>
+
+      <p>
+        Carriers do not price parcels that way. UPS and FedEx bill the greater of actual weight and dimensional weight, which is length times width times height divided by 139, with every fractional inch rounded up since August 18, 2025. Surcharges stack on top once the cubic volume crosses the thresholds both carriers set in January 2026. The real cost then reaches you twice, in the label price and again in a price adjustment the carrier posts weeks later, and never at checkout.
+      </p>
+
+      <p>
+        The fix lives outside the platform. Store a length, width and height per variant yourself, keep a library of the boxes you really own, pack each cart into those boxes and return the greater of dimensional and actual weight through the Carrier Service API, which is the only route that computes a rate. Flow never sees that moment, because a rate request is not one of the events it can trigger on, and Delivery Customization functions only hide, rename and reorder options. Then reconcile every quote against its label and its adjustment, so the SKUs quoting under name themselves.
+      </p>
+    </div>
 
     <h2>Shopify stores a weight. It does not store a box.</h2>
 
@@ -1255,7 +1273,39 @@ orders and carrier bills
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid">
+  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">13&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify inventory transfers that never get received</h3>
+        <p class="card-dek">
+          Stock in an unreceived Shopify transfer counts as incoming, not available, so your storefront says sold out while the boxes sit in the back. The AI playbook that catches the stalled ones.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-find-shopify-products-missing-images-or-weights.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">12&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to find Shopify products missing images or weights</h3>
+        <p class="card-dek">
+          Shopify has no filter for a product with no image, and a blank weight exports as zero. The AI playbook that finds the half-finished products before customers do.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1320,7 +1370,10 @@ orders and carrier bills
         </div>
       </div>
     </a>
-<a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+  </div>
+  <details class="related-more">
+    <summary>20 more dispatches in the archive</summary>
+    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1351,10 +1404,8 @@ orders and carrier bills
           <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </a></div>
-  <details class="related-more">
-    <summary>18 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+    </a>
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1644,6 +1695,7 @@ orders and carrier bills
     </a></div>
   </details>
 
+  <a href="shopify-shipping-and-fulfillment-automation.html" class="hub-more">more on shopify shipping and fulfillment automation &rarr;</a>
 </section>
 
 <footer class="foot">
@@ -1663,7 +1715,7 @@ orders and carrier bills
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

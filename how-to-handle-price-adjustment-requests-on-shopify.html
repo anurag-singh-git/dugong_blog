@@ -55,6 +55,7 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-handle-price-adjustment-requests-on-shopify.html",
       "headline": "How to handle price adjustment requests on Shopify when your sale drops the day after they buy",
+      "abstract": "Shopify gives you the partial refund and nothing else: no price adjustment setting, no price protection window, no policy field, no price history, no Flow trigger for a price change and no Flow action that issues a refund. So the work is yours to build.",
       "description": "Shopify has no price adjustment feature, no Flow trigger for a price change and no refund action, and it keeps no price history at all. The AI playbook that snapshots prices, tells a promotion apart from a typo, computes the real per unit difference after discounts, settles in store credit or cash by policy, and tells the customer before they have to ask.",
       "datePublished": "2026-10-10",
       "dateModified": "2026-10-10",
@@ -100,6 +101,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -840,15 +842,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       still open. That is the state of the art.
     </p>
 
-    <h2>The short answer</h2>
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
 
-    <p>
-      Shopify gives you the partial refund and nothing else: no price adjustment setting, no price protection window, no policy field, no price history, no Flow trigger for a price change and no Flow action that issues a refund. So the work is yours to build.
-    </p>
+      <p>
+        Shopify gives you the partial refund and nothing else: no price adjustment setting, no price protection window, no policy field, no price history, no Flow trigger for a price change and no Flow action that issues a refund. So the work is yours to build.
+      </p>
 
-    <p>
-      Snapshot variant prices daily and before every bulk edit, classify each drop as a promotion, a mispricing or a permanent reprice before anything refunds, compute the per-unit difference after allocated discounts on both sides, apply a published policy of window, minimum, cap and exclusions, settle in store credit by default and cash above a threshold, and reach eligible customers before they have to ask. The judgment, telling a sale apart from a typo and reading a request that arrives as a sentence rather than a form, is why this belongs with an agent rather than a condition builder.
-    </p>
+      <p>
+        Snapshot variant prices daily and before every bulk edit, classify each drop as a promotion, a mispricing or a permanent reprice before anything refunds, compute the per-unit difference after allocated discounts on both sides, apply a published policy of window, minimum, cap and exclusions, settle in store credit by default and cash above a threshold, and reach eligible customers before they have to ask. The judgment, telling a sale apart from a typo and reading a request that arrives as a sentence rather than a form, is why this belongs with an agent rather than a condition builder.
+      </p>
+    </div>
 
     <h2>Shopify has no price adjustment anything</h2>
 
@@ -1358,7 +1362,7 @@ inbound price adjustment request
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

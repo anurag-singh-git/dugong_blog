@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-automatically-capture-payments-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-03" />
-    <meta property="article:modified_time" content="2026-08-07" />
+    <meta property="article:modified_time" content="2026-10-24" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-automatically-capture-payments-on-shopify.html",
       "headline": "How to automatically capture payments on Shopify",
+      "abstract": "Authorized is not paid. Authorization checks the card and holds the amount; capture is when money moves, and Shopify Payments gives you a 7 day authorization period to do it. The help center is blunt about the stakes: capture before that period ends or you receive no money for the order, which is how a shipped parcel quietly becomes an unpaid one.",
       "description": "The boots ship Monday, the tracking updates, the customer is happy, and the $412 is still sitting in an authorization nobody captured. On Shopify, authorized is not paid: card payments are authorized at checkout and must be captured within the authorization period, 7 days on Shopify Payments, and a store on manual capture that treats fulfillment as the finish line finds out weeks later, reconciling payouts, that the money quietly went back to the customer's bank. The traps are documented and almost never read: capture at fulfillment only fires when the entire order is fulfilled, so every split shipment leaves an authorization running out the clock; the setting only applies to orders placed after it was activated; fulfillment apps that wait for a paid status deadlock against a capture that waits for fulfillment; Plus stores get extended authorization periods of up to 30 days on Visa, Mastercard, and Amex but pay an extra 1.75% on anything captured after day 7; and the only native warning is a single email, one day before expiry, in the same inbox as everything else. Shopify Flow can capture when an order is not high risk, and that is the happy path handled: it cannot wait for your actual fraud process, capture when the first box ships, chase a day-six authorization, choose void over silent expiry, or tell you what almost expired this week. The AI playbook that watches every authorization with its real deadline, captures on the trigger your policy actually names, escalates the expiring ones with evidence attached, voids the cancels so holds release cleanly, recovers the expired with a payment link in the same hour, and reports what it saved.",
       "datePublished": "2026-08-03",
-      "dateModified": "2026-08-07",
+      "dateModified": "2026-10-24",
       "articleSection": "Research",
       "keywords": "capture payment Shopify, Shopify capture payment automatically, Shopify payment authorization expired, authorized but not paid Shopify, manual payment capture Shopify, Shopify 7 day authorization period, capture payment when order fulfilled, expired authorization Shopify",
-      "wordCount": 2412,
+      "wordCount": 2600,
       "timeRequired": "PT10M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -116,6 +117,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -749,11 +751,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 99 &middot; AUG 3, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,412 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,600 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 99 &middot; AUG 3, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,412 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,600 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -842,6 +844,33 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       but not Paid and Fulfilled orders are not paid. The answers are
       always the same, and always a week too late.
     </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Authorized is not paid. Authorization checks the card and holds the amount; capture is when money moves, and
+        Shopify Payments gives you a 7 day authorization period to do it. The help center is blunt about the stakes:
+        capture before that period ends or you receive no money for the order, which is how a shipped parcel quietly
+        becomes an unpaid one.
+      </p>
+
+      <p>
+        Four settings live under Settings, then Payments: automatically at checkout, automatically when the entire
+        order is fulfilled, automatically per fulfillment on Shopify Plus, and manually. The default captures at
+        checkout and needs no attention. Every other choice starts a clock on every order, and manual capture's only
+        safety net is a checkbox that emails one warning a single day before an authorization expires, into the same
+        inbox as everything else.
+      </p>
+
+      <p>
+        So pick the automatic trigger your policy actually wants, rather than leaving the charge to a human and a
+        payment status nobody sorts by. If you review for fraud, capture when the review passes; if you ship
+        made-to-order or preorders, capture at fulfillment or at the first shipment. Then watch each authorization
+        against its real deadline, provider, card type and expiry hour included, and raise the alarm on the ones
+        something is blocking instead of on the <em>day</em> before they die.
+      </p>
+    </div>
 
     <h2>Authorized is not paid</h2>
 
@@ -1199,7 +1228,39 @@ after, until captured, voided, or expired
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid">
+  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">13&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify inventory transfers that never get received</h3>
+        <p class="card-dek">
+          Stock in an unreceived Shopify transfer counts as incoming, not available, so your storefront says sold out while the boxes sit in the back. The AI playbook that catches the stalled ones.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-find-shopify-products-missing-images-or-weights.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">12&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to find Shopify products missing images or weights</h3>
+        <p class="card-dek">
+          Shopify has no filter for a product with no image, and a blank weight exports as zero. The AI playbook that finds the half-finished products before customers do.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1264,7 +1325,10 @@ after, until captured, voided, or expired
         </div>
       </div>
     </a>
-<a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+  </div>
+  <details class="related-more">
+    <summary>39 more dispatches in the archive</summary>
+    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1295,10 +1359,8 @@ after, until captured, voided, or expired
           <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </a></div>
-  <details class="related-more">
-    <summary>37 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+    </a>
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1892,6 +1954,7 @@ after, until captured, voided, or expired
     </a></div>
   </details>
 
+  <a href="shopify-order-management-automation.html" class="hub-more">more on shopify order management automation &rarr;</a>
 </section>
 
 
@@ -1912,7 +1975,7 @@ after, until captured, voided, or expired
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-08-12
-- Updated: 2026-08-13
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2700
+- Word count: 2900
 - Dispatch: Nº 106 · Research · 10 min read
 - Full headline on page: How to catch *pricing errors* on Shopify before orders flood in
 - Keywords: shopify pricing error, wrong price on shopify, price changed to 0, price change alert, shopify flow price trigger, product price history, bulk editor mistake, csv import prices, orders at wrong price, pricing guardrail
@@ -20,6 +20,14 @@ The bulk edit happens at 9:41 on a Tuesday night. Two hundred prices to update b
 The storefront updates instantly, which on every other night is the feature. At 11:20 someone posts the table to a deal forum. The first order arrives at 11:34, the tenth before 1 am, and while you sleep the listing migrates into two more communities that exist precisely to find prices like this one. At 7:05 you open the admin to 71 new orders, 64 of them for one product, each one carrying a payment fee, a promised shipping label, and a margin of roughly minus $220 a unit once the box leaves. Nothing malfunctioned. Every system did exactly what it was told at 9:41.
 
 This is not a rare shape of night. In May 2010 a pricing engine capped nearly every product on 6pm.com, the discount sister site of Zappos, at $49.95. The error ran from midnight to 6 am Pacific, the hours nobody watches, and cost more than $1.6 million, which the company chose to honor in full. In December 2014 a fault in a repricing tool sent listings from roughly 2,000 Amazon UK sellers to one penny for about an hour in the thick of the December peak. One seller watched 675 costumes sell at 1p each and put her loss at £15,000 to £20,000. A toy seller took 1,600 orders in sixty minutes. Amazon cancelled what it could and said the rest out loud: orders that had already shipped could not be cancelled or reimbursed. The scale changes. The mechanism never does. A price is data, data can be wrong, and a wrong price transacts at exactly the speed of a right one.
+
+## The short answer
+
+Nothing in Shopify will stop it, so the defense has to be built outside the admin. A price has no draft state, no review queue and no publish step, and every door that writes it, the admin, the bulk editor, a CSV import and every app holding write scope, writes straight to the live field and takes effect on save.
+
+There is also nothing to alert on. Flow's product triggers cover creation, deletion, status and inventory quantity, and a member of the Flow team said plainly that no Shopify event exists for a price update. The products update webhook fires on every edit without naming the changed field or carrying the previous value, and Shopify keeps no price history at all: no version log, no undo, and an activity log that records logins and app installs rather than product fields.
+
+So you store the history yourself and judge each write against it. Snapshot price, compare-at and cost per variant, diff every update whichever door it arrived through, and treat zero or near zero, below cost, and a drop past your threshold with no sale on the calendar as grounds to unpublish first and ask later. The cent-level margin is already in the admin, which computes it from cost per item, renders it in gray, and objects to *nothing*.
 
 ## Every door into the price field is unlocked
 

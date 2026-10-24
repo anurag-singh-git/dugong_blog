@@ -55,6 +55,7 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-make-shopify-wholesale-customers-tax-exempt.html",
       "url": "https://blog.dugong.live/how-to-make-shopify-wholesale-customers-tax-exempt.html",
       "headline": "How to make Shopify wholesale customers tax exempt without checking certificates by hand",
+      "abstract": "Shopify's tax exemption is a switch, not a record. Store the certificate itself, its number and a computed expiry date in customer metafields, set the per-state exemption rather than the blanket one, keep new accounts on taxed checkout until a human approves the document, and sweep the expiry dates on a schedule. Shopify Flow has no action to set tax exemption, and the reading and judging is the part that actually takes the time, which is why this belongs with an agent rather than a condition builder.",
       "description": "Shopify's tax exemption is a switch, not a record: it stores no certificate number, no issue date, no expiry and no document, and Shopify Flow has no action to set it. The AI playbook that reads every certificate a buyer uploads, validates it against the state it was written for, sets the right per-state exemption, keeps unverified buyers on taxed checkout, chases renewals before they lapse, and files the evidence an auditor will ask for.",
       "datePublished": "2026-10-10",
       "dateModified": "2026-10-10",
@@ -100,6 +101,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -827,11 +829,13 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       the account count grows.
     </p>
 
-    <h2>The short answer</h2>
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
 
-    <p>
-      Shopify's tax exemption is a switch, not a record. Store the certificate itself, its number and a computed expiry date in customer metafields, set the per-state exemption rather than the blanket one, keep new accounts on taxed checkout until a human approves the document, and sweep the expiry dates on a schedule. Shopify Flow has no action to set tax exemption, and the reading and judging is the part that actually takes the time, which is why this belongs with an agent rather than a condition builder.
-    </p>
+      <p>
+        Shopify's tax exemption is a switch, not a record. Store the certificate itself, its number and a computed expiry date in customer metafields, set the per-state exemption rather than the blanket one, keep new accounts on taxed checkout until a human approves the document, and sweep the expiry dates on a schedule. Shopify Flow has no action to set tax exemption, and the reading and judging is the part that actually takes the time, which is why this belongs with an agent rather than a condition builder.
+      </p>
+    </div>
 
     <h2>Shopify gives you a switch, not a record</h2>
 
@@ -1338,7 +1342,7 @@ daily expiry sweep
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

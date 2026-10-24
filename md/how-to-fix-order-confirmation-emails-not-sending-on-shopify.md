@@ -5,8 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-fix-order-confirmation-emails-not-sending-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-08-23
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2600
+- Word count: 2800
 - Dispatch: Nº 113 · Research · 10 min read
 - Full headline on page: How to fix order confirmation emails *not sending* on Shopify
 - Keywords: order confirmation email not sending, customer did not receive order confirmation, resend order confirmation, confirmation email spam, checkout links no confirmation email, draft order confirmation, email delivery log, order confirmation automation, AI order monitoring
@@ -17,6 +18,14 @@
 The order lands on a Tuesday at 9:47am: a candle trio, paid in full, a first time customer. At ten past four the phone rings. I placed an order this morning, she says, and I never got a receipt. Did you actually charge me? You pull the order up while she waits. Paid, yes. Address, fine. And in the timeline, where every other order shows a quiet gray line reading [Order confirmation email](https://help.shopify.com/en/manual/fulfillment/setup/notifications/customer-notifications) sent, there is nothing. No line, no error, nothing to click.
 
 You check the obvious things in the wrong order, the way everyone does the first time. Her junk folder. Her promotions tab. The spelling of the address on the order. Then you go looking for the resend button and make the discovery that has kept one community thread alive for four years: if the confirmation never went out, Shopify has no way to send one. The resend button you remember exists only on orders that already sent it.
+
+## The short answer
+
+Work out which of five causes you have, then get the customer a receipt through a door that still opens. Shopify cannot resend a confirmation that never sent. The resend control in the order timeline exists only on orders that already sent one, and adding or correcting the email address afterward does not unlock it.
+
+The five causes. The email sent and got filtered, which happens at scale when your sending domain is not authenticated with SPF, DKIM and DMARC. The order had no email address when it was created, which covers phone orders, POS sales and drafts filled in a step late. The address was a typo. The channel suppresses it, which Shopify does deliberately for orders arriving through checkout links and the Storefront API's checkout URL, whose source reads like `via import`. Or it sent and bounced, which the admin records nowhere.
+
+Read the order timeline first. A missing Order confirmation email sent line means nothing went out, and the order source plus the moment the address was added usually names the door. The replacement receipt can go as an invoice from the order, which can always be sent, or as the order status page link under More actions. The durable fix is the noticing: something that flags every order still missing its sent event a few minutes after it lands, so the receipt goes out the same morning instead of after the phone rings.
 
 ## The receipt is the product, for a while
 

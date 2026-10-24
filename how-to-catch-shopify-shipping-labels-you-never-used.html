@@ -54,6 +54,7 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html",
       "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html",
       "headline": "How to catch Shopify shipping labels you paid for and never used",
+      "abstract": "Shopify charges you for an outbound shipping label at purchase, not when the carrier scans it, so a label bought for an order you then cancel is already money spent. The only way back is to void it, and voiding needs four conditions true at once: under 30 days from the purchase date, no tracking events at all, not bought with USPS First Class Mail, and not added to a USPS shipping manifest in the last 15 minutes. The refund arrives as a shipping label credit against future label purchases rather than cash. Shopify counts none of this for you: there is no unused label filter, no age column, no countdown, no Flow trigger for a shipping label and no void mutation in the Admin API.",
       "description": "You cancelled the order at 9:25 and the label you bought at 9:02 is still paid for. Nothing about cancelling, refunding or cancelling the fulfillment gives that money back. Outbound labels and return labels bill in opposite directions, which is why everyone's intuition here is wrong: Shopify documents that a return label is charged only after the carrier scans the package and that if a return label expires unused then you aren't charged, with USPS return labels expiring after a year, UPS after six months and FedEx after 90 days, while an outbound label goes against your spending threshold at purchase and is invoiced and charged immediately once that threshold is reached. The sentence that makes merchants relax, you aren't charged for labels that you don't use, is the second half of a sentence about return labels on the voiding page. Voiding an outbound label needs four conditions true at once: not older than 30 days from purchase, no tracking events at all, not bought with USPS First Class Mail, and not added to a USPS shipping manifest in the last 15 minutes. No tracking events is the one that bites, because a driver sweeping the box off your counter creates a scan even on an order you already cancelled, and after that Shopify sends you to the carrier with the package reference number, which is a claim rather than a void. The money comes back as a shipping label credit applied to future label purchases, not as cash, so there is nothing on a bank statement to reconcile: a merchant in January 2023 thought she had paid twice for a label she voided and never used, and one in March 2024 voided two labels, found credit for one and could not find credit information under Billing at all, both sent to support with no resolution. Shopify told a merchant in September 2022 that label refunds cannot be requested through the admin and that cash means contacting the live team. Shopify knows the trap and left it manual: the canceling orders page says that if you purchased a shipping label for this order then you can void the label, and to void an unused label before deleting an order, while Restock inventory is selected by default and the label is never mentioned in the cancel dialog. Bulk cancellation handles 250 orders at a time and bulk voiding a maximum of 250 labels at the same time, but the Shipping labels page offers 100 orders per page, batches by purchase date, and no unused filter, no unscanned filter and no age column, so the function built for 250 can only be fed by a human opening orders one at a time. Flow cannot close it: 83 triggers and not one is a shipping label, and Fulfillment event created, the only trigger that could watch for a missing scan, is built for third party fulfillment services and documented as not starting workflows from manual fulfillment events, which is exactly what buying a label in the admin is. The API is better than the admin and almost nobody has noticed: the shippingLabel query exposes cancellable, which indicates whether the label is cancellable or not, so Shopify will evaluate all four conditions and hand back one boolean. It will not give you the purchase date or the cost, which a developer raised on 12 June 2026, noting the cost is visible in the order timeline but not accessible via the Admin GraphQL API and that Order.transactions, Fulfillment and FulfillmentOrder contain no label cost fields, with no staff reply. Five days later shippingLabelPurchase arrived in API version 2026-07, so you can now spend programmatically and still cannot stop spending programmatically. FulfillmentEventStatus carries LABEL_PURCHASED and LABEL_PRINTED, and CONFIRMED is documented as the default value when no other information is available, so a label never handed to a driver looks identical to one whose carrier has not reported yet. The Dugong playbook keeps the register Shopify does not, watches only for the first scan, flags the break when an order is cancelled, refunded, held or replaced, ranks the queue by remaining days rather than value, reads cancellable before queueing and drops USPS First Class, hands over one batch a day sized to the 250 label void limit, and reconciles the credits that appear against the voids performed.",
       "datePublished": "2026-10-18",
       "dateModified": "2026-10-18",
@@ -99,6 +100,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -877,15 +879,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       mention it again.
     </p>
 
-    <h2>The short answer</h2>
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
 
-    <p>
-      Shopify charges you for an outbound shipping label at purchase, not when the carrier scans it, so a label bought for an order you then cancel is already money spent. The only way back is to void it, and voiding needs four conditions true at once: under 30 days from the purchase date, no tracking events at all, not bought with USPS First Class Mail, and not added to a USPS shipping manifest in the last 15 minutes. The refund arrives as a shipping label credit against future label purchases rather than cash. Shopify counts none of this for you: there is no unused label filter, no age column, no countdown, no Flow trigger for a shipping label and no void mutation in the Admin API.
-    </p>
+      <p>
+        Shopify charges you for an outbound shipping label at purchase, not when the carrier scans it, so a label bought for an order you then cancel is already money spent. The only way back is to void it, and voiding needs four conditions true at once: under 30 days from the purchase date, no tracking events at all, not bought with USPS First Class Mail, and not added to a USPS shipping manifest in the last 15 minutes. The refund arrives as a shipping label credit against future label purchases rather than cash. Shopify counts none of this for you: there is no unused label filter, no age column, no countdown, no Flow trigger for a shipping label and no void mutation in the Admin API.
+      </p>
 
-    <p>
-      What the API does give you is a cancellable boolean on the ShippingLabel object, which is Shopify evaluating all four conditions and handing back one field, so a register of every label with its day zero plus an hourly check of that field plus the bulk void limit of 250 labels per press is the whole solution.
-    </p>
+      <p>
+        What the API does give you is a cancellable boolean on the ShippingLabel object, which is Shopify evaluating all four conditions and handing back one field, so a register of every label with its day zero plus an hourly check of that field plus the bulk void limit of 250 labels per press is the whole solution.
+      </p>
+    </div>
 
     <h2>Outbound labels and return labels bill in opposite directions</h2>
 
@@ -1515,6 +1519,7 @@ plus an hourly sweep
       </div>
     </a>
   </div>
+  <a href="shopify-shipping-and-fulfillment-automation.html" class="hub-more">more on shopify shipping and fulfillment automation &rarr;</a>
 </section>
 <footer class="foot">
   <div class="foot-top">
@@ -1533,7 +1538,7 @@ plus an hourly sweep
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

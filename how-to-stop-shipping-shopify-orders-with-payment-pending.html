@@ -54,6 +54,7 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html",
       "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html",
       "headline": "How to stop shipping Shopify orders that say Payment pending",
+      "abstract": "Shopify never blocks fulfillment on payment. An order whose payment status reads Payment pending sits in the unfulfilled queue looking like every other order, and the documented gate before fulfillment, the Fulfillment order ready to fulfill trigger, checks risk assessment and inventory availability only.",
       "description": "An order that reads Payment pending looks identical to a paid order in the unfulfilled queue, and Shopify's own gate before fulfillment never checks the money: the Fulfillment order ready to fulfill trigger fires when an order has completed risk assessment and has inventory available for the order, and the automatic fulfillment setting offers one override, for high risk of fraud, with no payment condition at all. Shopify's pending payments page says you are not prevented from fulfilling these orders and asks you to wait until the payment status is Paid before fulfilling, which is the whole control. Unpaid is not a status but a documented grouping of four different risks, Authorized, Pending, Expired and Partially paid, so the filter that looks like the answer puts the safe case next to the unsafe one. Pending payments usually expire after about a week, the order status then changes to Expired, and while it is pending you may not be able to edit, restock, cancel, collect payment or mark the order as paid. The sources of pending volume keep growing: wire, cryptocurrency, barcodes, manual gateways such as bank deposit and cash on delivery, payment terms, and since 19 June 2024 Shopify Collective supplier orders from retailers without automatic payments, which now arrive marked Payment Pending rather than Paid while the supplier payments page tells suppliers not to ship them. On 9 October 2026 a Collective supplier asked the community how others prevent orders shipping before payment is secured and got no replies. Shopify already defines the exact lever: FulfillmentHoldReason carries AWAITING_PAYMENT, the fulfillment hold is applied because payment is pending, and nothing applies it for you. Flow can hold on Order created but cannot reliably release: Order paid excludes partially paid orders and authorized but uncaptured funds, and merchants have reported since 18 April 2022 that it does not fire for payments collected through Collect Payment, with no staff resolution. The Admin API's orderPaymentStatus query, built to monitor the processing status of deferred payments, shows the real shape of the fix, which is a poll rather than a trigger. The Dugong playbook reads the payment status rather than the fulfillment status, holds with AWAITING_PAYMENT on arrival, lets authorized and paid orders through untouched, polls and releases the hour the money lands, counts the days to expiry and chases while the Pay now link still works, flags every release done by hand while payment is pending, and closes out expired and failed payments the same day.",
       "datePublished": "2026-10-19",
       "dateModified": "2026-10-19",
@@ -99,6 +100,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -806,11 +808,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>&#9670; DISPATCH N&ordm; 131 &middot; OCT 18, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 132 &middot; OCT 19, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 10 MIN READ &middot; 3,118 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
-    <span>&#9670; DISPATCH N&ordm; 131 &middot; OCT 18, 2026</span>
+    <span>&#9670; DISPATCH N&ordm; 132 &middot; OCT 19, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
     <span>&#9670; 10 MIN READ &middot; 3,118 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
@@ -848,7 +850,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   </h1>
 
   <p class="article-dek">
-    The order looks exactly like every other order in your queue. It gets picked, packed, labelled and shipped, and nine days later the payment status quietly turns to Expired.
+    The order looks exactly like every other order in your queue. It gets picked, packed, labeled and shipped, and nine days later the payment status quietly turns to Expired.
   </p>
 
   <div class="article-byline">
@@ -885,19 +887,21 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       that you just shipped a parcel for free.
     </p>
 
-    <h2>The short answer</h2>
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
 
-    <p>
-      Shopify never blocks fulfillment on payment. An order whose payment status reads Payment pending sits in the unfulfilled queue looking like every other order, and the documented gate before fulfillment, the Fulfillment order ready to fulfill trigger, checks risk assessment and inventory availability only.
-    </p>
+      <p>
+        Shopify never blocks fulfillment on payment. An order whose payment status reads Payment pending sits in the unfulfilled queue looking like every other order, and the documented gate before fulfillment, the Fulfillment order ready to fulfill trigger, checks risk assessment and inventory availability only.
+      </p>
 
-    <p>
-      Shopify's pending payments page asks you to wait until the payment status is Paid before fulfilling, and that request to a human is the entire control. Pending payments usually expire after about a week, at which point the order status becomes Expired, and while the payment is pending you may not be able to edit, restock, cancel, collect payment on or mark the order as paid.
-    </p>
+      <p>
+        Shopify's pending payments page asks you to wait until the payment status is Paid before fulfilling, and that request to a human is the entire control. Pending payments usually expire after about a week, at which point the order status becomes Expired, and while the payment is pending you may not be able to edit, restock, cancel, collect payment on or mark the order as paid.
+      </p>
 
-    <p>
-      The fix is to hold the fulfillment with the reason Shopify already defines for it, AWAITING_PAYMENT, the moment a pending order appears, let authorized and paid orders through untouched, and poll the payment so the hold releases the hour the money lands.
-    </p>
+      <p>
+        The fix is to hold the fulfillment with the reason Shopify already defines for it, AWAITING_PAYMENT, the moment a pending order appears, let authorized and paid orders through untouched, and poll the payment so the hold releases the hour the money lands.
+      </p>
+    </div>
 
     <h2>Unpaid is four different problems wearing one badge</h2>
 
@@ -1288,7 +1292,7 @@ paid, plus a 30 minute sweep
 
     <p>
       The honest limits. A hold stops fulfillment, it does
-      not stop a human pressing fulfil anyway, which is why
+      not stop a human pressing fulfill anyway, which is why
       step six is in the list rather than being a footnote.
       A pending order cannot be edited, restocked, cancelled
       or marked as paid while it is pending, so a failed one
@@ -1473,6 +1477,7 @@ paid, plus a 30 minute sweep
       </div>
     </a>
   </div>
+  <a href="shopify-order-management-automation.html" class="hub-more">more on shopify order management automation &rarr;</a>
 </section>
 <footer class="foot">
   <div class="foot-top">
@@ -1491,7 +1496,7 @@ paid, plus a 30 minute sweep
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

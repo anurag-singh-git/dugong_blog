@@ -5,8 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-fix-duplicate-skus-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-09-17
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2500
+- Word count: 2700
 - Dispatch: Nº 117 · Research · 10 min read
 - Full headline on page: How to find and fix duplicate SKUs on Shopify *before they break your inventory*
 - Keywords: shopify duplicate sku, duplicate skus shopify, shopify same sku two products, shopify inventory not syncing same sku, find duplicate skus shopify, shopify sku best practices, shopify sku conflict, AI catalog automation
@@ -19,6 +20,14 @@ The email arrives on a Tuesday at 4:12 pm, and the customer is being very polite
 You open the order, open the product, and the variant reads 0 available. Then you search the admin for the mug and find it a second time, on its own product page, 14 in stock, selling quietly all week.
 
 Same mug. Same shelf. Same characters typed into the SKU field. Two products, two inventory numbers, and nothing anywhere in Shopify that ever thought to mention they were the same thing.
+
+## The short answer
+
+Group every variant in your catalog by SKU with case and spacing ignored, then work out which collisions you *meant* and which you did not. Shopify will not run that comparison for you. Inventory does not live on the SKU, it lives on an inventory item, one per variant, with the SKU as a text field sitting beside it, so two variants carrying the same code are two separate stock counts wearing one name tag.
+
+The admin shows a warning when it detects a duplicate and then saves anyway. It does not stop a CSV import, an app writing through the API, or the Duplicate button copying codes onto a clone, and there is no duplicate SKU report anywhere to find the ones already sitting in the catalog. The single hard line is Shopify Fulfillment Network, which requires unique SKUs for each variant.
+
+So the fix is not a mass delete. A six-pack that draws down the same physical shelf as the single unit is a collision you chose, and it should be kept in sync. A wholesale clone, a seasonal copy, or a second listing made by a re-import under a new handle is a defect, and it wants renaming while it is young, before order lines, purchase orders, and 3PL records make a rename expensive. Telling the two apart is a rule only you can write.
 
 ## Shopify treats the SKU as a label, not a key
 

@@ -5,8 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-put-your-shopify-store-on-vacation-mode-without-losing-sales.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-08-25
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2500
+- Word count: 2700
 - Dispatch: Nº 115 · Research · 10 min read
 - Full headline on page: How to put your Shopify store on vacation mode *without losing sales*
 - Keywords: shopify vacation mode, pause shopify store for vacation, shopify holiday mode, close shopify store temporarily, pause and build billing cycle, keep shopify store open on vacation, shopify away message, vacation mode like etsy, AI store monitoring
@@ -17,6 +18,14 @@
 The question sounds so small that most owners are embarrassed to ask it. I run this store by myself. I would like to go away for a week. What do I press?
 
 Etsy sellers press Vacation Mode. eBay sellers press Time Away. Shopify owners open the help center and read the first sentence of the official page on the subject: although Shopify doesn't have a vacation setting. What follows are two workarounds, and both of them answer a different question than the one you asked. You wanted to stop working for a week. Shopify offers you two ways to stop selling.
+
+## The short answer
+
+Keep the store open and automate the week rather than shutting the till. Shopify has no vacation setting, and its own help page on closing for a vacation says so in the first sentence. The two options it offers both answer a different question. Password protection hides the entire site from shoppers and from crawlers, and Pause and Build at nine dollars a month leaves the storefront browsable but switches the checkout off.
+
+Pause and Build is a plan change, which is what makes it the wrong tool for a week away. It deactivates checkout, POS, discounts, gift cards, abandoned checkout recovery, and publishing to third party channels, apps with recurring charges keep billing, and returning means selecting a new plan and starting a new billing cycle. Merchants report the switch being scheduled for the end of the current cycle instead of the day they actually need it.
+
+What breaks during an unattended week is not fulfillment, it is the promise around it. Shipping a week late is ordinary commerce as long as the customer was told *before* they paid. So publish your return date on the storefront, the product pages, and the order confirmation, tag and queue every order that arrives, answer the shipping questions with that same date, hide the buy button on the few products that genuinely cannot wait, and watch only for the things that cannot, like a chargeback deadline or a sellout.
 
 ## The setting that does not exist
 

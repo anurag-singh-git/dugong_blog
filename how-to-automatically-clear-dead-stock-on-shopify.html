@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-automatically-clear-dead-stock-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-01" />
-    <meta property="article:modified_time" content="2026-08-13" />
+    <meta property="article:modified_time" content="2026-10-24" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html",
       "headline": "How to automatically clear dead stock on Shopify",
+      "abstract": "Nothing in Shopify will raise its hand. The products list has no last sold column and cannot be sorted by sales recency, so learning when a product last sold means opening it, noting the SKU and searching orders, one product at a time. A 340 SKU catalog is an afternoon of that, which is why the question waits for stocktake.",
       "description": "The linen shorts from the April buy stopped selling on June 9, and Shopify never mentions it: no last sold date anywhere in the admin, no aging alert, no report that acts. The products list cannot be sorted by sales recency, smart collections cannot see sales data at all, and Shopify Flow has no trigger for a product that stopped selling, because a product that stops selling emits no event. So dead stock gets discovered at stocktake, months late, and cleared in a panic: a weekend of exports and pivot tables, a hand-built clearance list, a bulk editor session, markdowns that stack with discount codes, and ads still spending on products that died in June. Meanwhile holding the stock costs a quarter to a third of its value a year, and the next purchase order repeats the mistake because nobody told buying. The AI playbook that reads sell-through per product every week, flags what crossed 60, 90, and 120 days with the cash value attached, chooses the right move per product, drafts markdowns against a margin floor with compare-at prices handled and an end date attached, re-merchandises the clearance, watches whether each move worked, and reports the cash freed so the overbuy gets caught at 60 days instead of 200.",
       "datePublished": "2026-08-01",
-      "dateModified": "2026-08-13",
+      "dateModified": "2026-10-24",
       "articleSection": "Research",
       "keywords": "clear dead stock Shopify, slow moving inventory Shopify, automatically discount slow moving inventory Shopify, Shopify products not selling, inventory aging report Shopify, markdown automation Shopify, clearance collection Shopify, Shopify smart collection last sold date",
-      "wordCount": 2173,
+      "wordCount": 2400,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -116,6 +117,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -743,11 +745,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 97 &middot; AUG 1, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 9 MIN READ &middot; 2,173 WORDS</span>
+    <span>&#9670; 9 MIN READ &middot; 2,400 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 97 &middot; AUG 1, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 9 MIN READ &middot; 2,173 WORDS</span>
+    <span>&#9670; 9 MIN READ &middot; 2,400 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -830,6 +832,34 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       a sale, then 90, then 120, and each threshold passes without a
       single pixel changing anywhere in the admin.
     </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Nothing in Shopify will raise its hand. The products list has no last sold column and cannot be sorted by
+        sales recency, so learning when a product last sold means opening it, noting the SKU and searching orders,
+        one product at a time. A 340 SKU catalog is an afternoon of that, which is why the question waits for
+        stocktake.
+      </p>
+
+      <p>
+        The reports describe and stop there. ABC analysis by product grades the catalog by revenue share, and its
+        bottom grade holds dead stock mixed in with everything too new to have earned a rank. Days of inventory
+        remaining divides stock on hand by recent velocity, and gives up the moment velocity reaches zero. Neither
+        one emails you and neither one changes anything, and the automation layer cannot help: smart collections
+        match on title, type, vendor, price, tag, weight and stock level, and no condition among them can see sales
+        data.
+      </p>
+
+      <p>
+        Flow is blind for a deeper reason. It is built on events, and a product that stops selling emits none: no
+        trigger for silence, no field holding the time since the last sale. So the read has to run on a schedule
+        rather than a trigger. Weekly, pull last sale date, velocity, stock on hand and days of cover per product,
+        flag whatever crossed 60, 90 and 120 days with the cash tied up in each, and name the move while the season
+        is still <em>open</em>.
+      </p>
+    </div>
 
     <h2>Why dead stock hides in a dashboard you check daily</h2>
 
@@ -1152,7 +1182,39 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid">
+  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">13&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify inventory transfers that never get received</h3>
+        <p class="card-dek">
+          Stock in an unreceived Shopify transfer counts as incoming, not available, so your storefront says sold out while the boxes sit in the back. The AI playbook that catches the stalled ones.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-find-shopify-products-missing-images-or-weights.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">12&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to find Shopify products missing images or weights</h3>
+        <p class="card-dek">
+          Shopify has no filter for a product with no image, and a blank weight exports as zero. The AI playbook that finds the half-finished products before customers do.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1217,7 +1279,10 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-<a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+  </div>
+  <details class="related-more">
+    <summary>41 more dispatches in the archive</summary>
+    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1248,10 +1313,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
           <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </a></div>
-  <details class="related-more">
-    <summary>39 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+    </a>
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1877,6 +1940,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </a></div>
   </details>
 
+  <a href="shopify-inventory-automation.html" class="hub-more">more on shopify inventory automation &rarr;</a>
 </section>
 
 <footer class="foot">
@@ -1896,7 +1960,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

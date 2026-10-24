@@ -133,7 +133,7 @@ Step five is the step nobody builds by hand, because it needs a clock. Pending h
 
 Step six exists because every real store overrides this sometimes, and should. A trusted wholesale account on net terms can ship before the money lands. What you cannot afford is not knowing who did that, on which order, and whether the payment ever followed. Log the override as an event on the order, not as a memory.
 
-The honest limits. A hold stops fulfillment, it does not stop a human pressing fulfil anyway, which is why step six is in the list rather than being a footnote. A pending order cannot be edited, restocked, cancelled or marked as paid while it is pending, so a failed one has to wait for Shopify to let go before you can clean it up. And the expiry date belongs to the payment provider, so your clock is an estimate from order creation until the provider tells you otherwise.
+The honest limits. A hold stops fulfillment, it does not stop a human pressing fulfill anyway, which is why step six is in the list rather than being a footnote. A pending order cannot be edited, restocked, cancelled or marked as paid while it is pending, so a failed one has to wait for Shopify to let go before you can clean it up. And the expiry date belongs to the payment provider, so your clock is an estimate from order creation until the provider tells you otherwise.
 
 ## Why this is a workflow, not a feature request
 

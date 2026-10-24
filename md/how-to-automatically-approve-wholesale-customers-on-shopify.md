@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-automatically-approve-wholesale-customers-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-30
-- Updated: 2026-08-13
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2334
+- Word count: 2500
 - Dispatch: Nº 95 · Research · 9 min read
 - Full headline on page: How to automatically approve wholesale customers *on Shopify*
 - Keywords: Shopify wholesale customer approval, Shopify B2B account approval, approve wholesale applications Shopify, Shopify company account requests, Shopify Forms wholesale lead capture, restrict access to B2B customers only, Shopify B2B login no registration form, auto approve B2B customers Shopify
@@ -20,6 +20,14 @@ A boutique owner in Columbus finds your line at a trade show on a Friday afterno
 She did not spend the weekend waiting. She applied to three brands that afternoon, the way wholesale buyers always do, and one of them wrote back the same evening with a login and a price list. Her opening budget landed there on Saturday morning. When your approval email finally goes out on Tuesday, it reads less like a welcome and more like an apology.
 
 Nothing in that story involves a difficult decision. Her shop is real, her certificate checks out, her website matches her email domain. Any person who looked at the application for ninety seconds would have said yes. The problem is that on Shopify, a person looking at it for ninety seconds is the entire system.
+
+## The short answer
+
+Shopify will collect the application and queue it; it will not read it. On Plus, company account requests let a prospect apply through a Shopify Forms form, and the submission creates the company, its location and a customer record automatically, with the raw entry kept as a metaobject and an approve or decline button on the queue. If you are still routing applications into a shared inbox, switch today.
+
+Nothing on the way to that button verifies anything. The tax ID is a text field and so is the website. Shopify does not check that the email domain matches the site, that the site exists, that the certificate number has the right shape for its state, or that the applicant is one of your own retail customers after a trade discount. Every application waits for the same human read, from the obvious yes to the obvious scam.
+
+That read is what to automate, because the cost of the queue is counted in hours rather than mistakes: a buyer applies to three brands on a Friday and spends her opening budget wherever the login arrives first. Verify what can be verified the moment the form posts, domain against site, site live and retailing, tax ID shaped correctly for its state, check it against your own records for past applications and territory overlap, and sort into approve, decline and human review with the evidence *attached*.
 
 ## What Shopify actually gives you
 

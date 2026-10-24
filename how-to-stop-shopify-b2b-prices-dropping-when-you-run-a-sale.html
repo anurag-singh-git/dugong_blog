@@ -54,6 +54,7 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html",
       "url": "https://blog.dugong.live/how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html",
       "headline": "How to stop Shopify B2B prices dropping every time you run a sale",
+      "abstract": "A B2B catalog is part of Shopify's pricing system, not its discount system, so a catalog percentage is calculated from the product's standard store price at the moment the buyer loads the page, which means every retail markdown moves your wholesale floor down with it.",
       "description": "You ran a weekend sale and your wholesale accounts took it too, on top of the trade discount they already have. Nobody set that price. In Shopify a B2B catalog is part of the pricing system rather than the discount system, and a catalog percentage is calculated from the product's standard store price at the moment the buyer loads the page, so every markdown you run moves the wholesale floor down with it. The Admin API says so in the open: the price list parent is relative adjustments to other prices, and priceListCreate takes parent adjustment settings that determine how the system calculates prices relative to base prices. If instead your sale is an automatic discount or a code, Shopify documents that these apply as additional discounts on top of any price adjustments made through catalogs, and that in a blended store existing discounts apply to both B2B and D2C customers unless you assign a B2B market in the discount's eligibility settings. Merchants have been asking about this since August 2024, when one asked how to base the catalog discount on compare at price instead, because price is dynamic in B2C and compare at is the fixed list price. In December 2025 a merchant with over 300,000 SKUs put the symptom in one line, the discount gets stacked on top of the 20 percent trade discount on our B2B site, said the next day that he had no development team, and was never answered. The thread ran eight more months without him and ended where it had to: catalog percentage adjustments use the current price, PriceListCompareAtMode does not change that, so automate fixed catalog prices through the Admin GraphQL API or write a custom Function. No Shopify staff replied and nothing was marked as the solution. Fixed prices are the real lock, since Shopify documents that after a fixed price is assigned any overall adjustments on the catalog no longer apply, and they bring their own failure: a fixed price is a number rather than a rule, so it goes stale the next time you raise list prices, with no stale price report and no alert. Rewriting them caps at 250 prices per request on both priceListFixedPricesAdd and priceListFixedPricesUpdate, confirmed by Shopify staff in August 2025, and auditing them is worse, because exported catalog CSV files include only fixed-price products and not the percentage-adjusted prices that are the ones that move. Flow cannot help either: its product bench has no price changed trigger and no product updated trigger, and its only B2B pieces are the company location created trigger and the add catalog to company location action. The AI playbook that resolves what every buyer actually pays, sets the floor off list price rather than the sale price, writes a fixed price to hold it when a markdown would break it and releases it afterwards, refuses any promotion still eligible for your B2B markets, alarms on fixed prices that have gone stale or fallen under cost, and reports realized trade margin by company location.",
       "datePublished": "2026-10-17",
       "dateModified": "2026-10-17",
@@ -99,6 +100,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -846,23 +848,25 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       is pinned to the number your retail customers pay.
     </p>
 
-    <h2>The short answer</h2>
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
 
-    <p>
-      A B2B catalog is part of Shopify's pricing system, not its discount system, so a catalog percentage is calculated from the product's standard store price at the moment the buyer loads the page, which means every retail markdown moves your wholesale floor down with it.
-    </p>
+      <p>
+        A B2B catalog is part of Shopify's pricing system, not its discount system, so a catalog percentage is calculated from the product's standard store price at the moment the buyer loads the page, which means every retail markdown moves your wholesale floor down with it.
+      </p>
 
-    <p>
-      If the sale is an automatic discount or a code instead, Shopify documents that those apply as additional discounts on top of any price adjustments made through catalogs, and that in a blended store existing discounts apply to both B2B and D2C customers unless you assign a B2B market in the discount's eligibility settings. There is no setting that anchors a trade price to list price.
-    </p>
+      <p>
+        If the sale is an automatic discount or a code instead, Shopify documents that those apply as additional discounts on top of any price adjustments made through catalogs, and that in a blended store existing discounts apply to both B2B and D2C customers unless you assign a B2B market in the discount's eligibility settings. There is no setting that anchors a trade price to list price.
+      </p>
 
-    <p>
-      Fixed prices are the only native lock, because after a fixed price is assigned any overall adjustments on the catalog no longer apply, and they go stale the next time you raise list prices, with no stale price report, a 250 price per request cap on priceListFixedPricesAdd and priceListFixedPricesUpdate, and a catalog CSV export that includes only fixed-price products.
-    </p>
+      <p>
+        Fixed prices are the only native lock, because after a fixed price is assigned any overall adjustments on the catalog no longer apply, and they go stale the next time you raise list prices, with no stale price report, a 250 price per request cap on priceListFixedPricesAdd and priceListFixedPricesUpdate, and a catalog CSV export that includes only fixed-price products.
+      </p>
 
-    <p>
-      Flow has no price changed trigger and no price list action, so the fix is an external loop that sets the trade floor from list price and cost, writes a fixed price to hold it through every markdown, releases it afterwards, and scopes every promotion away from your B2B markets.
-    </p>
+      <p>
+        Flow has no price changed trigger and no price list action, so the fix is an external loop that sets the trade floor from list price and cost, writes a fixed price to hold it through every markdown, releases it afterwards, and scopes every promotion away from your B2B markets.
+      </p>
+    </div>
 
     <h2>Catalogs are pricing, discounts are discounts</h2>
 
@@ -1427,6 +1431,7 @@ before it goes live
       </div>
     </a>
   </div>
+  <a href="shopify-customer-and-wholesale-automation.html" class="hub-more">more on shopify customer and wholesale automation &rarr;</a>
 </section>
 <footer class="foot">
   <div class="foot-top">
@@ -1445,7 +1450,7 @@ before it goes live
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

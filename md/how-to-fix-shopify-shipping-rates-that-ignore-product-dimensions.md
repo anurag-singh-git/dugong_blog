@@ -5,8 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-09-18
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2450
+- Word count: 2650
 - Dispatch: Nº 118 · Research · 10 min read
 - Full headline on page: How to fix Shopify shipping rates that *ignore product dimensions*
 - Keywords: shopify product dimensions, shopify dimensional weight, shopify undercharging shipping, shopify shipping rates wrong at checkout, shopify default package size, shopify carrier calculated shipping, dimensional weight divisor 139, AI shipping automation
@@ -19,6 +20,14 @@ The order landed at 9:40 on a Friday night. One floor lamp, nine pounds on the s
 Monday morning you box it. The box is 44 by 12 by 12, because a floor lamp is 44 inches long and nothing about that is negotiable. You buy the label. It costs $38.
 
 Nothing malfunctioned. Shopify quoted the rate your carrier returned, and your carrier priced the only fact your store knows how to send, which is the weight. The box never entered the conversation, because there is nowhere in Shopify to put one.
+
+## The short answer
+
+Shopify has nowhere to store a box. A variant carries a weight and no length, width or height, not on the product, not on the variant, not in the shipping section of the admin. What the platform offers instead is one default package saved in Shipping settings, and every carrier-calculated quote your store sends out describes that same box whether the cart holds a phone case or a rug.
+
+Carriers do not price parcels that way. UPS and FedEx bill the greater of actual weight and dimensional weight, which is length times width times height divided by 139, with every fractional inch rounded up since August 18, 2025. Surcharges stack on top once the cubic volume crosses the thresholds both carriers set in January 2026. The real cost then reaches you twice, in the label price and again in a price adjustment the carrier posts weeks later, and never at checkout.
+
+The fix lives outside the platform. Store a length, width and height per variant yourself, keep a library of the boxes you really own, pack each cart into those boxes and return the greater of dimensional and actual weight through the Carrier Service API, which is the only route that computes a rate. Flow never sees that moment, because a rate request is not one of the events it can trigger on, and Delivery Customization functions only hide, rename and reorder options. Then reconcile every quote against its label and its adjustment, so the SKUs quoting under name themselves.
 
 ## Shopify stores a weight. It does not store a box.
 

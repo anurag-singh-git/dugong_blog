@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to catch Shopify transfers never received | Dugong</title>
+<meta name="description" content="Stock in an unreceived Shopify transfer counts as incoming, not available, so your storefront says sold out. The AI playbook that catches the stalled ones." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="shopify inventory transfer not received, shopify transfer stuck in progress, shopify incoming inventory not available, shopify receive inventory transfer, shopify flow inventory transfer trigger, shopify purchase order incoming inventory, shopify unreceived transfer alert, AI inventory transfer monitoring" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-catch-shopify-inventory-transfers-that-never-get-received.md" title="Markdown version for answer engines" />
+<meta property="article:published_time" content="2026-10-24" />
+<meta property="article:modified_time" content="2026-10-24" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to catch Shopify inventory transfers that never get received" />
+<meta property="og:description" content="Stock in an unreceived Shopify transfer counts as incoming, not available, so your storefront says sold out. The AI playbook that catches the stalled ones." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Dugong Field Notes" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to catch Shopify inventory transfers that never get received" />
+<meta name="twitter:description" content="Stock in an unreceived Shopify transfer counts as incoming, not available, so your storefront says sold out. The AI playbook that catches the stalled ones." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+<meta name="twitter:image:alt" content="Dugong Field Notes" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html#article",
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://blog.dugong.live/#blog",
+        "name": "Dugong Field Notes",
+        "url": "https://blog.dugong.live/"
+      },
+      "mainEntityOfPage": "https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html",
+      "url": "https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html",
+      "headline": "How to catch Shopify inventory transfers that never get received",
+      "abstract": "Incoming inventory is not available inventory. Shopify's own definition is that incoming stock is on its way to your location from inventory transfers or apps, and that it is not available to sell until it has been received and its state has been changed to Available. So a transfer nobody finished receiving is stock you own, standing in your own stockroom, that your storefront will not sell.",
+      "description": "Stock in an unreceived Shopify transfer counts as incoming, not available, so your storefront says sold out. The AI playbook that catches the stalled ones.",
+      "datePublished": "2026-10-24",
+      "dateModified": "2026-10-24",
+      "articleSection": "Research",
+      "keywords": "shopify inventory transfer not received, shopify transfer stuck in progress, shopify incoming inventory not available, shopify receive inventory transfer, shopify flow inventory transfer trigger, shopify purchase order incoming inventory, shopify unreceived transfer alert, AI inventory transfer monitoring",
+      "wordCount": 3560,
+      "timeRequired": "PT13M",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Shopify",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "name": "Inventory management",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Inventory_management_(business)",
+            "https://www.wikidata.org/wiki/Q3761396"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "name": "Purchase order",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Purchase_order",
+            "https://www.wikidata.org/wiki/Q643327"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "name": "Business process automation",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Business_process_automation",
+            "https://www.wikidata.org/wiki/Q5001911"
+          ]
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".short-answer",
+          ".faq"
+        ]
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://blog.dugong.live/#priya-singh",
+        "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Inventory states",
+          "url": "https://help.shopify.com/en/manual/inventory-and-locations/fundamentals/inventory-states"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Receive inventory",
+          "url": "https://help.shopify.com/en/manual/products/inventory/transfers/receive-inventory"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Transfers",
+          "url": "https://help.shopify.com/en/manual/products/inventory/transfers"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow triggers",
+          "url": "https://help.shopify.com/en/manual/shopify-flow/reference/triggers"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify.dev | InventoryTransfer object, Admin GraphQL API",
+          "url": "https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryTransfer"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify.dev | InventoryTransferStatus",
+          "url": "https://shopify.dev/docs/api/admin-graphql/latest/enums/InventoryTransferStatus"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify.dev | Inventory transfer event topics",
+          "url": "https://shopify.dev/docs/api/events/latest/inventory-transfer"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Webhooks not triggering on inventory transfers",
+          "url": "https://community.shopify.com/t/webhooks-not-triggering-on-inventory-transfers-request-for-resolution/414425"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Developer Community | Inventory transfer complete webhook: transfer has no destination",
+          "url": "https://community.shopify.dev/t/inventory-transfer-complete-webhook-transfer-has-no-destination/34054"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Developer Community | Inventory_transfers webhook behavior, payloads and bugs",
+          "url": "https://community.shopify.dev/t/inventory-transfers-webhook-behavior-payloads-and-bugs/26946"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Purchase order: incoming inventory not working",
+          "url": "https://community.shopify.com/t/purchase-order-incoming-inventory-not-working/654650"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Purchase orders and transfers",
+          "url": "https://community.shopify.com/t/purchase-orders-and-transfers/682404"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html#faq"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shopify inventory automation",
+          "item": "https://blog.dugong.live/shopify-inventory-automation.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The stock in your building your store will not sell",
+          "item": "https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is my Shopify inventory not available after a transfer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because an unreceived transfer counts as incoming, and incoming is not available. Shopify's inventory states page defines incoming inventory as stock that's on its way to your location from inventory transfers or apps, and says plainly that it isn't available to sell until it has been received and its state has been changed to Available. The same page defines available inventory as inventory you can sell and adds that it doesn't include inventory that's considered incoming. On hand is defined as the total of your committed, unavailable and available inventory, which also leaves incoming out. So stock that is physically in your building but sitting on a transfer nobody finished receiving is outside every number your storefront sells against. Nothing is broken. Your oversell protection is doing exactly what it was built to do, which is refuse to sell units the system has not been told you have. The fix is to receive the transfer. The problem is that nothing in Shopify will tell you a transfer has been waiting to be received for three weeks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does In progress mean on a Shopify transfer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It means less than you would expect, and that is the heart of this problem. The Admin API enum defines IN_PROGRESS as a transfer in progress with a shipment currently underway or received. That single status therefore covers a transfer that left the supplier this morning and a transfer that arrived three weeks ago with fourteen units nobody counted. They sit in the same list with the same badge. Shopify's receive inventory page explains how a transfer gets stuck there: if you only receive some items, the transfer remains In progress until you receive the remaining items, and the status only changes to Transferred once everything has been received. There is also a wrinkle worth knowing before you build on the status. Rejecting a line is recorded on the transfer but does not change inventory quantities at any location, so a transfer can reach Transferred without a single unit reaching your shelves. If you need to know what actually arrived rather than what has been dealt with, you have to read the line items."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Shopify Flow have a trigger for a transfer that was never received?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The Shopify Flow triggers reference lists eighty-three triggers, and two of them concern transfers: Inventory transfer ready to ship, and Inventory transfer completed. There is no trigger for purchase orders, for receiving, or for incoming inventory. Both of the transfer triggers you do get fire on the happy path, one at the beginning and one at the end, and the failure you are trying to catch is the gap between them never closing. This is a property of event-driven automation rather than a gap in Flow specifically. A trigger can only fire on something that happens, so any operational failure that consists of a step being skipped is invisible to triggers by construction. You can still use the two triggers you have, as the open and close of a clock: record the moment a transfer becomes ready to ship, clear that record when it completes, and have something else look at what is left over. The looking is the part Flow cannot do for you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you get a webhook when a Shopify transfer is overdue?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, and it is worth understanding why rather than searching for the right topic name. The inventory transfer event topics are field-shaped: a parent topic for the object, plus topics for destination, line items, line item total quantity, tags, metafields and status. The relevant one fires when the status field on the transfer changes. A transfer that has stalled has not changed status, which is precisely what stalling means, so no topic can fire. There is also no platform concept of overdue, because Shopify does not know your lead times. The practical history is a little rough too. In May 2025 an app developer reported that inventory level and inventory item webhooks were not firing during transfers at all, and came back in June to say that Shopify Support had confirmed transfers do not trigger inventory webhooks and had logged a feature request. In December 2025 another developer subscribed to the add items, cancel and complete transfer topics, received only cancel, and saw it fire when the transfer was marked as received. Build the scheduled query first. Treat webhooks as an optimization."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why doesn't my Shopify purchase order show as incoming inventory?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because incoming is derived from inventory shipments, not from purchase orders. This came up on the Shopify community in July 2026, when a merchant found that his reorder reports were recommending stock that was already on order, and said his reports kept telling him to procure what was already in process. Another merchant gave the answer in the same thread: incoming is not derived from the purchase order at all, so there is literally nothing for Shopify to count. He also noted that the Admin GraphQL API had no PurchaseOrder object as of version 2026-07, which means you cannot join the two sides yourself either. The workaround the thread settled on is to create the linked transfer as soon as the purchase order is confirmed and mark it in transit immediately, before anything ships, so that incoming appears and the reorder maths stops double-counting. That works, with two costs. Your transfers list now contains transfers that are in transit and are not in transit, which makes an overdue report noisy. And transfers do not update when the purchase order changes, so adding a line to the order leaves the transfer wrong until somebody edits it by hand. One record per arrival is the rule that keeps this tidy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can AI monitor Shopify inventory transfers and chase the unreceived ones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and this is a particularly good fit for automation, because every judgment involved is arithmetic rather than opinion. An automation like Dugong starts from a lead time per route, which you write down once, because shelf to shelf in the same building is late tomorrow and a container is not late at six weeks. It then counts unreceived units rather than open transfers, by subtracting received quantity from total quantity on each transfer, since one transfer holding four hundred units and twelve holding one each are very different mornings. It separates a shipment that has not left from one that has already landed, because those are two different phone calls. It groups by the location snapshot rather than the live location and keeps a visible bucket for transfers with no destination, since Shopify allows transfers without one and a join through the live location silently drops them. It re-opens partials on a schedule, because the status field will keep saying In progress politely and forever. And it mails one short list each morning to the person at the destination, oldest and largest first, because a list of four gets cleared and a list of sixty gets archived. The limits are honest ones. Nothing can count the boxes for you, auto-receiving on a timer writes unverified stock into the number your storefront sells against and is worse than the original problem, and if receiving is nobody's job in particular then the alert lands in an empty inbox."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html#howto",
+      "name": "The stock in your building your store will not sell",
+      "description": "The AI playbook for Shopify inventory transfers that stall before they are received: writing down a lead time for every route, counting unreceived units rather than open transfers, separating a transfer in transit from one that landed, chasing the person at the destination rather than the buyer, grouping by the location snapshot and keeping a null bucket, closing the partials because the status will not, and sending one list every morning with the oldest money first.",
+      "inLanguage": "en",
+      "totalTime": "PT10M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Write down a lead time for every route",
+          "text": "Write down a lead time for every route",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Count unreceived units, not open transfers",
+          "text": "Count unreceived units, not open transfers",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Separate a transfer in transit from one that landed",
+          "text": "Separate a transfer in transit from one that landed",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Chase the person at the destination, not the buyer",
+          "text": "Chase the person at the destination, not the buyer",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Group by the snapshot and keep a null bucket",
+          "text": "Group by the snapshot and keep a null bucket",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Close the partials, because the status will not",
+          "text": "Close the partials, because the status will not",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Send one list every morning, oldest money first",
+          "text": "Send one list every morning, oldest money first",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-inventory-transfers-that-never-get-received.html#playbook"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES - matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #71716a;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background - lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0 var(--gutter); min-height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; min-width: 0; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  white-space: nowrap; flex-shrink: 0;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+/* superseded by the QA 2026-10-18 wrapping nav below */
+@media (max-width: 480px) {
+  .brand-slash, .brand-section { display: none; }
+  .nav-cta { font-size: 12.5px; padding: 8px 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 11.5px; padding: 7px 10px; }
+}
+
+/* QA 2026-10-12: 24px minimum tap target for the standalone topic-guide link */
+@media (max-width: 560px) {
+  .hub-more { padding-top: 5px; padding-bottom: 5px; }
+}
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+/* GRID (for related cards) */
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 560px) { .foot-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; } }
+@media (max-width: 340px) { .foot-cols { grid-template-columns: 1fr; } }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+/* highlight wraps at every width: nowrap overflowed the text column on long phrases */
+.article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 57%, var(--lime) 57%, var(--lime) 81%, transparent 81%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.article-title em::after { content: none; }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: rgba(15,15,12,.45); } /* QA 2026-10-12 */
+.byline-role { color: var(--text-faint); }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
+.article-body pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) - mirrors the site's final card ---- */
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+
+/* ACCESSIBILITY */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
+
+/* QA 2026-10-10: mobile tap targets + ticker legibility */
+@media (max-width: 560px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+  .foot-cols > div { gap: 0.1rem; }
+  .foot-cols a { padding: 0.45rem 0; }
+  .article-back { min-height: 40px; padding: 0.55rem 0; }
+  .pill { padding: 0.6rem 1rem; }
+  .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
+}
+
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
+  .tag { font-size: 12px; letter-spacing: 0.05em; }
+  .post-meta { font-size: 12px; }
+  .post-read { font-size: 12px; }
+  .card-foot { font-size: 12px; }
+  .card-date, .card-author { font-size: 12px; }
+  .byline-avatar { font-size: 12px; }
+  .callout-mark { font-size: 12px; }
+  .cta-fine { font-size: 12px; }
+  .foot-h { font-size: 12px; }
+  .stat-label { font-size: 12px; }
+  .pb-status, .pb-tag, .pb-node-sub, .pb-branch-arm { font-size: 12px; }
+  .foot-bot, .foot-bot span, .foot-bot a { font-size: 12px; }
+  .art-coord { font-size: 12px; }
+  .signup-label { font-size: 12px; }
+  .signup-fine { font-size: 12px; }
+  .arch-date { font-size: 12px; }
+  .author-role { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 12px; padding: 7px 9px; }
+}
+
+/* QA 2026-10-19 */
+:root { color-scheme: light; }
+
+/* QA 2026-10-19: a skip link, so a keyboard or screen-reader visitor does not
+   walk the ticker, the brand and four nav links on every page (WCAG 2.4.1). */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  font-family: var(--display); font-weight: 700; font-size: 14px;
+  background: var(--lime); color: #11110e; border: 1px solid #11110e;
+  padding: 10px 18px; border-radius: 0 0 10px 0;
+}
+.skip-link:focus { left: 0; }
+
+/* QA 2026-10-19: the 2026-10-18 pass gave .nav-cta `order: 2` so the button
+   would ride on the brand's row below 820px, but the button was a child of
+   .nav-links, where `order` means nothing and margin-left:auto pushed it past
+   the gutter. It is a child of .nav now. These rules keep the old look. */
+.nav > .nav-cta { flex-shrink: 0; }
+@media (min-width: 821px) { .nav > .nav-cta { margin-left: 0; } }
+
+/* QA 2026-10-19: .callout is a flex row with a flex-shrink:0 label of
+   79-149px. On a 390px phone that left the quote a 136px column, ~20
+   characters a line, 25 lines for a single paragraph; at 320px, 96px and 41
+   lines, and one callout ran the page 7px wide. Stack below 700px. */
+@media (max-width: 700px) {
+  .callout { flex-direction: column; gap: 0.55rem; }
+  .callout-mark { padding-top: 0; }
+}
+</style>
+<style>
+/* SEO 2026-10-12 topic guide link */
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
+.hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
+</style>
+
+<style>
+/* SEO 2026-10-12 long inline code must break rather than widen the page */
+.article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
+</style>
+
+<style>
+/* 2026-10-13 long API identifiers in FAQ answers must break rather than widen the page */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  /* decorative separators strand at the end of a wrapped line on phones */
+  .article-meta span[aria-hidden="true"] { display: none; }
+  .article-meta { column-gap: 1rem; }
+}
+
+/* QA-2026-10-18-CSS
+   QA 2026-10-18: 24px minimum target size at every width, not only phones.
+   The 2026-10-10 pass put this inside @media (max-width:560px), so header and
+   footer links stayed at 23.2-23.5px on tablet and desktop. */
+.nav-links a:not(.nav-cta), .foot-cols a, .foot-bot a {
+  display: inline-flex; align-items: center; min-height: 24px;
+}
+
+/* QA 2026-10-18: the header nav used to vanish below 820px with nothing in its
+   place, so phone and tablet readers had no way back to Latest, Topics or the
+   Archive. Wrap it onto a second row instead of hiding it. */
+@media (max-width: 820px) {
+  .nav { flex-wrap: wrap; padding-top: 0.55rem; padding-bottom: 0.55rem; row-gap: 0.1rem; }
+  .brand { order: 1; }
+  .nav-cta { order: 2; margin-left: auto; }
+  .nav-links { order: 3; width: 100%; gap: 1.5rem; justify-content: flex-start;
+               font-size: 13.5px; padding-bottom: 0.1rem; }
+  .nav-links a:not(.nav-cta) { display: inline-flex; }
+}
+@media (max-width: 380px) { .nav-links { gap: 1.1rem; font-size: 13px; } }
+
+/* QA 2026-10-18: long API identifiers in deks and FAQ answers must break
+   rather than widen the page. Added 2026-10-13 to 5 pages only. */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+
+/* QA 2026-10-18: READ NEXT had grown to 79 cards on the oldest dispatches,
+   ~28,000px of card grid on a phone. The overflow now sits behind a
+   disclosure, so every link is still in the page and crawlable. */
+.related-more { max-width: var(--maxw); margin: 1.5rem auto 0; }
+.related-more > summary {
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-dim); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 0.5rem; min-height: 24px;
+  padding: 0.4rem 0.9rem; border: 1px solid var(--border-strong); border-radius: 999px;
+  list-style: none; transition: color .2s, border-color .2s, background .2s;
+}
+.related-more > summary::-webkit-details-marker { display: none; }
+.related-more > summary::after { content: "\002B"; font-size: 1rem; line-height: 1; }
+.related-more[open] > summary::after { content: "\2212"; }
+.related-more > summary:hover { color: var(--text); border-color: var(--text); background: var(--surface); }
+.related-more > .related-grid { margin-top: 1.5rem; }
+/* cards inside a closed disclosure never meet the IntersectionObserver that
+   clears .reveal, so they would open at opacity 0. */
+.related-more .reveal { opacity: 1; transform: none; }
+</style>
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>&#9670; DISPATCH N&ordm; 135 &middot; OCT 24, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 13 MIN READ &middot; 3,560 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+    <span>&#9670; DISPATCH N&ordm; 135 &middot; OCT 24, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 13 MIN READ &middot; 3,560 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+  </nav>
+  <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+</header>
+
+
+<article class="article" id="main" role="main">
+
+  <a href="index.html" class="article-back">&larr; back to field notes</a>
+
+  <div class="article-meta">
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 135</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-10-24" style="color: var(--cream-dim);">OCT 24, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">13 MIN READ</span></span>
+</div>
+
+  <h1 class="article-title">
+    How to catch Shopify inventory transfers that <em>never get received</em>
+  </h1>
+
+  <p class="article-dek">
+    Stock can sit on your own shelves, paid for and counted, and still be unsellable. Shopify will not tell you, because nothing went wrong. Something simply stopped.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
+    <span class="byline-divider" aria-hidden="true">&middot;</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      A pallet lands at the back door on a Thursday. Somebody signs for it,
+      cuts the wrap, and stacks the boxes where the boxes go. The stock is
+      now in the building. It is counted, it is paid for, and it is twenty
+      feet from the person who will pack it.
+    </p>
+
+    <p>
+      Nobody opens the transfer in the Shopify admin and clicks Receive.
+    </p>
+
+    <p>
+      From that moment your store is holding inventory it cannot sell. Not
+      because of a sync bug, not because an app fell over, not because
+      anything failed. The transfer is still sitting at In progress, which is
+      a perfectly healthy status, and Shopify has no opinion about how long a
+      transfer should stay there.
+    </p>
+
+    <p>
+      Three weeks later somebody notices that a best seller has been sold out
+      on the website since the Thursday the stock arrived.
+    </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Incoming inventory is not available inventory. Shopify's own
+        definition is that incoming stock is on its way to your location from
+        inventory transfers or apps, and that it is not available to sell
+        until it has been received and its state has been changed to
+        Available. So a transfer nobody finished receiving is stock you own,
+        standing in your own stockroom, that your storefront will not sell.
+      </p>
+
+      <p>
+        Partial receiving is where this actually happens. Shopify documents
+        that if you only receive some items, the transfer stays In progress
+        until you receive the remaining ones. Somebody counts the first two
+        cartons, gets called away, and the rest never gets a second look.
+      </p>
+
+      <p>
+        Shopify Flow has eighty-three triggers and exactly two of them concern
+        transfers: Inventory transfer ready to ship, and Inventory transfer
+        completed. Both fire when things go right. Nothing fires when a
+        transfer stops moving, because stopping is not an event.
+      </p>
+
+      <p>
+        Webhooks do not help either. The transfer event topics fire on field
+        changes, and the field you care about is status. A stalled transfer
+        never changes status, so there is nothing to subscribe to. This one
+        needs a clock, not a listener.
+      </p>
+
+      <p>
+        The number to watch is on the API object and nowhere in the admin:
+        total quantity minus received quantity, per transfer, filtered to
+        transfers older than the lead time for that route. That is the count
+        of units you have bought and cannot sell.
+      </p>
+
+      <p>
+        And if your reorder reports keep telling you to buy stock you already
+        bought, that is the same hole from the other side. Incoming is derived
+        from shipments, not from purchase orders, so an open purchase order
+        contributes nothing to incoming at all.
+      </p>
+    </div>
+
+    <h2>Incoming is not available, and Shopify is explicit about it</h2>
+
+    <p>
+      Most of the confusion here dissolves the moment you read Shopify's
+      <a href="https://help.shopify.com/en/manual/inventory-and-locations/fundamentals/inventory-states">inventory states</a> page slowly. There are five
+      states and they do not overlap the way people assume.
+    </p>
+
+    <p>
+      Incoming is inventory "that's on its way to your location from inventory
+      transfers or apps", and it "isn't available to sell until it has been
+      received and its state has been changed to Available". Available is
+      inventory "that you can sell", and the page adds, in so many words, that
+      it "doesn't include inventory that's considered Incoming". On hand is
+      "all inventory units that you have at a location", made up of the total
+      of <a href="how-to-fix-shopify-committed-inventory-that-never-clears.html">Committed</a>,
+      Unavailable and Available.
+    </p>
+
+    <p>
+      Read those three definitions together and the shape of the problem
+      appears. Incoming is not in Available, and On hand is defined without
+      it. An unreceived transfer therefore sits outside every number your
+      store sells against. The boxes are physically present and
+      administratively absent.
+    </p>
+
+    <p>
+      This is also why nothing looks broken. Your <a href="how-to-prevent-overselling-on-shopify-across-channels.html">oversell
+      protection</a> is working exactly as designed: it is refusing to sell stock the system has
+      not been told you have. The sold-out badge is correct. The inventory
+      number is correct. The only wrong thing in the whole system is a click
+      that did not happen at the receiving door, and there is no field
+      anywhere in Shopify that records a click that did not happen.
+    </p>
+
+    <h2>In progress covers two completely different situations</h2>
+
+    <p>
+      A transfer has six statuses in the API. The
+      <a href="https://shopify.dev/docs/api/admin-graphql/latest/enums/InventoryTransferStatus">InventoryTransferStatus</a> enum lists DRAFT, "created
+      but not yet finalized"; READY_TO_SHIP, "created, but not yet shipped";
+      IN_PROGRESS, "in progress, with a shipment currently underway or
+      received"; TRANSFERRED, "completely received at the destination";
+      CANCELED; and OTHER, for a status outside the current set.
+    </p>
+
+    <p>
+      Look at the definition of IN_PROGRESS again. A shipment currently
+      underway, <em>or received</em>. One status, two stories. A transfer that
+      left the supplier this morning and a transfer that landed three weeks
+      ago with fourteen units never counted are the same status, in the same
+      list, with the same badge.
+    </p>
+
+    <p>
+      That is the whole reason this problem is invisible rather than merely
+      annoying. Shopify's
+      <a href="https://help.shopify.com/en/manual/products/inventory/transfers/receive-inventory">receive inventory</a> page is clear about how a
+      transfer gets stuck there: "If you only receive some items, then the
+      transfer remains In progress until you receive the remaining items."
+      After all items are received the status changes to Transferred. Until
+      then it does not, and nothing in the admin counts the days.
+    </p>
+
+    <p>
+      Receiving also has a subtlety worth knowing before you build anything.
+      Rejecting a line is recorded on the transfer but, in Shopify's words,
+      "doesn't change inventory quantities at any location". A rejected unit
+      is resolved without ever becoming stock. So a transfer can reach
+      Transferred with nothing added to your shelves, and a transfer can sit
+      at In progress with most of the stock already on them. Status alone
+      tells you less than it looks like it does.
+    </p>
+
+    <h2>Flow has two transfer triggers and both are good news</h2>
+
+    <p>
+      The <a href="https://help.shopify.com/en/manual/shopify-flow/reference/triggers">Shopify Flow triggers</a> reference lists
+      eighty-three triggers in a single section. Two of them touch transfers:
+      Inventory transfer ready to ship, and Inventory transfer completed. There
+      is nothing for purchase orders, nothing for receiving, nothing for
+      incoming inventory.
+    </p>
+
+    <p>
+      Both of the triggers you do get fire on the happy path. Ready to ship
+      fires at the start, completed fires at the end, and the failure mode we
+      are talking about is the gap between them stretching out forever. You
+      can build a workflow that congratulates you when a transfer finishes.
+      You cannot build one that notices when a transfer does not.
+    </p>
+
+    <p>
+      This is a general property of trigger-based automation and worth naming,
+      because it explains a whole family of Shopify problems. Event systems
+      can only tell you about things that happen. Every operational failure
+      that consists of a step being skipped is therefore invisible to them.
+      Anything you want to catch by absence needs something that wakes up on
+      its own and looks.
+    </p>
+
+    <h2>You cannot subscribe to nothing happening</h2>
+
+    <p>
+      Developers reach for webhooks here and find out the same thing the hard
+      way. The <a href="https://shopify.dev/docs/api/events/latest/inventory-transfer">inventory transfer event topics</a> are
+      field-shaped: there is a parent topic for the object, and then topics
+      for destination, line items, line item total quantity, tags, metafields,
+      and status. Status is the one that matters, and it "fires when the status
+      field on the InventoryTransfer object changes".
+    </p>
+
+    <p>
+      A transfer that stalls does not change status. That is the definition of
+      stalling. There is no topic for a transfer that has been In progress too
+      long, because the platform has no idea what too long means in your
+      business, and no topic can fire on an absence of change.
+    </p>
+
+    <p>
+      The history on this is messier than the docs suggest, which is worth
+      knowing if you are tempted to lean on webhooks anyway. In May 2025 an
+      app developer reported that
+      <a href="https://community.shopify.com/t/webhooks-not-triggering-on-inventory-transfers-request-for-resolution/414425">inventory webhooks were not firing during
+      transfers</a> at all: stock levels moved in the admin, and
+      <code>inventory_levels/update</code> and
+      <code>inventory_items/update</code> produced nothing at his endpoint. A
+      reply told him the new Transfers does send those webhooks as expected. On
+      13 June he came back to say the test still did not fire, and that Shopify
+      Support had confirmed transfers do not trigger inventory webhooks and had
+      logged a feature request.
+    </p>
+
+    <p>
+      In December 2025 another developer subscribed to
+      <code>inventory_transfers/add_items</code>,
+      <code>inventory_transfers/cancel</code> and
+      <code>inventory_transfers/complete</code>, received only the cancel
+      topic, and found that it
+      <a href="https://community.shopify.dev/t/inventory-transfers-webhook-behavior-payloads-and-bugs/26946">fired when the transfer was marked as
+      received</a>. He also asked where the payload documentation for these
+      topics lives, since the topics appear in the Admin API docs and their
+      payloads do not appear on the webhooks page. Seven months later he closed
+      the thread himself as a misconfiguration at his end. The documentation
+      question was never answered.
+    </p>
+
+    <p>
+      None of that means webhooks are useless on transfers. It means the thing
+      you are building is a scheduled query that runs every morning, and the
+      webhooks are a nice-to-have on top. Get the order of those two wrong and
+      you will spend a week on plumbing that cannot physically detect your
+      problem.
+    </p>
+
+    <h2>The two numbers that actually answer the question</h2>
+
+    <p>
+      The <a href="https://shopify.dev/docs/api/admin-graphql/latest/objects/InventoryTransfer">InventoryTransfer object</a> carries both halves of
+      the arithmetic, and neither one appears as a column anywhere in the
+      admin. <code>totalQuantity</code> is a non-null integer, "the total
+      quantity of items being transferred".
+      <code>receivedQuantity</code> is a non-null integer, "the total quantity
+      of items accepted, rejected, or marked as canceled in the transfer".
+    </p>
+
+    <p>
+      Subtract one from the other and you have the number this whole article is
+      about: units committed to a transfer that nobody has resolved. Sum it
+      across every transfer that is not TRANSFERRED or CANCELED and you have
+      the size of the hole, in units, for the first time.
+    </p>
+
+    <p>
+      Note the exact wording of receivedQuantity before you trust the
+      subtraction. It counts accepted, rejected and canceled together. It is a
+      count of lines that have been dealt with, not a count of stock that
+      arrived. A transfer whose every line was rejected reads as fully received
+      by this measure, which is correct for "has anyone looked at this" and
+      wrong for "did we get the stock". If you want the second question, you
+      have to walk the line items.
+    </p>
+
+    <p>
+      The other thing to notice is what the object does not carry.
+      <code>dateCreated</code> is there, and it is the only clock. There is no
+      expected arrival date on the object, and Shopify's
+      <a href="https://help.shopify.com/en/manual/products/inventory/transfers">transfers</a> page says nothing about expected
+      arrival either. So the lead time has to come from you. A transfer between
+      two of your own locations in the same city is late after two days. A
+      container from overseas is not late at six weeks. One threshold for the
+      whole store will either drown you in false alarms or stay quiet for a
+      month, and both of those end the same way, with everybody ignoring the
+      alert.
+    </p>
+
+    <h2>Why your overdue list will be quietly shorter than the truth</h2>
+
+    <p>
+      Here is the trapdoor for anybody who builds this properly, and it is not
+      documented anywhere a merchant would look.
+    </p>
+
+    <p>
+      The origin and destination on a transfer are not locations. They are
+      <code>LocationSnapshot</code> objects: a copy of the name and address as
+      they were, held deliberately so historical data survives a location being
+      renamed or deleted later. Both are nullable, and so is the live Location
+      inside each one.
+    </p>
+
+    <p>
+      In May 2026 a developer found
+      <a href="https://community.shopify.dev/t/inventory-transfer-complete-webhook-transfer-has-no-destination/34054">destination coming back nil</a> on transfers he had
+      just been notified about, and later found origin nil on transfers whose
+      status was TRANSFERRED, often enough that deleted locations seemed an
+      unlikely explanation. Shopify staff answered on 25 May that the behavior
+      is expected: since the 2026-01 API change, transfers can be created
+      without an origin or a destination, so a nil destination is valid, while a
+      nil destination.location means the live location is deleted or not
+      accessible to the app. The nil origins on completed transfers were never
+      explained, and the thread is still open.
+    </p>
+
+    <p>
+      The practical consequence is small and expensive. If your morning report
+      groups unreceived transfers by destination location and your query joins
+      through the live location, every transfer with a nil destination
+      disappears from the report. It does not error. It does not warn. The list
+      is simply shorter, and a list that is shorter than the truth is worse
+      than no list, because you will believe it. Group by the snapshot name,
+      keep an explicit bucket for the ones with no destination, and put the
+      count of that bucket at the bottom of the mail where somebody will see it.
+    </p>
+
+    <h2>The purchase order half of the same hole</h2>
+
+    <p>
+      If you buy stock rather than move it between your own shelves, you meet
+      this problem from the other direction first, and we have written about
+      that half on its own: <a href="how-to-stop-reordering-shopify-stock-you-already-have-on-order.html">the
+      reorder you always make too late</a>.
+    </p>
+
+    <p>
+      On 24 July 2026 a merchant posted that his custom reports, which use
+      incoming quantities to work out what to buy,
+      <a href="https://community.shopify.com/t/purchase-order-incoming-inventory-not-working/654650">were recommending stock that was already on
+      order</a>. His sentence is the one everybody recognizes: his reports kept
+      telling him to procure what was already in process.
+    </p>
+
+    <p>
+      The explanation came from another merchant on the same day, and it is the
+      single most useful fact in that thread. Incoming is derived from inventory
+      shipments, not from purchase orders. An open purchase order does not
+      contribute to incoming, because, as he put it, there is literally nothing
+      for Shopify to count. He also noted that the Admin GraphQL API had no
+      PurchaseOrder object as of 2026-07, so you cannot join the two yourself
+      either.
+    </p>
+
+    <p>
+      The workaround the thread landed on is to create the linked transfer when
+      the purchase order is confirmed and mark it in transit straight away, even
+      before anything ships, so that incoming appears and the reorder maths
+      stops double-counting. It works. It also means your transfers list is now
+      full of transfers that are in transit and are not in transit, which is
+      exactly the noise that makes an overdue report useless.
+    </p>
+
+    <p>
+      Three days later the same merchant found the next edge: transfers do not
+      update when the purchase order changes. In September 2026 another merchant
+      <a href="https://community.shopify.com/t/purchase-orders-and-transfers/682404">asked for that sync to be automatic</a>, having added
+      items to a purchase order by email after the fact and had to edit both
+      records by hand, and noted that once a transfer is marked in transit there
+      is no way back. A third merchant in that thread put the rule better than
+      the documentation does: one record per arrival. If you take one line from
+      this section, take that one.
+    </p>
+
+    <h2>What this costs on an ordinary Tuesday</h2>
+
+    <p>
+      Take a two-location store that runs six transfers a week. Say one a week
+      stalls part-received, which is conservative for anybody who has watched
+      their own receiving door, and say it stalls with eighteen units
+      outstanding at an average retail price of thirty-four dollars.
+    </p>
+
+    <p>
+      That is about six hundred dollars of stock dark for however long it takes
+      somebody to notice. But the lost margin is the small half. The units that
+      stall are the ones that moved enough to need transferring, so the
+      sold-out badge lands on your best sellers rather than your slow ones.
+      <a href="how-to-set-up-back-in-stock-notifications-on-shopify.html">Back-in-stock
+      emails</a> do not fire, because the variant never came back in stock. The reorder report reads the gap as demand and tells you to buy
+      more of something sitting in your own stockroom. And the customer who
+      wanted it on Thursday bought it somewhere else on Thursday, which is the
+      line item you will never see in any report.
+    </p>
+
+    <p>
+      Multiply by the number of locations, which is also the number of places an
+      order can be <a href="how-to-route-shopify-orders-to-the-right-warehouse.html">routed
+      to and then not shipped from</a>, and by the number of weeks before
+      anyone checks. The reason this one is worth automating is not the size of any
+      single incident. It is that the clock keeps running and nothing in the
+      system is holding a stopwatch.
+    </p>
+
+    <h2>What the automation actually has to do</h2>
+
+    <p>
+      As a Dugong playbook, in plain prose:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">Scheduled</span> daily sweep, plus
+transfer ready to ship and
+transfer completed
+
+<span class="c"># steps</span>
+1. <span class="k">Write</span> down a lead time
+   for every route
+2. <span class="k">Count</span> unreceived units,
+   not open transfers
+3. <span class="k">Separate</span> a transfer in transit
+   from one that landed
+4. <span class="k">Chase</span> the person at the
+   destination, not the buyer
+5. <span class="k">Group</span> by the snapshot and
+   keep a null bucket
+6. <span class="k">Close</span> the partials, because
+   the status will not
+7. <span class="k">Send</span> one list every morning,
+   oldest money first
+</code></pre>
+
+    <p>
+      Step one is the step that decides whether anybody keeps the alert
+      switched on. Lead time is per route, not per store: shelf to shelf in the
+      same building is late tomorrow, a supplier two provinces away is late in a
+      week, a container is late in a month. Write the number down next to each
+      route once, in a sentence, and the false alarms stop.
+    </p>
+
+    <p>
+      Steps two and three are the measurement. Count unreceived units rather
+      than open transfers, because one transfer with four hundred units
+      outstanding and twelve transfers with one each are very different
+      mornings, and a count of transfers makes them look the same. Then
+      separate the two situations that share the In progress status by using
+      the shipment dates rather than the transfer status, so a shipment that
+      has not left yet is chased differently from one that has already landed.
+      Those are two different phone calls to two different people.
+    </p>
+
+    <p>
+      Step four is the one that makes the automation welcome instead of
+      resented. The person who can fix an unreceived transfer is standing at
+      the destination with a box cutter, not sitting in an office approving
+      purchase orders. Mail the destination. Name the transfer, the units
+      outstanding and how long it has been open, and say what to click. A nudge
+      that reaches somebody who cannot act is how alerts get filtered to a
+      folder.
+    </p>
+
+    <p>
+      Steps five and six are the two things that will silently rot an otherwise
+      good report. Group by the snapshot, keep the null bucket visible, and
+      re-open the question on partials on a schedule, because the status field
+      will keep saying In progress politely and forever. A transfer that has
+      been eighty percent received for nine days is the most common shape of
+      this failure and the least likely to be noticed, because it looks like
+      progress.
+    </p>
+
+    <p>
+      Step seven is about whether a human acts. Sort by money and by age, put
+      the oldest and largest at the top, and send one short list. A list of
+      four transfers gets cleared before the first coffee. A list of sixty gets
+      archived, and then the next one gets archived unread.
+    </p>
+
+    <p>
+      The honest limits. No automation can walk to the stockroom and count what
+      is in the boxes, and you should be suspicious of anything that offers to
+      auto-receive a transfer on a timer, because that writes stock you have
+      not verified into the number your storefront sells against, which is a
+      worse problem than the one you started with. A single-location store with
+      no transfers does not need any of this. And if receiving is genuinely
+      nobody's job, the alert will land in an empty inbox, so settle that first
+      and automate second.
+    </p>
+
+    <h2>Why this is a workflow and not a checklist</h2>
+
+    <p>
+      A checklist works when the work is rare and the person is the same person
+      every time. Receiving is neither. It happens on the days the delivery
+      happens to come, it is done by whoever is nearest to the door, and the
+      moment it goes wrong is the moment somebody got interrupted, which is the
+      exact moment a checklist is not being read.
+    </p>
+
+    <p>
+      And the gap has been open long enough to stop waiting on it. The webhook
+      thread from May 2025 ends with a feature request logged. The payload
+      documentation question from December 2025 was never answered. The nil
+      destination thread from May 2026 is still open. The purchase order
+      incoming thread from July 2026 has no staff reply and no accepted answer.
+      The auto-sync request from September 2026 is a request. Two forums, four
+      years, and the fix in every thread is a workaround somebody built
+      themselves.
+    </p>
+
+    <p>
+      With Dugong you describe this one in a sentence. Every morning, list the
+      transfers that are not finished, with the units outstanding and the days
+      open, late by the lead time for that route, grouped by where they were
+      going, and mail it to the person at that location. That is the
+      specification. Everything after it is plumbing, and plumbing is what
+      automation is for.
+    </p>
+
+    <h2>Do this before you close the laptop</h2>
+
+    <p>
+      Three checks, ten minutes, no code.
+    </p>
+
+    <p>
+      Open your transfers list, filter to In progress, and sort by oldest. The
+      date at the top of that sort is the answer to a question you have never
+      asked, and most people are surprised by it.
+    </p>
+
+    <p>
+      Open the oldest one and compare the received count to the total. If it is
+      a partial, you have just found the shape of your own version of this
+      problem, and you can stop reading about the general case.
+    </p>
+
+    <p>
+      Then ask whoever is at your busiest destination location who is supposed
+      to click Receive. If you get two different answers from two people, the
+      automation is the second thing to fix.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">&#9670; READING</span>
+      <span>
+        Two companion pieces if this one landed: <a
+        href="how-to-stop-reordering-shopify-stock-you-already-have-on-order.html">the
+        reorder you always make too late</a>, on the incoming stock your
+        reorder point never reads, and <a
+        href="how-to-fix-shopify-committed-inventory-that-never-clears.html">the
+        stock Shopify counts and will not let you sell</a>, on the other way
+        units go missing from the number your storefront sells against.
+      </span>
+    </div>
+
+    <p>
+      If you sell on Shopify and have a version of this story, the pallet that
+      sat unreceived for a month, the best seller that was sold out in your own
+      stockroom, the reorder you made twice, the inbox is open:
+      <code>field-notes@dugong.live</code>. We are collecting case studies for
+      the next issue.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share &middot; copy link &middot; &#10022;</span>
+  </div>
+
+</article>
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">&#9670; COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item" id="faq-1">
+      <h2 class="faq-q">Why is my Shopify inventory not available after a transfer?</h2>
+      <p class="faq-a">Because an unreceived transfer counts as incoming, and incoming is not available. Shopify's inventory states page defines incoming inventory as stock that's on its way to your location from inventory transfers or apps, and says plainly that it isn't available to sell until it has been received and its state has been changed to Available. The same page defines available inventory as inventory you can sell and adds that it doesn't include inventory that's considered incoming. On hand is defined as the total of your committed, unavailable and available inventory, which also leaves incoming out. So stock that is physically in your building but sitting on a transfer nobody finished receiving is outside every number your storefront sells against. Nothing is broken. Your oversell protection is doing exactly what it was built to do, which is refuse to sell units the system has not been told you have. The fix is to receive the transfer. The problem is that nothing in Shopify will tell you a transfer has been waiting to be received for three weeks.</p>
+    </div>
+    <div class="faq-item" id="faq-2">
+      <h2 class="faq-q">What does In progress mean on a Shopify transfer?</h2>
+      <p class="faq-a">It means less than you would expect, and that is the heart of this problem. The Admin API enum defines IN_PROGRESS as a transfer in progress with a shipment currently underway or received. That single status therefore covers a transfer that left the supplier this morning and a transfer that arrived three weeks ago with fourteen units nobody counted. They sit in the same list with the same badge. Shopify's receive inventory page explains how a transfer gets stuck there: if you only receive some items, the transfer remains In progress until you receive the remaining items, and the status only changes to Transferred once everything has been received. There is also a wrinkle worth knowing before you build on the status. Rejecting a line is recorded on the transfer but does not change inventory quantities at any location, so a transfer can reach Transferred without a single unit reaching your shelves. If you need to know what actually arrived rather than what has been dealt with, you have to read the line items.</p>
+    </div>
+    <div class="faq-item" id="faq-3">
+      <h2 class="faq-q">Does Shopify Flow have a trigger for a transfer that was never received?</h2>
+      <p class="faq-a">No. The Shopify Flow triggers reference lists eighty-three triggers, and two of them concern transfers: Inventory transfer ready to ship, and Inventory transfer completed. There is no trigger for purchase orders, for receiving, or for incoming inventory. Both of the transfer triggers you do get fire on the happy path, one at the beginning and one at the end, and the failure you are trying to catch is the gap between them never closing. This is a property of event-driven automation rather than a gap in Flow specifically. A trigger can only fire on something that happens, so any operational failure that consists of a step being skipped is invisible to triggers by construction. You can still use the two triggers you have, as the open and close of a clock: record the moment a transfer becomes ready to ship, clear that record when it completes, and have something else look at what is left over. The looking is the part Flow cannot do for you.</p>
+    </div>
+    <div class="faq-item" id="faq-4">
+      <h2 class="faq-q">Can you get a webhook when a Shopify transfer is overdue?</h2>
+      <p class="faq-a">No, and it is worth understanding why rather than searching for the right topic name. The inventory transfer event topics are field-shaped: a parent topic for the object, plus topics for destination, line items, line item total quantity, tags, metafields and status. The relevant one fires when the status field on the transfer changes. A transfer that has stalled has not changed status, which is precisely what stalling means, so no topic can fire. There is also no platform concept of overdue, because Shopify does not know your lead times. The practical history is a little rough too. In May 2025 an app developer reported that inventory level and inventory item webhooks were not firing during transfers at all, and came back in June to say that Shopify Support had confirmed transfers do not trigger inventory webhooks and had logged a feature request. In December 2025 another developer subscribed to the add items, cancel and complete transfer topics, received only cancel, and saw it fire when the transfer was marked as received. Build the scheduled query first. Treat webhooks as an optimization.</p>
+    </div>
+    <div class="faq-item" id="faq-5">
+      <h2 class="faq-q">Why doesn't my Shopify purchase order show as incoming inventory?</h2>
+      <p class="faq-a">Because incoming is derived from inventory shipments, not from purchase orders. This came up on the Shopify community in July 2026, when a merchant found that his reorder reports were recommending stock that was already on order, and said his reports kept telling him to procure what was already in process. Another merchant gave the answer in the same thread: incoming is not derived from the purchase order at all, so there is literally nothing for Shopify to count. He also noted that the Admin GraphQL API had no PurchaseOrder object as of version 2026-07, which means you cannot join the two sides yourself either. The workaround the thread settled on is to create the linked transfer as soon as the purchase order is confirmed and mark it in transit immediately, before anything ships, so that incoming appears and the reorder maths stops double-counting. That works, with two costs. Your transfers list now contains transfers that are in transit and are not in transit, which makes an overdue report noisy. And transfers do not update when the purchase order changes, so adding a line to the order leaves the transfer wrong until somebody edits it by hand. One record per arrival is the rule that keeps this tidy.</p>
+    </div>
+    <div class="faq-item" id="faq-6">
+      <h2 class="faq-q">Can AI monitor Shopify inventory transfers and chase the unreceived ones?</h2>
+      <p class="faq-a">Yes, and this is a particularly good fit for automation, because every judgment involved is arithmetic rather than opinion. An automation like Dugong starts from a lead time per route, which you write down once, because shelf to shelf in the same building is late tomorrow and a container is not late at six weeks. It then counts unreceived units rather than open transfers, by subtracting received quantity from total quantity on each transfer, since one transfer holding four hundred units and twelve holding one each are very different mornings. It separates a shipment that has not left from one that has already landed, because those are two different phone calls. It groups by the location snapshot rather than the live location and keeps a visible bucket for transfers with no destination, since Shopify allows transfers without one and a join through the live location silently drops them. It re-opens partials on a schedule, because the status field will keep saying In progress politely and forever. And it mails one short list each morning to the person at the destination, oldest and largest first, because a list of four gets cleared and a list of sixty gets archived. The limits are honest ones. Nothing can count the boxes for you, auto-receiving on a timer writes unverified stock into the number your storefront sells against and is worse than the original problem, and if receiving is nobody's job in particular then the alert lands in an empty inbox.</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="section-head">
+    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+<a href="how-to-stop-reordering-shopify-stock-you-already-have-on-order.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The reorder you always make too late</h3>
+        <p class="card-dek">
+          Incoming reads zero while the pallet sits at the supplier, so the report tells you to buy it again. The AI playbook that tracks every open Shopify purchase order.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT&nbsp;15</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-shopify-committed-inventory-that-never-clears.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The stock Shopify will not let you sell</h3>
+        <p class="card-dek">
+          Committed is read-only and Shopify will not tell you which orders hold it. The AI playbook that finds the stuck orders and gets your shelf selling again.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT&nbsp;12</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-prevent-overselling-on-shopify-across-channels.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The overselling problem no one automates</h3>
+        <p class="card-dek">
+          Selling stock you no longer have is the Shopify pain point merchants dread most, because it is the hardest to take back. The AI playbook that keeps inventory honest in real time.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN&nbsp;5</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+  </div>
+  <a href="shopify-inventory-automation.html" class="hub-more">more on shopify inventory automation &rarr;</a>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html#latest">Latest</a>
+        <a href="index.html#essays">Essays</a>
+        <a href="index.html#post-mortems">Post-mortems</a>
+        <a href="index.html#interviews">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>&copy; 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>

@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-fix-missing-hs-codes-on-shopify-before-customs-holds-your-orders.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-13" />
-    <meta property="article:modified_time" content="2026-08-14" />
+    <meta property="article:modified_time" content="2026-10-24" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-fix-missing-hs-codes-on-shopify-before-customs-holds-your-orders.html",
       "url": "https://blog.dugong.live/how-to-fix-missing-hs-codes-on-shopify-before-customs-holds-your-orders.html",
       "headline": "How to fix missing HS codes on Shopify before customs holds your orders",
+      "abstract": "Fill the HS code and the country of origin on every variant, because both fields live on the variant rather than the product and nothing in Shopify enforces them. A product created tonight publishes, sells and ships without either. Shopify added a store level default for country of origin in May 2025, and there is still no equivalent for HS codes: no default, no product level value, no inheritance.",
       "description": "The email lands Thursday at 7:52 am, from a customer in Denver: the carrier wants $61.84 in import charges before it will hand over her $78 box of candles, and she wants to know if it is a scam. It is not. It is a blank field. For a decade the two customs fields on a Shopify product, the HS code and the country of origin, could stay empty for a business lifetime, because de minimis let low value parcels cross borders duty free. Executive Order 14324 ended that on August 29, 2025, for every country and every value at once; more than 20 national postal operators paused US-bound parcels that same week rather than guess at the paperwork; the $80 to $200 flat fee window that softened the landing closed at the end of February 2026; and on July 1, 2026 the EU removed its own 150 euro exemption and now charges a flat 3 euro duty per six digit tariff subheading on small parcels, which makes the HS code the unit the bill is counted in, with three mandatory product identifiers per line item following on November 1. Shopify stores both fields per variant with no product level inheritance: a June 2026 feature request counts 17 color variants of one candle needing the same code typed 17 times, and a July reply does the arithmetic, three variants across 400 products is 1,200 fields, most of them the same code. A store level default for country of origin arrived in May 2025; for HS codes there is nothing. Blanks degrade quietly: checkout falls back to estimating duties from the description and product category, the help center warns the estimate is likely to be inaccurate and that the shortfall gets charged to the customer on delivery, and a community thread still active in August 2026 reports duties computed at 95 to 100 percent of price where 3.5 to 5 percent was owed, while the duty calculation fee bills on every order it runs on, even when it ran on blanks. The AI playbook that audits coverage, classifies the catalog with confidence scores and human review, guards every new product the hour it publishes, holds the codeless international order before the label prints, checks checkout duty against carrier invoices, and reports coverage monthly.",
       "datePublished": "2026-08-13",
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-10-24",
       "articleSection": "Research",
       "keywords": "shopify hs codes, add hs codes shopify, missing hs code, bulk edit hs codes, country of origin shopify, customs information, duties wrong at checkout, de minimis, customs hold, AI hs code classification",
-      "wordCount": 2800,
+      "wordCount": 3000,
       "timeRequired": "PT10M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -108,6 +109,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -740,11 +742,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 107 &middot; AUG 13, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,800 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 3,000 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 107 &middot; AUG 13, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,800 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 3,000 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -837,6 +839,34 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       them, and nothing in the admin has ever chased you about
       the blanks. The border chases your customer instead.
     </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Fill the HS code and the country of origin on every variant, because both fields live on the variant rather
+        than the product and nothing in Shopify enforces them. A product created tonight publishes, sells and ships
+        without either. Shopify added a store level default for country of origin in May 2025, and there is still no
+        equivalent for HS codes: no default, no product level value, no inheritance.
+      </p>
+
+      <p>
+        Leave them blank and duties at checkout fall back to the description and the product category, which the
+        help center itself calls likely to be inaccurate, and warns might put additional duties on your customer at
+        delivery. That is the carrier texting a payment link to someone who already paid. A wrong code fails in the
+        other direction: one merchant measured duties computed at 95 to 100 percent of the price where the correct
+        rate was 3.5 to 5 percent, and nobody checks out through that.
+      </p>
+
+      <p>
+        Three native routes exist: one variant at a time on the product page, the bulk editor, and the duties CSV
+        under Settings, then Taxes and duties, which exports the products with information missing and is the
+        closest thing to a coverage report. None survives 400 products at three variants, which is 1,200 fields.
+        What does is proposing six digit codes from title, description and materials with confidence attached,
+        sending confident batches to the bulk editor and the tail to a human, and flagging any product that goes
+        live without codes the same <em>hour</em>.
+      </p>
+    </div>
 
     <h2>Two fields nobody filled in</h2>
 
@@ -1256,7 +1286,39 @@ and every international order
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid">
+  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">13&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify inventory transfers that never get received</h3>
+        <p class="card-dek">
+          Stock in an unreceived Shopify transfer counts as incoming, not available, so your storefront says sold out while the boxes sit in the back. The AI playbook that catches the stalled ones.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-find-shopify-products-missing-images-or-weights.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">12&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to find Shopify products missing images or weights</h3>
+        <p class="card-dek">
+          Shopify has no filter for a product with no image, and a blank weight exports as zero. The AI playbook that finds the half-finished products before customers do.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1321,7 +1383,10 @@ and every international order
         </div>
       </div>
     </a>
-<a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+  </div>
+  <details class="related-more">
+    <summary>31 more dispatches in the archive</summary>
+    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1352,10 +1417,8 @@ and every international order
           <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </a></div>
-  <details class="related-more">
-    <summary>29 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+    </a>
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1821,6 +1884,7 @@ and every international order
     </a></div>
   </details>
 
+  <a href="shopify-shipping-and-fulfillment-automation.html" class="hub-more">more on shopify shipping and fulfillment automation &rarr;</a>
 </section>
 
 <footer class="foot">
@@ -1840,7 +1904,7 @@ and every international order
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>

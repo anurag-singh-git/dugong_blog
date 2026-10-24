@@ -5,8 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-catch-shopify-flow-workflows-that-fail-silently.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-09-20
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2700
+- Word count: 2900
 - Dispatch: Nº 120 · Research · 11 min read
 - Full headline on page: How to catch Shopify Flow workflows that *fail silently*
 - Keywords: shopify flow not working, shopify flow workflow failed, shopify flow completed but not working, shopify flow error notification, shopify flow run history, shopify flow rate limited, shopify automation monitoring, AI automation monitoring
@@ -20,9 +21,17 @@ You open Shopify Flow. The workflow is there. It is switched on. The run list is
 
 Nothing is broken, according to the only screen that would tell you.
 
+## The short answer
+
+Watch the outcome a workflow is supposed to produce, not its run list. Completed in Shopify Flow means only that a run *stopped*, not that it worked, so an action can fail inside a run the log reports as Completed. Shopify staff have confirmed the mechanism. A failure stops the branch it happens on, and a workflow with parallel actions or a loop has several branches, so one dead branch never marks the run.
+
+The native alarm does not close the gap. The Workflow error occurred trigger fires once per workflow version in any thirty day period, however many times the workflow fails, and the counter resets only when you edit the workflow or when thirty days pass. Run history is deleted 14 days after a run completes, and the run search reaches no further back than that. A workflow that stops firing altogether leaves no run at all, and an empty list looks exactly like a quiet week.
+
+So the check belongs in your store data. Write one sentence for each automation describing what should be true when it works, such as an order over two hundred dollars always ending with that customer tagged, then count that against the store on a schedule. Alarm on zero runs as loudly as on errors, archive the run list daily so day fifteen still has a memory, and re-verify after every edit, app update and platform release.
+
 ## Completed does not mean it worked
 
-This is the first thing to understand about Flow, and almost nobody does until it costs them something. Shopify's own documentation lists five run statuses. In progress means currently executing or retrying. Waiting means a wait step has delayed a workflow. Rate limited means the workflow was using too many resources, so Flow limited the execution. Canceled means the workflow was cancelled before it could complete.
+This is the first thing to understand about Flow, and almost nobody does until it costs them something. Shopify's own documentation lists five run statuses. In progress means currently executing or retrying. Waiting means a wait step has delayed a workflow. Rate limited means the workflow was using too many resources, so Flow limited the execution. Canceled means the workflow was stopped before it could complete.
 
 And Completed means, in full, one word: done.
 

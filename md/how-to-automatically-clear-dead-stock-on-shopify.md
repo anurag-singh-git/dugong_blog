@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-automatically-clear-dead-stock-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-08-01
-- Updated: 2026-08-13
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2173
+- Word count: 2400
 - Dispatch: Nº 97 · Research · 9 min read
 - Full headline on page: How to automatically clear dead stock *on Shopify*
 - Keywords: clear dead stock Shopify, slow moving inventory Shopify, automatically discount slow moving inventory Shopify, Shopify products not selling, inventory aging report Shopify, markdown automation Shopify, clearance collection Shopify, Shopify smart collection last sold date
@@ -20,6 +20,14 @@ The linen shorts arrived in April: 240 units across five sizes, because the rep 
 You will find out in October, and not from a report. You will find out the way most merchants find dead stock: doing the fall stocktake, or unpacking the new season's delivery with nowhere to put it, or opening the 3PL invoice and noticing you have paid storage on the same 212 pairs for the fourth straight month. By then the season the shorts belonged to is over, and every option left is a bad one: bury them at 60 percent off in a January sale, bundle them away below cost, or write them off entirely.
 
 The overbuy itself is ordinary. Every store that carries inventory makes it, every season, and a store that never overbuys is a store that constantly sells out. What turns an ordinary buying mistake into a write-off is the silence afterward: no aging alert, no last sold date, no report that acts. A product crosses 60 days without a sale, then 90, then 120, and each threshold passes without a single pixel changing anywhere in the admin.
+
+## The short answer
+
+Nothing in Shopify will raise its hand. The products list has no last sold column and cannot be sorted by sales recency, so learning when a product last sold means opening it, noting the SKU and searching orders, one product at a time. A 340 SKU catalog is an afternoon of that, which is why the question waits for stocktake.
+
+The reports describe and stop there. ABC analysis by product grades the catalog by revenue share, and its bottom grade holds dead stock mixed in with everything too new to have earned a rank. Days of inventory remaining divides stock on hand by recent velocity, and gives up the moment velocity reaches zero. Neither one emails you and neither one changes anything, and the automation layer cannot help: smart collections match on title, type, vendor, price, tag, weight and stock level, and no condition among them can see sales data.
+
+Flow is blind for a deeper reason. It is built on events, and a product that stops selling emits none: no trigger for silence, no field holding the time since the last sale. So the read has to run on a schedule rather than a trigger. Weekly, pull last sale date, velocity, stock on hand and days of cover per product, flag whatever crossed 60, 90 and 120 days with the cash tied up in each, and name the move while the season is still *open*.
 
 ## Why dead stock hides in a dashboard you check daily
 

@@ -66,6 +66,11 @@ EXCEPTIONS = {
     "wikidata_only_entity": {"Click and collect"},
 }
 
+# Claimed words per minute. The 89 dispatches run 172 to 312; the band is
+# widened a little at each end so honest editorial variation does not fire.
+WPM_MIN = 150
+WPM_MAX = 320
+
 fails = defaultdict(list)
 notes = []
 
@@ -612,8 +617,17 @@ def main():
 
     # Every archive-shaped READ NEXT grid must carry every dispatch newer
     # than its own newest card. A grid counts as archive-shaped when it holds
-    # ten or more cards whose first ten dates run newest first; the short
-    # topical grids on recent dispatches are curated and exempt by shape.
+    # ten or more cards and its leading run of newest-first dates is at least
+    # six long; the short topical grids on recent dispatches are curated and
+    # exempt by shape.
+    #
+    # Tightened 2026-10-24. The first version tested the first ten dates and
+    # exempted anything that failed, which let three pages through: Nos 119,
+    # 120 and 121 carry a newest-first head of six or seven followed by a
+    # curated tail, so the tenth date broke the sort and the whole grid was
+    # read as curated. All three heads had in fact stopped at 2026-10-14 and
+    # were missing every dispatch from Nº 128 on. Testing the leading run
+    # instead of a fixed window catches that shape.
     collection_pages = {
         name for name in rendered
         if any(node.get("@type") in ("CollectionPage", "ProfilePage")
@@ -634,7 +648,10 @@ def main():
         dates = [published.get(h) for h in hrefs]
         if len(hrefs) < 10 or any(d is None for d in dates):
             continue
-        if dates[:10] != sorted(dates[:10], reverse=True):
+        run = 1
+        while run < len(dates) and dates[run] <= dates[run - 1]:
+            run += 1
+        if run < 6:
             continue
         stale = sorted(
             (d, h) for h, d in published.items()
@@ -700,6 +717,35 @@ def main():
                 f"{name}: page links {sorted(on_page)}, md links {sorted(in_md)}",
             )
 
+    # --------------------- rendition parity: READING callout in llms-full.txt
+    # Added 2026-10-24 (second pass). The check above compares the page with
+    # the md and says nothing about llms-full.txt, which is the third
+    # rendition and the one an answer engine is pointed at. On the tree as
+    # found, 74 of 89 segments carried the callout as "> \u25c6 READING:" with every
+    # URL stripped out, 4 more had lost the blockquote marker, 1 wrote
+    # &#9670; into a plain-text file and 6 had no callout at all. Nine
+    # editorial URLs survived in the whole file against 209 in the md
+    # renditions, so the one block in llms-full.txt whose entire purpose is
+    # its links was the one block with no links. The newest generator output
+    # writes the md line verbatim, so that is the canonical form and every
+    # other rendering is legacy.
+    if os.path.exists("llms-full.txt"):
+        full = read("llms-full.txt")
+        marks = [(m.start(), m.group(1)) for m in
+                 re.finditer(r"URL: https://blog\.dugong\.live/([a-z0-9\-]+)\.html", full)]
+        for k, (pos, slug) in enumerate(marks):
+            end = marks[k + 1][0] if k + 1 < len(marks) else len(full)
+            md_path = os.path.join("md", slug + ".md")
+            if not os.path.exists(md_path):
+                continue
+            canon = re.search(r"^> \*\*\u25c6 READING\*\* .*$", read(md_path), re.M)
+            if not canon:
+                continue
+            found = [l for l in full[pos:end].split("\n") if "READING" in l]
+            if len(found) != 1 or found[0] != canon.group(0):
+                fail("reading_callout_llms_divergence",
+                     f"{slug}: llms-full.txt does not carry the md READING line verbatim")
+
     # ------------------------------------ rendition parity: the short answer
     # llms-full.txt carries a "## The short answer" block for the recent
     # dispatches. On 2026-10-21 eleven of the twelve existed only there: not
@@ -722,6 +768,150 @@ def main():
             md_path = os.path.join("md", name[:-5] + ".md")
             if os.path.exists(md_path) and needle and needle not in folded(read(md_path)):
                 fail("short_answer_not_in_md", name)
+
+    # ------------------------------- the short answer is the speakable answer
+    # Added 2026-10-24. A short answer is the one paragraph per article that
+    # an answer engine is meant to lift whole, so it has to be addressable:
+    # wrapped in a container a selector can name, named in speakable, and
+    # carried in the article's abstract. Before this pass the block was a bare
+    # h2 plus paragraphs with no class, speakable pointed only at the title
+    # and the FAQ, and no page carried an abstract, so the most extractable
+    # paragraph on the page was the one piece of it no machine was told about.
+    for name in rendered:
+        text = read(name)
+        if "<h2>The short answer</h2>" not in text:
+            continue
+        i = text.find("<h2>The short answer</h2>")
+        head = text[max(0, i - 200):i]
+        if 'class="short-answer"' not in head:
+            fail("short_answer_unwrapped",
+                 f"{name}: the short answer is not inside a .short-answer container")
+        if text.count('id="short-answer"') != 1:
+            fail("short_answer_unwrapped",
+                 f"{name}: expected exactly one id=\"short-answer\"")
+        post = None
+        for node in nodes(docs[name]):
+            if node.get("@type") in ("BlogPosting", "Article"):
+                post = node
+                break
+        if post is None:
+            continue
+        selectors = (post.get("speakable") or {}).get("cssSelector") or []
+        if ".short-answer" not in selectors:
+            fail("short_answer_not_speakable",
+                 f"{name}: speakable cssSelector does not name .short-answer")
+        abstract = post.get("abstract")
+        if not abstract:
+            fail("short_answer_no_abstract", f"{name}: BlogPosting carries no abstract")
+        else:
+            needle = folded(re.sub(r"\s+", " ", abstract).strip())[:120]
+            if needle not in visible_text(text):
+                fail("short_answer_no_abstract",
+                     f"{name}: abstract does not appear in the visible page")
+
+    # ---------------------------------------------- counts a page claims
+    # Added 2026-10-24 (second run). The publishing run that shipped Nº 135
+    # added it to the inventory guide's ItemList, its card grid and llms.txt,
+    # and left the guide's own two visible counts behind: the masthead still
+    # said 17 and the list heading said 3. The question index masthead and the
+    # homepage's question count drifted the same way, the homepage by twelve
+    # on 10-24 and by six again hours later. Every one of these numbers is
+    # written by hand next to a list the generator already knows the length
+    # of, so each is checked against that list.
+    guide_totals = {}
+    for name in rendered:
+        text = read(name)
+        head = re.search(r"&#9670; (\d+) DISPATCHES IN THIS GUIDE", text)
+        if head is None:
+            continue
+        listed = None
+        for node in nodes(docs[name]):
+            if node.get("@type") == "ItemList":
+                listed = len(node.get("itemListElement") or [])
+                break
+        cards = len(set(re.findall(
+            r'<a\b[^>]*href="(?:/)?([a-z0-9\-]+\.html)"[^>]*class="card|'
+            r'<a\b[^>]*class="card[^"]*"[^>]*href="(?:/)?([a-z0-9\-]+\.html)"', text)))
+        mast = re.search(r">(\d+) DISPATCHES</span>", text)
+        claims = {"list heading": int(head.group(1))}
+        if mast:
+            claims["masthead"] = int(mast.group(1))
+        if listed is not None:
+            guide_totals[name] = listed
+            for where, value in claims.items():
+                if value != listed:
+                    fail("guide_count_claim",
+                         f"{name}: {where} says {value}, the guide lists {listed}")
+            if cards and cards != listed:
+                fail("guide_count_claim",
+                     f"{name}: {cards} dispatch cards against an ItemList of {listed}")
+
+    if guide_totals and os.path.exists("shopify-automation-questions.html"):
+        qi = read("shopify-automation-questions.html")
+        total = sum(guide_totals.values())
+        mast = re.search(r">(\d+) DISPATCHES</span>", qi)
+        if mast and int(mast.group(1)) != total:
+            fail("guide_count_claim",
+                 f"shopify-automation-questions.html: masthead says "
+                 f"{mast.group(1)} dispatches, the eight guides list {total}")
+        questions = None
+        for node in nodes(docs.get("shopify-automation-questions.html", [])):
+            if node.get("@type") == "ItemList":
+                questions = len(node.get("itemListElement") or [])
+                break
+        if questions is not None:
+            qmast = re.search(r">(\d+) QUESTIONS", qi)
+            if qmast and int(qmast.group(1)) != questions:
+                fail("question_count_claim",
+                     f"shopify-automation-questions.html: masthead says "
+                     f"{qmast.group(1)}, the index lists {questions}")
+            if os.path.exists("index.html"):
+                home = re.search(r"lists all (\d+) questions", read("index.html"))
+                if home and int(home.group(1)) != questions:
+                    fail("question_count_claim",
+                         f"index.html: says the index lists {home.group(1)} "
+                         f"questions, it lists {questions}")
+
+    # ------------------------------------------------------ read-time band
+    # Added 2026-10-24 (second run). Both dispatches shipped that day were
+    # labelled 10 min, putting them at 356 and 326 claimed words per minute
+    # against 172 to 312 for the other 87. The read time is written by hand
+    # beside the word count, so the pair is checkable.
+    for name in posts:
+        text = read(name)
+        pair = re.search(r"&#9670; (\d+) MIN READ &middot; ([\d,]+) WORDS", text)
+        if pair is None:
+            continue
+        minutes, words = int(pair.group(1)), int(pair.group(2).replace(",", ""))
+        if minutes <= 0:
+            fail("read_time_band", f"{name}: claims {minutes} min")
+            continue
+        wpm = words / minutes
+        if not (WPM_MIN <= wpm <= WPM_MAX):
+            fail("read_time_band",
+                 f"{name}: {words} words in {minutes} min is {wpm:.0f} words "
+                 f"per minute, outside {WPM_MIN}-{WPM_MAX}")
+
+    # -------------------------------------------------- feed is not ahead
+    # Added 2026-10-24 (second run). feed.xml went out with lastBuildDate at
+    # 13:30 UTC and its two newest items at 13:30 and 12:00, against a real
+    # time of 10:14. Aggregators suppress or mis-sort a future-dated item,
+    # and a lastBuildDate in the future is simply untrue.
+    import datetime as _dt, email.utils as _eu
+    _now = _dt.datetime.now(_dt.timezone.utc)
+    _feed_raw = read("feed.xml")
+    for _tag in ("lastBuildDate", "pubDate"):
+        for _raw in re.findall(r"<" + _tag + r">([^<]+)</" + _tag + r">", _feed_raw):
+            try:
+                _when = _eu.parsedate_to_datetime(_raw)
+            except Exception:
+                fail("feed_date_unparseable", f"{_tag}: {_raw}")
+                continue
+            if _when.tzinfo is None:
+                _when = _when.replace(tzinfo=_dt.timezone.utc)
+            if _when > _now:
+                fail("feed_date_in_future",
+                     f"{_tag} {_raw} is {(_when - _now).total_seconds() / 3600:.1f}h ahead")
 
     # --------------------------------------------------------------- report
     print(f"seo-check: {len(rendered)} rendered pages, {len(stubs)} redirect stubs, "

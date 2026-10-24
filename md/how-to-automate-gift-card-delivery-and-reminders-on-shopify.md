@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-08-10
-- Updated: 2026-08-13
+- Updated: 2026-10-24
 - Section: Research
-- Word count: 2600
+- Word count: 2800
 - Dispatch: Nº 104 · Research · 10 min read
 - Full headline on page: How to automate gift card delivery and reminders *on Shopify*
 - Keywords: shopify gift card email not received, shopify gift card not sent, resend gift card shopify, shopify gift card recipient form, schedule gift card delivery shopify, shopify gift card expiry, gift card balance reminder, gift card breakage, shopify flow gift card
@@ -20,6 +20,14 @@ The order lands on a Tuesday at 9:41 pm: one digital gift card, seventy five dol
 Dan does not notice, because the email looks like a receipt and receipts are for ignoring. September 12 comes and goes. On the 14th, no thank-you text having arrived, he checks, finds the code sitting in his own inbox under two weeks of promotions, and writes the store a message with the word unacceptable in it. The merchant opens the admin and finds nothing wrong: order paid, card issued, notification sent, every light green. The birthday was still missed, and of the three people involved, the store was the only one who could have known in time.
 
 The [gift card](https://en.wikipedia.org/wiki/Gift_card) is the strangest product in your catalog. It costs nothing to ship, carries no inventory, and is paid in full before it exists. It is also the only product that is entirely a promise: the customer hands you money, and what they get is your obligation to hand it back later, as merchandise, to someone you have usually never met. Bankrate has measured how that promise ages. As of its 2024 survey, 43 percent of American adults were sitting on at least one unused gift card or store credit, an average of $244 per person, roughly $27 billion nationwide. A fifth of them have let a card expire outright. Walmart and Starbucks each carry more than a billion dollars of unspent card value on their books. None of that money is missing. All of it is asleep.
+
+## The short answer
+
+Shopify will mint the card and mail it, and that is the whole of what it guarantees. The only delivery state it records is sent: there is no delivered, no bounce, no open, and a typo in the recipient address reports success. Flow has no gift card trigger of any kind, so nothing in the platform can watch what happens next.
+
+Four boundaries decide whether the card reaches the right person on the right day. Cards fulfill automatically on payment except in medium and high risk orders, which hold them silently. The recipient form is a theme feature, present from v9.0.0 of the free themes and off until someone ticks it, and its validation works only through Add to Cart, so an express checkout button drops the recipient details. The `Send on` date reaches 90 days at most, and scheduled cards go out between about 4:00 am and 10:00 am in the buyer's timezone rather than the recipient's.
+
+So treat each card as an obligation with a clock on it rather than a line on a paid order. Confirm the fulfillment inside the hour, clear risk holds the same day, catch bounces and chase a missing recipient with one question, queue scheduled cards to the recipient's own morning, and tell the giver when it lands. Then keep going after delivery, because the money nobody spends is the larger number: 43 percent of American adults were holding an unused card in 2024, at an average of $244 *each*.
 
 ## An email with money inside
 

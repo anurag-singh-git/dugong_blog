@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-08-03" />
-    <meta property="article:modified_time" content="2026-08-15" />
+    <meta property="article:modified_time" content="2026-10-24" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html",
       "headline": "How to automatically follow up on unpaid draft orders on Shopify",
+      "abstract": "Shopify sends one invoice email and then stops. A draft order has three states, Open, Invoice sent and Completed, and only the customer reaches the third by paying. There is no due date, no overdue status and no second email unless a human opens the draft and sends it, so a quote wears the same badge on day forty as in its first hour.",
       "description": "You build the quote in a draft order, send the invoice, and Shopify's part in the sale is over: one email, one checkout link, and no reminder, ever. The reminder machinery exists one screen away, up to five scheduled emails for orders with payment terms, and draft orders are excluded because a draft has no due date to count from. So merchants keep the pipeline in their heads or a spreadsheet, chase quotes in Friday batches when the oldest are three weeks cold, and watch drafts pile up by the hundred with no cancelled status, no expiry, and invoice links that stay payable for months at prices locked when the quote was written. Flow is the wrong shape for the job: its draft trigger fires once at creation, its draft actions stop at tags, and the accepted workaround emails your own staff a list of open drafts, automating the guilt instead of the follow-up. The AI playbook that reads each draft's value, age, customer, and stock, reminds on the cadence the quote deserves, answers the small replies and escalates the negotiations, never chases a quote that can no longer be filled, retires dead quotes so stale links and prices die with them, and reports the pipeline weekly.",
       "datePublished": "2026-08-03",
-      "dateModified": "2026-08-15",
+      "dateModified": "2026-10-24",
       "articleSection": "Research",
       "keywords": "Shopify draft order follow up, unpaid draft order invoice Shopify, Shopify draft order payment reminder, Shopify quote follow up automation, draft order invoice link expires, auto cancel draft orders Shopify, Shopify Flow draft order trigger, B2B quote follow up Shopify",
-      "wordCount": 2410,
+      "wordCount": 2600,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -116,6 +117,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -748,11 +750,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 101 &middot; AUG 3, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 9 MIN READ &middot; 2,410 WORDS</span>
+    <span>&#9670; 9 MIN READ &middot; 2,600 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 101 &middot; AUG 3, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 9 MIN READ &middot; 2,410 WORDS</span>
+    <span>&#9670; 9 MIN READ &middot; 2,600 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -833,6 +835,34 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       dead, and no way inside Shopify to tell which is which, let alone
       to do anything about either.
     </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Shopify sends one invoice email and then stops. A draft order has three states, Open, Invoice sent and
+        Completed, and only the customer reaches the third by paying. There is no due date, no overdue status and no
+        second email unless a human opens the draft and sends it, so a quote wears the same badge on day forty as in
+        its first hour.
+      </p>
+
+      <p>
+        The reminder machinery exists one screen away and excludes you. Orders carrying payment terms can send up to
+        five scheduled reminders on and after the due date; a draft has no due date, so nothing counts down and
+        nothing fires. Completing the draft as a pending payment order with Net 7 attached borrows those reminders,
+        at the price of turning every undecided quote into a live order that commits stock and needs a cancellation
+        to bury it.
+      </p>
+
+      <p>
+        Stale quotes are the other half, and a draft has no cancelled status: leave it or delete it. Leaving it
+        keeps the checkout link live, with prices locked by default, so a January email can be paid at January
+        prices in July. The only expiry is self-deletion after a full year of inactivity, and only for drafts
+        created on or after April 1, 2025. So run the follow-up yourself on a cadence the quote's value deserves,
+        answer replies the same hour, check stock before every nudge, and retire a quote on a clock you
+        <em>chose</em>.
+      </p>
+    </div>
 
     <h2>One email, then the machinery goes quiet</h2>
 
@@ -1188,7 +1218,39 @@ a daily sweep of open drafts
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid">
+  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">13&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify inventory transfers that never get received</h3>
+        <p class="card-dek">
+          Stock in an unreceived Shopify transfer counts as incoming, not available, so your storefront says sold out while the boxes sit in the back. The AI playbook that catches the stalled ones.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-find-shopify-products-missing-images-or-weights.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">12&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to find Shopify products missing images or weights</h3>
+        <p class="card-dek">
+          Shopify has no filter for a product with no image, and a blank weight exports as zero. The AI playbook that finds the half-finished products before customers do.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT 24</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
 <a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1253,7 +1315,10 @@ a daily sweep of open drafts
         </div>
       </div>
     </a>
-<a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+  </div>
+  <details class="related-more">
+    <summary>41 more dispatches in the archive</summary>
+    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1284,10 +1349,8 @@ a daily sweep of open drafts
           <span class="card-author">P. Singh</span>
         </div>
       </div>
-    </a></div>
-  <details class="related-more">
-    <summary>39 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+    </a>
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1913,6 +1976,7 @@ a daily sweep of open drafts
     </a></div>
   </details>
 
+  <a href="shopify-order-management-automation.html" class="hub-more">more on shopify order management automation &rarr;</a>
 </section>
 
 <footer class="foot">
@@ -1932,7 +1996,7 @@ a daily sweep of open drafts
       <div>
         <span class="foot-h">product</span>
         <a href="https://dugong.live">Dugong</a>
-        <a href="https://dugong.live">Pricing</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
         <a href="https://dugong.live">AI Engine</a>
         <a href="https://dugong.live">Docs</a>
       </div>
