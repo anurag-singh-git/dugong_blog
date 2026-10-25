@@ -7,7 +7,7 @@
 - Published: 2026-10-16
 - Section: Research
 - Word count: 2852
-- Dispatch: Nº 129 · Research · 9 min read
+- Dispatch: Nº 129 · Research · 10 min read
 - Full headline on page: How to handle return to sender orders on Shopify *before the customer asks where it is*
 - Keywords: shopify return to sender, shopify RTS, shopify RTO, return to origin shopify, undeliverable package shopify, shopify refused delivery, shopify flow return to sender, restock returned to sender shopify, AI shipping automation
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)

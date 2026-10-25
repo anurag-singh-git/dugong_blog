@@ -5,10 +5,213 @@
 Site: https://blog.dugong.live
 Publisher: Dugong (https://dugong.live)
 Index with summaries: https://blog.dugong.live/llms.txt
-Per-article Markdown: https://blog.dugong.live/md/<slug>.md, one file per dispatch, 10 to 25 KB each. This file is roughly 1.6 MB in total, so if your fetcher truncates long responses, read the per-article files instead: take the article URL, drop the .html, and fetch /md/<slug>.md. Every one of the 89 is listed under "Markdown versions" in llms.txt.
+Per-article Markdown: https://blog.dugong.live/md/<slug>.md, one file per dispatch, 10 to 25 KB each. This file is roughly 1.7 MB in total, so if your fetcher truncates long responses, read the per-article files instead: take the article URL, drop the .html, and fetch /md/<slug>.md. Every one of the 90 is listed under "Markdown versions" in llms.txt.
 This file contains the complete text of every dispatch on the site, newest first. Each article begins with a level-one heading and a metadata block (URL, author, dates). Fenced blocks are plain-language playbook specs quoted verbatim from the articles. FAQ sections carry the same text as each page's FAQPage structured data.
 
 The site's lead essay, The death of the drag-and-drop builder (Dispatch Nº 47, by Aanya Rao, 2026-05-28), now has its own page at https://blog.dugong.live/the-death-of-the-drag-and-drop-builder.html and its full text is the last entry in this file.
+
+---
+
+# How to chase overdue Shopify B2B invoices by company
+
+URL: https://blog.dugong.live/how-to-chase-overdue-shopify-b2b-invoices.html
+Dispatch: Nº 136
+Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
+Published: 2026-10-25. Updated: 2026-10-25
+
+Four unpaid invoices from one account means four reminder emails and no single number. Overdue is not a status in Shopify, and there is no company balance to read.
+
+A trade account places a net 30 order on the first of the month. Shopify marks it payment pending and moves on.
+
+Day 31 arrives. The order picks up an Overdue badge in your admin. Nothing else happens.
+
+By the middle of the next month that one account has four open orders on the same terms, three of them past due, and your reminder settings have sent four separate emails about four separate order numbers to one person who has never once been shown the total.
+
+Nobody on your side knows what that company owes you either. Not because nobody looked. Because there is nowhere to look.
+
+## The short answer
+
+Overdue is not a status you can query. The order financial status enum in the Admin API has eight values: pending, authorized, partially paid, paid, partially refunded, refunded, voided and expired. Overdue is not one of them. The badge in the admin is worked out from a due date that has gone past with a balance still open, so the thing you want to automate on is the absence of an event rather than an event.
+
+Shopify's payment reminders are real and worth switching on: up to five per order, each set to the due date or up to thirty days after it. Nothing can be scheduled before the due date, so the polite heads-up that actually prevents a late payment is the one email the platform cannot send.
+
+They are also per order. A company with four open invoices gets four reminders about four order numbers and never a statement. A merchant put it exactly that way in September 2026: four separate emails instead of one statement of what they owe.
+
+And there is no company balance anywhere in Shopify. The Company object in the Admin API carries total spent and an order count. No outstanding balance, no credit limit, no aging. The one number every wholesale business runs on is the number Shopify does not keep.
+
+The data is there one level down. Each payment schedule carries a due date, a completion date and a balance due. Sum the balance due per company where the due date has passed and the completion date is empty, and you have the statement nobody is sending.
+
+So this is a clock and a group-by, not a listener. Read every open payment schedule once a day, roll the balances up by company, and send one message per account to the person who actually pays.
+
+## Overdue is a date going by, and you cannot subscribe to that
+
+Shopify's [deferred payments](https://help.shopify.com/en/manual/orders/deferred-payments) page is clear about the mechanics. You can put four kinds of terms on an order marked payment pending: due on receipt, due on fulfillment, a net term, or a fixed date. The net terms on offer are net 7, 15, 30, 45, 60 and 90. And then: if the order isn't paid by the due date, the order status becomes Overdue.
+
+That reads like a state change. It is not one. Look at [OrderDisplayFinancialStatus](https://shopify.dev/docs/api/admin-graphql/latest/enums/OrderDisplayFinancialStatus) in the Admin API and you get eight values, none of them overdue. An unpaid net 30 order on day 5 and the same order on day 95 carry the identical financial status: pending. The admin draws the badge by comparing a date to the clock. No field flipped, no record was written.
+
+Which matters, because every automation surface Shopify gives you is event-driven. Webhooks fire on change, Flow triggers fire on change. A due date passing is not a change, so there is no topic to subscribe to and no trigger to pick from a list. The failure you are chasing is defined by nothing happening.
+
+The event side is shakier than you would hope even when something does change. In October 2024 a developer [changed an order's terms](https://community.shopify.com/t/change-in-order-payment-terms-does-not-trigger-order-update-webhook-or-show-in-get-order-response/362783) from due on receipt to net 90 in the admin, subscribed to both order create and order update, and received nothing. The REST API kept returning the old term while the admin showed the new one. One speculative reply, no staff answer, no accepted solution. Even an explicit edit to payment terms is not something you can rely on hearing about.
+
+## The reminders Shopify does send, and the three things they cannot do
+
+Switch them on before you build anything. Settings, Notifications, Orders, Payment reminder. Up to five, each set to the due date or up to thirty days after it, using your store's own template. They are not sent for orders with purchase options such as subscriptions, preorders or try before you buy. For a store with a handful of trade accounts that is most of the job done in ten minutes.
+
+Then you hit the ceiling, in three places.
+
+**They cannot fire early.** The earliest slot is the due date itself, which is the day the money is already late. A merchant writing up a manual net terms system in August 2026 named this as the gap: nothing fires before the due date, so the heads up email is still manual. If you have noticed that the accounts who pay on time are the ones whose bookkeeper got a nudge on day 25, you already know that slot is the valuable one.
+
+**They cannot add up.** The reminder is attached to an order, so the unit of communication is an order. Four open invoices means four emails, each arguing for its own order number, none of them saying what the relationship is worth. In a [September 2026 thread](https://community.shopify.com/t/anyone-else-stuck-doing-wholesale-net-terms-invoicing-manually-since-b2b-opened-up-to-non-plus-plans/687136) on exactly this, one merchant described getting four separate emails instead of one statement of what they owe, and added that there is no per-company running balance in the admin at all. Five people replied with workarounds. No staff reply, nothing marked as a solution.
+
+**And they go to the buyer.** The email on the order belongs to the person who chose the products, who is usually not the person who releases the payment. In November 2023 a merchant asked, in the long-running [Flow payment reminders thread](https://community.shopify.com/t/can-i-use-flow-to-send-out-payment-reminders-to-customers-with-payment-pending/142752), for an accounts payable field so a reminder could reach AP alongside the buyer. Nobody answered. In October 2025 another merchant in the same thread asked how to send reminders 7 and 14 days before a 30 day due date, because her customers were schools paying on purchase orders. Nobody answered that either.
+
+## Flow has a trigger, and it fires on the one day you do not need it
+
+This is the part people miss. The [Flow triggers reference](https://help.shopify.com/en/manual/shopify-flow/reference/triggers) does carry a trigger for this: *Payment schedule is due*. It exists, it works, and it fires the moment a schedule becomes due.
+
+Which is day zero, the moment a native reminder already covers. There is no payment schedule is overdue trigger, nothing at day 7 or 14 or 30, and nothing for a schedule that is simply still sitting there. The company side is emptier: Flow's B2B triggers are company created, company location created, company contact created and company contact assigned permission. All four describe the shape of the account. Nothing in the list is about money the account owes you.
+
+Then the delivery problem. Flow has never been able to email your customers. A Shopify voice in that reminders thread said so in August 2022, that Flow can only send emails to internal or specific addresses and not to customers, and said it again a year later: Flow is not implementing a generic system to email customers outside of partners and Shopify Email. The thread opened in August 2022 and was still collecting replies in September 2026 with no accepted solution.
+
+So use the trigger for what it is good for. Treat *payment schedule is due* as the start of a clock: stamp the order the day it becomes due, and let something outside Flow do the counting and the sending.
+
+## Nobody is keeping your receivable, Shopify included
+
+Read the field list on the [Company object](https://shopify.dev/docs/api/admin-graphql/latest/objects/Company). Contacts, locations, draft orders, orders, an order count, metafields, a note, when they became a customer, and total spent. Total spent is money that has arrived. There is no balance, no credit limit, no days sales outstanding, no aging bucket. Nothing on the object knows this account is four weeks behind on eleven thousand dollars.
+
+Which is why, in that September thread, the merchant who had been doing this longest called the per-company running balance the bit everyone ends up rebuilding in a spreadsheet. He is right, and that spreadsheet is the thing you are actually replacing. It is accurate on the Monday somebody builds it and wrong by Wednesday, because two payments landed and one new order went out on terms and the file does not know.
+
+## The two objects that give you the statement
+
+[PaymentTerms](https://shopify.dev/docs/api/admin-graphql/latest/objects/PaymentTerms) carries an `overdue` boolean, documented as whether the payment terms have overdue payment schedules, plus the term's name, its type and how many days it runs. That boolean is the one field in the platform that answers the question your admin badge is drawing, and it is reachable only through the API.
+
+[PaymentSchedule](https://shopify.dev/docs/api/admin-graphql/latest/objects/PaymentSchedule) carries the dates and the money. `issuedAt` is when the invoice is sent, `dueAt` when the schedule is due, `completedAt` when it was paid or fulfilled, `balanceDue` the remaining balance to be captured, and `totalBalance` the remaining balance for the customer to pay or authorize.
+
+That is the whole query. Per company, take the schedules where `completedAt` is empty, bucket them by how far `dueAt` is in the past, and sum `balanceDue` in each bucket. Not due yet, 1 to 7 days, 8 to 30, 31 to 60, over 60. Five numbers and a list of order names per account, which is a statement.
+
+One trap. Sum the balance, not the order. A partially paid invoice still has an open schedule, so a count of overdue orders overstates how many accounts are in trouble and a sum of order totals overstates the money by whatever has already come in. `balanceDue` is the figure that survives a part payment, a credit note and an edited order. Build on it and your statement matches the bank.
+
+## The one lever that stops an overdue account ordering again
+
+An account that owes you money for ninety days can place another order this afternoon on the same terms, and Shopify will take it. As one merchant put it in September, nothing stops an overdue company placing new orders.
+
+There is a native lever, and it is per company. Under Customers, then Companies, then that company's Checkout settings, there is an option to submit all orders as drafts for review. It does the right thing: new orders are parked for approval rather than refused, so the relationship survives and the credit decision comes back to you. The problem, as that August thread put it, is that someone has to switch it on and off by hand. In practice it gets switched on once, in frustration, and never switched off, and three months later a good account is wondering why its orders keep going to a queue.
+
+Flipping that switch on a rule is the most valuable thing in this piece and the least written about. On when a company crosses your line, whatever your line is. Off the morning the balance clears. No argument in the sales meeting about whether to park the Henderson account, because the rule did it and the rule will undo it.
+
+## What this costs on an ordinary month
+
+Forty trade accounts, an average invoice of eighteen hundred, net 30, two orders a month each: about a hundred and forty thousand going out on terms. If a fifth of those invoices slip past due, and the ones that slip get chased nine days late instead of nudged three days early, you are carrying roughly twenty-eight thousand dollars twelve days longer than the terms you agreed. Every month, rolling.
+
+That money is not lost. It is permanently one cycle behind, which is the same arrangement as an interest-free loan you did not decide to make, funded by your working capital at the exact moment you want to buy stock. Plus the Friday afternoon: somebody exports orders, filters to payment pending, cross-references the bank, works out which of the four Henderson invoices cleared, and writes the emails. An hour, most weeks, and the first thing dropped when trading is busy, which is when the receivable is biggest.
+
+## What the automation actually has to do
+
+As a Dugong playbook, in plain prose:
+
+```
+# trigger
+Scheduled daily sweep, plus
+payment schedule is due
+
+# steps
+1. Read the due date, not the
+   order status
+2. Roll every open balance up
+   by company
+3. Send one statement, not one
+   email per order
+4. Copy the person who pays,
+   not just the buyer
+5. Nudge before the due date,
+   not only after
+6. Hold new orders when an
+   account crosses the line
+7. Age the list and escalate
+   the wording
+```
+
+Step one is the design decision. The order status says pending forever, and pending is true on day 2 and day 200. Read `dueAt` against today and `completedAt` to see whether it settled. Everything downstream is arithmetic on those two fields plus `balanceDue`.
+
+Steps two and three are where this stops being a reminder app. Group the open schedules by company rather than by order, and send one message that opens with the total and lists the invoices under it, oldest first, with order names your customer can look up. A buyer who receives one number can forward one number to one colleague. A buyer who receives four emails forwards none of them.
+
+Step four is the step that collects the money. Keep an accounts payable contact per company alongside the buyer, because Shopify has no field for it, and address the statement to both. That is the request sitting unanswered in the community since 2023, and for your own store it is a metafield and a mailing list away from solved.
+
+Step five is the cheap one nobody does. A short note three days before the due date, saying the invoice is coming up and here is the link, moves a real share of payments from late to on time, because most late B2B payment is an invoice falling off a busy buyer's radar rather than anybody deciding not to pay. The platform cannot schedule it. Anything with a clock can.
+
+Step six is credit control, and it needs a written line before you automate it: a balance over this much, or over this many days, parks new orders for review. Set the switch from the rule and clear it the day the balance clears. The point is not the blocking, it is that the blocking reverses itself without anybody having to remember to be fair.
+
+Step seven is tone. The same wording for a three-day slip and a ninety-day slip trains everyone to ignore it. Three bands is enough: a reminder, a request, and a note that new orders are going to review until the balance clears. Send the third only once the switch is genuinely set, because a threat you do not carry out is worse than no threat.
+
+## Why this is a workflow and not a checklist
+
+Every step here is something a person can do. Reading a due date is easy. Adding up four invoices is easy. The reason it does not get done is that it has to be done on a day with nothing special about it, for accounts that have done nothing wrong yet, by somebody whose actual job is something else.
+
+There is also no judgment in it. The judgment is two sentences you write once: how many days and how much money is your line, and who at each account receives the statement. After that it is a date comparison, a sum and an email, run every morning whether trading is busy or not.
+
+The limits are honest ones. No automation makes a customer who has run out of money pay you. It cannot tell a buyer who is stalling from a buyer whose accounts system lost the invoice, which is why the first message should always assume the second. It has nothing to read if the terms were never put on the order, because without payment terms there is no due date. And if nobody at your end owns the receivable, the statement lands in an inbox nobody opens.
+
+## Do this before you close the laptop
+
+Three checks, ten minutes, no code.
+
+Open Settings, Notifications, Orders, and look at Payment reminder. If the list is empty you have been chasing from memory, and five minutes here is the highest return in this article.
+
+Filter your orders to payment pending and sort oldest first. Look at the date on the top row, then look down the company column and count how many rows share a name. The first number is how long your oldest invoice has been out. The second is how many emails that customer has been sent about it.
+
+Then ask whoever writes the chasing emails how they know the total. If the answer is a spreadsheet, you have found where your receivable actually lives, and you know what the automation has to replace.
+
+> **◆ READING** Two companion pieces if this one landed: [the invoice you send by hand](https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html), on the document your business buyers keep asking for, and [the quote that goes quiet](https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html), on the same silence one stage earlier, before the order exists.
+
+If you sell on Shopify on terms and have a version of this story, the account that owed you four invoices and got four emails, the balance that lived in a spreadsheet, the good customer you parked and forgot to unpark, the inbox is open: `field-notes@dugong.live`. We are collecting case studies for the next issue.
+
+---
+
+## Common questions
+
+### Why doesn't Shopify show what a B2B customer owes in total?
+
+Because nothing in the platform keeps that figure. The Company object in the Admin GraphQL API carries contacts, locations, draft orders, orders, an order count, metafields, a note, when they became a customer, and total spent. Total spent is money that has already arrived. There is no outstanding balance field, no credit limit, no days sales outstanding and no aging bucket, so the admin has nothing to display and the API has nothing to return. Merchants confirmed the same thing from the other direction in a September 2026 community thread: there is no per-company running balance in the admin at all, and the merchant with the longest experience of it called the running balance the bit everyone ends up rebuilding in a spreadsheet. The figure is derivable, just not stored. Each order's payment schedules carry a balance due and a due date, so summing the balance due for every schedule that has no completion date gives you the number, per company, in one query.
+
+Permalink: https://blog.dugong.live/how-to-chase-overdue-shopify-b2b-invoices.html#faq-1
+
+### Can Shopify send a payment reminder before the due date?
+
+No. Payment reminders live under Settings, then Notifications, then Orders, then Payment reminder, and you can create up to five of them. Shopify documents the available timing as the payment due date, or up to thirty days after the due date. There is no option for a number of days before, which means the earliest message the platform can send arrives on the day the invoice is already late. The gap has been raised repeatedly. A merchant writing up a manual net terms system in August 2026 named it directly, saying nothing fires before the due date so the heads up email is still manual, and in October 2025 a merchant asked how to send reminders 7 and 14 days before a 30 day due date because her customers were schools paying on purchase orders, and got no answer. Anything with its own schedule can send that email. Shopify's reminders cannot. One thing worth noting while you are in there: reminders are not sent for orders with purchase options such as subscriptions, preorders or try before you buy.
+
+Permalink: https://blog.dugong.live/how-to-chase-overdue-shopify-b2b-invoices.html#faq-2
+
+### Does Shopify Flow have a trigger for an overdue invoice?
+
+Not for overdue, no. Flow does carry a payment trigger called Payment schedule is due, which fires at the moment a schedule becomes due. That is day zero, which a native reminder already covers. There is no payment schedule is overdue trigger, nothing that fires at seven, fourteen or thirty days past due, and nothing for a schedule that is simply still open. This is a property of event-driven automation rather than a gap in Flow: a trigger can only fire on something happening, and a due date going past is a date being compared to a clock, not a record changing. Flow's B2B triggers are company created, company location created, company contact created and company contact assigned permission, all of which describe the shape of an account rather than the money it owes. There is also a delivery limit worth knowing before you plan around Flow, which is that it cannot email your customers. Shopify said so in the community in 2022 and again in 2023, that Flow is not implementing a generic system to email customers outside of partners and Shopify Email. Use Payment schedule is due to tag the order on the day it becomes due, then do the counting and the sending outside Flow.
+
+Permalink: https://blog.dugong.live/how-to-chase-overdue-shopify-b2b-invoices.html#faq-3
+
+### How do I find every overdue B2B order on Shopify?
+
+In the admin, filter the orders list to payment pending and sort by oldest, which gets you the list but not the money. Through the API you can be exact. PaymentTerms carries an overdue boolean, documented as whether the payment terms have overdue payment schedules, and each PaymentSchedule carries issuedAt for when the invoice is sent, dueAt for when the schedule is due, completedAt for when it was paid or fulfilled, and balanceDue for the remaining balance to be captured. Take every schedule where completedAt is empty, group by company, bucket by how far dueAt is in the past, and sum balanceDue in each bucket. One caution: sum the balance, not the order. A partly paid invoice still has an open schedule, so counting overdue orders overstates how many accounts are behind, and summing order totals overstates the money by whatever has already arrived. Balance due is the figure that survives a part payment, a credit note and an edited order.
+
+Permalink: https://blog.dugong.live/how-to-chase-overdue-shopify-b2b-invoices.html#faq-4
+
+### Can you stop a Shopify customer ordering when they already owe you money?
+
+Not automatically, but there is a lever. Shopify will happily accept a new order on terms from a company that is ninety days late, which merchants have pointed out plainly: nothing stops an overdue company placing new orders. The one native control is per company, under Customers, then Companies, then that company's Checkout settings, where you can require that all orders are submitted as drafts for review. It behaves well, parking new orders for your approval rather than refusing them outright, so the relationship survives and the credit decision comes back to you. The catch is that somebody has to switch it on and off by hand, which in practice means it gets switched on once in frustration and never switched off, and three months later a good account is wondering why its orders keep going to a queue. Driving that switch from a rule is the part worth automating: on when a company crosses your line, off the morning the balance clears.
+
+Permalink: https://blog.dugong.live/how-to-chase-overdue-shopify-b2b-invoices.html#faq-5
+
+### Can AI chase overdue Shopify B2B invoices?
+
+Yes, and it is a good fit, because nothing in the job requires an opinion. An automation like Dugong reads the due date rather than the order status, since pending is equally true on day 2 and day 200. It rolls every open balance up by company so one account gets one statement instead of four reminders about four order numbers. It addresses that statement to an accounts payable contact as well as the buyer, which is a metafield plus a mailing list, because Shopify has no field for the person who actually pays. It nudges three days before the due date, the slot the platform cannot schedule, since most late payment is an invoice falling off a busy buyer's radar rather than a decision not to pay. It sets the submit orders as drafts switch when an account crosses a line you wrote down once, and clears it the morning the balance clears. And it ages the list so a three-day slip and a ninety-day slip do not read the same. The limits are honest. It cannot make a customer who has run out of money pay you, it cannot tell a staller from a lost invoice so the first message should assume the second, it has nothing to read if the terms were never put on the order, and if nobody at your end owns the receivable the statement lands in an inbox nobody opens.
+
+Permalink: https://blog.dugong.live/how-to-chase-overdue-shopify-b2b-invoices.html#faq-6
+
+---
+
+## Read next
+
+- [The invoice you send by hand](https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html): Shopify emails a receipt, not an invoice, and has no field for a customer's tax number, so business buyers ask and you build it by hand. The AI playbook that sends the right invoice after every order.
+- [The quote that goes quiet](https://blog.dugong.live/how-to-automatically-follow-up-on-unpaid-draft-orders-on-shopify.html): Shopify sends one draft order invoice and never a reminder, so quotes die in silence. The AI playbook that follows up, answers, and retires stale quotes.
+- [How to stop Shopify B2B prices dropping every time you run a sale](https://blog.dugong.live/how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html): A weekend sale on the storefront quietly cuts your wholesale prices too, because a catalog percentage is computed off the live price. The AI playbook that holds the B2B floor.
 
 ---
 
@@ -5990,7 +6193,7 @@ Yes, the same day, kindly, because silence is the expensive option. The decline 
 URL: https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html
 Dispatch: Nº 94
 Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
-Published: 2026-07-28. Updated: 2026-08-14
+Published: 2026-07-28. Updated: 2026-10-25
 
 The restock landed on Wednesday. The order that was waiting for it shipped on Friday, because Shopify has no event for stock arriving on a held order and nobody opened the list. Here is why Flow cannot close that gap on its own, and the playbook that does.
 
@@ -6000,6 +6203,13 @@ The pallet lands on Wednesday morning. Someone counts it in, the available quant
 
 That is the entire problem, and it is more annoying than it is complicated. The hold worked. The restock worked. The piece in the middle does not exist.
 
+## The short answer
+
+Shopify will hold the order and will never tell you when to stop holding it. Flow's Hold fulfillment order action is a real primitive on every plan, and the matching Release fulfillment order holds action flips the status back from On hold to Open. If you are not holding short orders automatically today, build that workflow first; it is about twenty minutes of work.
+
+What does not exist is a trigger for the stock a held order was waiting on arriving. Shopify staff said so on the community forums in 2023, and merchants were still confirming it in July 2026. Inventory quantity changed fires reliably, but it hands you a variant and a quantity with no way to search backward to the held orders containing it, so the only native path left is a scheduled poll of status:ON_HOLD.
+
+That poll has four sharp edges. The Flow release action has no fields and clears every hold on the fulfillment order, fraud and address holds included; availability has to be read at the assigned location rather than store-wide; get-data actions cap at 100 records; and availability is not a reservation, so two orders waiting on the same three units both pass in one run. Reserve before releasing, lift only your own hold by its ID, and rank the queue by promised date, oldest first.
 ## What Shopify actually gives you
 
 Credit first. Fulfillment holds are a real primitive, not a tag pretending to be one. Flow's Hold fulfillment order action takes a reason and reason notes, and a held fulfillment order genuinely will not be picked, requested, or pushed to a fulfillment service until the hold comes off. The matching Release fulfillment order holds action flips the status back from On hold to Open. Both are on every plan. If you are not holding short orders automatically today, that workflow is twenty minutes of work and you should build it before you finish this article.
@@ -6118,7 +6328,7 @@ Rank them, because the restock rarely covers everyone. When a pallet covers nine
 URL: https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html
 Dispatch: Nº 93
 Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
-Published: 2026-07-27. Updated: 2026-08-15
+Published: 2026-07-27. Updated: 2026-10-25
 
 A customer forty minutes from your Pennsylvania warehouse gets two boxes, one of them from Nevada, on a single flat shipping fee you charged once. Shopify routed it exactly the way its rules say it should. Here is what those rules can and cannot see, why moving the order after the fact usually fails, and the playbook that picks the location by what the shipment will actually cost.
 
@@ -6126,6 +6336,13 @@ An order comes in from New Jersey. Three items. Two of them sit in your Pennsylv
 
 The quieter version costs more over a year and never generates a ticket. A Friday evening order routes to the retail location eleven miles from the customer, which is the closest pin on the map and also a shop with two people on the floor that does not ship on weekends. It goes out Monday afternoon. Your warehouse two states away would have had it on a truck that night. Nothing failed. No alert fired. The order simply took three extra days and one of your store's units, which a walk-in would have bought at full margin with no shipping cost at all.
 
+## The short answer
+
+Shopify routes on a strategy you configure once, and not one of its rules reads a shipping rate. Under Settings, Shipping and delivery, Order routing you get rules that run top to bottom: minimize split fulfillments, stay within the destination market, ship from the closest location, plus ranked locations and location metafields. Order them deliberately, because the rule at the top decides what every rule under it is even allowed to see.
+
+What that ranking cannot see is cost and time. There is no rule for the cheapest label, the carrier zone, dimensional weight, or the pick fee a 3PL charges that your own warehouse does not, and closest means straight-line distance rather than driving distance, which Shopify's documentation states plainly. Nothing in it knows about a cutoff, a weekend, or a location running two days behind, and the assignment is made in the half second after checkout and never revisited.
+
+So the arithmetic has to happen per order: score the locations that could actually send it on the real rate, the cutoff and the current backlog, then decide split or single on landed cost and promised date instead of one global setting. Flow's Move fulfillment order action will execute a rule you already know, but the destination has to stock every line or the run fails, and the move is refused once a fulfillment service has the request.
 ## What Shopify actually does, and where it stops
 
 Credit first, because Shopify's routing is much better than the old fulfillment priority list it replaced. Under Settings, Shipping and delivery, Order routing, you get a strategy: a list of rules that run top to bottom, each one filtering the locations the next rule gets to see. The default is three rules in this order. Minimize split fulfillments, which prefers any location holding every item. Stay within the destination market. Ship from the closest location. You can reorder them, remove them, and add two more: ranked locations, where you group locations into tiers you define, and location metafields, where you prioritize on a boolean or a number you have stored against each location.
@@ -6238,7 +6455,7 @@ Usually two to six dollars an order, and it is invisible because Shopify has no 
 URL: https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html
 Dispatch: Nº 92
 Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
-Published: 2026-07-26. Updated: 2026-08-15
+Published: 2026-07-26. Updated: 2026-10-25
 
 Your distributor drops a file at 6am the way they have every morning for two years. This morning they renamed one column. The matcher found nothing, the sync did exactly what you configured it to do at setup, and four hundred products are now out of stock without a single one of them selling. Here is why Shopify has no answer for this, why the sync apps can only hand you the question, and the playbook that reads a feed before it believes it.
 
@@ -6246,6 +6463,13 @@ There are two ways a supplier feed ruins your week, and the loud one is easier t
 
 The quiet one costs more over a year. The feed parses perfectly. It just arrives once a day, and your bestseller sold out at the supplier's warehouse at eleven in the morning. For the next nineteen hours your store takes orders against stock that does not exist, and you find out when the fulfillment file bounces or a customer emails to ask where their thing is. Both failures come from the same place. A stock feed is a claim about the world that was true at the moment it was written, and nothing in your stack is asking whether it is still true, or whether it was ever well formed to begin with.
 
+## The short answer
+
+Shopify has no concept of a supplier anywhere in the platform. There is no scheduled import, no FTP or SFTP client, no column mapping screen, and no reconciliation report telling you what last night's update changed. Locations, quantities and committed stock all work properly; the feed itself is somebody else's file, arriving on somebody else's schedule, and nothing native reads it.
+
+Matching is where it bites. Inventory updates key on SKU as an exact string, case included, so TurkeySandwich and Turkeysandwich are two different products. Trailing whitespace, leading zeros stripped the moment someone opens the CSV, and long numeric codes rendered in scientific notation break the match just as often, and the product CSV import keys on Handle, so the two-column file of SKU and quantity will not import without a workaround.
+
+The sync apps do the plumbing well, then make you pre-answer the one question that only ever has an answer in context: what happens to a SKU missing from today's file. Zero takes the catalog offline the morning a column header changes; leave alone keeps selling a line discontinued in March. Inspect the file before trusting any of it, match on meaning rather than string equality, and buffer by velocity rather than one global number.
 ## What Shopify actually does, and where it stops
 
 Shopify's inventory model itself is not the problem. Locations, quantities, committed stock, and the ability to stop selling at zero all work. What Shopify has no concept of anywhere in the platform is a supplier. There is no scheduled import, no FTP or SFTP client, no column mapping screen, no place to store a vendor's price and stock file, and no reconciliation report that tells you what last night's update changed. The platform assumes inventory moves because something sold or because a person typed a number.
@@ -6353,7 +6577,7 @@ Not one global number, which is the shape the sync apps offer and the wrong one.
 URL: https://blog.dugong.live/how-to-stop-discount-code-abuse-on-shopify.html
 Dispatch: Nº 91
 Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
-Published: 2026-07-25. Updated: 2026-08-10
+Published: 2026-07-25. Updated: 2026-10-25
 
 You gave one creator a code. Three weeks later it has 900 redemptions, almost all from first-time buyers, because a browser extension found it and now offers it to every cart in your store. Meanwhile your welcome code is on its fourth use by the same person under a fourth email address. Shopify gives you a redemption cap and a one-per-customer setting that is really one per email. Here is why the platform cannot see a leak, and the playbook that closes it while the margin is still there.
 
@@ -6361,6 +6585,13 @@ The month closes and the revenue looks fine. The margin does not. You open the d
 
 The other version of this is smaller and just as constant. You set a welcome code to one use per customer, and a regular takes it four times using four inboxes. The community boards have a thread for this in almost every language, usually titled with some variation of discount code, same customer, multiple email addresses. Shopify's own answer has been consistent for years: the restriction is matched on the email, there is no secondary verification, and the request has been passed to the product team. Both stories are the same story. A discount code is a password that you print in public and hope only the right people type.
 
+## The short answer
+
+Limit to one use per customer is really one use per email address. The restriction is tied to the customer record created from whatever address is typed at checkout, so a second inbox, a plus-addressed alias or a guest checkout reads as a brand new customer with a clean slate. The usage cap is the other native control, and it limits how expensive a leak gets rather than whether one happens.
+
+Nothing in the admin notices a leak. No alert fires when a code's redemption rate jumps tenfold overnight, when almost all of the redemptions come from people who never bought and never saw the post, or when a browser extension auto-applies your code for shoppers who arrived ready to pay full price. The discount report counts redemptions accurately, whenever you decide to go and read it.
+
+A leak is a shape across many orders rather than a property of any one, which is exactly why Flow cannot see it: pace climbing hour over hour, the first-time-buyer share rising, carts clustering at the qualifying minimum, traffic from cities the campaign never ran in. Watch each code against its own normal, and when one goes, retire it for new traffic while still honoring it for the people who legitimately hold it.
 ## What Shopify actually does, and where it stops
 
 Shopify gives you two real controls, and it is worth being precise about what each one does. The first is a cap on total redemptions, which limits how expensive the leak gets but not whether it happens, and which is blunt in the wrong direction: set it at 1,000 and a leaked code burns through your best customers' goodwill for a thousand orders before it stops. The second is limit to one use per customer, which sounds like identity and is actually string matching. Shopify ties the restriction to the customer record on the checkout, and that record comes from the email typed into the form. A second inbox is a second customer. A plus-addressed alias is a second customer. Guest checkout under a work address is a second customer. The setting reliably stops the honest shopper who tried to reuse a code and reliably fails against anyone who did not want to be stopped, which is the same shape of problem as the per-customer purchase limit that resets every order.
@@ -6458,7 +6689,7 @@ Not as a reflex, because the kill switch lands on the wrong people first. The cr
 URL: https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html
 Dispatch: Nº 90
 Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
-Published: 2026-07-24. Updated: 2026-08-10
+Published: 2026-07-24. Updated: 2026-10-25
 
 Two orders land four minutes apart: same items, same address, same card. Somebody double-tapped the pay button, or retried after a card error that had already gone through, and now one customer has paid twice for one box. Shopify will not warn you, Flow cannot compare the two orders, and the warehouse is about to ship both. Here is why the platform cannot see a duplicate, and the playbook that catches the copy before the label prints.
 
@@ -6466,6 +6697,13 @@ It is Friday night and the drop is live. Order #4381 arrives at 9:14: two candle
 
 The forums have been asking for exactly this catch for years, in wording so specific it reads like a product spec. "How to automatically cancel duplicate orders with same SKU within 24 hours?" sits on the Shopify Flow board, politely unanswered in the way that means the tool cannot do it. Other threads report customers charged twice after a payment retry, orders doubling out of a glitchy checkout, and one long thread of merchants whose customers received their order twice, with the merchants eating the second box. The stories differ in cause and agree in shape: two records, one intention, and a platform that treats them as strangers.
 
+## The short answer
+
+There is no duplicate detection in Shopify. Two identical orders four minutes apart sit in the order list like strangers, with no badge, no warning and nothing comparing an incoming order against what the same customer placed moments earlier. Risk analysis clears both, because the same real customer paid with the same real card, so the one system watching every order cannot see the only thing wrong with this one.
+
+Cleanup costs money even when it works. Orders cannot be deleted in Shopify, only cancelled, so the accident stays in your reports either way, and cancelling means refunding, where payment processing fees are generally not returned. If nobody notices, the warehouse or the 3PL pulls both orders in its next sweep, two labels print, and two boxes ship.
+
+Flow cannot close it either. The Order created trigger hands the workflow exactly one order, and no condition looks sideways at that customer's other recent orders to compare line items, which is precisely what a duplicate check is. A working version looks back a day, compares whole orders rather than one field, cancels the unfulfilled copy before the label prints, and tells the customer before their bank does.
 ## What Shopify actually does, and where it stops
 
 Start with detection, because there is none. The orders screen lists #4381 and #4382 the way it lists any two orders. No badge, no warning, no possible duplicate flag, nothing that compares an incoming order to the ones the same customer placed minutes earlier. Shopify's risk analysis looks at each order alone and asks whether the payment looks stolen, which is the question behind the high-risk flag, and a duplicate fails that test perfectly: it is the same legitimate customer using the same legitimate card, so both copies come back low risk. The one system watching every order is structurally unable to notice the only thing wrong with this one.
@@ -6559,7 +6797,7 @@ The unfulfilled copy, and when both are unfulfilled, the later one, so the order
 URL: https://blog.dugong.live/how-to-block-a-customer-on-shopify.html
 Dispatch: Nº 89
 Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
-Published: 2026-07-23. Updated: 2026-08-14
+Published: 2026-07-23. Updated: 2026-10-25
 
 A customer has returned nine of eleven orders, and their tenth order just landed in your admin. You go looking for the ban button, and there isn't one. Deleting the account leaves guest checkout wide open, fraud analysis calls their valid card low risk, and Flow can only cancel after the money has moved. Here is why Shopify cannot remember the people who burn you, and the playbook that makes a block actually stick.
 
@@ -6567,6 +6805,13 @@ Every store meets this customer eventually. The one who has ordered eleven times
 
 The community threads on this run back years and read like one long support queue. "How can I block or blacklist certain customers from placing orders?" "How can I block or blacklist a problematic customer in Shopify?" "IP ban customer from buying from or even seeing my store?" And, still arriving in 2025, "How to block customer account." Different stores, different bad actors, the same discovery underneath: the platform holds a complete record of what this person did to you and offers no way to act on it. Nobody in those threads is asking for something exotic. Every marketplace has a block button. Every email client has one. The storefront where this person costs you actual money does not.
 
+## The short answer
+
+Shopify has no block or ban button anywhere in the admin. Deleting or disabling a customer's account touches only the login, and guest checkout stays open to anyone who can type an email address, so the person you just deleted can order again thirty seconds later. Fraud analysis will not stand in for it, because a serial returner paying with their own valid card from their own address is genuinely low risk as a payment.
+
+The Flow workaround reacts instead of refusing. Tag the customer, cancel on Order created, restock: the order was already placed and the payment already captured, so every catch still costs you processing fees that refunds generally do not return, and the cancellation notice teaches the blocked person the exact shape of the wall. Checkout validation functions can truly decline a checkout, but they live inside a custom app someone has to build and maintain.
+
+Matching is the deeper crack, because Flow compares strings. One alias walks past an email blocklist on the first attempt, while the literal match is the version most likely to catch an innocent relative who shares a surname. A block has to be held as an identity: email variants, phone, ship-to address, payment fingerprint and the history that earned it, screened at order creation, before the pick.
 ## What Shopify actually does, and where it stops
 
 The obvious moves all miss, and it is worth being precise about why. Deleting or disabling the customer's account touches only the login: guest checkout remains open to anyone who can type an email address, which is to say the person you just deleted, thirty seconds later, with the same email or a new one. Shopify's fraud analysis will not catch them either, because it is answering a different question. It exists to spot stolen payment methods, the mismatched cards and impossible geographies behind the high-risk flag that makes you guess. Your serial returner is not stealing anything at checkout. They pay with their own valid card from their own address, the transaction is perfectly legitimate, and the analysis waves it through as low risk, because as a payment it is. The damage comes later, and no field in the fraud panel looks later.
@@ -6663,7 +6908,7 @@ Match on the whole record, never on one string, because a false positive costs m
 URL: https://blog.dugong.live/how-to-notify-customers-of-shipping-delays-on-shopify.html
 Dispatch: Nº 88
 Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
-Published: 2026-07-22. Updated: 2026-08-12
+Published: 2026-07-22. Updated: 2026-10-25
 
 An order sits unfulfilled on day seven of a two-day promise, and Shopify has sent your customer exactly one email: the confirmation. The platform has no delay notice, no trigger for an order going late, and a Flow tool that can find every overdue order but can only tell your own staff. Here is why the silence between checkout and shipment is the most expensive gap in your store, and the playbook that fills it before the customer has to ask.
 
@@ -6671,6 +6916,13 @@ Every store has a version of this order. Placed on a Tuesday against a promise o
 
 The forum threads on this have been accumulating for years, and they all ask for the same small mercy in different words. "How to notify customers that shipping will be late." "I need to send a custom message to customers about a shipping delay." "How can I notify customers about shipping delays during vacation?" And the one that gets all the way to engineering terms: a Flow that automatically emails the customer when an order is still unfulfilled after seven days. Nobody is asking for anything clever. They want to say we are late, here is why, here is the new date, before the customer has to ask. The platform does not have a way to say it.
 
+## The short answer
+
+Shopify has no delay notification. The transactional emails fire at their two moments without fail, the order confirmation the second an order is placed and the shipping confirmation the second a fulfillment is created with a tracking number, and there is nothing between them: no delay template in the notification settings, and no trigger for an order aging past the promise it was sold with.
+
+Both native paths are crisis workarounds. The Orders page filters happily to open and unfulfilled, and there is no email button behind the filter, so you either open each order and contact its customer one at a time or export the list and mail it from somewhere else. Shopify Email reaches only the customers who opted into marketing, and a delay notice is transactional, so the guest buyer refreshing their inbox is exactly the person it cannot reach.
+
+Flow gets painfully close. A scheduled sweep finds paid orders still unfulfilled after seven days, and a Wait action can watch one order age for up to thirty days. Then its one native email action writes to your staff. So the automation can assemble a perfect daily list of every promise your store is breaking and has no way to tell the person each promise was made to, which is why the note has to be written per order, with the cause and an honest new date.
 ## What Shopify actually does, and where it stops
 
 Give the platform its due first, because what it does, it does reliably. Shopify's transactional emails fire at their two moments without fail: the order confirmation the second the order is placed, and the shipping confirmation the second a fulfillment is created with a tracking number. You can edit both templates, brand them, soften the language. Between those two moments, though, there is nothing. No delay notice template anywhere in the notifications settings. No trigger that fires when an order ages past the promise it was sold with. As far as the platform is concerned, an order that shipped in two days and an order that shipped in nineteen had the same conversation with the customer.
@@ -6768,7 +7020,7 @@ It is faster than writing per-order emails, and it is usually worse. One blast t
 URL: https://blog.dugong.live/how-to-merge-duplicate-customer-profiles-on-shopify.html
 Dispatch: Nº 87
 Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
-Published: 2026-07-22. Updated: 2026-08-14
+Published: 2026-07-22. Updated: 2026-10-25
 
 One loyal customer checks out as a guest with her work email, taps Apple Pay with a relay address, and buys once at your market stall through the POS, and your admin now holds three strangers. Here is why Shopify only merges profiles two at a time, why some pairs will not merge at all, and the playbook that cleans the whole list without ever welding two real people together.
 
@@ -6776,6 +7028,13 @@ Somewhere in your customer list right now is a person your store has met many ti
 
 The community threads on this are some of the longest-running in Shopify's forums, and the titles barely change from year to year. "Can merging duplicate customers in Shopify really be that complicated?" "Merging duplicate customers in bulk." "Built-in duplicate customer account detection and bulk merge tool." The thread that asks whether it can really be that complicated has been collecting replies across a decade of merchants, page after page of the same request. Nobody is asking for anything exotic. They want the store to know one person as one person, and to fix the thousands of cases where it does not, without doing it one pair at a time.
 
+## The short answer
+
+Shopify's merge is real and it takes exactly two profiles at a time, chosen by hand, from a profile's More actions or by selecting two customers on the Customers page. Orders, addresses, tags and notes combine properly under one record, and one profile per email address is enforced, so a logged-in customer cannot fork themselves by accident. There is no bulk select, no store-wide duplicate report and no queue of likely pairs to approve.
+
+Detection is shallow and the merge is sometimes refused outright. The admin can point out two profiles sharing a name or a phone number; it cannot see that a plus-addressed alias is the same inbox, that a wallet relay address lands at the same street, or that a POS profile with no email shares a card and a postcode with an online account. The button disappears entirely for subscriptions, B2B companies, vaulted cards, store credit and multipass, which are the profiles most worth consolidating.
+
+Flow has no merge customers action either, so the platform's own workflow tool can report a duplicate at best and never fix one. A real cleanup sweeps the whole list, scores each candidate pair on evidence rather than a name, picks the survivor carrying the login and the marketing consent, chains clusters of three or more down one join at a time, and leaves the genuinely uncertain pairs in front of a person.
 ## What Shopify actually does, and where it stops
 
 Give the platform its due first, because the picture has improved. Shopify enforces one profile per email address, so a logged-in customer cannot fork themselves by accident. The admin will point out similar profiles when you are looking at a customer. And there is now a real merge: open a profile and choose Merge customer under More actions, or select two customers on the Customers page, and Shopify combines them properly, orders, addresses, tags, and notes brought together under one record. For the pair in front of you, it works.
@@ -6872,7 +7131,7 @@ The admin will point out similar profiles while you are looking at one customer,
 URL: https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html
 Dispatch: Nº 86
 Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
-Published: 2026-07-20. Updated: 2026-08-15
+Published: 2026-07-20. Updated: 2026-10-25
 
 A shopper finds your 40 percent off sale, adds three marked-down items, then pastes the welcome code from your popup at checkout, and Shopify takes both. Here is why there is no exclude sale items switch, why the combination settings will not save you, and the playbook that keeps every code off your sale prices without killing the codes themselves.
 
@@ -6880,6 +7139,13 @@ Run a store long enough and you end up with two kinds of discounts running at on
 
 The community threads on this are among the most repeated in Shopify's forums, and they all ask the same thing in slightly different words. "How do I exclude sale items from discount codes?" "Stop customers using welcome codes on sale products." "Discount code applying on top of already reduced prices." The standard answers are a shrug in three parts: there is no native toggle, you can rebuild your discounts around a special collection, or you can install an app. Merchants are not asking for anything clever. They want the oldest rule in retail, codes do not apply to sale items, and Shopify has no switch for it.
 
+## The short answer
+
+Nowhere in Shopify's discount screens is there a switch that keeps codes off marked-down items. The combination settings decide how discounts combine with other discounts, and a sale you run the usual way, by lowering the price and keeping the old one as compare-at so the strikethrough shows, is not a discount to that engine at all. It is just a price. So a sitewide code lands on your deepest markdown exactly as it lands on full price.
+
+The native route is eligibility, and it holds the way a rope bridge holds. Build an automated collection keyed off compare-at price so sale items gather in one place, then scope your codes to the inverse full-price collection. That works only while every compare-at price is maintained, a code cannot always be re-scoped once it has been issued, and every code your popup, loyalty and review apps mint on your behalf is born sitewide.
+
+Note the timing, too: Shopify Scripts stopped executing on June 30, 2026, and a Script is how Plus merchants used to strip a code when it met a markdown, so a store that quietly relied on one is now double-discounting in the open. Treat the policy itself as the source of truth, scope each code at the moment it is created, and at checkout apply the single best discount rather than the deepest stack that slipped through.
 ## What Shopify actually does, and where it stops
 
 Give the platform its due first. Shopify's discount engine handles the individual pieces well. Codes are easy to create and can be gated by collection, minimum spend, or customer segment. Automatic discounts apply cleanly with nobody typing anything. And since discount combinations arrived, you can even decide which classes of discount are allowed to meet: product discounts, order discounts, and shipping discounts each carry a combines-with setting, so two offers you built as discounts can be told to stack or to keep apart.
@@ -6974,7 +7240,7 @@ Yes, and that is why a single toggle was never going to be enough. A service-rec
 URL: https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html
 Dispatch: Nº 85
 Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
-Published: 2026-07-18. Updated: 2026-08-15
+Published: 2026-07-18. Updated: 2026-10-25
 
 A shopper buys a present, types a few careful words at checkout, and pays a little extra to have it wrapped. Then the box arrives at the recipient with the sender's full invoice tucked inside and no message anywhere in sight. Here is why Shopify has no real gift field, why the order note keeps losing the note, and the playbook that gets the message into the box and the price off the slip.
 
@@ -6982,6 +7248,13 @@ A large share of what any store sells is bought for someone else. Birthdays, hol
 
 This is one of the steadiest complaints in the Shopify community, and the threads are blunt about it. "How can I add a gift note to my packing slip?" "Add a gift message option at checkout." "How do I hide prices on the slip for a gift?" The answers are always the same short menu: repurpose the order-note box, edit your theme's Liquid, or install an app. Shoppers are not asking for anything unusual. They want a labeled message field and a wrap option, and they want the note to reach the person packing the box instead of dying in a field no one reads.
 
+## The short answer
+
+Shopify has no dedicated gift message field. The one native place for a shopper to leave text is the cart order-note box, which you can switch on in the theme, relabel to something like add a gift message, and read on the order afterwards. It was built for delivery instructions, so it is a single unlabeled field for the whole order, attaches to no particular item, and carries no validation or length limit.
+
+Gift wrap is thinner still. There is no native add gift wrap option at checkout for a standard store, and the one native path is Checkout Extensibility on Plus, where the out-of-the-box result is a bare toggle rather than a fee on the order, a line item your accounting can see, and a clear instruction at the packing bench. Everyone below Plus fakes wrap as a hidden product or a variant and hopes the warehouse notices.
+
+The sharpest failure is the price on the box. The packing slip is one template for every order and it prints prices, with no switch anywhere that says this order is a gift, hide the totals, so the recipient opens the present and sees what the sender paid. Capture the gift as structured intent, check the message before it ever prints, attach wrap as a real charge, and generate a slip that carries the note and no prices.
 ## What Shopify actually does, and where it stops
 
 Give the platform its due first. Shopify does have one native place for a customer to leave text: the cart order-note field. You can switch it on in the theme, you can rename its label to something like "Add a gift message here," and whatever the shopper types is saved to the order and visible in the admin. For a store that only ever needs a single line of free text on an order, that field technically exists and technically works.
@@ -7075,7 +7348,7 @@ By default, nothing good, because the order note is one field for the whole orde
 URL: https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html
 Dispatch: Nº 84
 Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
-Published: 2026-07-16. Updated: 2026-08-12
+Published: 2026-07-16. Updated: 2026-10-25
 
 You want the obvious offer: buy 3 and save 10 percent, buy 6 and save 20, buy 12 and save 30. You open Shopify's discount screen, build the first tier, go to add the second, and there is nowhere to put it, because a Shopify discount holds one rule and only one. Here is why buy-more-save-more never works natively, why Scripts are no longer the escape hatch, and the playbook that runs real quantity breaks across your whole catalog.
 
@@ -7083,6 +7356,13 @@ Every merchant who sells anything people buy in multiples reaches for the same l
 
 This is one of the most-repeated frustrations in the Shopify community, and the threads say it plainly. "Tiered discounts based on variant quantity." "Tiered buy X get Y discount?" "How do I do buy more save more without an app?" The answers are always some mix of the same three: it is not natively possible for regular customers, you can fake a single tier and hope, or you install an app. Merchants are not asking for anything exotic. They want a discount that gets deeper as the cart gets bigger, and Shopify's discount engine was built for simple, not for tiered.
 
+## The short answer
+
+Shopify's discount engine allows one condition per discount, so buy 3 save 10 is one rule and buy 6 save 20 is a second, separate one. There is no way to say step up to 20 at six and 30 at twelve inside a single offer, which is why a real buy-more-save-more ladder is not natively possible for regular shoppers. The simple single-tier case does work cleanly, with no code and no app.
+
+Building three automatic discounts at once is where it breaks. A cart of twelve units qualifies for all three tiers, Shopify does not pick the best one and suppress the rest, so the shopper can land on the smallest saving or the discounts simply refuse to combine. There is also a hard cap of 25 active automatic discounts on the store, so one discount per tier per product runs out of room quickly.
+
+True quantity tiers exist in exactly one place: attach quantity pricing to a B2B price list and it behaves like a proper ladder, but it reaches only customers assigned to a company profile, not tagged retail customers, not cart-total tiers, and not your open storefront. Shopify Scripts, the old fake, stopped running on June 30, 2026. Treat the tier table as the source of truth and resolve the single highest break each cart has actually earned.
 ## What Shopify actually does, and where it stops
 
 Give the platform its due first. Shopify's native discounts are genuinely good at the simple case. You can create an automatic discount like "buy 3, get 10 percent off," and it applies cleanly at checkout with no code and no app. You can gate a discount to a collection, to a minimum quantity, or to a minimum spend. For a store that wants one straightforward promotion running at a time, the native tools do the job and do it well.
@@ -7176,7 +7456,7 @@ Twenty-five. That is the hard cap on active automatic discounts across the store
 URL: https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html
 Dispatch: Nº 83
 Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
-Published: 2026-07-15. Updated: 2026-08-15
+Published: 2026-07-15. Updated: 2026-10-25
 
 You sell a gift set and the candle, the soap, and the bath bomb inside it never move a single unit, because Shopify counts the bundle as its own product with its own stock number. So the parts oversell on their own pages, the bundle keeps selling after the shelf behind it is empty, and a shared component drifts out of step across every bundle it lives in. Here is why the bundle sale never touches the component stock, and the playbook that keeps the two counts honest in real time.
 
@@ -7184,6 +7464,13 @@ Every store that sells kits and gift sets eventually finds the same nasty gap in
 
 This is one of the most-repeated complaints in the Shopify community, and the threads all describe the same thing in slightly different words. "Bundle inventory not updating." "How do I sell a bundle of two products and make the inventory go down." "My bundle shows sold out but the items are in stock." "Components not deducting when the bundle sells." Merchants are not asking for anything exotic. They want the obvious thing: when a bundle sells, take the parts off the shelf, and when a part runs low, stop promising bundles you can no longer build. Shopify does not do that on its own, and the answers under the threads are always the same short list: track components by hand, or install an app.
 
+## The short answer
+
+By default Shopify counts a bundle as its own product with its own inventory number, so selling the bundle never reduces the products inside it, and selling one of those products never reduces how many bundles remain. The free Shopify Bundles app does link a fixed bundle to its components and shows it as available on the lowest-stock component, which handles the simple case properly and is more than the platform offered a year ago.
+
+That happy path is narrow. The app caps how many components and variants a fixed bundle can hold, does not track true mix-and-match the same clean way, and reads overall component stock rather than per location, so a store shipping from two warehouses can sell a kit somewhere that cannot assemble it. It does nothing at all for the bundles merchants built the older way, as a standalone product or a single variant with its own count.
+
+Even a linked bundle has seams. Edit an order to add or remove a bundle and the component math does not re-run, because the relationship was never modeled as something an edit recalculates, and a bundle usually travels to a marketplace as one atomic SKU, so ten kits sold here leave the component showing its full quantity there. Count the components and let every bundle be a view of what the parts can build right now.
 ## What Shopify actually does, and where it stops
 
 Give Shopify its due first, because the picture is better than it was a year ago. The free Shopify Bundles app does link a fixed bundle to its components: you build the bundle from existing products, and it shows the bundle as available based on the lowest-stock component, so it will not let you sell a kit whose parts are gone. For a store that builds every bundle through that app and keeps them simple, that linkage is real and does the core job, and it is a lot more than the platform offered before.
@@ -7275,7 +7562,7 @@ No, and these are the two seams that break even a properly linked bundle. Edit a
 URL: https://blog.dugong.live/how-to-automatically-pause-ads-for-out-of-stock-products-on-shopify.html
 Dispatch: Nº 82
 Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
-Published: 2026-07-12. Updated: 2026-08-14
+Published: 2026-07-12. Updated: 2026-10-25
 
 A product sells out at two in the afternoon. Your Google and Meta ads keep running it until well past midnight, sending paid clicks to a page where the only button says Sold Out. Shopify never paused the ad, because it does not pause ads at all. It syncs a feed on a schedule, and the money keeps going out the door in the gap. Here is why the ad outlives the stock, and the playbook that pauses the exact ad for a sold-out product and turns it back on the moment inventory returns.
 
@@ -7283,6 +7570,13 @@ Every merchant who runs paid traffic has watched this line item and felt sick. A
 
 This is one of the most-repeated complaints in the Shopify community, and the threads read the same every time. "Cant run ads due to out of stock item." "Google advertises my out of stock items." "How do I stop wasting ad money on products that are sold out." Merchants are not asking for anything clever. They want the obvious thing: when a product runs out, stop paying to advertise it, and when it comes back, start again. Shopify does not have a switch for that, and the answers underneath the threads are always the same mix of check it manually, build a feed rule, or install an app.
 
+## The short answer
+
+No native setting pauses ads when a product sells out. The Google and Meta sales channels do sync an availability attribute to your product feed, which is real and useful, but they do it on a schedule rather than the instant stock hits zero, and the ad platforms then re-crawl and re-approve on their own clocks on top of that. The ad keeps serving through the whole gap.
+
+Nothing in that sync pauses a campaign or an ad set. Availability in a feed is a hint to the ad system, not an off switch, and in a Performance Max or Advantage+ Shopping campaign the platform is choosing across your entire feed, so one sold-out item does not stop spend, it shifts it somewhere you did not pick. Worse, when the feed and the live page disagree, Google routinely disapproves the product, and a pile of disapprovals drags on the whole account.
+
+A working version matches each item to its actual placement, the listing group or the catalog item rather than the campaign, reads inventory per variant and per location, pauses only that placement so the in-stock products beside it keep running, corrects the feed so the mismatch stops causing disapprovals, and reverses all of it the moment stock returns. Which stockout to pause and which to hold through a short gap is a media call, not a raw zero.
 ## What Shopify actually does, and where it stops
 
 Give Shopify its due first, because it does part of this well. The Google & YouTube and the Meta sales channels connect your catalog to a product feed, and that feed carries an availability attribute for every product. When stock changes, the channel updates the feed, and Google Merchant Center and the Meta catalog read that availability so a sold-out product is eventually marked out of stock. For a store that never touched any of this, that sync is real and useful, and it is more than you would get wiring a feed by hand.
@@ -7374,7 +7668,7 @@ No. Not every stockout should go dark, and knowing the difference is most of the
 URL: https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html
 Dispatch: Nº 81
 Author: Priya Singh, Commerce Research, Dugong (https://blog.dugong.live/priya-singh.html)
-Published: 2026-07-11. Updated: 2026-08-16
+Published: 2026-07-11. Updated: 2026-10-25
 
 You cap a hot product at two per person, the drop sells out in minutes, and the orders list tells the real story: one buyer took forty units across twenty tidy little orders. Shopify's add-to-cart limit is a per-cart rule, not a per-customer one, so it resets on every checkout and never notices the same buyer coming back. It also counts each color and size on its own. Here is why Shopify caps the cart but not the customer, and the playbook that enforces a real per-person limit on every path into checkout.
 
@@ -7384,6 +7678,13 @@ This is the quiet reality of running any allocation-limited product on Shopify, 
 
 > Shopify can cap how many units fit in one cart. It cannot cap how many carts one customer fills. So the limit you advertised holds for the honest shopper who reads it and does nothing to the reseller who was always going to place ten orders.
 
+## The short answer
+
+Shopify's native limit is per cart, not per customer. The add-to-cart limit under checkout preferences caps how many of a given product a shopper can put in their cart in one order, and for stopping an obvious over-buy inside a single transaction it works and is worth turning on. It is also the whole of what the platform offers on a standard plan.
+
+It then runs into three walls. The cap applies per variant, so a tee sold in three colors with a limit of two lets one shopper take six units in the same cart. It resets on every order, because the counter lives on the cart and is gone the instant a checkout completes. And it never looks at email, address, card or account, so it cannot tell that twenty small orders are one buyer, and it does not apply in POS, on draft orders, or for B2B profiles.
+
+A real per-customer cap takes a checkout validation on Plus with Functions, a third-party app, or a custom automation, because the limit has to be kept against a person across orders rather than against a cart. Identify the buyer from several weak signals, hold a running total for the launch window, enforce on every path in, wallet buttons and checkout permalinks included, and leave the shared-address household for a human.
 ## What Shopify does and does not do about purchase limits
 
 Give Shopify credit for the part it does, because it is real and it is where the confusion starts. Shopify has a native add-to-cart limit, set under checkout preferences, that caps the maximum quantity of a given product a shopper can put in their cart in one order. If you never want more than one of an item to leave in a single order, you can set it, and the cart will refuse the second. For the narrow case of stopping an obvious over-buy in a single transaction, it works, and it is worth turning on.
@@ -7783,7 +8084,7 @@ If you sell to businesses at all, or into any market where a formal invoice is e
 
 Describe it the way you would brief a careful bookkeeper: for every order, work out whether it needs a receipt or a full tax invoice, put the company and tax details on it, number it in sequence, and send it the moment the order is paid, and cut a credit note whenever we refund, and bring me anything where the tax number does not check out or the order is a reverse-charge or export. That is the whole brief. The compiler does the classification, the capture, the document, the send, and the credit note, on every order. Your business buyers get the invoice they were going to ask for before they ask, and your books stay clean without anyone retyping an address.
 
-> **◆ READING** If this resonates, two companion pieces: our dispatch on [the payout that never matches your sales](https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html), the reconciliation side of keeping Shopify finances clean, and [the order tag you set by hand](https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html), where reading the whole order and acting on it beats a single blunt rule.
+> **◆ READING** If this resonates, two companion pieces: our dispatch on [the payout that never matches your sales](https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html), the reconciliation side of keeping Shopify finances clean, and [the order tag you set by hand](https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html), where reading the whole order and acting on it beats a single blunt rule. Also new: [the overdue invoices nobody adds up](https://blog.dugong.live/how-to-chase-overdue-shopify-b2b-invoices.html), on chasing the same business buyer once the order exists and the terms are running.
 
 If you are a Shopify merchant who has built something that invoices every order correctly and cuts credit notes on refunds without anyone touching a template, or you have a story about a business buyer whose invoice you have retyped one too many times, the inbox is open: field-notes@dugong.live. We are collecting case studies for the next issue.
 

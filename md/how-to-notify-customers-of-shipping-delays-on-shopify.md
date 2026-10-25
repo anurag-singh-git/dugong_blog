@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-notify-customers-of-shipping-delays-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-22
-- Updated: 2026-08-12
+- Updated: 2026-10-25
 - Section: Research
-- Word count: 2130
+- Word count: 2363
 - Dispatch: Nº 88 · Research · 10 min read
 - Full headline on page: How to notify customers of *shipping delays* on Shopify automatically
 - Keywords: Shopify notify customers of shipping delay, Shopify shipping delay email, Shopify delayed order notification, Shopify bulk email unfulfilled orders, Shopify Flow email customer unfulfilled order, Shopify order delay email, Shopify fulfillment delay notification, Shopify email customers with open orders
@@ -19,6 +19,13 @@ Every store has a version of this order. Placed on a Tuesday against a promise o
 
 The forum threads on this have been accumulating for years, and they all ask for the same small mercy in different words. "How to notify customers that shipping will be late." "I need to send a custom message to customers about a shipping delay." "How can I notify customers about shipping delays during vacation?" And the one that gets all the way to engineering terms: a Flow that automatically emails the customer when an order is still unfulfilled after seven days. Nobody is asking for anything clever. They want to say we are late, here is why, here is the new date, before the customer has to ask. The platform does not have a way to say it.
 
+## The short answer
+
+Shopify has no delay notification. The transactional emails fire at their two moments without fail, the order confirmation the second an order is placed and the shipping confirmation the second a fulfillment is created with a tracking number, and there is nothing between them: no delay template in the notification settings, and no trigger for an order aging past the promise it was sold with.
+
+Both native paths are crisis workarounds. The Orders page filters happily to open and unfulfilled, and there is no email button behind the filter, so you either open each order and contact its customer one at a time or export the list and mail it from somewhere else. Shopify Email reaches only the customers who opted into marketing, and a delay notice is transactional, so the guest buyer refreshing their inbox is exactly the person it cannot reach.
+
+Flow gets painfully close. A scheduled sweep finds paid orders still unfulfilled after seven days, and a Wait action can watch one order age for up to thirty days. Then its one native email action writes to your staff. So the automation can assemble a perfect daily list of every promise your store is breaking and has no way to tell the person each promise was made to, which is why the note has to be written per order, with the cause and an *honest* new date.
 ## What Shopify actually does, and where it stops
 
 Give the platform its due first, because what it does, it does reliably. Shopify's transactional emails fire at their two moments without fail: the order confirmation the second the order is placed, and the shipping confirmation the second a fulfillment is created with a tracking number. You can edit both templates, brand them, soften the language. Between those two moments, though, there is nothing. No delay notice template anywhere in the notifications settings. No trigger that fires when an order ages past the promise it was sold with. As far as the platform is concerned, an order that shipped in two days and an order that shipped in nineteen had the same conversation with the customer.

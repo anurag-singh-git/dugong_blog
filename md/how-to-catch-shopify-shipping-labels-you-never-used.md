@@ -7,7 +7,7 @@
 - Published: 2026-10-18
 - Section: Research
 - Word count: 3301
-- Dispatch: Nº 131 · Research · 10 min read
+- Dispatch: Nº 131 · Research · 11 min read
 - Full headline on page: How to catch Shopify shipping labels *you paid for and never used*
 - Keywords: void shopify shipping label, unused shopify shipping label refund, shopify label credit, shopify shipping label 30 days, cancel shipping label shopify, shopify void label after cancelling order, shopify shipping label billing, AI shipping label audit
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)

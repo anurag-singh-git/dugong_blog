@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-15
-- Updated: 2026-08-15
+- Updated: 2026-10-25
 - Section: Research
-- Word count: 2140
+- Word count: 2371
 - Dispatch: Nº 83 · Research · 10 min read
 - Full headline on page: How to automatically sync *bundle inventory* with component stock on Shopify
 - Keywords: Shopify bundle inventory not updating, Shopify bundle inventory sync, Shopify bundle components not deducting, Shopify bundle overselling, sync bundle stock Shopify, Shopify kit inventory tracking, Shopify bundle component inventory
@@ -19,6 +19,13 @@ Every store that sells kits and gift sets eventually finds the same nasty gap in
 
 This is one of the most-repeated complaints in the Shopify community, and the threads all describe the same thing in slightly different words. "Bundle inventory not updating." "How do I sell a bundle of two products and make the inventory go down." "My bundle shows sold out but the items are in stock." "Components not deducting when the bundle sells." Merchants are not asking for anything exotic. They want the obvious thing: when a bundle sells, take the parts off the shelf, and when a part runs low, stop promising bundles you can no longer build. Shopify does not do that on its own, and the answers under the threads are always the same short list: track components by hand, or install an app.
 
+## The short answer
+
+By default Shopify counts a bundle as its own product with its own inventory number, so selling the bundle never reduces the products inside it, and selling one of those products never reduces how many bundles remain. The free Shopify Bundles app does link a fixed bundle to its components and shows it as available on the lowest-stock component, which handles the simple case properly and is more than the platform offered a year ago.
+
+That happy path is narrow. The app caps how many components and variants a fixed bundle can hold, does not track true mix-and-match the same clean way, and reads overall component stock rather than per location, so a store shipping from two warehouses can sell a kit somewhere that cannot assemble it. It does nothing at all for the bundles merchants built the older way, as a standalone product or a single variant with its own count.
+
+Even a linked bundle has seams. Edit an order to add or remove a bundle and the component math does not re-run, because the relationship was never modeled as something an edit recalculates, and a bundle usually travels to a marketplace as one atomic SKU, so ten kits sold here leave the component showing its full quantity there. Count the components and let every bundle be a *view* of what the parts can build right now.
 ## What Shopify actually does, and where it stops
 
 Give Shopify its due first, because the picture is better than it was a year ago. The free [Shopify Bundles](https://help.shopify.com/en/manual/products/bundles) app does link a fixed bundle to its components: you build the bundle from existing products, and it shows the bundle as available based on the lowest-stock component, so it will not let you sell a kit whose parts are gone. For a store that builds every bundle through that app and keeps them simple, that linkage is real and does the core job, and it is a lot more than the platform offered before.

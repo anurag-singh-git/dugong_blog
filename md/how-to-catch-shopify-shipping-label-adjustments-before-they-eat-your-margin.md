@@ -7,7 +7,7 @@
 - Published: 2026-10-13
 - Section: Research
 - Word count: 2584
-- Dispatch: Nº 126 · Research · 8 min read
+- Dispatch: Nº 126 · Research · 9 min read
 - Full headline on page: How to catch Shopify shipping label adjustments *before they eat your margin*
 - Keywords: shopify shipping label adjustment, shipping label price adjustment, usps label price adjustment, dispute shipping label adjustment shopify, dimensional weight shopify, usps dim divisor 139, shopify shipping label cost api, ups shipping label adjustments
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)

@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-24
-- Updated: 2026-08-10
+- Updated: 2026-10-25
 - Section: Research
-- Word count: 2200
+- Word count: 2399
 - Dispatch: Nº 90 · Research · 10 min read
 - Full headline on page: How to catch and *cancel duplicate orders* on Shopify automatically
 - Keywords: Shopify duplicate order, customer ordered twice Shopify, cancel duplicate order Shopify, Shopify double order, automatically cancel duplicate orders Shopify, Shopify Flow duplicate order same SKU, Shopify customer charged twice, duplicate order detection Shopify
@@ -19,6 +19,13 @@ It is Friday night and the drop is live. Order #4381 arrives at 9:14: two candle
 
 The forums have been asking for exactly this catch for years, in wording so specific it reads like a product spec. "How to automatically cancel duplicate orders with same SKU within 24 hours?" sits on the [Shopify Flow](https://help.shopify.com/en/manual/shopify-flow) board, politely unanswered in the way that means the tool cannot do it. Other threads report customers charged twice after a payment retry, orders doubling out of a glitchy checkout, and one long thread of merchants whose customers received their order twice, with the merchants eating the second box. The stories differ in cause and agree in shape: two records, one intention, and a platform that treats them as strangers.
 
+## The short answer
+
+There is no duplicate detection in Shopify. Two identical orders four minutes apart sit in the order list like strangers, with no badge, no warning and nothing comparing an incoming order against what the same customer placed moments earlier. Risk analysis clears both, because the same real customer paid with the same real card, so the one system watching every order cannot see the only thing wrong with this one.
+
+Cleanup costs money even when it works. Orders cannot be deleted in Shopify, only cancelled, so the accident stays in your reports either way, and cancelling means refunding, where payment processing fees are generally not returned. If nobody notices, the warehouse or the 3PL pulls both orders in its next sweep, two labels print, and two boxes ship.
+
+Flow cannot close it either. The Order created trigger hands the workflow exactly one order, and no condition looks sideways at that customer's other recent orders to compare line items, which is precisely what a duplicate check is. A working version looks back a day, compares whole orders rather than one field, cancels the unfulfilled copy before the label prints, and tells the customer *before* their bank does.
 ## What Shopify actually does, and where it stops
 
 Start with detection, because there is none. The orders screen lists #4381 and #4382 the way it lists any two orders. No badge, no warning, no possible duplicate flag, nothing that compares an incoming order to the ones the same customer placed minutes earlier. Shopify's risk analysis looks at each order alone and asks whether the payment looks stolen, which is the question behind [the high-risk flag](https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html), and a duplicate fails that test perfectly: it is the same legitimate customer using the same legitimate card, so both copies come back low risk. The one system watching every order is structurally unable to notice the only thing wrong with this one.

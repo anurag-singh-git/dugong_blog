@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-28
-- Updated: 2026-08-14
+- Updated: 2026-10-25
 - Section: Research
-- Word count: 2385
+- Word count: 2610
 - Dispatch: Nº 94 · Research · 9 min read
 - Full headline on page: How to automatically release Shopify orders on hold *when stock arrives*
 - Keywords: Shopify release fulfillment hold, Shopify order on hold waiting for inventory, Shopify Flow release hold when back in stock, Shopify backorder automation, Shopify held orders queue, fulfillmentOrderReleaseHold, Shopify partial fulfillment backorder, Shopify order stuck on hold
@@ -21,6 +21,13 @@ The pallet lands on Wednesday morning. Someone counts it in, the available quant
 
 That is the entire problem, and it is more annoying than it is complicated. The hold worked. The restock worked. The piece in the middle does not exist.
 
+## The short answer
+
+Shopify will hold the order and will never tell you when to stop holding it. Flow's Hold fulfillment order action is a real primitive on every plan, and the matching Release fulfillment order holds action flips the status back from On hold to Open. If you are not holding short orders automatically today, build that workflow first; it is about twenty minutes of work.
+
+What does not exist is a trigger for the stock a held order was waiting on arriving. Shopify staff said so on the community forums in 2023, and merchants were still confirming it in July 2026. Inventory quantity changed fires reliably, but it hands you a variant and a quantity with no way to search backward to the held orders containing it, so the only native path left is a scheduled poll of `status:ON_HOLD`.
+
+That poll has four sharp edges. The Flow release action has no fields and clears every hold on the fulfillment order, fraud and address holds included; availability has to be read at the assigned location rather than store-wide; get-data actions cap at 100 records; and availability is not a reservation, so two orders waiting on the same three units both pass in one run. Reserve before releasing, lift only your own hold by its ID, and rank the queue by promised date, *oldest first*.
 ## What Shopify actually gives you
 
 Credit first. Fulfillment holds are a real primitive, not a tag pretending to be one. Flow's **Hold fulfillment order** action takes a reason and reason notes, and a held fulfillment order genuinely will not be picked, requested, or pushed to a fulfillment service until the hold comes off. The matching **Release fulfillment order holds** action flips the status back from On hold to Open. Both are on every plan. If you are not holding short orders automatically today, that workflow is twenty minutes of work and you should build it before you finish this article.

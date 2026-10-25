@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-block-a-customer-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-23
-- Updated: 2026-08-14
+- Updated: 2026-10-25
 - Section: Research
-- Word count: 2290
+- Word count: 2509
 - Dispatch: Nº 89 · Research · 10 min read
 - Full headline on page: How to *block a customer* on Shopify from placing orders
 - Keywords: Shopify block customer, ban customer Shopify, Shopify blacklist customer, block customer from ordering Shopify, Shopify serial returner, Shopify block email address checkout, Shopify IP block customer, stop customer from buying Shopify
@@ -19,6 +19,13 @@ Every store meets this customer eventually. The one who has ordered eleven times
 
 The community threads on this run back years and read like one long support queue. "How can I block or blacklist certain customers from placing orders?" "How can I block or blacklist a problematic customer in Shopify?" "IP ban customer from buying from or even seeing my store?" And, still arriving in 2025, "How to block customer account." Different stores, different bad actors, the same discovery underneath: the platform holds a complete record of what this person did to you and offers no way to act on it. Nobody in those threads is asking for something exotic. Every marketplace has a block button. Every email client has one. The storefront where this person costs you actual money does not.
 
+## The short answer
+
+Shopify has no block or ban button anywhere in the admin. Deleting or disabling a customer's account touches only the login, and guest checkout stays open to anyone who can type an email address, so the person you just deleted can order again thirty seconds later. Fraud analysis will not stand in for it, because a serial returner paying with their own valid card from their own address is genuinely low risk as a payment.
+
+The Flow workaround reacts instead of refusing. Tag the customer, cancel on Order created, restock: the order was already placed and the payment already captured, so every catch still costs you processing fees that refunds generally do not return, and the cancellation notice teaches the blocked person the exact shape of the wall. Checkout validation functions can truly decline a checkout, but they live inside a custom app someone has to build and maintain.
+
+Matching is the deeper crack, because Flow compares strings. One alias walks past an email blocklist on the first attempt, while the literal match is the version most likely to catch an innocent relative who shares a surname. A block has to be held as an identity: email variants, phone, ship-to address, payment fingerprint and the history that earned it, screened at order creation, *before* the pick.
 ## What Shopify actually does, and where it stops
 
 The obvious moves all miss, and it is worth being precise about why. Deleting or disabling the customer's account touches only the login: guest checkout remains open to anyone who can type an email address, which is to say the person you just deleted, thirty seconds later, with the same email or a new one. Shopify's fraud analysis will not catch them either, because it is answering a different question. It exists to spot stolen payment methods, the mismatched cards and impossible geographies behind [the high-risk flag that makes you guess](https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html). Your serial returner is not stealing anything at checkout. They pay with their own valid card from their own address, the transaction is perfectly legitimate, and the analysis waves it through as low risk, because as a payment it is. The damage comes later, and no field in the fraud panel looks later.

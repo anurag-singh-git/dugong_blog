@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-set-up-tiered-volume-discounts-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-16
-- Updated: 2026-08-12
+- Updated: 2026-10-25
 - Section: Research
-- Word count: 1990
+- Word count: 2215
 - Dispatch: Nº 84 · Research · 10 min read
 - Full headline on page: How to set up tiered *volume discounts* (buy more, save more) on Shopify
 - Keywords: Shopify tiered discount, Shopify volume discount, Shopify buy more save more, Shopify quantity break discount, Shopify tiered pricing not working, Shopify multiple discount tiers, bulk discount Shopify, Shopify quantity discount native
@@ -19,6 +19,13 @@ Every merchant who sells anything people buy in multiples reaches for the same l
 
 This is one of the most-repeated frustrations in the Shopify community, and the threads say it plainly. "Tiered discounts based on variant quantity." "Tiered buy X get Y discount?" "How do I do buy more save more without an app?" The answers are always some mix of the same three: it is not natively possible for regular customers, you can fake a single tier and hope, or you install an app. Merchants are not asking for anything exotic. They want a discount that gets deeper as the cart gets bigger, and Shopify's discount engine was built for simple, not for tiered.
 
+## The short answer
+
+Shopify's discount engine allows one condition per discount, so buy 3 save 10 is one rule and buy 6 save 20 is a second, separate one. There is no way to say step up to 20 at six and 30 at twelve inside a single offer, which is why a real buy-more-save-more ladder is not natively possible for regular shoppers. The simple single-tier case does work cleanly, with no code and no app.
+
+Building three automatic discounts at once is where it breaks. A cart of twelve units qualifies for all three tiers, Shopify does not pick the best one and suppress the rest, so the shopper can land on the smallest saving or the discounts simply refuse to combine. There is also a hard cap of 25 active automatic discounts on the store, so one discount per tier per product runs out of room quickly.
+
+True quantity tiers exist in exactly one place: attach quantity pricing to a B2B price list and it behaves like a proper ladder, but it reaches only customers assigned to a company profile, not tagged retail customers, not cart-total tiers, and not your open storefront. Shopify Scripts, the old fake, stopped running on June 30, 2026. Treat the tier table as the source of truth and resolve the *single highest* break each cart has actually earned.
 ## What Shopify actually does, and where it stops
 
 Give the platform its due first. Shopify's native discounts are genuinely good at the simple case. You can create an automatic discount like "buy 3, get 10 percent off," and it applies cleanly at checkout with no code and no app. You can gate a discount to a collection, to a minimum quantity, or to a minimum spend. For a store that wants one straightforward promotion running at a time, the native tools do the job and do it well.

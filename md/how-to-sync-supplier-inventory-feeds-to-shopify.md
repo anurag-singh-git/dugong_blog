@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-26
-- Updated: 2026-08-15
+- Updated: 2026-10-25
 - Section: Research
-- Word count: 2500
+- Word count: 2710
 - Dispatch: Nº 92 · Research · 10 min read
 - Full headline on page: How to sync *supplier stock feeds* to Shopify without zeroing your catalog
 - Keywords: Shopify supplier inventory sync, sync supplier stock feed Shopify, Shopify SKU case sensitive inventory, supplier feed set products to zero Shopify, Shopify FTP inventory sync, dropship inventory sync Shopify, vendor stock report Shopify, Shopify inventory feed mapping
@@ -19,6 +19,13 @@ There are two ways a supplier feed ruins your week, and the loud one is easier t
 
 The quiet one costs more over a year. The feed parses perfectly. It just arrives once a day, and your bestseller sold out at the supplier's warehouse at eleven in the morning. For the next nineteen hours your store takes orders against stock that does not exist, and you find out when the fulfillment file bounces or a customer emails to ask where their thing is. Both failures come from the same place. A stock feed is a claim about the world that was true at the moment it was written, and nothing in your stack is asking whether it is still true, or whether it was ever well formed to begin with.
 
+## The short answer
+
+Shopify has no concept of a supplier anywhere in the platform. There is no scheduled import, no FTP or SFTP client, no column mapping screen, and no reconciliation report telling you what last night's update changed. Locations, quantities and committed stock all work properly; the feed itself is somebody else's file, arriving on somebody else's schedule, and nothing native reads it.
+
+Matching is where it bites. Inventory updates key on SKU as an exact string, case included, so TurkeySandwich and Turkeysandwich are two different products. Trailing whitespace, leading zeros stripped the moment someone opens the CSV, and long numeric codes rendered in scientific notation break the match just as often, and the product CSV import keys on Handle, so the two-column file of SKU and quantity will not import without a workaround.
+
+The sync apps do the plumbing well, then make you pre-answer the one question that only ever has an answer in context: what happens to a SKU missing from today's file. Zero takes the catalog offline the morning a column header changes; leave alone keeps selling a line discontinued in March. Inspect the file before trusting any of it, match on meaning rather than string equality, and buffer by velocity rather than *one global number*.
 ## What Shopify actually does, and where it stops
 
 Shopify's inventory model itself is not the problem. Locations, quantities, committed stock, and the ability to stop selling at zero all work. What Shopify has no concept of anywhere in the platform is a supplier. There is no scheduled import, no FTP or SFTP client, no column mapping screen, no place to store a vendor's price and stock file, and no reconciliation report that tells you what last night's update changed. The platform assumes inventory moves because something sold or because a person typed a number.

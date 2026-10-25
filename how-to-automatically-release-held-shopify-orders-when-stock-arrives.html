@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-automatically-release-held-shopify-orders-when-stock-arrives.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-28" />
-    <meta property="article:modified_time" content="2026-08-14" />
+    <meta property="article:modified_time" content="2026-10-25" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html",
       "url": "https://blog.dugong.live/how-to-automatically-release-held-shopify-orders-when-stock-arrives.html",
       "headline": "How to automatically release Shopify orders on hold when stock arrives",
+      "abstract": "Shopify will hold the order and will never tell you when to stop holding it. Flow's Hold fulfillment order action is a real primitive on every plan, and the matching Release fulfillment order holds action flips the status back from On hold to Open. If you are not holding short orders automatically today, build that workflow first; it is about twenty minutes of work.",
       "description": "An order sits on hold because one line was short. The pallet lands on Wednesday, the back in stock emails fire, three new customers buy and ship the same afternoon, and the order that has been waiting since Monday is still on hold. Shopify has no trigger for the inventory a held fulfillment order was waiting on arriving. A Shopify staff member confirmed this on the forums in 2023 and merchants were still confirming it in July 2026. The Inventory quantity changed trigger fires, but it hands you a variant and no way to search backward to the held orders containing it. Flow's scheduled polling workaround has four sharp edges: the release action has no fields and clears every hold on the fulfillment order including fraud and address holds, availability must be checked at the assigned location rather than store-wide, Get data actions cap at 100 records and a failed query returns all results instead of none, and available is not reserved so two held orders both get released against the same three units. The AI playbook that finds the held orders a receipt unblocks, reserves before releasing, lifts only its own hold by ID, releases oldest promise first, partial-ships when waiting costs more than a second label, and tells the customer once when the wait ran long.",
       "datePublished": "2026-07-28",
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-10-25",
       "articleSection": "Research",
       "keywords": "Shopify release fulfillment hold, Shopify order on hold waiting for inventory, Shopify Flow release hold when back in stock, Shopify backorder automation, Shopify held orders queue, fulfillmentOrderReleaseHold, Shopify partial fulfillment backorder, Shopify order stuck on hold",
-      "wordCount": 2385,
+      "wordCount": 2610,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -116,6 +117,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -743,11 +745,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 94 &middot; JUL 28, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 9 MIN READ &middot; 2,385 WORDS</span>
+    <span>&#9670; 9 MIN READ &middot; 2,610 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 94 &middot; JUL 28, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 9 MIN READ &middot; 2,385 WORDS</span>
+    <span>&#9670; 9 MIN READ &middot; 2,610 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -825,6 +827,34 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       complicated. The hold worked. The restock worked. The piece in the
       middle does not exist.
     </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Shopify will hold the order and will never tell you when to stop holding it. Flow's Hold fulfillment
+        order action is a real primitive on every plan, and the matching Release fulfillment order holds
+        action flips the status back from On hold to Open. If you are not holding short orders automatically
+        today, build that workflow first; it is about twenty minutes of work.
+      </p>
+
+      <p>
+        What does not exist is a trigger for the stock a held order was waiting on arriving. Shopify staff
+        said so on the community forums in 2023, and merchants were still confirming it in July 2026.
+        Inventory quantity changed fires reliably, but it hands you a variant and a quantity with no way to
+        search backward to the held orders containing it, so the only native path left is a scheduled poll of
+        <code>status:ON_HOLD</code>.
+      </p>
+
+      <p>
+        That poll has four sharp edges. The Flow release action has no fields and clears every hold on the
+        fulfillment order, fraud and address holds included; availability has to be read at the assigned
+        location rather than store-wide; get-data actions cap at 100 records; and availability is not a
+        reservation, so two orders waiting on the same three units both pass in one run. Reserve before
+        releasing, lift only your own hold by its ID, and rank the queue by promised date, <em>oldest
+        first</em>.
+      </p>
+    </div>
 
     <h2>What Shopify actually gives you</h2>
 
@@ -1205,7 +1235,24 @@ schedule as a safety net
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+  <div class="related-grid">
+<a href="how-to-chase-overdue-shopify-b2b-invoices.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The overdue invoices nobody adds up</h3>
+        <p class="card-dek">
+          Shopify reminds you per order and keeps no company balance, so one late account gets four emails and nobody sees the total. The AI playbook that chases by company.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT&nbsp;25</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1286,6 +1333,10 @@ schedule as a safety net
         </div>
       </div>
     </a>
+  </div>
+  <details class="related-more">
+    <summary>46 more dispatches in the archive</summary>
+    <div class="related-grid">
 <a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1302,10 +1353,7 @@ schedule as a safety net
         </div>
       </div>
     </a>
-  </div>
-  <details class="related-more">
-    <summary>45 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+<a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>

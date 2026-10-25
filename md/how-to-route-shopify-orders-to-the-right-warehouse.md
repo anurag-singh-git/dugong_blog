@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-route-shopify-orders-to-the-right-warehouse.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-27
-- Updated: 2026-08-15
+- Updated: 2026-10-25
 - Section: Research
-- Word count: 2450
+- Word count: 2682
 - Dispatch: Nº 93 · Research · 10 min read
 - Full headline on page: How to stop Shopify routing orders to the *wrong warehouse*
 - Keywords: Shopify order routing, Shopify wrong fulfillment location, Shopify multi location fulfillment, Shopify ship from closest location, Shopify split shipment two locations, Shopify move fulfillment order, Shopify 3PL routing, Shopify order routing rules
@@ -19,6 +19,13 @@ An order comes in from New Jersey. Three items. Two of them sit in your Pennsylv
 
 The quieter version costs more over a year and never generates a ticket. A Friday evening order routes to the retail location eleven miles from the customer, which is the closest pin on the map and also a shop with two people on the floor that does not ship on weekends. It goes out Monday afternoon. Your warehouse two states away would have had it on a truck that night. Nothing failed. No alert fired. The order simply took three extra days and one of your store's units, which a walk-in would have bought at full margin with no shipping cost at all.
 
+## The short answer
+
+Shopify routes on a strategy you configure once, and not one of its rules reads a shipping rate. Under Settings, Shipping and delivery, Order routing you get rules that run top to bottom: minimize split fulfillments, stay within the destination market, ship from the closest location, plus ranked locations and location metafields. Order them deliberately, because the rule at the top decides what every rule under it is even allowed to see.
+
+What that ranking cannot see is cost and time. There is no rule for the cheapest label, the carrier zone, dimensional weight, or the pick fee a 3PL charges that your own warehouse does not, and closest means straight-line distance rather than driving distance, which Shopify's documentation states plainly. Nothing in it knows about a cutoff, a weekend, or a location running two days behind, and the assignment is made in the half second after checkout and never revisited.
+
+So the arithmetic has to happen per order: score the locations that could actually send it on the real rate, the cutoff and the current backlog, then decide split or single on landed cost and promised date instead of one global setting. Flow's Move fulfillment order action will execute a rule you already know, but the destination has to stock every line or the run fails, and the move is *refused* once a fulfillment service has the request.
 ## What Shopify actually does, and where it stops
 
 Credit first, because Shopify's routing is much better than the old fulfillment priority list it replaced. Under Settings, Shipping and delivery, Order routing, you get a strategy: a list of rules that run top to bottom, each one filtering the locations the next rule gets to see. The default is three rules in this order. Minimize split fulfillments, which prefers any location holding every item. Stay within the destination market. Ship from the closest location. You can reorder them, remove them, and add two more: ranked locations, where you group locations into tiers you define, and location [metafields](https://help.shopify.com/en/manual/custom-data/metafields), where you prioritize on a boolean or a number you have stored against each location.

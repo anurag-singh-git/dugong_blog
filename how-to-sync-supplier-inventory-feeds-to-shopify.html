@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-sync-supplier-inventory-feeds-to-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-26" />
-    <meta property="article:modified_time" content="2026-08-15" />
+    <meta property="article:modified_time" content="2026-10-25" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html",
       "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html",
       "headline": "How to sync supplier stock feeds to Shopify without zeroing your catalog",
+      "abstract": "Shopify has no concept of a supplier anywhere in the platform. There is no scheduled import, no FTP or SFTP client, no column mapping screen, and no reconciliation report telling you what last night's update changed. Locations, quantities and committed stock all work properly; the feed itself is somebody else's file, arriving on somebody else's schedule, and nothing native reads it.",
       "description": "A supplier renames one column header over the weekend, the SKU matcher finds nothing, and the sync app does what it was configured to do two years ago: it sets every unmatched item to zero. Four hundred products go out of stock and none of them sold. The quieter failure costs more. The feed parses fine, it just lands once a day, so when a bestseller sells out at the supplier's warehouse at 11am your store keeps taking orders against it until tomorrow morning. Shopify has no concept of a supplier feed anywhere in the platform: no scheduled fetch, no FTP client, no column mapping, no reconciliation report. It matches inventory updates on SKU exactly and case sensitively, its own product CSV import expects a Handle that no supplier file carries, and it will happily let two variants share one SKU. Shopify Flow can react to an inventory change but cannot fetch, parse, map, or evaluate a file. Sync apps handle the plumbing well and then ask you to pre-answer, in a settings screen, the one question that only has a right answer in context: what to do with a SKU that is not in today's file. The AI playbook that inspects a feed before trusting it, matches SKUs that were renamed or re-prefixed or repacked, tells a real out-of-stock from a broken export, sets buffers by velocity instead of one global number, and holds back the suspicious changes instead of pushing them live.",
       "datePublished": "2026-07-26",
-      "dateModified": "2026-08-15",
+      "dateModified": "2026-10-25",
       "articleSection": "Research",
       "keywords": "Shopify supplier inventory sync, sync supplier stock feed Shopify, Shopify SKU case sensitive inventory, supplier feed set products to zero Shopify, Shopify FTP inventory sync, dropship inventory sync Shopify, vendor stock report Shopify, Shopify inventory feed mapping",
-      "wordCount": 2500,
+      "wordCount": 2710,
       "timeRequired": "PT10M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -116,6 +117,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -736,11 +738,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 92 &middot; JUL 26, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,500 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,710 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 92 &middot; JUL 26, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,500 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,710 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -821,6 +823,33 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       was written, and nothing in your stack is asking whether it is still
       true, or whether it was ever well formed to begin with.
     </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Shopify has no concept of a supplier anywhere in the platform. There is no scheduled import, no FTP or
+        SFTP client, no column mapping screen, and no reconciliation report telling you what last night's
+        update changed. Locations, quantities and committed stock all work properly; the feed itself is
+        somebody else's file, arriving on somebody else's schedule, and nothing native reads it.
+      </p>
+
+      <p>
+        Matching is where it bites. Inventory updates key on SKU as an exact string, case included, so
+        TurkeySandwich and Turkeysandwich are two different products. Trailing whitespace, leading zeros
+        stripped the moment someone opens the CSV, and long numeric codes rendered in scientific notation
+        break the match just as often, and the product CSV import keys on Handle, so the two-column file of
+        SKU and quantity will not import without a workaround.
+      </p>
+
+      <p>
+        The sync apps do the plumbing well, then make you pre-answer the one question that only ever has an
+        answer in context: what happens to a SKU missing from today's file. Zero takes the catalog offline the
+        morning a column header changes; leave alone keeps selling a line discontinued in March. Inspect the
+        file before trusting any of it, match on meaning rather than string equality, and buffer by velocity
+        rather than <em>one global number</em>.
+      </p>
+    </div>
 
     <h2>What Shopify actually does, and where it stops</h2>
 
@@ -1180,7 +1209,24 @@ when one does not arrive
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+  <div class="related-grid">
+<a href="how-to-chase-overdue-shopify-b2b-invoices.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The overdue invoices nobody adds up</h3>
+        <p class="card-dek">
+          Shopify reminds you per order and keeps no company balance, so one late account gets four emails and nobody sees the total. The AI playbook that chases by company.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT&nbsp;25</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1261,6 +1307,10 @@ when one does not arrive
         </div>
       </div>
     </a>
+  </div>
+  <details class="related-more">
+    <summary>49 more dispatches in the archive</summary>
+    <div class="related-grid">
 <a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1277,10 +1327,7 @@ when one does not arrive
         </div>
       </div>
     </a>
-  </div>
-  <details class="related-more">
-    <summary>48 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+<a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>

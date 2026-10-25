@@ -7,7 +7,7 @@
 - Published: 2026-10-21
 - Section: Research
 - Word count: 2872
-- Dispatch: Nº 133 · Research · 9 min read
+- Dispatch: Nº 133 · Research · 10 min read
 - Full headline on page: How to bulk edit variant metafields *on Shopify*
 - Keywords: bulk edit variant metafields shopify, shopify variant metafield csv, shopify variant metafields bulk editor, update variant metafield shopify api, metafieldsSet variant, shopify flow update product variant metafield, shopify variant metafield import, AI metafield automation
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)

@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-sync-bundle-inventory-with-component-stock-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-15" />
-    <meta property="article:modified_time" content="2026-08-15" />
+    <meta property="article:modified_time" content="2026-10-25" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-sync-bundle-inventory-with-component-stock-on-shopify.html",
       "headline": "How to automatically sync bundle inventory with component stock on Shopify",
+      "abstract": "By default Shopify counts a bundle as its own product with its own inventory number, so selling the bundle never reduces the products inside it, and selling one of those products never reduces how many bundles remain. The free Shopify Bundles app does link a fixed bundle to its components and shows it as available on the lowest-stock component, which handles the simple case properly and is more than the platform offered a year ago.",
       "description": "Shopify treats a bundle as its own product with its own stock number, so selling a bundle does not deduct the individual products inside it, and selling one of those products does not reduce how many bundles are still available. When a component is shared across several bundles and its own product page, one sale should reduce all of them, and Shopify links none of it, so the store oversells the part and promises a bundle it can no longer build. The native Shopify Bundles app does link a fixed bundle to its components and shows availability from the lowest component, which is real and useful, but it caps components, does not cover mix-and-match cleanly, tracks by overall stock rather than by location, and does nothing for bundles built the older way as a standalone product or variant, and an order edit breaks the link entirely. There is no native rule that keeps every bundle, every component, and every other listing that shares a component in sync in real time. The AI playbook that watches component stock per location, decrements the parts on a bundle sale and the bundle count on a part sale, cascades a shared component across every bundle that uses it, syncs the same signal to other channels so the count is not phantom, and escalates the judgment calls to a human.",
       "datePublished": "2026-07-15",
-      "dateModified": "2026-08-15",
+      "dateModified": "2026-10-25",
       "articleSection": "Research",
       "keywords": "Shopify bundle inventory not updating, Shopify bundle inventory sync, Shopify bundle components not deducting, Shopify bundle overselling, sync bundle stock Shopify, Shopify kit inventory tracking, Shopify bundle component inventory",
-      "wordCount": 2140,
+      "wordCount": 2371,
       "timeRequired": "PT10M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -116,6 +117,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -743,11 +745,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 83 &middot; JUL 15, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,140 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,371 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 83 &middot; JUL 15, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,140 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,371 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -824,6 +826,34 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       that on its own, and the answers under the threads are always the same short list:
       track components by hand, or install an app.
     </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        By default Shopify counts a bundle as its own product with its own inventory number, so selling the
+        bundle never reduces the products inside it, and selling one of those products never reduces how many
+        bundles remain. The free Shopify Bundles app does link a fixed bundle to its components and shows it
+        as available on the lowest-stock component, which handles the simple case properly and is more than
+        the platform offered a year ago.
+      </p>
+
+      <p>
+        That happy path is narrow. The app caps how many components and variants a fixed bundle can hold, does
+        not track true mix-and-match the same clean way, and reads overall component stock rather than per
+        location, so a store shipping from two warehouses can sell a kit somewhere that cannot assemble it. It
+        does nothing at all for the bundles merchants built the older way, as a standalone product or a single
+        variant with its own count.
+      </p>
+
+      <p>
+        Even a linked bundle has seams. Edit an order to add or remove a bundle and the component math does
+        not re-run, because the relationship was never modeled as something an edit recalculates, and a bundle
+        usually travels to a marketplace as one atomic SKU, so ten kits sold here leave the component showing
+        its full quantity there. Count the components and let every bundle be a <em>view</em> of what the
+        parts can build right now.
+      </p>
+    </div>
 
     <h2>What Shopify actually does, and where it stops</h2>
 
@@ -1078,7 +1108,24 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+  <div class="related-grid">
+<a href="how-to-chase-overdue-shopify-b2b-invoices.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The overdue invoices nobody adds up</h3>
+        <p class="card-dek">
+          Shopify reminds you per order and keeps no company balance, so one late account gets four emails and nobody sees the total. The AI playbook that chases by company.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT&nbsp;25</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1159,6 +1206,10 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
+  </div>
+  <details class="related-more">
+    <summary>59 more dispatches in the archive</summary>
+    <div class="related-grid">
 <a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1175,10 +1226,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-  </div>
-  <details class="related-more">
-    <summary>58 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+<a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>

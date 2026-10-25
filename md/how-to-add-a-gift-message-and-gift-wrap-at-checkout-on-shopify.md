@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-add-a-gift-message-and-gift-wrap-at-checkout-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-18
-- Updated: 2026-08-15
+- Updated: 2026-10-25
 - Section: Research
-- Word count: 2090
+- Word count: 2320
 - Dispatch: Nº 85 · Research · 10 min read
 - Full headline on page: How to add a *gift message* and gift wrap option at checkout on Shopify
 - Keywords: Shopify gift message, Shopify gift wrap at checkout, Shopify gift note packing slip, Shopify gift receipt hide prices, add gift message option Shopify, Shopify gift option not working, Shopify order notes gift, Shopify gifting checkout
@@ -19,6 +19,13 @@ A large share of what any store sells is bought for someone else. Birthdays, hol
 
 This is one of the steadiest complaints in the Shopify community, and the threads are blunt about it. "How can I add a gift note to my packing slip?" "Add a gift message option at checkout." "How do I hide prices on the slip for a gift?" The answers are always the same short menu: repurpose the order-note box, edit your theme's [Liquid](https://shopify.dev/docs/api/liquid), or install an app. Shoppers are not asking for anything unusual. They want a labeled message field and a wrap option, and they want the note to reach the person packing the box instead of dying in a field no one reads.
 
+## The short answer
+
+Shopify has no dedicated gift message field. The one native place for a shopper to leave text is the cart order-note box, which you can switch on in the theme, relabel to something like add a gift message, and read on the order afterwards. It was built for delivery instructions, so it is a single unlabeled field for the whole order, attaches to no particular item, and carries no validation or length limit.
+
+Gift wrap is thinner still. There is no native add gift wrap option at checkout for a standard store, and the one native path is Checkout Extensibility on Plus, where the out-of-the-box result is a bare toggle rather than a fee on the order, a line item your accounting can see, and a clear instruction at the packing bench. Everyone below Plus fakes wrap as a hidden product or a variant and hopes the warehouse notices.
+
+The sharpest failure is the price on the box. The packing slip is one template for every order and it prints prices, with no switch anywhere that says this order is a gift, hide the totals, so the recipient opens the present and sees what the sender paid. Capture the gift as structured intent, check the message before it ever prints, attach wrap as a real charge, and generate a slip that carries the note and *no* prices.
 ## What Shopify actually does, and where it stops
 
 Give the platform its due first. Shopify does have one native place for a customer to leave text: the cart order-note field. You can switch it on in the theme, you can rename its label to something like "Add a gift message here," and whatever the shopper types is saved to the order and visible in the admin. For a store that only ever needs a single line of free text on an order, that field technically exists and technically works.

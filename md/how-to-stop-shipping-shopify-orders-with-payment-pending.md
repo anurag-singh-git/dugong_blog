@@ -7,7 +7,7 @@
 - Published: 2026-10-19
 - Section: Research
 - Word count: 3001
-- Dispatch: Nº 132 · Research · 9 min read
+- Dispatch: Nº 132 · Research · 10 min read
 - Full headline on page: How to stop shipping Shopify orders *that say Payment pending*
 - Keywords: shopify payment pending, shopify pending payment order, fulfill shopify order pending payment, shopify order shipped not paid, shopify payment status expired, hold fulfillment awaiting payment, shopify collective payment pending, AI payment hold automation
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)

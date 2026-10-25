@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-20" />
-    <meta property="article:modified_time" content="2026-08-15" />
+    <meta property="article:modified_time" content="2026-10-25" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html",
       "headline": "How to stop discount codes from applying to sale items on Shopify",
+      "abstract": "Nowhere in Shopify's discount screens is there a switch that keeps codes off marked-down items. The combination settings decide how discounts combine with other discounts, and a sale you run the usual way, by lowering the price and keeping the old one as compare-at so the strikethrough shows, is not a discount to that engine at all. It is just a price. So a sitewide code lands on your deepest markdown exactly as it lands on full price.",
       "description": "You run a sale by lowering prices and setting compare-at prices, a shopper adds the marked-down items, then pastes a welcome or newsletter code at checkout, and Shopify applies it on top, because a markdown made through price edits is not a discount to the discount engine at all. The combination settings only govern how discounts combine with other discounts, so there is no exclude sale items setting anywhere in the admin. The workarounds route through eligibility collections keyed off compare-at prices, which decay as the sale rotates, and codes minted by popup, loyalty, and review apps are born sitewide outside your control. Shopify Scripts, the old Plus-only way to strip a code when it met a markdown, stopped executing on June 30, 2026. The AI playbook that reads the discount policy in plain language, keeps the sale and full-price collections true on every price change, scopes every new code at creation including app-minted ones, resolves the single best discount when a code meets a markdown, explains the outcome to the shopper, and holds the genuine exceptions for a human.",
       "datePublished": "2026-07-20",
-      "dateModified": "2026-08-15",
+      "dateModified": "2026-10-25",
       "articleSection": "Research",
       "keywords": "Shopify exclude sale items from discount code, Shopify discount code on sale items, Shopify stop discount stacking, Shopify double discount, Shopify discount combinations, Shopify prevent discount codes on sale items, Shopify welcome code sale items, Shopify discount stacking rules",
-      "wordCount": 2010,
+      "wordCount": 2242,
       "timeRequired": "PT10M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -116,6 +117,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -737,11 +739,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 86 &middot; JUL 20, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,010 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,242 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 86 &middot; JUL 20, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,010 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,242 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -814,6 +816,34 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       Merchants are not asking for anything clever. They want the oldest rule in
       retail, codes do not apply to sale items, and Shopify has no switch for it.
     </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Nowhere in Shopify's discount screens is there a switch that keeps codes off marked-down items. The
+        combination settings decide how discounts combine with other discounts, and a sale you run the usual
+        way, by lowering the price and keeping the old one as compare-at so the strikethrough shows, is not a
+        discount to that engine at all. It is just a price. So a sitewide code lands on your deepest markdown
+        exactly as it lands on full price.
+      </p>
+
+      <p>
+        The native route is eligibility, and it holds the way a rope bridge holds. Build an automated
+        collection keyed off compare-at price so sale items gather in one place, then scope your codes to the
+        inverse full-price collection. That works only while every compare-at price is maintained, a code
+        cannot always be re-scoped once it has been issued, and every code your popup, loyalty and review apps
+        mint on your behalf is born sitewide.
+      </p>
+
+      <p>
+        Note the timing, too: Shopify Scripts stopped executing on June 30, 2026, and a Script is how Plus
+        merchants used to strip a code when it met a markdown, so a store that quietly relied on one is now
+        double-discounting in the open. Treat the policy itself as the source of truth, scope each code at the
+        moment it is created, and at checkout apply the <em>single best</em> discount rather than the deepest
+        stack that slipped through.
+      </p>
+    </div>
 
     <h2>What Shopify actually does, and where it stops</h2>
 
@@ -1091,7 +1121,24 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+  <div class="related-grid">
+<a href="how-to-chase-overdue-shopify-b2b-invoices.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The overdue invoices nobody adds up</h3>
+        <p class="card-dek">
+          Shopify reminds you per order and keeps no company balance, so one late account gets four emails and nobody sees the total. The AI playbook that chases by company.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT&nbsp;25</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1172,6 +1219,10 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
+  </div>
+  <details class="related-more">
+    <summary>57 more dispatches in the archive</summary>
+    <div class="related-grid">
 <a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1188,10 +1239,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-  </div>
-  <details class="related-more">
-    <summary>56 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+<a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>

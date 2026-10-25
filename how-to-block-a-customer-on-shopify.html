@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-block-a-customer-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-23" />
-    <meta property="article:modified_time" content="2026-08-14" />
+    <meta property="article:modified_time" content="2026-10-25" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-block-a-customer-on-shopify.html",
       "headline": "How to block a customer on Shopify from placing orders",
+      "abstract": "Shopify has no block or ban button anywhere in the admin. Deleting or disabling a customer's account touches only the login, and guest checkout stays open to anyone who can type an email address, so the person you just deleted can order again thirty seconds later. Fraud analysis will not stand in for it, because a serial returner paying with their own valid card from their own address is genuinely low risk as a payment.",
       "description": "A customer has returned nine of eleven orders, and their tenth order just landed in the admin. Every merchant eventually meets this person: the serial returner, the chargeback filer, the harasser, the competitor placing fake orders, and every one of them goes looking for the same button. Shopify does not have it. There is no block or ban feature anywhere in the admin: deleting or disabling a customer account only affects the login while guest checkout stays open to anyone with an email address, and Shopify's fraud analysis is built to catch stolen cards, so the serial returner paying with their own valid card sails through as low risk. Shopify Flow can react after the fact, cancelling any order whose customer carries a blocked tag, but the order still gets placed, the payment is captured and refunded with the processing fees usually lost, and the same person walks straight past the filter with a plus-addressed alias or a fresh email. Checkout validation functions can truly decline a checkout but require a custom app and a developer, and IP blocking apps dissolve against VPNs and shared addresses. The AI playbook that keeps a real blocklist built on identity instead of a single string, checks every new order against it, decides match or coincidence from the whole record, cancels before fulfillment and restocks, catches the comeback attempt, and hands the ambiguous match to a human before a good customer gets burned.",
       "datePublished": "2026-07-23",
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-10-25",
       "articleSection": "Research",
       "keywords": "Shopify block customer, ban customer Shopify, Shopify blacklist customer, block customer from ordering Shopify, Shopify serial returner, Shopify block email address checkout, Shopify IP block customer, stop customer from buying Shopify",
-      "wordCount": 2290,
+      "wordCount": 2509,
       "timeRequired": "PT10M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -116,6 +117,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -736,11 +738,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>&#9670; DISPATCH N&ordm; 89 &middot; JUL 23, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,290 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,509 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
     <span>&#9670; DISPATCH N&ordm; 89 &middot; JUL 23, 2026</span>
     <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
-    <span>&#9670; 10 MIN READ &middot; 2,290 WORDS</span>
+    <span>&#9670; 10 MIN READ &middot; 2,509 WORDS</span>
     <span>&#9670; BY PRIYA SINGH</span>
   </div>
 </div>
@@ -817,6 +819,34 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       email client has one. The storefront where this person costs you actual money
       does not.
     </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Shopify has no block or ban button anywhere in the admin. Deleting or disabling a customer's account
+        touches only the login, and guest checkout stays open to anyone who can type an email address, so the
+        person you just deleted can order again thirty seconds later. Fraud analysis will not stand in for it,
+        because a serial returner paying with their own valid card from their own address is genuinely low
+        risk as a payment.
+      </p>
+
+      <p>
+        The Flow workaround reacts instead of refusing. Tag the customer, cancel on Order created, restock:
+        the order was already placed and the payment already captured, so every catch still costs you
+        processing fees that refunds generally do not return, and the cancellation notice teaches the blocked
+        person the exact shape of the wall. Checkout validation functions can truly decline a checkout, but
+        they live inside a custom app someone has to build and maintain.
+      </p>
+
+      <p>
+        Matching is the deeper crack, because Flow compares strings. One alias walks past an email blocklist
+        on the first attempt, while the literal match is the version most likely to catch an innocent relative
+        who shares a surname. A block has to be held as an identity: email variants, phone, ship-to address,
+        payment fingerprint and the history that earned it, screened at order creation, <em>before</em> the
+        pick.
+      </p>
+    </div>
 
     <h2>What Shopify actually does, and where it stops</h2>
 
@@ -1129,7 +1159,24 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <span class="section-eyebrow">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
-  <div class="related-grid"><a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
+  <div class="related-grid">
+<a href="how-to-chase-overdue-shopify-b2b-invoices.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The overdue invoices nobody adds up</h3>
+        <p class="card-dek">
+          Shopify reminds you per order and keeps no company balance, so one late account gets four emails and nobody sees the total. The AI playbook that chases by company.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT&nbsp;25</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
@@ -1210,6 +1257,10 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
+  </div>
+  <details class="related-more">
+    <summary>53 more dispatches in the archive</summary>
+    <div class="related-grid">
 <a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1226,10 +1277,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </div>
       </div>
     </a>
-  </div>
-  <details class="related-more">
-    <summary>52 more dispatches in the archive</summary>
-    <div class="related-grid"><a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
+<a href="how-to-handle-return-to-sender-orders-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>

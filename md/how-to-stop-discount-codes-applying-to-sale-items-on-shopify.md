@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-20
-- Updated: 2026-08-15
+- Updated: 2026-10-25
 - Section: Research
-- Word count: 2010
+- Word count: 2242
 - Dispatch: Nº 86 · Research · 10 min read
 - Full headline on page: How to stop *discount codes* from applying to sale items on Shopify
 - Keywords: Shopify exclude sale items from discount code, Shopify discount code on sale items, Shopify stop discount stacking, Shopify double discount, Shopify discount combinations, Shopify prevent discount codes on sale items, Shopify welcome code sale items, Shopify discount stacking rules
@@ -19,6 +19,13 @@ Run a store long enough and you end up with two kinds of discounts running at on
 
 The community threads on this are among the most repeated in Shopify's forums, and they all ask the same thing in slightly different words. "How do I exclude sale items from discount codes?" "Stop customers using welcome codes on sale products." "Discount code applying on top of already reduced prices." The standard answers are a shrug in three parts: there is no native toggle, you can rebuild your discounts around a special collection, or you can install an app. Merchants are not asking for anything clever. They want the oldest rule in retail, codes do not apply to sale items, and Shopify has no switch for it.
 
+## The short answer
+
+Nowhere in Shopify's discount screens is there a switch that keeps codes off marked-down items. The combination settings decide how discounts combine with other discounts, and a sale you run the usual way, by lowering the price and keeping the old one as compare-at so the strikethrough shows, is not a discount to that engine at all. It is just a price. So a sitewide code lands on your deepest markdown exactly as it lands on full price.
+
+The native route is eligibility, and it holds the way a rope bridge holds. Build an automated collection keyed off compare-at price so sale items gather in one place, then scope your codes to the inverse full-price collection. That works only while every compare-at price is maintained, a code cannot always be re-scoped once it has been issued, and every code your popup, loyalty and review apps mint on your behalf is born sitewide.
+
+Note the timing, too: Shopify Scripts stopped executing on June 30, 2026, and a Script is how Plus merchants used to strip a code when it met a markdown, so a store that quietly relied on one is now double-discounting in the open. Treat the policy itself as the source of truth, scope each code at the moment it is created, and at checkout apply the *single best* discount rather than the deepest stack that slipped through.
 ## What Shopify actually does, and where it stops
 
 Give the platform its due first. Shopify's discount engine handles the individual pieces well. Codes are easy to create and can be gated by collection, minimum spend, or [customer segment](https://help.shopify.com/en/manual/customers/customer-segmentation). Automatic discounts apply cleanly with nobody typing anything. And since discount combinations arrived, you can even decide which classes of discount are allowed to meet: product discounts, order discounts, and shipping discounts each carry a combines-with setting, so two offers you built as discounts can be told to stack or to keep apart.

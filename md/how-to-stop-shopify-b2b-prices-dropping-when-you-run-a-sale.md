@@ -7,7 +7,7 @@
 - Published: 2026-10-17
 - Section: Research
 - Word count: 3000
-- Dispatch: Nº 130 · Research · 9 min read
+- Dispatch: Nº 130 · Research · 10 min read
 - Full headline on page: How to stop Shopify B2B prices dropping *every time you run a sale*
 - Keywords: shopify b2b discount stacking, shopify wholesale price sale, shopify b2b catalog discount, shopify price list fixed prices, shopify b2b pricing automation, b2b catalog percentage adjustment shopify, shopify b2b markets discount eligibility, AI wholesale pricing automation
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)

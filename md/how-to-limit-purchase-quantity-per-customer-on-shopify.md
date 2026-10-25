@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-11
-- Updated: 2026-08-16
+- Updated: 2026-10-25
 - Section: Research
-- Word count: 2810
+- Word count: 3034
 - Dispatch: Nº 81 · Research · 10 min read
 - Full headline on page: How to limit *purchase quantity* per customer on Shopify
 - Keywords: Shopify limit quantity per customer, Shopify purchase limit per customer, Shopify max quantity per order, Shopify limit one per customer, Shopify order limit app, Shopify limit quantity per variant, Shopify prevent bulk buying, Shopify per customer purchase limit, Shopify add to cart limit
@@ -21,6 +21,13 @@ This is the quiet reality of running any allocation-limited product on Shopify, 
 
 > Shopify can cap how many units fit in one cart. *It cannot cap how many carts one customer fills. So the limit you advertised holds for the honest shopper who reads it and does nothing to the reseller who was always going to place ten orders.*
 
+## The short answer
+
+Shopify's native limit is per cart, not per customer. The add-to-cart limit under checkout preferences caps how many of a given product a shopper can put in their cart in one order, and for stopping an obvious over-buy inside a single transaction it works and is worth turning on. It is also the whole of what the platform offers on a standard plan.
+
+It then runs into three walls. The cap applies per variant, so a tee sold in three colors with a limit of two lets one shopper take six units in the same cart. It resets on every order, because the counter lives on the cart and is gone the instant a checkout completes. And it never looks at email, address, card or account, so it cannot tell that twenty small orders are one buyer, and it does not apply in POS, on draft orders, or for B2B profiles.
+
+A real per-customer cap takes a checkout validation on Plus with Functions, a third-party app, or a custom automation, because the limit has to be kept against a person across orders rather than against a cart. Identify the buyer from several weak signals, hold a running total for the launch window, enforce on every path in, wallet buttons and checkout permalinks included, and leave the shared-address household *for a human*.
 ## What Shopify does and does not do about purchase limits
 
 Give Shopify credit for the part it does, because it is real and it is where the confusion starts. Shopify has a native **add-to-cart limit**, set under checkout preferences, that caps the maximum quantity of a given product a shopper can put in their cart in one order. If you never want more than one of an item to leave in a single order, you can set it, and the cart will refuse the second. For the narrow case of stopping an obvious over-buy in a single transaction, it works, and it is worth turning on.

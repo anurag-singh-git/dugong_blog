@@ -877,10 +877,21 @@ def main():
     # labelled 10 min, putting them at 356 and 326 claimed words per minute
     # against 172 to 312 for the other 87. The read time is written by hand
     # beside the word count, so the pair is checkable.
+    #
+    # Widened 2026-10-25. The pattern matched only the entity spelling of the
+    # ticker's two separators, so it read 56 of the 90 dispatches and walked
+    # past the 34 back-catalogue pages that write the same two characters
+    # literally. A ticker it cannot parse is now a failure, not a silent pass:
+    # a check that reports nothing because it found nothing to read is the
+    # same as no check at all.
+    TICKER = re.compile(r"(?:&#9670;|\u25c6) (\d+) MIN READ "
+                        r"(?:&middot;|\u00b7) ([\d,]+) WORDS")
     for name in posts:
         text = read(name)
-        pair = re.search(r"&#9670; (\d+) MIN READ &middot; ([\d,]+) WORDS", text)
+        pair = TICKER.search(text)
         if pair is None:
+            fail("read_time_band",
+                 f"{name}: no parseable MIN READ / WORDS ticker")
             continue
         minutes, words = int(pair.group(1)), int(pair.group(2).replace(",", ""))
         if minutes <= 0:
@@ -891,6 +902,57 @@ def main():
             fail("read_time_band",
                  f"{name}: {words} words in {minutes} min is {wpm:.0f} words "
                  f"per minute, outside {WPM_MIN}-{WPM_MAX}")
+
+    # ------------------------------------- the length claims agree with each other
+    # Added 2026-10-25. A dispatch states its own length six times: both
+    # ticker spans, the JSON-LD wordCount and timeRequired, the MIN READ span
+    # in the byline, and the "- Word count:" and "N min read" lines in the md
+    # rendition. Twelve disagreed. Every one was a page an earlier
+    # short-answer pass had extended: the pass raised wordCount in the JSON-LD
+    # and in the md and left both ticker spans on the old number, so the
+    # reader was shown a count 87 to 307 words short of the article in front
+    # of them. Worse, the band check above reads the ticker, so for four
+    # months it had been certifying read times against the one rendition of
+    # the count that was wrong: corrected, 2,584 words in 8 min is 323 words
+    # per minute and 3,301 in 10 min is 330, both outside the band.
+    for name in posts:
+        text = read(name)
+        spans = TICKER.findall(text)
+        if not spans:
+            continue
+        if len(set(spans)) > 1:
+            fail("length_claim_divergence",
+                 f"{name}: the ticker spans disagree: {sorted(set(spans))}")
+            continue
+        minutes, words = int(spans[0][0]), int(spans[0][1].replace(",", ""))
+        jwords = re.search(r'"wordCount":\s*(\d+)', text)
+        jmin = re.search(r'"timeRequired":\s*"PT(\d+)M"', text)
+        byline = re.search(r">(\d+) MIN READ</span>", text)
+        if jwords and int(jwords.group(1)) != words:
+            fail("length_claim_divergence",
+                 f"{name}: the ticker says {words:,} words, JSON-LD "
+                 f"wordCount says {int(jwords.group(1)):,}")
+        if jmin and int(jmin.group(1)) != minutes:
+            fail("length_claim_divergence",
+                 f"{name}: the ticker says {minutes} min, JSON-LD "
+                 f"timeRequired says PT{jmin.group(1)}M")
+        if byline and int(byline.group(1)) != minutes:
+            fail("length_claim_divergence",
+                 f"{name}: the ticker says {minutes} min, the byline says "
+                 f"{byline.group(1)}")
+        md_path = os.path.join("md", name[:-5] + ".md")
+        if os.path.exists(md_path):
+            md_text = read(md_path)
+            mwords = re.search(r"^- Word count: (\d+)$", md_text, re.M)
+            mmin = re.search(r"(\d+) min read", md_text)
+            if mwords and int(mwords.group(1)) != words:
+                fail("length_claim_divergence",
+                     f"{name}: the ticker says {words:,} words, the md "
+                     f"rendition says {int(mwords.group(1)):,}")
+            if mmin and int(mmin.group(1)) != minutes:
+                fail("length_claim_divergence",
+                     f"{name}: the ticker says {minutes} min, the md "
+                     f"rendition says {mmin.group(1)}")
 
     # -------------------------------------------------- feed is not ahead
     # Added 2026-10-24 (second run). feed.xml went out with lastBuildDate at
@@ -912,6 +974,53 @@ def main():
             if _when > _now:
                 fail("feed_date_in_future",
                      f"{_tag} {_raw} is {(_when - _now).total_seconds() / 3600:.1f}h ahead")
+
+    # ------------------------------------------------- homepage tag cloud
+    # Added 2026-10-25. The #tags cloud on index.html is written at
+    # publication, one short run of tags per dispatch, and no later run goes
+    # back over it. Two things had drifted:
+    #   * three labels were used twice, each time pointing at a different
+    #     dispatch: "split shipments", "dimensional weight" and "order
+    #     routing". The reader sees one word twice in the same cloud, and
+    #     because the cloud encodes weight as font size, "dimensional weight"
+    #     appeared at 1.4rem and 2.3rem at once, so the size contradicted
+    #     itself. Same link text pointing at two destinations is also
+    #     WCAG 2.4.4.
+    #   * two live dispatches had no tag at all, so they were absent from the
+    #     only topical index of the whole archive the homepage offers.
+    if os.path.exists("index.html"):
+        home = read("index.html")
+        cloud = re.search(r'<section class="topics" id="tags">.*?</section>',
+                          home, re.S)
+        if cloud is None:
+            fail("tag_cloud_missing", "index.html has no #tags cloud")
+        else:
+            pairs = re.findall(
+                r'href="([^"]*)" class="topic"[^>]*>([^<]*)</a>', cloud.group(0))
+            seen = defaultdict(set)
+            for href, label in pairs:
+                seen[label].add(href)
+            for label, hrefs in sorted(seen.items()):
+                if len(hrefs) > 1:
+                    fail("tag_cloud_duplicate_label",
+                         f"{label!r} points at {len(hrefs)} dispatches: "
+                         + ", ".join(sorted(hrefs)))
+            tagged = {href for href, _ in pairs}
+            for name in posts:
+                if name not in tagged:
+                    fail("tag_cloud_missing_dispatch",
+                         f"{name} has no tag in the homepage cloud")
+
+    # ------------------------------------------ site name in link text
+    # Added 2026-10-25. 404.html builds its "Latest dispatches" list from each
+    # page's <title>. A title keeps the " | Dugong" suffix only when the
+    # headline is short enough to leave room for it under the 60-character
+    # cap, so copying the title verbatim produced a list where five of ten
+    # entries carried the site name and five did not. The suffix belongs to
+    # the tab, never to a headline rendered inside the page.
+    for name in rendered:
+        for bad in re.findall(r'>([^<>]*\| Dugong)</a>', read(name)):
+            fail("site_name_in_link_text", f"{name}: {bad.strip()!r}")
 
     # --------------------------------------------------------------- report
     print(f"seo-check: {len(rendered)} rendered pages, {len(stubs)} redirect stubs, "
