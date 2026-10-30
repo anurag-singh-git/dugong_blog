@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-08" />
-    <meta property="article:modified_time" content="2026-08-12" />
+    <meta property="article:modified_time" content="2026-10-27" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,13 +55,14 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html",
       "headline": "How to automatically add a free gift to the cart on Shopify",
+      "abstract": "A Shopify discount can make a gift free and cannot put it in the cart. Buy X Get Y prices the gift to zero if that item is already in the cart, which is why it works for a fixed product bundle such as buy two tees and take the third free. Where the shopper never added the gift themselves, there is nothing for the discount to reduce and nothing appears.",
       "description": "You set up a spend seventy-five, get a free gift promotion, a customer crosses the threshold, and the free gift never appears in their cart, because a Shopify discount only reduces a price, it never adds the item to the cart. Buy X Get Y has no store-wide cart-value trigger, only fires on specific products or collections, supports one tier per discount, and will not stack under a larger automatic discount, so the gift you promised silently does not happen and the customer either checks out without it or emails asking where it went. Even with a gift app, the auto-add usually fires on the cart page, so a wallet button, a checkout permalink, or a jump straight to checkout skips it, and nothing pulls the gift back out when the cart drops under the threshold or reprices it when the qualifying item is removed. This is one of the most-repeated requests in Shopify merchant communities running promotions. The AI playbook that reads the cart in real time, decides the right gift by threshold, tier, and customer, adds it on every path into checkout, swaps or removes it when the cart changes, honors stock so it never gifts an item it cannot ship, tells the customer clearly, and holds the edge cases for a human.",
       "datePublished": "2026-07-08",
-      "dateModified": "2026-08-12",
+      "dateModified": "2026-10-27",
       "articleSection": "Research",
       "keywords": "Shopify free gift with purchase, Shopify auto add free gift to cart, Shopify buy x get y not adding to cart, Shopify gift with purchase threshold, Shopify free gift over amount, Shopify BOGO auto add, Shopify free gift app, Shopify cart value gift, Shopify automatic gift",
-      "wordCount": 2700,
-      "timeRequired": "PT9M",
+      "wordCount": 2913,
+      "timeRequired": "PT10M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
       "image": {
@@ -108,6 +109,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -741,11 +743,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>◆ DISPATCH Nº 80 &middot; JUL 8, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,700 WORDS</span>
+    <span>◆ 10 MIN READ · 2,913 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
     <span>◆ DISPATCH Nº 80 &middot; JUL 8, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,700 WORDS</span>
+    <span>◆ 10 MIN READ · 2,913 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -773,7 +775,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 <span class="tag tag-research">research</span>
 <span style="color: var(--cream-dim);">DISPATCH Nº 80</span>
 <span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span><time datetime="2026-07-08" style="color: var(--cream-dim);">JUL 8, 2026</time></span>
-<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span><span style="color: var(--cream-dim);">9 MIN READ</span></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">·</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
 <span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-08-12" style="color: var(--cream-dim);">UPDATED AUG 12, 2026</time></span>
 </div>
 
@@ -828,6 +830,33 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       you advertised only works for the customers who already knew about it and went looking,
       which is nearly the opposite of the point.</em>
     </blockquote>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        A Shopify discount can make a gift free and cannot put it in the cart. Buy X Get Y prices the
+        gift to zero if that item is already in the cart, which is why it works for a fixed product
+        bundle such as buy two tees and take the third free. Where the shopper never added the gift
+        themselves, there is nothing for the discount to reduce and nothing appears.
+      </p>
+
+      <p>
+        Three walls follow. The native rule has no store-wide cart-value trigger, so spend one hundred
+        on anything and get a gift is not an offer it can express. It holds one tier per discount, so
+        two thresholds cannot live in one offer. And it will not stack, because only the larger
+        discount applies when two land on the same item, so a running sale can swallow the gift
+        entirely.
+      </p>
+
+      <p>
+        The usual repair is theme code on the cart page, and that is where it leaks. Wallet buttons,
+        buy-it-now, saved cart links and checkout permalinks all reach checkout without loading that
+        page, so the gift is simply absent on every one of them. A cart that falls back under the
+        threshold should also lose the gift again, so the watch has to run <em>in both directions</em>
+        on every path in.
+      </p>
+    </div>
 
     <h2>What Shopify does and does not do about free gifts</h2>
 

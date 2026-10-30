@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-07" />
-    <meta property="article:modified_time" content="2026-08-14" />
+    <meta property="article:modified_time" content="2026-10-27" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html",
       "url": "https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html",
       "headline": "How to automatically split and route Shopify orders to multiple suppliers",
+      "abstract": "Shopify splits fulfillment by location and never by supplier. It can spread one item's quantity across your own stocking locations and offer split shipping at checkout, which covers a store running two warehouses of its own. What it has no rules engine for is routing a line to a vendor, a dropshipper or a 3PL by vendor, product type, SKU or weight.",
       "description": "A single order arrives holding items from three different suppliers, and Shopify treats it as one thing to fulfill from one place. There is no native rules engine that routes each line item to the vendor, dropshipper, warehouse, or 3PL that fulfills it, no way to email each supplier a purchase order with only their items in the format they accept, and no action in Shopify Flow that splits a cart by supplier or assigns line items to one, so the merchant reads every order, works out who makes what, copies the right lines into an email or spreadsheet for each vendor, sends them off, then waits for tracking and pastes it back onto the order and fulfills the matching lines by hand. Shopify can split fulfillment across the store's own locations when one lacks stock, and split shipping at checkout, which covers a slice of the need, but neither routes a line to a specific supplier nor sends them the order, and the product vendor field is only a label. This is one of the most-repeated requests in Shopify merchant communities running multi-supplier and dropship catalogs. The AI playbook that reads each paid order, groups line items by who fulfills each, builds and sends a purchase order per supplier in their format, fulfills only their lines at the right location when tracking returns, tells the customer once what ships from where, and holds the edge cases for a human.",
       "datePublished": "2026-07-07",
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-10-27",
       "articleSection": "Research",
       "keywords": "Shopify split order by vendor, Shopify route order to supplier, Shopify multi-vendor fulfillment, Shopify split order multiple suppliers, Shopify dropship order routing, Shopify send purchase order to supplier, Shopify vendor split, Shopify split fulfillment, Shopify 3PL order routing",
-      "wordCount": 2570,
+      "wordCount": 2769,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -108,6 +109,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -736,11 +738,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>◆ DISPATCH Nº 79 &middot; JUL 7, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,570 WORDS</span>
+    <span>◆ 9 MIN READ · 2,769 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
     <span>◆ DISPATCH Nº 79 &middot; JUL 7, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,570 WORDS</span>
+    <span>◆ 9 MIN READ · 2,769 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -824,6 +826,32 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       orders wearing a trench coat, and Shopify hands you all three stitched together and
       leaves the unpicking to you.</em>
     </blockquote>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Shopify splits fulfillment by location and never by supplier. It can spread one item's
+        quantity across your own stocking locations and offer split shipping at checkout, which covers
+        a store running two warehouses of its own. What it has no rules engine for is routing a line
+        to a vendor, a dropshipper or a 3PL by vendor, product type, SKU or weight.
+      </p>
+
+      <p>
+        The vendor field is a label and nothing more. You can set it on every product and use it to
+        filter the catalog and group reports, and setting it notifies nobody, generates no purchase
+        order and routes nothing anywhere. There is also no native action that hands a supplier a
+        document holding only their own line items in whatever format they accept.
+      </p>
+
+      <p>
+        So the merchant becomes the router, and the job does not end when the purchase orders go out.
+        Every supplier ships on a clock of its own, so one order returns to you in fragments over
+        days, and each arrival has to be recorded as a partial fulfillment against the right lines at
+        the right location with the right tracking number. Miss that matching and lines stay open
+        <em>or close early</em>.
+      </p>
+    </div>
 
     <h2>What Shopify does and does not do about splitting orders</h2>
 

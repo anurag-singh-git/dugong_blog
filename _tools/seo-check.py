@@ -1022,6 +1022,129 @@ def main():
         for bad in re.findall(r'>([^<>]*\| Dugong)</a>', read(name)):
             fail("site_name_in_link_text", f"{name}: {bad.strip()!r}")
 
+    # ------------------------------- llms-full.txt is one segment per dispatch
+    # Added 2026-10-27. llms-full.txt declares its own structure in its header:
+    # "Each article begins with a level-one heading and a metadata block (URL,
+    # author, dates)", and every article is closed by a "---" line. Four
+    # dispatches had left the md rendition's own internal "---" separators in
+    # their segment, which splits one article into several chunks where only
+    # the first carries the title, URL and author. 5,399 words, including four
+    # whole FAQ blocks and 24 question-and-answer pairs, sat after a separator
+    # with no article attached, so a crawler segmenting on the documented
+    # delimiter attributes them to nothing.
+    #
+    # It also blinded this file. The three llms-full checks above split on the
+    # same "\n---\n" and key each part by its URL line, so on those four
+    # dispatches every one of them stopped reading at the first internal
+    # separator. The READING-callout check (10-24) and the short-answer check
+    # (10-25) were both silently skipping the tail of four articles.
+    if os.path.exists("llms-full.txt"):
+        _lf_raw = read("llms-full.txt")
+        _chunks = [c for c in re.split(r"\n---\n", _lf_raw) if c.strip()]
+        # the first chunk is the file header; every other one must be an article
+        for _chunk in _chunks[1:]:
+            if not re.search(r"^URL: ", _chunk, re.M):
+                _head = re.search(r"^#{1,3} (.+)$", _chunk, re.M)
+                fail("llms_full_orphan_chunk",
+                     "a chunk of %d words carries no URL: line, so it belongs "
+                     "to no article (opens: %s)"
+                     % (len(_chunk.split()),
+                        (_head.group(1) if _head else _chunk.strip()[:60])))
+        if len(_chunks) - 1 != len(posts):
+            fail("llms_full_orphan_chunk",
+                 "llms-full.txt splits into %d article chunks against %d "
+                 "dispatches" % (len(_chunks) - 1, len(posts)))
+
+    # ------------------------------- llms-full.txt keeps the md's editorial links
+    # Added 2026-10-27, and the reason it is here is that a narrower version of
+    # it has been passing since 10-24. That pass found llms-full.txt carrying
+    # the READING callout with every URL stripped, repaired the callout and
+    # added a check that reads the callout line. The stripping was never
+    # confined to that line. On the tree this check was written against, the md
+    # bodies carried 868 editorial links and llms-full carried 309, of which
+    # 213 were inside the one line the 10-24 check reads. Outside it, 96 links
+    # had survived out of roughly 655. The anchor text was intact everywhere;
+    # only the URL was gone.
+    #
+    # llms-full.txt is the file answer engines are pointed at, and its internal
+    # links are how one learns the site's own topical graph, so a rendition
+    # that keeps the words and drops the citations is the worst of the three to
+    # have wrong. Anchor text that llms-full paraphrases away cannot be matched
+    # and is reported as a note rather than a failure.
+    if os.path.exists("llms-full.txt"):
+        _link = re.compile(r"\[([^\]]+)\]\((https?://[^)]+)\)")
+        _lf_raw = read("llms-full.txt")
+        _starts = [m.start() for m in
+                   re.finditer(r"(?m)^# (?!trigger$|steps$).+\n\nURL: ", _lf_raw)]
+        _seg = {}
+        for _a, _b in zip(_starts, _starts[1:] + [len(_lf_raw)]):
+            _s = _lf_raw[_a:_b]
+            _u = re.search(r"^URL: (\S+)", _s, re.M)
+            if _u:
+                _seg[_u.group(1).rsplit("/", 1)[-1]] = _s
+        _absent = 0
+        for name in posts:
+            _md_path = os.path.join("md", name[:-5] + ".md")
+            if name not in _seg or not os.path.exists(_md_path):
+                continue
+            _md_body = read(_md_path).split("\n---\n", 1)[-1]
+            _have = {u for _, u in _link.findall(_seg[name])}
+            _plain = _link.sub(r"\1", _seg[name])
+            for _anchor, _url in _link.findall(_md_body):
+                if _url in _have:
+                    continue
+                if _anchor in _plain:
+                    fail("llms_full_link_stripped",
+                         "%s: llms-full.txt carries %r as plain text and has "
+                         "dropped its URL %s" % (name, _anchor[:60], _url))
+                else:
+                    _absent += 1
+        if _absent:
+            notes.append("%d md links could not be located in llms-full.txt "
+                         "because its prose paraphrases the anchor text; those "
+                         "are a rendition difference, not a stripped URL"
+                         % _absent)
+
+    # ----------------------------------- the renditions agree on the body prose
+    # Added 2026-10-27. Four narrow parity checks existed before this one: the
+    # HowTo steps (10-18), the READING callout (10-21 and 10-24), the short
+    # answer (10-24 and 10-25), and the FAQ text via the structured data. Those
+    # are four blocks per article. The article's own body prose, which is most
+    # of the words on the site, was read by nothing, and the /md/ rendition is
+    # what an answer engine is pointed at, so a sentence it carries that the
+    # page does not is a contradiction between two renditions of one article.
+    #
+    # What it found: one dispatch whose md said "behaviour" where the page said
+    # "behavior", in otherwise identical sentences, and one whose llms-full
+    # segment is a 2,153-word rendering of a 2,873-word article, with 11 of its
+    # 16 body paragraphs absent. A single word is a small defect; a check that
+    # cannot see a single word also cannot see the eleven paragraphs.
+    for name in posts:
+        _md_path = os.path.join("md", name[:-5] + ".md")
+        if not os.path.exists(_md_path):
+            continue
+        _vis = visible_text(read(name))
+        _body = read(_md_path).split("\n---\n", 1)[-1]
+        _fence = False
+        for _para in _body.split("\n\n"):
+            _para = _para.strip()
+            if _para.startswith("```"):
+                _fence = _para.count("```") == 1
+                continue
+            if _fence or not _para:
+                continue
+            if _para.startswith(("#", ">", "|", "-")) or \
+               _para.startswith(("Permalink", "Markdown rendition")):
+                continue
+            _flat = folded(re.sub(r"[*`]", "",
+                                  re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", _para)))
+            if len(_flat) < 80:
+                continue
+            if _flat[:110] not in _vis:
+                fail("rendition_prose_divergence",
+                     "%s: the md rendition carries a paragraph the page does "
+                     "not say: %r" % (name, _flat[:90]))
+
     # --------------------------------------------------------------- report
     print(f"seo-check: {len(rendered)} rendered pages, {len(stubs)} redirect stubs, "
           f"{len(posts)} dispatches, {len(locs)} sitemap URLs, {len(items)} feed items")

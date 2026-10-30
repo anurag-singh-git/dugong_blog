@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-02
-- Updated: 2026-08-14
+- Updated: 2026-10-27
 - Section: Research
-- Word count: 2170
+- Word count: 2355
 - Dispatch: Nº 74 · Research · 9 min read
 - Full headline on page: How to *combine multiple orders* from the same customer on Shopify
 - Keywords: Shopify combine orders, merge orders Shopify, Shopify merge multiple orders, combine shipping Shopify, Shopify duplicate orders same customer, consolidate orders Shopify, second order before first ships, refund duplicate shipping Shopify, Shopify draft order merge
@@ -20,6 +20,14 @@ It is one of the most ordinary things a happy customer does. They check out, the
 This is one of the longest-running requests in every Shopify merchant community, and the threads all say the same thing. "How can I merge orders for a specific customer to consolidate shipping." "Easier way to combine multiple orders into a single shipping label." "How to combine multiple orders into one or more shipments." Merchants describe the exact scenario every time: a customer places a second order before the first one ships, and there is no native way to bring the two together. The frustration is not exotic fraud or a rare edge case. It is that the platform makes you do by hand the single most obvious favor you could do a customer and your own shipping budget.
 
 > Two orders, same customer, same address, nothing shipped. Everyone can see they should ship together. *Shopify is the only one in the room that cannot merge them.*
+
+## The short answer
+
+Shopify has no merge feature, and Shopify Flow cannot do it either. An order is a fixed financial record: it owns its payment capture, its tax calculation, its discounts, its fulfillment history and its audit trail. A merge would have to settle the fate of two charges, two tax lines, two fulfillment histories and two sets of analytics at once.
+
+So the accepted answer is a procedure rather than a setting. You build a draft order holding the line items of both, finalize it, buy one label for it, add that tracking back onto the two originals, refund the shipping the customer paid twice, then cancel the originals and restock their items so your inventory is not counted twice.
+
+That is six or seven deliberate steps across several screens, and it is also a race, because combining only works while both orders are unfulfilled and a busy day picks orders in minutes. Same address is not sufficient grounds either: a shared building, a gift going to one place, or a second order on a *paid express upgrade* all mean leave them apart.
 
 ## Why Shopify won't combine orders for you
 

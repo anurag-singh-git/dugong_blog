@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-automatically-split-and-route-shopify-orders-to-multiple-suppliers.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-07
-- Updated: 2026-08-14
+- Updated: 2026-10-27
 - Section: Research
-- Word count: 2570
+- Word count: 2769
 - Dispatch: Nº 79 · Research · 9 min read
 - Full headline on page: How to automatically *split and route* Shopify orders to multiple suppliers
 - Keywords: Shopify split order by vendor, Shopify route order to supplier, Shopify multi-vendor fulfillment, Shopify split order multiple suppliers, Shopify dropship order routing, Shopify send purchase order to supplier, Shopify vendor split, Shopify split fulfillment, Shopify 3PL order routing
@@ -20,6 +20,14 @@ There is a particular kind of order that turns a good sales day into an afternoo
 This is the quiet reality of running any store that fulfills from more than one source, and the merchant communities are full of the same question asked a hundred ways. How do I automatically send each supplier only their part of the order. Can Shopify split an order by vendor. Is there a way to email a purchase order to my dropshipper the moment a sale comes in. The answers underneath are always some version of not natively, use an app, or build it in a middleware tool. The merchant is not asking for anything unusual. They want the obvious thing: an order arrives, and each supplier automatically gets the slice of it they are responsible for.
 
 > To the customer it was one cart and one payment. *To your back office it is three orders wearing a trench coat, and Shopify hands you all three stitched together and leaves the unpicking to you.*
+
+## The short answer
+
+Shopify splits fulfillment by location and never by supplier. It can spread one item's quantity across your own stocking locations and offer split shipping at checkout, which covers a store running two warehouses of its own. What it has no rules engine for is routing a line to a vendor, a dropshipper or a 3PL by vendor, product type, SKU or weight.
+
+The vendor field is a label and nothing more. You can set it on every product and use it to filter the catalog and group reports, and setting it notifies nobody, generates no purchase order and routes nothing anywhere. There is also no native action that hands a supplier a document holding only their own line items in whatever format they accept.
+
+So the merchant becomes the router, and the job does not end when the purchase orders go out. Every supplier ships on a clock of its own, so one order returns to you in fragments over days, and each arrival has to be recorded as a partial fulfillment against the right lines at the right location with the right tracking number. Miss that matching and lines stay open *or close early*.
 
 ## What Shopify does and does not do about splitting orders
 

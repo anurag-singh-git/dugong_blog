@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-fix-404-errors-from-deleted-products-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-25
-- Updated: 2026-08-07
+- Updated: 2026-10-27
 - Section: Research
-- Word count: 2210
+- Word count: 2391
 - Dispatch: Nº 68 · Research · 9 min read
 - Full headline on page: How to fix *404 errors* from deleted products on Shopify
 - Keywords: Shopify deleted product 404, redirect deleted product Shopify, Shopify 404 errors SEO, Shopify broken links, automatically redirect deleted product, bulk URL redirect Shopify, 301 redirect Shopify, product URL handle changed 404, soft 404
@@ -20,6 +20,14 @@ Every catalog sheds products. A line gets discontinued, a seasonal item ends, a 
 This is one of the most repeated SEO complaints in the merchant communities, and it always arrives the same way: someone notices a wall of 404s in their analytics or Search Console, traces them back to products they deleted or handles they changed, and asks how to make Shopify redirect them automatically. The early answers are a version of "it does not, you have to build the redirects yourself, or get an app." The merchant is not asking for anything fancy. They want the obvious thing a store that constantly adds and removes products needs: when a URL stops working, send the visitor to the closest page that does. The platform running their entire storefront has no built-in way to do it.
 
 > The product is gone. The link to it is not, and Shopify *will not point it anywhere* on its own.
+
+## The short answer
+
+Deleting a Shopify product creates no redirect. Its URL simply begins returning a 404, with no prompt at delete time asking where the traffic should go and no default forward behind it. The same quiet break follows a handle change, which rewrites the URL and orphans the old one, and an unpublish rather than a delete.
+
+The native repair is manual and one URL at a time, under Online Store, then Navigation, then URL Redirects. A CSV bulk import exists, and you still have to know every broken URL and settle on every destination before that file can be built. Flow can react to a product being deleted and has no action that creates a redirect.
+
+Pointing every dead URL at the homepage is the tempting shortcut and a trap, because a search engine reads it as a soft 404 once the destination has nothing to do with what was requested. The equity the old page earned drains away regardless and the customer starts over, so the target has to be *genuinely relevant* and has to stay live.
 
 ## Why a 404 from a deleted product costs you a real sale
 

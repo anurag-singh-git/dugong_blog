@@ -5,10 +5,10 @@
 - Canonical: https://blog.dugong.live/how-to-automatically-add-a-free-gift-with-purchase-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-08
-- Updated: 2026-08-12
+- Updated: 2026-10-27
 - Section: Research
-- Word count: 2700
-- Dispatch: Nº 80 · Research · 9 min read
+- Word count: 2913
+- Dispatch: Nº 80 · Research · 10 min read
 - Full headline on page: How to automatically add a *free gift* to the cart on Shopify
 - Keywords: Shopify free gift with purchase, Shopify auto add free gift to cart, Shopify buy x get y not adding to cart, Shopify gift with purchase threshold, Shopify free gift over amount, Shopify BOGO auto add, Shopify free gift app, Shopify cart value gift, Shopify automatic gift
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
@@ -20,6 +20,14 @@ A free gift with purchase is one of the oldest and best-behaved promotions in re
 This is the quiet reality of running any gift-with-purchase offer on Shopify, and the merchant communities are full of the same question asked a dozen ways. How do I get the free item to add itself when someone crosses the threshold. Why does my Buy X Get Y not show the gift in the cart. Can Shopify give a free gift when a customer spends over an amount on anything. The answers underneath are always some shape of not natively, use an app, or edit the theme. The merchant is not asking for anything exotic. They want the obvious thing that every promotion depends on: the customer earns the gift, so the gift appears, free, without the customer having to know it exists and go find it.
 
 > A discount can make the gift free. *It cannot make the gift show up. So the promotion you advertised only works for the customers who already knew about it and went looking, which is nearly the opposite of the point.*
+
+## The short answer
+
+A Shopify discount can make a gift free and cannot put it in the cart. Buy X Get Y prices the gift to zero if that item is already in the cart, which is why it works for a fixed product bundle such as buy two tees and take the third free. Where the shopper never added the gift themselves, there is nothing for the discount to reduce and nothing appears.
+
+Three walls follow. The native rule has no store-wide cart-value trigger, so spend one hundred on anything and get a gift is not an offer it can express. It holds one tier per discount, so two thresholds cannot live in one offer. And it will not stack, because only the larger discount applies when two land on the same item, so a running sale can swallow the gift entirely.
+
+The usual repair is theme code on the cart page, and that is where it leaks. Wallet buttons, buy-it-now, saved cart links and checkout permalinks all reach checkout without loading that page, so the gift is simply absent on every one of them. A cart that falls back under the threshold should also lose the gift again, so the watch has to run *in both directions* on every path in.
 
 ## What Shopify does and does not do about free gifts
 

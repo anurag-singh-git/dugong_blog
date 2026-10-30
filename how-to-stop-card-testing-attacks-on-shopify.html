@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-stop-card-testing-attacks-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-01" />
-    <meta property="article:modified_time" content="2026-08-07" />
+    <meta property="article:modified_time" content="2026-10-27" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html",
       "headline": "How to stop card testing attacks on Shopify",
+      "abstract": "Card testing runs a list of stolen card numbers through your checkout to learn which ones are still alive, so your store is the test rig rather than the target. Each attempt arrives with a fresh name, email and billing address, and often a fresh IP, which is why no single order looks obviously wrong and the attack shows up only as a burst.",
       "description": "A bot finds your checkout and starts running stolen cards through it in a flood of tiny orders, each a different name and card, most declined, a few approved. Card testing is one of the most-complained-about attacks on Shopify, and the platform's native defense is thin: a machine-learning CAPTCHA at Shopify Payments checkout that only catches part of it, plus auto-cancel and flag rules that live in Shopify Flow on the Advanced and Plus plans. Each attempt still bills you an authorization or transaction fee, buries real orders, poisons your conversion and fraud metrics, and can put your payment account at risk. The AI playbook that reads the velocity and coordination pattern, cancels and refunds the junk, cleans up the fake checkouts, blocks the source, and stops the attack without turning away real customers.",
       "datePublished": "2026-07-01",
-      "dateModified": "2026-08-07",
+      "dateModified": "2026-10-27",
       "articleSection": "Research",
       "keywords": "Shopify card testing, card testing attack Shopify, Shopify fake orders, Shopify bot orders, Shopify carding, Shopify fraud orders, block bot orders Shopify, Shopify card testing prevention, cancel fraud orders Shopify, Shopify abandoned checkout bot",
-      "wordCount": 2390,
+      "wordCount": 2584,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -108,6 +109,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -746,11 +748,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>◆ DISPATCH Nº 73 &middot; JUL 1, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,390 WORDS</span>
+    <span>◆ 9 MIN READ · 2,584 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
     <span>◆ DISPATCH Nº 73 &middot; JUL 1, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,390 WORDS</span>
+    <span>◆ 9 MIN READ · 2,584 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -831,6 +833,31 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       Card testing does not want your product. It wants your checkout as a
       <em>free place to run</em> a stolen-card list, and Shopify hands it one.
     </blockquote>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Card testing runs a list of stolen card numbers through your checkout to learn which ones are
+        still alive, so your store is the test rig rather than the target. Each attempt arrives with a
+        fresh name, email and billing address, and often a fresh IP, which is why no single order
+        looks obviously wrong and the attack shows up only as a burst.
+      </p>
+
+      <p>
+        Shopify's own defense is thinner than merchants expect. On Shopify Payments it runs models at
+        checkout and can raise a CAPTCHA, which stops the crude bots and not the ones that rotate
+        addresses and space their attempts out. The cleanup afterwards is entirely manual, and the
+        rule engine that could cancel by rule sits in Flow, on the Advanced and Plus plans only.
+      </p>
+
+      <p>
+        A declined attempt is not free, because the processor charges for the attempt rather than the
+        sale, and the handful that approve return as chargebacks with their own dispute fees weeks
+        later. A dispute rate past a threshold can put your payment account under review, which is why
+        the response has to read the <em>whole burst</em> and act on all of it at once.
+      </p>
+    </div>
 
     <h2>Why a Shopify checkout is such an easy target</h2>
 

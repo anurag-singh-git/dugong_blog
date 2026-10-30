@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-automatically-send-invoices-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-06
-- Updated: 2026-08-12
+- Updated: 2026-10-27
 - Section: Research
-- Word count: 2420
+- Word count: 2620
 - Dispatch: Nº 78 · Research · 9 min read
 - Full headline on page: How to automatically *send invoices* to Shopify customers
 - Keywords: Shopify send invoice automatically, Shopify automatic invoice, Shopify PDF invoice, Shopify VAT invoice, send invoice to customer Shopify, Shopify B2B invoice tax number, Shopify order invoice email, Shopify tax invoice, Shopify credit note refund
@@ -20,6 +20,14 @@ There is a small, recurring tax on selling to anyone who buys for a business, an
 This is one of those gaps that stays invisible until you have your first handful of business buyers, and then it never goes away. The Shopify community threads about it read like a slow accumulation of the same discovery. How do I send a proper invoice automatically. Where is the field for a customer's VAT number. Why does the order confirmation not count as a tax invoice. The answers underneath are always some mix of Shopify does not do that natively, rename the confirmation email, install an app, or regenerate it in your accounting software. Merchants are not asking for anything exotic. They want the obvious thing every offline business has always had: an order goes through, and a correct invoice goes out with it.
 
 > The confirmation email did exactly what it was built to do. *It told the customer what they bought, and left out the one thing their finance team actually needed, so the real invoice still had to be made by hand.*
+
+## The short answer
+
+What Shopify emails after a paid order is a receipt rather than an invoice. It sets out what was bought and what was paid, shows neither party's tax registration number, and in most countries is not the document a buyer's finance team can file. Shopify Tax does produce a genuine VAT invoice for orders shipped inside the EU and the UK, and that one is worth turning on.
+
+Its edges are where the work comes back. That VAT invoice is never emailed and only sits on the order status page, so customers assume nothing was sent and ask anyway. It is locked to EU and UK orders, and it cannot be reissued once an order has been edited. The checkout has no field for a buyer's tax number either, only a company name inside the billing address.
+
+That missing number is why invoicing stays manual even with a PDF app installed, since Shopify cannot attach a file to its own emails and an app stamps one layout on every order. The working shape is classification first, a receipt or a full tax invoice, then a sequentially numbered document and a matching *credit note* whenever money goes back.
 
 ## What Shopify does and does not do about invoices
 

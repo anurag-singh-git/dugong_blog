@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-automatically-cancel-unpaid-orders-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-24
-- Updated: 2026-08-12
+- Updated: 2026-10-27
 - Section: Research
-- Word count: 2240
+- Word count: 2409
 - Dispatch: Nº 67 · Research · 9 min read
 - Full headline on page: How to *automatically cancel unpaid orders* on Shopify
 - Keywords: Shopify auto cancel unpaid orders, cancel pending orders Shopify, automatically cancel unpaid orders release inventory, manual payment orders Shopify, bank transfer order Shopify, draft order cancel, cancel unpaid orders after x days, AI order automation
@@ -20,6 +20,14 @@ Every store that takes a manual payment method ends up with a drawer full of ord
 This is one of the most repeated requests in the merchant communities, and it always arrives the same way: someone asks how to automatically cancel and archive unpaid orders after a set number of days, or how to cancel a pending order and unblock the inventory it is sitting on. The early answers are some version of "Shopify cannot do that, you will need an app or a script." The merchant is not asking for anything exotic. They want the one thing a checkout that takes delayed payment obviously needs: a rule that gives the customer a fair chance to pay, then tidies up the order that does not. The platform running their whole business has no built-in way to apply it.
 
 > The sale was never real. The only thing that is real is the stock it is holding, and Shopify *will not let it go* on its own.
+
+## The short answer
+
+Shopify has no setting that cancels an order left unpaid after a given number of days. Cancelling is a manual action taken one order at a time from the admin, where you choose on each one whether to restock and whether to notify, so fifty pending orders mean fifty trips through the same menu.
+
+The real cost is the inventory underneath them. Shopify commits stock to an order the moment it is placed and holds that commitment while the order waits in pending payment, so units nobody has paid for sit off the shelf. On a launch or a low-stock product that is enough to show sold out while paying demand bounces away.
+
+Flow can tag an order as unpaid and can neither cancel it nor release what it is holding, so it automates the noticing and none of the doing. A flat timer is the other trap, because a bank transfer, a cash-on-delivery order and an agreed wholesale invoice settle on *entirely different clocks*.
 
 ## Why an unpaid order quietly costs you a real one
 

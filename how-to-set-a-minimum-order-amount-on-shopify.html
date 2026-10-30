@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-set-a-minimum-order-amount-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-05" />
-    <meta property="article:modified_time" content="2026-08-16" />
+    <meta property="article:modified_time" content="2026-10-27" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html",
       "headline": "How to set a minimum order amount on Shopify",
+      "abstract": "There is no native minimum order setting on a standard Shopify plan. The minimum purchase field merchants find lives on discounts, and it only decides when a discount applies, so it gates a reward rather than the door. A shopper content to pay full freight on a tiny order checks out exactly as they would have before.",
       "description": "A shopper adds one low-price item, checks out for a few dollars, and Shopify accepts the order even though the transaction fee, the pick and pack, and the shipping label cost more than the order earns. Shopify has no native setting for a minimum order amount or minimum order quantity on standard plans: the minimum purchase field only gates a discount, not the checkout, Shopify Plus can block checkout with Functions, and B2B quantity rules apply only to company profiles, not the retail storefront. Cart-page JavaScript is bypassed by wallet buttons and checkout permalinks, and most apps enforce one flat number for everyone. This is one of the most-repeated requests in Shopify merchant communities. The AI playbook that reads the cart on every path into checkout, applies the right floor for retail or wholesale, warns the shopper early how much more they need, enforces it everywhere checkout can start, exempts the carts that should always pass, and holds the real policy calls for a human.",
       "datePublished": "2026-07-05",
-      "dateModified": "2026-08-16",
+      "dateModified": "2026-10-27",
       "articleSection": "Research",
       "keywords": "Shopify minimum order amount, set minimum order value Shopify, Shopify minimum order quantity, Shopify MOQ, minimum purchase Shopify checkout, minimum spend before checkout Shopify, Shopify wholesale minimum order",
-      "wordCount": 2190,
+      "wordCount": 2369,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -100,6 +101,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -733,11 +735,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>◆ DISPATCH Nº 76 &middot; JUL 5, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,190 WORDS</span>
+    <span>◆ 9 MIN READ · 2,369 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
     <span>◆ DISPATCH Nº 76 &middot; JUL 5, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,190 WORDS</span>
+    <span>◆ 9 MIN READ · 2,369 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -812,6 +814,32 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <em>Shopify treats every cart as valid the moment it has one item in it, no
       matter how little that item is worth to you.</em>
     </blockquote>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        There is no native minimum order setting on a standard Shopify plan. The minimum purchase
+        field merchants find lives on discounts, and it only decides when a discount applies, so it
+        gates a reward rather than the door. A shopper content to pay full freight on a tiny order
+        checks out exactly as they would have before.
+      </p>
+
+      <p>
+        Two real exceptions exist and both are narrow. Shopify Plus can block a checkout beneath a
+        threshold using Shopify Functions, which is a developer feature on the top plan rather than a
+        switch the rest of the platform gets. The B2B tools can set quantity rules and minimums on
+        company profiles, and they do nothing for an ordinary retail storefront.
+      </p>
+
+      <p>
+        The common workaround is cart-page code that disables the checkout button, which is a fence
+        with a gate standing open beside it, because wallet buttons, buy-it-now and checkout
+        permalinks reach checkout without ever loading the cart page. A floor that holds has to be
+        applied at checkout itself and know that <em>gift cards and wholesale</em> play by different
+        numbers.
+      </p>
+    </div>
 
     <h2>Why Shopify won't stop a too-small order</h2>
 

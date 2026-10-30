@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-03
-- Updated: 2026-08-12
+- Updated: 2026-10-27
 - Section: Research
-- Word count: 2220
+- Word count: 2401
 - Dispatch: Nº 75 · Research · 9 min read
 - Full headline on page: How to automatically *hide sold-out variants* on Shopify
 - Keywords: Shopify hide sold out variants, hide out of stock variants Shopify, Shopify hide unavailable variants, hide sold out options Shopify, Shopify variant dropdown sold out, remove sold out sizes Shopify, hide out of stock variant automatically Shopify
@@ -20,6 +20,14 @@ Watch someone shop a product with sizes. They do not read the whole grid. They l
 This is one of the most-repeated requests in every Shopify merchant community, and the threads all read the same. "Hide specific variants when sold out." "Hide out of stock product variants." "How do I stop showing a size once it hits zero." Merchants are not asking for anything exotic. They want the obvious thing: when a variant is gone, take it off the page, and when it comes back, put it back. Shopify does not have a button for that, and the answers underneath the threads are always some mix of edit your theme code or install an app.
 
 > The shopper looked for their size, found it, and it was gone. *The two sizes that were in stock never got a look, because Sold Out reads as the whole product being over.*
+
+## The short answer
+
+Shopify has no setting that hides a variant once it sells out. It holds the variant list as part of the product's structure rather than a live view of what is buyable now, so every size and color you created keeps rendering, marked Sold Out or Unavailable and often greyed out or struck through.
+
+The two settings that look like they should help do not. Turning off continue selling when out of stock prevents the purchase and still leaves the variant on the page. The newer unlisted status hides a whole product rather than one variant, which is the wrong instrument the moment everything else on the product is still selling.
+
+That leaves theme code or an app. A Liquid edit is tidy on a single option and genuinely fiddly once size and color combine, because a color is only truly gone when every size inside it is out, and the customization goes with the next theme update. Deleting the variant is worse, since the SKU history, the barcode and any *back-in-stock signup* pointing at it go too.
 
 ## Why Shopify keeps showing a variant you can't buy
 

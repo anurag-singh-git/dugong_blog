@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-28
-- Updated: 2026-08-12
+- Updated: 2026-10-27
 - Section: Research
-- Word count: 2446
+- Word count: 2633
 - Dispatch: Nº 70 · Research · 9 min read
 - Full headline on page: How to *bulk edit product prices* on Shopify
 - Keywords: Shopify bulk price change, bulk edit prices Shopify, increase all prices by percentage Shopify, Shopify bulk editor 50 products, change prices in bulk Shopify, repricing Shopify, percentage price increase Shopify, Shopify CSV price update, bulk price editor app, compare at price Shopify
@@ -20,6 +20,14 @@ Picture the part of the week no one budgets for. A supplier sends a notice that 
 This is one of the most common operational complaints in the merchant forums, and it almost always sounds the same. Someone needs to raise every price by a set percentage, or add a fixed amount, or push a vendor's products up to protect margin, and they want to know how to do it in bulk without retyping hundreds of numbers. The replies point at a bulk editor that has no formula, a CSV export you edit in a spreadsheet and import back, or a paid app built only to do this one thing. The merchant is not asking for anything exotic. They want the obvious thing a store with more than a handful of products needs: change these prices, by this rule, all at once, and round them the way I always round. The platform that runs the whole store leaves that to a human with a calculator.
 
 > Shopify will store a price on every variant all day long. It just *will not do the math* to change them all at once.
+
+## The short answer
+
+Shopify's bulk editor puts the price field into a grid and brings no arithmetic with it. There is no add ten percent, no add two dollars, no round every price to end in .99, so you work out each new number yourself and type it, fifty products to a page, with variant prices edited apart from the parent product.
+
+The two native alternatives each cover half of it. A CSV export supplies the formula and makes a spreadsheet the source of truth for your live storefront, where one stray column can overwrite descriptions or inventory on import. The percentage price adjustment under Markets applies a single figure to a whole market rather than a selection of your home catalog.
+
+Flow cannot set a price at all, so it can tell you a cost moved and never act on it. The part that was hard stays hard: deciding which products the change is really for, computing from cost or from the current price depending on the change, and moving or clearing compare-at so a rise does not read as a *discount that never existed*.
 
 ## Why repricing by hand is a tax that scales with your catalog
 

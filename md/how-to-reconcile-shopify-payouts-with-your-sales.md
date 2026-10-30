@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-reconcile-shopify-payouts-with-your-sales.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-29
-- Updated: 2026-08-12
+- Updated: 2026-10-27
 - Section: Research
-- Word count: 2572
+- Word count: 2746
 - Dispatch: Nº 71 · Research · 9 min read
 - Full headline on page: How to *reconcile Shopify payouts* with your sales
 - Keywords: Shopify payout reconciliation, Shopify payout doesn't match sales, reconcile Shopify payments QuickBooks, reconcile Shopify Xero, Shopify deposit smaller than sales, Shopify bookkeeping, Shopify payout fees refunds, match Shopify payout to bank deposit, multi gateway payouts, Shopify month end close
@@ -20,6 +20,14 @@ Picture the last hour of the month. The bank statement is open in one tab, Shopi
 This is one of the most common bookkeeping complaints in the ecommerce world, and it almost always sounds the same. A merchant looks at the money that hit the bank, sees it is smaller than their sales, and cannot work out why or how to record it without either double counting the revenue or losing track of the fees. The replies point at a Payouts page that lists totals but posts nothing, a CSV you sort out in a spreadsheet, an accounting connector that books the deposit wrong, or a paid app whose whole job is to summarize the payout for you. The merchant is not asking for anything exotic. They want the obvious thing every business needs: take the money that arrived, tell me which sales and fees it is made of, and put each piece in the right place in my books. The platform that ran every one of those sales hands that back to a human with a spreadsheet.
 
 > Shopify will tell you what you sold and tell you what it paid you. It just *will not reconcile* the difference between the two.
+
+## The short answer
+
+A Shopify payout is never your sales figure, because two mechanics stack. The deposit is gross sales minus the processing fee on every order, minus refunds you issued, minus chargebacks and their fees, minus anything held as a rolling reserve, and each of those pieces belongs somewhere different in your accounts.
+
+The second mechanic is batching. Payouts arrive on a rolling schedule rather than per calendar day, so a single deposit straddles a day boundary and can carry hundreds of individual orders and refunds at once. Nothing inside it lines up with a sales total you could check by eye, which is why matching a deposit by its date cannot work.
+
+The Payouts page reports and posts nothing, the official QuickBooks and Xero connectors copy orders without splitting a netted deposit, and Flow can say a payout landed and cannot write a journal entry. Clicking Add on the deposit in your bank feed books it as fresh income on top of revenue already recorded, which *counts the same sales twice*.
 
 ## Why the deposit is never your sales number
 

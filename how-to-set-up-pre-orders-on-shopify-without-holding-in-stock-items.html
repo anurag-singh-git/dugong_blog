@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-06-30" />
-    <meta property="article:modified_time" content="2026-08-10" />
+    <meta property="article:modified_time" content="2026-10-27" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html",
       "url": "https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html",
       "headline": "How to set up pre-orders on Shopify without holding in-stock items",
+      "abstract": "Shopify has no real pre-order, only a continue selling when out of stock checkbox on each variant. It shows the same Add to Cart button as everything else, carries no expected ship date, collects no deposit against a later balance, and tags neither the order nor the line item, so the sale lands in your admin looking like any in-stock sale.",
       "description": "A customer buys one in-stock item and one pre-order item in the same cart, and Shopify holds the whole order until the late one is ready, so the thing on your shelf sits there for weeks. Shopify has no real pre-order: the only native lever is a continue selling checkbox that shows a normal Add to Cart button, gives no expected ship date, and tags nothing, so the order arrives looking like any other and the customer never learns part of it is a pre-order. Nothing splits a mixed cart automatically, partial fulfillment is a manual step per order, and Flow cannot charge later, notify on restock, fulfill when stock lands, or turn selling back off when the run is gone. The AI playbook that ships what is ready now, labels and holds the pre-order line, keeps the customer informed, fulfills the moment stock arrives, and stops overselling on its own.",
       "datePublished": "2026-06-30",
-      "dateModified": "2026-08-10",
+      "dateModified": "2026-10-27",
       "articleSection": "Research",
       "keywords": "Shopify preorder, Shopify pre-order app, Shopify mixed cart preorder, preorder and in-stock items together, Shopify split order preorder, Shopify partial fulfillment preorder, Shopify continue selling when out of stock, Shopify backorder, Shopify oversold preorder, tag preorder orders, Shopify preorder ship date",
-      "wordCount": 2586,
+      "wordCount": 2770,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -108,6 +109,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -736,11 +738,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>◆ DISPATCH Nº 72 &middot; JUN 30, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,586 WORDS</span>
+    <span>◆ 9 MIN READ · 2,770 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
     <span>◆ DISPATCH Nº 72 &middot; JUN 30, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,586 WORDS</span>
+    <span>◆ 9 MIN READ · 2,770 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -825,6 +827,31 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       Shopify will happily sell you a pre-order. It just <em>will not run</em> the
       weeks between the sale and the shipment.
     </blockquote>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Shopify has no real pre-order, only a continue selling when out of stock checkbox on each
+        variant. It shows the same Add to Cart button as everything else, carries no expected ship
+        date, collects no deposit against a later balance, and tags neither the order nor the line
+        item, so the sale lands in your admin looking like any in-stock sale.
+      </p>
+
+      <p>
+        Nothing separates a mixed cart either. An in-stock item and a pre-order item check out as one
+        order with two timelines inside it, and the default outcome is the worst one available: the
+        whole order waits on the slowest line in it. Partial fulfillment is the correct handling and
+        exists only as a manual step taken one order at a time.
+      </p>
+
+      <p>
+        Flow can tag an order holding an out-of-stock item and stops there. It has no action that
+        ships the ready lines, charges a held balance later, fulfills the pre-order line the day stock
+        lands, or switches the toggle back off once the run is committed. Forgetting that last one is
+        how a controlled pre-order decays into <em>plain overselling</em>.
+      </p>
+    </div>
 
     <h2>Why one cart with two delivery dates breaks Shopify</h2>
 

@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-set-a-minimum-order-amount-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-05
-- Updated: 2026-08-16
+- Updated: 2026-10-27
 - Section: Research
-- Word count: 2190
+- Word count: 2369
 - Dispatch: Nº 76 · Research · 9 min read
 - Full headline on page: How to set a *minimum order amount* on Shopify
 - Keywords: Shopify minimum order amount, set minimum order value Shopify, Shopify minimum order quantity, Shopify MOQ, minimum purchase Shopify checkout, minimum spend before checkout Shopify, Shopify wholesale minimum order
@@ -20,6 +20,14 @@ Look at the small order that just came in. One low-price item, maybe a single ac
 Ask in any Shopify merchant group how to stop this and you find the same thread over and over. How do I set a minimum order amount. Can I require a minimum spend before checkout. How do I set a minimum order quantity for wholesale. It is one of the most common questions merchants bring to the platform, and the answers underneath are always the same shrug: there is no setting for it, so edit your theme, use a discount, or install an app. For something this basic, that is a strange gap.
 
 > A store can take an order that costs more to fulfill than it brings in. *Shopify treats every cart as valid the moment it has one item in it, no matter how little that item is worth to you.*
+
+## The short answer
+
+There is no native minimum order setting on a standard Shopify plan. The minimum purchase field merchants find lives on discounts, and it only decides when a discount applies, so it gates a reward rather than the door. A shopper content to pay full freight on a tiny order checks out exactly as they would have before.
+
+Two real exceptions exist and both are narrow. Shopify Plus can block a checkout beneath a threshold using Shopify Functions, which is a developer feature on the top plan rather than a switch the rest of the platform gets. The B2B tools can set quantity rules and minimums on company profiles, and they do nothing for an ordinary retail storefront.
+
+The common workaround is cart-page code that disables the checkout button, which is a fence with a gate standing open beside it, because wallet buttons, buy-it-now and checkout permalinks reach checkout without ever loading the cart page. A floor that holds has to be applied at checkout itself and know that *gift cards and wholesale* play by different numbers.
 
 ## Why Shopify won't stop a too-small order
 

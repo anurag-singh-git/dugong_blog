@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-stop-card-testing-attacks-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-07-01
-- Updated: 2026-08-07
+- Updated: 2026-10-27
 - Section: Research
-- Word count: 2390
+- Word count: 2584
 - Dispatch: Nº 73 · Research · 9 min read
 - Full headline on page: How to stop *card testing attacks* on Shopify
 - Keywords: Shopify card testing, card testing attack Shopify, Shopify fake orders, Shopify bot orders, Shopify carding, Shopify fraud orders, block bot orders Shopify, Shopify card testing prevention, cancel fraud orders Shopify, Shopify abandoned checkout bot
@@ -20,6 +20,14 @@ Most Shopify pains are slow. Card testing is not. It arrives all at once, usuall
 This is one of the loudest complaints in every Shopify merchant community, and it always reads the same way: hundreds of small fraudulent orders overnight, different IPs, different billing addresses, all on one or two cheap products, and no clear button to make it stop. Merchants raise the price of the item hoping the bot loses interest, and the bot buys it at the higher price anyway. They email support, they email their fraud app, they even file with the authorities, and the flood keeps coming. The frustration is not only the fraud. It is that the platform that took every one of those attempts, and charged a fee for each, leaves the cleanup entirely to them.
 
 > Card testing does not want your product. It wants your checkout as a *free place to run* a stolen-card list, and Shopify hands it one.
+
+## The short answer
+
+Card testing runs a list of stolen card numbers through your checkout to learn which ones are still alive, so your store is the test rig rather than the target. Each attempt arrives with a fresh name, email and billing address, and often a fresh IP, which is why no single order looks obviously wrong and the attack shows up only as a burst.
+
+Shopify's own defense is thinner than merchants expect. On Shopify Payments it runs models at checkout and can raise a CAPTCHA, which stops the crude bots and not the ones that rotate addresses and space their attempts out. The cleanup afterwards is entirely manual, and the rule engine that could cancel by rule sits in Flow, on the Advanced and Plus plans only.
+
+A declined attempt is not free, because the processor charges for the attempt rather than the sale, and the handful that approve return as chargebacks with their own dispute fees weeks later. A dispute rate past a threshold can put your payment account under review, which is why the response has to read the *whole burst* and act on all of it at once.
 
 ## Why a Shopify checkout is such an easy target
 

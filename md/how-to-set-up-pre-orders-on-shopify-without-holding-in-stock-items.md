@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-set-up-pre-orders-on-shopify-without-holding-in-stock-items.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-30
-- Updated: 2026-08-10
+- Updated: 2026-10-27
 - Section: Research
-- Word count: 2586
+- Word count: 2770
 - Dispatch: Nº 72 · Research · 9 min read
 - Full headline on page: How to set up *pre-orders* on Shopify without holding in-stock items
 - Keywords: Shopify preorder, Shopify pre-order app, Shopify mixed cart preorder, preorder and in-stock items together, Shopify split order preorder, Shopify partial fulfillment preorder, Shopify continue selling when out of stock, Shopify backorder, Shopify oversold preorder, tag preorder orders, Shopify preorder ship date
@@ -20,6 +20,14 @@ A pre-order is supposed to be the good problem. Demand showed up before the stoc
 This is one of the most common complaints from merchants who run any kind of pre-order or backorder, and it always sounds the same. Someone sells a pre-order item, watches in-stock items get held hostage behind it, and asks the obvious question: how do I ship the part that is ready and keep the rest open without managing every order by hand. The replies point at a checkbox that lets you oversell, a manual partial fulfillment buried in the order screen, and a shelf of paid apps whose whole job is the pre-order Shopify will not run for you. The merchant is not asking for anything strange. They want the obvious thing: take an order with a now item and a later item, send the now item now, and look after the later one until it can go. The platform that took the money leaves that to a person.
 
 > Shopify will happily sell you a pre-order. It just *will not run* the weeks between the sale and the shipment.
+
+## The short answer
+
+Shopify has no real pre-order, only a continue selling when out of stock checkbox on each variant. It shows the same Add to Cart button as everything else, carries no expected ship date, collects no deposit against a later balance, and tags neither the order nor the line item, so the sale lands in your admin looking like any in-stock sale.
+
+Nothing separates a mixed cart either. An in-stock item and a pre-order item check out as one order with two timelines inside it, and the default outcome is the worst one available: the whole order waits on the slowest line in it. Partial fulfillment is the correct handling and exists only as a manual step taken one order at a time.
+
+Flow can tag an order holding an out-of-stock item and stops there. It has no action that ships the ready lines, charges a held balance later, fulfills the pre-order line the day stock lands, or switches the toggle back off once the run is committed. Forgetting that last one is how a controlled pre-order decays into *plain overselling*.
 
 ## Why one cart with two delivery dates breaks Shopify
 

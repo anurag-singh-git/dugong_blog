@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-bulk-edit-product-prices-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-06-28" />
-    <meta property="article:modified_time" content="2026-08-12" />
+    <meta property="article:modified_time" content="2026-10-27" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-bulk-edit-product-prices-on-shopify.html",
       "headline": "How to bulk edit product prices on Shopify",
+      "abstract": "Shopify's bulk editor puts the price field into a grid and brings no arithmetic with it. There is no add ten percent, no add two dollars, no round every price to end in .99, so you work out each new number yourself and type it, fifty products to a page, with variant prices edited apart from the parent product.",
       "description": "A supplier cost went up, a tariff landed, or you decided to protect your margin, and now every price in the catalog needs to move. Shopify's bulk editor shows 50 products at a time and has no math, so you calculate and type each new price by hand. The CSV export and import route works but turns you into a spreadsheet clerk and risks overwriting fields, the Markets percentage adjustment is all-or-nothing for a whole market rather than a selective reprice of your base catalog, and Shopify Flow has no action that edits a price at all. The AI playbook that reprices by rule, applies your rounding, keeps compare-at honest across variants, and holds the outliers for a human.",
       "datePublished": "2026-06-28",
-      "dateModified": "2026-08-12",
+      "dateModified": "2026-10-27",
       "articleSection": "Research",
       "keywords": "Shopify bulk price change, bulk edit prices Shopify, increase all prices by percentage Shopify, Shopify bulk editor 50 products, change prices in bulk Shopify, repricing Shopify, percentage price increase Shopify, Shopify CSV price update, bulk price editor app, compare at price Shopify",
-      "wordCount": 2446,
+      "wordCount": 2633,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -108,6 +109,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -741,11 +743,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>◆ DISPATCH Nº 70 &middot; JUN 28, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,446 WORDS</span>
+    <span>◆ 9 MIN READ · 2,633 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
     <span>◆ DISPATCH Nº 70 &middot; JUN 28, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,446 WORDS</span>
+    <span>◆ 9 MIN READ · 2,633 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -832,6 +834,31 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       Shopify will store a price on every variant all day long. It just
       <em>will not do the math</em> to change them all at once.
     </blockquote>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Shopify's bulk editor puts the price field into a grid and brings no arithmetic with it. There
+        is no add ten percent, no add two dollars, no round every price to end in .99, so you work out
+        each new number yourself and type it, fifty products to a page, with variant prices edited
+        apart from the parent product.
+      </p>
+
+      <p>
+        The two native alternatives each cover half of it. A CSV export supplies the formula and makes
+        a spreadsheet the source of truth for your live storefront, where one stray column can
+        overwrite descriptions or inventory on import. The percentage price adjustment under Markets
+        applies a single figure to a whole market rather than a selection of your home catalog.
+      </p>
+
+      <p>
+        Flow cannot set a price at all, so it can tell you a cost moved and never act on it. The part
+        that was hard stays hard: deciding which products the change is really for, computing from
+        cost or from the current price depending on the change, and moving or clearing compare-at so a
+        rise does not read as a <em>discount that never existed</em>.
+      </p>
+    </div>
 
     <h2>Why repricing by hand is a tax that scales with your catalog</h2>
 

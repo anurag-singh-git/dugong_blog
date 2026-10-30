@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-02" />
-    <meta property="article:modified_time" content="2026-08-14" />
+    <meta property="article:modified_time" content="2026-10-27" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-combine-multiple-orders-from-the-same-customer-on-shopify.html",
       "headline": "How to combine multiple orders from the same customer on Shopify",
+      "abstract": "Shopify has no merge feature, and Shopify Flow cannot do it either. An order is a fixed financial record: it owns its payment capture, its tax calculation, its discounts, its fulfillment history and its audit trail. A merge would have to settle the fate of two charges, two tax lines, two fulfillment histories and two sets of analytics at once.",
       "description": "A repeat customer places a second order before the first one ships, so what should have gone in one box is now two orders, two shipping labels, and two delivery charges the customer paid twice. Combining orders is one of the most-requested things Shopify still does not do natively, because it treats every order as a fixed financial record and merging would break payment, tax, analytics, and fulfillment history. The official workaround is a manual draft-order routine: rebuild the line items of both orders into a single draft, prepare one label, add the tracking to the originals, refund the duplicate shipping, and cancel the originals so inventory stays accurate. Shopify Flow cannot merge orders either. The AI playbook that notices two unfulfilled orders from the same customer to the same address, confirms they can safely combine, ships one parcel, refunds the extra shipping, keeps inventory and records straight, and tells the customer once.",
       "datePublished": "2026-07-02",
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-10-27",
       "articleSection": "Research",
       "keywords": "Shopify combine orders, merge orders Shopify, Shopify merge multiple orders, combine shipping Shopify, Shopify duplicate orders same customer, consolidate orders Shopify, second order before first ships, refund duplicate shipping Shopify, Shopify draft order merge",
-      "wordCount": 2170,
+      "wordCount": 2355,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -108,6 +109,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -736,11 +738,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>◆ DISPATCH Nº 74 &middot; JUL 2, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,170 WORDS</span>
+    <span>◆ 9 MIN READ · 2,355 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
     <span>◆ DISPATCH Nº 74 &middot; JUL 2, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,170 WORDS</span>
+    <span>◆ 9 MIN READ · 2,355 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -823,6 +825,31 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       they should ship together. <em>Shopify is the only one in the room that
       cannot merge them.</em>
     </blockquote>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Shopify has no merge feature, and Shopify Flow cannot do it either. An order is a fixed
+        financial record: it owns its payment capture, its tax calculation, its discounts, its
+        fulfillment history and its audit trail. A merge would have to settle the fate of two charges,
+        two tax lines, two fulfillment histories and two sets of analytics at once.
+      </p>
+
+      <p>
+        So the accepted answer is a procedure rather than a setting. You build a draft order holding
+        the line items of both, finalize it, buy one label for it, add that tracking back onto the two
+        originals, refund the shipping the customer paid twice, then cancel the originals and restock
+        their items so your inventory is not counted twice.
+      </p>
+
+      <p>
+        That is six or seven deliberate steps across several screens, and it is also a race, because
+        combining only works while both orders are unfulfilled and a busy day picks orders in minutes.
+        Same address is not sufficient grounds either: a shared building, a gift going to one place,
+        or a second order on a <em>paid express upgrade</em> all mean leave them apart.
+      </p>
+    </div>
 
     <h2>Why Shopify won't combine orders for you</h2>
 

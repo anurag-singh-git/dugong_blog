@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
 <link rel="alternate" type="text/markdown" href="/md/how-to-automatically-hide-sold-out-variants-on-shopify.md" title="Markdown version for answer engines" />
 <meta property="article:published_time" content="2026-07-03" />
-    <meta property="article:modified_time" content="2026-08-12" />
+    <meta property="article:modified_time" content="2026-10-27" />
 <meta property="article:author" content="Priya Singh" />
 <meta property="article:section" content="Research" />
 
@@ -55,12 +55,13 @@
       "mainEntityOfPage": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html",
       "url": "https://blog.dugong.live/how-to-automatically-hide-sold-out-variants-on-shopify.html",
       "headline": "How to automatically hide sold-out variants on Shopify",
+      "abstract": "Shopify has no setting that hides a variant once it sells out. It holds the variant list as part of the product's structure rather than a live view of what is buyable now, so every size and color you created keeps rendering, marked Sold Out or Unavailable and often greyed out or struck through.",
       "description": "When a size or color sells out, Shopify keeps the variant on the product page, shown as Sold Out or Unavailable and often grayed out, sitting right next to the variants that are in stock. Shoppers who select it read Sold Out, assume the whole product is unavailable, and leave, which quietly costs conversion on the items you can still sell. Shopify has no native setting to hide unavailable variants: disabling continue selling stops the purchase but still displays the variant, and the only real options are editing the theme's Liquid by hand, which is brittle and breaks on theme updates and gets much harder once size and color combine, or installing a third-party app. This is one of the most-repeated requests in Shopify merchant communities. The AI playbook that detects a variant hitting zero, hides it from the storefront without unpublishing the product, keeps the in-stock variants and the product page live, captures the demand on the hidden ones, and brings the variant back the moment stock returns.",
       "datePublished": "2026-07-03",
-      "dateModified": "2026-08-12",
+      "dateModified": "2026-10-27",
       "articleSection": "Research",
       "keywords": "Shopify hide sold out variants, hide out of stock variants Shopify, Shopify hide unavailable variants, hide sold out options Shopify, Shopify variant dropdown sold out, remove sold out sizes Shopify, hide out of stock variant automatically Shopify",
-      "wordCount": 2220,
+      "wordCount": 2401,
       "timeRequired": "PT9M",
       "inLanguage": "en",
       "isAccessibleForFree": true,
@@ -108,6 +109,7 @@
         "@type": "SpeakableSpecification",
         "cssSelector": [
           ".article-title",
+          ".short-answer",
           ".faq"
         ]
       },
@@ -729,11 +731,11 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="ticker-track">
     <span>◆ DISPATCH Nº 75 &middot; JUL 3, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,220 WORDS</span>
+    <span>◆ 9 MIN READ · 2,401 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
     <span>◆ DISPATCH Nº 75 &middot; JUL 3, 2026</span>
     <span>◆ FILED UNDER: RESEARCH · SHOPIFY</span>
-    <span>◆ 9 MIN READ · 2,220 WORDS</span>
+    <span>◆ 9 MIN READ · 2,401 WORDS</span>
     <span>◆ BY PRIYA SINGH</span>
   </div>
 </div>
@@ -815,6 +817,32 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       sizes that were in stock never got a look, because Sold Out reads as the
       whole product being over.</em>
     </blockquote>
+
+    <div class="short-answer" id="short-answer">
+      <h2>The short answer</h2>
+
+      <p>
+        Shopify has no setting that hides a variant once it sells out. It holds the variant list as
+        part of the product's structure rather than a live view of what is buyable now, so every size
+        and color you created keeps rendering, marked Sold Out or Unavailable and often greyed out or
+        struck through.
+      </p>
+
+      <p>
+        The two settings that look like they should help do not. Turning off continue selling when out
+        of stock prevents the purchase and still leaves the variant on the page. The newer unlisted
+        status hides a whole product rather than one variant, which is the wrong instrument the moment
+        everything else on the product is still selling.
+      </p>
+
+      <p>
+        That leaves theme code or an app. A Liquid edit is tidy on a single option and genuinely
+        fiddly once size and color combine, because a color is only truly gone when every size inside
+        it is out, and the customization goes with the next theme update. Deleting the variant is
+        worse, since the SKU history, the barcode and any <em>back-in-stock signup</em> pointing at it
+        go too.
+      </p>
+    </div>
 
     <h2>Why Shopify keeps showing a variant you can't buy</h2>
 

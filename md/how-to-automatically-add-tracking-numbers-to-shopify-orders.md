@@ -5,9 +5,9 @@
 - Canonical: https://blog.dugong.live/how-to-automatically-add-tracking-numbers-to-shopify-orders.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-27
-- Updated: 2026-08-13
+- Updated: 2026-10-27
 - Section: Research
-- Word count: 2316
+- Word count: 2491
 - Dispatch: Nº 69 · Research · 9 min read
 - Full headline on page: How to *automatically add tracking numbers* to Shopify orders
 - Keywords: Shopify mark as fulfilled, add tracking number Shopify, auto fulfill Shopify orders, bulk fulfill orders Shopify, import tracking numbers CSV Shopify, dropshipping fulfillment tracking, supplier tracking numbers Shopify, Shopify Flow fulfill order, third party fulfillment tracking sync, fulfillment automation Shopify
@@ -20,6 +20,14 @@ Picture the part of the day no one puts on a roadmap. A supplier emails a list o
 This is one of the most common operational complaints in the merchant forums, and it almost always sounds the same. Someone is fulfilling through one or several suppliers, the tracking comes back by email or CSV, and they want to know how to stop pasting it in by hand. The replies point at a bulk fulfill button that still needs the numbers, a CSV importer that still needs the file built, or a paid app that does one supplier's format. The merchant is not asking for anything exotic. They want the obvious thing a store that ships through suppliers needs: when a tracking number comes in, put it on the right order, mark it shipped, and tell the customer. The platform that runs the whole store leaves that last mile to a human with a mouse.
 
 > Shopify will take the order all day long. It just *will not finish it* for you when the tracking comes back.
+
+## The short answer
+
+Shopify auto-fulfills narrow cases only: an order that is entirely digital, or one whose items a connected fulfillment service owns and pushes its own tracking back into. For a self-shipped order, or one you forward to a supplier whose tracking lands in your inbox, you open the order and enter the number yourself.
+
+Bulk fulfill and the CSV route both leave the matching with you. Bulk fulfill marks many orders shipped and still wants each tracking number attached to its own order. The CSV has to be assembled by hand, pairing every order reference with the number and carrier that belong to it, so the matching has only moved into a spreadsheet.
+
+Flow has no action that fulfills an order with a given tracking number and carrier, so the step that actually ships it is the step it cannot take. And where the items sit at a third-party fulfillment location, Shopify withholds the mark as fulfilled button altogether, so a silent service leaves you *moving items between locations* to ship them yourself.
 
 ## Why pasting tracking by hand is a tax on every order
 
