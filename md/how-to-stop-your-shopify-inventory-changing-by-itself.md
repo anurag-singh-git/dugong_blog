@@ -11,6 +11,7 @@
 - Dispatch: Nº 112 · Research · 11 min read
 - Full headline on page: How to stop your Shopify inventory *changing by itself*
 - Keywords: shopify inventory changed by itself, inventory keeps changing, inventory reset to zero, inventory increasing on its own, stock count wrong, adjustment history, who changed my inventory, phantom inventory, inventory audit trail, AI inventory monitoring
+- Entities: Inventory (https://www.wikidata.org/wiki/Q815410); Phantom inventory (https://www.wikidata.org/wiki/Q7180610); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

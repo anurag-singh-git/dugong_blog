@@ -5,12 +5,13 @@
 - Canonical: https://blog.dugong.live/how-to-automate-returns-and-exchanges-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-09
-- Updated: 2026-08-10
+- Updated: 2026-10-31
 - Section: Research
-- Word count: 1820
+- Word count: 2019
 - Dispatch: Nº 54 · Research · 9 min read
 - Full headline on page: How to *automate returns and exchanges* on Shopify
 - Keywords: Shopify returns automation, automate return approval, Shopify exchanges, return management, exchanges vs refunds, store credit Shopify, self-serve returns, return policy automation
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); E-commerce (https://www.wikidata.org/wiki/Q484847); Business process automation (https://www.wikidata.org/wiki/Q5001911)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -20,6 +21,14 @@ Open any merchant subreddit or the Shopify community forums and you will find th
 That last part is what makes returns different from most support pains. A good week makes them worse. The more you sell, the more comes back, and the bigger the queue you wade through every morning. For a store doing real volume, returns stop being an occasional chore and become a standing line item on someone's day.
 
 > Returns are the one workflow that grows in exact proportion to your success. The better the month, the longer the queue. Anything you do by hand here, you have signed up to do *forever*.
+
+## The short answer
+
+Nothing in Shopify auto-approves a return. Self-serve returns let a customer request one from their order page, and you can generate a return label and issue the refund from the admin, but every request waits for you to approve or decline it by hand, and Flow cannot fully automate that step either.
+
+The costlier gap is the exchange. A customer cannot request one through self-serve returns and you cannot write exchange-specific rules, so getting somebody a different size generally means refunding or cancelling the original order and building a new one yourself. Around 45 percent of returns trace back to sizing, fit or color, which is the whole argument for a swap, and the refund is the path of least resistance.
+
+The policy controls are thin on top of that. Return windows key off delivery date and product and little else, so a real policy that turns on order tags, customer type or whether the item was discounted gets enforced in your head while you click through the queue. Refunds also go back only to the original payment method, which leaves store credit, the option that keeps the money in your store, as *a manual step of its own*.
 
 ## How big the pile actually is
 
@@ -91,7 +100,7 @@ If your returns queue has become a standing item on someone's morning, this is t
 
 Describe it the way you would brief a careful returns hire on day one: here is how to find the order, here is what we will and will not take back and for how long, here is when to offer an exchange or credit instead of a refund, here is how to settle the difference, and here is when to stop and flag it for me. That is the whole brief. The compiler does the reading, the approving, and the swapping. You keep your attention for the returns that truly need it. A smooth returns experience is also what brings people back: shoppers who have an easy return are far more likely to buy again, which is the quiet upside of getting this right.
 
-> **◆ READING** If this resonates, two companion pieces: our field study on [the Shopify automations no one builds](https://blog.dugong.live/best-shopify-automations-to-set-up.html) (where returns are under 1 percent of what merchants automate, despite scaling with every sale), and the dispatch on [the overselling problem no one automates](https://blog.dugong.live/how-to-prevent-overselling-on-shopify-across-channels.html).
+> **◆ READING** If this resonates, two companion pieces: our field study on [the Shopify automations no one builds](https://blog.dugong.live/best-shopify-automations-to-set-up.html) (where returns are under 1 percent of what merchants automate, despite scaling with every sale), and the dispatch on [the overselling problem no one automates](https://blog.dugong.live/how-to-prevent-overselling-on-shopify-across-channels.html). Also new: [the box that held the wrong thing](https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html), on the return you cause yourself and cannot prove either way.
 
 If you are a Shopify merchant who has built a returns playbook that finally tamed the queue, or you have a refund-instead-of-exchange story that still stings, the inbox is open: `field-notes@dugong.live`. We are collecting case studies for the next issue.
 

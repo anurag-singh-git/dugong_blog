@@ -11,6 +11,7 @@
 - Dispatch: Nº 79 · Research · 9 min read
 - Full headline on page: How to automatically *split and route* Shopify orders to multiple suppliers
 - Keywords: Shopify split order by vendor, Shopify route order to supplier, Shopify multi-vendor fulfillment, Shopify split order multiple suppliers, Shopify dropship order routing, Shopify send purchase order to supplier, Shopify vendor split, Shopify split fulfillment, Shopify 3PL order routing
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Drop shipping (https://www.wikidata.org/wiki/Q1542702); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

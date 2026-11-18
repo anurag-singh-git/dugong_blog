@@ -43,15 +43,49 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#article",
+      "@type": "WebPage",
+      "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#webpage",
+      "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html",
+      "name": "How to restrict Shopify products from shipping to certain states",
+      "inLanguage": "en",
       "isPartOf": {
-        "@type": "Blog",
-        "@id": "https://blog.dugong.live/#blog",
+        "@type": "WebSite",
+        "@id": "https://blog.dugong.live/#website",
         "name": "Dugong Field Notes",
         "url": "https://blog.dugong.live/"
       },
-      "mainEntityOfPage": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html",
+      "primaryImageOfPage": {
+        "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#primaryimage"
+      },
+      "mainEntity": {
+        "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#article"
+      },
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-10-24",
+      "breadcrumb": {
+        "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#article",
+      "isPartOf": [
+        {
+          "@type": "Blog",
+          "@id": "https://blog.dugong.live/#blog",
+          "name": "Dugong Field Notes",
+          "url": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-shipping-and-fulfillment-automation.html#collection",
+          "name": "Shopify shipping and fulfillment automation",
+          "url": "https://blog.dugong.live/shopify-shipping-and-fulfillment-automation.html"
+        }
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#webpage"
+      },
       "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html",
       "headline": "How to restrict Shopify products from shipping to certain states",
       "abstract": "Shopify restricts shipping by zone, and a zone belongs to the whole store, so unchecking Idaho stops every product reaching Idaho. No field on a product says where that product may not go. The only product-level lever is the shipping profile, and you get up to 99 custom ones, so you move the restricted items into a profile of their own and leave the banned states with no rate at all.",
@@ -66,6 +100,7 @@
       "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
+        "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#primaryimage",
         "url": "https://blog.dugong.live/og-image.png",
         "width": 1200,
         "height": 630
@@ -73,6 +108,7 @@
       "about": [
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q626741",
           "name": "Regulatory compliance",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Regulatory_compliance",
@@ -81,6 +117,7 @@
         },
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q651658",
           "name": "Shipping",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Freight_transport",
@@ -89,6 +126,7 @@
         },
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q7501150",
           "name": "Shopify",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Shopify",
@@ -185,44 +223,88 @@
     {
       "@type": "FAQPage",
       "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq",
+      "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-heading",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q626741"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q651658"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-10-24",
       "mainEntity": [
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-1",
+          "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-1",
           "name": "Can I stop one Shopify product from shipping to certain states?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-1-answer",
+            "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-1-answer",
             "text": "Not directly, and that is the whole problem. Shopify restricts shipping with zones, and a zone belongs to the store, so unchecking Idaho stops every product going there, not just the one that is restricted. The only product-level lever is a shipping profile, which is a set of shipping rules for specific products and locations. You move the restricted items into their own profile and simply give that profile no rate for the states in question, which makes the restriction an absence rather than a rule. That is the answer a Shopify moderator gave on June 18, 2021 to a merchant who needed to keep CBD out of four states, and the same answer merchants were still passing around in 2026. It works only while the restricted item is alone in the cart. There is no field on a product that says where it may not go, no report of which products are blocked where, and nothing that tells you when a rule changed."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-2",
+          "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-2",
           "name": "Why does Shopify charge shipping twice when I use two shipping profiles?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-2-answer",
+            "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-2-answer",
             "text": "Because that is what Shopify does by design when one cart draws from more than one profile. The documentation is explicit: the separate shipping rates for each product are combined and a single shipping rate is displayed to your customer at checkout, and rates with the same name are added together, even those in different shipping profiles. Add together is the operative phrase. A cart with one item from your general profile and one from your restricted profile gets the sum of two rates, not the higher of them. A merchant put it flatly on May 8, 2023: charging twice as it's the default shopify behavior, it cannot be changed. Another merchant reported in June 2024 that customers get double-charged shipping and added, after talking to Shopify Support they have no solution. The usual workaround is to name the rates identically and hope the arithmetic lands somewhere defensible, or to apply a discount equal to the smaller rate, which is a coupon covering a bug."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-3",
+          "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-3",
           "name": "Can Shopify block shipping to a specific ZIP code or county?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-3-answer",
+            "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-3-answer",
             "text": "Not natively. Shopify zones are built from countries and their states or provinces, and they stop there. A merchant asked on October 22, 2025 how to exclude specific areas within states, and the reply the next day was direct: Shopify's native shipping zones only let you include or exclude entire states or countries, so there isn't a way to blacklist specific postcodes without using a workaround. A second reply put it the same way, that Shopify only lets you block shipping at the state level. This matters more than it sounds, because several real restrictions are drawn below the state line. Six states restrict direct shipment of alcohol into dry territory, and those boundaries follow townships, precincts and county votes rather than ZIP codes or city limits, so a postcode list is an approximation that a single local election can invalidate. Getting below the state line means resolving the address against the boundary that actually governs it, which is work no shipping zone was designed to do."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-4",
+          "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-4",
           "name": "Can Shopify Flow stop an order to a restricted state before it is placed?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-4-answer",
+            "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-4-answer",
             "text": "No. Flow is an order-level automation that runs after the order exists, so the earliest it can act is to tag, hold or cancel an order you have already accepted and, in most setups, already charged. For a compliance restriction that is the wrong side of the line: you did not prevent the sale, you made a record of it and then wrote to the customer. The surface that can actually stop a checkout is a cart and checkout validation function, which runs on Shopify's servers and can block checkout progress when business rules are not met, with preventing shipping to restricted locations named as an example use. It is app territory rather than a setting, it needs the logic written and maintained, and it needs something to tell it which products are restricted where. The validation function is the enforcement point. It is not the answer to what the rule should be today."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-5",
+          "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-5",
           "name": "Can AI handle state shipping restrictions on a Shopify store?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-5-answer",
+            "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#faq-5-answer",
             "text": "Yes, because the hard parts of this job are reading and matching, not enforcement. There are three of them. Classifying the catalog: deciding that this tin is a hemp product, that bottle is a spirit and that folding knife is blade-length restricted, read from titles, descriptions, ingredients and supplier sheets rather than from a tag somebody remembered to add. Resolving the destination below the state line when the rule is drawn by county or township. Keeping the rule set current, which is the part that quietly rots, since state law changes on its own schedule and the federal hemp THC restrictions alone moved from November 12, 2026 to December 11, 2026 on a bill passed on September 1, 2026. An automation like Dugong holds those rules in plain language, classifies every new product as it is saved, checks each cart line by line so only the restricted line is blocked and the rest of the basket still checks out, writes the explanation the customer sees, and logs every block against the rule and the date that caused it. The honest limits: it will not tell you whether you hold the license a state requires, and a rule change needs a human to accept it before it starts refusing orders."
           }
         }
@@ -231,9 +313,35 @@
     {
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#howto",
+      "url": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#playbook",
       "name": "The order from a state you cannot ship to",
       "description": "The AI playbook for restricting Shopify products by destination when the platform restricts only by zone: classifying every product once against the rules that touch it, resolving each shipping address below the state line, checking the cart line by line instead of as one basket, blocking only the restricted lines so the rest of the order still completes, explaining the block in the customer's own terms at the point of failure, re-reading the rule set nightly so a law change is an edit rather than an incident, and logging every block against the rule and date that caused it.",
       "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q626741"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q651658"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "image": {
+        "@id": "https://blog.dugong.live/how-to-restrict-shopify-products-from-shipping-to-certain-states.html#primaryimage"
+      },
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-10-24",
       "totalTime": "PT9M",
       "step": [
         {
@@ -333,7 +441,8 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 105px; }
+@media (min-width: 821px) { html { scroll-padding-top: 78px; } }
 
 body {
   background: var(--bg);
@@ -497,7 +606,7 @@ em { font-style: italic; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
 .article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
-.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; overflow-wrap: break-word; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 57%, var(--lime) 57%, var(--lime) 81%, transparent 81%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .article-title em::after { content: none; }
@@ -515,7 +624,10 @@ em { font-style: italic; }
 .article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
-.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+/* QA 2026-11-17: white-space/overflow-wrap added. 6 playbooks ran 8px past the
+   content box, making an unreachable-by-keyboard scroll region (WCAG 2.1.1).
+   The <=820px rule below has wrapped these since they were written. */
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; white-space: pre-wrap; overflow-wrap: break-word; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
 
 @media (max-width: 560px) {
   .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
@@ -537,6 +649,9 @@ em { font-style: italic; }
 .callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
 .callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
 .callout-sand .callout-mark { color: var(--pink); }
+.short-answer { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--lime-deep); border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2.25rem 0 2.75rem; }
+.article-body .short-answer h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; line-height: 1.2; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime-deep); margin: 0 0 1rem; }
+.article-body .short-answer p:last-child { margin-bottom: 0; }
 .callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
 
 .article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -664,6 +779,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
    lines, and one callout ran the page 7px wide. Stack below 700px. */
 @media (max-width: 700px) {
   .callout { flex-direction: column; gap: 0.55rem; }
+  .short-answer { padding: 1.2rem 1.25rem; margin: 2rem 0 2.25rem; border-radius: 10px; }
   .callout-mark { padding-top: 0; }
 }
 </style>
@@ -733,6 +849,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 /* cards inside a closed disclosure never meet the IntersectionObserver that
    clears .reveal, so they would open at opacity 0. */
 .related-more .reveal { opacity: 1; transform: none; }
+
 </style>
 </head>
 <body>
@@ -816,7 +933,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <div class="short-answer" id="short-answer">
-      <h2>The short answer</h2>
+      <h2 id="h-the-short-answer">The short answer</h2>
 
       <p>
         Shopify restricts shipping by zone, and a zone belongs to the whole store, so unchecking Idaho stops every product reaching Idaho. No field on a product says where that product may not go. The only product-level lever is the shipping profile, and you get up to 99 custom ones, so you move the restricted items into a profile of their own and leave the banned states with no rate at all.
@@ -831,7 +948,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </p>
     </div>
 
-    <h2>Shopify restricts by zone, not by product</h2>
+    <h2 id="h-shopify-restricts-by-zone-not-by-product">Shopify restricts by zone, not by product</h2>
 
     <p>
       Shipping in Shopify is organized around zones. A zone is
@@ -873,7 +990,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       six months from now.
     </p>
 
-    <h2>The workaround, and the two ways it breaks</h2>
+    <h2 id="h-the-workaround-and-the-two-ways-it-breaks">The workaround, and the two ways it breaks</h2>
 
     <p>
       This approach has been the standing recommendation for
@@ -933,7 +1050,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       the name of a paid app.
     </p>
 
-    <h2>The community record</h2>
+    <h2 id="h-the-community-record">The community record</h2>
 
     <p>
       Laid end to end, the threads read like one conversation
@@ -979,7 +1096,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </span>
     </div>
 
-    <h2>The map moves faster than the setting</h2>
+    <h2 id="h-the-map-moves-faster-than-the-setting">The map moves faster than the setting</h2>
 
     <p>
       Even a perfectly built profile is a photograph of the
@@ -1028,7 +1145,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       only one of them has a settings page.
     </blockquote>
 
-    <h2>What a real check has to know</h2>
+    <h2 id="h-what-a-real-check-has-to-know">What a real check has to know</h2>
 
     <p>
       Strip away the workarounds and the job has four inputs,
@@ -1070,7 +1187,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       what the rules are.
     </p>
 
-    <h2>What the automation actually has to do</h2>
+    <h2 id="h-what-the-automation-actually-has-to-do">What the automation actually has to do</h2>
 
     <p>
       As a Dugong playbook, in plain prose:
@@ -1143,7 +1260,7 @@ catalog and rules pass
       enforce.
     </p>
 
-    <h2>Why this is a compiler problem, not an app problem</h2>
+    <h2 id="h-why-this-is-a-compiler-problem-not-an-app-problem">Why this is a compiler problem, not an app problem</h2>
 
     <p>
       Every app in these threads solves one slice. Some hide
@@ -1176,7 +1293,7 @@ catalog and rules pass
       table.
     </p>
 
-    <h2>The workflow worth building this week</h2>
+    <h2 id="h-the-workflow-worth-building-this-week">The workflow worth building this week</h2>
 
     <p>
       Start narrow. Take the one product category that
@@ -1235,34 +1352,157 @@ catalog and rules pass
   <div class="faq-list">
     <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Can I stop one Shopify product from shipping to certain states?</h2>
-      <p class="faq-a">Not directly, and that is the whole problem. Shopify restricts shipping with zones, and a zone belongs to the store, so unchecking Idaho stops every product going there, not just the one that is restricted. The only product-level lever is a shipping profile, which is a set of shipping rules for specific products and locations. You move the restricted items into their own profile and simply give that profile no rate for the states in question, which makes the restriction an absence rather than a rule. That is the answer a Shopify moderator gave on June 18, 2021 to a merchant who needed to keep CBD out of four states, and the same answer merchants were still passing around in 2026. It works only while the restricted item is alone in the cart. There is no field on a product that says where it may not go, no report of which products are blocked where, and nothing that tells you when a rule changed.</p>
+      <p class="faq-a" id="faq-1-answer">Not directly, and that is the whole problem. Shopify restricts shipping with zones, and a zone belongs to the store, so unchecking Idaho stops every product going there, not just the one that is restricted. The only product-level lever is a shipping profile, which is a set of shipping rules for specific products and locations. You move the restricted items into their own profile and simply give that profile no rate for the states in question, which makes the restriction an absence rather than a rule. That is the answer a Shopify moderator gave on June 18, 2021 to a merchant who needed to keep CBD out of four states, and the same answer merchants were still passing around in 2026. It works only while the restricted item is alone in the cart. There is no field on a product that says where it may not go, no report of which products are blocked where, and nothing that tells you when a rule changed.</p>
     </div>
     <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Why does Shopify charge shipping twice when I use two shipping profiles?</h2>
-      <p class="faq-a">Because that is what Shopify does by design when one cart draws from more than one profile. The documentation is explicit: the separate shipping rates for each product are combined and a single shipping rate is displayed to your customer at checkout, and rates with the same name are added together, even those in different shipping profiles. Add together is the operative phrase. A cart with one item from your general profile and one from your restricted profile gets the sum of two rates, not the higher of them. A merchant put it flatly on May 8, 2023: charging twice as it's the default shopify behavior, it cannot be changed. Another merchant reported in June 2024 that customers get double-charged shipping and added, after talking to Shopify Support they have no solution. The usual workaround is to name the rates identically and hope the arithmetic lands somewhere defensible, or to apply a discount equal to the smaller rate, which is a coupon covering a bug.</p>
+      <p class="faq-a" id="faq-2-answer">Because that is what Shopify does by design when one cart draws from more than one profile. The documentation is explicit: the separate shipping rates for each product are combined and a single shipping rate is displayed to your customer at checkout, and rates with the same name are added together, even those in different shipping profiles. Add together is the operative phrase. A cart with one item from your general profile and one from your restricted profile gets the sum of two rates, not the higher of them. A merchant put it flatly on May 8, 2023: charging twice as it's the default shopify behavior, it cannot be changed. Another merchant reported in June 2024 that customers get double-charged shipping and added, after talking to Shopify Support they have no solution. The usual workaround is to name the rates identically and hope the arithmetic lands somewhere defensible, or to apply a discount equal to the smaller rate, which is a coupon covering a bug.</p>
     </div>
     <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Can Shopify block shipping to a specific ZIP code or county?</h2>
-      <p class="faq-a">Not natively. Shopify zones are built from countries and their states or provinces, and they stop there. A merchant asked on October 22, 2025 how to exclude specific areas within states, and the reply the next day was direct: Shopify's native shipping zones only let you include or exclude entire states or countries, so there isn't a way to blacklist specific postcodes without using a workaround. A second reply put it the same way, that Shopify only lets you block shipping at the state level. This matters more than it sounds, because several real restrictions are drawn below the state line. Six states restrict direct shipment of alcohol into dry territory, and those boundaries follow townships, precincts and county votes rather than ZIP codes or city limits, so a postcode list is an approximation that a single local election can invalidate. Getting below the state line means resolving the address against the boundary that actually governs it, which is work no shipping zone was designed to do.</p>
+      <p class="faq-a" id="faq-3-answer">Not natively. Shopify zones are built from countries and their states or provinces, and they stop there. A merchant asked on October 22, 2025 how to exclude specific areas within states, and the reply the next day was direct: Shopify's native shipping zones only let you include or exclude entire states or countries, so there isn't a way to blacklist specific postcodes without using a workaround. A second reply put it the same way, that Shopify only lets you block shipping at the state level. This matters more than it sounds, because several real restrictions are drawn below the state line. Six states restrict direct shipment of alcohol into dry territory, and those boundaries follow townships, precincts and county votes rather than ZIP codes or city limits, so a postcode list is an approximation that a single local election can invalidate. Getting below the state line means resolving the address against the boundary that actually governs it, which is work no shipping zone was designed to do.</p>
     </div>
     <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Can Shopify Flow stop an order to a restricted state before it is placed?</h2>
-      <p class="faq-a">No. Flow is an order-level automation that runs after the order exists, so the earliest it can act is to tag, hold or cancel an order you have already accepted and, in most setups, already charged. For a compliance restriction that is the wrong side of the line: you did not prevent the sale, you made a record of it and then wrote to the customer. The surface that can actually stop a checkout is a cart and checkout validation function, which runs on Shopify's servers and can block checkout progress when business rules are not met, with preventing shipping to restricted locations named as an example use. It is app territory rather than a setting, it needs the logic written and maintained, and it needs something to tell it which products are restricted where. The validation function is the enforcement point. It is not the answer to what the rule should be today.</p>
+      <p class="faq-a" id="faq-4-answer">No. Flow is an order-level automation that runs after the order exists, so the earliest it can act is to tag, hold or cancel an order you have already accepted and, in most setups, already charged. For a compliance restriction that is the wrong side of the line: you did not prevent the sale, you made a record of it and then wrote to the customer. The surface that can actually stop a checkout is a cart and checkout validation function, which runs on Shopify's servers and can block checkout progress when business rules are not met, with preventing shipping to restricted locations named as an example use. It is app territory rather than a setting, it needs the logic written and maintained, and it needs something to tell it which products are restricted where. The validation function is the enforcement point. It is not the answer to what the rule should be today.</p>
     </div>
     <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Can AI handle state shipping restrictions on a Shopify store?</h2>
-      <p class="faq-a">Yes, because the hard parts of this job are reading and matching, not enforcement. There are three of them. Classifying the catalog: deciding that this tin is a hemp product, that bottle is a spirit and that folding knife is blade-length restricted, read from titles, descriptions, ingredients and supplier sheets rather than from a tag somebody remembered to add. Resolving the destination below the state line when the rule is drawn by county or township. Keeping the rule set current, which is the part that quietly rots, since state law changes on its own schedule and the federal hemp THC restrictions alone moved from November 12, 2026 to December 11, 2026 on a bill passed on September 1, 2026. An automation like Dugong holds those rules in plain language, classifies every new product as it is saved, checks each cart line by line so only the restricted line is blocked and the rest of the basket still checks out, writes the explanation the customer sees, and logs every block against the rule and the date that caused it. The honest limits: it will not tell you whether you hold the license a state requires, and a rule change needs a human to accept it before it starts refusing orders.</p>
+      <p class="faq-a" id="faq-5-answer">Yes, because the hard parts of this job are reading and matching, not enforcement. There are three of them. Classifying the catalog: deciding that this tin is a hemp product, that bottle is a spirit and that folding knife is blade-length restricted, read from titles, descriptions, ingredients and supplier sheets rather than from a tag somebody remembered to add. Resolving the destination below the state line when the rule is drawn by county or township. Keeping the rule set current, which is the part that quietly rots, since state law changes on its own schedule and the federal hemp THC restrictions alone moved from November 12, 2026 to December 11, 2026 on a bill passed on September 1, 2026. An automation like Dugong holds those rules in plain language, classifies every new product as it is saved, checks each cart line by line so only the restricted line is blocked and the rest of the basket still checks out, writes the explanation the customer sees, and logs every block against the rule and the date that caused it. The honest limits: it will not tell you whether you hold the license a state requires, and a rule change needs a human to accept it before it starts refusing orders.</p>
     </div>
   </div>
   <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
-<section class="related">
+<section class="related" aria-labelledby="related-heading">
   <div class="section-head">
-    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-eyebrow" id="related-heading">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-payments-with-no-order.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The payment that never became an order</h3>
+        <p class="card-dek">
+          Shopify has no screen that lists money received with no order, so you hear about it from the customer. The AI playbook that reconciles both sides daily.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-spot-serial-returners-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The customer who returns two thirds of what they buy</h3>
+        <p class="card-dek">
+          Shopify has no per customer return rate and its own returns metric counts size swaps. The AI playbook that scores the customer, not the order.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-fix-shopify-orders-with-no-phone-number-before-the-label-fails.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The parcel that stops because nobody can call</h3>
+        <p class="card-dek">
+          Shopify's phone setting is all or nothing, so international orders arrive without a number and the label either fails or stalls. The AI playbook that catches them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;16</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-fix-shopify-subscriptions-billing-the-old-price.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The price your subscribers never stopped paying</h3>
+        <p class="card-dek">
+          A subscription contract copies its price, discount and variant on day one and never looks at them again. The AI playbook that finds the drift.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;7</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-fix-shopify-flow-emails-that-never-send.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The email your automation refused to send</h3>
+        <p class="card-dek">
+          Flow's only email action is locked to customers subscribed to marketing, and throws an exception for everyone else. The AI playbook that gets the message out.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;4</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-find-shopify-products-with-no-cost-per-item.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The orders your profit report quietly drops</h3>
+        <p class="card-dek">
+          Shopify leaves orders with no cost per item out of the profit reports altogether, and there is no filter for the blanks. The AI playbook that keeps cost complete.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;2</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-handle-wrong-item-shipped-claims-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The box that held the wrong thing</h3>
+        <p class="card-dek">
+          Shopify stores what was ordered twice and what was packed never, so a wrong item claim has no second record to check. The AI playbook that catches it first.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT&nbsp;31</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+  <details class="related-more">
+    <summary>27 more dispatches in the archive</summary>
+    <div class="related-grid">
 <a href="how-to-chase-overdue-shopify-b2b-invoices.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1279,6 +1519,7 @@ catalog and rules pass
         </div>
       </div>
     </a>
+
 <a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1312,6 +1553,7 @@ catalog and rules pass
         </div>
       </div>
     </a>
+
 <a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1328,6 +1570,7 @@ catalog and rules pass
         </div>
       </div>
     </a>
+
 <a href="how-to-stop-shipping-shopify-orders-with-payment-pending.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1344,6 +1587,7 @@ catalog and rules pass
         </div>
       </div>
     </a>
+
 <a href="how-to-catch-shopify-shipping-labels-you-never-used.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1360,10 +1604,7 @@ catalog and rules pass
         </div>
       </div>
     </a>
-  </div>
-  <details class="related-more">
-    <summary>21 more dispatches in the archive</summary>
-    <div class="related-grid">
+
 <a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="card">
       <div class="card-body">
         <div class="post-meta">

@@ -11,6 +11,7 @@
 - Dispatch: Nº 118 · Research · 10 min read
 - Full headline on page: How to fix Shopify shipping rates that *ignore product dimensions*
 - Keywords: shopify product dimensions, shopify dimensional weight, shopify undercharging shipping, shopify shipping rates wrong at checkout, shopify default package size, shopify carrier calculated shipping, dimensional weight divisor 139, AI shipping automation
+- Entities: Dimensional weight (https://www.wikidata.org/wiki/Q2532935); Freight rate (https://www.wikidata.org/wiki/Q927345); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

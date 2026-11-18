@@ -11,6 +11,7 @@
 - Dispatch: Nº 116 · Research · 10 min read
 - Full headline on page: How to track product expiry dates on Shopify *before the stock goes bad*
 - Keywords: shopify expiry date tracking, shopify product expiration dates, track expiry dates shopify, shopify batch tracking, shopify lot number tracking, shopify flow date metafield, discount expiring products shopify, shopify best before date, AI inventory automation
+- Entities: Shelf life (https://www.wikidata.org/wiki/Q1689021); Inventory (https://www.wikidata.org/wiki/Q815410); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

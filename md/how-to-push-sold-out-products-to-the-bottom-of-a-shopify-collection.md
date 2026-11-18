@@ -5,12 +5,13 @@
 - Canonical: https://blog.dugong.live/how-to-push-sold-out-products-to-the-bottom-of-a-shopify-collection.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-13
-- Updated: 2026-08-16
+- Updated: 2026-10-31
 - Section: Research
-- Word count: 2130
+- Word count: 2316
 - Dispatch: Nº 57 · Research · 9 min read
 - Full headline on page: How to push *sold-out products* to the bottom of a Shopify collection
 - Keywords: Shopify hide out of stock products, sort out of stock to bottom, out of stock collection sort, push down sold out products, Shopify merchandising automation, collection page conversion, hide sold out products, out of stock down sort
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); E-commerce (https://www.wikidata.org/wiki/Q484847); Business process automation (https://www.wikidata.org/wiki/Q5001911)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -20,6 +21,14 @@ Spend an evening in the Shopify community forums or the merchant subreddits and 
 Here is why it is expensive. A collection page is your best salesperson. It is the first real screen a browsing customer sees after they click in from search or an ad, and the products at the top of it carry more weight than anything else on the site. When the first three tiles are grayed-out sold-out badges, you have told a ready buyer, in the most valuable real estate you own, that you are out of what they came for. Most of them will not patiently scroll to the in-stock product further down. They read the top row, decide the store is picked over, and go somewhere else.
 
 > A sold-out product at the top of a collection is a closed sign hung over everything *in stock* behind it.
+
+## The short answer
+
+There is no reliable sort by stock in Shopify. Certain sort options and a little theme code can push sold-out tiles down within one page, but the moment pagination kicks in each page sorts itself in isolation, so the first page reads as a healthy mix while a later page is a wall of sold-out.
+
+The Liquid sort filter carries no inventory quantity parameter, so theme code cannot sort cleanly across a full collection either, which leaves dragging products by hand. The one rule that does work hides rather than demotes: an inventory condition on an automated collection drops the product out altogether, taking its ranking and its back-in-stock signup with it, and it touches neither site search nor the hand-curated collections where merchandising matters most.
+
+Demoting beats hiding for most stores. A storefront that stays honest moves a sold-out item below the in-stock ones while keeping its URL and its notify-me form alive, badges the stock genuinely due back this week instead of burying it, never buries a page you rank for, treats browse and search differently, and restores every position *the moment stock lands*.
 
 ## How big the leak actually is
 

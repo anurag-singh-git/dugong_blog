@@ -11,6 +11,7 @@
 - Dispatch: Nº 95 · Research · 9 min read
 - Full headline on page: How to automatically approve wholesale customers *on Shopify*
 - Keywords: Shopify wholesale customer approval, Shopify B2B account approval, approve wholesale applications Shopify, Shopify company account requests, Shopify Forms wholesale lead capture, restrict access to B2B customers only, Shopify B2B login no registration form, auto approve B2B customers Shopify
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Wholesale (https://www.wikidata.org/wiki/Q220695); Business-to-business (https://www.wikidata.org/wiki/Q325421); B2B e-commerce (https://www.wikidata.org/wiki/Q22906601); Onboarding (https://www.wikidata.org/wiki/Q7091744)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

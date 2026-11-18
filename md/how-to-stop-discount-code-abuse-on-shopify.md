@@ -11,6 +11,7 @@
 - Dispatch: Nº 91 · Research · 10 min read
 - Full headline on page: How to stop *discount code abuse* and code sharing on Shopify
 - Keywords: Shopify discount code abuse, stop discount code sharing Shopify, Shopify one use per customer not working, discount code leaked Honey, single use discount codes Shopify, Shopify discount code same customer multiple emails, influencer code abuse Shopify, Shopify coupon code leak
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Coupon (https://www.wikidata.org/wiki/Q11034548); Affiliate marketing (https://www.wikidata.org/wiki/Q382453); Gross margin (https://www.wikidata.org/wiki/Q11157999); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -26,6 +27,7 @@ Limit to one use per customer is really one use per email address. The restricti
 Nothing in the admin notices a leak. No alert fires when a code's redemption rate jumps tenfold overnight, when almost all of the redemptions come from people who never bought and never saw the post, or when a browser extension auto-applies your code for shoppers who arrived ready to pay full price. The discount report counts redemptions accurately, whenever you decide to go and read it.
 
 A leak is a shape across many orders rather than a property of any one, which is exactly why Flow cannot see it: pace climbing hour over hour, the first-time-buyer share rising, carts clustering at the qualifying minimum, traffic from cities the campaign never ran in. Watch each code against its own normal, and when one goes, retire it for new traffic while still *honoring* it for the people who legitimately hold it.
+
 ## What Shopify actually does, and where it stops
 
 Shopify gives you two real controls, and it is worth being precise about what each one does. The first is a cap on total redemptions, which limits how expensive the leak gets but not whether it happens, and which is blunt in the wrong direction: set it at 1,000 and a leaked code burns through your best customers' goodwill for a thousand orders before it stops. The second is limit to one use per customer, which sounds like identity and is actually string matching. Shopify ties the restriction to the customer record on the checkout, and that record comes from the email typed into the form. A second inbox is a second customer. A plus-addressed alias is a second customer. Guest checkout under a work address is a second customer. The setting reliably stops the honest shopper who tried to reuse a code and reliably fails against anyone who did not want to be stopped, which is the same shape of problem as [the per-customer purchase limit that resets every order](https://blog.dugong.live/how-to-limit-purchase-quantity-per-customer-on-shopify.html).

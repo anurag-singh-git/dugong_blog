@@ -5,12 +5,13 @@
 - Canonical: https://blog.dugong.live/how-to-set-up-an-abandoned-cart-email-sequence-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-14
-- Updated: 2026-08-07
+- Updated: 2026-10-31
 - Section: Research
-- Word count: 2250
+- Word count: 2446
 - Dispatch: Nº 58 · Research · 9 min read
 - Full headline on page: How to set up an *abandoned cart email sequence* on Shopify
 - Keywords: Shopify abandoned cart recovery, abandoned checkout email, cart abandonment, abandoned cart email sequence, one-page checkout email capture, Shopify cart recovery automation, abandoned cart SMS, abandoned checkout automation
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); E-commerce (https://www.wikidata.org/wiki/Q484847); Business process automation (https://www.wikidata.org/wiki/Q5001911)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -20,6 +21,14 @@ Read enough merchant subreddits and Shopify community threads and a quiet kind o
 Here is why it is expensive. An abandoned cart is the warmest signal in ecommerce. The shopper did not just browse, they chose the product, added it, and walked right up to the register before something stopped them. They are not a cold lead you have to convince from scratch. They are a sale that got interrupted. You already paid the ad cost, the content cost, and the discount math to bring them this far. Recovering that cart is the cheapest revenue you will touch all month, and Shopify treats it as one automatic email and a shrug.
 
 > A filled cart that gets one email is a sale you already paid for and then decided *not* to ask for twice.
+
+## The short answer
+
+Shopify sends one abandoned checkout email, not a sequence. The native automation records the abandonment reliably and fires a single recovery message on one of a few preset timers, with no second touch and no branching, so there is no way to say send again tomorrow and only add an incentive on the third try.
+
+That one email is also the same email for everyone. Shopify has no sense of who it is writing to or why the cart was left, so the first-time visitor who balked at the shipping cost and the repeat customer who simply got interrupted receive identical copy and the same offer. Matching the message to the reason is the strongest lever in recovery and the one the native tool cannot pull.
+
+Since most stores moved to one-page checkout, contact details are often only saved once the shopper completes the whole page, so a cart left partway can land in the list with no email and no phone and nothing to send to. Plus merchants can switch back to three-page checkout and lower plans currently cannot, which is why a recovery rate that drops suddenly is *worth an alert of its own*.
 
 ## How big the leak actually is
 

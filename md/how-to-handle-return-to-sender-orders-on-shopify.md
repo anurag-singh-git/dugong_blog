@@ -10,6 +10,7 @@
 - Dispatch: Nº 129 · Research · 10 min read
 - Full headline on page: How to handle return to sender orders on Shopify *before the customer asks where it is*
 - Keywords: shopify return to sender, shopify RTS, shopify RTO, return to origin shopify, undeliverable package shopify, shopify refused delivery, shopify flow return to sender, restock returned to sender shopify, AI shipping automation
+- Entities: Return to sender (https://www.wikidata.org/wiki/Q2146483); Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -26,6 +27,7 @@ Shopify has no status that means a parcel is coming back to you. The 2026-10 Adm
 Flow has no trigger that fires on a carrier turnaround and no condition to test against, voiding the original label is almost always impossible because voiding requires a label under 30 days old with no tracking events, and the community reship workarounds all distort either revenue or inventory. Shopify also files a return to origin as a customer return, which is why return rates in RTS-heavy markets are mostly couriers rather than products.
 
 The playbook reads the carrier feed hourly, flags the turnaround the hour it happens, names the cause, emails the customer for a corrected address before they ask, applies one reship or refund rule, restocks on physical arrival, and reports RTS separately from returns.
+
 ## The word Shopify has not shipped
 
 Here is the whole problem in one list. The [2026-10 Admin GraphQL](https://shopify.dev/docs/api/admin-graphql/2026-10/enums/FulfillmentEventStatus) `FulfillmentEventStatus` enum, the thing that describes where a shipment is, has eleven values: attempted delivery, carrier picked up, confirmed, delayed, delivered, failure, in transit, label printed, label purchased, out for delivery, ready for pickup. Read them again and look for the one that means the parcel is coming back to you. It is not there.

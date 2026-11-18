@@ -11,6 +11,7 @@
 - Dispatch: Nº 74 · Research · 9 min read
 - Full headline on page: How to *combine multiple orders* from the same customer on Shopify
 - Keywords: Shopify combine orders, merge orders Shopify, Shopify merge multiple orders, combine shipping Shopify, Shopify duplicate orders same customer, consolidate orders Shopify, second order before first ships, refund duplicate shipping Shopify, Shopify draft order merge
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Freight consolidation (https://www.wikidata.org/wiki/Q3050847); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

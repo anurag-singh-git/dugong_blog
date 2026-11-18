@@ -10,6 +10,7 @@
 - Dispatch: Nº 136 · Research · 11 min read
 - Full headline on page: How to chase overdue Shopify B2B invoices *without emailing one order at a time*
 - Keywords: shopify b2b overdue invoices, shopify net 30 payment terms, shopify payment reminders, shopify b2b unpaid orders, shopify company balance, shopify overdue order status, shopify flow payment schedule is due, AI accounts receivable automation
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Invoice (https://www.wikidata.org/wiki/Q190581); B2B e-commerce (https://www.wikidata.org/wiki/Q22906601); Business process automation (https://www.wikidata.org/wiki/Q5001911)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

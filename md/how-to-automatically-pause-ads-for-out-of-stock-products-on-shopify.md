@@ -11,6 +11,7 @@
 - Dispatch: Nº 82 · Research · 10 min read
 - Full headline on page: How to automatically *pause ads* for out-of-stock products on Shopify
 - Keywords: Shopify pause ads out of stock, Shopify out of stock ads Google, pause Meta ads sold out product, Shopify ad spend out of stock, stop ads on sold out products Shopify, Shopify out of stock Google ads disapproved, Shopify inventory ad sync
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Google Ads (https://www.wikidata.org/wiki/Q271982); Online advertising (https://www.wikidata.org/wiki/Q624902); Inventory (https://www.wikidata.org/wiki/Q815410); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -26,6 +27,7 @@ No native setting pauses ads when a product sells out. The Google and Meta sales
 Nothing in that sync pauses a campaign or an ad set. Availability in a feed is a hint to the ad system, not an off switch, and in a Performance Max or Advantage+ Shopping campaign the platform is choosing across your entire feed, so one sold-out item does not stop spend, it shifts it somewhere you did not pick. Worse, when the feed and the live page disagree, Google routinely disapproves the product, and a pile of disapprovals drags on the whole account.
 
 A working version matches each item to its actual placement, the listing group or the catalog item rather than the campaign, reads inventory per variant and per location, pauses only that placement so the in-stock products beside it keep running, corrects the feed so the mismatch stops causing disapprovals, and reverses all of it the moment stock returns. Which stockout to pause and which to *hold* through a short gap is a media call, not a raw zero.
+
 ## What Shopify actually does, and where it stops
 
 Give Shopify its due first, because it does part of this well. The Google & YouTube and the Meta [sales channels](https://help.shopify.com/en/manual/online-sales-channels) connect your catalog to a product feed, and that feed carries an availability attribute for every product. When stock changes, the channel updates the feed, and Google Merchant Center and the Meta catalog read that availability so a sold-out product is eventually marked out of stock. For a store that never touched any of this, that sync is real and useful, and it is more than you would get wiring a feed by hand.

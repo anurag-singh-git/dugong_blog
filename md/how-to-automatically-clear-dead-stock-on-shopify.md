@@ -11,6 +11,7 @@
 - Dispatch: Nº 97 · Research · 9 min read
 - Full headline on page: How to automatically clear dead stock *on Shopify*
 - Keywords: clear dead stock Shopify, slow moving inventory Shopify, automatically discount slow moving inventory Shopify, Shopify products not selling, inventory aging report Shopify, markdown automation Shopify, clearance collection Shopify, Shopify smart collection last sold date
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Inventory (https://www.wikidata.org/wiki/Q815410); Inventory turnover (https://www.wikidata.org/wiki/Q1800351); Pricing (https://www.wikidata.org/wiki/Q2516951); Online shopping (https://www.wikidata.org/wiki/Q212930)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

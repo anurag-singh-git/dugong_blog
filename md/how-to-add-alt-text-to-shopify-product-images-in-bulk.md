@@ -5,12 +5,13 @@
 - Canonical: https://blog.dugong.live/how-to-add-alt-text-to-shopify-product-images-in-bulk.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-20
-- Updated: 2026-08-12
+- Updated: 2026-10-31
 - Section: Research
-- Word count: 2390
+- Word count: 2601
 - Dispatch: Nº 64 · Research · 9 min read
 - Full headline on page: How to add *alt text* to Shopify product images in bulk
 - Keywords: Shopify image alt text, bulk alt text Shopify, add alt text to all images, product image SEO, image alt attribute, Shopify accessibility, WCAG alt text, AI alt text
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Alt attribute (https://www.wikidata.org/wiki/Q1067764); Web accessibility (https://www.wikidata.org/wiki/Q808932)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -20,6 +21,14 @@ There is a question that turns up in the Shopify community forums in nearly the 
 It sounds like a footnote until you do the arithmetic. A store with five hundred products at an average of four images each is two thousand alt fields, and every one of them starts empty and stays empty until a human opens the product, clicks into the media, and types a line. Nobody schedules a two-thousand-line typing job, so it gets done for the first few products and the homepage banner and then abandoned. The field that decides whether a blind shopper can use your store, and whether your product photos show up in image search, becomes a task nobody finishes, and most stores quietly leave it blank across the whole catalog.
 
 > Shopify will store an alt text for every image. It just will not *write* one, and it will not show you the ones that are missing.
+
+## The short answer
+
+There is no bulk field for alt text in the Shopify admin. You set it one image at a time, inside each product's media, by typing the line, and no view anywhere shows which images carry it and which do not, so on a catalog of any size you cannot even see the size of the gap.
+
+Nothing is filled in for you, and a file name is not alt text. Upload a photo and the field starts empty and stays empty, so an image that came off a phone as `IMG_4821.jpg` gives a screen reader nothing to say and a search engine nothing to read. The product CSV does carry an Image Alt Text column, which moves the data and writes none of it, covers product images only, and can stamp over neighboring fields on a careless re-import.
+
+A usable line comes from looking at the specific photo: what it shows, from what angle, in which color. Keep it under roughly 125 characters, since many screen readers cut off around there, describe the picture in plain language instead of stuffing keywords, give genuinely decorative images an empty alt so a reader skips them, and stop the front, the back and two colorways of one item from *all reading the same*.
 
 ## Why a blank alt field is two problems, not one
 

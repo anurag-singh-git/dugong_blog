@@ -11,6 +11,7 @@
 - Dispatch: Nº 87 · Research · 10 min read
 - Full headline on page: How to merge *duplicate customer profiles* on Shopify in bulk
 - Keywords: Shopify merge duplicate customers in bulk, Shopify duplicate customer profiles, Shopify merge customer accounts, Shopify duplicate customer accounts, Shopify bulk merge customers, Shopify customer merge not working, Shopify POS duplicate customers, Shopify guest checkout duplicate accounts
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Customer relationship management (https://www.wikidata.org/wiki/Q485643); Data deduplication (https://www.wikidata.org/wiki/Q1182260); Customer lifetime value (https://www.wikidata.org/wiki/Q1146253); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -26,6 +27,7 @@ Shopify's merge is real and it takes exactly two profiles at a time, chosen by h
 Detection is shallow and the merge is sometimes refused outright. The admin can point out two profiles sharing a name or a phone number; it cannot see that a plus-addressed alias is the same inbox, that a wallet relay address lands at the same street, or that a POS profile with no email shares a card and a postcode with an online account. The button disappears entirely for subscriptions, B2B companies, vaulted cards, store credit and multipass, which are the profiles most worth consolidating.
 
 Flow has no merge customers action either, so the platform's own workflow tool can report a duplicate at best and never fix one. A real cleanup sweeps the whole list, scores each candidate pair on evidence rather than a name, picks the survivor carrying the login and the marketing consent, chains clusters of three or more down one join at a time, and leaves the genuinely uncertain pairs *in front of a person*.
+
 ## What Shopify actually does, and where it stops
 
 Give the platform its due first, because the picture has improved. Shopify enforces one profile per email address, so a logged-in customer cannot fork themselves by accident. The admin will point out similar profiles when you are looking at a customer. And there is now a real merge: open a profile and choose Merge customer under More actions, or select two customers on the Customers page, and Shopify combines them properly, orders, addresses, tags, and notes brought together under one record. For the pair in front of you, it works.

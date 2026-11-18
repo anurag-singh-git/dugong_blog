@@ -10,6 +10,7 @@
 - Dispatch: Nº 133 · Research · 10 min read
 - Full headline on page: How to bulk edit variant metafields *on Shopify*
 - Keywords: bulk edit variant metafields shopify, shopify variant metafield csv, shopify variant metafields bulk editor, update variant metafield shopify api, metafieldsSet variant, shopify flow update product variant metafield, shopify variant metafield import, AI metafield automation
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Comma-separated values (https://www.wikidata.org/wiki/Q935809); Stock keeping unit (https://www.wikidata.org/wiki/Q399757); Batch processing (https://www.wikidata.org/wiki/Q661613)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

@@ -11,6 +11,7 @@
 - Dispatch: Nº 108 · Research · 10 min read
 - Full headline on page: How to stop *fake customer accounts* and spam signups on Shopify
 - Keywords: shopify fake customer accounts, spam customer signups, bot signups shopify, fake newsletter subscribers, delete spam customers, shopify bot attack, fake abandoned checkouts, captcha not working, customer list cleanup, AI bot detection
+- Entities: Spambot (https://www.wikidata.org/wiki/Q2306702); Email spam (https://www.wikidata.org/wiki/Q13512320); CAPTCHA (https://www.wikidata.org/wiki/Q484598); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

@@ -11,6 +11,7 @@
 - Dispatch: Nº 98 · Research · 9 min read
 - Full headline on page: How to let customers cancel their own orders *on Shopify*
 - Keywords: let customers cancel orders Shopify, Shopify self-serve cancellations, Shopify customer cancel order, cancel Shopify order before it ships, stop order from shipping Shopify, Shopify cancellation request, EU withdrawal function Shopify, order cancellation automation
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Consumer protection (https://www.wikidata.org/wiki/Q664183); Chargeback (https://www.wikidata.org/wiki/Q3307525); Online shopping (https://www.wikidata.org/wiki/Q212930)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

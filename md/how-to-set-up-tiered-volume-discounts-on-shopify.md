@@ -11,6 +11,7 @@
 - Dispatch: Nº 84 · Research · 10 min read
 - Full headline on page: How to set up tiered *volume discounts* (buy more, save more) on Shopify
 - Keywords: Shopify tiered discount, Shopify volume discount, Shopify buy more save more, Shopify quantity break discount, Shopify tiered pricing not working, Shopify multiple discount tiers, bulk discount Shopify, Shopify quantity discount native
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Discounts and allowances (https://www.wikidata.org/wiki/Q291046); Pricing (https://www.wikidata.org/wiki/Q2516951); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -26,6 +27,7 @@ Shopify's discount engine allows one condition per discount, so buy 3 save 10 is
 Building three automatic discounts at once is where it breaks. A cart of twelve units qualifies for all three tiers, Shopify does not pick the best one and suppress the rest, so the shopper can land on the smallest saving or the discounts simply refuse to combine. There is also a hard cap of 25 active automatic discounts on the store, so one discount per tier per product runs out of room quickly.
 
 True quantity tiers exist in exactly one place: attach quantity pricing to a B2B price list and it behaves like a proper ladder, but it reaches only customers assigned to a company profile, not tagged retail customers, not cart-total tiers, and not your open storefront. Shopify Scripts, the old fake, stopped running on June 30, 2026. Treat the tier table as the source of truth and resolve the *single highest* break each cart has actually earned.
+
 ## What Shopify actually does, and where it stops
 
 Give the platform its due first. Shopify's native discounts are genuinely good at the simple case. You can create an automatic discount like "buy 3, get 10 percent off," and it applies cleanly at checkout with no code and no app. You can gate a discount to a collection, to a minimum quantity, or to a minimum spend. For a store that wants one straightforward promotion running at a time, the native tools do the job and do it well.

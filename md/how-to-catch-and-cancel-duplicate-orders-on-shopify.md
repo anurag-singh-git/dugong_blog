@@ -11,6 +11,7 @@
 - Dispatch: Nº 90 · Research · 10 min read
 - Full headline on page: How to catch and *cancel duplicate orders* on Shopify automatically
 - Keywords: Shopify duplicate order, customer ordered twice Shopify, cancel duplicate order Shopify, Shopify double order, automatically cancel duplicate orders Shopify, Shopify Flow duplicate order same SKU, Shopify customer charged twice, duplicate order detection Shopify
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Chargeback (https://www.wikidata.org/wiki/Q3307525); Customer service (https://www.wikidata.org/wiki/Q1060653); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -26,6 +27,7 @@ There is no duplicate detection in Shopify. Two identical orders four minutes ap
 Cleanup costs money even when it works. Orders cannot be deleted in Shopify, only cancelled, so the accident stays in your reports either way, and cancelling means refunding, where payment processing fees are generally not returned. If nobody notices, the warehouse or the 3PL pulls both orders in its next sweep, two labels print, and two boxes ship.
 
 Flow cannot close it either. The Order created trigger hands the workflow exactly one order, and no condition looks sideways at that customer's other recent orders to compare line items, which is precisely what a duplicate check is. A working version looks back a day, compares whole orders rather than one field, cancels the unfulfilled copy before the label prints, and tells the customer *before* their bank does.
+
 ## What Shopify actually does, and where it stops
 
 Start with detection, because there is none. The orders screen lists #4381 and #4382 the way it lists any two orders. No badge, no warning, no possible duplicate flag, nothing that compares an incoming order to the ones the same customer placed minutes earlier. Shopify's risk analysis looks at each order alone and asks whether the payment looks stolen, which is the question behind [the high-risk flag](https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html), and a duplicate fails that test perfectly: it is the same legitimate customer using the same legitimate card, so both copies come back low risk. The one system watching every order is structurally unable to notice the only thing wrong with this one.

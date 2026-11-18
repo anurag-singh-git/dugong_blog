@@ -11,6 +11,7 @@
 - Dispatch: Nº 73 · Research · 9 min read
 - Full headline on page: How to stop *card testing attacks* on Shopify
 - Keywords: Shopify card testing, card testing attack Shopify, Shopify fake orders, Shopify bot orders, Shopify carding, Shopify fraud orders, block bot orders Shopify, Shopify card testing prevention, cancel fraud orders Shopify, Shopify abandoned checkout bot
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Credit card fraud (https://www.wikidata.org/wiki/Q83873); Carding (https://www.wikidata.org/wiki/Q21822514); Internet bot (https://www.wikidata.org/wiki/Q191865)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

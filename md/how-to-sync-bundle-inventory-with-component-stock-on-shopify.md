@@ -11,6 +11,7 @@
 - Dispatch: Nº 83 · Research · 10 min read
 - Full headline on page: How to automatically sync *bundle inventory* with component stock on Shopify
 - Keywords: Shopify bundle inventory not updating, Shopify bundle inventory sync, Shopify bundle components not deducting, Shopify bundle overselling, sync bundle stock Shopify, Shopify kit inventory tracking, Shopify bundle component inventory
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Inventory (https://www.wikidata.org/wiki/Q815410); Product bundling (https://www.wikidata.org/wiki/Q1020767); Stock keeping unit (https://www.wikidata.org/wiki/Q399757); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -26,6 +27,7 @@ By default Shopify counts a bundle as its own product with its own inventory num
 That happy path is narrow. The app caps how many components and variants a fixed bundle can hold, does not track true mix-and-match the same clean way, and reads overall component stock rather than per location, so a store shipping from two warehouses can sell a kit somewhere that cannot assemble it. It does nothing at all for the bundles merchants built the older way, as a standalone product or a single variant with its own count.
 
 Even a linked bundle has seams. Edit an order to add or remove a bundle and the component math does not re-run, because the relationship was never modeled as something an edit recalculates, and a bundle usually travels to a marketplace as one atomic SKU, so ten kits sold here leave the component showing its full quantity there. Count the components and let every bundle be a *view* of what the parts can build right now.
+
 ## What Shopify actually does, and where it stops
 
 Give Shopify its due first, because the picture is better than it was a year ago. The free [Shopify Bundles](https://help.shopify.com/en/manual/products/bundles) app does link a fixed bundle to its components: you build the bundle from existing products, and it shows the bundle as available based on the lowest-stock component, so it will not let you sell a kit whose parts are gone. For a store that builds every bundle through that app and keeps them simple, that linkage is real and does the core job, and it is a lot more than the platform offered before.

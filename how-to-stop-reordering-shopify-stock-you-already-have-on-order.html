@@ -44,15 +44,49 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#article",
+      "@type": "WebPage",
+      "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#webpage",
+      "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html",
+      "name": "How to stop reordering Shopify stock you already have on order",
+      "inLanguage": "en",
       "isPartOf": {
-        "@type": "Blog",
-        "@id": "https://blog.dugong.live/#blog",
+        "@type": "WebSite",
+        "@id": "https://blog.dugong.live/#website",
         "name": "Dugong Field Notes",
         "url": "https://blog.dugong.live/"
       },
-      "mainEntityOfPage": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html",
+      "primaryImageOfPage": {
+        "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#primaryimage"
+      },
+      "mainEntity": {
+        "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#article"
+      },
+      "datePublished": "2026-10-15",
+      "dateModified": "2026-10-15",
+      "breadcrumb": {
+        "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#article",
+      "isPartOf": [
+        {
+          "@type": "Blog",
+          "@id": "https://blog.dugong.live/#blog",
+          "name": "Dugong Field Notes",
+          "url": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-inventory-automation.html#collection",
+          "name": "Shopify inventory automation",
+          "url": "https://blog.dugong.live/shopify-inventory-automation.html"
+        }
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#webpage"
+      },
       "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html",
       "headline": "How to stop reordering Shopify stock you already have on order",
       "abstract": "Incoming inventory on Shopify counts units in transit, not units you have bought, so a purchase order the supplier has not shipped reads as zero and the low stock report tells you to buy it again. The purchase order and its linked inventory transfer operate independently by design, Shopify Flow cannot read incoming quantities or purchase order data at all, and the purchase order API that landed in the 2026-10 Admin GraphQL version carries exactly two statuses, DRAFT and ORDERED, with no received state and no expected arrival date. The playbook builds the on order number Shopify does not give you, dates every open purchase order, flags the late ones, and warns the buyer before the same pallet is ordered twice.",
@@ -67,6 +101,7 @@
       "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
+        "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#primaryimage",
         "url": "https://blog.dugong.live/og-image.png",
         "width": 1200,
         "height": 630
@@ -74,6 +109,7 @@
       "about": [
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q643327",
           "name": "Purchase order",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Purchase_order",
@@ -82,6 +118,7 @@
         },
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q3761396",
           "name": "Inventory management",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Inventory_management_(business)",
@@ -90,6 +127,7 @@
         },
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q7501150",
           "name": "Shopify",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Shopify",
@@ -206,52 +244,100 @@
     {
       "@type": "FAQPage",
       "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq",
+      "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-heading",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q643327"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3761396"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "datePublished": "2026-10-15",
+      "dateModified": "2026-10-15",
       "mainEntity": [
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-1",
+          "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-1",
           "name": "Why does Shopify show zero incoming inventory when I have a purchase order open?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-1-answer",
+            "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-1-answer",
             "text": "Because incoming counts units that are moving, not units you have bought. Shopify's Help Center defines incoming inventory as inventory that is on its way to your location from inventory transfers or apps, and says units that have not been received are excluded and cannot be sold. In practice the number is narrower still. A merchant who tested this on a development store in September 2026 reported that incoming counts units in transit, that transfers sitting in draft or marked ready to ship but not yet dispatched add nothing to the number, and that an order placed weeks earlier which the supplier has not shipped shows as zero. So a confirmed purchase order with a signed price, a quantity and a delivery date contributes nothing to incoming until somebody creates a transfer against it and marks it in transit. Incoming is a transit number. On order is the number you actually need for buying decisions, and Shopify does not have a field for it."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-2",
+          "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-2",
           "name": "Does Shopify count purchase orders in incoming inventory?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-2-answer",
+            "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-2-answer",
             "text": "The documentation says yes and merchants report otherwise. The Help Center names purchase orders in its incoming section and says that clicking a variant's incoming quantity shows which transfers, purchase orders or apps make up the number. On 24 July 2026 a merchant posted that incoming quantities stopped reflecting open purchase orders after the new purchase order system launched, and that his reports keep telling him to procure what is already in process. He asked for the old system back. There was no staff reply. Within the hour he posted his own workaround, which is to create a transfer from the purchase order and mark it in transit before the goods have shipped. Another member explained the mechanics: incoming is derived from transfers and shipments rather than from purchase orders, so the transfer step is mandatory, and he warned that editing the purchase order afterwards, or receiving a short shipment, will not update the transfer, which silently re-creates an overcount. The practical answer is that a purchase order on its own does not move incoming."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-3",
+          "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-3",
           "name": "How do I see how much of a product is already on order in Shopify?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-3-answer",
+            "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-3-answer",
             "text": "There is no on order column in the admin, so you have to build the number. As of the 2026-10 Admin GraphQL API you can query inventoryPurchaseOrders and inventoryPurchaseOrder with the read_inventory_purchase_orders scope, which Shopify staff confirmed on 2 October 2026 is available to all apps outside the preview. The purchase order object gives you the name, the supplier as origin, the destination location, dateCreated, orderedAt, the line items, which can be searched by unit cost, variant id, supplier SKU and incoming quantity, and a transfers connection. On order per variant is then ordered quantity minus what the linked transfers and shipments show as received, summed per line and per location. Nothing in Shopify calculates that for you and no report exposes it, so it is a nightly job you run and write back somewhere your buying decisions can read it, usually a metafield or an outside planning tool."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-4",
+          "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-4",
           "name": "Is there a Shopify purchase order API?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-4-answer",
+            "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-4-answer",
             "text": "Yes, as of the 2026-10 Admin GraphQL version, and it is new enough that most of the advice online still says there is not. Developers asked for it repeatedly through 2026. A feature request on 16 June 2026 asked for read, create and receive, noting that the inventory transfer and shipment types do not cover supplier or purchase order level tracking, and got no staff reply. A separate thread on 30 July 2026 asked for a firm answer on whether the API would arrive within twelve months. Access was awkward at first: on 11 August 2026 a developer hit ACCESS_DENIED on inventoryPurchaseOrders, found that read_inventory_purchase_orders was not in the public access scopes reference or the dashboard selector, and a Shopify engineer confirmed that declaring it in shopify.app.toml passes validation but fails at deploy. Shopify patched it server side on 14 August so that read_inventory would work on preview stores, and the dedicated scope went generally available in 2026-10. Read the status enum before you plan around it, though. It has exactly two values, DRAFT and ORDERED. There is no received, no partially received and no closed, so lifecycle state is something you derive from the linked transfers."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-5",
+          "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-5",
           "name": "Can Shopify Flow alert me when a purchase order is late?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-5-answer",
+            "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-5-answer",
             "text": "No, on two counts. Flow cannot read incoming quantities or purchase order data at all. A merchant asked on 26 January 2026 for a workflow listing products with incoming above zero sorted by purchase order and vendor, and quoted Sidekick saying that Shopify Flow cannot access incoming inventory quantities for reporting and automation. The thread was revived on 5 October 2026 and two developers confirmed nothing had changed, suggesting a custom app or a scheduled job against the Admin API instead. The second problem is structural. Flow's inventory bench is inventory item created, inventory item deleted, inventory transfer completed, inventory transfer ready to ship, product variant back in stock, product variant out of stock and product variant inventory quantity changed. Every one of them needs an event. A late purchase order is the absence of an event, so there is nothing for Flow to listen to. The only native shape is the scheduled time trigger driving a sweep you build and maintain yourself."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-6",
+          "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-6",
           "name": "Can AI handle purchase order tracking for a Shopify store?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-6-answer",
+            "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#faq-6-answer",
             "text": "It fits this problem well, because the hard parts are reading and matching rather than counting. Pulling open purchase orders is a query once you have API access. Reconciling what arrived against what you ordered is not, because the supplier's packing slip uses their part numbers, their case packs and their own description of each line, while your purchase order uses yours. The purchase order line item does carry a supplier SKU field, but real deliveries arrive short, split across two shipments, or substituted, and a model can read the supplier's document against your lines and propose the match. The second job is dates. Expected arrival almost never lives in Shopify. It lives in an email saying shipping Friday, a later one moving it to the week of the tenth, and a PDF with a carrier reference, and a model can read that thread and keep one honest date per purchase order. The third is writing the chase: the purchase order number, the lines still outstanding, the days past the date the supplier gave you. Keep three things human. Sending a purchase order above whatever value you set, accepting a substitution, and any change to agreed cost."
           }
         }
@@ -260,9 +346,35 @@
     {
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#howto",
+      "url": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#playbook",
       "name": "The stock you ordered twice",
       "description": "The AI playbook for Shopify purchase orders that incoming inventory does not show: pulling every open purchase order, reconciling receipts against the linked transfers, dating each one from supplier lead time, flagging the late ones, publishing a real on order quantity per variant, blocking duplicate orders at the moment of buying, chasing suppliers with the line detail attached, and scoring lead time and short ship rate per supplier.",
       "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q643327"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3761396"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "image": {
+        "@id": "https://blog.dugong.live/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html#primaryimage"
+      },
+      "datePublished": "2026-10-15",
+      "dateModified": "2026-10-15",
       "totalTime": "PT8M",
       "step": [
         {
@@ -369,7 +481,8 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 105px; }
+@media (min-width: 821px) { html { scroll-padding-top: 78px; } }
 
 body {
   background: var(--bg);
@@ -533,7 +646,7 @@ em { font-style: italic; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
 .article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
-.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; overflow-wrap: break-word; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 57%, var(--lime) 57%, var(--lime) 81%, transparent 81%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .article-title em::after { content: none; }
@@ -551,7 +664,10 @@ em { font-style: italic; }
 .article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
-.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+/* QA 2026-11-17: white-space/overflow-wrap added. 6 playbooks ran 8px past the
+   content box, making an unreachable-by-keyboard scroll region (WCAG 2.1.1).
+   The <=820px rule below has wrapped these since they were written. */
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; white-space: pre-wrap; overflow-wrap: break-word; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
 
 @media (max-width: 560px) {
   .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
@@ -573,6 +689,9 @@ em { font-style: italic; }
 .callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
 .callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
 .callout-sand .callout-mark { color: var(--pink); }
+.short-answer { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--lime-deep); border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2.25rem 0 2.75rem; }
+.article-body .short-answer h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; line-height: 1.2; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime-deep); margin: 0 0 1rem; }
+.article-body .short-answer p:last-child { margin-bottom: 0; }
 .callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
 
 .article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -700,6 +819,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
    lines, and one callout ran the page 7px wide. Stack below 700px. */
 @media (max-width: 700px) {
   .callout { flex-direction: column; gap: 0.55rem; }
+  .short-answer { padding: 1.2rem 1.25rem; margin: 2rem 0 2.25rem; border-radius: 10px; }
   .callout-mark { padding-top: 0; }
 }
 </style>
@@ -773,6 +893,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 /* cards inside a closed disclosure never meet the IntersectionObserver that
    clears .reveal, so they would open at opacity 0. */
 .related-more .reveal { opacity: 1; transform: none; }
+
 </style>
 </head>
 <body>
@@ -853,14 +974,14 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <div class="short-answer" id="short-answer">
-      <h2>The short answer</h2>
+      <h2 id="h-the-short-answer">The short answer</h2>
 
       <p>
         Incoming inventory on Shopify counts units in transit, not units you have bought, so a purchase order the supplier has not shipped reads as zero and the low stock report tells you to buy it again. The purchase order and its linked inventory transfer operate independently by design, Shopify Flow cannot read incoming quantities or purchase order data at all, and the purchase order API that landed in the 2026-10 Admin GraphQL version carries exactly two statuses, DRAFT and ORDERED, with no received state and no expected arrival date. The playbook builds the on order number Shopify does not give you, dates every open purchase order, flags the late ones, and warns the buyer before the same pallet is ordered twice.
       </p>
     </div>
 
-    <h2>Incoming does not mean on order</h2>
+    <h2 id="h-incoming-does-not-mean-on-order">Incoming does not mean on order</h2>
 
     <p>
       Shopify's Help Center says incoming inventory is
@@ -891,7 +1012,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       for that, no column for it, and no report that shows it.
     </p>
 
-    <h2>And then the reports tell you to buy it again</h2>
+    <h2 id="h-and-then-the-reports-tell-you-to-buy-it-again">And then the reports tell you to buy it again</h2>
 
     <p>
       On 24 July 2026 a merchant posted the consequence
@@ -933,7 +1054,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       something you have to build yourself out of a metafield.
     </p>
 
-    <h2>The purchase order and its transfer stop talking</h2>
+    <h2 id="h-the-purchase-order-and-its-transfer-stop-talking">The purchase order and its transfer stop talking</h2>
 
     <p>
       On 16 September 2026 a merchant asked for something that
@@ -953,7 +1074,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       be made twice. Nothing tells you when they drift.
     </p>
 
-    <h2>Two years, two systems, the same hole</h2>
+    <h2 id="h-two-years-two-systems-the-same-hole">Two years, two systems, the same hole</h2>
 
     <p>
       This is not new and it did not arrive with the new
@@ -992,7 +1113,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </span>
     </div>
 
-    <h2>Flow cannot see any of this</h2>
+    <h2 id="h-flow-cannot-see-any-of-this">Flow cannot see any of this</h2>
 
     <p>
       On 26 January 2026 a merchant asked for a workflow that
@@ -1024,7 +1145,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       is the right shape. It is not a feature.
     </p>
 
-    <h2>The API finally got purchase orders, two weeks ago</h2>
+    <h2 id="h-the-api-finally-got-purchase-orders-two-weeks-ago">The API finally got purchase orders, two weeks ago</h2>
 
     <p>
       Here is the genuinely new part, and most of the advice
@@ -1079,7 +1200,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       order.
     </p>
 
-    <h2>What it costs while nobody counts</h2>
+    <h2 id="h-what-it-costs-while-nobody-counts">What it costs while nobody counts</h2>
 
     <p>
       Take a store carrying four hundred SKUs across a dozen
@@ -1106,7 +1227,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       checks every night. Everything else here is a symptom.
     </p>
 
-    <h2>The playbook worth building</h2>
+    <h2 id="h-the-playbook-worth-building">The playbook worth building</h2>
 
     <p>
       As a Dugong playbook, in plain language:
@@ -1163,7 +1284,7 @@ open purchase orders
       wrong number in front of a person who is in a hurry.
     </p>
 
-    <h2>Three numbers to write down</h2>
+    <h2 id="h-three-numbers-to-write-down">Three numbers to write down</h2>
 
     <p>
       The build is a day. The decisions are what stall people,
@@ -1177,7 +1298,7 @@ open purchase orders
       rest is configuration.
     </p>
 
-    <h2>Where AI earns its place</h2>
+    <h2 id="h-where-ai-earns-its-place">Where AI earns its place</h2>
 
     <p>
       Three jobs here, and none of them is running a query.
@@ -1221,7 +1342,7 @@ open purchase orders
       And any change to agreed cost.
     </p>
 
-    <h2>Do this before you close the laptop</h2>
+    <h2 id="h-do-this-before-you-close-the-laptop">Do this before you close the laptop</h2>
 
     <p>
       Open Products, then Purchase orders, filter to ordered,
@@ -1277,35 +1398,35 @@ open purchase orders
   <div class="faq-list">
     <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Why does Shopify show zero incoming inventory when I have a purchase order open?</h2>
-      <p class="faq-a">Because incoming counts units that are moving, not units you have bought. Shopify's Help Center defines incoming inventory as inventory that is on its way to your location from inventory transfers or apps, and says units that have not been received are excluded and cannot be sold. In practice the number is narrower still. A merchant who tested this on a development store in September 2026 reported that incoming counts units in transit, that transfers sitting in draft or marked ready to ship but not yet dispatched add nothing to the number, and that an order placed weeks earlier which the supplier has not shipped shows as zero. So a confirmed purchase order with a signed price, a quantity and a delivery date contributes nothing to incoming until somebody creates a transfer against it and marks it in transit. Incoming is a transit number. On order is the number you actually need for buying decisions, and Shopify does not have a field for it.</p>
+      <p class="faq-a" id="faq-1-answer">Because incoming counts units that are moving, not units you have bought. Shopify's Help Center defines incoming inventory as inventory that is on its way to your location from inventory transfers or apps, and says units that have not been received are excluded and cannot be sold. In practice the number is narrower still. A merchant who tested this on a development store in September 2026 reported that incoming counts units in transit, that transfers sitting in draft or marked ready to ship but not yet dispatched add nothing to the number, and that an order placed weeks earlier which the supplier has not shipped shows as zero. So a confirmed purchase order with a signed price, a quantity and a delivery date contributes nothing to incoming until somebody creates a transfer against it and marks it in transit. Incoming is a transit number. On order is the number you actually need for buying decisions, and Shopify does not have a field for it.</p>
     </div>
     <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Does Shopify count purchase orders in incoming inventory?</h2>
-      <p class="faq-a">The documentation says yes and merchants report otherwise. The Help Center names purchase orders in its incoming section and says that clicking a variant's incoming quantity shows which transfers, purchase orders or apps make up the number. On 24 July 2026 a merchant posted that incoming quantities stopped reflecting open purchase orders after the new purchase order system launched, and that his reports keep telling him to procure what is already in process. He asked for the old system back. There was no staff reply. Within the hour he posted his own workaround, which is to create a transfer from the purchase order and mark it in transit before the goods have shipped. Another member explained the mechanics: incoming is derived from transfers and shipments rather than from purchase orders, so the transfer step is mandatory, and he warned that editing the purchase order afterwards, or receiving a short shipment, will not update the transfer, which silently re-creates an overcount. The practical answer is that a purchase order on its own does not move incoming.</p>
+      <p class="faq-a" id="faq-2-answer">The documentation says yes and merchants report otherwise. The Help Center names purchase orders in its incoming section and says that clicking a variant's incoming quantity shows which transfers, purchase orders or apps make up the number. On 24 July 2026 a merchant posted that incoming quantities stopped reflecting open purchase orders after the new purchase order system launched, and that his reports keep telling him to procure what is already in process. He asked for the old system back. There was no staff reply. Within the hour he posted his own workaround, which is to create a transfer from the purchase order and mark it in transit before the goods have shipped. Another member explained the mechanics: incoming is derived from transfers and shipments rather than from purchase orders, so the transfer step is mandatory, and he warned that editing the purchase order afterwards, or receiving a short shipment, will not update the transfer, which silently re-creates an overcount. The practical answer is that a purchase order on its own does not move incoming.</p>
     </div>
     <div class="faq-item" id="faq-3">
       <h2 class="faq-q">How do I see how much of a product is already on order in Shopify?</h2>
-      <p class="faq-a">There is no on order column in the admin, so you have to build the number. As of the 2026-10 Admin GraphQL API you can query inventoryPurchaseOrders and inventoryPurchaseOrder with the read_inventory_purchase_orders scope, which Shopify staff confirmed on 2 October 2026 is available to all apps outside the preview. The purchase order object gives you the name, the supplier as origin, the destination location, dateCreated, orderedAt, the line items, which can be searched by unit cost, variant id, supplier SKU and incoming quantity, and a transfers connection. On order per variant is then ordered quantity minus what the linked transfers and shipments show as received, summed per line and per location. Nothing in Shopify calculates that for you and no report exposes it, so it is a nightly job you run and write back somewhere your buying decisions can read it, usually a metafield or an outside planning tool.</p>
+      <p class="faq-a" id="faq-3-answer">There is no on order column in the admin, so you have to build the number. As of the 2026-10 Admin GraphQL API you can query inventoryPurchaseOrders and inventoryPurchaseOrder with the read_inventory_purchase_orders scope, which Shopify staff confirmed on 2 October 2026 is available to all apps outside the preview. The purchase order object gives you the name, the supplier as origin, the destination location, dateCreated, orderedAt, the line items, which can be searched by unit cost, variant id, supplier SKU and incoming quantity, and a transfers connection. On order per variant is then ordered quantity minus what the linked transfers and shipments show as received, summed per line and per location. Nothing in Shopify calculates that for you and no report exposes it, so it is a nightly job you run and write back somewhere your buying decisions can read it, usually a metafield or an outside planning tool.</p>
     </div>
     <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Is there a Shopify purchase order API?</h2>
-      <p class="faq-a">Yes, as of the 2026-10 Admin GraphQL version, and it is new enough that most of the advice online still says there is not. Developers asked for it repeatedly through 2026. A feature request on 16 June 2026 asked for read, create and receive, noting that the inventory transfer and shipment types do not cover supplier or purchase order level tracking, and got no staff reply. A separate thread on 30 July 2026 asked for a firm answer on whether the API would arrive within twelve months. Access was awkward at first: on 11 August 2026 a developer hit ACCESS_DENIED on inventoryPurchaseOrders, found that read_inventory_purchase_orders was not in the public access scopes reference or the dashboard selector, and a Shopify engineer confirmed that declaring it in shopify.app.toml passes validation but fails at deploy. Shopify patched it server side on 14 August so that read_inventory would work on preview stores, and the dedicated scope went generally available in 2026-10. Read the status enum before you plan around it, though. It has exactly two values, DRAFT and ORDERED. There is no received, no partially received and no closed, so lifecycle state is something you derive from the linked transfers.</p>
+      <p class="faq-a" id="faq-4-answer">Yes, as of the 2026-10 Admin GraphQL version, and it is new enough that most of the advice online still says there is not. Developers asked for it repeatedly through 2026. A feature request on 16 June 2026 asked for read, create and receive, noting that the inventory transfer and shipment types do not cover supplier or purchase order level tracking, and got no staff reply. A separate thread on 30 July 2026 asked for a firm answer on whether the API would arrive within twelve months. Access was awkward at first: on 11 August 2026 a developer hit ACCESS_DENIED on inventoryPurchaseOrders, found that read_inventory_purchase_orders was not in the public access scopes reference or the dashboard selector, and a Shopify engineer confirmed that declaring it in shopify.app.toml passes validation but fails at deploy. Shopify patched it server side on 14 August so that read_inventory would work on preview stores, and the dedicated scope went generally available in 2026-10. Read the status enum before you plan around it, though. It has exactly two values, DRAFT and ORDERED. There is no received, no partially received and no closed, so lifecycle state is something you derive from the linked transfers.</p>
     </div>
     <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Can Shopify Flow alert me when a purchase order is late?</h2>
-      <p class="faq-a">No, on two counts. Flow cannot read incoming quantities or purchase order data at all. A merchant asked on 26 January 2026 for a workflow listing products with incoming above zero sorted by purchase order and vendor, and quoted Sidekick saying that Shopify Flow cannot access incoming inventory quantities for reporting and automation. The thread was revived on 5 October 2026 and two developers confirmed nothing had changed, suggesting a custom app or a scheduled job against the Admin API instead. The second problem is structural. Flow's inventory bench is inventory item created, inventory item deleted, inventory transfer completed, inventory transfer ready to ship, product variant back in stock, product variant out of stock and product variant inventory quantity changed. Every one of them needs an event. A late purchase order is the absence of an event, so there is nothing for Flow to listen to. The only native shape is the scheduled time trigger driving a sweep you build and maintain yourself.</p>
+      <p class="faq-a" id="faq-5-answer">No, on two counts. Flow cannot read incoming quantities or purchase order data at all. A merchant asked on 26 January 2026 for a workflow listing products with incoming above zero sorted by purchase order and vendor, and quoted Sidekick saying that Shopify Flow cannot access incoming inventory quantities for reporting and automation. The thread was revived on 5 October 2026 and two developers confirmed nothing had changed, suggesting a custom app or a scheduled job against the Admin API instead. The second problem is structural. Flow's inventory bench is inventory item created, inventory item deleted, inventory transfer completed, inventory transfer ready to ship, product variant back in stock, product variant out of stock and product variant inventory quantity changed. Every one of them needs an event. A late purchase order is the absence of an event, so there is nothing for Flow to listen to. The only native shape is the scheduled time trigger driving a sweep you build and maintain yourself.</p>
     </div>
     <div class="faq-item" id="faq-6">
       <h2 class="faq-q">Can AI handle purchase order tracking for a Shopify store?</h2>
-      <p class="faq-a">It fits this problem well, because the hard parts are reading and matching rather than counting. Pulling open purchase orders is a query once you have API access. Reconciling what arrived against what you ordered is not, because the supplier's packing slip uses their part numbers, their case packs and their own description of each line, while your purchase order uses yours. The purchase order line item does carry a supplier SKU field, but real deliveries arrive short, split across two shipments, or substituted, and a model can read the supplier's document against your lines and propose the match. The second job is dates. Expected arrival almost never lives in Shopify. It lives in an email saying shipping Friday, a later one moving it to the week of the tenth, and a PDF with a carrier reference, and a model can read that thread and keep one honest date per purchase order. The third is writing the chase: the purchase order number, the lines still outstanding, the days past the date the supplier gave you. Keep three things human. Sending a purchase order above whatever value you set, accepting a substitution, and any change to agreed cost.</p>
+      <p class="faq-a" id="faq-6-answer">It fits this problem well, because the hard parts are reading and matching rather than counting. Pulling open purchase orders is a query once you have API access. Reconciling what arrived against what you ordered is not, because the supplier's packing slip uses their part numbers, their case packs and their own description of each line, while your purchase order uses yours. The purchase order line item does carry a supplier SKU field, but real deliveries arrive short, split across two shipments, or substituted, and a model can read the supplier's document against your lines and propose the match. The second job is dates. Expected arrival almost never lives in Shopify. It lives in an email saying shipping Friday, a later one moving it to the week of the tenth, and a PDF with a carrier reference, and a model can read that thread and keep one honest date per purchase order. The third is writing the chase: the purchase order number, the lines still outstanding, the days past the date the supplier gave you. Keep three things human. Sending a purchase order above whatever value you set, accepting a substitution, and any change to agreed cost.</p>
     </div>
   </div>
   <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
-<section class="related">
+<section class="related" aria-labelledby="related-heading">
   <div class="section-head">
-    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-eyebrow" id="related-heading">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">

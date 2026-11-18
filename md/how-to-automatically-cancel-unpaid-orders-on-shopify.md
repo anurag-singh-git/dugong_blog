@@ -11,6 +11,7 @@
 - Dispatch: Nº 67 · Research · 9 min read
 - Full headline on page: How to *automatically cancel unpaid orders* on Shopify
 - Keywords: Shopify auto cancel unpaid orders, cancel pending orders Shopify, automatically cancel unpaid orders release inventory, manual payment orders Shopify, bank transfer order Shopify, draft order cancel, cancel unpaid orders after x days, AI order automation
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Order processing (https://www.wikidata.org/wiki/Q7100700); Inventory (https://www.wikidata.org/wiki/Q815410)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

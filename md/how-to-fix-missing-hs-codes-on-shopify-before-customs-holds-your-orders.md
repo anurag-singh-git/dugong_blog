@@ -11,6 +11,7 @@
 - Dispatch: Nº 107 · Research · 10 min read
 - Full headline on page: How to fix *missing HS codes* on Shopify before customs holds your orders
 - Keywords: shopify hs codes, add hs codes shopify, missing hs code, bulk edit hs codes, country of origin shopify, customs information, duties wrong at checkout, de minimis, customs hold, AI hs code classification
+- Entities: Harmonized System (https://www.wikidata.org/wiki/Q2294130); De minimis (https://www.wikidata.org/wiki/Q287088); Customs (https://www.wikidata.org/wiki/Q182290); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

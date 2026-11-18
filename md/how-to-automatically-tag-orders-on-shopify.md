@@ -5,12 +5,13 @@
 - Canonical: https://blog.dugong.live/how-to-automatically-tag-orders-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-18
-- Updated: 2026-08-12
+- Updated: 2026-10-31
 - Section: Research
-- Word count: 2120
+- Word count: 2317
 - Dispatch: Nº 62 · Research · 9 min read
 - Full headline on page: How to *automatically tag orders* on Shopify
 - Keywords: Shopify order tags, auto tag orders, Shopify Flow order tagging, tag orders for fulfillment, order tagging automation, Shopify Flow multiple conditions, order tags invalid, tag orders by note
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Tag (metadata) (https://www.wikidata.org/wiki/Q658349)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -20,6 +21,14 @@ Look in any operations channel for a busy Shopify store and you will find the sa
 They are right, and they are also stuck, because order tagging is one of those jobs that looks completely solved from a distance and turns out to be half-solved up close. [Shopify Flow](https://help.shopify.com/en/manual/shopify-flow), which is free on every plan now, will cheerfully tag an order for you. It will just only do it when the rule is simple enough to fit on one line. The tags people actually set by hand are the ones that depend on five things at once, and that is exactly where the built-in tool runs out of room.
 
 > A tag looks like a sticky note. It is really the wiring that decides where an order *goes*.
+
+## The short answer
+
+Shopify Flow will tag an order, as long as the rule fits on one line. Flow is free on every plan, and tagging an order above a set amount or one holding a particular product is the textbook example and genuinely works.
+
+The tags people set by hand are compound, and that is where it runs out. A high-value order bound for a slow-ship country, from a repeat customer, carrying a gift note is several signals at once, and expressing it means stacking conditions until a dozen overlapping workflows are hard to reason about and easy to break. Flow can reference structured note attributes but cannot understand the free-text note a buyer typed, which is the one signal somebody scans the orders list for every morning.
+
+Tags also drift and break on their own. Nothing keeps the vocabulary clean, so `vip`, `VIP` and `Vip` can all exist while a segment built on one quietly misses the others, and a tag assembled from order data can be rejected outright for invalid characters or length, failing a workflow without telling anyone. A system that holds reads the whole order at once and normalizes every tag against *one controlled vocabulary*.
 
 ## Why a tag is never just a tag
 

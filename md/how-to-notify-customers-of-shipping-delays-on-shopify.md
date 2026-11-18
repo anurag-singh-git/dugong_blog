@@ -11,6 +11,7 @@
 - Dispatch: Nº 88 · Research · 10 min read
 - Full headline on page: How to notify customers of *shipping delays* on Shopify automatically
 - Keywords: Shopify notify customers of shipping delay, Shopify shipping delay email, Shopify delayed order notification, Shopify bulk email unfulfilled orders, Shopify Flow email customer unfulfilled order, Shopify order delay email, Shopify fulfillment delay notification, Shopify email customers with open orders
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Customer service (https://www.wikidata.org/wiki/Q1060653); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -26,6 +27,7 @@ Shopify has no delay notification. The transactional emails fire at their two mo
 Both native paths are crisis workarounds. The Orders page filters happily to open and unfulfilled, and there is no email button behind the filter, so you either open each order and contact its customer one at a time or export the list and mail it from somewhere else. Shopify Email reaches only the customers who opted into marketing, and a delay notice is transactional, so the guest buyer refreshing their inbox is exactly the person it cannot reach.
 
 Flow gets painfully close. A scheduled sweep finds paid orders still unfulfilled after seven days, and a Wait action can watch one order age for up to thirty days. Then its one native email action writes to your staff. So the automation can assemble a perfect daily list of every promise your store is breaking and has no way to tell the person each promise was made to, which is why the note has to be written per order, with the cause and an *honest* new date.
+
 ## What Shopify actually does, and where it stops
 
 Give the platform its due first, because what it does, it does reliably. Shopify's transactional emails fire at their two moments without fail: the order confirmation the second the order is placed, and the shipping confirmation the second a fulfillment is created with a tracking number. You can edit both templates, brand them, soften the language. Between those two moments, though, there is nothing. No delay notice template anywhere in the notifications settings. No trigger that fires when an order ages past the promise it was sold with. As far as the platform is concerned, an order that shipped in two days and an order that shipped in nineteen had the same conversation with the customer.

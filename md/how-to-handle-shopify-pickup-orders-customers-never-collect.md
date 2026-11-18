@@ -11,6 +11,7 @@
 - Dispatch: Nº 114 · Research · 10 min read
 - Full headline on page: How to handle Shopify pickup orders customers *never collect*
 - Keywords: pickup reminder email, resend ready for pickup notification, local pickup order not collected, uncollected pickup orders, ready for pickup resend button grayed out, cancel pickup order not collected, automatic pickup reminders, local pickup automation, AI order monitoring
+- Entities: Click and collect (https://www.wikidata.org/wiki/Q15794580); Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

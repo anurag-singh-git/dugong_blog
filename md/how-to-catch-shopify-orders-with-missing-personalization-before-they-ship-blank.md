@@ -11,6 +11,7 @@
 - Dispatch: Nº 110 · Research · 10 min read
 - Full headline on page: How to catch Shopify orders with *missing personalization* before they ship blank
 - Keywords: shopify missing personalization, engraving text missing from order, line item properties not showing, buy it now line item properties, custom text field not required, personalization blank, order confirmation email properties, hold custom orders, AI personalization check
+- Entities: Personalization (https://www.wikidata.org/wiki/Q1000371); Engraving (https://www.wikidata.org/wiki/Q139106); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

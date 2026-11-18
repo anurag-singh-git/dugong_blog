@@ -11,6 +11,7 @@
 - Dispatch: Nº 120 · Research · 11 min read
 - Full headline on page: How to catch Shopify Flow workflows that *fail silently*
 - Keywords: shopify flow not working, shopify flow workflow failed, shopify flow completed but not working, shopify flow error notification, shopify flow run history, shopify flow rate limited, shopify automation monitoring, AI automation monitoring
+- Entities: Observability (software) (https://www.wikidata.org/wiki/Q115800581); Business process automation (https://www.wikidata.org/wiki/Q5001911); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -169,7 +170,7 @@ Pick the three automations whose failure would cost you the most. For most store
 
 That is an afternoon of work and it converts your automation stack from something you hope is running into something you can see. The rest is refinement. But you stop learning about broken workflows from customers, and the run list goes back to being a debugging tool instead of a fire alarm that mostly does not ring.
 
-> **◆ READING** Two companion pieces if this one landed: [the supplier feed that zeroed your catalog](https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html), on an automation that worked exactly as written and was still a disaster, and [the stock count that changes overnight](https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html), on finding out which of your integrations moved a number nobody asked it to move.
+> **◆ READING** Two companion pieces if this one landed: [the supplier feed that zeroed your catalog](https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html), on an automation that worked exactly as written and was still a disaster, and [the stock count that changes overnight](https://blog.dugong.live/how-to-stop-your-shopify-inventory-changing-by-itself.html), on finding out which of your integrations moved a number nobody asked it to move. Also new: [the email your automation refused to send](https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html), on the exception a healthy-looking workflow records instead of delivering.
 
 If you are a Shopify merchant with a silent automation story, the workflow that had not fired since March, the run list that said Completed while nothing happened, the customer who told you before your tooling did, the inbox is open: `field-notes@dugong.live`. We are collecting case studies for the next issue.
 

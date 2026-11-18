@@ -44,15 +44,49 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#article",
+      "@type": "WebPage",
+      "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#webpage",
+      "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html",
+      "name": "How to sync supplier stock feeds to Shopify without zeroing your catalog",
+      "inLanguage": "en",
       "isPartOf": {
-        "@type": "Blog",
-        "@id": "https://blog.dugong.live/#blog",
+        "@type": "WebSite",
+        "@id": "https://blog.dugong.live/#website",
         "name": "Dugong Field Notes",
         "url": "https://blog.dugong.live/"
       },
-      "mainEntityOfPage": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html",
+      "primaryImageOfPage": {
+        "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#primaryimage"
+      },
+      "mainEntity": {
+        "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#article"
+      },
+      "datePublished": "2026-07-26",
+      "dateModified": "2026-10-25",
+      "breadcrumb": {
+        "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#article",
+      "isPartOf": [
+        {
+          "@type": "Blog",
+          "@id": "https://blog.dugong.live/#blog",
+          "name": "Dugong Field Notes",
+          "url": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-inventory-automation.html#collection",
+          "name": "Shopify inventory automation",
+          "url": "https://blog.dugong.live/shopify-inventory-automation.html"
+        }
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#webpage"
+      },
       "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html",
       "headline": "How to sync supplier stock feeds to Shopify without zeroing your catalog",
       "abstract": "Shopify has no concept of a supplier anywhere in the platform. There is no scheduled import, no FTP or SFTP client, no column mapping screen, and no reconciliation report telling you what last night's update changed. Locations, quantities and committed stock all work properly; the feed itself is somebody else's file, arriving on somebody else's schedule, and nothing native reads it.",
@@ -67,6 +101,7 @@
       "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
+        "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#primaryimage",
         "url": "https://blog.dugong.live/og-image.png",
         "width": 1200,
         "height": 630
@@ -74,6 +109,7 @@
       "about": [
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q7501150",
           "name": "Shopify",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Shopify",
@@ -82,6 +118,7 @@
         },
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q3761396",
           "name": "Inventory management",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Inventory_management_(business)",
@@ -90,6 +127,7 @@
         },
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q399757",
           "name": "Stock keeping unit",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Stock_keeping_unit",
@@ -98,6 +136,7 @@
         },
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q1542702",
           "name": "Drop shipping",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Drop_shipping",
@@ -106,6 +145,7 @@
         },
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q690189",
           "name": "Electronic data interchange",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Electronic_data_interchange",
@@ -187,44 +227,94 @@
     {
       "@type": "FAQPage",
       "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq",
+      "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-heading",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3761396"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q399757"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q1542702"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q690189"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "datePublished": "2026-07-26",
+      "dateModified": "2026-10-25",
       "mainEntity": [
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-1",
+          "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-1",
           "name": "Why did my supplier feed set all my Shopify products to zero?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-1-answer",
+            "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-1-answer",
             "text": "Almost always because the matching failed and the sync was configured to treat an unmatched SKU as out of stock. Every inventory sync tool asks you this question once, at setup: if a SKU in your store is not found in today's file, should we leave it alone or set it to zero. Merchants pick zero because it is the safe answer against overselling. Then the supplier renames a column, adds a header row, exports with a different delimiter, or truncates the file, the matcher finds nothing, and the safe answer wipes the catalog in one pass. Nothing about the run looks like an error to the tool, because from its point of view it matched zero rows and applied the rule you gave it. The fix is not a different setting. It is a check on the file itself before any of it is trusted: is this file the shape yesterday's file was, does the row count make sense, and is a change this large plausible."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-2",
+          "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-2",
           "name": "Why does Shopify inventory sync fail when the SKU looks correct?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-2-answer",
+            "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-2-answer",
             "text": "Because Shopify matches SKUs as exact strings and the match is case sensitive, so TurkeySandwich and Turkeysandwich are two different products as far as the platform is concerned. Merchants have raised this on the Shopify community boards for years. Three other things break the match just as often and are harder to see: trailing whitespace in the supplier's export, leading zeros stripped by Excel when someone opens the CSV to look at it, and a long numeric SKU read as scientific notation. There is also the reverse failure, where two variants share the same SKU. Shopify allows that, so the sync updates one of them and the other keeps selling stock that is already gone."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-3",
+          "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-3",
           "name": "Can Shopify Flow import a supplier stock file?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-3-answer",
+            "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-3-answer",
             "text": "No. Flow reacts to things that happen inside Shopify. It can start a workflow when an inventory quantity changes and it can tag, unpublish, or alert on that product, which is useful downstream. It cannot fetch a file from an FTP server, parse a CSV or an XML feed, map a supplier's column names to your fields, or reconcile thousands of rows against your catalog. It also cannot form an opinion about the file as a whole, because every condition it evaluates reads a single product in isolation, and the question that actually protects you here is a question about the whole run: does this feed look like the feed we got yesterday."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-4",
+          "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-4",
           "name": "How do I stop a broken supplier feed from zeroing my Shopify catalog?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-4-answer",
+            "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-4-answer",
             "text": "Inspect the file before applying it, which is the step almost nobody builds. Before any update runs, compare the feed against what a normal file from this supplier looks like: roughly this many rows, this delimiter and encoding, these column names, this much daily churn. A file that suddenly matches nothing is not an inventory event, it is a broken export, and the right response is to apply nothing and tell a human. Context decides the borderline cases: eleven percent of the catalog going to zero on a random Tuesday deserves a question, while the same movement the morning after a flash sale is just Tuesday. The inspection also catches systematic renames, like a SKU column that picks up a UK- prefix after a warehouse migration, which is one mapping shift rather than 2,800 separate discontinuations. Even a watcher that only flags a late, thin, or oddly shaped file and refuses to apply it removes the worst outcome."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-5",
+          "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-5",
           "name": "What inventory buffer should I set on a supplier feed sync?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-5-answer",
+            "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#faq-5-answer",
             "text": "Not one global number, which is the shape the sync apps offer and the wrong one. A hold back three units setting is too tight on the item that sells fifty a day between feed drops and absurdly wasteful on the one that sells two a week. The correct buffer is a function of velocity and feed frequency: how much a SKU can sell in the hours between updates, given that a once-daily feed leaves you exposed for up to nineteen hours after the supplier's warehouse actually runs out. That number changes as products move through their season, so it should be recalculated continuously rather than typed once at setup and forgotten. And pair the buffer with a silence alarm, because the feed that does not arrive at all is the failure nobody catches: stock simply stops moving, and the first signal is a customer buying something that sold out four days ago."
           }
         }
@@ -233,9 +323,41 @@
     {
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#howto",
+      "url": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#playbook",
       "name": "The supplier feed that zeroed your whole catalog",
       "description": "The AI playbook for syncing supplier stock feeds to Shopify: inspecting the file before trusting it, matching SKUs that were renamed or re-prefixed, judging whether a zero is real or an artifact of a broken export, setting buffers by velocity, and holding back suspicious changes for review instead of pushing them to the storefront.",
       "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3761396"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q399757"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q1542702"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q690189"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "image": {
+        "@id": "https://blog.dugong.live/how-to-sync-supplier-inventory-feeds-to-shopify.html#primaryimage"
+      },
+      "datePublished": "2026-07-26",
+      "dateModified": "2026-10-25",
       "totalTime": "PT10M",
       "step": [
         {
@@ -328,7 +450,8 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 105px; }
+@media (min-width: 821px) { html { scroll-padding-top: 78px; } }
 
 body {
   background: var(--bg);
@@ -492,7 +615,7 @@ em { font-style: italic; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
 .article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
-.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; overflow-wrap: break-word; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 57%, var(--lime) 57%, var(--lime) 81%, transparent 81%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .article-title em::after { content: none; }
@@ -510,7 +633,10 @@ em { font-style: italic; }
 .article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
-.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+/* QA 2026-11-17: white-space/overflow-wrap added. 6 playbooks ran 8px past the
+   content box, making an unreachable-by-keyboard scroll region (WCAG 2.1.1).
+   The <=820px rule below has wrapped these since they were written. */
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; white-space: pre-wrap; overflow-wrap: break-word; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
 
 @media (max-width: 560px) {
   .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
@@ -532,6 +658,9 @@ em { font-style: italic; }
 .callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
 .callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
 .callout-sand .callout-mark { color: var(--pink); }
+.short-answer { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--lime-deep); border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2.25rem 0 2.75rem; }
+.article-body .short-answer h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; line-height: 1.2; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime-deep); margin: 0 0 1rem; }
+.article-body .short-answer p:last-child { margin-bottom: 0; }
 .callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
 
 .article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -659,6 +788,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
    lines, and one callout ran the page 7px wide. Stack below 700px. */
 @media (max-width: 700px) {
   .callout { flex-direction: column; gap: 0.55rem; }
+  .short-answer { padding: 1.2rem 1.25rem; margin: 2rem 0 2.25rem; border-radius: 10px; }
   .callout-mark { padding-top: 0; }
 }
 </style>
@@ -728,6 +858,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 /* cards inside a closed disclosure never meet the IntersectionObserver that
    clears .reveal, so they would open at opacity 0. */
 .related-more .reveal { opacity: 1; transform: none; }
+
 </style>
 </head>
 <body>
@@ -825,7 +956,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <div class="short-answer" id="short-answer">
-      <h2>The short answer</h2>
+      <h2 id="h-the-short-answer">The short answer</h2>
 
       <p>
         Shopify has no concept of a supplier anywhere in the platform. There is no scheduled import, no FTP or
@@ -851,7 +982,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </p>
     </div>
 
-    <h2>What Shopify actually does, and where it stops</h2>
+    <h2 id="h-what-shopify-actually-does-and-where-it-stops">What Shopify actually does, and where it stops</h2>
 
     <p>
       Shopify's inventory model itself is not the problem. Locations,
@@ -912,7 +1043,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       inventory that never touches component stock</a>.
     </p>
 
-    <h2>Why the sync apps get you most of the way and then stop</h2>
+    <h2 id="h-why-the-sync-apps-get-you-most-of-the-way-and-then-stop">Why the sync apps get you most of the way and then stop</h2>
 
     <p>
       This is not a knock on the tools. The dedicated inventory sync apps do
@@ -950,7 +1081,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       points nobody revisits</a>.
     </p>
 
-    <h2>Why doing it by hand never keeps up</h2>
+    <h2 id="h-why-doing-it-by-hand-never-keeps-up">Why doing it by hand never keeps up</h2>
 
     <p>
       The manual version is a morning ritual and it is more common than the
@@ -984,7 +1115,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       customer buying something that went out of stock four days ago.
     </p>
 
-    <h2>What the automation actually has to do</h2>
+    <h2 id="h-what-the-automation-actually-has-to-do">What the automation actually has to do</h2>
 
     <p>
       The working version is not a better importer. It is something that
@@ -1057,7 +1188,7 @@ when one does not arrive
       </span>
     </div>
 
-    <h2>Why this is a compiler problem, not an app problem</h2>
+    <h2 id="h-why-this-is-a-compiler-problem-not-an-app-problem">Why this is a compiler problem, not an app problem</h2>
 
     <p>
       Everything in this workflow is a small decision that depends on
@@ -1107,7 +1238,7 @@ when one does not arrive
 
     <hr />
 
-    <h2>The workflow worth building this week</h2>
+    <h2 id="h-the-workflow-worth-building-this-week">The workflow worth building this week</h2>
 
     <p>
       If any part of your catalog depends on somebody else's stock file, you
@@ -1182,34 +1313,157 @@ when one does not arrive
   <div class="faq-list">
     <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Why did my supplier feed set all my Shopify products to zero?</h2>
-      <p class="faq-a">Almost always because the matching failed and the sync was configured to treat an unmatched SKU as out of stock. Every inventory sync tool asks you this question once, at setup: if a SKU in your store is not found in today's file, should we leave it alone or set it to zero. Merchants pick zero because it is the safe answer against overselling. Then the supplier renames a column, adds a header row, exports with a different delimiter, or truncates the file, the matcher finds nothing, and the safe answer wipes the catalog in one pass. Nothing about the run looks like an error to the tool, because from its point of view it matched zero rows and applied the rule you gave it. The fix is not a different setting. It is a check on the file itself before any of it is trusted: is this file the shape yesterday's file was, does the row count make sense, and is a change this large plausible.</p>
+      <p class="faq-a" id="faq-1-answer">Almost always because the matching failed and the sync was configured to treat an unmatched SKU as out of stock. Every inventory sync tool asks you this question once, at setup: if a SKU in your store is not found in today's file, should we leave it alone or set it to zero. Merchants pick zero because it is the safe answer against overselling. Then the supplier renames a column, adds a header row, exports with a different delimiter, or truncates the file, the matcher finds nothing, and the safe answer wipes the catalog in one pass. Nothing about the run looks like an error to the tool, because from its point of view it matched zero rows and applied the rule you gave it. The fix is not a different setting. It is a check on the file itself before any of it is trusted: is this file the shape yesterday's file was, does the row count make sense, and is a change this large plausible.</p>
     </div>
     <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Why does Shopify inventory sync fail when the SKU looks correct?</h2>
-      <p class="faq-a">Because Shopify matches SKUs as exact strings and the match is case sensitive, so TurkeySandwich and Turkeysandwich are two different products as far as the platform is concerned. Merchants have raised this on the Shopify community boards for years. Three other things break the match just as often and are harder to see: trailing whitespace in the supplier's export, leading zeros stripped by Excel when someone opens the CSV to look at it, and a long numeric SKU read as scientific notation. There is also the reverse failure, where two variants share the same SKU. Shopify allows that, so the sync updates one of them and the other keeps selling stock that is already gone.</p>
+      <p class="faq-a" id="faq-2-answer">Because Shopify matches SKUs as exact strings and the match is case sensitive, so TurkeySandwich and Turkeysandwich are two different products as far as the platform is concerned. Merchants have raised this on the Shopify community boards for years. Three other things break the match just as often and are harder to see: trailing whitespace in the supplier's export, leading zeros stripped by Excel when someone opens the CSV to look at it, and a long numeric SKU read as scientific notation. There is also the reverse failure, where two variants share the same SKU. Shopify allows that, so the sync updates one of them and the other keeps selling stock that is already gone.</p>
     </div>
     <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Can Shopify Flow import a supplier stock file?</h2>
-      <p class="faq-a">No. Flow reacts to things that happen inside Shopify. It can start a workflow when an inventory quantity changes and it can tag, unpublish, or alert on that product, which is useful downstream. It cannot fetch a file from an FTP server, parse a CSV or an XML feed, map a supplier's column names to your fields, or reconcile thousands of rows against your catalog. It also cannot form an opinion about the file as a whole, because every condition it evaluates reads a single product in isolation, and the question that actually protects you here is a question about the whole run: does this feed look like the feed we got yesterday.</p>
+      <p class="faq-a" id="faq-3-answer">No. Flow reacts to things that happen inside Shopify. It can start a workflow when an inventory quantity changes and it can tag, unpublish, or alert on that product, which is useful downstream. It cannot fetch a file from an FTP server, parse a CSV or an XML feed, map a supplier's column names to your fields, or reconcile thousands of rows against your catalog. It also cannot form an opinion about the file as a whole, because every condition it evaluates reads a single product in isolation, and the question that actually protects you here is a question about the whole run: does this feed look like the feed we got yesterday.</p>
     </div>
       <div class="faq-item" id="faq-4">
       <h2 class="faq-q">How do I stop a broken supplier feed from zeroing my Shopify catalog?</h2>
-      <p class="faq-a">Inspect the file before applying it, which is the step almost nobody builds. Before any update runs, compare the feed against what a normal file from this supplier looks like: roughly this many rows, this delimiter and encoding, these column names, this much daily churn. A file that suddenly matches nothing is not an inventory event, it is a broken export, and the right response is to apply nothing and tell a human. Context decides the borderline cases: eleven percent of the catalog going to zero on a random Tuesday deserves a question, while the same movement the morning after a flash sale is just Tuesday. The inspection also catches systematic renames, like a SKU column that picks up a UK- prefix after a warehouse migration, which is one mapping shift rather than 2,800 separate discontinuations. Even a watcher that only flags a late, thin, or oddly shaped file and refuses to apply it removes the worst outcome.</p>
+      <p class="faq-a" id="faq-4-answer">Inspect the file before applying it, which is the step almost nobody builds. Before any update runs, compare the feed against what a normal file from this supplier looks like: roughly this many rows, this delimiter and encoding, these column names, this much daily churn. A file that suddenly matches nothing is not an inventory event, it is a broken export, and the right response is to apply nothing and tell a human. Context decides the borderline cases: eleven percent of the catalog going to zero on a random Tuesday deserves a question, while the same movement the morning after a flash sale is just Tuesday. The inspection also catches systematic renames, like a SKU column that picks up a UK- prefix after a warehouse migration, which is one mapping shift rather than 2,800 separate discontinuations. Even a watcher that only flags a late, thin, or oddly shaped file and refuses to apply it removes the worst outcome.</p>
     </div>
     <div class="faq-item" id="faq-5">
       <h2 class="faq-q">What inventory buffer should I set on a supplier feed sync?</h2>
-      <p class="faq-a">Not one global number, which is the shape the sync apps offer and the wrong one. A hold back three units setting is too tight on the item that sells fifty a day between feed drops and absurdly wasteful on the one that sells two a week. The correct buffer is a function of velocity and feed frequency: how much a SKU can sell in the hours between updates, given that a once-daily feed leaves you exposed for up to nineteen hours after the supplier's warehouse actually runs out. That number changes as products move through their season, so it should be recalculated continuously rather than typed once at setup and forgotten. And pair the buffer with a silence alarm, because the feed that does not arrive at all is the failure nobody catches: stock simply stops moving, and the first signal is a customer buying something that sold out four days ago.</p>
+      <p class="faq-a" id="faq-5-answer">Not one global number, which is the shape the sync apps offer and the wrong one. A hold back three units setting is too tight on the item that sells fifty a day between feed drops and absurdly wasteful on the one that sells two a week. The correct buffer is a function of velocity and feed frequency: how much a SKU can sell in the hours between updates, given that a once-daily feed leaves you exposed for up to nineteen hours after the supplier's warehouse actually runs out. That number changes as products move through their season, so it should be recalculated continuously rather than typed once at setup and forgotten. And pair the buffer with a silence alarm, because the feed that does not arrive at all is the failure nobody catches: stock simply stops moving, and the first signal is a customer buying something that sold out four days ago.</p>
     </div>
 </div>
   <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
-<section class="related">
+<section class="related" aria-labelledby="related-heading">
   <div class="section-head">
-    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-eyebrow" id="related-heading">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-payments-with-no-order.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The payment that never became an order</h3>
+        <p class="card-dek">
+          Shopify has no screen that lists money received with no order, so you hear about it from the customer. The AI playbook that reconciles both sides daily.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-spot-serial-returners-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The customer who returns two thirds of what they buy</h3>
+        <p class="card-dek">
+          Shopify has no per customer return rate and its own returns metric counts size swaps. The AI playbook that scores the customer, not the order.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-fix-shopify-orders-with-no-phone-number-before-the-label-fails.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The parcel that stops because nobody can call</h3>
+        <p class="card-dek">
+          Shopify's phone setting is all or nothing, so international orders arrive without a number and the label either fails or stalls. The AI playbook that catches them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;16</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-fix-shopify-subscriptions-billing-the-old-price.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The price your subscribers never stopped paying</h3>
+        <p class="card-dek">
+          A subscription contract copies its price, discount and variant on day one and never looks at them again. The AI playbook that finds the drift.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;7</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-fix-shopify-flow-emails-that-never-send.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The email your automation refused to send</h3>
+        <p class="card-dek">
+          Flow's only email action is locked to customers subscribed to marketing, and throws an exception for everyone else. The AI playbook that gets the message out.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;4</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-find-shopify-products-with-no-cost-per-item.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The orders your profit report quietly drops</h3>
+        <p class="card-dek">
+          Shopify leaves orders with no cost per item out of the profit reports altogether, and there is no filter for the blanks. The AI playbook that keeps cost complete.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;2</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-handle-wrong-item-shipped-claims-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The box that held the wrong thing</h3>
+        <p class="card-dek">
+          Shopify stores what was ordered twice and what was packed never, so a wrong item claim has no second record to check. The AI playbook that catches it first.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT&nbsp;31</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+  <details class="related-more">
+    <summary>55 more dispatches in the archive</summary>
+    <div class="related-grid">
 <a href="how-to-chase-overdue-shopify-b2b-invoices.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1226,6 +1480,7 @@ when one does not arrive
         </div>
       </div>
     </a>
+
 <a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1259,6 +1514,7 @@ when one does not arrive
         </div>
       </div>
     </a>
+
 <a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1275,6 +1531,7 @@ when one does not arrive
         </div>
       </div>
     </a>
+
 <a href="how-to-stop-shipping-shopify-orders-with-payment-pending.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1291,6 +1548,7 @@ when one does not arrive
         </div>
       </div>
     </a>
+
 <a href="how-to-catch-shopify-shipping-labels-you-never-used.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1307,10 +1565,7 @@ when one does not arrive
         </div>
       </div>
     </a>
-  </div>
-  <details class="related-more">
-    <summary>49 more dispatches in the archive</summary>
-    <div class="related-grid">
+
 <a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="card">
       <div class="card-body">
         <div class="post-meta">

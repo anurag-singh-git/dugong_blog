@@ -10,6 +10,7 @@
 - Dispatch: Nº 132 · Research · 10 min read
 - Full headline on page: How to stop shipping Shopify orders *that say Payment pending*
 - Keywords: shopify payment pending, shopify pending payment order, fulfill shopify order pending payment, shopify order shipped not paid, shopify payment status expired, hold fulfillment awaiting payment, shopify collective payment pending, AI payment hold automation
+- Entities: Payment processor (https://www.wikidata.org/wiki/Q12738586); Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -28,6 +29,7 @@ Shopify never blocks fulfillment on payment. An order whose payment status reads
 Shopify's pending payments page asks you to wait until the payment status is Paid before fulfilling, and that request to a human is the entire control. Pending payments usually expire after about a week, at which point the order status becomes Expired, and while the payment is pending you may not be able to edit, restock, cancel, collect payment on or mark the order as paid.
 
 The fix is to hold the fulfillment with the reason Shopify already defines for it, AWAITING_PAYMENT, the moment a pending order appears, let authorized and paid orders through untouched, and poll the payment so the hold releases the hour the money lands.
+
 ## Unpaid is four different problems wearing one badge
 
 Start with the vocabulary, because this is where most stores lose the thread. Shopify's [order status documentation](https://help.shopify.com/en/manual/fulfillment/managing-orders/order-status) defines Unpaid not as a status but as a grouping, and it contains four things: Authorized, Pending, Expired and Partially paid.

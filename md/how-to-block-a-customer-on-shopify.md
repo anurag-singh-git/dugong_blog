@@ -11,6 +11,7 @@
 - Dispatch: Nº 89 · Research · 10 min read
 - Full headline on page: How to *block a customer* on Shopify from placing orders
 - Keywords: Shopify block customer, ban customer Shopify, Shopify blacklist customer, block customer from ordering Shopify, Shopify serial returner, Shopify block email address checkout, Shopify IP block customer, stop customer from buying Shopify
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Return fraud (https://www.wikidata.org/wiki/Q7317165); Chargeback (https://www.wikidata.org/wiki/Q3307525); Customer service (https://www.wikidata.org/wiki/Q1060653); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -26,6 +27,7 @@ Shopify has no block or ban button anywhere in the admin. Deleting or disabling 
 The Flow workaround reacts instead of refusing. Tag the customer, cancel on Order created, restock: the order was already placed and the payment already captured, so every catch still costs you processing fees that refunds generally do not return, and the cancellation notice teaches the blocked person the exact shape of the wall. Checkout validation functions can truly decline a checkout, but they live inside a custom app someone has to build and maintain.
 
 Matching is the deeper crack, because Flow compares strings. One alias walks past an email blocklist on the first attempt, while the literal match is the version most likely to catch an innocent relative who shares a surname. A block has to be held as an identity: email variants, phone, ship-to address, payment fingerprint and the history that earned it, screened at order creation, *before* the pick.
+
 ## What Shopify actually does, and where it stops
 
 The obvious moves all miss, and it is worth being precise about why. Deleting or disabling the customer's account touches only the login: guest checkout remains open to anyone who can type an email address, which is to say the person you just deleted, thirty seconds later, with the same email or a new one. Shopify's fraud analysis will not catch them either, because it is answering a different question. It exists to spot stolen payment methods, the mismatched cards and impossible geographies behind [the high-risk flag that makes you guess](https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html). Your serial returner is not stealing anything at checkout. They pay with their own valid card from their own address, the transaction is perfectly legitimate, and the analysis waves it through as low risk, because as a payment it is. The damage comes later, and no field in the fraud panel looks later.

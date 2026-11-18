@@ -10,6 +10,7 @@
 - Dispatch: Nº 127 · Research · 8 min read
 - Full headline on page: How to catch Shopify orders where *half the order never ships*
 - Keywords: shopify partially fulfilled, shopify order half shipped, shopify unfulfilled line items report, shopify fulfillment order still open, shopify in progress fulfillment status, shopify flow partially fulfilled trigger, line_item_fulfillment_status shopifyql, shopify split shipment customer notification
+- Entities: Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Backorder (https://www.wikidata.org/wiki/Q962928); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -22,6 +23,7 @@ Shipping part of an order is usually the right call. Send what you have, follow 
 ## The short answer
 
 Two of the three items shipped the next morning. The third never moved, and Shopify marked the order Partially fulfilled, which is the platform agreeing that something is missing and then doing nothing about it. The remainder falls out of the reports you actually read, because report filters work at the order level and not the line item level. The AI playbook that sweeps for every open remainder nightly, ages it from the last shipment rather than the order date, names which of seven causes produced it, tells the customer what is still coming before they ask, and closes it honestly.
+
 ## What partially fulfilled actually means
 
 Shopify's own definition is one sentence. The Help Center says you get the Partially fulfilled status when you fulfill part of the items in an order. The Admin API enum is no more generous: some of the items in the order have been fulfilled. That is the whole of it. A label on the order, with no owner and no clock.

@@ -11,6 +11,7 @@
 - Dispatch: Nº 105 · Research · 10 min read
 - Full headline on page: How to catch Shopify orders *stuck in transit* before your customer does
 - Keywords: shopify order stuck in transit, shopify tracking not updating, package stuck in transit, tracking added not updating, shipment stopped moving, stalled shipment alert, shopify flow tracking, usps missing mail search, lost package claim, proactive shipping updates
+- Entities: Package tracking (https://www.wikidata.org/wiki/Q7122894); Last mile (transportation) (https://www.wikidata.org/wiki/Q6494801); Shopify (https://www.wikidata.org/wiki/Q7501150); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

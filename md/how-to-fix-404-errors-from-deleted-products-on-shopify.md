@@ -11,6 +11,7 @@
 - Dispatch: Nº 68 · Research · 9 min read
 - Full headline on page: How to fix *404 errors* from deleted products on Shopify
 - Keywords: Shopify deleted product 404, redirect deleted product Shopify, Shopify 404 errors SEO, Shopify broken links, automatically redirect deleted product, bulk URL redirect Shopify, 301 redirect Shopify, product URL handle changed 404, soft 404
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); HTTP 404 (https://www.wikidata.org/wiki/Q404); URL redirection (https://www.wikidata.org/wiki/Q1236807); Search engine optimization (https://www.wikidata.org/wiki/Q180711)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

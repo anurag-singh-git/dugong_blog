@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to handle wrong item shipped claims on Shopify | Dugong</title>
+<meta name="description" content="Shopify stores what was ordered twice and what was packed never, so a wrong item claim has no second record to check. The AI playbook that catches it first." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="shopify wrong item shipped, customer received wrong item shopify, shopify missing item from order, shopify short shipment claim, shopify mispick, shopify replacement order no charge, shopify return reason wrong item, AI order accuracy automation" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-handle-wrong-item-shipped-claims-on-shopify.md" title="Markdown version for answer engines" />
+<meta property="article:published_time" content="2026-10-31" />
+<meta property="article:modified_time" content="2026-10-31" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to handle wrong item shipped claims on Shopify" />
+<meta property="og:description" content="Shopify stores what was ordered twice and what was packed never, so a wrong item claim has no second record to check. The AI playbook that catches it first." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Dugong Field Notes" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to handle wrong item shipped claims on Shopify" />
+<meta name="twitter:description" content="Shopify stores what was ordered twice and what was packed never, so a wrong item claim has no second record to check. The AI playbook that catches it first." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+<meta name="twitter:image:alt" content="Dugong Field Notes" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#webpage",
+      "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html",
+      "name": "How to handle wrong item shipped claims on Shopify",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://blog.dugong.live/#website",
+        "name": "Dugong Field Notes",
+        "url": "https://blog.dugong.live/"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#primaryimage"
+      },
+      "mainEntity": {
+        "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#article"
+      },
+      "datePublished": "2026-10-31",
+      "dateModified": "2026-10-31",
+      "breadcrumb": {
+        "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#article",
+      "isPartOf": [
+        {
+          "@type": "Blog",
+          "@id": "https://blog.dugong.live/#blog",
+          "name": "Dugong Field Notes",
+          "url": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-returns-and-refunds-automation.html#collection",
+          "name": "Shopify returns and refunds automation",
+          "url": "https://blog.dugong.live/shopify-returns-and-refunds-automation.html"
+        }
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#webpage"
+      },
+      "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html",
+      "headline": "How to handle wrong item shipped claims on Shopify",
+      "abstract": "Shopify records what was ordered twice, once on the order and once on the fulfillment, and records what was picked exactly never. The shipment record is built from the order record, so it cannot contradict it, which means it can never be evidence. There is no second version of the truth to check the first one against.",
+      "description": "Shopify stores what was ordered twice and what was packed never, so a wrong item claim has no second record to check. The AI playbook that catches it first.",
+      "datePublished": "2026-10-31",
+      "dateModified": "2026-10-31",
+      "articleSection": "Research",
+      "keywords": "shopify wrong item shipped, customer received wrong item shopify, shopify missing item from order, shopify short shipment claim, shopify mispick, shopify replacement order no charge, shopify return reason wrong item, AI order accuracy automation",
+      "wordCount": 2672,
+      "timeRequired": "PT10M",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "image": {
+        "@type": "ImageObject",
+        "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#primaryimage",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q7501150",
+          "name": "Shopify",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q1473552",
+          "name": "Order fulfillment",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_fulfillment",
+            "https://www.wikidata.org/wiki/Q1473552"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q166778",
+          "name": "Product return",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Product_return",
+            "https://www.wikidata.org/wiki/Q166778"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q3761396",
+          "name": "Inventory management",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Inventory_management_(business)",
+            "https://www.wikidata.org/wiki/Q3761396"
+          ]
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".short-answer",
+          ".faq"
+        ]
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://blog.dugong.live/#priya-singh",
+        "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify.dev | FulfillmentLineItem, Admin GraphQL API",
+          "url": "https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentLineItem"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify.dev | ReturnReason, Admin GraphQL API",
+          "url": "https://shopify.dev/docs/api/admin-graphql/latest/enums/ReturnReason"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify.dev | Order object, Admin GraphQL API",
+          "url": "https://shopify.dev/docs/api/admin-graphql/latest/objects/Order"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Considerations for editing orders",
+          "url": "https://help.shopify.com/en/manual/fulfillment/managing-orders/editing-orders/considerations"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Self-serve returns and cancellations",
+          "url": "https://help.shopify.com/en/manual/orders/self-serve-returns"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Managing self-serve returns",
+          "url": "https://help.shopify.com/manual/orders/self-serve-returns/managing-returns"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Shopify Flow triggers",
+          "url": "https://help.shopify.com/en/manual/shopify-flow/reference/triggers"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | How to handle sending wrong items to an online store customer",
+          "url": "https://community.shopify.com/t/how-to-handle-sending-wrong-items-to-an-online-store-customer/174409"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | How to handle a customer claiming short shipment on their order",
+          "url": "https://community.shopify.com/t/how-to-handle-a-customer-claiming-short-shipment-on-their-order/269942"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shopify returns and refunds automation",
+          "item": "https://blog.dugong.live/shopify-returns-and-refunds-automation.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The box that held the wrong thing",
+          "item": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq",
+      "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-heading",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q1473552"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q166778"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3761396"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "datePublished": "2026-10-31",
+      "dateModified": "2026-10-31",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-1",
+          "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-1",
+          "name": "What should I do when a Shopify customer says they received the wrong item?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-1-answer",
+            "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-1-answer",
+            "text": "Work the order first and the inbox second. Open the order, confirm which line is wrong, then pick one of three paths and use the same one every time. The cleanest native path is to open a return on the original order, add the correct product as an exchange item, and discount its price to nothing with a reason, so the customer is not charged twice. That keeps one order, one customer record and one trail, and it books no revenue that never existed. The faster and messier path is a duplicate order or a draft order marked as paid so that you can buy a label, which is what merchants in the Shopify community have been doing since at least December 2022 and which puts a sale in your reports that did not happen. Whichever you choose, do two more things before you close the tab. Restock the item the customer did not get and decrement the item they did, because Shopify has no idea either of those happened. And write down the pair, what shipped against what was ordered, because a pair that repeats is a shelf problem rather than a staff problem."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-2",
+          "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-2",
+          "name": "Does Shopify record what was actually in the box?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-2-answer",
+            "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-2-answer",
+            "text": "No. FulfillmentLineItem, the object that represents a shipped item, is documented as a line item from an Order that is included in a Fulfillment, linking the fulfillment to specific items from the original order and tracking how many units were fulfilled. Its fields are an id, a created timestamp, an original total, a discounted total, a quantity and a pointer back to the order line. There is no packer, no scan, no photo, no serial or lot number and no weight. The shipment record is derived from the order record, which is why it always agrees with it, and why it can never serve as evidence that the right thing went out. The closest thing to an independent record of a shipment is the weight the carrier scanned when they collected the parcel, and that number lives in your shipping account rather than in Shopify."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-3",
+          "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-3",
+          "name": "How do I send a replacement order on Shopify without charging the customer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-3-answer",
+            "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-3-answer",
+            "text": "Three ways, in descending order of tidiness. Open a return on the original order and add the right product as an exchange item, discounting its price to nothing with a reason, which leaves you with one order and sales figures that are still true. Or create a draft order, discount it in full, mark it as paid and buy a label from it, which is the workaround a community voice suggested in December 2022. Or duplicate the original order, strip out everything you are not resending, mark it paid and print the label, which is what the merchant in that thread actually did. The last two both create a document that looks like a sale. In October 2023 another merchant in the same thread asked whether draft orders affect gross and net sales and sales tax reports, and was told that draft orders are stored separately and their tax should not appear in reports until the order is paid, which does not help much when marking it paid is the only way to get a label. Pick one, write it into your process notes, and automate it so the choice is not remade under pressure at six in the evening."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-4",
+          "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-4",
+          "name": "How do I fix my inventory after shipping the wrong item on Shopify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-4-answer",
+            "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-4-answer",
+            "text": "Two adjustments, not one. Shopify decremented the item on the order, so that unit is still physically on your shelf and has to go back on. The item that actually went in the box was never decremented, so it has to come off. Both figures currently read higher than reality, which is the direction that oversells, and the overstated one is live on your storefront waiting for somebody to buy it. Make both writes at the location that shipped the parcel, as part of settling the claim, rather than leaving them for the next stocktake. If the customer returns the wrong item, the restock on that return covers one half, the wrong half, so you still owe the other two adjustments. The merchant who mailed a wrong item in December 2022 saw this himself and said he would go and count inventory in case the wrong item had also been removed from stock, which is the manual version of exactly these writes."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-5",
+          "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-5",
+          "name": "How can I tell a genuine mis-pick from a false claim on Shopify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-5-answer",
+            "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-5-answer",
+            "text": "You cannot tell from one claim, and nothing in Shopify will help, because the order and the fulfillment are the same record written twice. What you can do is build a second number. The order knows what the parcel should weigh, since the Order object carries a total weight in grams derived from your variant weights. The carrier knows what it did weigh, because every parcel crosses a conveyor and gets billed on that figure. A parcel that left eighty grams light, from a customer who then says the medium arrived instead of the large, is a mis-pick with corroboration. A parcel that weighed exactly right, from a customer on their third claim this quarter, is a different conversation. The merchant in a November 2023 short shipment thread reached the same conclusion from the wrong end: he had photographed the mailer showing 3 lbs and planned to ask UPS for the scanned weight from processing once the claim had already landed. Nobody replied to him. The number he wanted was in his own shipping account, and it had been available on the day he shipped."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-6",
+          "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-6",
+          "name": "Can AI handle wrong item claims on Shopify?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-6-answer",
+            "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#faq-6-answer",
+            "text": "Yes, and the fit is good, because the work is reading and arithmetic rather than opinion. An automation like Dugong compares the weight on every label you buy against the order's expected weight and holds the parcels outside your tolerance before they leave, which is the one moment this is cheap to fix. When a claim arrives as an email with a photo rather than as a return request, it reads the message, matches it to the order, works out which line the customer is disputing and attaches the claim to that order, which is the step that currently costs twenty minutes of somebody's day. It settles the claim the way you wrote down once, as an exchange on the original order rather than a duplicate order that books a sale which never happened. It makes both inventory adjustments, restocking the item that never left and decrementing the item that did. And it counts the pairs, shipped X when Y was ordered, so two variants in adjacent bins with near-identical labels stop being eight separate apologies and become one afternoon with a label printer. The limits are real. A weight check cannot separate two variants that weigh the same, so most color swaps slip past it. It needs variant weights filled in. It cannot decide whether a customer is honest, only whether your own numbers support them. And none of it helps if nobody acts on the pattern it finds."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#howto",
+      "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#playbook",
+      "name": "The box that held the wrong thing",
+      "description": "The AI playbook for wrong item shipped claims on Shopify: capturing the parcel weight at the moment you buy the label, comparing it against the order's expected weight, holding the parcels outside tolerance, pulling every claim into one queue with the order attached, replacing as an exchange rather than as a new sale, correcting both stock counts instead of one, and counting mis-picks by SKU pair rather than by customer.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q1473552"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q166778"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3761396"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "image": {
+        "@id": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#primaryimage"
+      },
+      "datePublished": "2026-10-31",
+      "dateModified": "2026-10-31",
+      "totalTime": "PT10M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Capture the parcel weight when you buy the label",
+          "text": "Capture the parcel weight when you buy the label",
+          "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Compare it to the order's expected weight",
+          "text": "Compare it to the order's expected weight",
+          "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Hold and recheck the parcels outside tolerance",
+          "text": "Hold and recheck the parcels outside tolerance",
+          "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Pull every claim into one queue with the order attached",
+          "text": "Pull every claim into one queue with the order attached",
+          "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Replace as an exchange, not as a new sale",
+          "text": "Replace as an exchange, not as a new sale",
+          "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Correct both stock counts, not just one",
+          "text": "Correct both stock counts, not just one",
+          "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Count mis-picks by SKU pair, not by customer",
+          "text": "Count mis-picks by SKU pair, not by customer",
+          "url": "https://blog.dugong.live/how-to-handle-wrong-item-shipped-claims-on-shopify.html#playbook"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES - matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #71716a;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 105px; }
+@media (min-width: 821px) { html { scroll-padding-top: 78px; } }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background - lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0 var(--gutter); min-height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; min-width: 0; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  white-space: nowrap; flex-shrink: 0;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+/* superseded by the QA 2026-10-18 wrapping nav below */
+@media (max-width: 480px) {
+  .brand-slash, .brand-section { display: none; }
+  .nav-cta { font-size: 12.5px; padding: 8px 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 11.5px; padding: 7px 10px; }
+}
+
+/* QA 2026-10-12: 24px minimum tap target for the standalone topic-guide link */
+@media (max-width: 560px) {
+  .hub-more { padding-top: 5px; padding-bottom: 5px; }
+}
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+/* GRID (for related cards) */
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 560px) { .foot-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; } }
+@media (max-width: 340px) { .foot-cols { grid-template-columns: 1fr; } }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; overflow-wrap: break-word; }
+/* highlight wraps at every width: nowrap overflowed the text column on long phrases */
+.article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 57%, var(--lime) 57%, var(--lime) 81%, transparent 81%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.article-title em::after { content: none; }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: rgba(15,15,12,.45); } /* QA 2026-10-12 */
+.byline-role { color: var(--text-faint); }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+/* QA 2026-11-17: white-space/overflow-wrap added. 6 playbooks ran 8px past the
+   content box, making an unreachable-by-keyboard scroll region (WCAG 2.1.1).
+   The <=820px rule below has wrapped these since they were written. */
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; white-space: pre-wrap; overflow-wrap: break-word; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
+.article-body pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.short-answer { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--lime-deep); border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2.25rem 0 2.75rem; }
+.article-body .short-answer h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; line-height: 1.2; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime-deep); margin: 0 0 1rem; }
+.article-body .short-answer p:last-child { margin-bottom: 0; }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) - mirrors the site's final card ---- */
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+
+/* ACCESSIBILITY */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
+
+/* QA 2026-10-10: mobile tap targets + ticker legibility */
+@media (max-width: 560px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+  .foot-cols > div { gap: 0.1rem; }
+  .foot-cols a { padding: 0.45rem 0; }
+  .article-back { min-height: 40px; padding: 0.55rem 0; }
+  .pill { padding: 0.6rem 1rem; }
+  .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
+}
+
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
+  .tag { font-size: 12px; letter-spacing: 0.05em; }
+  .post-meta { font-size: 12px; }
+  .post-read { font-size: 12px; }
+  .card-foot { font-size: 12px; }
+  .card-date, .card-author { font-size: 12px; }
+  .byline-avatar { font-size: 12px; }
+  .callout-mark { font-size: 12px; }
+  .cta-fine { font-size: 12px; }
+  .foot-h { font-size: 12px; }
+  .stat-label { font-size: 12px; }
+  .pb-status, .pb-tag, .pb-node-sub, .pb-branch-arm { font-size: 12px; }
+  .foot-bot, .foot-bot span, .foot-bot a { font-size: 12px; }
+  .art-coord { font-size: 12px; }
+  .signup-label { font-size: 12px; }
+  .signup-fine { font-size: 12px; }
+  .arch-date { font-size: 12px; }
+  .author-role { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 12px; padding: 7px 9px; }
+}
+
+/* QA 2026-10-19 */
+:root { color-scheme: light; }
+
+/* QA 2026-10-19: a skip link, so a keyboard or screen-reader visitor does not
+   walk the ticker, the brand and four nav links on every page (WCAG 2.4.1). */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  font-family: var(--display); font-weight: 700; font-size: 14px;
+  background: var(--lime); color: #11110e; border: 1px solid #11110e;
+  padding: 10px 18px; border-radius: 0 0 10px 0;
+}
+.skip-link:focus { left: 0; }
+
+/* QA 2026-10-19: the 2026-10-18 pass gave .nav-cta `order: 2` so the button
+   would ride on the brand's row below 820px, but the button was a child of
+   .nav-links, where `order` means nothing and margin-left:auto pushed it past
+   the gutter. It is a child of .nav now. These rules keep the old look. */
+.nav > .nav-cta { flex-shrink: 0; }
+@media (min-width: 821px) { .nav > .nav-cta { margin-left: 0; } }
+
+/* QA 2026-10-19: .callout is a flex row with a flex-shrink:0 label of
+   79-149px. On a 390px phone that left the quote a 136px column, ~20
+   characters a line, 25 lines for a single paragraph; at 320px, 96px and 41
+   lines, and one callout ran the page 7px wide. Stack below 700px. */
+@media (max-width: 700px) {
+  .callout { flex-direction: column; gap: 0.55rem; }
+  .short-answer { padding: 1.2rem 1.25rem; margin: 2rem 0 2.25rem; border-radius: 10px; }
+  .callout-mark { padding-top: 0; }
+}
+</style>
+<style>
+/* SEO 2026-10-12 topic guide link */
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
+.hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
+</style>
+
+<style>
+/* SEO 2026-10-12 long inline code must break rather than widen the page */
+.article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
+</style>
+
+<style>
+/* 2026-10-13 long API identifiers in FAQ answers must break rather than widen the page */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  /* decorative separators strand at the end of a wrapped line on phones */
+  .article-meta span[aria-hidden="true"] { display: none; }
+  .article-meta { column-gap: 1rem; }
+}
+
+/* QA-2026-10-18-CSS
+   QA 2026-10-18: 24px minimum target size at every width, not only phones.
+   The 2026-10-10 pass put this inside @media (max-width:560px), so header and
+   footer links stayed at 23.2-23.5px on tablet and desktop. */
+.nav-links a:not(.nav-cta), .foot-cols a, .foot-bot a {
+  display: inline-flex; align-items: center; min-height: 24px;
+}
+
+/* QA 2026-10-18: the header nav used to vanish below 820px with nothing in its
+   place, so phone and tablet readers had no way back to Latest, Topics or the
+   Archive. Wrap it onto a second row instead of hiding it. */
+@media (max-width: 820px) {
+  .nav { flex-wrap: wrap; padding-top: 0.55rem; padding-bottom: 0.55rem; row-gap: 0.1rem; }
+  .brand { order: 1; }
+  .nav-cta { order: 2; margin-left: auto; }
+  .nav-links { order: 3; width: 100%; gap: 1.5rem; justify-content: flex-start;
+               font-size: 13.5px; padding-bottom: 0.1rem; }
+  .nav-links a:not(.nav-cta) { display: inline-flex; }
+}
+@media (max-width: 380px) { .nav-links { gap: 1.1rem; font-size: 13px; } }
+
+/* QA 2026-10-18: long API identifiers in deks and FAQ answers must break
+   rather than widen the page. Added 2026-10-13 to 5 pages only. */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+
+/* QA 2026-10-18: READ NEXT had grown to 79 cards on the oldest dispatches,
+   ~28,000px of card grid on a phone. The overflow now sits behind a
+   disclosure, so every link is still in the page and crawlable. */
+.related-more { max-width: var(--maxw); margin: 1.5rem auto 0; }
+.related-more > summary {
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-dim); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 0.5rem; min-height: 24px;
+  padding: 0.4rem 0.9rem; border: 1px solid var(--border-strong); border-radius: 999px;
+  list-style: none; transition: color .2s, border-color .2s, background .2s;
+}
+.related-more > summary::-webkit-details-marker { display: none; }
+.related-more > summary::after { content: "\002B"; font-size: 1rem; line-height: 1; }
+.related-more[open] > summary::after { content: "\2212"; }
+.related-more > summary:hover { color: var(--text); border-color: var(--text); background: var(--surface); }
+.related-more > .related-grid { margin-top: 1.5rem; }
+/* cards inside a closed disclosure never meet the IntersectionObserver that
+   clears .reveal, so they would open at opacity 0. */
+.related-more .reveal { opacity: 1; transform: none; }
+
+</style>
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>&#9670; DISPATCH N&ordm; 137 &middot; OCT 31, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 10 MIN READ &middot; 2,672 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+    <span>&#9670; DISPATCH N&ordm; 137 &middot; OCT 31, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 10 MIN READ &middot; 2,672 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+  </nav>
+  <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+</header>
+
+
+<article class="article" id="main" role="main">
+
+  <a href="index.html" class="article-back">&larr; back to field notes</a>
+
+  <div class="article-meta">
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 137</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-10-31" style="color: var(--cream-dim);">OCT 31, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+</div>
+
+  <h1 class="article-title">
+    How to handle wrong item shipped claims on Shopify <em>when nothing records what you packed</em>
+  </h1>
+
+  <p class="article-dek">
+    The customer sends a photo of the wrong product. Your order says the right one, your fulfillment says the same, and nothing in Shopify was ever in the room when the box was packed.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
+    <span class="byline-divider" aria-hidden="true">&middot;</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      The email arrives with a photo attached. Blue, size medium. The order
+      said black, size large.
+    </p>
+
+    <p>
+      You open the order. Black, size large. You open the fulfillment. Black,
+      size large. Everything in Shopify agrees with everything else in
+      Shopify, and none of it was in the room when the bag was sealed.
+    </p>
+
+    <p>
+      So you do the only thing left. You believe the customer, you post the
+      right item, you apologize. By Friday you have done it four times and
+      you could not name one of the four without scrolling back through your
+      inbox.
+    </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2 id="h-the-short-answer">The short answer</h2>
+
+      <p>
+        Shopify records what was ordered twice, once on the order and once on
+        the fulfillment, and records what was picked exactly never. The
+        shipment record is built from the order record, so it cannot
+        contradict it, which means it can never be evidence. There is no
+        second version of the truth to check the first one against.
+      </p>
+
+      <p>
+        Shopify does have a name for the failure. The return reasons enum
+        carries a value for the customer receiving the wrong item. But a
+        return reason is set after the customer opens a return, so the
+        platform hears about the mis-pick from the one person whose account
+        of it you cannot verify.
+      </p>
+
+      <p>
+        By then the order is frozen. Fulfilled line items cannot be removed
+        or re-quantified, so the record of what you sold can never be
+        corrected. Every fix is a second document: a return, a refund, or a
+        new order that puts a sale in your numbers that never happened.
+      </p>
+
+      <p>
+        Two stock figures have also gone wrong, both in the direction that
+        oversells. The item on the order was decremented and is still on your
+        shelf. The item in the box was never decremented and is gone.
+      </p>
+
+      <p>
+        There is one piece of real evidence and you already pay for it. The
+        order knows what the parcel should weigh. The carrier weighs what you
+        actually handed over. Nothing in Shopify puts those two numbers next
+        to each other, and that comparison is most of the automation.
+      </p>
+
+      <p>
+        So the job splits in two. Catch the light parcel on your own bench,
+        before the customer finds out. And when a claim does land, read it,
+        attach it to the order, settle it the same way every time, and count
+        the pairs so next month is better.
+      </p>
+    </div>
+
+    <h2 id="h-the-shipment-record-is-a-copy-of-the-order-so-it-cannot-disagree">The shipment record is a copy of the order, so it cannot disagree</h2>
+
+    <p>
+      Look at what a fulfillment actually stores.
+      <a href="https://shopify.dev/docs/api/admin-graphql/latest/objects/FulfillmentLineItem">FulfillmentLineItem</a>
+      is documented as a line item from an Order that is included in a
+      Fulfillment, linking the fulfillment to specific items from the
+      original order and tracking how many units were fulfilled. Its fields
+      are an id, a created timestamp, two money totals, a quantity, and
+      <code>lineItem</code>, the pointer back to the order.
+    </p>
+
+    <p>
+      Read that list again for what is missing. No packer. No scan. No photo.
+      No serial or lot. No weight. The fulfillment answers one question, how
+      many of this ordered line went out, and it answers it by repeating the
+      order back to you.
+    </p>
+
+    <p>
+      That is not an oversight. It is what a fulfillment is for. Shopify's
+      job is to tell the carrier and the customer that an order has shipped.
+      Whether the right thing is inside the box is a warehouse fact, and
+      Shopify has never claimed to hold warehouse facts.
+    </p>
+
+    <p>
+      The consequence is the one that bites on a Tuesday morning. When a
+      customer says they got the wrong item, there is no second record to
+      check against the first. You are not short of a report. You are short
+      of a witness.
+    </p>
+
+    <h2 id="h-shopify-names-this-failure-then-only-hears-about-it-from-the-customer">Shopify names this failure, then only hears about it from the customer</h2>
+
+    <p>
+      The platform is not silent on mis-picks.
+      <a href="https://shopify.dev/docs/api/admin-graphql/latest/enums/ReturnReason">ReturnReason</a>
+      in the Admin API has ten values, and one of them is
+      <code>WRONG_ITEM</code>, documented as the item is returned because the
+      customer received the wrong one and displayed to the customer as
+      Received the wrong item. Around it sit the ordinary ones: size too
+      large, size too small, style, color, unwanted, defective, not as
+      described, other and unknown.
+    </p>
+
+    <p>
+      So with
+      <a href="https://help.shopify.com/en/manual/orders/self-serve-returns">self-serve
+      returns</a> switched on, a customer can tell you exactly this, in a
+      structured field you can read back later. That is worth having, and
+      switching it on is the ten-minute version of this article. Customers
+      request returns on items that have been delivered, you customize the
+      request form to collect return reasons and product condition, and you
+      approve or decline each request against your own policy.
+    </p>
+
+    <p>
+      Two things to know before you plan around it.
+    </p>
+
+    <p>
+      <strong>The reason describes what arrived, not what left.</strong> A
+      return tagged wrong item tells you a claim was made. It does not tell
+      you a mis-pick happened. Those are different facts, and the difference
+      between them is your margin.
+    </p>
+
+    <p>
+      <strong>Most of these claims never reach the portal.</strong> They
+      arrive as a reply to the shipping confirmation, with a photo, asking
+      for the right item rather than a refund. Flow's seven return triggers,
+      <em>return requested</em>, <em>approved</em>, <em>declined</em>,
+      <em>canceled</em>, <em>closed</em>, <em>processed</em> and
+      <em>reopened</em>, all need a return object to exist first. Nothing in
+      the <a href="https://help.shopify.com/en/manual/shopify-flow/reference/triggers">trigger
+      list</a> fires on an inbound customer email. The event that starts this
+      workflow is not an event Shopify can see.
+    </p>
+
+    <h2 id="h-one-mis-pick-breaks-two-stock-counts-and-both-break-the-same-way">One mis-pick breaks two stock counts, and both break the same way</h2>
+
+    <p>
+      This is the part that costs money quietly, long after the customer has
+      been made happy.
+    </p>
+
+    <p>
+      The order was for the black large, so Shopify decremented the black
+      large. The packer reached one bin over and sent the blue medium.
+    </p>
+
+    <p>
+      Your shelf now holds a black large that Shopify thinks is sold, and it
+      does not hold a blue medium that Shopify thinks is available. Two SKUs,
+      both overstated. The blue medium is live on your storefront and will
+      oversell the moment somebody buys it.
+    </p>
+
+    <p>
+      The merchant who
+      <a href="https://community.shopify.com/t/how-to-handle-sending-wrong-items-to-an-online-store-customer/174409">mailed
+      a customer the wrong item in December 2022</a> worked this out on his
+      own. He duplicated the order, removed the items he was not resending,
+      marked it as paid and printed a label, and then said he would go and
+      count inventory in case the wrong item had also been taken out of
+      stock. He was right to worry, and he was doing it by hand, from memory,
+      on a Wednesday.
+    </p>
+
+    <p>
+      Nothing automates it, because nothing knows. The refund path will
+      restock whatever the customer sends back, which is the wrong item.
+      Nobody ever tells Shopify to put the right one back on the shelf.
+    </p>
+
+    <h2 id="h-the-replacement-nobody-has-a-clean-way-to-send">The replacement nobody has a clean way to send</h2>
+
+    <p>
+      You cannot repair the original. Shopify's
+      <a href="https://help.shopify.com/en/manual/fulfillment/managing-orders/editing-orders/considerations">considerations
+      for editing orders</a> are blunt about it: you can edit unfulfilled
+      items in an order, but you cannot remove fulfilled items or adjust
+      their quantity. Once the wrong thing has shipped, the sale is written
+      in ink.
+    </p>
+
+    <p>
+      That leaves three documents and no obviously good one. A duplicate
+      order marked as paid gets the label printed and books revenue that does
+      not exist. A draft order marked as paid does the same thing one menu
+      over. Both were suggested in that December 2022 thread, the draft order
+      by a community voice and the duplicate by the merchant himself, and
+      nothing on the thread is marked as a solution.
+    </p>
+
+    <p>
+      The reporting worry turned up later in the same place. In October 2023
+      another merchant asked whether draft orders affect gross and net sales
+      and sales tax reports, which is the right question. The answer was that
+      draft orders are stored separately and their tax should not appear in
+      reports until the order is paid. Which it is, because marking it paid
+      was the only way to print the label.
+    </p>
+
+    <p>
+      The cleaner native path is the one fewer merchants use. Open a return
+      on the original order and add the correct product as an
+      <a href="https://help.shopify.com/manual/orders/self-serve-returns/managing-returns">exchange
+      item</a>, where you can apply a discount to its price with a reason.
+      One order, one customer record, one trail, and no invented revenue. It
+      costs you a few more clicks in the admin, which is exactly why it is
+      the step worth handing to a rule.
+    </p>
+
+    <h2 id="h-the-evidence-already-exists-and-nothing-compares-it">The evidence already exists and nothing compares it</h2>
+
+    <p>
+      The order knows its weight. The
+      <a href="https://shopify.dev/docs/api/admin-graphql/latest/objects/Order">Order</a>
+      object carries a total weight in grams, and a second field for the
+      weight after returns and refunds. Every variant with a weight entered
+      against it contributes. That figure is a prediction of what the parcel
+      should scale at.
+    </p>
+
+    <p>
+      The carrier measures the other half. Every parcel crosses a conveyor
+      and gets weighed, and the scanned weight is the number they bill you
+      on. You are already paying for a second opinion on every shipment you
+      send.
+    </p>
+
+    <p>
+      Put the two side by side and a mis-pick becomes arithmetic. A blue
+      medium where a black large should be is eighty grams light. A missing
+      item is a whole item light. Two of something instead of one is an item
+      heavy. One variance is not proof, but a variance on the parcel a
+      customer later complains about is as close to proof as this job gets,
+      and you can have it before the complaint rather than after.
+    </p>
+
+    <p>
+      The merchant in the
+      <a href="https://community.shopify.com/t/how-to-handle-a-customer-claiming-short-shipment-on-their-order/269942">November
+      2023 short shipment thread</a> reached the same conclusion from the
+      wrong end. Running the store alone, he had combined two same-day orders
+      into one bag, moved up from a 12 by 15 to a 14 by 19 mailer,
+      photographed it, and could say the new weight is 3 lbs. When the
+      customer reported an item missing and filed a carrier claim at the same
+      time, his plan was to ask UPS for the scanned weight from processing.
+      Nobody replied to him. No staff answer, nothing marked as solved.
+    </p>
+
+    <p>
+      He was right that the weight was the evidence. He was two weeks late to
+      use it, and he was about to go and ask a carrier for a number that was
+      already sitting in his own shipping account.
+    </p>
+
+    <h2 id="h-what-this-costs-on-an-ordinary-month">What this costs on an ordinary month</h2>
+
+    <p>
+      Three thousand orders a month at 99.5 percent pick accuracy, which is a
+      good warehouse, is fifteen wrong boxes.
+    </p>
+
+    <p>
+      Say twelve of the fifteen customers write in. Each costs a replacement
+      unit at cost, a second label, twenty minutes of somebody's attention
+      and one email you had to word carefully. Call it forty dollars and
+      twenty minutes, so roughly five hundred dollars and four hours. The
+      three who do not write in are the expensive ones: one leaves a review,
+      one never comes back, and one raises a dispute you find out about from
+      your payment provider.
+    </p>
+
+    <p>
+      Then the stock. Thirty SKU-level figures are now wrong, fifteen of them
+      in each direction. You will find them at the next count, or you will
+      find them when something oversells, and when it oversells you will
+      blame the channel sync.
+    </p>
+
+    <p>
+      None of that is the real cost. The real cost is that nobody knows which
+      fifteen, so nobody knows that eight of them were the same two variants
+      sitting in adjacent bins with near-identical labels. That is a
+      half-hour fix nobody got to make, repeating every month.
+    </p>
+
+    <h2 id="h-what-the-automation-actually-has-to-do">What the automation actually has to do</h2>
+
+    <p>
+      As a Dugong playbook, in plain prose:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">Fulfillment</span> created, plus
+inbound customer message
+
+<span class="c"># steps</span>
+1. <span class="k">Capture</span> the parcel weight
+   when you buy the label
+2. <span class="k">Compare</span> it to the order's
+   expected weight
+3. <span class="k">Hold</span> and recheck the parcels
+   outside tolerance
+4. <span class="k">Pull</span> every claim into one
+   queue with the order attached
+5. <span class="k">Replace</span> as an exchange, not
+   as a new sale
+6. <span class="k">Correct</span> both stock counts,
+   not just one
+7. <span class="k">Count</span> mis-picks by SKU pair,
+   not by customer
+</code></pre>
+
+    <p>
+      Steps one to three are the only part of this that happens before the
+      customer finds out. Read the order's expected weight, read the weight
+      on the label you just bought, and flag the gap while the parcel is
+      still on the bench. Set the tolerance in grams rather than as a
+      percentage, because a percentage is generous on heavy orders and
+      paranoid on light ones. Most stores land near the weight of their
+      smallest sellable item.
+    </p>
+
+    <p>
+      Step four is unglamorous and pays the same week. A wrong item claim
+      arrives as prose with a photo, so somebody has to read it, work out
+      which order it belongs to, work out which line is wrong, and decide.
+      Reading an email, matching it to an order and pulling out which SKU the
+      customer says they received is exactly what a language model is good
+      at, and it is the step that currently eats the twenty minutes.
+    </p>
+
+    <p>
+      Step five is a policy decision you make once. An exchange on the
+      original order keeps the trail and invents no revenue. A duplicate
+      order is faster to click and lies to your profit and loss. Write down
+      which one you use, and let the rule do it the same way every time,
+      including at 6pm on the last day of the month.
+    </p>
+
+    <p>
+      Step six is the one everybody forgets, and it has to be two writes.
+      Decrement the SKU that actually left and restock the SKU that never
+      did, at the location that shipped it. Do it as part of settling the
+      claim, not as a note for the next stocktake, because the next stocktake
+      is in March.
+    </p>
+
+    <p>
+      Step seven is the only step that makes next month cheaper. Count the
+      pairs: shipped X when Y was ordered. Fraud clusters on customers and
+      mis-picks cluster on pairs, which is why counting by customer finds you
+      one bad actor and counting by pair finds you the shelf. When the same
+      pair appears three times, the cause is usually a bin, a label or two
+      variant names nobody can tell apart at arm's length, and the fix takes
+      less time than the three replacements did.
+    </p>
+
+    <h2 id="h-why-this-is-a-workflow-and-not-a-checklist">Why this is a workflow and not a checklist</h2>
+
+    <p>
+      Every step here is a two-minute job. Weigh the parcel, read the email,
+      send the right thing, fix the stock, write it down. The reason it does
+      not get done is that it has to get done during the twenty minutes you
+      are already behind on picking, for an order that has already gone out,
+      in front of a customer who is already annoyed.
+    </p>
+
+    <p>
+      The judgment in it is also smaller than it feels. You decide two things
+      once: how many grams count as a gap, and whether a replacement goes out
+      as an exchange or as a new order. After that it is a subtraction, a
+      lookup, two inventory writes and a tally.
+    </p>
+
+    <p>
+      The limits are honest ones. A weight check cannot catch a swap between
+      two variants that weigh the same, which is most color swaps, so it
+      narrows the problem rather than solving it. It needs variant weights
+      filled in, which is the same prerequisite as accurate shipping rates
+      and is missing more often than anyone admits. It cannot tell you
+      whether a claim is true, only whether your own numbers support it. And
+      the pattern counting only earns its keep if somebody actually walks
+      over to the shelf and moves a bin.
+    </p>
+
+    <h2 id="h-do-this-before-you-close-the-laptop">Do this before you close the laptop</h2>
+
+    <p>
+      Three checks, ten minutes, no code.
+    </p>
+
+    <p>
+      Search your support inbox for <em>wrong item</em> and <em>missing from
+      order</em> over the last ninety days and count the threads. That number
+      is your mis-pick rate and your claim rate added together, and it is
+      almost always bigger than the number you would have guessed.
+    </p>
+
+    <p>
+      Open your shipping account and compare the scanned weight on any three
+      labels from last week against what those orders should have weighed. If
+      you cannot do the comparison because your variants have no weights, you
+      have just found the first job.
+    </p>
+
+    <p>
+      Then take your last ten wrong item claims and write down the pair for
+      each: what shipped against what was ordered. If any pair shows up
+      twice, you have found something worth more than the ten replacements
+      put together.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">&#9670; READING</span>
+      <span>
+        Two companion pieces if this one landed: <a
+        href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html">the
+        half of the order that never ships</a>, on the gap between what an
+        order promised and what left the building, and <a
+        href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html">the
+        shipping charge that lands three weeks later</a>, on the other thing
+        a scanned weight is trying to tell you.
+      </span>
+    </div>
+
+    <p>
+      If you sell on Shopify and have a version of this story, the photo of
+      the wrong color, the replacement you sent as a duplicate order, the
+      oversell you traced back to a mis-pick three weeks later, the inbox is
+      open: <code>field-notes@dugong.live</code>. We are collecting case
+      studies for the next issue.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share &middot; copy link &middot; &#10022;</span>
+  </div>
+
+</article>
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">&#9670; COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item" id="faq-1">
+      <h2 class="faq-q">What should I do when a Shopify customer says they received the wrong item?</h2>
+      <p class="faq-a" id="faq-1-answer">Work the order first and the inbox second. Open the order, confirm which line is wrong, then pick one of three paths and use the same one every time. The cleanest native path is to open a return on the original order, add the correct product as an exchange item, and discount its price to nothing with a reason, so the customer is not charged twice. That keeps one order, one customer record and one trail, and it books no revenue that never existed. The faster and messier path is a duplicate order or a draft order marked as paid so that you can buy a label, which is what merchants in the Shopify community have been doing since at least December 2022 and which puts a sale in your reports that did not happen. Whichever you choose, do two more things before you close the tab. Restock the item the customer did not get and decrement the item they did, because Shopify has no idea either of those happened. And write down the pair, what shipped against what was ordered, because a pair that repeats is a shelf problem rather than a staff problem.</p>
+    </div>
+    <div class="faq-item" id="faq-2">
+      <h2 class="faq-q">Does Shopify record what was actually in the box?</h2>
+      <p class="faq-a" id="faq-2-answer">No. FulfillmentLineItem, the object that represents a shipped item, is documented as a line item from an Order that is included in a Fulfillment, linking the fulfillment to specific items from the original order and tracking how many units were fulfilled. Its fields are an id, a created timestamp, an original total, a discounted total, a quantity and a pointer back to the order line. There is no packer, no scan, no photo, no serial or lot number and no weight. The shipment record is derived from the order record, which is why it always agrees with it, and why it can never serve as evidence that the right thing went out. The closest thing to an independent record of a shipment is the weight the carrier scanned when they collected the parcel, and that number lives in your shipping account rather than in Shopify.</p>
+    </div>
+    <div class="faq-item" id="faq-3">
+      <h2 class="faq-q">How do I send a replacement order on Shopify without charging the customer?</h2>
+      <p class="faq-a" id="faq-3-answer">Three ways, in descending order of tidiness. Open a return on the original order and add the right product as an exchange item, discounting its price to nothing with a reason, which leaves you with one order and sales figures that are still true. Or create a draft order, discount it in full, mark it as paid and buy a label from it, which is the workaround a community voice suggested in December 2022. Or duplicate the original order, strip out everything you are not resending, mark it paid and print the label, which is what the merchant in that thread actually did. The last two both create a document that looks like a sale. In October 2023 another merchant in the same thread asked whether draft orders affect gross and net sales and sales tax reports, and was told that draft orders are stored separately and their tax should not appear in reports until the order is paid, which does not help much when marking it paid is the only way to get a label. Pick one, write it into your process notes, and automate it so the choice is not remade under pressure at six in the evening.</p>
+    </div>
+    <div class="faq-item" id="faq-4">
+      <h2 class="faq-q">How do I fix my inventory after shipping the wrong item on Shopify?</h2>
+      <p class="faq-a" id="faq-4-answer">Two adjustments, not one. Shopify decremented the item on the order, so that unit is still physically on your shelf and has to go back on. The item that actually went in the box was never decremented, so it has to come off. Both figures currently read higher than reality, which is the direction that oversells, and the overstated one is live on your storefront waiting for somebody to buy it. Make both writes at the location that shipped the parcel, as part of settling the claim, rather than leaving them for the next stocktake. If the customer returns the wrong item, the restock on that return covers one half, the wrong half, so you still owe the other two adjustments. The merchant who mailed a wrong item in December 2022 saw this himself and said he would go and count inventory in case the wrong item had also been removed from stock, which is the manual version of exactly these writes.</p>
+    </div>
+    <div class="faq-item" id="faq-5">
+      <h2 class="faq-q">How can I tell a genuine mis-pick from a false claim on Shopify?</h2>
+      <p class="faq-a" id="faq-5-answer">You cannot tell from one claim, and nothing in Shopify will help, because the order and the fulfillment are the same record written twice. What you can do is build a second number. The order knows what the parcel should weigh, since the Order object carries a total weight in grams derived from your variant weights. The carrier knows what it did weigh, because every parcel crosses a conveyor and gets billed on that figure. A parcel that left eighty grams light, from a customer who then says the medium arrived instead of the large, is a mis-pick with corroboration. A parcel that weighed exactly right, from a customer on their third claim this quarter, is a different conversation. The merchant in a November 2023 short shipment thread reached the same conclusion from the wrong end: he had photographed the mailer showing 3 lbs and planned to ask UPS for the scanned weight from processing once the claim had already landed. Nobody replied to him. The number he wanted was in his own shipping account, and it had been available on the day he shipped.</p>
+    </div>
+    <div class="faq-item" id="faq-6">
+      <h2 class="faq-q">Can AI handle wrong item claims on Shopify?</h2>
+      <p class="faq-a" id="faq-6-answer">Yes, and the fit is good, because the work is reading and arithmetic rather than opinion. An automation like Dugong compares the weight on every label you buy against the order's expected weight and holds the parcels outside your tolerance before they leave, which is the one moment this is cheap to fix. When a claim arrives as an email with a photo rather than as a return request, it reads the message, matches it to the order, works out which line the customer is disputing and attaches the claim to that order, which is the step that currently costs twenty minutes of somebody's day. It settles the claim the way you wrote down once, as an exchange on the original order rather than a duplicate order that books a sale which never happened. It makes both inventory adjustments, restocking the item that never left and decrementing the item that did. And it counts the pairs, shipped X when Y was ordered, so two variants in adjacent bins with near-identical labels stop being eight separate apologies and become one afternoon with a label printer. The limits are real. A weight check cannot separate two variants that weigh the same, so most color swaps slip past it. It needs variant weights filled in. It cannot decide whether a customer is honest, only whether your own numbers support them. And none of it helps if nobody acts on the pattern it finds.</p>
+    </div>
+  </div>
+</section>
+
+<section class="related" aria-labelledby="related-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="related-heading">&#9670; READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+<a href="how-to-catch-shopify-orders-where-half-the-order-never-ships.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify orders where half the order never ships</h3>
+        <p class="card-dek">
+          You shipped two of three items and the third fell out of every report. The AI playbook that finds every Shopify remainder, clears it, and tells the customer first.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT&nbsp;14</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-shopify-shipping-label-adjustments-before-they-eat-your-margin.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch Shopify shipping label adjustments before they eat your margin</h3>
+        <p class="card-dek">
+          Carriers re-measure your parcel and bill the difference weeks later. The AI playbook that finds each Shopify label adjustment, disputes it in time and fixes the box.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT&nbsp;13</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-automate-returns-and-exchanges-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to automate returns and exchanges on Shopify</h3>
+        <p class="card-dek">
+          Shopify makes you approve every return by hand and won't run a true exchange, so refunds leak revenue you already earned. The AI playbook that automates it.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN&nbsp;09</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html#latest">Latest</a>
+        <a href="index.html#essays">Essays</a>
+        <a href="index.html#post-mortems">Post-mortems</a>
+        <a href="index.html#interviews">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>&copy; 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>

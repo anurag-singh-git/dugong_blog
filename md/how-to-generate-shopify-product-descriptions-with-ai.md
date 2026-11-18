@@ -5,12 +5,13 @@
 - Canonical: https://blog.dugong.live/how-to-generate-shopify-product-descriptions-with-ai.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-19
-- Updated: 2026-08-12
+- Updated: 2026-10-31
 - Section: Research
-- Word count: 2220
+- Word count: 2411
 - Dispatch: Nº 63 · Research · 9 min read
 - Full headline on page: How to *generate Shopify product descriptions* with AI
 - Keywords: Shopify product descriptions, bulk product descriptions, AI product descriptions, Shopify Magic product descriptions, write product descriptions at scale, Shopify product description generator, bulk edit product descriptions, duplicate content product pages
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Copywriting (https://www.wikidata.org/wiki/Q624896); Search engine optimization (https://www.wikidata.org/wiki/Q180711)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -20,6 +21,14 @@ There is a tab open on every growing store's screen that no one likes to look at
 This is the chore that looks solved from a distance and turns out to be half-solved up close. [Shopify Magic](https://help.shopify.com/en/manual/ai-powered-tools), the AI assistant built into the admin, will genuinely write you a product description. It will just do it one product at a time, from the keywords you feed it, in a voice that reads as nobody's in particular. The descriptions you actually need are the whole catalog, written in your voice, each one different enough to earn its own page, and that is exactly where the built-in tool runs out of room.
 
 > The description is the only salesperson on the page. A blank one *says nothing*, and a borrowed one says it for everybody.
+
+## The short answer
+
+Shopify Magic will write a product description, one product at a time. It is free inside the admin and drafts from a few keywords you type, which is real help on a single product and the right thing to reach for first. There is no native button that writes the catalog.
+
+Three things keep it from clearing the backlog. It drafts from your keywords rather than from the product, so it never sees the variants, the supplier spec or the photo, and the context that makes copy specific is still typed in by hand for every item. The drafts read as machine-made, so you edit each one. And nothing stops ten near-identical variants coming out as ten near-identical pages that compete with each other.
+
+The fix is reading before writing. Pull each product whole, variants and spec and images included, hold one brand voice defined once rather than a tone setting chosen per product, check every new description against its neighbors so the catalog does not become a hall of mirrors, and never keep the supplier line that is already live word for word on *every other store running that feed*.
 
 ## Why the blank description is the expensive one
 

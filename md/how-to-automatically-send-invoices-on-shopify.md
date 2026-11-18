@@ -11,6 +11,7 @@
 - Dispatch: Nº 78 · Research · 9 min read
 - Full headline on page: How to automatically *send invoices* to Shopify customers
 - Keywords: Shopify send invoice automatically, Shopify automatic invoice, Shopify PDF invoice, Shopify VAT invoice, send invoice to customer Shopify, Shopify B2B invoice tax number, Shopify order invoice email, Shopify tax invoice, Shopify credit note refund
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Invoice (https://www.wikidata.org/wiki/Q190581); Value-added tax (https://www.wikidata.org/wiki/Q128635); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

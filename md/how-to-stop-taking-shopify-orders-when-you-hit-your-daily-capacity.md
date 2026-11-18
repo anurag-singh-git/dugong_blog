@@ -10,6 +10,7 @@
 - Dispatch: Nº 121 · Research · 6 min read
 - Full headline on page: How to stop taking Shopify orders when you hit your *daily capacity*
 - Keywords: shopify limit orders per day, shopify daily order limit, stop taking orders when capacity reached shopify, shopify limit orders per delivery date, shopify made to order capacity, shopify delivery date capacity, AI order capacity planning
+- Entities: Capacity planning (https://www.wikidata.org/wiki/Q1456934); Build to order (https://www.wikidata.org/wiki/Q1003004); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

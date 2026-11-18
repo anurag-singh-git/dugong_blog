@@ -11,6 +11,7 @@
 - Dispatch: Nº 100 · Research · 9 min read
 - Full headline on page: How to sync inventory between *two Shopify stores*
 - Keywords: sync inventory between two Shopify stores, multiple Shopify stores same inventory, share inventory between Shopify stores, multi store inventory sync Shopify, two Shopify stores one warehouse, Shopify multi store sync, wholesale and retail Shopify stores shared inventory, Shopify oversell two stores
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Inventory (https://www.wikidata.org/wiki/Q815410); Inventory management software (https://www.wikidata.org/wiki/Q6059927); E-commerce (https://www.wikidata.org/wiki/Q484847); Warehouse (https://www.wikidata.org/wiki/Q181623)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

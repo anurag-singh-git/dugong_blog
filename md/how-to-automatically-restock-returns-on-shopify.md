@@ -11,6 +11,7 @@
 - Dispatch: Nº 103 · Research · 10 min read
 - Full headline on page: How to automatically restock returns *on Shopify*
 - Keywords: shopify restock returned items, shopify returns not restocked, shopify inventory wrong after return, restock checkbox shopify, restock returns different location shopify, shopify damaged inventory state, returns receiving workflow, reverse logistics shopify
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Reverse logistics (https://www.wikidata.org/wiki/Q1345498); Product return (https://www.wikidata.org/wiki/Q166778); Inventory (https://www.wikidata.org/wiki/Q815410); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

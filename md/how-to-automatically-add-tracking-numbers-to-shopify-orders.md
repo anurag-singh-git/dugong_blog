@@ -11,6 +11,7 @@
 - Dispatch: Nº 69 · Research · 9 min read
 - Full headline on page: How to *automatically add tracking numbers* to Shopify orders
 - Keywords: Shopify mark as fulfilled, add tracking number Shopify, auto fulfill Shopify orders, bulk fulfill orders Shopify, import tracking numbers CSV Shopify, dropshipping fulfillment tracking, supplier tracking numbers Shopify, Shopify Flow fulfill order, third party fulfillment tracking sync, fulfillment automation Shopify
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Drop shipping (https://www.wikidata.org/wiki/Q1542702); Track and trace (https://www.wikidata.org/wiki/Q446087)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

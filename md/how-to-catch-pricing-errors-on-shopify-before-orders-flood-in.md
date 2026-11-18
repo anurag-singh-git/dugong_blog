@@ -11,6 +11,7 @@
 - Dispatch: Nº 106 · Research · 10 min read
 - Full headline on page: How to catch *pricing errors* on Shopify before orders flood in
 - Keywords: shopify pricing error, wrong price on shopify, price changed to 0, price change alert, shopify flow price trigger, product price history, bulk editor mistake, csv import prices, orders at wrong price, pricing guardrail
+- Entities: Price (https://www.wikidata.org/wiki/Q160151); Comma-separated values (https://www.wikidata.org/wiki/Q935809); Shopify (https://www.wikidata.org/wiki/Q7501150); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

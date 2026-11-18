@@ -11,6 +11,7 @@
 - Dispatch: Nº 117 · Research · 10 min read
 - Full headline on page: How to find and fix duplicate SKUs on Shopify *before they break your inventory*
 - Keywords: shopify duplicate sku, duplicate skus shopify, shopify same sku two products, shopify inventory not syncing same sku, find duplicate skus shopify, shopify sku best practices, shopify sku conflict, AI catalog automation
+- Entities: Stock keeping unit (https://www.wikidata.org/wiki/Q399757); Inventory management (https://www.wikidata.org/wiki/Q3761396); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

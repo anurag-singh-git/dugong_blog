@@ -43,15 +43,49 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#article",
+      "@type": "WebPage",
+      "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#webpage",
+      "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html",
+      "name": "How to handle return to sender orders on Shopify before the customer asks where it is",
+      "inLanguage": "en",
       "isPartOf": {
-        "@type": "Blog",
-        "@id": "https://blog.dugong.live/#blog",
+        "@type": "WebSite",
+        "@id": "https://blog.dugong.live/#website",
         "name": "Dugong Field Notes",
         "url": "https://blog.dugong.live/"
       },
-      "mainEntityOfPage": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html",
+      "primaryImageOfPage": {
+        "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#primaryimage"
+      },
+      "mainEntity": {
+        "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#article"
+      },
+      "datePublished": "2026-10-16",
+      "dateModified": "2026-10-16",
+      "breadcrumb": {
+        "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#article",
+      "isPartOf": [
+        {
+          "@type": "Blog",
+          "@id": "https://blog.dugong.live/#blog",
+          "name": "Dugong Field Notes",
+          "url": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-shipping-and-fulfillment-automation.html#collection",
+          "name": "Shopify shipping and fulfillment automation",
+          "url": "https://blog.dugong.live/shopify-shipping-and-fulfillment-automation.html"
+        }
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#webpage"
+      },
       "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html",
       "headline": "How to handle return to sender orders on Shopify before the customer asks where it is",
       "abstract": "Shopify has no status that means a parcel is coming back to you. The 2026-10 Admin GraphQL FulfillmentEventStatus enum has eleven values and none of them is returning to sender, the value exists only in the unstable version of the API, and the order stays Fulfilled while the box sits in your own receiving area.",
@@ -66,6 +100,7 @@
       "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
+        "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#primaryimage",
         "url": "https://blog.dugong.live/og-image.png",
         "width": 1200,
         "height": 630
@@ -73,6 +108,7 @@
       "about": [
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q2146483",
           "name": "Return to sender",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Return_to_sender",
@@ -81,6 +117,7 @@
         },
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q1473552",
           "name": "Order fulfillment",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Order_fulfillment",
@@ -89,6 +126,7 @@
         },
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q7501150",
           "name": "Shopify",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Shopify",
@@ -180,52 +218,100 @@
     {
       "@type": "FAQPage",
       "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq",
+      "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-heading",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q2146483"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q1473552"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "datePublished": "2026-10-16",
+      "dateModified": "2026-10-16",
       "mainEntity": [
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-1",
+          "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-1",
           "name": "Does Shopify have a return to sender status?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-1-answer",
+            "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-1-answer",
             "text": "No. The order keeps whatever status it had when the parcel left, which is Fulfilled, and the shipment keeps whatever the carrier last reported. The 2026-10 Admin GraphQL FulfillmentEventStatus enum has eleven values, ATTEMPTED_DELIVERY, CARRIER_PICKED_UP, CONFIRMED, DELAYED, DELIVERED, FAILURE, IN_TRANSIT, LABEL_PRINTED, LABEL_PURCHASED, OUT_FOR_DELIVERY and READY_FOR_PICKUP, and none of them means the box is on its way back to you. RETURNING_TO_SENDER appears only in the unstable version of the API, so the word exists in Shopify's vocabulary but not in any version a merchant or an app can rely on today. In practice a return to sender is invisible until the box physically arrives, which is why most stores find out from a customer email rather than from their own store. Catching it early means watching the carrier's tracking events yourself and treating the turnaround scan as the event Shopify does not model."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-2",
+          "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-2",
           "name": "Can Shopify Flow trigger when a package is returned to sender?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-2-answer",
+            "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-2-answer",
             "text": "Not reliably, and not for this. The nearest thing on the Flow bench is the fulfillment event created trigger, and it is built around fulfillment being created rather than the carrier changing its mind later. In August 2024 a merchant asked how to automate on delivery and was pointed at that trigger, then reported back that it does not work, because delivery happens roughly 48 hours after fulfillment and the workflow never fires. No Shopify staff replied and the thread never reached an answer. Even if the trigger fired on every scan, there is no returning to sender status in the stable API for a condition to test, so the workflow would have nothing to match on. The working pattern is the other way round: read the carrier tracking feed on your own schedule, recognize the turnaround language in the scan, and write the result back onto the order as a tag and a timeline note so the rest of your automation has something to react to."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-3",
+          "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-3",
           "name": "What should I do when a Shopify order is returned to sender?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-3-answer",
+            "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-3-answer",
             "text": "Decide three things in order, and decide them before the box arrives rather than after. First, cause: a wrong or incomplete address, a refused delivery, an uncollected parcel at a pickup point, or a customs rejection are four different problems with four different answers. Second, outcome: reship to a corrected address, or refund. Most policies reship once at your cost when the carrier or your own label was at fault, and ask the customer to cover the second label when the address was wrong, which is roughly what merchants in the community threads settled on, refund the product and deduct the original shipping cost plus any carrier return fee. Third, the record: restock the units when the box is physically back and checked, not when the scan appears, and keep the whole thing out of your customer return rate, because an undelivered parcel is a fulfillment failure, not a product someone disliked. The expensive part is never the decision, it is the eleven days before anyone noticed there was one to make."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-4",
+          "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-4",
           "name": "How do I reship a returned to sender order on Shopify without breaking my reports?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-4-answer",
+            "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-4-answer",
             "text": "Shopify has no reship button, and the workarounds merchants trade all distort something. Shopify Support's own answer in January 2020 was to void the original label if it still qualifies and buy a new one after correcting the address, and otherwise to duplicate the order and apply a 100 percent discount, which keeps revenue honest but double counts the units and needs a manual inventory adjustment. The most upvoted community method is to edit the original order and add a custom line item titled something like Corrected Shipping Address, then buy a label against that item, which avoids a zero dollar order and produces a new tracking number, at the cost of the customer seeing a line item that is not their product. A merchant asked in August 2024 why this is not a standard button, which is the honest summary. Voiding usually fails anyway: the Help Center requires a label under 30 days old with no tracking events, not bought on USPS First Class Mail, and not manifested in the last 15 minutes, and a parcel that traveled far enough to be turned around has tracking events by definition. An automation can do the whole sequence consistently, correct the address, create the reship, carry the original order number forward in the note, and record the second label cost against the first order so the margin story stays true."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-5",
+          "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-5",
           "name": "Why does return to sender wreck my Shopify return rate?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-5-answer",
+            "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-5-answer",
             "text": "Because Shopify files it as a return, and it is not one. A customer-initiated return says something about the product. A return to origin says something about an address, a delivery window or a courier. In a May 2026 feature request a merchant asked Shopify for a separate RTO status on exactly this ground, that mixing the two creates misleading return-rate data and makes performance analysis inaccurate. A reply in the same thread described a brand where about 60 percent of the headline return rate turned out to be RTOs from bad pin codes rather than product issues, and said splitting the data stopped them discontinuing SKUs that were actually selling well. Another reply, from someone building in the category, admitted that every app in this space has to reconstruct the RTO signal from fulfillment and tracking events instead of getting a clean, structured status. Until Shopify ships the status, the separation has to be yours: tag the order with the cause when the turnaround is detected, keep RTS out of the return numbers you report on, and report it where it belongs, next to delivery success by courier and by region."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-6",
+          "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-6",
           "name": "Can AI handle return to sender orders on my Shopify store?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-6-answer",
+            "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#faq-6-answer",
             "text": "Yes, and this is a gap worth automating because every part of it is reading and routing rather than judgment. An automation like Dugong watches the tracking feed for every open shipment, recognizes the turnaround however the carrier words it, and does within the hour what a person does eleven days late: tag the order, name the likely cause, email the customer before they email you, ask for a corrected address while they are still paying attention, and park the order in a queue with a clock on it. When the box lands it reconciles the physical arrival with the scan, restocks what is sellable, flags what is not, applies your reship or refund rule, charges or waives the second label, and keeps the event out of your return rate. The honest limits: nothing can inspect the carton, so somebody still opens it; carrier wording varies and a thin tracking feed will miss a scan, so the undelivered age sweep is the backstop; and the policy calls, who pays for the second label, how many attempts before you refund, which addresses you refuse to ship to twice, are yours to write. What the automation removes is the silence between the turnaround and the discovery."
           }
         }
@@ -234,9 +320,35 @@
     {
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#howto",
+      "url": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#playbook",
       "name": "The parcel that came back and told nobody",
       "description": "The AI playbook for return to sender orders on a Shopify store that has no return to sender status: watching every tracking feed for the turnaround scan, flagging the order the hour it reverses, naming the cause, contacting the customer before they ask, deciding reship against refund on your own rules, reconciling and restocking the box when it physically lands, settling the second label cost, and reporting RTS separately from customer returns.",
       "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q2146483"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q1473552"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "image": {
+        "@id": "https://blog.dugong.live/how-to-handle-return-to-sender-orders-on-shopify.html#primaryimage"
+      },
+      "datePublished": "2026-10-16",
+      "dateModified": "2026-10-16",
       "totalTime": "PT9M",
       "step": [
         {
@@ -336,7 +448,8 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 105px; }
+@media (min-width: 821px) { html { scroll-padding-top: 78px; } }
 
 body {
   background: var(--bg);
@@ -500,7 +613,7 @@ em { font-style: italic; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
 .article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
-.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; overflow-wrap: break-word; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 57%, var(--lime) 57%, var(--lime) 81%, transparent 81%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .article-title em::after { content: none; }
@@ -518,7 +631,10 @@ em { font-style: italic; }
 .article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
-.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+/* QA 2026-11-17: white-space/overflow-wrap added. 6 playbooks ran 8px past the
+   content box, making an unreachable-by-keyboard scroll region (WCAG 2.1.1).
+   The <=820px rule below has wrapped these since they were written. */
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; white-space: pre-wrap; overflow-wrap: break-word; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
 
 @media (max-width: 560px) {
   .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
@@ -540,6 +656,9 @@ em { font-style: italic; }
 .callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
 .callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
 .callout-sand .callout-mark { color: var(--pink); }
+.short-answer { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--lime-deep); border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2.25rem 0 2.75rem; }
+.article-body .short-answer h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; line-height: 1.2; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime-deep); margin: 0 0 1rem; }
+.article-body .short-answer p:last-child { margin-bottom: 0; }
 .callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
 
 .article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -667,6 +786,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
    lines, and one callout ran the page 7px wide. Stack below 700px. */
 @media (max-width: 700px) {
   .callout { flex-direction: column; gap: 0.55rem; }
+  .short-answer { padding: 1.2rem 1.25rem; margin: 2rem 0 2.25rem; border-radius: 10px; }
   .callout-mark { padding-top: 0; }
 }
 </style>
@@ -740,6 +860,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 /* cards inside a closed disclosure never meet the IntersectionObserver that
    clears .reveal, so they would open at opacity 0. */
 .related-more .reveal { opacity: 1; transform: none; }
+
 </style>
 </head>
 <body>
@@ -819,7 +940,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <div class="short-answer" id="short-answer">
-      <h2>The short answer</h2>
+      <h2 id="h-the-short-answer">The short answer</h2>
 
       <p>
         Shopify has no status that means a parcel is coming back to you. The 2026-10 Admin GraphQL FulfillmentEventStatus enum has eleven values and none of them is returning to sender, the value exists only in the unstable version of the API, and the order stays Fulfilled while the box sits in your own receiving area.
@@ -834,7 +955,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </p>
     </div>
 
-    <h2>The word Shopify has not shipped</h2>
+    <h2 id="h-the-word-shopify-has-not-shipped">The word Shopify has not shipped</h2>
 
     <p>
       Here is the whole problem in one list. The
@@ -880,7 +1001,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       kitchen table.
     </p>
 
-    <h2>Flow has nothing to fire on</h2>
+    <h2 id="h-flow-has-nothing-to-fire-on">Flow has nothing to fire on</h2>
 
     <p>
       The reasonable next thought is to automate around it with
@@ -911,7 +1032,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       hand the box over. It does not model the days afterwards.
     </p>
 
-    <h2>Shopify calls it a return, and it is not one</h2>
+    <h2 id="h-shopify-calls-it-a-return-and-it-is-not-one">Shopify calls it a return, and it is not one</h2>
 
     <p>
       When the box does come back, the admin offers you the
@@ -967,7 +1088,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </span>
     </div>
 
-    <h2>The workarounds, and what each one breaks</h2>
+    <h2 id="h-the-workarounds-and-what-each-one-breaks">The workarounds, and what each one breaks</h2>
 
     <p>
       There is no reship button, so merchants have built their
@@ -1025,7 +1146,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       this natively.
     </p>
 
-    <h2>What the silence costs</h2>
+    <h2 id="h-what-the-silence-costs">What the silence costs</h2>
 
     <p>
       Price one RTS honestly. Outbound freight, already spent,
@@ -1055,7 +1176,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       it.
     </p>
 
-    <h2>What the automation actually has to do</h2>
+    <h2 id="h-what-the-automation-actually-has-to-do">What the automation actually has to do</h2>
 
     <p>
       As a Dugong playbook, in plain prose:
@@ -1154,7 +1275,7 @@ plus a daily age sweep
       attached, not a dangling fulfilled.
     </p>
 
-    <h2>Why this is a compiler problem, not an app problem</h2>
+    <h2 id="h-why-this-is-a-compiler-problem-not-an-app-problem">Why this is a compiler problem, not an app problem</h2>
 
     <p>
       Everything above sounds like a feature, and that is
@@ -1187,7 +1308,7 @@ plus a daily age sweep
 
     <hr />
 
-    <h2>Do this before you close the laptop</h2>
+    <h2 id="h-do-this-before-you-close-the-laptop">Do this before you close the laptop</h2>
 
     <p>
       Two things, both quick. First, pull every order from the
@@ -1267,35 +1388,35 @@ plus a daily age sweep
   <div class="faq-list">
     <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Does Shopify have a return to sender status?</h2>
-      <p class="faq-a">No. The order keeps whatever status it had when the parcel left, which is Fulfilled, and the shipment keeps whatever the carrier last reported. The 2026-10 Admin GraphQL FulfillmentEventStatus enum has eleven values, ATTEMPTED_DELIVERY, CARRIER_PICKED_UP, CONFIRMED, DELAYED, DELIVERED, FAILURE, IN_TRANSIT, LABEL_PRINTED, LABEL_PURCHASED, OUT_FOR_DELIVERY and READY_FOR_PICKUP, and none of them means the box is on its way back to you. RETURNING_TO_SENDER appears only in the unstable version of the API, so the word exists in Shopify's vocabulary but not in any version a merchant or an app can rely on today. In practice a return to sender is invisible until the box physically arrives, which is why most stores find out from a customer email rather than from their own store. Catching it early means watching the carrier's tracking events yourself and treating the turnaround scan as the event Shopify does not model.</p>
+      <p class="faq-a" id="faq-1-answer">No. The order keeps whatever status it had when the parcel left, which is Fulfilled, and the shipment keeps whatever the carrier last reported. The 2026-10 Admin GraphQL FulfillmentEventStatus enum has eleven values, ATTEMPTED_DELIVERY, CARRIER_PICKED_UP, CONFIRMED, DELAYED, DELIVERED, FAILURE, IN_TRANSIT, LABEL_PRINTED, LABEL_PURCHASED, OUT_FOR_DELIVERY and READY_FOR_PICKUP, and none of them means the box is on its way back to you. RETURNING_TO_SENDER appears only in the unstable version of the API, so the word exists in Shopify's vocabulary but not in any version a merchant or an app can rely on today. In practice a return to sender is invisible until the box physically arrives, which is why most stores find out from a customer email rather than from their own store. Catching it early means watching the carrier's tracking events yourself and treating the turnaround scan as the event Shopify does not model.</p>
     </div>
     <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Can Shopify Flow trigger when a package is returned to sender?</h2>
-      <p class="faq-a">Not reliably, and not for this. The nearest thing on the Flow bench is the fulfillment event created trigger, and it is built around fulfillment being created rather than the carrier changing its mind later. In August 2024 a merchant asked how to automate on delivery and was pointed at that trigger, then reported back that it does not work, because delivery happens roughly 48 hours after fulfillment and the workflow never fires. No Shopify staff replied and the thread never reached an answer. Even if the trigger fired on every scan, there is no returning to sender status in the stable API for a condition to test, so the workflow would have nothing to match on. The working pattern is the other way round: read the carrier tracking feed on your own schedule, recognize the turnaround language in the scan, and write the result back onto the order as a tag and a timeline note so the rest of your automation has something to react to.</p>
+      <p class="faq-a" id="faq-2-answer">Not reliably, and not for this. The nearest thing on the Flow bench is the fulfillment event created trigger, and it is built around fulfillment being created rather than the carrier changing its mind later. In August 2024 a merchant asked how to automate on delivery and was pointed at that trigger, then reported back that it does not work, because delivery happens roughly 48 hours after fulfillment and the workflow never fires. No Shopify staff replied and the thread never reached an answer. Even if the trigger fired on every scan, there is no returning to sender status in the stable API for a condition to test, so the workflow would have nothing to match on. The working pattern is the other way round: read the carrier tracking feed on your own schedule, recognize the turnaround language in the scan, and write the result back onto the order as a tag and a timeline note so the rest of your automation has something to react to.</p>
     </div>
     <div class="faq-item" id="faq-3">
       <h2 class="faq-q">What should I do when a Shopify order is returned to sender?</h2>
-      <p class="faq-a">Decide three things in order, and decide them before the box arrives rather than after. First, cause: a wrong or incomplete address, a refused delivery, an uncollected parcel at a pickup point, or a customs rejection are four different problems with four different answers. Second, outcome: reship to a corrected address, or refund. Most policies reship once at your cost when the carrier or your own label was at fault, and ask the customer to cover the second label when the address was wrong, which is roughly what merchants in the community threads settled on, refund the product and deduct the original shipping cost plus any carrier return fee. Third, the record: restock the units when the box is physically back and checked, not when the scan appears, and keep the whole thing out of your customer return rate, because an undelivered parcel is a fulfillment failure, not a product someone disliked. The expensive part is never the decision, it is the eleven days before anyone noticed there was one to make.</p>
+      <p class="faq-a" id="faq-3-answer">Decide three things in order, and decide them before the box arrives rather than after. First, cause: a wrong or incomplete address, a refused delivery, an uncollected parcel at a pickup point, or a customs rejection are four different problems with four different answers. Second, outcome: reship to a corrected address, or refund. Most policies reship once at your cost when the carrier or your own label was at fault, and ask the customer to cover the second label when the address was wrong, which is roughly what merchants in the community threads settled on, refund the product and deduct the original shipping cost plus any carrier return fee. Third, the record: restock the units when the box is physically back and checked, not when the scan appears, and keep the whole thing out of your customer return rate, because an undelivered parcel is a fulfillment failure, not a product someone disliked. The expensive part is never the decision, it is the eleven days before anyone noticed there was one to make.</p>
     </div>
     <div class="faq-item" id="faq-4">
       <h2 class="faq-q">How do I reship a returned to sender order on Shopify without breaking my reports?</h2>
-      <p class="faq-a">Shopify has no reship button, and the workarounds merchants trade all distort something. Shopify Support's own answer in January 2020 was to void the original label if it still qualifies and buy a new one after correcting the address, and otherwise to duplicate the order and apply a 100 percent discount, which keeps revenue honest but double counts the units and needs a manual inventory adjustment. The most upvoted community method is to edit the original order and add a custom line item titled something like Corrected Shipping Address, then buy a label against that item, which avoids a zero dollar order and produces a new tracking number, at the cost of the customer seeing a line item that is not their product. A merchant asked in August 2024 why this is not a standard button, which is the honest summary. Voiding usually fails anyway: the Help Center requires a label under 30 days old with no tracking events, not bought on USPS First Class Mail, and not manifested in the last 15 minutes, and a parcel that traveled far enough to be turned around has tracking events by definition. An automation can do the whole sequence consistently, correct the address, create the reship, carry the original order number forward in the note, and record the second label cost against the first order so the margin story stays true.</p>
+      <p class="faq-a" id="faq-4-answer">Shopify has no reship button, and the workarounds merchants trade all distort something. Shopify Support's own answer in January 2020 was to void the original label if it still qualifies and buy a new one after correcting the address, and otherwise to duplicate the order and apply a 100 percent discount, which keeps revenue honest but double counts the units and needs a manual inventory adjustment. The most upvoted community method is to edit the original order and add a custom line item titled something like Corrected Shipping Address, then buy a label against that item, which avoids a zero dollar order and produces a new tracking number, at the cost of the customer seeing a line item that is not their product. A merchant asked in August 2024 why this is not a standard button, which is the honest summary. Voiding usually fails anyway: the Help Center requires a label under 30 days old with no tracking events, not bought on USPS First Class Mail, and not manifested in the last 15 minutes, and a parcel that traveled far enough to be turned around has tracking events by definition. An automation can do the whole sequence consistently, correct the address, create the reship, carry the original order number forward in the note, and record the second label cost against the first order so the margin story stays true.</p>
     </div>
     <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Why does return to sender wreck my Shopify return rate?</h2>
-      <p class="faq-a">Because Shopify files it as a return, and it is not one. A customer-initiated return says something about the product. A return to origin says something about an address, a delivery window or a courier. In a May 2026 feature request a merchant asked Shopify for a separate RTO status on exactly this ground, that mixing the two creates misleading return-rate data and makes performance analysis inaccurate. A reply in the same thread described a brand where about 60 percent of the headline return rate turned out to be RTOs from bad pin codes rather than product issues, and said splitting the data stopped them discontinuing SKUs that were actually selling well. Another reply, from someone building in the category, admitted that every app in this space has to reconstruct the RTO signal from fulfillment and tracking events instead of getting a clean, structured status. Until Shopify ships the status, the separation has to be yours: tag the order with the cause when the turnaround is detected, keep RTS out of the return numbers you report on, and report it where it belongs, next to delivery success by courier and by region.</p>
+      <p class="faq-a" id="faq-5-answer">Because Shopify files it as a return, and it is not one. A customer-initiated return says something about the product. A return to origin says something about an address, a delivery window or a courier. In a May 2026 feature request a merchant asked Shopify for a separate RTO status on exactly this ground, that mixing the two creates misleading return-rate data and makes performance analysis inaccurate. A reply in the same thread described a brand where about 60 percent of the headline return rate turned out to be RTOs from bad pin codes rather than product issues, and said splitting the data stopped them discontinuing SKUs that were actually selling well. Another reply, from someone building in the category, admitted that every app in this space has to reconstruct the RTO signal from fulfillment and tracking events instead of getting a clean, structured status. Until Shopify ships the status, the separation has to be yours: tag the order with the cause when the turnaround is detected, keep RTS out of the return numbers you report on, and report it where it belongs, next to delivery success by courier and by region.</p>
     </div>
     <div class="faq-item" id="faq-6">
       <h2 class="faq-q">Can AI handle return to sender orders on my Shopify store?</h2>
-      <p class="faq-a">Yes, and this is a gap worth automating because every part of it is reading and routing rather than judgment. An automation like Dugong watches the tracking feed for every open shipment, recognizes the turnaround however the carrier words it, and does within the hour what a person does eleven days late: tag the order, name the likely cause, email the customer before they email you, ask for a corrected address while they are still paying attention, and park the order in a queue with a clock on it. When the box lands it reconciles the physical arrival with the scan, restocks what is sellable, flags what is not, applies your reship or refund rule, charges or waives the second label, and keeps the event out of your return rate. The honest limits: nothing can inspect the carton, so somebody still opens it; carrier wording varies and a thin tracking feed will miss a scan, so the undelivered age sweep is the backstop; and the policy calls, who pays for the second label, how many attempts before you refund, which addresses you refuse to ship to twice, are yours to write. What the automation removes is the silence between the turnaround and the discovery.</p>
+      <p class="faq-a" id="faq-6-answer">Yes, and this is a gap worth automating because every part of it is reading and routing rather than judgment. An automation like Dugong watches the tracking feed for every open shipment, recognizes the turnaround however the carrier words it, and does within the hour what a person does eleven days late: tag the order, name the likely cause, email the customer before they email you, ask for a corrected address while they are still paying attention, and park the order in a queue with a clock on it. When the box lands it reconciles the physical arrival with the scan, restocks what is sellable, flags what is not, applies your reship or refund rule, charges or waives the second label, and keeps the event out of your return rate. The honest limits: nothing can inspect the carton, so somebody still opens it; carrier wording varies and a thin tracking feed will miss a scan, so the undelivered age sweep is the backstop; and the policy calls, who pays for the second label, how many attempts before you refund, which addresses you refuse to ship to twice, are yours to write. What the automation removes is the silence between the turnaround and the discovery.</p>
     </div>
   </div>
   <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
-<section class="related">
+<section class="related" aria-labelledby="related-heading">
   <div class="section-head">
-    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-eyebrow" id="related-heading">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">

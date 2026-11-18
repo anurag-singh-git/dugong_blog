@@ -5,12 +5,13 @@
 - Canonical: https://blog.dugong.live/how-to-automatically-request-product-reviews-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-22
-- Updated: 2026-08-12
+- Updated: 2026-10-31
 - Section: Research
-- Word count: 2370
+- Word count: 2586
 - Dispatch: Nº 66 · Research · 9 min read
 - Full headline on page: How to *automatically request product reviews* on Shopify
 - Keywords: Shopify review request automation, automated review request email Shopify, ask for reviews after delivery, post-purchase review email, collect reviews Shopify, review request timing, AI review requests
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Customer review (https://www.wikidata.org/wiki/Q5196473); Social proof (https://www.wikidata.org/wiki/Q2993355)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -20,6 +21,14 @@ A customer orders from you, the package arrives, they love it, and then nothing 
 This is one of the most repeated questions in the merchant communities, and it usually arrives the same way: someone asks how to send a review request automatically after an order is delivered, and the early answers are some version of "you cannot do that natively, you will need an app." Shopify support has said as much in those threads. The store owner is not asking for anything exotic. They want the thing every review platform's marketing assumes they already have: a request that fires after delivery, names the product, and lands while the customer still remembers the unboxing. The surprise is that the platform running their whole business has no built-in way to send it.
 
 > The review is already there in the customer's head. The only thing missing is the *ask*, and Shopify never sends it.
+
+## The short answer
+
+Shopify does not ask for reviews at all. It retired its own product reviews app and never replaced it, so a stock store has nowhere to gather a product review and nothing that writes or sends the request. The Shop channel can collect a review of the store itself, which is a different thing from a review of the item someone has just unwrapped.
+
+Flow gets the trigger right and stops there. It is free on every plan and can start a workflow the moment an order is marked delivered, but it has no review email of its own, nowhere to hold a rating that comes back, and no way to know that skincare wants a longer wait than snacks. Install an app and the timing, the follow-up and the handling of a one-star reply are all still yours to set.
+
+A request that earns reviews keys off delivery rather than fulfillment, with the delay tuned to what was bought. Read the order before asking so nobody mid-return is invited to gush, name the actual item rather than your recent order, send once with at most one nudge, count a multi-item order as a single ask, and route the answer so a high rating reaches the product page and a low one reaches *a person first*.
 
 ## Why an unasked review is money left on the table
 

@@ -10,6 +10,7 @@
 - Dispatch: Nº 135 · Research · 13 min read
 - Full headline on page: How to catch Shopify inventory transfers that *never get received*
 - Keywords: shopify inventory transfer not received, shopify transfer stuck in progress, shopify incoming inventory not available, shopify receive inventory transfer, shopify flow inventory transfer trigger, shopify purchase order incoming inventory, shopify unreceived transfer alert, AI inventory transfer monitoring
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Inventory management (https://www.wikidata.org/wiki/Q3761396); Purchase order (https://www.wikidata.org/wiki/Q643327); Business process automation (https://www.wikidata.org/wiki/Q5001911)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

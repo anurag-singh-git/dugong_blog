@@ -11,6 +11,7 @@
 - Dispatch: Nº 104 · Research · 10 min read
 - Full headline on page: How to automate gift card delivery and reminders *on Shopify*
 - Keywords: shopify gift card email not received, shopify gift card not sent, resend gift card shopify, shopify gift card recipient form, schedule gift card delivery shopify, shopify gift card expiry, gift card balance reminder, gift card breakage, shopify flow gift card
+- Entities: Gift card (https://www.wikidata.org/wiki/Q554910); Breakage (https://www.wikidata.org/wiki/Q92796261); Credit CARD Act of 2009 (https://www.wikidata.org/wiki/Q3002419); Shopify (https://www.wikidata.org/wiki/Q7501150); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

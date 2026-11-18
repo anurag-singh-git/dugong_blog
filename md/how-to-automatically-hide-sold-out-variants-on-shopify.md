@@ -11,6 +11,7 @@
 - Dispatch: Nº 75 · Research · 9 min read
 - Full headline on page: How to automatically *hide sold-out variants* on Shopify
 - Keywords: Shopify hide sold out variants, hide out of stock variants Shopify, Shopify hide unavailable variants, hide sold out options Shopify, Shopify variant dropdown sold out, remove sold out sizes Shopify, hide out of stock variant automatically Shopify
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Stock keeping unit (https://www.wikidata.org/wiki/Q399757); Merchandising (https://www.wikidata.org/wiki/Q740777); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -23,7 +24,7 @@ This is one of the most-repeated requests in every Shopify merchant community, a
 
 ## The short answer
 
-Shopify has no setting that hides a variant once it sells out. It holds the variant list as part of the product's structure rather than a live view of what is buyable now, so every size and color you created keeps rendering, marked Sold Out or Unavailable and often greyed out or struck through.
+Shopify has no setting that hides a variant once it sells out. It holds the variant list as part of the product's structure rather than a live view of what is buyable now, so every size and color you created keeps rendering, marked Sold Out or Unavailable and often grayed out or struck through.
 
 The two settings that look like they should help do not. Turning off continue selling when out of stock prevents the purchase and still leaves the variant on the page. The newer unlisted status hides a whole product rather than one variant, which is the wrong instrument the moment everything else on the product is still selling.
 

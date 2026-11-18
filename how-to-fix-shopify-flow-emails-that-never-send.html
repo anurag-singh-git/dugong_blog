@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to fix Shopify Flow emails that never send | Dugong</title>
+<meta name="description" content="Flow has one email action, it only sends to customers subscribed to marketing, and most buyers never subscribe. The AI playbook that gets the message out." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="shopify flow email not sending, customer not subscribed to marketing, shopify transactional email flow, send marketing email action, shopify marketing consent, pending email subscribers shopify, email subscription status shopify, double opt-in pending, AI order notifications" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-fix-shopify-flow-emails-that-never-send.md" title="Markdown version for answer engines" />
+<meta property="article:published_time" content="2026-11-04" />
+<meta property="article:modified_time" content="2026-11-04" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to fix Shopify Flow emails that never send" />
+<meta property="og:description" content="Flow has one email action, it only sends to customers subscribed to marketing, and most buyers never subscribe. The AI playbook that gets the message out." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Dugong Field Notes" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to fix Shopify Flow emails that never send" />
+<meta name="twitter:description" content="Flow has one email action, it only sends to customers subscribed to marketing, and most buyers never subscribe. The AI playbook that gets the message out." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+<meta name="twitter:image:alt" content="Dugong Field Notes" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#webpage",
+      "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html",
+      "name": "How to fix Shopify Flow emails that never send",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://blog.dugong.live/#website",
+        "name": "Dugong Field Notes",
+        "url": "https://blog.dugong.live/"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#primaryimage"
+      },
+      "mainEntity": {
+        "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#article"
+      },
+      "datePublished": "2026-11-04",
+      "dateModified": "2026-11-04",
+      "breadcrumb": {
+        "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#article",
+      "isPartOf": [
+        {
+          "@type": "Blog",
+          "@id": "https://blog.dugong.live/#blog",
+          "name": "Dugong Field Notes",
+          "url": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-customer-and-wholesale-automation.html#collection",
+          "name": "Shopify customer and wholesale automation",
+          "url": "https://blog.dugong.live/shopify-customer-and-wholesale-automation.html"
+        }
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#webpage"
+      },
+      "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html",
+      "headline": "How to fix Shopify Flow emails that never send",
+      "abstract": "Shopify Flow ships with exactly one email action, Send marketing email, and its recipient field is fixed to customers subscribed to email marketing. There is no option to deselect it. Every customer who is not subscribed produces an exception instead of a message.",
+      "description": "Flow has one email action, it only sends to customers subscribed to marketing, and most buyers never subscribe. The AI playbook that gets the message out.",
+      "datePublished": "2026-11-04",
+      "dateModified": "2026-11-04",
+      "articleSection": "Research",
+      "keywords": "shopify flow email not sending, customer not subscribed to marketing, shopify transactional email flow, send marketing email action, shopify marketing consent, pending email subscribers shopify, email subscription status shopify, double opt-in pending, AI order notifications",
+      "wordCount": 2841,
+      "timeRequired": "PT10M",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "image": {
+        "@type": "ImageObject",
+        "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#primaryimage",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q7501150",
+          "name": "Shopify",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q13512320",
+          "name": "Email spam",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Email_spam",
+            "https://www.wikidata.org/wiki/Q13512320"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q485643",
+          "name": "Customer relationship management",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Customer_relationship_management",
+            "https://www.wikidata.org/wiki/Q485643"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q5001911",
+          "name": "Business process automation",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Business_process_automation",
+            "https://www.wikidata.org/wiki/Q5001911"
+          ]
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".short-answer",
+          ".faq"
+        ]
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://blog.dugong.live/#priya-singh",
+        "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Create marketing automations in Shopify",
+          "url": "https://help.shopify.com/en/manual/promoting-marketing/create-marketing/create-marketing-automations"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Collecting customer contact information",
+          "url": "https://help.shopify.com/manual/promoting-marketing/customer-emails"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Developer Docs | CustomerEmailAddressMarketingState",
+          "url": "https://shopify.dev/docs/api/admin-graphql/latest/enums/CustomerEmailAddressMarketingState"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Shopify Flow email error, customer not subscribed to marketing",
+          "url": "https://community.shopify.com/t/shopify-flow-email-error-customer-not-subscribed-to-marketing-need-alternative-solution/570799"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Sending emails with Shopify automation, send regardless of opt-in status",
+          "url": "https://community.shopify.com/t/sending-emails-with-shopify-automation-send-regardless-of-opt-in-status/180892"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | How do I confirm pending customer emails",
+          "url": "https://community.shopify.com/t/how-do-i-confirm-pending-customer-emails/190009"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Email subscriptions, over 200 pending, get rid of the double opt-in",
+          "url": "https://community.shopify.com/t/email-subscriptions-over-200-pending-get-rid-of-the-double-opt-in/246607"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Customers who ordered and email marketing",
+          "url": "https://community.shopify.com/t/customers-who-ordered-and-email-marketing/238586"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Klaviyo Community | Accepts marketing in Shopify but not subscribed in Klaviyo",
+          "url": "https://community.klaviyo.com/marketing-30/accepts-marketing-in-shopify-but-not-subscribed-in-klaviyo-14918"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shopify customer and wholesale automation",
+          "item": "https://blog.dugong.live/shopify-customer-and-wholesale-automation.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The email your automation refused to send",
+          "item": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq",
+      "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-heading",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q13512320"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q485643"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q5001911"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "datePublished": "2026-11-04",
+      "dateModified": "2026-11-04",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-1",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-1",
+          "name": "Why does Shopify Flow say the email was not sent because the customer is not subscribed to marketing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-1-answer",
+            "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-1-answer",
+            "text": "Because the only email action Flow ships with is Send marketing email, and its recipient field is fixed to customers subscribed to email marketing. When the workflow reaches a customer who is not subscribed, it does not skip the step quietly. It records an exception that reads Email not sent because the customer is not subscribed to marketing, and carries on. A merchant hit exactly this in a thread opened in October 2025, trying to send order updates across a fulfillment window of about fifty days. A Shopify specialist confirmed the next day that the action requires marketing consent and that there is currently no built-in Flow action for transactional emails. Nothing in that thread is marked as a solution. The same answer had already been given almost three years earlier: in January 2023 a merchant pointed out that there is no option to deselect the recipient field, and was told that the only way around it is to use a third-party app's email action in Flow. So this is not a bug in your workflow and not a setting you have missed. The action does what it says, and the word marketing in its name is doing the work."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-2",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-2",
+          "name": "Can Shopify Flow send transactional emails?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-2-answer",
+            "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-2-answer",
+            "text": "Not on its own. Flow has no transactional email action, which is the part most people do not expect, because an order update feels like the most natural thing in the world for an automation to send. The reasoning a Shopify staff member gave in January 2023 still holds: transactional email is a product in its own right, Flow cannot guarantee that the email would not be used for marketing purposes, and one store abusing it would damage deliverability for every store on the shared sending infrastructure. The practical routes are three. Order status information that Shopify already knows about belongs in the notification templates under Settings, which send to every customer because they are transactional by definition. Anything Shopify does not model, such as a made-to-order progress update, needs an email service connected to the workflow, which gives you an email action that is not gated on marketing consent. And a handful of cases are better off not being email at all: a tag on the order plus a note on the customer record is often what the person actually needed."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-3",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-3",
+          "name": "What is the difference between not subscribed and unsubscribed on a Shopify customer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-3-answer",
+            "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-3-answer",
+            "text": "One of them never answered the question and the other said no. The Admin API spells out five states for a customer's email marketing. Subscribed means the customer is subscribed to email marketing. Not subscribed means the customer is not subscribed to email marketing. Pending means the customer is in the process of subscribing. Unsubscribed means the customer is not subscribed but was previously subscribed. Invalid means the state itself is invalid, which usually points at a malformed address. At send time Shopify treats the first state as yes and the other four as no, which is correct and also hides the only distinction that matters commercially. A not subscribed customer is a gap in your collection: nobody asked them, or they were asked in a moment when they were not going to say yes. An unsubscribed customer is a decision, and the right response is to leave them alone. If your consent report shows one number for both, you cannot tell the recoverable group from the finished one, and the recoverable group is usually much the larger of the two."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-4",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-4",
+          "name": "Why are so many of my Shopify email subscribers stuck on pending?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-4-answer",
+            "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-4-answer",
+            "text": "Because double opt-in asks for a second action that most people never take. With it on, ticking the box at checkout does not subscribe a customer. They are placed in pending, Shopify sends a confirmation email, and only a click on the link in it moves them to subscribed. Merchants describe the result the same way year after year. One wrote in September 2023 that over two hundred customers had left the box checked and only a fair few had actually confirmed. Another asked in December 2023 whether thousands of pending statuses could be bulk-changed to subscribed, and got no reply. A third wrote in December 2024 that roughly half their customers were pending, that reminding people one at a time recovers some, and asked how to send a second email to all pending customers. No reply there either. Shopify's own guidance in that thread is that merchants do not need to do anything to confirm the subscriptions, and separately that sending a reminder to pending customers is not recommended because it could be seen as spam. Which is the bind: the people you are allowed to email at scale are the ones who already said yes. Pending is not a queue you can work through. It is the cost of double opt-in, and the only lever you have is the moment of asking."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-5",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-5",
+          "name": "Why does a customer who accepted marketing in Shopify show as not subscribed in Klaviyo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-5-answer",
+            "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-5-answer",
+            "text": "Because they are two consent records, written at different times by different systems, and the lower of the two decides whether an email goes out. The Shopify field only becomes a Klaviyo subscription if the sync is turned on, and the sync applies from the day you turn it on, so every opt-in collected before that sits in Shopify as accepted and in Klaviyo as never subscribed. That was the answer accepted in a September 2024 thread, and it still leaves the historical contacts needing a deliberate update rather than a wait. The thread also shows the harder version of the problem: merchants with the sync enabled and accepts marketing true in Shopify reporting profiles that still read never subscribed, one of them as recently as July 2026, asking whether the cause is a delay, a separate webhook or a double opt-in setting. The lesson for an operator is not which tool is right. It is that you cannot infer your reachable audience from either platform alone. Pull the count from both, compare them by email address, and treat the difference as a defect with an owner rather than a rounding error."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-6",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-6",
+          "name": "Can AI fix Shopify automated emails that never send?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-6-answer",
+            "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#faq-6-answer",
+            "text": "Yes, and the useful work is mostly sorting and watching rather than writing. An automation like Dugong starts by sorting every customer into what you are allowed to send them, so the workflow you are about to build knows its real audience before it runs once. It routes order information off the marketing path entirely, into Shopify's own notifications or a connected email service, so an operational message is never gated on a marketing opt-in. It reads the workflow run rather than the inbox, which is where the evidence actually is: an exception on a send step is the signal, and nobody opens Flow's run log on an ordinary Tuesday. It asks for consent at the moment it is earned, after a delivery that went well rather than in the middle of a checkout. It reconciles Shopify's consent record against your email tool's record by address and reports the mismatch. And it publishes one number every month, the share of your buyers you can legally reach, so the thing gets managed instead of assumed. The honest limits: it cannot manufacture consent, it cannot confirm a pending subscriber on their behalf, and it will not make a customer who unsubscribed reachable again. What it can do is stop you believing a message went out when it did not."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#howto",
+      "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#playbook",
+      "name": "The email your automation refused to send",
+      "description": "The AI playbook for Shopify automation emails that never send: sorting every customer by what you are allowed to send them, routing order news off the marketing path, watching the workflow run rather than the inbox, asking for consent at the moment it is earned, clearing the pending queue once properly, reconciling consent with your email tool, and reporting reachable customers every month.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q13512320"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q485643"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q5001911"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "image": {
+        "@id": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#primaryimage"
+      },
+      "datePublished": "2026-11-04",
+      "dateModified": "2026-11-04",
+      "totalTime": "PT10M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Sort every customer by what you may send",
+          "text": "Sort every customer by what you may send",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Route order news off the marketing path",
+          "text": "Route order news off the marketing path",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Watch the workflow run, not the inbox",
+          "text": "Watch the workflow run, not the inbox",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Ask for consent at the moment it is earned",
+          "text": "Ask for consent at the moment it is earned",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Clear the pending queue once, properly",
+          "text": "Clear the pending queue once, properly",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Reconcile consent with your email tool",
+          "text": "Reconcile consent with your email tool",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Report reachable customers every month",
+          "text": "Report reachable customers every month",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-flow-emails-that-never-send.html#playbook"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES - matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #71716a;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 105px; }
+@media (min-width: 821px) { html { scroll-padding-top: 78px; } }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background - lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0 var(--gutter); min-height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; min-width: 0; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  white-space: nowrap; flex-shrink: 0;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+/* superseded by the QA 2026-10-18 wrapping nav below */
+@media (max-width: 480px) {
+  .brand-slash, .brand-section { display: none; }
+  .nav-cta { font-size: 12.5px; padding: 8px 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 11.5px; padding: 7px 10px; }
+}
+
+/* QA 2026-10-12: 24px minimum tap target for the standalone topic-guide link */
+@media (max-width: 560px) {
+  .hub-more { padding-top: 5px; padding-bottom: 5px; }
+}
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+/* GRID (for related cards) */
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 560px) { .foot-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; } }
+@media (max-width: 340px) { .foot-cols { grid-template-columns: 1fr; } }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; overflow-wrap: break-word; }
+/* highlight wraps at every width: nowrap overflowed the text column on long phrases */
+.article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 57%, var(--lime) 57%, var(--lime) 81%, transparent 81%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.article-title em::after { content: none; }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: rgba(15,15,12,.45); } /* QA 2026-10-12 */
+.byline-role { color: var(--text-faint); }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+/* QA 2026-11-17: white-space/overflow-wrap added. 6 playbooks ran 8px past the
+   content box, making an unreachable-by-keyboard scroll region (WCAG 2.1.1).
+   The <=820px rule below has wrapped these since they were written. */
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; white-space: pre-wrap; overflow-wrap: break-word; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
+.article-body pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.short-answer { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--lime-deep); border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2.25rem 0 2.75rem; }
+.article-body .short-answer h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; line-height: 1.2; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime-deep); margin: 0 0 1rem; }
+.article-body .short-answer p:last-child { margin-bottom: 0; }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) - mirrors the site's final card ---- */
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+
+/* ACCESSIBILITY */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
+
+/* QA 2026-10-10: mobile tap targets + ticker legibility */
+@media (max-width: 560px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+  .foot-cols > div { gap: 0.1rem; }
+  .foot-cols a { padding: 0.45rem 0; }
+  .article-back { min-height: 40px; padding: 0.55rem 0; }
+  .pill { padding: 0.6rem 1rem; }
+  .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
+}
+
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
+  .tag { font-size: 12px; letter-spacing: 0.05em; }
+  .post-meta { font-size: 12px; }
+  .post-read { font-size: 12px; }
+  .card-foot { font-size: 12px; }
+  .card-date, .card-author { font-size: 12px; }
+  .byline-avatar { font-size: 12px; }
+  .callout-mark { font-size: 12px; }
+  .cta-fine { font-size: 12px; }
+  .foot-h { font-size: 12px; }
+  .stat-label { font-size: 12px; }
+  .pb-status, .pb-tag, .pb-node-sub, .pb-branch-arm { font-size: 12px; }
+  .foot-bot, .foot-bot span, .foot-bot a { font-size: 12px; }
+  .art-coord { font-size: 12px; }
+  .signup-label { font-size: 12px; }
+  .signup-fine { font-size: 12px; }
+  .arch-date { font-size: 12px; }
+  .author-role { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 12px; padding: 7px 9px; }
+}
+
+/* QA 2026-10-19 */
+:root { color-scheme: light; }
+
+/* QA 2026-10-19: a skip link, so a keyboard or screen-reader visitor does not
+   walk the ticker, the brand and four nav links on every page (WCAG 2.4.1). */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  font-family: var(--display); font-weight: 700; font-size: 14px;
+  background: var(--lime); color: #11110e; border: 1px solid #11110e;
+  padding: 10px 18px; border-radius: 0 0 10px 0;
+}
+.skip-link:focus { left: 0; }
+
+/* QA 2026-10-19: the 2026-10-18 pass gave .nav-cta `order: 2` so the button
+   would ride on the brand's row below 820px, but the button was a child of
+   .nav-links, where `order` means nothing and margin-left:auto pushed it past
+   the gutter. It is a child of .nav now. These rules keep the old look. */
+.nav > .nav-cta { flex-shrink: 0; }
+@media (min-width: 821px) { .nav > .nav-cta { margin-left: 0; } }
+
+/* QA 2026-10-19: .callout is a flex row with a flex-shrink:0 label of
+   79-149px. On a 390px phone that left the quote a 136px column, ~20
+   characters a line, 25 lines for a single paragraph; at 320px, 96px and 41
+   lines, and one callout ran the page 7px wide. Stack below 700px. */
+@media (max-width: 700px) {
+  .callout { flex-direction: column; gap: 0.55rem; }
+  .short-answer { padding: 1.2rem 1.25rem; margin: 2rem 0 2.25rem; border-radius: 10px; }
+  .callout-mark { padding-top: 0; }
+}
+</style>
+<style>
+/* SEO 2026-10-12 topic guide link */
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
+.hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
+</style>
+
+<style>
+/* SEO 2026-10-12 long inline code must break rather than widen the page */
+.article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
+</style>
+
+<style>
+/* 2026-10-13 long API identifiers in FAQ answers must break rather than widen the page */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  /* decorative separators strand at the end of a wrapped line on phones */
+  .article-meta span[aria-hidden="true"] { display: none; }
+  .article-meta { column-gap: 1rem; }
+}
+
+/* QA-2026-10-18-CSS
+   QA 2026-10-18: 24px minimum target size at every width, not only phones.
+   The 2026-10-10 pass put this inside @media (max-width:560px), so header and
+   footer links stayed at 23.2-23.5px on tablet and desktop. */
+.nav-links a:not(.nav-cta), .foot-cols a, .foot-bot a {
+  display: inline-flex; align-items: center; min-height: 24px;
+}
+
+/* QA 2026-10-18: the header nav used to vanish below 820px with nothing in its
+   place, so phone and tablet readers had no way back to Latest, Topics or the
+   Archive. Wrap it onto a second row instead of hiding it. */
+@media (max-width: 820px) {
+  .nav { flex-wrap: wrap; padding-top: 0.55rem; padding-bottom: 0.55rem; row-gap: 0.1rem; }
+  .brand { order: 1; }
+  .nav-cta { order: 2; margin-left: auto; }
+  .nav-links { order: 3; width: 100%; gap: 1.5rem; justify-content: flex-start;
+               font-size: 13.5px; padding-bottom: 0.1rem; }
+  .nav-links a:not(.nav-cta) { display: inline-flex; }
+}
+@media (max-width: 380px) { .nav-links { gap: 1.1rem; font-size: 13px; } }
+
+/* QA 2026-10-18: long API identifiers in deks and FAQ answers must break
+   rather than widen the page. Added 2026-10-13 to 5 pages only. */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+
+/* QA 2026-10-18: READ NEXT had grown to 79 cards on the oldest dispatches,
+   ~28,000px of card grid on a phone. The overflow now sits behind a
+   disclosure, so every link is still in the page and crawlable. */
+.related-more { max-width: var(--maxw); margin: 1.5rem auto 0; }
+.related-more > summary {
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-dim); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 0.5rem; min-height: 24px;
+  padding: 0.4rem 0.9rem; border: 1px solid var(--border-strong); border-radius: 999px;
+  list-style: none; transition: color .2s, border-color .2s, background .2s;
+}
+.related-more > summary::-webkit-details-marker { display: none; }
+.related-more > summary::after { content: "\002B"; font-size: 1rem; line-height: 1; }
+.related-more[open] > summary::after { content: "\2212"; }
+.related-more > summary:hover { color: var(--text); border-color: var(--text); background: var(--surface); }
+.related-more > .related-grid { margin-top: 1.5rem; }
+/* cards inside a closed disclosure never meet the IntersectionObserver that
+   clears .reveal, so they would open at opacity 0. */
+.related-more .reveal { opacity: 1; transform: none; }
+
+</style>
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>&#9670; DISPATCH N&ordm; 139 &middot; NOV 4, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 10 MIN READ &middot; 2,841 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+    <span>&#9670; DISPATCH N&ordm; 139 &middot; NOV 4, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 10 MIN READ &middot; 2,841 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+  </nav>
+  <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+</header>
+
+
+<article class="article" id="main" role="main">
+
+  <a href="index.html" class="article-back">&larr; back to field notes</a>
+
+  <div class="article-meta">
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 139</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-11-04" style="color: var(--cream-dim);">NOV 4, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+</div>
+
+  <h1 class="article-title">
+    How to fix Shopify Flow emails that never send <em>to most of your customers</em>
+  </h1>
+
+  <p class="article-dek">
+    Your workflow ran. The step went red. Shopify will not send a marketing email to a customer who is not subscribed to marketing, and most of your buyers are not.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
+    <span class="byline-divider" aria-hidden="true">&middot;</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      The workflow took ten minutes to build. Order fulfilled, wait two days,
+      send the customer a short note about where their made-to-order piece is
+      in the queue. You tested it against your own account and the email
+      arrived in seconds.
+    </p>
+
+    <p>
+      Three weeks later a customer asks why nobody ever told her anything. You
+      open the workflow. It has run two hundred and forty times. Most of those
+      runs carry an error, and the error is the same one every time:
+    </p>
+
+    <p>
+      <code>Exception: Email not sent because Sarah Mitchell is not subscribed
+      to marketing.</code>
+    </p>
+
+    <p>
+      Not failed. Not delayed. Shopify looked at the customer, decided she had
+      not agreed to hear from you, and declined on your behalf.
+    </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2 id="h-the-short-answer">The short answer</h2>
+
+      <p>
+        Shopify Flow ships with exactly one email action, Send marketing
+        email, and its recipient field is fixed to customers subscribed to
+        email marketing. There is no option to deselect it. Every customer who
+        is not subscribed produces an exception instead of a message.
+      </p>
+
+      <p>
+        Most of your buyers are in that group. The marketing checkbox at
+        checkout is optional and has to stay optional, so a large share of
+        people who buy from you never tick it. If you have double opt-in
+        switched on, the ones who do tick it sit in pending until they click a
+        link in a confirmation email, and pending is treated as not subscribed
+        too.
+      </p>
+
+      <p>
+        Flow has no transactional email action at all, which is the part that
+        catches people out. An order update feels like the most ordinary thing
+        an automation could send, and it is the one thing this action cannot
+        be used for.
+      </p>
+
+      <p>
+        So the fix is not a setting. It is a split. Order information goes out
+        through Shopify's own notifications or a connected email service,
+        where consent is not the gate. Marketing goes through the consent gate
+        as designed. And somebody has to know, as a number, how many of your
+        customers are actually on the far side of that gate.
+      </p>
+    </div>
+
+    <h2 id="h-flow-has-one-email-action-and-you-cannot-change-who-it-goes-to">Flow has one email action and you cannot change who it goes to</h2>
+
+    <p>
+      This is the whole mechanism, and it has not changed in three years.
+    </p>
+
+    <p>
+      A merchant running in-person training classes described it clearly in
+      <a href="https://community.shopify.com/t/sending-emails-with-shopify-automation-send-regardless-of-opt-in-status/180892">January
+      2023</a>. He wanted to email everyone who bought a ticket with the
+      lodging, schedule and food details, which is about as transactional as
+      an email gets. The action offered one recipient, customers subscribed to
+      email marketing, and he noted that there is no option to deselect it. A
+      Shopify partner replied the next day that the action cannot reach
+      customers who are not subscribed, and that the only way around it is to
+      use a third-party app's email action in Flow.
+    </p>
+
+    <p>
+      Then, nearly three years later, in
+      <a href="https://community.shopify.com/t/shopify-flow-email-error-customer-not-subscribed-to-marketing-need-alternative-solution/570799">October
+      2025</a>, a merchant with a fulfillment window of around fifty days asked
+      the same question and got the same answer, this time from a Shopify
+      specialist: the action requires marketing consent, and there is
+      currently no built-in Flow action for transactional emails. Another
+      reply made the obvious point that the action is called Send
+      <em>marketing</em> email, so respecting the marketing state is the
+      correct behavior rather than a defect. Nothing in the thread is marked
+      as a solution.
+    </p>
+
+    <p>
+      It is worth knowing why, because the reason is sound and it tells you
+      not to wait for a fix. A Shopify staff member explained in the 2023
+      thread that transactional email is a product in its own right, that Flow
+      cannot guarantee that the email would not be used for marketing
+      purposes, and that one store abusing a free transactional channel would
+      cost every store on the shared sending reputation. That is a defensible
+      position. It is also a permanent one.
+    </p>
+
+    <h2 id="h-the-run-goes-red-and-nobody-is-looking-at-the-run">The run goes red, and nobody is looking at the run</h2>
+
+    <p>
+      The failure mode here is not the gate. It is that the gate reports
+      itself in the one place nobody reads.
+    </p>
+
+    <p>
+      Flow does not skip a non-subscribed customer silently in the sense of
+      recording nothing. It records an exception on the step and moves on. The
+      workflow keeps running, the trigger keeps firing, and the run log fills
+      up with a line that would tell you everything if anybody opened it. On
+      an ordinary Tuesday nobody opens it. You find out when a customer asks.
+    </p>
+
+    <p>
+      So the symptom you actually experience is a workflow that looks healthy
+      from the outside and delivers to a fraction of the people it was built
+      for. If that shape is familiar, it is the same shape as
+      <a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html">workflows
+      that fail silently</a> in general: Flow's own reporting is built for
+      debugging a workflow once, not for watching one for six months.
+    </p>
+
+    <p>
+      The gate is not only Flow's, either. Shopify's
+      <a href="https://help.shopify.com/en/manual/promoting-marketing/create-marketing/create-marketing-automations">marketing
+      automations documentation</a> says that marketing automations send only
+      to customers subscribed to marketing by default. There is exactly one
+      exception, abandoned checkout, where the recipient field can be changed
+      to All customers in the email editor, and the same page notes that you
+      cannot override this setting for SMS or WhatsApp automations. A merchant
+      in the October 2025 thread confirmed in April 2026 that Shopify's
+      messaging automations are sent only to customers who are subscribed to
+      marketing, which rules out the obvious workaround.
+    </p>
+
+    <p>
+      One abandoned-checkout exception, and everything else behind the gate.
+      That is the full extent of the flexibility you have.
+    </p>
+
+    <h2 id="h-not-subscribed-and-unsubscribed-are-not-the-same-thing">Not subscribed and unsubscribed are not the same thing</h2>
+
+    <p>
+      Shopify's Admin API is more precise about this than the admin screen is.
+      The
+      <a href="https://shopify.dev/docs/api/admin-graphql/latest/enums/CustomerEmailAddressMarketingState">email
+      marketing state</a> on a customer has five values: subscribed, not
+      subscribed, pending, unsubscribed and invalid. The documentation defines
+      not subscribed as the customer is not subscribed to email marketing, and
+      unsubscribed as the customer is not subscribed to email marketing but
+      was previously subscribed. Pending means the customer is in the process
+      of subscribing. Invalid means the state itself is broken, which in
+      practice usually means a malformed address.
+    </p>
+
+    <p>
+      At send time Shopify treats one of those five as yes and the other four
+      as no. That is correct, and it also flattens the only distinction that
+      matters to you.
+    </p>
+
+    <p>
+      A not subscribed customer is a gap in your collection. Nobody asked
+      them, or they were asked at a bad moment. An unsubscribed customer made
+      a decision, and the correct response to a decision is to respect it. A
+      pending customer said yes and then did not finish. Those are three
+      different jobs with three different answers, and most merchants have one
+      number that covers all of them.
+    </p>
+
+    <p>
+      Pull them apart before you do anything else. In almost every store the
+      recoverable group is far larger than the group that said no, and it is
+      sitting under a label that makes it look like a lost cause.
+    </p>
+
+    <h2 id="h-why-most-of-your-buyers-were-never-going-to-be-subscribed">Why most of your buyers were never going to be subscribed</h2>
+
+    <p>
+      Shopify's page on
+      <a href="https://help.shopify.com/manual/promoting-marketing/customer-emails">collecting
+      customer contact information</a> describes a narrow mechanism. Consent
+      is captured at checkout when the customer selects the marketing checkbox
+      and proceeds with checkout. You can choose the regions where the box is
+      preselected, based on local law or by hand, and if you choose no regions
+      it is never preselected. Even where it is preselected, customers can
+      still deselect it.
+    </p>
+
+    <p>
+      Which means your subscriber rate is mostly decided by a checkbox at the
+      end of a checkout, at the moment the customer has already got what they
+      came for and wants the page to go away.
+    </p>
+
+    <p>
+      Merchants regularly try to make it mandatory. One asked in
+      <a href="https://community.shopify.com/t/customers-who-ordered-and-email-marketing/238586">August
+      2023</a> whether checkout could require an email marketing subscription,
+      having found that his third-party email tool was missing customers who
+      had ordered without subscribing. The replies covered a required email
+      field, post-purchase invitations, and privacy policy wording, and also
+      warned that a forced checkbox is not lawful everywhere. A later reply
+      stated the position plainly: Shopify separates customers from email
+      subscribers, and the marketing opt-in at checkout has to stay optional.
+    </p>
+
+    <p>
+      Making the email field required, which people do try, changes nothing
+      here. An address is not consent. You end up with a complete customer
+      list and the same locked automation.
+    </p>
+
+    <h2 id="h-the-pending-queue-you-are-not-allowed-to-clear">The pending queue you are not allowed to clear</h2>
+
+    <p>
+      Double opt-in is where the gap goes from large to strange.
+    </p>
+
+    <p>
+      With it on, ticking the box does not subscribe anybody. Shopify holds
+      the customer in pending, sends a confirmation email, and waits for a
+      click. Customers who were already subscribed before you switched double
+      opt-in on are not asked to confirm, so the queue only grows from the day
+      you turn it on.
+    </p>
+
+    <p>
+      The
+      <a href="https://community.shopify.com/t/how-do-i-confirm-pending-customer-emails/190009">thread
+      about pending customers</a> has been running since February 2023 and
+      reads like a slow-motion survey of the same discovery. The original
+      poster found a wall of customers showing Pending and Email awaiting
+      confirmation, and asked whether he needed to do something. A Shopify
+      staff member answered that merchants do not need to do anything to
+      confirm the subscriptions at that stage, which is true and is also not
+      what the merchant was worried about. In October 2023 someone turned
+      double opt-in off, which fixed new customers, and asked what to do about
+      the existing pending ones. In December 2023 a merchant with thousands of
+      pending statuses asked whether they could be changed to subscribed in
+      bulk, and got no reply. In December 2024 another reported more than four
+      hundred and fifty pending, then wrote again at the end of the month to
+      say about half of all their customers were pending, that reminding
+      people one at a time recovers some of them, and asked how to send a
+      second email to all pending customers. No reply to that one either.
+    </p>
+
+    <p>
+      A separate
+      <a href="https://community.shopify.com/t/email-subscriptions-over-200-pending-get-rid-of-the-double-opt-in/246607">thread
+      from September 2023</a> puts the ratio in plain numbers. Over two
+      hundred customers had left the checkout box ticked, and only a fair few
+      had actually confirmed.
+    </p>
+
+    <p>
+      And the advice from Shopify in the first thread, repeated twice, is not
+      to send reminders to pending customers, because it could be seen as
+      spam. That is reasonable advice. It is also the bind in one sentence:
+      the only people you are allowed to email at scale are the ones who have
+      already said yes, so the pending queue is not a backlog you work
+      through. It is the price of double opt-in, paid once per customer, and
+      the only lever you have on it is the quality of the original ask.
+    </p>
+
+    <p>
+      Decide deliberately whether you want double opt-in at all. If you are
+      not sending from a shared domain with a damaged reputation, and you are
+      not subject to a jurisdiction that requires confirmation, the cost is
+      usually higher than the benefit.
+    </p>
+
+    <h2 id="h-the-consent-your-email-tool-thinks-you-have">The consent your email tool thinks you have</h2>
+
+    <p>
+      If you send through Klaviyo, Omnisend, Mailchimp or anything similar,
+      you have two consent records, written at different times by different
+      systems, and the lower of the two decides whether a message goes out.
+    </p>
+
+    <p>
+      A
+      <a href="https://community.klaviyo.com/marketing-30/accepts-marketing-in-shopify-but-not-subscribed-in-klaviyo-14918">thread
+      opened in September 2024</a> works through why. Shopify's accepts
+      marketing field is a Shopify field. It becomes a subscription in your
+      email tool only once the sync is turned on, and the sync applies to
+      opt-ins collected after that point, so every consent you gathered before
+      you set it up reads as accepted in Shopify and never subscribed in the
+      email tool. Historical contacts need a deliberate update, not patience.
+    </p>
+
+    <p>
+      The harder version of the problem is also in that thread. Merchants with
+      the sync enabled, and accepts marketing set to true in Shopify, report
+      profiles that still read never subscribed, one of them as recently as
+      July 2026, asking whether the cause is a delay, a separate webhook or a
+      double opt-in setting somewhere. Nobody in the thread resolves it.
+    </p>
+
+    <p>
+      The operational lesson is not which system is right. It is that you
+      cannot work out your reachable audience from either one on its own. Pull
+      the count from both, match on email address, and treat every mismatch as
+      a defect with an owner rather than as noise.
+    </p>
+
+    <h2 id="h-what-this-costs-you-on-an-ordinary-month">What this costs you on an ordinary month</h2>
+
+    <p>
+      Take a store doing fifteen hundred orders a month from about twelve
+      hundred distinct customers, with a checkout opt-in rate of a quarter and
+      double opt-in on, confirming at roughly a third.
+    </p>
+
+    <p>
+      Three hundred customers tick the box. Around a hundred confirm. So the
+      review request, the post-delivery follow-up, the replenishment nudge and
+      the progress update on a made-to-order item all reach about one customer
+      in twelve, and the workflow reports two hundred and something exceptions
+      a month that nobody reads as a number.
+    </p>
+
+    <p>
+      The money is not in the emails you failed to send. It is in the
+      decisions you made on top of a broken assumption. You judged a review
+      request flow that technically never ran. You concluded that
+      post-purchase email does not work in your category. You answered the
+      same two support questions all year because the automation that was
+      meant to pre-empt them was delivering to eight percent of its audience.
+    </p>
+
+    <p>
+      None of that shows up as a failure anywhere. It shows up as a store
+      where automation does not seem to do much.
+    </p>
+
+    <h2 id="h-what-the-automation-actually-has-to-do">What the automation actually has to do</h2>
+
+    <p>
+      As a Dugong playbook, in plain prose:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">Scheduled</span> daily consent sweep,
+plus order fulfilled
+
+<span class="c"># steps</span>
+1. <span class="k">Sort</span> every customer by what
+   you may send
+2. <span class="k">Route</span> order news off the
+   marketing path
+3. <span class="k">Watch</span> the workflow run, not
+   the inbox
+4. <span class="k">Ask</span> for consent at the moment
+   it is earned
+5. <span class="k">Clear</span> the pending queue once,
+   properly
+6. <span class="k">Reconcile</span> consent with your
+   email tool
+7. <span class="k">Report</span> reachable customers
+   every month
+</code></pre>
+
+    <p>
+      Step one is the foundation and takes an afternoon once. Four buckets:
+      subscribed, pending, never asked, said no. Every automation you build
+      afterwards declares which bucket it is for, and you stop building things
+      for an audience that does not exist.
+    </p>
+
+    <p>
+      Step two is the actual fix for the problem in the error message. Order
+      status, shipping, delays, pickup reminders and progress on a custom item
+      are transactional. If Shopify models the event, use its notification
+      templates, which go to every customer. If it does not, connect an email
+      service to the workflow and use its send action, which is not gated on a
+      marketing opt-in. Never route operational information through the
+      marketing action, even when it is quicker.
+    </p>
+
+    <p>
+      Step three is monitoring the right surface. An exception on a send step
+      is the evidence, and it lives in a log with a fourteen-day memory. Read
+      the runs, count the exceptions by reason, and alert on a rate rather
+      than on a single failure.
+    </p>
+
+    <p>
+      Step four moves the ask to where it works. A checkout is the worst
+      moment to ask somebody for a long-term relationship. A week after a
+      delivery that went well is a good one, and the order is already in the
+      system. Ask once, by a channel you are allowed to use, and record the
+      answer.
+    </p>
+
+    <p>
+      Step five is a decision rather than a campaign. Work out what pending is
+      costing you, then either turn double opt-in off and keep the queue as a
+      historical artefact, or keep it on and accept the confirmation rate as a
+      known number. What you must not do is leave it on and pretend those
+      customers are subscribers.
+    </p>
+
+    <p>
+      Step six is the reconciliation. Match Shopify's consent record against
+      your email tool's, by address, on a schedule. Report the count that
+      disagrees. Every one of those rows is a customer who is reachable in one
+      system and invisible in the other.
+    </p>
+
+    <p>
+      Step seven is the number that makes the rest stick. Publish, monthly,
+      the share of your buyers you can legally reach. It is the denominator
+      under every piece of lifecycle marketing you do, and almost nobody
+      tracks it.
+    </p>
+
+    <h2 id="h-do-this-before-you-close-the-laptop">Do this before you close the laptop</h2>
+
+    <p>
+      Three things, about twenty minutes, before you automate anything.
+    </p>
+
+    <p>
+      Open your most important Flow workflow with an email step and read the
+      run log rather than the summary. Count the exceptions. That number
+      against the run count is your real delivery rate, and you have probably
+      never seen it.
+    </p>
+
+    <p>
+      Then build a customer segment for email subscribers and put its size
+      next to your total customer count. The ratio is the ceiling on every
+      marketing automation in the store. If it is under a fifth, the automation
+      is not your problem.
+    </p>
+
+    <p>
+      Last, check whether double opt-in is on, and if it is, count how many
+      customers are pending. If that number is anywhere near your subscriber
+      count, you have a second store's worth of people who said yes and were
+      never counted.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">&#9670; READING</span>
+      <span>
+        Two companion pieces if this one landed: <a
+        href="how-to-catch-shopify-flow-workflows-that-fail-silently.html">the
+        automation that quietly stopped running</a>, on why Flow's own
+        reporting hides this class of problem, and <a
+        href="how-to-fix-order-confirmation-emails-not-sending-on-shopify.html">the
+        order confirmation that never arrives</a>, on the transactional mail
+        that fails for completely different reasons.
+      </span>
+    </div>
+
+    <p>
+      If you sell on Shopify and have a version of this story, the workflow
+      that ran two hundred times and delivered twelve, the pending queue
+      nobody could explain, the consent count that disagreed with your email
+      tool by a thousand, the inbox is open:
+      <code>field-notes@dugong.live</code>. We are collecting case studies for
+      the next issue.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share &middot; copy link &middot; &#10022;</span>
+  </div>
+
+</article>
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">&#9670; COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item" id="faq-1">
+      <h2 class="faq-q">Why does Shopify Flow say the email was not sent because the customer is not subscribed to marketing?</h2>
+      <p class="faq-a" id="faq-1-answer">Because the only email action Flow ships with is Send marketing email, and its recipient field is fixed to customers subscribed to email marketing. When the workflow reaches a customer who is not subscribed, it does not skip the step quietly. It records an exception that reads Email not sent because the customer is not subscribed to marketing, and carries on. A merchant hit exactly this in a thread opened in October 2025, trying to send order updates across a fulfillment window of about fifty days. A Shopify specialist confirmed the next day that the action requires marketing consent and that there is currently no built-in Flow action for transactional emails. Nothing in that thread is marked as a solution. The same answer had already been given almost three years earlier: in January 2023 a merchant pointed out that there is no option to deselect the recipient field, and was told that the only way around it is to use a third-party app's email action in Flow. So this is not a bug in your workflow and not a setting you have missed. The action does what it says, and the word marketing in its name is doing the work.</p>
+    </div>
+    <div class="faq-item" id="faq-2">
+      <h2 class="faq-q">Can Shopify Flow send transactional emails?</h2>
+      <p class="faq-a" id="faq-2-answer">Not on its own. Flow has no transactional email action, which is the part most people do not expect, because an order update feels like the most natural thing in the world for an automation to send. The reasoning a Shopify staff member gave in January 2023 still holds: transactional email is a product in its own right, Flow cannot guarantee that the email would not be used for marketing purposes, and one store abusing it would damage deliverability for every store on the shared sending infrastructure. The practical routes are three. Order status information that Shopify already knows about belongs in the notification templates under Settings, which send to every customer because they are transactional by definition. Anything Shopify does not model, such as a made-to-order progress update, needs an email service connected to the workflow, which gives you an email action that is not gated on marketing consent. And a handful of cases are better off not being email at all: a tag on the order plus a note on the customer record is often what the person actually needed.</p>
+    </div>
+    <div class="faq-item" id="faq-3">
+      <h2 class="faq-q">What is the difference between not subscribed and unsubscribed on a Shopify customer?</h2>
+      <p class="faq-a" id="faq-3-answer">One of them never answered the question and the other said no. The Admin API spells out five states for a customer's email marketing. Subscribed means the customer is subscribed to email marketing. Not subscribed means the customer is not subscribed to email marketing. Pending means the customer is in the process of subscribing. Unsubscribed means the customer is not subscribed but was previously subscribed. Invalid means the state itself is invalid, which usually points at a malformed address. At send time Shopify treats the first state as yes and the other four as no, which is correct and also hides the only distinction that matters commercially. A not subscribed customer is a gap in your collection: nobody asked them, or they were asked in a moment when they were not going to say yes. An unsubscribed customer is a decision, and the right response is to leave them alone. If your consent report shows one number for both, you cannot tell the recoverable group from the finished one, and the recoverable group is usually much the larger of the two.</p>
+    </div>
+    <div class="faq-item" id="faq-4">
+      <h2 class="faq-q">Why are so many of my Shopify email subscribers stuck on pending?</h2>
+      <p class="faq-a" id="faq-4-answer">Because double opt-in asks for a second action that most people never take. With it on, ticking the box at checkout does not subscribe a customer. They are placed in pending, Shopify sends a confirmation email, and only a click on the link in it moves them to subscribed. Merchants describe the result the same way year after year. One wrote in September 2023 that over two hundred customers had left the box checked and only a fair few had actually confirmed. Another asked in December 2023 whether thousands of pending statuses could be bulk-changed to subscribed, and got no reply. A third wrote in December 2024 that roughly half their customers were pending, that reminding people one at a time recovers some, and asked how to send a second email to all pending customers. No reply there either. Shopify's own guidance in that thread is that merchants do not need to do anything to confirm the subscriptions, and separately that sending a reminder to pending customers is not recommended because it could be seen as spam. Which is the bind: the people you are allowed to email at scale are the ones who already said yes. Pending is not a queue you can work through. It is the cost of double opt-in, and the only lever you have is the moment of asking.</p>
+    </div>
+    <div class="faq-item" id="faq-5">
+      <h2 class="faq-q">Why does a customer who accepted marketing in Shopify show as not subscribed in Klaviyo?</h2>
+      <p class="faq-a" id="faq-5-answer">Because they are two consent records, written at different times by different systems, and the lower of the two decides whether an email goes out. The Shopify field only becomes a Klaviyo subscription if the sync is turned on, and the sync applies from the day you turn it on, so every opt-in collected before that sits in Shopify as accepted and in Klaviyo as never subscribed. That was the answer accepted in a September 2024 thread, and it still leaves the historical contacts needing a deliberate update rather than a wait. The thread also shows the harder version of the problem: merchants with the sync enabled and accepts marketing true in Shopify reporting profiles that still read never subscribed, one of them as recently as July 2026, asking whether the cause is a delay, a separate webhook or a double opt-in setting. The lesson for an operator is not which tool is right. It is that you cannot infer your reachable audience from either platform alone. Pull the count from both, compare them by email address, and treat the difference as a defect with an owner rather than a rounding error.</p>
+    </div>
+    <div class="faq-item" id="faq-6">
+      <h2 class="faq-q">Can AI fix Shopify automated emails that never send?</h2>
+      <p class="faq-a" id="faq-6-answer">Yes, and the useful work is mostly sorting and watching rather than writing. An automation like Dugong starts by sorting every customer into what you are allowed to send them, so the workflow you are about to build knows its real audience before it runs once. It routes order information off the marketing path entirely, into Shopify's own notifications or a connected email service, so an operational message is never gated on a marketing opt-in. It reads the workflow run rather than the inbox, which is where the evidence actually is: an exception on a send step is the signal, and nobody opens Flow's run log on an ordinary Tuesday. It asks for consent at the moment it is earned, after a delivery that went well rather than in the middle of a checkout. It reconciles Shopify's consent record against your email tool's record by address and reports the mismatch. And it publishes one number every month, the share of your buyers you can legally reach, so the thing gets managed instead of assumed. The honest limits: it cannot manufacture consent, it cannot confirm a pending subscriber on their behalf, and it will not make a customer who unsubscribed reachable again. What it can do is stop you believing a message went out when it did not.</p>
+    </div>
+  </div>
+</section>
+
+<section class="related" aria-labelledby="related-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="related-heading">&#9670; READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+<a href="how-to-catch-shopify-flow-workflows-that-fail-silently.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">11&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The automation that quietly stopped running</h3>
+        <p class="card-dek">
+          Flow marks a run Completed when actions fail, alerts once per 30 days, and deletes run history after 14. The AI playbook that watches outcomes, not logs.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP&nbsp;20</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-fix-order-confirmation-emails-not-sending-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order confirmation that never arrives</h3>
+        <p class="card-dek">
+          Shopify order confirmations that never send: spam, typos, suppressed channels, no resend button. The AI playbook that catches every silent order in minutes.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">AUG&nbsp;23</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-automatically-request-product-reviews-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The review request you never send</h3>
+        <p class="card-dek">
+          Shopify has no native way to ask for a review, so it never goes out or it blasts everyone at the wrong time. The AI playbook that requests reviews after delivery.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN&nbsp;22</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html#latest">Latest</a>
+        <a href="index.html#essays">Essays</a>
+        <a href="index.html#post-mortems">Post-mortems</a>
+        <a href="index.html#interviews">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>&copy; 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>

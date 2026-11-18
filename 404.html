@@ -137,10 +137,29 @@
 
 /* QA 2026-10-19 */
 :root { color-scheme: light; }
+
+/* QA 2026-11-02: every other page on the site brands its focus ring in
+   --lime-deep; 404.html alone fell back to the user agent default, so a
+   keyboard user got a different ring here than anywhere else. */
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--lime-deep); outline-offset: 2px;
+}
+
+/* QA 2026-11-04: the other 105 rendered pages shorten every animation and
+   transition under prefers-reduced-motion; 404.html alone had no such rule,
+   so its summary and link transitions ran at full duration for a reader who
+   had asked the operating system for less motion. Same shape as the
+   :focus-visible gap fixed on 2026-11-02. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap" id="main" role="main">
   <p class="kicker">Error 404 &middot; Dugong Field Notes</p>
   <h1>That page is not here.</h1>
   <p class="lede">The link may be old, or the dispatch may have moved to a cleaner URL.
@@ -152,16 +171,16 @@
 
   <h2>Latest dispatches</h2>
   <ul>
+    <li><a href="/how-to-catch-shopify-payments-with-no-order.html">How to catch the Shopify payments that never became an order</a></li>
+    <li><a href="/how-to-spot-serial-returners-on-shopify.html">How to spot serial returners on Shopify before you refund them again</a></li>
+    <li><a href="/how-to-fix-shopify-orders-with-no-phone-number-before-the-label-fails.html">How to fix Shopify orders with no phone number before the label fails</a></li>
+    <li><a href="/how-to-fix-shopify-subscriptions-billing-the-old-price.html">How to fix Shopify subscriptions billing the old price</a></li>
+    <li><a href="/how-to-fix-shopify-flow-emails-that-never-send.html">How to fix Shopify Flow emails that never send</a></li>
+    <li><a href="/how-to-find-shopify-products-with-no-cost-per-item.html">How to find Shopify products with no cost per item</a></li>
+    <li><a href="/how-to-handle-wrong-item-shipped-claims-on-shopify.html">How to handle wrong item shipped claims on Shopify</a></li>
     <li><a href="/how-to-chase-overdue-shopify-b2b-invoices.html">How to chase overdue Shopify B2B invoices by company</a></li>
     <li><a href="/how-to-catch-shopify-inventory-transfers-that-never-get-received.html">How to catch Shopify transfers never received</a></li>
     <li><a href="/how-to-find-shopify-products-missing-images-or-weights.html">How to find Shopify products missing images</a></li>
-    <li><a href="/how-to-bulk-edit-variant-metafields-on-shopify.html">How to bulk edit variant metafields on Shopify</a></li>
-    <li><a href="/how-to-stop-shipping-shopify-orders-with-payment-pending.html">Stop shipping Shopify orders that say Payment pending</a></li>
-    <li><a href="/how-to-catch-shopify-shipping-labels-you-never-used.html">How to find unused Shopify shipping labels before day 30</a></li>
-    <li><a href="/how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html">How to stop Shopify B2B prices dropping during a sale</a></li>
-    <li><a href="/how-to-handle-return-to-sender-orders-on-shopify.html">How to handle return to sender orders on Shopify</a></li>
-    <li><a href="/how-to-stop-reordering-shopify-stock-you-already-have-on-order.html">Stop reordering Shopify stock already on order</a></li>
-    <li><a href="/how-to-catch-shopify-orders-where-half-the-order-never-ships.html">How to catch half-shipped Shopify orders</a></li>
   </ul>
 
   <p class="foot">Looking for machine-readable copies? There is a

@@ -10,6 +10,7 @@
 - Dispatch: Nº 123 · Research · 7 min read
 - Full headline on page: How to handle *price adjustment* requests on Shopify when your sale drops the day after they buy
 - Keywords: shopify price adjustment, price drop refund shopify, refund the price difference, shopify partial refund, shopify price protection, shopify flow price change trigger, price adjustment policy, store credit refund
+- Entities: Price adjustment (https://www.wikidata.org/wiki/Q7242607); Product return (https://www.wikidata.org/wiki/Q166778); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -26,6 +27,7 @@ A merchant put this to the Shopify Community in April 2025. They were calculatin
 Shopify gives you the partial refund and nothing else: no price adjustment setting, no price protection window, no policy field, no price history, no Flow trigger for a price change and no Flow action that issues a refund. So the work is yours to build.
 
 Snapshot variant prices daily and before every bulk edit, classify each drop as a promotion, a mispricing or a permanent reprice before anything refunds, compute the per-unit difference after allocated discounts on both sides, apply a published policy of window, minimum, cap and exclusions, settle in store credit by default and cash above a threshold, and reach eligible customers before they have to ask. The judgment, telling a sale apart from a typo and reading a request that arrives as a sentence rather than a form, is why this belongs with an agent rather than a condition builder.
+
 ## Shopify has no price adjustment anything
 
 There is no price adjustment feature, no price protection window, no policy field. What exists is the ordinary partial refund, and the mechanism is fine: open the order, click Refund, enter a quantity, then overwrite the *Refund amount* field in the Summary with the figure you actually mean, deselect *Restock items* because nothing is coming back, and submit. You can keep issuing further partial refunds until you reach the total available to refund, and you can send the money to the original payment method, to store credit, or split it across both.

@@ -11,6 +11,7 @@
 - Dispatch: Nº 111 · Research · 10 min read
 - Full headline on page: How to catch Shopify orders that *never sync* to ShipStation
 - Keywords: shopify orders not syncing to shipstation, order not importing shipstation, order missing in shipstation, order never sent to 3PL, printful never received order, fulfillment sync failure, order export failed, order reconciliation, AI sync monitoring, silent integration failure
+- Entities: Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Third-party logistics (https://www.wikidata.org/wiki/Q1500317); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

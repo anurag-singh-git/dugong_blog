@@ -10,6 +10,7 @@
 - Dispatch: Nº 126 · Research · 9 min read
 - Full headline on page: How to catch Shopify shipping label adjustments *before they eat your margin*
 - Keywords: shopify shipping label adjustment, shipping label price adjustment, usps label price adjustment, dispute shipping label adjustment shopify, dimensional weight shopify, usps dim divisor 139, shopify shipping label cost api, ups shipping label adjustments
+- Entities: Dimensional weight (https://www.wikidata.org/wiki/Q2532935); Freight audit (https://www.wikidata.org/wiki/Q5501370); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -28,6 +29,7 @@ There is no adjustments report, no filter, no export column and no notification.
 Six causes look identical on the invoice and need six different responses: a package preset that was never right, a guessed variant weight, the fractional round-up, the wrong service or package type, a legitimate surcharge like address correction or residential delivery, and a genuine carrier measurement error. The dispute window is short and unpublished, since Shopify says only that dispute timelines vary by carrier and that delayed disputes might not be eligible for review.
 
 Read every order timeline, attribute each adjustment to the SKU and the package preset that produced the label rather than to the order, classify which of the six it is, file the carrier errors within three days with tape and scale photographs and tracking attached, fix the preset so the same parcel is not adjusted twice, and feed measured cost per SKU back into your rates and your free shipping floor.
+
 ## What an adjustment actually is
 
 The price you pay at label purchase is a quote based on what you declared. Shopify's own billing documentation is clear about what happens next: after you ship, the shipping carrier verifies the correct label price. If the information you entered was inaccurate, the carrier debits or credits the difference.

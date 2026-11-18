@@ -43,15 +43,49 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#article",
+      "@type": "WebPage",
+      "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#webpage",
+      "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html",
+      "name": "How to stop shipping Shopify orders that say Payment pending",
+      "inLanguage": "en",
       "isPartOf": {
-        "@type": "Blog",
-        "@id": "https://blog.dugong.live/#blog",
+        "@type": "WebSite",
+        "@id": "https://blog.dugong.live/#website",
         "name": "Dugong Field Notes",
         "url": "https://blog.dugong.live/"
       },
-      "mainEntityOfPage": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html",
+      "primaryImageOfPage": {
+        "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#primaryimage"
+      },
+      "mainEntity": {
+        "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#article"
+      },
+      "datePublished": "2026-10-19",
+      "dateModified": "2026-10-19",
+      "breadcrumb": {
+        "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#article",
+      "isPartOf": [
+        {
+          "@type": "Blog",
+          "@id": "https://blog.dugong.live/#blog",
+          "name": "Dugong Field Notes",
+          "url": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-order-management-automation.html#collection",
+          "name": "Shopify order management automation",
+          "url": "https://blog.dugong.live/shopify-order-management-automation.html"
+        }
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#webpage"
+      },
       "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html",
       "headline": "How to stop shipping Shopify orders that say Payment pending",
       "abstract": "Shopify never blocks fulfillment on payment. An order whose payment status reads Payment pending sits in the unfulfilled queue looking like every other order, and the documented gate before fulfillment, the Fulfillment order ready to fulfill trigger, checks risk assessment and inventory availability only.",
@@ -66,6 +100,7 @@
       "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
+        "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#primaryimage",
         "url": "https://blog.dugong.live/og-image.png",
         "width": 1200,
         "height": 630
@@ -73,6 +108,7 @@
       "about": [
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q12738586",
           "name": "Payment processor",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Payment_processor",
@@ -81,6 +117,7 @@
         },
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q1473552",
           "name": "Order fulfillment",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Order_fulfillment",
@@ -89,6 +126,7 @@
         },
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q7501150",
           "name": "Shopify",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Shopify",
@@ -240,52 +278,100 @@
     {
       "@type": "FAQPage",
       "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq",
+      "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-heading",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q12738586"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q1473552"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "datePublished": "2026-10-19",
+      "dateModified": "2026-10-19",
       "mainEntity": [
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-1",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-1",
           "name": "What does Payment pending mean on a Shopify order?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-1-answer",
+            "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-1-answer",
             "text": "It means the payment provider has started processing the payment and needs more time, so no money has reached you yet. Shopify's documentation describes it as applying to payments made by cryptocurrency, wire, barcodes and other alternatives to credit card payments, and says processing can take several days depending on the payment type. It also covers manual methods you set up yourself, such as bank deposit, money order and cash on delivery, and orders that run on payment terms, where the status later becomes Due or Overdue. Pending is not the same as Authorized. Authorized means the provider verified the card and is holding the funds for you until you capture them, which is ordinary business to ship against. Pending means nothing is held and nothing is guaranteed. Shopify groups both of them, plus Expired and Partially paid, under the single label Unpaid, which is why the filter that looks like the answer puts the safe case and the unsafe case in the same list."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-2",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-2",
           "name": "Can you fulfill a Shopify order with a pending payment?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-2-answer",
+            "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-2-answer",
             "text": "Yes, and that is the problem. Shopify's pending payments page states that you are not prevented from fulfilling these orders, and then asks you to wait until the payment status is Paid before fulfilling, to make sure you get paid. Nothing enforces it. The documented gate before fulfillment, the Fulfillment order ready to fulfill trigger, fires when an order has completed risk assessment and has inventory available for the order, and payment is not one of its conditions. The automatic fulfillment setting in order processing is the same story: it offers one override, to automatically fulfill all orders even those with a high risk of fraud, and carries no payment condition at all. So a pending order can be marked fulfilled by your own store settings while the money is still in flight, and the only thing standing between that and a shipped parcel is somebody reading a badge in a column on a busy morning."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-3",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-3",
           "name": "How long does a Shopify pending payment take to clear?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-3-answer",
+            "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-3-answer",
             "text": "Shopify's guidance is that pending payments usually have an expiry date of about a week, and that your payment provider can confirm the exact expiry for a given payment. If the payment clears, the customer gets a confirmation email. If it fails, the customer gets an email saying the payment could not be processed with a Pay now link to retry. If it is not completed by the expiry date, the order status changes to Expired. Nothing in the admin counts those days down for you: there is no badge at day five, no report of pending orders by age and no warning on the fulfillment screen, so the recoverable window is roughly seven days wide and entirely invisible. Shopify also advises contacting the payment provider before cancelling an expired order, because the payment can sometimes still be captured, which is worth doing before you write anything off."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-4",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-4",
           "name": "Can Shopify Flow hold an order until the payment clears?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-4-answer",
+            "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-4-answer",
             "text": "Half of it, reliably. The Hold fulfillment action changes the order's status to On hold, takes a reason and reason notes, and works with Order created, which is an order level trigger and therefore holds every fulfillment order on the order. So holding a pending order on arrival is a workflow you can build in ten minutes. Releasing it is where Flow runs out. The natural release trigger, Order paid, documents two exclusions that matter here: partially paid orders do not start a workflow with it, and funds that are authorized but not captured do not either, which rules out deposits against payment terms. On top of that, merchants have reported since 18 April 2022 that the trigger does not fire for payments collected later through the Collect Payment button, only for orders manually marked as paid, and the Shopify reply on that thread is a promise to look into it with no follow up. Collect Payment is exactly how a pending order usually becomes paid."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-5",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-5",
           "name": "Why can't I cancel or edit a Shopify order with a pending payment?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-5-answer",
+            "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-5-answer",
             "text": "Because Shopify locks the order while the provider is still working. The pending payments page lists what may be unavailable: editing the order's items, discounts or shipping address, restocking items, cancelling the order, manually collecting payment, and marking the order as paid. Those restrictions lift when the payment status changes. This is the detail that pushes staff into improvising, because the obvious response to a payment that looks doubtful, cancel it and restock, is not on the table while it is pending. The practical sequence is to hold the fulfillment rather than try to cancel the order, wait for the status to move to Paid or Expired, and only then clean up. If it expires, contact the payment provider before cancelling, since Shopify notes the payment can sometimes still be captured."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-6",
+          "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-6",
           "name": "Can AI stop Shopify orders shipping before the payment clears?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-6-answer",
+            "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#faq-6-answer",
             "text": "Yes, and it is a good fit for automation because it is a bookkeeping problem rather than a judgment call. An automation like Dugong reads the payment status rather than the fulfillment status on every new order, and holds the fulfillment with the typed reason AWAITING_PAYMENT the moment a pending order appears, which is a reason Shopify already defines as the fulfillment hold is applied because payment is pending. It lets authorized and paid orders through untouched, because authorized funds are held for you and holding them would get the whole thing switched off inside a week. Then it polls, using the orderPaymentStatus query that Shopify built to monitor the processing status of deferred payments, and releases the hold the hour the money lands. It counts the days to expiry and nudges the customer while the Pay now link still works, so you hear about it on day five rather than on day nine. And it logs every release done by hand while payment is pending, because overriding this for a trusted account is legitimate and forgetting that you did is what turns it into a write off. The honest limits: a hold stops fulfillment but not a determined human, a pending order cannot be edited or cancelled until Shopify lets go of it, and the real expiry date belongs to the payment provider, so the clock is an estimate until they say otherwise."
           }
         }
@@ -294,9 +380,35 @@
     {
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#howto",
+      "url": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#playbook",
       "name": "The order you shipped before the money cleared",
       "description": "The AI playbook for stopping Shopify orders shipping while the payment is pending: reading the payment status rather than the fulfillment status, holding with the AWAITING_PAYMENT reason the moment a pending order appears, letting authorized and paid orders through untouched, polling the money and releasing the hold the hour it lands, counting the days to expiry and chasing before the window shuts, flagging every release done by hand while payment is pending, and closing out expired and failed payments the same day.",
       "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q12738586"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q1473552"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "image": {
+        "@id": "https://blog.dugong.live/how-to-stop-shipping-shopify-orders-with-payment-pending.html#primaryimage"
+      },
+      "datePublished": "2026-10-19",
+      "dateModified": "2026-10-19",
       "totalTime": "PT9M",
       "step": [
         {
@@ -396,7 +508,8 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 105px; }
+@media (min-width: 821px) { html { scroll-padding-top: 78px; } }
 
 body {
   background: var(--bg);
@@ -560,7 +673,7 @@ em { font-style: italic; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
 .article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
-.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; overflow-wrap: break-word; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 57%, var(--lime) 57%, var(--lime) 81%, transparent 81%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .article-title em::after { content: none; }
@@ -578,7 +691,10 @@ em { font-style: italic; }
 .article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
-.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+/* QA 2026-11-17: white-space/overflow-wrap added. 6 playbooks ran 8px past the
+   content box, making an unreachable-by-keyboard scroll region (WCAG 2.1.1).
+   The <=820px rule below has wrapped these since they were written. */
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; white-space: pre-wrap; overflow-wrap: break-word; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
 
 @media (max-width: 560px) {
   .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
@@ -600,6 +716,9 @@ em { font-style: italic; }
 .callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
 .callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
 .callout-sand .callout-mark { color: var(--pink); }
+.short-answer { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--lime-deep); border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2.25rem 0 2.75rem; }
+.article-body .short-answer h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; line-height: 1.2; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime-deep); margin: 0 0 1rem; }
+.article-body .short-answer p:last-child { margin-bottom: 0; }
 .callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
 
 .article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -727,6 +846,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
    lines, and one callout ran the page 7px wide. Stack below 700px. */
 @media (max-width: 700px) {
   .callout { flex-direction: column; gap: 0.55rem; }
+  .short-answer { padding: 1.2rem 1.25rem; margin: 2rem 0 2.25rem; border-radius: 10px; }
   .callout-mark { padding-top: 0; }
 }
 </style>
@@ -800,6 +920,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 /* cards inside a closed disclosure never meet the IntersectionObserver that
    clears .reveal, so they would open at opacity 0. */
 .related-more .reveal { opacity: 1; transform: none; }
+
 </style>
 </head>
 <body>
@@ -888,7 +1009,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <div class="short-answer" id="short-answer">
-      <h2>The short answer</h2>
+      <h2 id="h-the-short-answer">The short answer</h2>
 
       <p>
         Shopify never blocks fulfillment on payment. An order whose payment status reads Payment pending sits in the unfulfilled queue looking like every other order, and the documented gate before fulfillment, the Fulfillment order ready to fulfill trigger, checks risk assessment and inventory availability only.
@@ -903,7 +1024,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </p>
     </div>
 
-    <h2>Unpaid is four different problems wearing one badge</h2>
+    <h2 id="h-unpaid-is-four-different-problems-wearing-one-badge">Unpaid is four different problems wearing one badge</h2>
 
     <p>
       Start with the vocabulary, because this is where most
@@ -936,7 +1057,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       says nothing at all about money.
     </p>
 
-    <h2>Shopify's own ready to fulfill gate never checks the money</h2>
+    <h2 id="h-shopifys-own-ready-to-fulfill-gate-never-checks-the-money">Shopify's own ready to fulfill gate never checks the money</h2>
 
     <p>
       This is the part that surprises people who assume the
@@ -981,7 +1102,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       reading a column at eight in the morning.
     </p>
 
-    <h2>Where Payment pending comes from, and why it is spreading</h2>
+    <h2 id="h-where-payment-pending-comes-from-and-why-it-is-spreading">Where Payment pending comes from, and why it is spreading</h2>
 
     <p>
       If you take card payments only, this reads like someone
@@ -1037,7 +1158,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       open web: a question, a plug for an app, and silence.
     </p>
 
-    <h2>The clock nobody is counting</h2>
+    <h2 id="h-the-clock-nobody-is-counting">The clock nobody is counting</h2>
 
     <p>
       Pending is not a steady state. It has an expiry, and
@@ -1075,7 +1196,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       the payment can still be captured.
     </p>
 
-    <h2>The hold reason Shopify built for this and never applies</h2>
+    <h2 id="h-the-hold-reason-shopify-built-for-this-and-never-applies">The hold reason Shopify built for this and never applies</h2>
 
     <p>
       Here is the part that makes this worth automating
@@ -1112,7 +1233,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       of the quiet leaks in a store.
     </p>
 
-    <h2>Why Flow gets you most of the way and then stops</h2>
+    <h2 id="h-why-flow-gets-you-most-of-the-way-and-then-stops">Why Flow gets you most of the way and then stops</h2>
 
     <p>
       Flow can hold an order. The
@@ -1188,7 +1309,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       is a polling loop with a schema.
     </p>
 
-    <h2>What this costs in a month</h2>
+    <h2 id="h-what-this-costs-in-a-month">What this costs in a month</h2>
 
     <p>
       Run it on your own mix, because the rate depends
@@ -1215,7 +1336,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       one is pointed in the opposite direction.
     </p>
 
-    <h2>What the automation actually has to do</h2>
+    <h2 id="h-what-the-automation-actually-has-to-do">What the automation actually has to do</h2>
 
     <p>
       As a Dugong playbook, in plain prose:
@@ -1302,7 +1423,7 @@ paid, plus a 30 minute sweep
       creation until the provider tells you otherwise.
     </p>
 
-    <h2>Why this is a workflow, not a feature request</h2>
+    <h2 id="h-why-this-is-a-workflow-not-a-feature-request">Why this is a workflow, not a feature request</h2>
 
     <p>
       Three facts have to meet, and Shopify keeps them in
@@ -1325,7 +1446,7 @@ paid, plus a 30 minute sweep
       lever exists, and nothing stands between them.
     </p>
 
-    <h2>Do this before you close the laptop</h2>
+    <h2 id="h-do-this-before-you-close-the-laptop">Do this before you close the laptop</h2>
 
     <p>
       Three checks, fifteen minutes, no code.
@@ -1396,35 +1517,35 @@ paid, plus a 30 minute sweep
   <div class="faq-list">
     <div class="faq-item" id="faq-1">
       <h2 class="faq-q">What does Payment pending mean on a Shopify order?</h2>
-      <p class="faq-a">It means the payment provider has started processing the payment and needs more time, so no money has reached you yet. Shopify's documentation describes it as applying to payments made by cryptocurrency, wire, barcodes and other alternatives to credit card payments, and says processing can take several days depending on the payment type. It also covers manual methods you set up yourself, such as bank deposit, money order and cash on delivery, and orders that run on payment terms, where the status later becomes Due or Overdue. Pending is not the same as Authorized. Authorized means the provider verified the card and is holding the funds for you until you capture them, which is ordinary business to ship against. Pending means nothing is held and nothing is guaranteed. Shopify groups both of them, plus Expired and Partially paid, under the single label Unpaid, which is why the filter that looks like the answer puts the safe case and the unsafe case in the same list.</p>
+      <p class="faq-a" id="faq-1-answer">It means the payment provider has started processing the payment and needs more time, so no money has reached you yet. Shopify's documentation describes it as applying to payments made by cryptocurrency, wire, barcodes and other alternatives to credit card payments, and says processing can take several days depending on the payment type. It also covers manual methods you set up yourself, such as bank deposit, money order and cash on delivery, and orders that run on payment terms, where the status later becomes Due or Overdue. Pending is not the same as Authorized. Authorized means the provider verified the card and is holding the funds for you until you capture them, which is ordinary business to ship against. Pending means nothing is held and nothing is guaranteed. Shopify groups both of them, plus Expired and Partially paid, under the single label Unpaid, which is why the filter that looks like the answer puts the safe case and the unsafe case in the same list.</p>
     </div>
     <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Can you fulfill a Shopify order with a pending payment?</h2>
-      <p class="faq-a">Yes, and that is the problem. Shopify's pending payments page states that you are not prevented from fulfilling these orders, and then asks you to wait until the payment status is Paid before fulfilling, to make sure you get paid. Nothing enforces it. The documented gate before fulfillment, the Fulfillment order ready to fulfill trigger, fires when an order has completed risk assessment and has inventory available for the order, and payment is not one of its conditions. The automatic fulfillment setting in order processing is the same story: it offers one override, to automatically fulfill all orders even those with a high risk of fraud, and carries no payment condition at all. So a pending order can be marked fulfilled by your own store settings while the money is still in flight, and the only thing standing between that and a shipped parcel is somebody reading a badge in a column on a busy morning.</p>
+      <p class="faq-a" id="faq-2-answer">Yes, and that is the problem. Shopify's pending payments page states that you are not prevented from fulfilling these orders, and then asks you to wait until the payment status is Paid before fulfilling, to make sure you get paid. Nothing enforces it. The documented gate before fulfillment, the Fulfillment order ready to fulfill trigger, fires when an order has completed risk assessment and has inventory available for the order, and payment is not one of its conditions. The automatic fulfillment setting in order processing is the same story: it offers one override, to automatically fulfill all orders even those with a high risk of fraud, and carries no payment condition at all. So a pending order can be marked fulfilled by your own store settings while the money is still in flight, and the only thing standing between that and a shipped parcel is somebody reading a badge in a column on a busy morning.</p>
     </div>
     <div class="faq-item" id="faq-3">
       <h2 class="faq-q">How long does a Shopify pending payment take to clear?</h2>
-      <p class="faq-a">Shopify's guidance is that pending payments usually have an expiry date of about a week, and that your payment provider can confirm the exact expiry for a given payment. If the payment clears, the customer gets a confirmation email. If it fails, the customer gets an email saying the payment could not be processed with a Pay now link to retry. If it is not completed by the expiry date, the order status changes to Expired. Nothing in the admin counts those days down for you: there is no badge at day five, no report of pending orders by age and no warning on the fulfillment screen, so the recoverable window is roughly seven days wide and entirely invisible. Shopify also advises contacting the payment provider before cancelling an expired order, because the payment can sometimes still be captured, which is worth doing before you write anything off.</p>
+      <p class="faq-a" id="faq-3-answer">Shopify's guidance is that pending payments usually have an expiry date of about a week, and that your payment provider can confirm the exact expiry for a given payment. If the payment clears, the customer gets a confirmation email. If it fails, the customer gets an email saying the payment could not be processed with a Pay now link to retry. If it is not completed by the expiry date, the order status changes to Expired. Nothing in the admin counts those days down for you: there is no badge at day five, no report of pending orders by age and no warning on the fulfillment screen, so the recoverable window is roughly seven days wide and entirely invisible. Shopify also advises contacting the payment provider before cancelling an expired order, because the payment can sometimes still be captured, which is worth doing before you write anything off.</p>
     </div>
     <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Can Shopify Flow hold an order until the payment clears?</h2>
-      <p class="faq-a">Half of it, reliably. The Hold fulfillment action changes the order's status to On hold, takes a reason and reason notes, and works with Order created, which is an order level trigger and therefore holds every fulfillment order on the order. So holding a pending order on arrival is a workflow you can build in ten minutes. Releasing it is where Flow runs out. The natural release trigger, Order paid, documents two exclusions that matter here: partially paid orders do not start a workflow with it, and funds that are authorized but not captured do not either, which rules out deposits against payment terms. On top of that, merchants have reported since 18 April 2022 that the trigger does not fire for payments collected later through the Collect Payment button, only for orders manually marked as paid, and the Shopify reply on that thread is a promise to look into it with no follow up. Collect Payment is exactly how a pending order usually becomes paid.</p>
+      <p class="faq-a" id="faq-4-answer">Half of it, reliably. The Hold fulfillment action changes the order's status to On hold, takes a reason and reason notes, and works with Order created, which is an order level trigger and therefore holds every fulfillment order on the order. So holding a pending order on arrival is a workflow you can build in ten minutes. Releasing it is where Flow runs out. The natural release trigger, Order paid, documents two exclusions that matter here: partially paid orders do not start a workflow with it, and funds that are authorized but not captured do not either, which rules out deposits against payment terms. On top of that, merchants have reported since 18 April 2022 that the trigger does not fire for payments collected later through the Collect Payment button, only for orders manually marked as paid, and the Shopify reply on that thread is a promise to look into it with no follow up. Collect Payment is exactly how a pending order usually becomes paid.</p>
     </div>
     <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Why can't I cancel or edit a Shopify order with a pending payment?</h2>
-      <p class="faq-a">Because Shopify locks the order while the provider is still working. The pending payments page lists what may be unavailable: editing the order's items, discounts or shipping address, restocking items, cancelling the order, manually collecting payment, and marking the order as paid. Those restrictions lift when the payment status changes. This is the detail that pushes staff into improvising, because the obvious response to a payment that looks doubtful, cancel it and restock, is not on the table while it is pending. The practical sequence is to hold the fulfillment rather than try to cancel the order, wait for the status to move to Paid or Expired, and only then clean up. If it expires, contact the payment provider before cancelling, since Shopify notes the payment can sometimes still be captured.</p>
+      <p class="faq-a" id="faq-5-answer">Because Shopify locks the order while the provider is still working. The pending payments page lists what may be unavailable: editing the order's items, discounts or shipping address, restocking items, cancelling the order, manually collecting payment, and marking the order as paid. Those restrictions lift when the payment status changes. This is the detail that pushes staff into improvising, because the obvious response to a payment that looks doubtful, cancel it and restock, is not on the table while it is pending. The practical sequence is to hold the fulfillment rather than try to cancel the order, wait for the status to move to Paid or Expired, and only then clean up. If it expires, contact the payment provider before cancelling, since Shopify notes the payment can sometimes still be captured.</p>
     </div>
     <div class="faq-item" id="faq-6">
       <h2 class="faq-q">Can AI stop Shopify orders shipping before the payment clears?</h2>
-      <p class="faq-a">Yes, and it is a good fit for automation because it is a bookkeeping problem rather than a judgment call. An automation like Dugong reads the payment status rather than the fulfillment status on every new order, and holds the fulfillment with the typed reason AWAITING_PAYMENT the moment a pending order appears, which is a reason Shopify already defines as the fulfillment hold is applied because payment is pending. It lets authorized and paid orders through untouched, because authorized funds are held for you and holding them would get the whole thing switched off inside a week. Then it polls, using the orderPaymentStatus query that Shopify built to monitor the processing status of deferred payments, and releases the hold the hour the money lands. It counts the days to expiry and nudges the customer while the Pay now link still works, so you hear about it on day five rather than on day nine. And it logs every release done by hand while payment is pending, because overriding this for a trusted account is legitimate and forgetting that you did is what turns it into a write off. The honest limits: a hold stops fulfillment but not a determined human, a pending order cannot be edited or cancelled until Shopify lets go of it, and the real expiry date belongs to the payment provider, so the clock is an estimate until they say otherwise.</p>
+      <p class="faq-a" id="faq-6-answer">Yes, and it is a good fit for automation because it is a bookkeeping problem rather than a judgment call. An automation like Dugong reads the payment status rather than the fulfillment status on every new order, and holds the fulfillment with the typed reason AWAITING_PAYMENT the moment a pending order appears, which is a reason Shopify already defines as the fulfillment hold is applied because payment is pending. It lets authorized and paid orders through untouched, because authorized funds are held for you and holding them would get the whole thing switched off inside a week. Then it polls, using the orderPaymentStatus query that Shopify built to monitor the processing status of deferred payments, and releases the hold the hour the money lands. It counts the days to expiry and nudges the customer while the Pay now link still works, so you hear about it on day five rather than on day nine. And it logs every release done by hand while payment is pending, because overriding this for a trusted account is legitimate and forgetting that you did is what turns it into a write off. The honest limits: a hold stops fulfillment but not a determined human, a pending order cannot be edited or cancelled until Shopify lets go of it, and the real expiry date belongs to the payment provider, so the clock is an estimate until they say otherwise.</p>
     </div>
   </div>
   <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
-<section class="related">
+<section class="related" aria-labelledby="related-heading">
   <div class="section-head">
-    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-eyebrow" id="related-heading">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">

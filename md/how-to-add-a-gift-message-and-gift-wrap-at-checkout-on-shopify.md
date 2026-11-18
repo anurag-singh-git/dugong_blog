@@ -11,6 +11,7 @@
 - Dispatch: Nº 85 · Research · 10 min read
 - Full headline on page: How to add a *gift message* and gift wrap option at checkout on Shopify
 - Keywords: Shopify gift message, Shopify gift wrap at checkout, Shopify gift note packing slip, Shopify gift receipt hide prices, add gift message option Shopify, Shopify gift option not working, Shopify order notes gift, Shopify gifting checkout
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Gift (https://www.wikidata.org/wiki/Q184303); Gift wrapping (https://www.wikidata.org/wiki/Q1516291); Order fulfillment (https://www.wikidata.org/wiki/Q1473552); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -26,6 +27,7 @@ Shopify has no dedicated gift message field. The one native place for a shopper 
 Gift wrap is thinner still. There is no native add gift wrap option at checkout for a standard store, and the one native path is Checkout Extensibility on Plus, where the out-of-the-box result is a bare toggle rather than a fee on the order, a line item your accounting can see, and a clear instruction at the packing bench. Everyone below Plus fakes wrap as a hidden product or a variant and hopes the warehouse notices.
 
 The sharpest failure is the price on the box. The packing slip is one template for every order and it prints prices, with no switch anywhere that says this order is a gift, hide the totals, so the recipient opens the present and sees what the sender paid. Capture the gift as structured intent, check the message before it ever prints, attach wrap as a real charge, and generate a slip that carries the note and *no* prices.
+
 ## What Shopify actually does, and where it stops
 
 Give the platform its due first. Shopify does have one native place for a customer to leave text: the cart order-note field. You can switch it on in the theme, you can rename its label to something like "Add a gift message here," and whatever the shopper types is saved to the order and visible in the admin. For a store that only ever needs a single line of free text on an order, that field technically exists and technically works.

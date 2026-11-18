@@ -11,6 +11,7 @@
 - Dispatch: Nº 72 · Research · 9 min read
 - Full headline on page: How to set up *pre-orders* on Shopify without holding in-stock items
 - Keywords: Shopify preorder, Shopify pre-order app, Shopify mixed cart preorder, preorder and in-stock items together, Shopify split order preorder, Shopify partial fulfillment preorder, Shopify continue selling when out of stock, Shopify backorder, Shopify oversold preorder, tag preorder orders, Shopify preorder ship date
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Pre-order (https://www.wikidata.org/wiki/Q4376555); Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Backorder (https://www.wikidata.org/wiki/Q962928)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

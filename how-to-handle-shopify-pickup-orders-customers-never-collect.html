@@ -43,15 +43,49 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#article",
+      "@type": "WebPage",
+      "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#webpage",
+      "url": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html",
+      "name": "How to handle Shopify pickup orders customers never collect",
+      "inLanguage": "en",
       "isPartOf": {
-        "@type": "Blog",
-        "@id": "https://blog.dugong.live/#blog",
+        "@type": "WebSite",
+        "@id": "https://blog.dugong.live/#website",
         "name": "Dugong Field Notes",
         "url": "https://blog.dugong.live/"
       },
-      "mainEntityOfPage": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html",
+      "primaryImageOfPage": {
+        "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#primaryimage"
+      },
+      "mainEntity": {
+        "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#article"
+      },
+      "datePublished": "2026-08-24",
+      "dateModified": "2026-10-24",
+      "breadcrumb": {
+        "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#article",
+      "isPartOf": [
+        {
+          "@type": "Blog",
+          "@id": "https://blog.dugong.live/#blog",
+          "name": "Dugong Field Notes",
+          "url": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-shipping-and-fulfillment-automation.html#collection",
+          "name": "Shopify shipping and fulfillment automation",
+          "url": "https://blog.dugong.live/shopify-shipping-and-fulfillment-automation.html"
+        }
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#webpage"
+      },
       "url": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html",
       "headline": "How to handle Shopify pickup orders customers never collect",
       "abstract": "Give the shelf a policy and a clock: start counting the day the order is marked ready, remind the customer on a fixed schedule, and decide in advance what happens when the window closes. Shopify does none of this. It sends one Ready for pickup email at the moment you mark an order ready, and then it goes quiet.",
@@ -66,6 +100,7 @@
       "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
+        "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#primaryimage",
         "url": "https://blog.dugong.live/og-image.png",
         "width": 1200,
         "height": 630
@@ -73,6 +108,7 @@
       "about": [
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q15794580",
           "name": "Click and collect",
           "sameAs": [
             "https://www.wikidata.org/wiki/Q15794580"
@@ -80,6 +116,7 @@
         },
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q1473552",
           "name": "Order fulfillment",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Order_fulfillment",
@@ -88,6 +125,7 @@
         },
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q7501150",
           "name": "Shopify",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Shopify",
@@ -169,44 +207,88 @@
     {
       "@type": "FAQPage",
       "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq",
+      "url": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-heading",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q15794580"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q1473552"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "datePublished": "2026-08-24",
+      "dateModified": "2026-10-24",
       "mainEntity": [
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-1",
+          "url": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-1",
           "name": "How do I resend a ready for pickup notification on Shopify?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-1-answer",
+            "url": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-1-answer",
             "text": "You cannot, natively. Shopify sends the Ready for pickup email exactly once, when you mark the order ready, and there is no resend button for it anywhere in the admin or the POS app. Shopify staff confirmed this in an October 2021 community thread, and the thread was still collecting requests for the button in April 2025. The workarounds merchants use: send the customer a manual email with the pickup details retyped, send the order status page link from the More actions menu on the order, or the template swap trick, where you temporarily paste the Ready for Local Pickup template code into the Contact customer email template so the reminder carries the real pickup details. Shopify Flow can send scheduled follow-ups on some plans, and the Admin API can trigger notifications programmatically. The durable fix is not any single resend but a schedule: a watcher that starts a clock when the order is marked ready and sends reminders at day two and day five without anyone remembering to."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-2",
+          "url": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-2",
           "name": "Why is the resend button grayed out on my ready for pickup order?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-2-answer",
+            "url": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-2-answer",
             "text": "Because the button you can see was never wired up for pickup notifications. Merchants first reported the grayed out resend control in the order timeline in October 2022, and a screenshot posted in August 2023 showed it still inert, which reads like the functionality exists but is not working. The resend that does work on a Shopify order is the order confirmation email, which is the wrong email for this job: it tells the customer what they bought, not that their bag is packed and waiting at the counter with an address and opening hours. A June 2022 reply in the same thread made the point plainly: there is no point resending the order confirmation when the pickup notice is the one that matters, especially when pickup details change and every affected customer must be emailed by hand. Until Shopify ships the button, treat the grayed out control as decoration and route reminders through a door that opens: a manual email, the order status link, the template swap, or an automation that sends on a schedule."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-3",
+          "url": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-3",
           "name": "Can Shopify send automatic pickup reminder emails?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-3-answer",
+            "url": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-3-answer",
             "text": "Not out of the box. Shopify's native pickup flow sends one Ready for pickup email at the moment you mark the order ready, and nothing afterward: no day three nudge, no final notice, no expiry warning. Merchants asked for exactly this, a reminder that can be set to send automatically after a few days, in threads dating to March 2021 and as recently as August 2024, and staff responses have been to pass the feedback along. The options today: Shopify Flow on eligible plans can wait a set number of days after fulfillment events and send or tag, third party apps built for payment reminders have been bent into pickup reminder duty, POS-adjacent apps handle it for specific carriers and lockers, and an AI automation layer like Dugong can watch for orders marked ready, wait your chosen interval, and send reminders on your template through email or SMS, escalating to a final notice and a ship-or-refund offer as the shelf date approaches. Whichever route you pick, the reminder schedule matters more than the tool: day two and day five catch most stragglers before the shelf does."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-4",
+          "url": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-4",
           "name": "How long should you hold uncollected pickup orders before cancelling?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-4-answer",
+            "url": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-4-answer",
             "text": "The retail convention is about seven days: a March 2021 community post noted that most high street chains return goods to stock and cancel the order after a week. Small merchants hold far longer, partly from kindness and partly because nothing in Shopify forces the decision, and the same thread records the cost of that: hundreds of uncollected orders after one peak season, some collected months after purchase, every one sifted by hand. A workable policy has three dates. Remind at day two. Remind again at day five, with a deadline named. At day seven, offer the customer a choice: we can ship this for a small fee, or refund it. At day ten to fourteen, cancel, refund, restock, and note the timeline. Publish the window on your pickup page and in the ready email so the cancellation is never a surprise. The policy only works if the dates fire themselves; a shelf policy that depends on someone remembering to check order ages during peak season is how the shelf got full in the first place."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-5",
+          "url": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-5",
           "name": "Can AI automate pickup reminders and uncollected order handling on Shopify?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-5-answer",
+            "url": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#faq-5-answer",
             "text": "Yes, because the whole failure is a timer problem, and timers are what automation is for. An automation like Dugong watches for the moment an order is marked ready for pickup and starts a clock. Day two, a reminder goes out on your template with the address, hours, and what to bring. Day five, a firmer note with the shelf deadline. Day seven, a choice: switch to shipping for a fee, or take a refund. Day fourteen, the order is cancelled, refunded, restocked, and annotated, per the policy you wrote. Along the way it catches the cases a schedule alone misses: the ready email that bounced, the address that looks like a typo, the customer who replied asking to ship it, the order whose pickup location changed after the ready email went out. The honest limits: no automation walks the customer to your door, Shopify still lacks a native resend button so reminders travel through the invoice, contact, or app door instead, and a store policy still needs a human to write it. What changes is that the shelf stops being a memory test. Every bag has a clock, every clock has a next step, and the weekly report tells you the collection rate instead of the shelf telling you the backlog."
           }
         }
@@ -215,9 +297,35 @@
     {
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#howto",
+      "url": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#playbook",
       "name": "The pickup order nobody comes to collect",
       "description": "The AI playbook for Shopify pickup orders that never get collected: baselining a pickup window policy per location, starting a clock the moment an order is marked ready, sending reminders on a schedule through email or SMS, catching ready notifications that bounced or went to a bad address, offering shipping or a refund when the shelf date passes, cancelling, refunding, and restocking per policy, and reporting weekly on shelf age and collection rate.",
       "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q15794580"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q1473552"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "image": {
+        "@id": "https://blog.dugong.live/how-to-handle-shopify-pickup-orders-customers-never-collect.html#primaryimage"
+      },
+      "datePublished": "2026-08-24",
+      "dateModified": "2026-10-24",
       "totalTime": "PT10M",
       "step": [
         {
@@ -317,7 +425,8 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 105px; }
+@media (min-width: 821px) { html { scroll-padding-top: 78px; } }
 
 body {
   background: var(--bg);
@@ -481,7 +590,7 @@ em { font-style: italic; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
 .article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
-.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; overflow-wrap: break-word; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 57%, var(--lime) 57%, var(--lime) 81%, transparent 81%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .article-title em::after { content: none; }
@@ -499,7 +608,10 @@ em { font-style: italic; }
 .article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
-.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+/* QA 2026-11-17: white-space/overflow-wrap added. 6 playbooks ran 8px past the
+   content box, making an unreachable-by-keyboard scroll region (WCAG 2.1.1).
+   The <=820px rule below has wrapped these since they were written. */
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; white-space: pre-wrap; overflow-wrap: break-word; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
 
 @media (max-width: 560px) {
   .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
@@ -521,6 +633,9 @@ em { font-style: italic; }
 .callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
 .callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
 .callout-sand .callout-mark { color: var(--pink); }
+.short-answer { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--lime-deep); border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2.25rem 0 2.75rem; }
+.article-body .short-answer h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; line-height: 1.2; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime-deep); margin: 0 0 1rem; }
+.article-body .short-answer p:last-child { margin-bottom: 0; }
 .callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
 
 .article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -648,6 +763,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
    lines, and one callout ran the page 7px wide. Stack below 700px. */
 @media (max-width: 700px) {
   .callout { flex-direction: column; gap: 0.55rem; }
+  .short-answer { padding: 1.2rem 1.25rem; margin: 2rem 0 2.25rem; border-radius: 10px; }
   .callout-mark { padding-top: 0; }
 }
 </style>
@@ -717,6 +833,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 /* cards inside a closed disclosure never meet the IntersectionObserver that
    clears .reveal, so they would open at opacity 0. */
 .related-more .reveal { opacity: 1; transform: none; }
+
 </style>
 </head>
 <body>
@@ -804,7 +921,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <div class="short-answer" id="short-answer">
-      <h2>The short answer</h2>
+      <h2 id="h-the-short-answer">The short answer</h2>
 
       <p>
         Give the shelf a policy and a clock: start counting the day the order is marked ready, remind the customer on a fixed schedule, and decide in advance what happens when the window closes. Shopify does none of this. It sends one Ready for pickup email at the moment you mark an order ready, and then it goes quiet.
@@ -819,7 +936,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </p>
     </div>
 
-    <h2>The shelf is money standing still</h2>
+    <h2 id="h-the-shelf-is-money-standing-still">The shelf is money standing still</h2>
 
     <p>
       Count what one uncollected bag actually costs. The inventory
@@ -849,7 +966,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       purchase.
     </p>
 
-    <h2>The community record</h2>
+    <h2 id="h-the-community-record">The community record</h2>
 
     <p>
       The reference thread was opened in October 2021 by a tea
@@ -926,7 +1043,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </span>
     </div>
 
-    <h2>One email, then silence</h2>
+    <h2 id="h-one-email-then-silence">One email, then silence</h2>
 
     <p>
       Look at where the pickup flow actually leaks, because there
@@ -962,7 +1079,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       the bags.
     </p>
 
-    <h2>The sticky note is the right idea in the wrong tool</h2>
+    <h2 id="h-the-sticky-note-is-the-right-idea-in-the-wrong-tool">The sticky note is the right idea in the wrong tool</h2>
 
     <p>
       Watch what merchants actually do, because as always the
@@ -984,7 +1101,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       in August ends up doing collections in October.
     </p>
 
-    <h2>What the automation actually has to do</h2>
+    <h2 id="h-what-the-automation-actually-has-to-do">What the automation actually has to do</h2>
 
     <p>
       As a Dugong playbook, in plain prose:
@@ -1073,7 +1190,7 @@ of the shelf
       where you have no time to execute anything.
     </p>
 
-    <h2>Why this is a compiler problem, not an app problem</h2>
+    <h2 id="h-why-this-is-a-compiler-problem-not-an-app-problem">Why this is a compiler problem, not an app problem</h2>
 
     <p>
       There are apps in this neighborhood: payment reminder apps
@@ -1110,7 +1227,7 @@ of the shelf
 
     <hr />
 
-    <h2>The workflow worth building this week</h2>
+    <h2 id="h-the-workflow-worth-building-this-week">The workflow worth building this week</h2>
 
     <p>
       Start by counting the shelf you already have. Filter orders
@@ -1195,34 +1312,157 @@ of the shelf
   <div class="faq-list">
     <div class="faq-item" id="faq-1">
       <h2 class="faq-q">How do I resend a ready for pickup notification on Shopify?</h2>
-      <p class="faq-a">You cannot, natively. Shopify sends the Ready for pickup email exactly once, when you mark the order ready, and there is no resend button for it anywhere in the admin or the POS app. Shopify staff confirmed this in an October 2021 community thread, and the thread was still collecting requests for the button in April 2025. The workarounds merchants use: send the customer a manual email with the pickup details retyped, send the order status page link from the More actions menu on the order, or the template swap trick, where you temporarily paste the Ready for Local Pickup template code into the Contact customer email template so the reminder carries the real pickup details. Shopify Flow can send scheduled follow-ups on some plans, and the Admin API can trigger notifications programmatically. The durable fix is not any single resend but a schedule: a watcher that starts a clock when the order is marked ready and sends reminders at day two and day five without anyone remembering to.</p>
+      <p class="faq-a" id="faq-1-answer">You cannot, natively. Shopify sends the Ready for pickup email exactly once, when you mark the order ready, and there is no resend button for it anywhere in the admin or the POS app. Shopify staff confirmed this in an October 2021 community thread, and the thread was still collecting requests for the button in April 2025. The workarounds merchants use: send the customer a manual email with the pickup details retyped, send the order status page link from the More actions menu on the order, or the template swap trick, where you temporarily paste the Ready for Local Pickup template code into the Contact customer email template so the reminder carries the real pickup details. Shopify Flow can send scheduled follow-ups on some plans, and the Admin API can trigger notifications programmatically. The durable fix is not any single resend but a schedule: a watcher that starts a clock when the order is marked ready and sends reminders at day two and day five without anyone remembering to.</p>
     </div>
     <div class="faq-item" id="faq-2">
       <h2 class="faq-q">Why is the resend button grayed out on my ready for pickup order?</h2>
-      <p class="faq-a">Because the button you can see was never wired up for pickup notifications. Merchants first reported the grayed out resend control in the order timeline in October 2022, and a screenshot posted in August 2023 showed it still inert, which reads like the functionality exists but is not working. The resend that does work on a Shopify order is the order confirmation email, which is the wrong email for this job: it tells the customer what they bought, not that their bag is packed and waiting at the counter with an address and opening hours. A June 2022 reply in the same thread made the point plainly: there is no point resending the order confirmation when the pickup notice is the one that matters, especially when pickup details change and every affected customer must be emailed by hand. Until Shopify ships the button, treat the grayed out control as decoration and route reminders through a door that opens: a manual email, the order status link, the template swap, or an automation that sends on a schedule.</p>
+      <p class="faq-a" id="faq-2-answer">Because the button you can see was never wired up for pickup notifications. Merchants first reported the grayed out resend control in the order timeline in October 2022, and a screenshot posted in August 2023 showed it still inert, which reads like the functionality exists but is not working. The resend that does work on a Shopify order is the order confirmation email, which is the wrong email for this job: it tells the customer what they bought, not that their bag is packed and waiting at the counter with an address and opening hours. A June 2022 reply in the same thread made the point plainly: there is no point resending the order confirmation when the pickup notice is the one that matters, especially when pickup details change and every affected customer must be emailed by hand. Until Shopify ships the button, treat the grayed out control as decoration and route reminders through a door that opens: a manual email, the order status link, the template swap, or an automation that sends on a schedule.</p>
     </div>
     <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Can Shopify send automatic pickup reminder emails?</h2>
-      <p class="faq-a">Not out of the box. Shopify's native pickup flow sends one Ready for pickup email at the moment you mark the order ready, and nothing afterward: no day three nudge, no final notice, no expiry warning. Merchants asked for exactly this, a reminder that can be set to send automatically after a few days, in threads dating to March 2021 and as recently as August 2024, and staff responses have been to pass the feedback along. The options today: Shopify Flow on eligible plans can wait a set number of days after fulfillment events and send or tag, third party apps built for payment reminders have been bent into pickup reminder duty, POS-adjacent apps handle it for specific carriers and lockers, and an AI automation layer like Dugong can watch for orders marked ready, wait your chosen interval, and send reminders on your template through email or SMS, escalating to a final notice and a ship-or-refund offer as the shelf date approaches. Whichever route you pick, the reminder schedule matters more than the tool: day two and day five catch most stragglers before the shelf does.</p>
+      <p class="faq-a" id="faq-3-answer">Not out of the box. Shopify's native pickup flow sends one Ready for pickup email at the moment you mark the order ready, and nothing afterward: no day three nudge, no final notice, no expiry warning. Merchants asked for exactly this, a reminder that can be set to send automatically after a few days, in threads dating to March 2021 and as recently as August 2024, and staff responses have been to pass the feedback along. The options today: Shopify Flow on eligible plans can wait a set number of days after fulfillment events and send or tag, third party apps built for payment reminders have been bent into pickup reminder duty, POS-adjacent apps handle it for specific carriers and lockers, and an AI automation layer like Dugong can watch for orders marked ready, wait your chosen interval, and send reminders on your template through email or SMS, escalating to a final notice and a ship-or-refund offer as the shelf date approaches. Whichever route you pick, the reminder schedule matters more than the tool: day two and day five catch most stragglers before the shelf does.</p>
     </div>
     <div class="faq-item" id="faq-4">
       <h2 class="faq-q">How long should you hold uncollected pickup orders before cancelling?</h2>
-      <p class="faq-a">The retail convention is about seven days: a March 2021 community post noted that most high street chains return goods to stock and cancel the order after a week. Small merchants hold far longer, partly from kindness and partly because nothing in Shopify forces the decision, and the same thread records the cost of that: hundreds of uncollected orders after one peak season, some collected months after purchase, every one sifted by hand. A workable policy has three dates. Remind at day two. Remind again at day five, with a deadline named. At day seven, offer the customer a choice: we can ship this for a small fee, or refund it. At day ten to fourteen, cancel, refund, restock, and note the timeline. Publish the window on your pickup page and in the ready email so the cancellation is never a surprise. The policy only works if the dates fire themselves; a shelf policy that depends on someone remembering to check order ages during peak season is how the shelf got full in the first place.</p>
+      <p class="faq-a" id="faq-4-answer">The retail convention is about seven days: a March 2021 community post noted that most high street chains return goods to stock and cancel the order after a week. Small merchants hold far longer, partly from kindness and partly because nothing in Shopify forces the decision, and the same thread records the cost of that: hundreds of uncollected orders after one peak season, some collected months after purchase, every one sifted by hand. A workable policy has three dates. Remind at day two. Remind again at day five, with a deadline named. At day seven, offer the customer a choice: we can ship this for a small fee, or refund it. At day ten to fourteen, cancel, refund, restock, and note the timeline. Publish the window on your pickup page and in the ready email so the cancellation is never a surprise. The policy only works if the dates fire themselves; a shelf policy that depends on someone remembering to check order ages during peak season is how the shelf got full in the first place.</p>
     </div>
     <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Can AI automate pickup reminders and uncollected order handling on Shopify?</h2>
-      <p class="faq-a">Yes, because the whole failure is a timer problem, and timers are what automation is for. An automation like Dugong watches for the moment an order is marked ready for pickup and starts a clock. Day two, a reminder goes out on your template with the address, hours, and what to bring. Day five, a firmer note with the shelf deadline. Day seven, a choice: switch to shipping for a fee, or take a refund. Day fourteen, the order is cancelled, refunded, restocked, and annotated, per the policy you wrote. Along the way it catches the cases a schedule alone misses: the ready email that bounced, the address that looks like a typo, the customer who replied asking to ship it, the order whose pickup location changed after the ready email went out. The honest limits: no automation walks the customer to your door, Shopify still lacks a native resend button so reminders travel through the invoice, contact, or app door instead, and a store policy still needs a human to write it. What changes is that the shelf stops being a memory test. Every bag has a clock, every clock has a next step, and the weekly report tells you the collection rate instead of the shelf telling you the backlog.</p>
+      <p class="faq-a" id="faq-5-answer">Yes, because the whole failure is a timer problem, and timers are what automation is for. An automation like Dugong watches for the moment an order is marked ready for pickup and starts a clock. Day two, a reminder goes out on your template with the address, hours, and what to bring. Day five, a firmer note with the shelf deadline. Day seven, a choice: switch to shipping for a fee, or take a refund. Day fourteen, the order is cancelled, refunded, restocked, and annotated, per the policy you wrote. Along the way it catches the cases a schedule alone misses: the ready email that bounced, the address that looks like a typo, the customer who replied asking to ship it, the order whose pickup location changed after the ready email went out. The honest limits: no automation walks the customer to your door, Shopify still lacks a native resend button so reminders travel through the invoice, contact, or app door instead, and a store policy still needs a human to write it. What changes is that the shelf stops being a memory test. Every bag has a clock, every clock has a next step, and the weekly report tells you the collection rate instead of the shelf telling you the backlog.</p>
     </div>
   </div>
   <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
-<section class="related">
+<section class="related" aria-labelledby="related-heading">
   <div class="section-head">
-    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-eyebrow" id="related-heading">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">
+<a href="how-to-catch-shopify-payments-with-no-order.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The payment that never became an order</h3>
+        <p class="card-dek">
+          Shopify has no screen that lists money received with no order, so you hear about it from the customer. The AI playbook that reconciles both sides daily.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-spot-serial-returners-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The customer who returns two thirds of what they buy</h3>
+        <p class="card-dek">
+          Shopify has no per customer return rate and its own returns metric counts size swaps. The AI playbook that scores the customer, not the order.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-fix-shopify-orders-with-no-phone-number-before-the-label-fails.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The parcel that stops because nobody can call</h3>
+        <p class="card-dek">
+          Shopify's phone setting is all or nothing, so international orders arrive without a number and the label either fails or stalls. The AI playbook that catches them.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;16</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-fix-shopify-subscriptions-billing-the-old-price.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">8&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The price your subscribers never stopped paying</h3>
+        <p class="card-dek">
+          A subscription contract copies its price, discount and variant on day one and never looks at them again. The AI playbook that finds the drift.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;7</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-fix-shopify-flow-emails-that-never-send.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The email your automation refused to send</h3>
+        <p class="card-dek">
+          Flow's only email action is locked to customers subscribed to marketing, and throws an exception for everyone else. The AI playbook that gets the message out.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;4</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-find-shopify-products-with-no-cost-per-item.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The orders your profit report quietly drops</h3>
+        <p class="card-dek">
+          Shopify leaves orders with no cost per item out of the profit reports altogether, and there is no filter for the blanks. The AI playbook that keeps cost complete.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">NOV&nbsp;2</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+<a href="how-to-handle-wrong-item-shipped-claims-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The box that held the wrong thing</h3>
+        <p class="card-dek">
+          Shopify stores what was ordered twice and what was packed never, so a wrong item claim has no second record to check. The AI playbook that catches it first.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">OCT&nbsp;31</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+  <details class="related-more">
+    <summary>31 more dispatches in the archive</summary>
+    <div class="related-grid">
 <a href="how-to-chase-overdue-shopify-b2b-invoices.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1239,6 +1479,7 @@ of the shelf
         </div>
       </div>
     </a>
+
 <a href="how-to-catch-shopify-inventory-transfers-that-never-get-received.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1272,6 +1513,7 @@ of the shelf
         </div>
       </div>
     </a>
+
 <a href="how-to-bulk-edit-variant-metafields-on-shopify.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1288,6 +1530,7 @@ of the shelf
         </div>
       </div>
     </a>
+
 <a href="how-to-stop-shipping-shopify-orders-with-payment-pending.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1304,6 +1547,7 @@ of the shelf
         </div>
       </div>
     </a>
+
 <a href="how-to-catch-shopify-shipping-labels-you-never-used.html" class="card">
       <div class="card-body">
         <div class="post-meta">
@@ -1320,10 +1564,7 @@ of the shelf
         </div>
       </div>
     </a>
-  </div>
-  <details class="related-more">
-    <summary>25 more dispatches in the archive</summary>
-    <div class="related-grid">
+
 <a href="how-to-stop-shopify-b2b-prices-dropping-when-you-run-a-sale.html" class="card">
       <div class="card-body">
         <div class="post-meta">

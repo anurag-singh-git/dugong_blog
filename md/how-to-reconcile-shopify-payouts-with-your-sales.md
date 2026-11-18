@@ -11,6 +11,7 @@
 - Dispatch: Nº 71 · Research · 9 min read
 - Full headline on page: How to *reconcile Shopify payouts* with your sales
 - Keywords: Shopify payout reconciliation, Shopify payout doesn't match sales, reconcile Shopify payments QuickBooks, reconcile Shopify Xero, Shopify deposit smaller than sales, Shopify bookkeeping, Shopify payout fees refunds, match Shopify payout to bank deposit, multi gateway payouts, Shopify month end close
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Bank reconciliation (https://www.wikidata.org/wiki/Q332836); Bookkeeping (https://www.wikidata.org/wiki/Q3707847); Payment processor (https://www.wikidata.org/wiki/Q12738586)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

@@ -11,6 +11,7 @@
 - Dispatch: Nº 109 · Research · 10 min read
 - Full headline on page: How to stop *cancelled orders* showing as unfulfilled on Shopify
 - Keywords: cancelled order unfulfilled shopify, refunded order unfulfilled, remove unfulfilled tag, archive cancelled orders, unfulfilled orders count wrong, fulfillment queue cleanup, unfulfilled orders alert, order archiving, 3PL double shipment, AI queue cleanup
+- Entities: Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Third-party logistics (https://www.wikidata.org/wiki/Q1500317); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

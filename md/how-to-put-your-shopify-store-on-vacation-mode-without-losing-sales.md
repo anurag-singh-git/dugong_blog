@@ -11,6 +11,7 @@
 - Dispatch: Nº 115 · Research · 10 min read
 - Full headline on page: How to put your Shopify store on vacation mode *without losing sales*
 - Keywords: shopify vacation mode, pause shopify store for vacation, shopify holiday mode, close shopify store temporarily, pause and build billing cycle, keep shopify store open on vacation, shopify away message, vacation mode like etsy, AI store monitoring
+- Entities: E-commerce (https://www.wikidata.org/wiki/Q484847); Small business (https://www.wikidata.org/wiki/Q1109680); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

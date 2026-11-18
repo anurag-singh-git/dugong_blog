@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to fix Shopify subscriptions billing the old price</title>
+<meta name="description" content="A Shopify subscription is a snapshot, not a link. Price rises, deleted codes and dead variants never reach it. The AI playbook that finds the drift." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="shopify subscription price change existing subscribers, update subscription contract price shopify, shopify subscription old price, deleted discount code still billing, shopify subscription contract snapshot, delete subscription product shopify, subscription plan edit existing contracts, AI subscription audit" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-fix-shopify-subscriptions-billing-the-old-price.md" title="Markdown version for answer engines" />
+<meta property="article:published_time" content="2026-11-07" />
+<meta property="article:modified_time" content="2026-11-07" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to fix Shopify subscriptions billing the old price" />
+<meta property="og:description" content="A Shopify subscription is a snapshot, not a link. Price rises, deleted codes and dead variants never reach it. The AI playbook that finds the drift." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Dugong Field Notes" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to fix Shopify subscriptions billing the old price" />
+<meta name="twitter:description" content="A Shopify subscription is a snapshot, not a link. Price rises, deleted codes and dead variants never reach it. The AI playbook that finds the drift." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+<meta name="twitter:image:alt" content="Dugong Field Notes" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#webpage",
+      "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html",
+      "name": "How to fix Shopify subscriptions billing the old price",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://blog.dugong.live/#website",
+        "name": "Dugong Field Notes",
+        "url": "https://blog.dugong.live/"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#primaryimage"
+      },
+      "mainEntity": {
+        "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#article"
+      },
+      "datePublished": "2026-11-07",
+      "dateModified": "2026-11-07",
+      "breadcrumb": {
+        "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#article",
+      "isPartOf": [
+        {
+          "@type": "Blog",
+          "@id": "https://blog.dugong.live/#blog",
+          "name": "Dugong Field Notes",
+          "url": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-discounts-and-promotions-automation.html#collection",
+          "name": "Shopify discounts and promotions automation",
+          "url": "https://blog.dugong.live/shopify-discounts-and-promotions-automation.html"
+        }
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#webpage"
+      },
+      "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html",
+      "headline": "How to fix Shopify subscriptions billing the old price",
+      "abstract": "A Shopify subscription contract is a snapshot of the terms the customer agreed to, not a live link to your catalog. The price, the discount, the plan name and the variant are each copied onto the contract on the day the customer subscribes, and nothing you do in the admin afterwards goes back to change them.",
+      "description": "A Shopify subscription is a snapshot, not a link. Price rises, deleted codes and dead variants never reach it. The AI playbook that finds the drift.",
+      "datePublished": "2026-11-07",
+      "dateModified": "2026-11-07",
+      "articleSection": "Research",
+      "keywords": "shopify subscription price change existing subscribers, update subscription contract price shopify, shopify subscription old price, deleted discount code still billing, shopify subscription contract snapshot, delete subscription product shopify, subscription plan edit existing contracts, AI subscription audit",
+      "wordCount": 2282,
+      "timeRequired": "PT8M",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "image": {
+        "@type": "ImageObject",
+        "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#primaryimage",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q7501150",
+          "name": "Shopify",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q1972241",
+          "name": "Subscription business model",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Subscription_business_model",
+            "https://www.wikidata.org/wiki/Q1972241"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q2516951",
+          "name": "Pricing",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Pricing",
+            "https://www.wikidata.org/wiki/Q2516951"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q5001911",
+          "name": "Business process automation",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Business_process_automation",
+            "https://www.wikidata.org/wiki/Q5001911"
+          ]
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".short-answer",
+          ".faq"
+        ]
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://blog.dugong.live/#priya-singh",
+        "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Developer Docs | SubscriptionLine",
+          "url": "https://shopify.dev/docs/api/admin-graphql/latest/objects/SubscriptionLine"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Manage subscription contracts",
+          "url": "https://help.shopify.com/en/manual/products/purchase-options/subscriptions/shopify-subscriptions/manage-subscriptions/manage-contracts"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Add and edit subscription plans",
+          "url": "https://help.shopify.com/en/manual/products/purchase-options/subscriptions/shopify-subscriptions/manage-subscriptions/add-edit-plans"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Developer Community | Discount codes on subscriptions, combinesWith ignored and deleted codes still billed",
+          "url": "https://community.shopify.dev/t/discount-codes-on-subscriptions-combineswith-ignored-once-per-customer-bypassed-deleted-codes-still-billed/38200"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Developer Community | Subscriptions with deleted products get inconsistent INSUFFICIENT_INVENTORY billing failures",
+          "url": "https://community.shopify.dev/t/bug-subscriptions-with-deleted-products-get-inconsistent-insufficient-inventory-billing-failures/800"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Does updating price on a Shopify subscription plan update price for old contracts too",
+          "url": "https://community.shopify.com/t/does-updating-price-on-shopify-subscription-plan-update-price-for-old-contracts-too/304528"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Subscription variants",
+          "url": "https://community.shopify.com/t/subscription-variants/192830"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Bold Commerce | Why don't Shopify price updates automatically affect existing subscribers",
+          "url": "https://support.boldcommerce.com/boldsubscriptions/why-don-t-shopify-price-updates-automatically-affe"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Recharge | Changing the price of subscription products",
+          "url": "https://support.getrecharge.com/hc/en-us/articles/360008681974-Changing-the-price-of-subscription-products"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Subi | What happens to a subscription when its product is deleted or replaced in Shopify",
+          "url": "https://help.subi.co/en/articles/17565558-what-happens-to-a-subscription-when-its-product-is-deleted-or-replaced-in-shopify"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shopify discounts and promotions automation",
+          "item": "https://blog.dugong.live/shopify-discounts-and-promotions-automation.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The price your subscribers never stopped paying",
+          "item": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq",
+      "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-heading",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q1972241"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q2516951"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q5001911"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "datePublished": "2026-11-07",
+      "dateModified": "2026-11-07",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-1",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-1",
+          "name": "Does changing a product price in Shopify update existing subscriptions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-1-answer",
+            "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-1-answer",
+            "text": "No. A price change in your catalog applies to new orders and new subscribers, and existing subscription contracts carry on at the price they captured when the customer signed up. Shopify's own API documentation is the clearest statement of why. A subscription line holds its own currentPrice, described as the price per unit for the subscription line in the contract's currency, and its own copy of the plan it was created from: the docs note that the selling plan identifier may no longer match the plan's current attributes, and that the selling plan name can differ from the plan's current name, since each can be updated independently. The contract is a copy, not a pointer. Every subscription app says the same thing in merchant language. Bold Commerce writes that price updates do not affect existing subscribers because they stay subscribed under the terms they agreed to at checkout when the subscription contract was made. Recharge writes that existing subscribers will still be subscribed to the old price. This is deliberate, and in most places it is also the legally safe default: you agreed a recurring price with a customer and you cannot quietly change it. The problem is not the behavior. The problem is that nothing in the admin shows you the gap, so a store two years into selling subscriptions is usually billing three or four different prices for the same product without anyone having decided to."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-2",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-2",
+          "name": "How do I update prices for existing Shopify subscribers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-2-answer",
+            "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-2-answer",
+            "text": "One contract at a time, or in bulk through whichever app runs your subscriptions, and never by editing the product. Recharge's guidance is to change the price on the existing customer for a small number, and to use its multi-select or bulk CSV tools for a large one. Bold Commerce ships a bulk price update specifically for existing subscribers. The mechanics differ per app, so the useful work is upstream of the mechanics: know which contracts are off today's price and by how much before you open any of those tools. Two practical cautions. First, a price rise on an existing contract is a change to an agreed recurring charge, so tell the customer before it lands rather than after, and check what your own terms promised. Second, do the catalog and the contracts in the same session. The common failure is a store that raises the catalog price on a Monday, means to sweep the contracts on the Friday, and then forgets, which is how a cohort gets frozen at a price nobody remembers setting."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-3",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-3",
+          "name": "What happens to a Shopify subscription if I delete the product or variant?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-3-answer",
+            "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-3-answer",
+            "text": "The subscription keeps going, pointed at nothing. Deleting a product or variant does not change the subscriptions that include it: the line keeps its original title and price and simply stops resolving to anything in your catalog, and the contract keeps billing that line at the price stored on it. Removing a subscription plan from a product is just as quiet. Shopify's own documentation notes that doing so does not cancel any existing subscriptions for the product. The sharper version of this showed up as a developer bug report in October 2024, where contracts whose variant had been deleted started failing with an insufficient inventory error, and the reporter pointed out the obvious trap: you cannot add inventory to a variant that no longer exists. Worse, a two-line contract with one deleted variant billed successfully and produced an order containing the deleted item. Shopify replicated it within four days and restored the previous behavior, which is that contracts with deleted variants do create orders. That is the current state, and it is the state that should worry you more, because it means the failure is silent. The right move is to swap the product on every affected contract before you delete anything, and to keep a standing check that every contract line still resolves to a live variant."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-4",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-4",
+          "name": "Why is a deleted discount code still being applied to my Shopify subscription orders?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-4-answer",
+            "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-4-answer",
+            "text": "Because the code was copied onto the contract when it was added, and billing does not re-check it. A developer raised exactly this in October 2026, reporting that billing attempts check nothing and that every code on the contract is applied to the order, including codes deleted, expired or deactivated afterwards. Shopify's reply, three weeks later, confirmed the behavior rather than fixing it: expired and deactivated codes continuing to bill is expected, deletion behaves the same as expiry or deactivation, and the saved snapshot stays until the app removes it. The same thread records two related gaps. Codes attached through the older contract creation and draft update flows are evaluated independently of each other, so combination rules that checkout would have enforced are not, although the newer calculation API does evaluate them together and warns when codes conflict. And a once-per-customer limit is checked against past orders and checkout reservations, not against discounts saved on contracts, so one customer can carry the same code on several subscriptions. Shopify's own suggestion there is an app-side check, which is a polite way of saying this is yours to watch. Practically: a promotional code you ran for a launch two years ago is probably still taking money off somebody's monthly order, and the only way to know is to read the discounts sitting on live contracts rather than the discounts listed in your admin."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-5",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-5",
+          "name": "What happens to existing subscriptions if I edit or delete a subscription plan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-5-answer",
+            "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-5-answer",
+            "text": "Shopify does not say, which is the honest answer and the reason this catches people. The help page for adding and editing subscription plans walks through editing a plan and saving it, and warns that deleted plans are not recoverable, and says nothing about what either action does to live contracts. The page for managing contracts covers products, quantity, delivery frequency, billing dates, pausing, resuming, skipping and cancelling, and does not mention price at all. So the two screens a merchant would use to reason about this are each silent on the half the other owns. The API fills the gap. A contract line stores the plan identifier it was created from and the plan name as it read at the time, and the documentation says plainly that both can diverge from the plan's current state because the plan and the line are updated independently. Read that as a rule: editing a plan changes what new subscribers get and leaves existing contracts exactly as they were. A merchant asked this directly in a March 2024 community thread, whether updating a plan price mid-subscription affects old customers or only new ones, and the thread never answered the question for the Shopify Subscriptions app. Nothing in it is marked as a solution. Two and a half years later it is still the clearest single piece of evidence that the question is common and the answer is not written down anywhere a merchant will find it."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-6",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-6",
+          "name": "Can AI fix Shopify subscriptions billing the wrong price?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-6-answer",
+            "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#faq-6-answer",
+            "text": "It can find every one of them, price the problem, and stop it recurring, which is most of the job. An automation like Dugong reads your live contracts rather than your catalog, pulls what each line is actually billing, and compares it to today's price for the same variant, so instead of a vague sense that some subscribers are on old pricing you get a list with names, amounts and dates. It ages each gap, because a dollar of drift on a contract billing monthly since 2024 is not the same as a dollar on one opened in September. It reads the discounts sitting on contracts and flags any whose code is expired, deactivated or deleted, which is the one class of leak no screen in the admin will show you. It checks that every contract line still resolves to a live variant, so a deletion cannot quietly orphan a cohort. And it watches the catalog, so when a price changes it tells you the same day how many contracts just fell out of line, while you still remember why you changed it. The honest limits: it will not raise a customer's price for you, because that is a commercial and sometimes contractual decision rather than a data one, and the actual edit happens in whichever subscription app owns the contract. What it removes is the part that was never going to happen on its own, which is somebody noticing."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#howto",
+      "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#playbook",
+      "name": "The price your subscribers never stopped paying",
+      "description": "The AI playbook for Shopify subscriptions billing the old price: listing every contract and what it actually bills, comparing each line to today's catalog price, ageing the gap and putting money on it, auditing the discount codes riding on contracts, checking every line still points at a live variant, making a price change a two-part job across catalog and contracts, and reporting the drift every month.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q1972241"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q2516951"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q5001911"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "image": {
+        "@id": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#primaryimage"
+      },
+      "datePublished": "2026-11-07",
+      "dateModified": "2026-11-07",
+      "totalTime": "PT8M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "List every contract and what it bills",
+          "text": "List every contract and what it bills",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Compare each line to today's price",
+          "text": "Compare each line to today's price",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Age the gap and price it",
+          "text": "Age the gap and price it",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Audit the discounts riding on contracts",
+          "text": "Audit the discounts riding on contracts",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Check every line still has a variant",
+          "text": "Check every line still has a variant",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Make a price change a two-part job",
+          "text": "Make a price change a two-part job",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Report the drift every month",
+          "text": "Report the drift every month",
+          "url": "https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html#playbook"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES - matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #71716a;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 105px; }
+@media (min-width: 821px) { html { scroll-padding-top: 78px; } }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background - lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0 var(--gutter); min-height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; min-width: 0; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  white-space: nowrap; flex-shrink: 0;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+/* superseded by the QA 2026-10-18 wrapping nav below */
+@media (max-width: 480px) {
+  .brand-slash, .brand-section { display: none; }
+  .nav-cta { font-size: 12.5px; padding: 8px 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 11.5px; padding: 7px 10px; }
+}
+
+/* QA 2026-10-12: 24px minimum tap target for the standalone topic-guide link */
+@media (max-width: 560px) {
+  .hub-more { padding-top: 5px; padding-bottom: 5px; }
+}
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+/* GRID (for related cards) */
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 560px) { .foot-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; } }
+@media (max-width: 340px) { .foot-cols { grid-template-columns: 1fr; } }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; overflow-wrap: break-word; }
+/* highlight wraps at every width: nowrap overflowed the text column on long phrases */
+.article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 57%, var(--lime) 57%, var(--lime) 81%, transparent 81%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.article-title em::after { content: none; }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: rgba(15,15,12,.45); } /* QA 2026-10-12 */
+.byline-role { color: var(--text-faint); }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+/* QA 2026-11-17: white-space/overflow-wrap added. 6 playbooks ran 8px past the
+   content box, making an unreachable-by-keyboard scroll region (WCAG 2.1.1).
+   The <=820px rule below has wrapped these since they were written. */
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; white-space: pre-wrap; overflow-wrap: break-word; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
+.article-body pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.short-answer { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--lime-deep); border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2.25rem 0 2.75rem; }
+.article-body .short-answer h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; line-height: 1.2; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime-deep); margin: 0 0 1rem; }
+.article-body .short-answer p:last-child { margin-bottom: 0; }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) - mirrors the site's final card ---- */
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+
+/* ACCESSIBILITY */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
+
+/* QA 2026-10-10: mobile tap targets + ticker legibility */
+@media (max-width: 560px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+  .foot-cols > div { gap: 0.1rem; }
+  .foot-cols a { padding: 0.45rem 0; }
+  .article-back { min-height: 40px; padding: 0.55rem 0; }
+  .pill { padding: 0.6rem 1rem; }
+  .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
+}
+
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
+  .tag { font-size: 12px; letter-spacing: 0.05em; }
+  .post-meta { font-size: 12px; }
+  .post-read { font-size: 12px; }
+  .card-foot { font-size: 12px; }
+  .card-date, .card-author { font-size: 12px; }
+  .byline-avatar { font-size: 12px; }
+  .callout-mark { font-size: 12px; }
+  .cta-fine { font-size: 12px; }
+  .foot-h { font-size: 12px; }
+  .stat-label { font-size: 12px; }
+  .pb-status, .pb-tag, .pb-node-sub, .pb-branch-arm { font-size: 12px; }
+  .foot-bot, .foot-bot span, .foot-bot a { font-size: 12px; }
+  .art-coord { font-size: 12px; }
+  .signup-label { font-size: 12px; }
+  .signup-fine { font-size: 12px; }
+  .arch-date { font-size: 12px; }
+  .author-role { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 12px; padding: 7px 9px; }
+}
+
+/* QA 2026-10-19 */
+:root { color-scheme: light; }
+
+/* QA 2026-10-19: a skip link, so a keyboard or screen-reader visitor does not
+   walk the ticker, the brand and four nav links on every page (WCAG 2.4.1). */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  font-family: var(--display); font-weight: 700; font-size: 14px;
+  background: var(--lime); color: #11110e; border: 1px solid #11110e;
+  padding: 10px 18px; border-radius: 0 0 10px 0;
+}
+.skip-link:focus { left: 0; }
+
+/* QA 2026-10-19: the 2026-10-18 pass gave .nav-cta `order: 2` so the button
+   would ride on the brand's row below 820px, but the button was a child of
+   .nav-links, where `order` means nothing and margin-left:auto pushed it past
+   the gutter. It is a child of .nav now. These rules keep the old look. */
+.nav > .nav-cta { flex-shrink: 0; }
+@media (min-width: 821px) { .nav > .nav-cta { margin-left: 0; } }
+
+/* QA 2026-10-19: .callout is a flex row with a flex-shrink:0 label of
+   79-149px. On a 390px phone that left the quote a 136px column, ~20
+   characters a line, 25 lines for a single paragraph; at 320px, 96px and 41
+   lines, and one callout ran the page 7px wide. Stack below 700px. */
+@media (max-width: 700px) {
+  .callout { flex-direction: column; gap: 0.55rem; }
+  .short-answer { padding: 1.2rem 1.25rem; margin: 2rem 0 2.25rem; border-radius: 10px; }
+  .callout-mark { padding-top: 0; }
+}
+</style>
+<style>
+/* SEO 2026-10-12 topic guide link */
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
+.hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
+</style>
+
+<style>
+/* SEO 2026-10-12 long inline code must break rather than widen the page */
+.article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
+</style>
+
+<style>
+/* 2026-10-13 long API identifiers in FAQ answers must break rather than widen the page */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  /* decorative separators strand at the end of a wrapped line on phones */
+  .article-meta span[aria-hidden="true"] { display: none; }
+  .article-meta { column-gap: 1rem; }
+}
+
+/* QA-2026-10-18-CSS
+   QA 2026-10-18: 24px minimum target size at every width, not only phones.
+   The 2026-10-10 pass put this inside @media (max-width:560px), so header and
+   footer links stayed at 23.2-23.5px on tablet and desktop. */
+.nav-links a:not(.nav-cta), .foot-cols a, .foot-bot a {
+  display: inline-flex; align-items: center; min-height: 24px;
+}
+
+/* QA 2026-10-18: the header nav used to vanish below 820px with nothing in its
+   place, so phone and tablet readers had no way back to Latest, Topics or the
+   Archive. Wrap it onto a second row instead of hiding it. */
+@media (max-width: 820px) {
+  .nav { flex-wrap: wrap; padding-top: 0.55rem; padding-bottom: 0.55rem; row-gap: 0.1rem; }
+  .brand { order: 1; }
+  .nav-cta { order: 2; margin-left: auto; }
+  .nav-links { order: 3; width: 100%; gap: 1.5rem; justify-content: flex-start;
+               font-size: 13.5px; padding-bottom: 0.1rem; }
+  .nav-links a:not(.nav-cta) { display: inline-flex; }
+}
+@media (max-width: 380px) { .nav-links { gap: 1.1rem; font-size: 13px; } }
+
+/* QA 2026-10-18: long API identifiers in deks and FAQ answers must break
+   rather than widen the page. Added 2026-10-13 to 5 pages only. */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+
+/* QA 2026-10-18: READ NEXT had grown to 79 cards on the oldest dispatches,
+   ~28,000px of card grid on a phone. The overflow now sits behind a
+   disclosure, so every link is still in the page and crawlable. */
+.related-more { max-width: var(--maxw); margin: 1.5rem auto 0; }
+.related-more > summary {
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-dim); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 0.5rem; min-height: 24px;
+  padding: 0.4rem 0.9rem; border: 1px solid var(--border-strong); border-radius: 999px;
+  list-style: none; transition: color .2s, border-color .2s, background .2s;
+}
+.related-more > summary::-webkit-details-marker { display: none; }
+.related-more > summary::after { content: "\002B"; font-size: 1rem; line-height: 1; }
+.related-more[open] > summary::after { content: "\2212"; }
+.related-more > summary:hover { color: var(--text); border-color: var(--text); background: var(--surface); }
+.related-more > .related-grid { margin-top: 1.5rem; }
+/* cards inside a closed disclosure never meet the IntersectionObserver that
+   clears .reveal, so they would open at opacity 0. */
+.related-more .reveal { opacity: 1; transform: none; }
+
+</style>
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>&#9670; DISPATCH N&ordm; 140 &middot; NOV 7, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 8 MIN READ &middot; 2,282 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+    <span>&#9670; DISPATCH N&ordm; 140 &middot; NOV 7, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 8 MIN READ &middot; 2,282 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+  </nav>
+  <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+</header>
+
+
+<article class="article" id="main" role="main">
+
+  <a href="index.html" class="article-back">&larr; back to field notes</a>
+
+  <div class="article-meta">
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 140</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-11-07" style="color: var(--cream-dim);">NOV 7, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">8 MIN READ</span></span>
+</div>
+
+  <h1 class="article-title">
+    How to fix Shopify subscriptions billing the old price <em>and dead discount codes</em>
+  </h1>
+
+  <p class="article-dek">
+    You raised the price in March. Your oldest subscribers are still paying the 2024 number, with a discount code you deleted, and the admin will never tell you.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
+    <span class="byline-divider" aria-hidden="true">&middot;</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      You raised the price of the forty dollar coffee subscription to
+      forty-six in March. Good decision, overdue, and the new signups have
+      been paying it without a murmur ever since.
+    </p>
+
+    <p>
+      Last week you exported your subscription orders to work out why the
+      category margin looked thin. Four hundred and twelve active contracts.
+      Two hundred and sixty of them billing forty. Thirty-one billing
+      thirty-four, which was a launch promotion you ran in 2024 and switched
+      off the same year.
+    </p>
+
+    <p>
+      Nobody broke anything. Shopify did exactly what it is designed to do.
+      The problem is that it never told you.
+    </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2 id="h-the-short-answer">The short answer</h2>
+
+      <p>
+        A Shopify subscription contract is a snapshot of the terms the
+        customer agreed to, not a live link to your catalog. The price, the
+        discount, the plan name and the variant are each copied onto the
+        contract on the day the customer subscribes, and nothing you do in the
+        admin afterwards goes back to change them.
+      </p>
+
+      <p>
+        So a price rise reaches new subscribers only. A discount code you
+        deleted carries on taking money off every renewal it was ever
+        attached to. A variant you deleted keeps getting billed on a line that
+        resolves to nothing. All three are by design, and none of them
+        appears anywhere in the admin as a warning.
+      </p>
+
+      <p>
+        The fix is not a setting. It is a report you do not currently have:
+        every live contract, what it is actually billing, and how far that
+        sits from what you would charge for the same thing today.
+      </p>
+    </div>
+
+    <h2 id="h-a-contract-is-a-copy-not-a-link">A contract is a copy, not a link</h2>
+
+    <p>
+      Shopify's own API documentation is the clearest place this is written
+      down, which is part of the problem, because merchants do not read API
+      documentation.
+    </p>
+
+    <p>
+      A
+      <a href="https://shopify.dev/docs/api/admin-graphql/latest/objects/SubscriptionLine">subscription
+      line</a> holds its own <code>currentPrice</code>, documented as the
+      price per unit for the subscription line in the contract's currency. Not
+      the variant's price. The line's price. It also holds its own copy of
+      the plan it came from, and the documentation is unusually direct about
+      what that means: the selling plan identifier may no longer match the
+      plan's current attributes, and the selling plan name can differ from the
+      plan's current name, because each of them can be updated independently.
+    </p>
+
+    <p>
+      Read that twice. Shopify is telling you, in the reference docs, that the
+      thing on the contract and the thing in your admin are two separate
+      records that are allowed to disagree.
+    </p>
+
+    <p>
+      Every subscription app has had to explain this to merchants, and they
+      all land in the same place. Bold Commerce
+      <a href="https://support.boldcommerce.com/boldsubscriptions/why-don-t-shopify-price-updates-automatically-affe">writes</a>
+      that price updates do not affect existing subscribers, because they stay
+      subscribed under the terms they agreed to at checkout when the
+      subscription contract was made. Recharge
+      <a href="https://support.getrecharge.com/hc/en-us/articles/360008681974-Changing-the-price-of-subscription-products">writes</a>
+      that existing subscribers will still be subscribed to the old price, and
+      that you change it by editing the customer's subscription, one at a time
+      for a few or by CSV for many.
+    </p>
+
+    <p>
+      None of this is a bug, and I would not want it changed. You agreed a
+      recurring price with somebody. A platform that silently repriced their
+      standing order every time you edited a product would be a worse
+      platform and, in several jurisdictions, an illegal one.
+    </p>
+
+    <h2 id="h-the-two-screens-that-are-each-silent-about-the-other">The two screens that are each silent about the other</h2>
+
+    <p>
+      Here is why so few merchants know this. Shopify has two help pages a
+      person would naturally read, and between them they leave the whole
+      question unwritten.
+    </p>
+
+    <p>
+      The page on
+      <a href="https://help.shopify.com/en/manual/products/purchase-options/subscriptions/shopify-subscriptions/manage-subscriptions/manage-contracts">managing
+      subscription contracts</a> covers a lot: editing the products, the
+      quantity and the delivery frequency, with a note that updating the
+      delivery frequency automatically updates the billing frequency. Adding,
+      changing and removing billing dates. Pausing, resuming and cancelling on
+      a customer's behalf. Skipping an upcoming order. It does not mention
+      price.
+    </p>
+
+    <p>
+      The page on
+      <a href="https://help.shopify.com/en/manual/products/purchase-options/subscriptions/shopify-subscriptions/manage-subscriptions/add-edit-plans">adding
+      and editing subscription plans</a> tells you to click the plan, edit the
+      details and save, and warns that deleted plans are not recoverable. It
+      says nothing about what editing or deleting a plan does to the contracts
+      already running on it. It does say, in passing, that removing a plan
+      from a product does not cancel any existing subscriptions for the
+      product, which is the one hint that those contracts are living their own
+      lives.
+    </p>
+
+    <p>
+      A merchant asked the direct question in a
+      <a href="https://community.shopify.com/t/does-updating-price-on-shopify-subscription-plan-update-price-for-old-contracts-too/304528">community
+      thread in March 2024</a>: if you update the price of a plan rather than
+      a contract, in the middle of active subscriptions, does it update the
+      price for all old and new customers or only new ones. The one reply
+      answered a different question, about the app billing API. The merchant
+      came back two days later to say they were not writing custom code and
+      had no API access, and asked what the Shopify Subscriptions app does by
+      default.
+    </p>
+
+    <p>
+      Nobody ever replied. Nothing in the thread is marked as a solution. Two
+      and a half years on, that unanswered post is still one of the better
+      pieces of evidence that this is a common question with no findable
+      answer.
+    </p>
+
+    <h2 id="h-the-discount-code-you-deleted-is-still-taking-money">The discount code you deleted is still taking money</h2>
+
+    <p>
+      This is the part that surprises even people who understand the price
+      behavior, and it is recent enough that almost nothing has been written
+      about it.
+    </p>
+
+    <p>
+      In October 2026 a developer
+      <a href="https://community.shopify.dev/t/discount-codes-on-subscriptions-combineswith-ignored-once-per-customer-bypassed-deleted-codes-still-billed/38200">filed
+      a detailed report</a> on how discount codes behave on subscription
+      contracts. The headline finding, in their words: billing attempts check
+      nothing, and every code on the contract is applied to the order. That
+      includes codes you deleted, expired or deactivated after they were
+      attached.
+    </p>
+
+    <p>
+      Shopify's answer, after checking with the team that owns the
+      subscriptions API, confirmed it rather than fixing it. Expired and
+      deactivated codes continuing to bill is expected. Deletion behaves the
+      same as expiry or deactivation. The saved snapshot stays until the app
+      removes it.
+    </p>
+
+    <p>
+      Two more findings in the same thread are worth your attention. Discount
+      codes added through the older contract creation and draft update flows
+      are each evaluated on their own, so the combination rules that checkout
+      would have enforced are not enforced there, though the newer calculation
+      API does evaluate codes together and warns when they conflict. And a
+      once-per-customer limit is checked against past orders and checkout
+      reservations, never against discounts saved on contracts, so the same
+      customer can carry the same code on several subscriptions at once.
+      Shopify's suggestion was an app-side check, which is a courteous way of
+      saying this one is yours.
+    </p>
+
+    <p>
+      Put all that together and the practical reading is simple. A launch code
+      from two years ago is very probably still discounting somebody's monthly
+      order, you will not find it by looking at the discounts page, and the
+      only place it exists is on the contracts themselves. This is the same
+      class of leak as
+      <a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html">a
+      code that double-dips a sale price</a>, except that it renews.
+    </p>
+
+    <h2 id="h-the-variant-you-deleted-is-still-being-billed">The variant you deleted is still being billed</h2>
+
+    <p>
+      Deleting a product does not stop the subscriptions that contain it. It
+      orphans them. The line keeps the title and price it was created with and
+      simply stops resolving to anything you sell.
+    </p>
+
+    <p>
+      The sharp edge of this was
+      <a href="https://community.shopify.dev/t/bug-subscriptions-with-deleted-products-get-inconsistent-insufficient-inventory-billing-failures/800">reported
+      in October 2024</a>, when contracts with deleted variants started
+      failing billing with an insufficient inventory error. The reporter made
+      the obvious point: the variant is deleted, so there is no inventory for
+      a merchant to add. And the behavior was inconsistent. A contract with
+      one deleted line and one live line billed successfully and produced an
+      order containing the deleted item.
+    </p>
+
+    <p>
+      A Shopify engineer replicated it within four days, shipped a fix six
+      days after the report, and restored what they called the original
+      behavior: contracts with deleted variants do create orders. The original
+      reporter confirmed it was working. Then, in August 2025, a different
+      merchant turned up in the same thread with insufficient inventory errors
+      and no explanation, asking whether customers should just resubscribe. No
+      reply.
+    </p>
+
+    <p>
+      So the current state is the one that should bother you more, not less.
+      Deleted variants bill quietly. The order goes out, the card is charged,
+      and your warehouse gets a line for something you stopped selling.
+      <a href="https://help.subi.co/en/articles/17565558-what-happens-to-a-subscription-when-its-product-is-deleted-or-replaced-in-shopify">One
+      app's documentation</a> states it plainly: deleting a product or variant
+      does not change the subscriptions that include it, and the subscription
+      keeps billing that line at its price on the subscription. Its advice is
+      to swap the product on every affected contract while the old one still
+      exists, and it notes that subscriptions whose discount cannot be carried
+      over are not swapped in bulk at all, so those have to be done by hand.
+    </p>
+
+    <p>
+      Which means the order of operations matters more than almost anything
+      else in this article. Swap first. Delete second. Never the other way
+      round.
+    </p>
+
+    <h2 id="h-what-this-costs-on-an-ordinary-month">What this costs on an ordinary month</h2>
+
+    <p>
+      Take four hundred active contracts on a product you now sell at
+      forty-six dollars, billing monthly.
+    </p>
+
+    <p>
+      Two hundred and sixty are still on forty, from before the March rise.
+      That is six dollars times two hundred and sixty, every month, which is
+      fifteen hundred and sixty dollars of revenue you decided to charge and
+      are not charging. Thirty-one are on a thirty-four dollar launch code you
+      turned off in 2024, which is another three hundred and seventy-two. Call
+      it just under two thousand a month, twenty-three thousand a year, on one
+      product.
+    </p>
+
+    <p>
+      None of that appears as a problem anywhere. Your subscription revenue is
+      growing. Your churn is fine. The only visible symptom is a margin that
+      reads worse than your pricing says it should, and the natural
+      explanation for that is shipping or packaging or the cost of goods,
+      because those are the numbers you have a report for.
+    </p>
+
+    <p>
+      This is the characteristic shape of a snapshot problem. It does not fail.
+      It drifts, and every month it drifts a little further, and the gap is
+      widest on your oldest and most loyal customers, because they have been
+      frozen the longest.
+    </p>
+
+    <h2 id="h-what-the-automation-actually-has-to-do">What the automation actually has to do</h2>
+
+    <p>
+      As a Dugong playbook, in plain prose:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">Scheduled</span> weekly contract sweep,
+plus product price changed
+
+<span class="c"># steps</span>
+1. <span class="k">List</span> every contract and what
+   it bills
+2. <span class="k">Compare</span> each line to today's
+   price
+3. <span class="k">Age</span> the gap and price it
+4. <span class="k">Audit</span> the discounts riding on
+   contracts
+5. <span class="k">Check</span> every line still has a
+   variant
+6. <span class="k">Make</span> a price change a two-part
+   job
+7. <span class="k">Report</span> the drift every month
+</code></pre>
+
+    <p>
+      Step one is the report nobody has. Read the live contracts, not the
+      catalog, and write down what each line is actually billing. Most stores
+      cannot produce this today, which is exactly why the drift survives.
+    </p>
+
+    <p>
+      Step two is the comparison. For every contract line, the price on the
+      line against the price you would charge for that variant today. The
+      output is a list of names and amounts, not an impression.
+    </p>
+
+    <p>
+      Step three turns that list into money. A dollar of drift on a contract
+      that has billed monthly since 2024 is worth many times a dollar on one
+      opened in September, so age each gap and total it. That number is what
+      gets the work prioritized.
+    </p>
+
+    <p>
+      Step four is the discounts, and it is the one step that has no
+      alternative. Read the codes sitting on live contracts, look each one up,
+      and flag every code that is expired, deactivated or deleted. Nothing in
+      the admin will do this for you, because as far as the discounts page is
+      concerned those codes are gone.
+    </p>
+
+    <p>
+      Step five is the orphan check. Every contract line should resolve to a
+      live variant. Any that does not is either billing for something you
+      cannot ship or waiting to, and it got that way because somebody deleted
+      a product in the right order for the catalog and the wrong order for the
+      contracts.
+    </p>
+
+    <p>
+      Step six changes a habit rather than running a check. A price change is
+      two jobs, not one: the catalog, then the contracts. Doing the first and
+      intending to do the second next week is how every cohort in your store
+      got frozen at a different number.
+    </p>
+
+    <p>
+      Step seven is the number that keeps it from coming back. Publish, every
+      month, the share of your subscription revenue billing at current prices.
+      If it is under ninety percent you have a pricing decision that is not
+      being enforced, and now it has a name.
+    </p>
+
+    <h2 id="h-do-this-before-you-close-the-laptop">Do this before you close the laptop</h2>
+
+    <p>
+      Three things, about fifteen minutes, no tooling required.
+    </p>
+
+    <p>
+      Open your subscription app, sort your active contracts by creation date,
+      and look at the oldest ten. Note what each one bills. If you have raised
+      a price at any point in the last two years, you are about to see the gap
+      for yourself.
+    </p>
+
+    <p>
+      Then take the oldest promotional code you can remember running on a
+      subscription product and check whether any live contract still carries
+      it. If your app can filter contracts by discount, this takes a minute.
+      If it cannot, that is its own finding.
+    </p>
+
+    <p>
+      Last, before you delete any subscription product this quarter, search
+      your contracts for it first. The order of those two actions is the
+      difference between a tidy catalog and a cohort of orders for something
+      that does not exist.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">&#9670; READING</span>
+      <span>
+        Two companion pieces if this one landed: <a
+        href="how-to-bulk-edit-product-prices-on-shopify.html">the price
+        change you make one product at a time</a>, on getting a new price into
+        the catalog in the first place, and <a
+        href="how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html">the
+        misprice that sells all night</a>, on the version of this problem that
+        breaks in minutes rather than years.
+      </span>
+    </div>
+
+    <p>
+      If you sell subscriptions on Shopify and have a version of this story,
+      the cohort still on a 2023 price, the launch code you found two years
+      later, the deleted variant that kept shipping, the inbox is open:
+      <code>field-notes@dugong.live</code>. We are collecting case studies for
+      the next issue.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share &middot; copy link &middot; &#10022;</span>
+  </div>
+
+</article>
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">&#9670; COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item" id="faq-1">
+      <h2 class="faq-q">Does changing a product price in Shopify update existing subscriptions?</h2>
+      <p class="faq-a" id="faq-1-answer">No. A price change in your catalog applies to new orders and new subscribers, and existing subscription contracts carry on at the price they captured when the customer signed up. Shopify's own API documentation is the clearest statement of why. A subscription line holds its own currentPrice, described as the price per unit for the subscription line in the contract's currency, and its own copy of the plan it was created from: the docs note that the selling plan identifier may no longer match the plan's current attributes, and that the selling plan name can differ from the plan's current name, since each can be updated independently. The contract is a copy, not a pointer. Every subscription app says the same thing in merchant language. Bold Commerce writes that price updates do not affect existing subscribers because they stay subscribed under the terms they agreed to at checkout when the subscription contract was made. Recharge writes that existing subscribers will still be subscribed to the old price. This is deliberate, and in most places it is also the legally safe default: you agreed a recurring price with a customer and you cannot quietly change it. The problem is not the behavior. The problem is that nothing in the admin shows you the gap, so a store two years into selling subscriptions is usually billing three or four different prices for the same product without anyone having decided to.</p>
+    </div>
+    <div class="faq-item" id="faq-2">
+      <h2 class="faq-q">How do I update prices for existing Shopify subscribers?</h2>
+      <p class="faq-a" id="faq-2-answer">One contract at a time, or in bulk through whichever app runs your subscriptions, and never by editing the product. Recharge's guidance is to change the price on the existing customer for a small number, and to use its multi-select or bulk CSV tools for a large one. Bold Commerce ships a bulk price update specifically for existing subscribers. The mechanics differ per app, so the useful work is upstream of the mechanics: know which contracts are off today's price and by how much before you open any of those tools. Two practical cautions. First, a price rise on an existing contract is a change to an agreed recurring charge, so tell the customer before it lands rather than after, and check what your own terms promised. Second, do the catalog and the contracts in the same session. The common failure is a store that raises the catalog price on a Monday, means to sweep the contracts on the Friday, and then forgets, which is how a cohort gets frozen at a price nobody remembers setting.</p>
+    </div>
+    <div class="faq-item" id="faq-3">
+      <h2 class="faq-q">What happens to a Shopify subscription if I delete the product or variant?</h2>
+      <p class="faq-a" id="faq-3-answer">The subscription keeps going, pointed at nothing. Deleting a product or variant does not change the subscriptions that include it: the line keeps its original title and price and simply stops resolving to anything in your catalog, and the contract keeps billing that line at the price stored on it. Removing a subscription plan from a product is just as quiet. Shopify's own documentation notes that doing so does not cancel any existing subscriptions for the product. The sharper version of this showed up as a developer bug report in October 2024, where contracts whose variant had been deleted started failing with an insufficient inventory error, and the reporter pointed out the obvious trap: you cannot add inventory to a variant that no longer exists. Worse, a two-line contract with one deleted variant billed successfully and produced an order containing the deleted item. Shopify replicated it within four days and restored the previous behavior, which is that contracts with deleted variants do create orders. That is the current state, and it is the state that should worry you more, because it means the failure is silent. The right move is to swap the product on every affected contract before you delete anything, and to keep a standing check that every contract line still resolves to a live variant.</p>
+    </div>
+    <div class="faq-item" id="faq-4">
+      <h2 class="faq-q">Why is a deleted discount code still being applied to my Shopify subscription orders?</h2>
+      <p class="faq-a" id="faq-4-answer">Because the code was copied onto the contract when it was added, and billing does not re-check it. A developer raised exactly this in October 2026, reporting that billing attempts check nothing and that every code on the contract is applied to the order, including codes deleted, expired or deactivated afterwards. Shopify's reply, three weeks later, confirmed the behavior rather than fixing it: expired and deactivated codes continuing to bill is expected, deletion behaves the same as expiry or deactivation, and the saved snapshot stays until the app removes it. The same thread records two related gaps. Codes attached through the older contract creation and draft update flows are evaluated independently of each other, so combination rules that checkout would have enforced are not, although the newer calculation API does evaluate them together and warns when codes conflict. And a once-per-customer limit is checked against past orders and checkout reservations, not against discounts saved on contracts, so one customer can carry the same code on several subscriptions. Shopify's own suggestion there is an app-side check, which is a polite way of saying this is yours to watch. Practically: a promotional code you ran for a launch two years ago is probably still taking money off somebody's monthly order, and the only way to know is to read the discounts sitting on live contracts rather than the discounts listed in your admin.</p>
+    </div>
+    <div class="faq-item" id="faq-5">
+      <h2 class="faq-q">What happens to existing subscriptions if I edit or delete a subscription plan?</h2>
+      <p class="faq-a" id="faq-5-answer">Shopify does not say, which is the honest answer and the reason this catches people. The help page for adding and editing subscription plans walks through editing a plan and saving it, and warns that deleted plans are not recoverable, and says nothing about what either action does to live contracts. The page for managing contracts covers products, quantity, delivery frequency, billing dates, pausing, resuming, skipping and cancelling, and does not mention price at all. So the two screens a merchant would use to reason about this are each silent on the half the other owns. The API fills the gap. A contract line stores the plan identifier it was created from and the plan name as it read at the time, and the documentation says plainly that both can diverge from the plan's current state because the plan and the line are updated independently. Read that as a rule: editing a plan changes what new subscribers get and leaves existing contracts exactly as they were. A merchant asked this directly in a March 2024 community thread, whether updating a plan price mid-subscription affects old customers or only new ones, and the thread never answered the question for the Shopify Subscriptions app. Nothing in it is marked as a solution. Two and a half years later it is still the clearest single piece of evidence that the question is common and the answer is not written down anywhere a merchant will find it.</p>
+    </div>
+    <div class="faq-item" id="faq-6">
+      <h2 class="faq-q">Can AI fix Shopify subscriptions billing the wrong price?</h2>
+      <p class="faq-a" id="faq-6-answer">It can find every one of them, price the problem, and stop it recurring, which is most of the job. An automation like Dugong reads your live contracts rather than your catalog, pulls what each line is actually billing, and compares it to today's price for the same variant, so instead of a vague sense that some subscribers are on old pricing you get a list with names, amounts and dates. It ages each gap, because a dollar of drift on a contract billing monthly since 2024 is not the same as a dollar on one opened in September. It reads the discounts sitting on contracts and flags any whose code is expired, deactivated or deleted, which is the one class of leak no screen in the admin will show you. It checks that every contract line still resolves to a live variant, so a deletion cannot quietly orphan a cohort. And it watches the catalog, so when a price changes it tells you the same day how many contracts just fell out of line, while you still remember why you changed it. The honest limits: it will not raise a customer's price for you, because that is a commercial and sometimes contractual decision rather than a data one, and the actual edit happens in whichever subscription app owns the contract. What it removes is the part that was never going to happen on its own, which is somebody noticing.</p>
+    </div>
+  </div>
+</section>
+
+<section class="related" aria-labelledby="related-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="related-heading">&#9670; READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+<a href="how-to-bulk-edit-product-prices-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The price change you make one product at a time</h3>
+        <p class="card-dek">
+          Shopify's bulk editor handles ten products, not ten thousand. The AI playbook that reprices a whole catalog without touching a spreadsheet.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN&nbsp;17</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-stop-discount-codes-applying-to-sale-items-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The discount code that double-dips your sale</h3>
+        <p class="card-dek">
+          Shopify stacks a code on top of a sale price unless you stop it. The AI playbook that keeps promotions from eating each other.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUL&nbsp;06</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-catch-pricing-errors-on-shopify-before-orders-flood-in.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The misprice that sells all night</h3>
+        <p class="card-dek">
+          A missing decimal point sells out your bestseller at a tenth of cost. The AI playbook that catches a bad price in minutes, not mornings.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">AUG&nbsp;12</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html#latest">Latest</a>
+        <a href="index.html#essays">Essays</a>
+        <a href="index.html#post-mortems">Post-mortems</a>
+        <a href="index.html#interviews">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>&copy; 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>

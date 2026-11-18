@@ -10,6 +10,7 @@
 - Dispatch: Nº 131 · Research · 11 min read
 - Full headline on page: How to catch Shopify shipping labels *you paid for and never used*
 - Keywords: void shopify shipping label, unused shopify shipping label refund, shopify label credit, shopify shipping label 30 days, cancel shipping label shopify, shopify void label after cancelling order, shopify shipping label billing, AI shipping label audit
+- Entities: Shipping label (https://www.wikidata.org/wiki/Q7498793); Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -26,6 +27,7 @@ Not pending. Paid. Shopify charged you the moment you bought it, and nothing abo
 Shopify charges you for an outbound shipping label at purchase, not when the carrier scans it, so a label bought for an order you then cancel is already money spent. The only way back is to void it, and voiding needs four conditions true at once: under 30 days from the purchase date, no tracking events at all, not bought with USPS First Class Mail, and not added to a USPS shipping manifest in the last 15 minutes. The refund arrives as a shipping label credit against future label purchases rather than cash. Shopify counts none of this for you: there is no unused label filter, no age column, no countdown, no Flow trigger for a shipping label and no void mutation in the Admin API.
 
 What the API does give you is a cancellable boolean on the ShippingLabel object, which is Shopify evaluating all four conditions and handing back one field, so a register of every label with its day zero plus an hourly check of that field plus the bulk void limit of 250 labels per press is the whole solution.
+
 ## Outbound labels and return labels bill in opposite directions
 
 Start here, because this is where almost everyone's intuition is wrong, and it is wrong for a good reason.

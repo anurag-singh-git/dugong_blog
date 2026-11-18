@@ -5,12 +5,13 @@
 - Canonical: https://blog.dugong.live/how-to-schedule-a-sale-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-16
-- Updated: 2026-08-12
+- Updated: 2026-10-31
 - Section: Research
-- Word count: 2170
+- Word count: 2361
 - Dispatch: Nº 60 · Research · 9 min read
 - Full headline on page: How to *schedule a sale* on Shopify
 - Keywords: Shopify schedule sale, scheduled price change, flash sale automation, compare at price, bulk price edit, sale scheduler, timed discount, automatic price revert
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Promotion (marketing) (https://www.wikidata.org/wiki/Q353163); Business process automation (https://www.wikidata.org/wiki/Q5001911)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -20,6 +21,14 @@ Spend a week in the Shopify community forums around any big shopping weekend and
 It sounds like a small thing until you have lived it. The price drop itself is one click. The campaign around it is not. You decide which products are in and which are held back. You set a struck-through was-price on each one so the discount actually reads as a discount. You stay up to flip everything on at the start, you watch it through the weekend, and then, when it is over, you go back and put every original price where it was. Miss that last step and your bestseller is quietly on sale on a random Wednesday with no campaign behind it, handing away margin to anyone who happens to look.
 
 > Shopify will let you drop a price in one click. It will never tell you when to *put it back*.
+
+## The short answer
+
+Shopify will not schedule a price change. You can edit a price and set a compare-at price for the strikethrough whenever you like, and the edit lands the instant you save, so a sale that begins at midnight begins because a person was awake at midnight.
+
+Nothing puts the prices back, either. Shopify does not keep what an item cost before the markdown, so the revert is a manual pass over every product you touched, and the one you miss keeps selling under your normal price with no campaign behind it. There is also no way to state the scope as a rule, so you pick products by hand and carry the margin math per item.
+
+Discount codes and automatic discounts can be scheduled and are the right tool for a coupon, but a code lives at checkout and never draws a line through the old number on the product card, which is the look a storewide or by-collection sale depends on. A sale that runs itself records each original price first, writes price and compare-at together, holds a margin floor, and reverts *on time whether or not anyone is awake*.
 
 ## Why the timed sale matters more than it looks
 

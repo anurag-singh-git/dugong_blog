@@ -11,6 +11,7 @@
 - Dispatch: Nº 77 · Research · 9 min read
 - Full headline on page: How to automatically *schedule product publishing* on Shopify
 - Keywords: Shopify schedule product publish, schedule product publishing Shopify, auto publish products Shopify, schedule unpublish Shopify, Shopify future publishing all channels, bulk schedule products Shopify, Shopify product drop schedule, schedule product launch Shopify
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Product launch (https://www.wikidata.org/wiki/Q1395034); Merchandising (https://www.wikidata.org/wiki/Q740777); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

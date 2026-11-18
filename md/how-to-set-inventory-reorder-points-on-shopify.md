@@ -5,12 +5,13 @@
 - Canonical: https://blog.dugong.live/how-to-set-inventory-reorder-points-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-15
-- Updated: 2026-08-10
+- Updated: 2026-10-31
 - Section: Research
-- Word count: 2130
+- Word count: 2330
 - Dispatch: Nº 59 · Research · 9 min read
 - Full headline on page: How to set *inventory reorder points* on Shopify
 - Keywords: Shopify purchase order automation, reorder point, inventory replenishment, demand forecasting, stockout prevention, low stock alert, supplier purchase orders, reorder automation
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Inventory management (https://www.wikidata.org/wiki/Q3761396); Business process automation (https://www.wikidata.org/wiki/Q5001911)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -20,6 +21,14 @@ Read enough Shopify community threads and the same frustration surfaces in a dif
 That gap is easy to shrug off because it has no dramatic moment. A stockout on a hot product feels like an event. A reorder placed two weeks late feels like nothing at all, just a quiet stretch where the page said sold out and the customers went elsewhere. Nobody opens a support ticket about a purchase order that should have gone out on Tuesday. So the single most expensive operations decision in the store, how much of what to buy and when, gets made in the cracks of a busy week, on a spreadsheet that is always a little out of date.
 
 > Shopify will count every unit you own. It will never tell you which one to *buy back*.
+
+## The short answer
+
+Shopify counts your stock and does not plan it. It tracks inventory per location and offers a purchase order screen where you can record what you are buying from a supplier and receive it against stock, and merchants who find that screen tend to come away calling it too basic.
+
+There is no native reorder point that thinks per SKU, so nothing says reorder this variant at this level, let alone sets the level from how fast the item sells and how long its supplier takes. The purchase order does not pull in the product cost you already entered, has no field for the supplier's own SKU, and reports nothing useful on what is on the way or arrived in part.
+
+The number replenishment actually runs on is days of cover left at the current pace, minus the lead time that supplier really needs, and Shopify knows the first half and nothing about the second. A working version projects demand per variant, subtracts the lead time to find the date each item has to be ordered by, sizes the buy to the next cycle instead of a flat quantity, and groups items by supplier so each order *clears the minimum*.
 
 ## How big the leak actually is
 

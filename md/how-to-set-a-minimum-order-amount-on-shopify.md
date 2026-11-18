@@ -11,6 +11,7 @@
 - Dispatch: Nº 76 · Research · 9 min read
 - Full headline on page: How to set a *minimum order amount* on Shopify
 - Keywords: Shopify minimum order amount, set minimum order value Shopify, Shopify minimum order quantity, Shopify MOQ, minimum purchase Shopify checkout, minimum spend before checkout Shopify, Shopify wholesale minimum order
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Point of sale (https://www.wikidata.org/wiki/Q386147); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

@@ -11,6 +11,7 @@
 - Dispatch: Nº 70 · Research · 9 min read
 - Full headline on page: How to *bulk edit product prices* on Shopify
 - Keywords: Shopify bulk price change, bulk edit prices Shopify, increase all prices by percentage Shopify, Shopify bulk editor 50 products, change prices in bulk Shopify, repricing Shopify, percentage price increase Shopify, Shopify CSV price update, bulk price editor app, compare at price Shopify
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Pricing (https://www.wikidata.org/wiki/Q2516951); Price (https://www.wikidata.org/wiki/Q160151); Batch processing (https://www.wikidata.org/wiki/Q661613)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -99,7 +100,7 @@ If you carry more than a handful of products and a cost increase, a tariff, or a
 
 Describe it the way you would brief a careful pricing manager: when a cost goes up, take these products, move each price by this rule, round them the way we always round, do not let anything fall below our margin, keep the compare-at honest, and bring me anything that looks wrong before you save it. That is the whole brief. The compiler does the selection, the math, the rounding, and the writing. You keep your weekend, and you stop being the slowest, most expensive step between a cost change and a correct price.
 
-> **◆ READING** If this resonates, two companion pieces: our dispatch on [the sale you have to start by hand](https://blog.dugong.live/how-to-schedule-a-sale-on-shopify.html), the temporary version of repricing where Shopify will not schedule or revert a promotion, and the field study on [the Shopify automations no one builds](https://blog.dugong.live/best-shopify-automations-to-set-up.html), where the work that actually compounds is a sliver of what merchants wire up.
+> **◆ READING** If this resonates, two companion pieces: our dispatch on [the sale you have to start by hand](https://blog.dugong.live/how-to-schedule-a-sale-on-shopify.html), the temporary version of repricing where Shopify will not schedule or revert a promotion, and the field study on [the Shopify automations no one builds](https://blog.dugong.live/best-shopify-automations-to-set-up.html), where the work that actually compounds is a sliver of what merchants wire up. Also new: [the orders your profit report quietly drops](https://blog.dugong.live/how-to-find-shopify-products-with-no-cost-per-item.html), on the other half of the margin, and why a repriced catalog still reports nothing without a cost on it. Also new: [the price your subscribers never stopped paying](https://blog.dugong.live/how-to-fix-shopify-subscriptions-billing-the-old-price.html), on why a new catalog price never reaches an existing subscription contract.
 
 If you are a Shopify merchant who has wired up repricing that runs by rule instead of by calculator, or you have a story about the morning you raised three hundred prices by hand before the supplier increase hit, the inbox is open: `field-notes@dugong.live`. We are collecting case studies for the next issue.
 

@@ -11,6 +11,7 @@
 - Dispatch: Nº 113 · Research · 10 min read
 - Full headline on page: How to fix order confirmation emails *not sending* on Shopify
 - Keywords: order confirmation email not sending, customer did not receive order confirmation, resend order confirmation, confirmation email spam, checkout links no confirmation email, draft order confirmation, email delivery log, order confirmation automation, AI order monitoring
+- Entities: Email spam (https://www.wikidata.org/wiki/Q13512320); DMARC (https://www.wikidata.org/wiki/Q3011385); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -106,7 +107,7 @@ Then write the policy in plain language: which channels should send a receipt, w
 
 Then say the brief the way you would hand it to a new hire. Watch every order that lands in the store. If the confirmation email has not gone out within ten minutes, find out why, and unless the order is wholesale or POS, send the customer a receipt through the invoice door on our template, with the order status link inside. If the email address looks like a typo, ask for the right one instead of sending. If a whole channel goes quiet, or the domain stops authenticating, tell me the same hour. Note everything on the order timeline, and every Monday tell me how many receipts went out, how many orders went silent, and which door the silence came through. That is the whole paragraph. The compiler turns it into the workflow, and the next time a confirmation fails to send, your customer is reading the replacement before the kettle boils.
 
-> **◆ READING** Two companion pieces if this one landed: [the gift card that never arrives](https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html), on Shopify's other one-shot email with no delivery check, and [the order your customer placed twice](https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html), on the most expensive thing a missing receipt causes next.
+> **◆ READING** Two companion pieces if this one landed: [the gift card that never arrives](https://blog.dugong.live/how-to-automate-gift-card-delivery-and-reminders-on-shopify.html), on Shopify's other one-shot email with no delivery check, and [the order your customer placed twice](https://blog.dugong.live/how-to-catch-and-cancel-duplicate-orders-on-shopify.html), on the most expensive thing a missing receipt causes next. Also new: [the payment that never became an order](https://blog.dugong.live/how-to-catch-shopify-payments-with-no-order.html), on the charges that settle in your gateway while Shopify files the checkout as abandoned.
 
 If you are a Shopify merchant with a receipt ghost story, the channel you discovered was suppressed all along, the typo you caught a week too late, the customer who called the bank before they called you, the inbox is open: `field-notes@dugong.live`. We are collecting case studies for the next issue.
 

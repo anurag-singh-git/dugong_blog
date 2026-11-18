@@ -5,12 +5,13 @@
 - Canonical: https://blog.dugong.live/how-to-reduce-where-is-my-order-wismo-tickets-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-04
-- Updated: 2026-08-10
+- Updated: 2026-10-31
 - Section: Research
-- Word count: 1320
+- Word count: 1503
 - Dispatch: Nº 49 · Research · 6 min read
 - Full headline on page: How to reduce *'where is my order?'* (WISMO) tickets on Shopify
 - Keywords: WISMO, where is my order, order tracking automation, ecommerce support, Shopify customer support
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); E-commerce (https://www.wikidata.org/wiki/Q484847); Business process automation (https://www.wikidata.org/wiki/Q5001911)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -20,6 +21,14 @@ There is a thread that resurfaces on r/shopify every few weeks, almost word for 
 The acronym for this is WISMO, "where is my order?", and it is the single most common message in ecommerce. Gorgias, which sees support volume across tens of thousands of stores, puts it at roughly **18% of all incoming tickets on an average week**. ShippyPro and Salesforce both report it climbing past **50% during peak periods** like Black Friday. It is the most predictable flood in the entire business, and most Shopify merchants still bail the water out by hand.
 
 > WISMO is the only support category where the customer, the merchant, and the carrier all already know the answer. It's sitting in the tracking API. Nobody's asking it.
+
+## The short answer
+
+Where is my order is the most common message in ecommerce support, roughly 18 percent of incoming tickets in an average week and past 50 percent during peak periods, and the answer to it is already sitting in the carrier's tracking data. Nobody is asking it on the customer's behalf.
+
+The native tooling stops at a templated reply. A Flow rule or a help-desk macro can send a tracking link, and a tracking app can add a branded tracking page. Both help a little and neither closes the loop, because a static auto-reply still leaves the customer to find the link, click through and interpret a carrier status for themselves.
+
+A real WISMO message is specific: the tracking has not moved in three days, the parcel is a birthday gift with a Saturday deadline, the carrier says delivered and nothing arrived. Answering it means pulling live status, comparing it against the promised window, and deciding case by case whether to reassure, escalate or offer a reship before it is requested, which is also how you *send the message first and prevent the ticket*.
 
 ## What a single "where is my order?" actually costs
 

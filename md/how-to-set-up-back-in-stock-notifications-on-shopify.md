@@ -5,12 +5,13 @@
 - Canonical: https://blog.dugong.live/how-to-set-up-back-in-stock-notifications-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-13
-- Updated: 2026-08-10
+- Updated: 2026-10-31
 - Section: Research
-- Word count: 2010
+- Word count: 2207
 - Dispatch: Nº 56 · Research · 9 min read
 - Full headline on page: How to set up *back-in-stock notifications* on Shopify
 - Keywords: Shopify back in stock automation, restock notifications, back in stock alerts, notify me when available, stockout recovery, waitlist automation, inventory alerts Shopify, back-in-stock email
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); E-commerce (https://www.wikidata.org/wiki/Q484847); Business process automation (https://www.wikidata.org/wiki/Q5001911)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -20,6 +21,14 @@ Spend an evening in the Shopify community forums or the merchant subreddits and 
 Here is the part that makes it expensive. A customer who clicks notify me when this is available has done the single most valuable thing a shopper can do. They have told you exactly what they want and handed you a way to reach them. They are not a cold lead. They are a warm, self-identified buyer waiting with their wallet out. And in most Shopify stores, that request lands in a void. The item comes back, the page goes live, and the people who raised their hands hear nothing.
 
 > A back-in-stock request is the only lead that asks you to sell to it, and most stores answer it with *silence*.
+
+## The short answer
+
+Shopify does not send back-in-stock notifications. It tracks inventory and knows the moment a variant crosses from zero back to one, and many themes will show a notify me form on a sold-out product, but nothing native emails or texts the people who asked once the item returns.
+
+The request lands in a list and stops there. The form collects an address, it does not watch inventory and it does not send, so the standard advice is to export the list and message people yourself, which means the alert fires only when somebody remembers to fire it. Send it as one blast and two hundred waiting people are pointed at forty units, so the units go to whoever clicks fastest and the rest arrive to find it gone again.
+
+Fairness and metering are half the value here. Confirm the count is real before trusting it, since a return restocked and then cancelled or a flickering supplier feed will send buyers at stock that is not there, then notify first-requested first, only as many people as there are units, on the channel each subscriber chose, and hold the remainder of the list *in reserve rather than dumping it*.
 
 ## How big the leak actually is
 

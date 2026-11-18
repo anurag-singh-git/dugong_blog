@@ -11,6 +11,7 @@
 - Dispatch: Nº 93 · Research · 10 min read
 - Full headline on page: How to stop Shopify routing orders to the *wrong warehouse*
 - Keywords: Shopify order routing, Shopify wrong fulfillment location, Shopify multi location fulfillment, Shopify ship from closest location, Shopify split shipment two locations, Shopify move fulfillment order, Shopify 3PL routing, Shopify order routing rules
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Third-party logistics (https://www.wikidata.org/wiki/Q1500317); Distribution center (https://www.wikidata.org/wiki/Q1229659); Warehouse management system (https://www.wikidata.org/wiki/Q278660)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -26,6 +27,7 @@ Shopify routes on a strategy you configure once, and not one of its rules reads 
 What that ranking cannot see is cost and time. There is no rule for the cheapest label, the carrier zone, dimensional weight, or the pick fee a 3PL charges that your own warehouse does not, and closest means straight-line distance rather than driving distance, which Shopify's documentation states plainly. Nothing in it knows about a cutoff, a weekend, or a location running two days behind, and the assignment is made in the half second after checkout and never revisited.
 
 So the arithmetic has to happen per order: score the locations that could actually send it on the real rate, the cutoff and the current backlog, then decide split or single on landed cost and promised date instead of one global setting. Flow's Move fulfillment order action will execute a rule you already know, but the destination has to stock every line or the run fails, and the move is *refused* once a fulfillment service has the request.
+
 ## What Shopify actually does, and where it stops
 
 Credit first, because Shopify's routing is much better than the old fulfillment priority list it replaced. Under Settings, Shipping and delivery, Order routing, you get a strategy: a list of rules that run top to bottom, each one filtering the locations the next rule gets to see. The default is three rules in this order. Minimize split fulfillments, which prefers any location holding every item. Stay within the destination market. Ship from the closest location. You can reorder them, remove them, and add two more: ranked locations, where you group locations into tiers you define, and location [metafields](https://help.shopify.com/en/manual/custom-data/metafields), where you prioritize on a boolean or a number you have stored against each location.

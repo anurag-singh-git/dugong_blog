@@ -5,12 +5,13 @@
 - Canonical: https://blog.dugong.live/best-shopify-automations-to-set-up.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-05-28
-- Updated: 2026-08-07
+- Updated: 2026-10-31
 - Section: Research
-- Word count: 1650
+- Word count: 1866
 - Dispatch: Nº 48 · Research · 8 min read
 - Full headline on page: The *best Shopify automations* to set up
 - Keywords: Shopify automation, Shopify Flow, ecommerce returns, order tagging, refund automation
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); E-commerce (https://www.wikidata.org/wiki/Q484847); Business process automation (https://www.wikidata.org/wiki/Q5001911)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -22,6 +23,14 @@ What still sits open on her laptop, at 11pm on a Tuesday: an email from a custom
 Forty-five minutes. One customer. Imani has nineteen tag rules and zero return-handling automation.
 
 She is not unusual.
+
+## The short answer
+
+The automations merchants build are not the ones that pay back. In a field study of 1,374 Shopify workflows shipped on third-party tools, tagging came to 14 percent of everything built, while returns and refunds together made 0.8 percent, abandoned-checkout flows 1.4 percent and fraud screening under 1 percent.
+
+The asymmetry is about the tools rather than the demand. Tagging is one line of prose and the rule is the whole automation. A return is a conversation: ask for a photo, decide on return shipping, refund in full or in part, restock, update the warehouse, judge whether to replace, write a reply in the brand's voice, and notice that this is the same buyer's third return. In a node builder that is nineteen branches that still hand off to a human four times, so it never gets built.
+
+Start where the labor scales with order volume rather than where the builder makes it easy. The four that paid back fastest in that study were VIP detection reading order history, review scores and cohort value instead of one spend threshold; refund triage that reads the message and the photos first; chargeback evidence assembled out of the five systems it lives in; and abandoned-checkout triage that settles what stalled the cart before it picks *which message to send*.
 
 ## The 14% / 0.8% gap
 

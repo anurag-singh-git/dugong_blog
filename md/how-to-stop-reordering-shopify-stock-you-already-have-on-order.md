@@ -10,6 +10,7 @@
 - Dispatch: Nº 128 · Research · 8 min read
 - Full headline on page: How to stop reordering Shopify stock *you already have on order*
 - Keywords: shopify incoming inventory, shopify purchase order tracking, shopify purchase order api, inventoryPurchaseOrders, read_inventory_purchase_orders, shopify on order quantity, shopify late purchase order, shopify double ordering stock, stocky sunset replacement, shopify flow incoming inventory
+- Entities: Purchase order (https://www.wikidata.org/wiki/Q643327); Inventory management (https://www.wikidata.org/wiki/Q3761396); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -22,6 +23,7 @@ This is the most expensive Shopify gap I know of that almost nobody writes about
 ## The short answer
 
 Incoming inventory on Shopify counts units in transit, not units you have bought, so a purchase order the supplier has not shipped reads as zero and the low stock report tells you to buy it again. The purchase order and its linked inventory transfer operate independently by design, Shopify Flow cannot read incoming quantities or purchase order data at all, and the purchase order API that landed in the 2026-10 Admin GraphQL version carries exactly two statuses, DRAFT and ORDERED, with no received state and no expected arrival date. The playbook builds the on order number Shopify does not give you, dates every open purchase order, flags the late ones, and warns the buyer before the same pallet is ordered twice.
+
 ## Incoming does not mean on order
 
 Shopify's Help Center says incoming inventory is inventory that is on its way to your location from inventory transfers or apps. Units that have not been received are excluded from on hand and cannot be sold. Available, the number your storefront reads, explicitly excludes incoming as well.

@@ -11,6 +11,7 @@
 - Dispatch: Nº 119 · Research · 9 min read
 - Full headline on page: How to restrict Shopify products from shipping to *certain states*
 - Keywords: shopify restrict shipping to certain states, shopify block states, restrict product by state shopify, shopify shipping profiles state restriction, shopify restrict shipping by zip code, shopify checkout validation, shopify state compliance, AI compliance automation
+- Entities: Regulatory compliance (https://www.wikidata.org/wiki/Q626741); Shipping (https://www.wikidata.org/wiki/Q651658); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

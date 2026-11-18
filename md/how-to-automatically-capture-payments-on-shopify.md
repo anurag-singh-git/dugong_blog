@@ -11,6 +11,7 @@
 - Dispatch: Nº 99 · Research · 10 min read
 - Full headline on page: How to automatically capture payments *on Shopify*
 - Keywords: capture payment Shopify, Shopify capture payment automatically, Shopify payment authorization expired, authorized but not paid Shopify, manual payment capture Shopify, Shopify 7 day authorization period, capture payment when order fulfilled, expired authorization Shopify
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Authorization hold (https://www.wikidata.org/wiki/Q4347441); Credit card (https://www.wikidata.org/wiki/Q161380); Payment processor (https://www.wikidata.org/wiki/Q12738586); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

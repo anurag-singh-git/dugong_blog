@@ -10,6 +10,7 @@
 - Dispatch: Nº 125 · Research · 8 min read
 - Full headline on page: How to fix Shopify committed inventory that *never clears*
 - Keywords: shopify committed inventory, committed inventory not clearing, shopify shows sold out but in stock, clear committed inventory shopify, which orders hold committed inventory, shopify committed inventory negative, shopify available vs on hand, draft order reserve inventory
+- Entities: Inventory management (https://www.wikidata.org/wiki/Q3761396); Shopify (https://www.wikidata.org/wiki/Q7501150)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -26,6 +27,7 @@ Now try to fix it. There is no edit field on committed. There is no release butt
 Shopify will not let you touch committed inventory and will not tell you which orders hold it. On hand is the sum of available, committed, reserved, damaged, safety stock and quality control, your storefront sells available, and committed is the one state the Admin API cannot adjust or move, so there is no field, button, app or Flow action that releases it. The only levers are the orders behind it: fulfill the line, cancel with restock, reassign the location, release the hold, end the draft reserve, or receive the transfer. Build the attribution yourself.
 
 Rebuild the per-order breakdown nightly from open unfulfilled line items, draft reserves and ready transfers, reconcile the total against committed, age every commitment, classify why each stuck one is stuck, apply the one release that fits, alert on any variant with on hand above zero and available at or below zero, and escalate the units no order explains with the numbers attached. The judgment, deciding which release a stuck order deserves without inventing a shipment or losing a sale, is why this belongs with an agent rather than a condition builder.
+
 ## What committed actually is
 
 Worth being precise, because almost every wrong fix starts with a wrong mental model. Shopify splits the stock at each location into states. On hand is everything physically there. Available is what the storefront may sell. Between them sit committed, reserved, damaged, safety stock and quality control, and Shopify's developer docs state the arithmetic outright: on hand is the sum of all six.

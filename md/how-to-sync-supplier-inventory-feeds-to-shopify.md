@@ -11,6 +11,7 @@
 - Dispatch: Nº 92 · Research · 10 min read
 - Full headline on page: How to sync *supplier stock feeds* to Shopify without zeroing your catalog
 - Keywords: Shopify supplier inventory sync, sync supplier stock feed Shopify, Shopify SKU case sensitive inventory, supplier feed set products to zero Shopify, Shopify FTP inventory sync, dropship inventory sync Shopify, vendor stock report Shopify, Shopify inventory feed mapping
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Inventory management (https://www.wikidata.org/wiki/Q3761396); Stock keeping unit (https://www.wikidata.org/wiki/Q399757); Drop shipping (https://www.wikidata.org/wiki/Q1542702); Electronic data interchange (https://www.wikidata.org/wiki/Q690189)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -26,6 +27,7 @@ Shopify has no concept of a supplier anywhere in the platform. There is no sched
 Matching is where it bites. Inventory updates key on SKU as an exact string, case included, so TurkeySandwich and Turkeysandwich are two different products. Trailing whitespace, leading zeros stripped the moment someone opens the CSV, and long numeric codes rendered in scientific notation break the match just as often, and the product CSV import keys on Handle, so the two-column file of SKU and quantity will not import without a workaround.
 
 The sync apps do the plumbing well, then make you pre-answer the one question that only ever has an answer in context: what happens to a SKU missing from today's file. Zero takes the catalog offline the morning a column header changes; leave alone keeps selling a line discontinued in March. Inspect the file before trusting any of it, match on meaning rather than string equality, and buffer by velocity rather than *one global number*.
+
 ## What Shopify actually does, and where it stops
 
 Shopify's inventory model itself is not the problem. Locations, quantities, committed stock, and the ability to stop selling at zero all work. What Shopify has no concept of anywhere in the platform is a supplier. There is no scheduled import, no FTP or SFTP client, no column mapping screen, no place to store a vendor's price and stock file, and no reconciliation report that tells you what last night's update changed. The platform assumes inventory moves because something sold or because a person typed a number.

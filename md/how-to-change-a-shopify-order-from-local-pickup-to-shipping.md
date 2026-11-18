@@ -11,6 +11,7 @@
 - Dispatch: Nº 96 · Research · 9 min read
 - Full headline on page: How to change a Shopify order from local pickup *to shipping*
 - Keywords: change Shopify order from local pickup to shipping, customer accidentally chose local pickup Shopify, Shop Pay defaults to local pickup, convert pickup order to shipping Shopify, edit delivery method Shopify order, local pickup order shipped by mistake, Shopify checkout preselects cheapest rate, wrong delivery method Shopify
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Click and collect (https://www.wikidata.org/wiki/Q15794580); Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Online shopping (https://www.wikidata.org/wiki/Q212930); Customer service (https://www.wikidata.org/wiki/Q1060653)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

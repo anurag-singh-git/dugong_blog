@@ -43,15 +43,49 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "BlogPosting",
-      "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#article",
+      "@type": "WebPage",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#webpage",
+      "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html",
+      "name": "How to catch Shopify shipping labels you paid for and never used",
+      "inLanguage": "en",
       "isPartOf": {
-        "@type": "Blog",
-        "@id": "https://blog.dugong.live/#blog",
+        "@type": "WebSite",
+        "@id": "https://blog.dugong.live/#website",
         "name": "Dugong Field Notes",
         "url": "https://blog.dugong.live/"
       },
-      "mainEntityOfPage": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html",
+      "primaryImageOfPage": {
+        "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#primaryimage"
+      },
+      "mainEntity": {
+        "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#article"
+      },
+      "datePublished": "2026-10-18",
+      "dateModified": "2026-10-18",
+      "breadcrumb": {
+        "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#article",
+      "isPartOf": [
+        {
+          "@type": "Blog",
+          "@id": "https://blog.dugong.live/#blog",
+          "name": "Dugong Field Notes",
+          "url": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-shipping-and-fulfillment-automation.html#collection",
+          "name": "Shopify shipping and fulfillment automation",
+          "url": "https://blog.dugong.live/shopify-shipping-and-fulfillment-automation.html"
+        }
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#webpage"
+      },
       "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html",
       "headline": "How to catch Shopify shipping labels you paid for and never used",
       "abstract": "Shopify charges you for an outbound shipping label at purchase, not when the carrier scans it, so a label bought for an order you then cancel is already money spent. The only way back is to void it, and voiding needs four conditions true at once: under 30 days from the purchase date, no tracking events at all, not bought with USPS First Class Mail, and not added to a USPS shipping manifest in the last 15 minutes. The refund arrives as a shipping label credit against future label purchases rather than cash. Shopify counts none of this for you: there is no unused label filter, no age column, no countdown, no Flow trigger for a shipping label and no void mutation in the Admin API.",
@@ -66,6 +100,7 @@
       "isAccessibleForFree": true,
       "image": {
         "@type": "ImageObject",
+        "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#primaryimage",
         "url": "https://blog.dugong.live/og-image.png",
         "width": 1200,
         "height": 630
@@ -73,6 +108,7 @@
       "about": [
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q7498793",
           "name": "Shipping label",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Shipping_label",
@@ -81,14 +117,16 @@
         },
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q1473552",
           "name": "Order fulfillment",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Order_fulfillment",
-            "https://www.wikidata.org/wiki/Q7100318"
+            "https://www.wikidata.org/wiki/Q1473552"
           ]
         },
         {
           "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q7501150",
           "name": "Shopify",
           "sameAs": [
             "https://en.wikipedia.org/wiki/Shopify",
@@ -235,52 +273,100 @@
     {
       "@type": "FAQPage",
       "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq",
+      "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-heading",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7498793"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q1473552"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "datePublished": "2026-10-18",
+      "dateModified": "2026-10-18",
       "mainEntity": [
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-1",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-1",
           "name": "Can I get a refund for a Shopify shipping label I never used?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-1-answer",
+            "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-1-answer",
             "text": "Yes, but only by voiding it, only within 30 days of purchase, and the money comes back as credit rather than cash. Shopify's billing documentation is explicit: if you void a shipping label before using it, then the refund is issued as a credit to your account, any refunds issued for shipping labels are added as a shipping label credit, and credits are applied to future shipping label purchases. The credit works with any carrier, so it is real value if you ship regularly, and it is worth nothing on a bank reconciliation. Cancelling the order does not do this for you, refunding the customer does not do this for you, and cancelling the fulfillment does not do this for you. Somebody has to open that order and press Void label. If you need actual cash rather than credit, the only route is a conversation: Shopify told a merchant in September 2022 that label refunds cannot be requested through the admin and that a cash refund means contacting the live team, and nothing in the documentation since has changed that."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-2",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-2",
           "name": "How long do I have to void a Shopify shipping label?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-2-answer",
+            "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-2-answer",
             "text": "Thirty days from the purchase date, and three other conditions have to hold at the same time. Shopify's voiding page lists all four: the label is not older than 30 days from the purchase date, it has no tracking events, it was not bought with USPS First Class Mail, and it was not added to a USPS shipping manifest in the last 15 minutes. The 30 days is measured from purchase, not from when you noticed, and the admin never counts down. There is no warning at day 25, no flag at day 29, and on day 31 the Void label button is simply absent with no event, no email and no line in any report to mark the moment the money became unrecoverable. This is the single reason unused labels cost stores money rather than merely annoying them: the deadline is real, it is short, and it is invisible."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-3",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-3",
           "name": "Why can't I void my Shopify shipping label?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-3-answer",
+            "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-3-answer",
             "text": "Almost always because the label has tracking events. That phrase is doing more work than it appears to. It does not mean delivered and it does not mean shipped. It means the carrier scanned the package even once, which happens the moment a driver sweeps a box off your counter, even if the order was already cancelled and the parcel comes straight back on the next run. Once a scan exists the void option disappears and Shopify's instruction is to contact the carrier with the package reference number, which is a claim rather than a void, with a slower and less certain outcome. The other three reasons are simpler: the label is more than 30 days old, it was bought on USPS First Class Mail, which is excluded outright, or it went onto a USPS shipping manifest within the last 15 minutes. If you want to know the answer without opening the order, the Admin GraphQL ShippingLabel object exposes a cancellable boolean that indicates whether the label is cancellable or not, which is Shopify evaluating all four conditions and handing you one field."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-4",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-4",
           "name": "Does cancelling an order on Shopify void the shipping label?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-4-answer",
+            "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-4-answer",
             "text": "No, and this is the most expensive misunderstanding in the whole area. Cancelling an order restocks the inventory, because the Restock inventory option is selected by default, and it stops you collecting payment on an unpaid order, and it does nothing whatsoever about a label you already bought. Shopify's own canceling orders page carries the instruction, which tells you the behavior was understood and left as a manual step: if you purchased a shipping label for this order, then you can void the label, and, before deleting an order, if you purchased a shipping label for the order but didn't use it, then void the label before deleting the order. Note what that means in practice. The one place where a merchant is guaranteed to be thinking about this order, the cancel dialog, contains no prompt, no checkbox and no mention of the label, while restocking is handled for you. A merchant asked about exactly this in July 2022, after refunding and cancelling an order and finding no void option he could locate, and posted eleven days later asking whether it was simply not possible. No Shopify staff member answered the thread."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-5",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-5",
           "name": "Can Shopify Flow find unused shipping labels for me?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-5-answer",
+            "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-5-answer",
             "text": "No. The Flow trigger reference lists 83 triggers and not one of them concerns a shipping label: there is no label purchased, no label voided, no label unused and no label expiring trigger anywhere on the bench. You can fire on Fulfillment created, Order canceled, Fulfillment order canceled, Refund created and Scheduled time, which gets you the order side of the story and never the label side. The trigger that sounds closest is the one explicitly ruled out: Fulfillment event created starts a workflow when changes occur in an existing order's fulfillment status, it is built for third party fulfillment services, and the documentation states that manual fulfillment events do not start workflows with it. Buying labels in the Shopify admin is manual fulfillment, so that trigger will never fire for the labels this problem is about. The result is that Flow can tell you an order was cancelled and can never tell you that the cancelled order had a paid, unscanned label attached to it, which is the only sentence that matters."
           }
         },
         {
           "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-6",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-6",
           "name": "Can AI catch unused Shopify shipping labels before the window closes?",
           "acceptedAnswer": {
             "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-6-answer",
+            "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#faq-6-answer",
             "text": "Yes, and this is a good fit for automation precisely because it is bookkeeping rather than judgment. An automation like Dugong keeps the register Shopify does not: every label at the hour it is bought, with its order, carrier, service, cost read from the order timeline because the Admin API exposes no label cost field, and day zero. Then it watches one narrow thing, whether a first carrier scan ever arrived, and flags the break when an order is cancelled, refunded, held or replaced, or when a label simply sits unscanned past your threshold. It ranks the queue by remaining days rather than by value, because a four dollar label on day 28 is recoverable and a forty dollar label on day 31 is not, reads the cancellable field before queueing anything, drops USPS First Class Mail as never voidable, routes already scanned labels into a carrier claim list instead, and hands your team one batch a day sized to the bulk void limit of 250 labels. Then it reconciles the credits that appear against the voids you performed, which is the step that catches the case a merchant reported in March 2024 of voiding two labels and being credited for one. The honest limit: there is no void mutation in the Admin API, only shippingLabelPurchase, added in version 2026-07 on 17 June 2026, so the final press stays human. The automation's job is to make that one press cover 250 labels instead of one, inside 30 days, every day, without anybody remembering to look."
           }
         }
@@ -289,9 +375,35 @@
     {
       "@type": "HowTo",
       "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#howto",
+      "url": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#playbook",
       "name": "The label you bought and never used",
       "description": "The AI playbook for recovering Shopify shipping labels you paid for and never used: registering every label the hour it is bought, watching only for the first carrier scan, flagging the break when an order is cancelled, refunded, held or replaced, ranking the queue by remaining days rather than value, reading the cancellable field before queueing, handing over one batch a day sized to the 250 label bulk void limit, and reconciling the credits that appear against the voids performed.",
       "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7498793"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q1473552"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "image": {
+        "@id": "https://blog.dugong.live/how-to-catch-shopify-shipping-labels-you-never-used.html#primaryimage"
+      },
+      "datePublished": "2026-10-18",
+      "dateModified": "2026-10-18",
       "totalTime": "PT10M",
       "step": [
         {
@@ -391,7 +503,8 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 105px; }
+@media (min-width: 821px) { html { scroll-padding-top: 78px; } }
 
 body {
   background: var(--bg);
@@ -555,7 +668,7 @@ em { font-style: italic; }
 .article-back:hover { color: var(--lime-deep); }
 .article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
 .article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
-.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; overflow-wrap: break-word; }
 /* highlight wraps at every width: nowrap overflowed the text column on long phrases */
 .article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 57%, var(--lime) 57%, var(--lime) 81%, transparent 81%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .article-title em::after { content: none; }
@@ -573,7 +686,10 @@ em { font-style: italic; }
 .article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
 .article-body blockquote em { font-style: normal; color: var(--text-faint); }
 .article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
-.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+/* QA 2026-11-17: white-space/overflow-wrap added. 6 playbooks ran 8px past the
+   content box, making an unreachable-by-keyboard scroll region (WCAG 2.1.1).
+   The <=820px rule below has wrapped these since they were written. */
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; white-space: pre-wrap; overflow-wrap: break-word; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
 
 @media (max-width: 560px) {
   .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
@@ -595,6 +711,9 @@ em { font-style: italic; }
 .callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
 .callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
 .callout-sand .callout-mark { color: var(--pink); }
+.short-answer { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--lime-deep); border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2.25rem 0 2.75rem; }
+.article-body .short-answer h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; line-height: 1.2; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime-deep); margin: 0 0 1rem; }
+.article-body .short-answer p:last-child { margin-bottom: 0; }
 .callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
 
 .article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -722,6 +841,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
    lines, and one callout ran the page 7px wide. Stack below 700px. */
 @media (max-width: 700px) {
   .callout { flex-direction: column; gap: 0.55rem; }
+  .short-answer { padding: 1.2rem 1.25rem; margin: 2rem 0 2.25rem; border-radius: 10px; }
   .callout-mark { padding-top: 0; }
 }
 </style>
@@ -795,6 +915,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 /* cards inside a closed disclosure never meet the IntersectionObserver that
    clears .reveal, so they would open at opacity 0. */
 .related-more .reveal { opacity: 1; transform: none; }
+
 </style>
 </head>
 <body>
@@ -880,7 +1001,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     </p>
 
     <div class="short-answer" id="short-answer">
-      <h2>The short answer</h2>
+      <h2 id="h-the-short-answer">The short answer</h2>
 
       <p>
         Shopify charges you for an outbound shipping label at purchase, not when the carrier scans it, so a label bought for an order you then cancel is already money spent. The only way back is to void it, and voiding needs four conditions true at once: under 30 days from the purchase date, no tracking events at all, not bought with USPS First Class Mail, and not added to a USPS shipping manifest in the last 15 minutes. The refund arrives as a shipping label credit against future label purchases rather than cash. Shopify counts none of this for you: there is no unused label filter, no age column, no countdown, no Flow trigger for a shipping label and no void mutation in the Admin API.
@@ -891,7 +1012,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       </p>
     </div>
 
-    <h2>Outbound labels and return labels bill in opposite directions</h2>
+    <h2 id="h-outbound-labels-and-return-labels-bill-in-opposite-directions">Outbound labels and return labels bill in opposite directions</h2>
 
     <p>
       Start here, because this is where almost everyone's
@@ -939,7 +1060,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       on your packing bench is a different animal entirely.
     </p>
 
-    <h2>Thirty days, no scans, and two conditions nobody reads</h2>
+    <h2 id="h-thirty-days-no-scans-and-two-conditions-nobody-reads">Thirty days, no scans, and two conditions nobody reads</h2>
 
     <p>
       A label can be voided only when four things are true at
@@ -976,7 +1097,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       stopped being recoverable.
     </p>
 
-    <h2>The money does not come back as money</h2>
+    <h2 id="h-the-money-does-not-come-back-as-money">The money does not come back as money</h2>
 
     <p>
       Void a label and, in Shopify's words, the cost is
@@ -1027,7 +1148,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       contact the live team.
     </p>
 
-    <h2>Where the unused ones actually come from</h2>
+    <h2 id="h-where-the-unused-ones-actually-come-from">Where the unused ones actually come from</h2>
 
     <p>
       Only the first of these is obvious, which is why most
@@ -1054,7 +1175,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       the loss looks like a completed task.
     </p>
 
-    <h2>Shopify tells you to do it, once, in a sentence you read two years ago</h2>
+    <h2 id="h-shopify-tells-you-to-do-it-once-in-a-sentence-you-read-two-years-ago">Shopify tells you to do it, once, in a sentence you read two years ago</h2>
 
     <p>
       The
@@ -1099,7 +1220,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       can only be fed by a human opening orders one at a time.
     </p>
 
-    <h2>Flow has eighty three triggers and not one of them is a label</h2>
+    <h2 id="h-flow-has-eighty-three-triggers-and-not-one-of-them-is-a-label">Flow has eighty three triggers and not one of them is a label</h2>
 
     <p>
       The
@@ -1138,7 +1259,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       shipped</a>.
     </p>
 
-    <h2>What the API will tell you, and the two things it will not</h2>
+    <h2 id="h-what-the-api-will-tell-you-and-the-two-things-it-will-not">What the API will tell you, and the two things it will not</h2>
 
     <p>
       This is the part worth knowing, because the API is
@@ -1219,7 +1340,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       nothing in Shopify is counting.
     </p>
 
-    <h2>What a month of this is worth</h2>
+    <h2 id="h-what-a-month-of-this-is-worth">What a month of this is worth</h2>
 
     <p>
       Do the arithmetic on your own numbers, because the rate
@@ -1248,7 +1369,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       in.
     </p>
 
-    <h2>What the automation actually has to do</h2>
+    <h2 id="h-what-the-automation-actually-has-to-do">What the automation actually has to do</h2>
 
     <p>
       As a Dugong playbook, in plain prose:
@@ -1343,7 +1464,7 @@ plus an hourly sweep
       a claim, which is a slower and less certain path.
     </p>
 
-    <h2>Why this is a workflow, not a feature request</h2>
+    <h2 id="h-why-this-is-a-workflow-not-a-feature-request">Why this is a workflow, not a feature request</h2>
 
     <p>
       Four facts have to meet for this to work, and Shopify
@@ -1367,7 +1488,7 @@ plus an hourly sweep
       stands between them.
     </p>
 
-    <h2>Do this before you close the laptop</h2>
+    <h2 id="h-do-this-before-you-close-the-laptop">Do this before you close the laptop</h2>
 
     <p>
       Three checks, twenty minutes, no code.
@@ -1438,35 +1559,35 @@ plus an hourly sweep
   <div class="faq-list">
     <div class="faq-item" id="faq-1">
       <h2 class="faq-q">Can I get a refund for a Shopify shipping label I never used?</h2>
-      <p class="faq-a">Yes, but only by voiding it, only within 30 days of purchase, and the money comes back as credit rather than cash. Shopify's billing documentation is explicit: if you void a shipping label before using it, then the refund is issued as a credit to your account, any refunds issued for shipping labels are added as a shipping label credit, and credits are applied to future shipping label purchases. The credit works with any carrier, so it is real value if you ship regularly, and it is worth nothing on a bank reconciliation. Cancelling the order does not do this for you, refunding the customer does not do this for you, and cancelling the fulfillment does not do this for you. Somebody has to open that order and press Void label. If you need actual cash rather than credit, the only route is a conversation: Shopify told a merchant in September 2022 that label refunds cannot be requested through the admin and that a cash refund means contacting the live team, and nothing in the documentation since has changed that.</p>
+      <p class="faq-a" id="faq-1-answer">Yes, but only by voiding it, only within 30 days of purchase, and the money comes back as credit rather than cash. Shopify's billing documentation is explicit: if you void a shipping label before using it, then the refund is issued as a credit to your account, any refunds issued for shipping labels are added as a shipping label credit, and credits are applied to future shipping label purchases. The credit works with any carrier, so it is real value if you ship regularly, and it is worth nothing on a bank reconciliation. Cancelling the order does not do this for you, refunding the customer does not do this for you, and cancelling the fulfillment does not do this for you. Somebody has to open that order and press Void label. If you need actual cash rather than credit, the only route is a conversation: Shopify told a merchant in September 2022 that label refunds cannot be requested through the admin and that a cash refund means contacting the live team, and nothing in the documentation since has changed that.</p>
     </div>
     <div class="faq-item" id="faq-2">
       <h2 class="faq-q">How long do I have to void a Shopify shipping label?</h2>
-      <p class="faq-a">Thirty days from the purchase date, and three other conditions have to hold at the same time. Shopify's voiding page lists all four: the label is not older than 30 days from the purchase date, it has no tracking events, it was not bought with USPS First Class Mail, and it was not added to a USPS shipping manifest in the last 15 minutes. The 30 days is measured from purchase, not from when you noticed, and the admin never counts down. There is no warning at day 25, no flag at day 29, and on day 31 the Void label button is simply absent with no event, no email and no line in any report to mark the moment the money became unrecoverable. This is the single reason unused labels cost stores money rather than merely annoying them: the deadline is real, it is short, and it is invisible.</p>
+      <p class="faq-a" id="faq-2-answer">Thirty days from the purchase date, and three other conditions have to hold at the same time. Shopify's voiding page lists all four: the label is not older than 30 days from the purchase date, it has no tracking events, it was not bought with USPS First Class Mail, and it was not added to a USPS shipping manifest in the last 15 minutes. The 30 days is measured from purchase, not from when you noticed, and the admin never counts down. There is no warning at day 25, no flag at day 29, and on day 31 the Void label button is simply absent with no event, no email and no line in any report to mark the moment the money became unrecoverable. This is the single reason unused labels cost stores money rather than merely annoying them: the deadline is real, it is short, and it is invisible.</p>
     </div>
     <div class="faq-item" id="faq-3">
       <h2 class="faq-q">Why can't I void my Shopify shipping label?</h2>
-      <p class="faq-a">Almost always because the label has tracking events. That phrase is doing more work than it appears to. It does not mean delivered and it does not mean shipped. It means the carrier scanned the package even once, which happens the moment a driver sweeps a box off your counter, even if the order was already cancelled and the parcel comes straight back on the next run. Once a scan exists the void option disappears and Shopify's instruction is to contact the carrier with the package reference number, which is a claim rather than a void, with a slower and less certain outcome. The other three reasons are simpler: the label is more than 30 days old, it was bought on USPS First Class Mail, which is excluded outright, or it went onto a USPS shipping manifest within the last 15 minutes. If you want to know the answer without opening the order, the Admin GraphQL ShippingLabel object exposes a cancellable boolean that indicates whether the label is cancellable or not, which is Shopify evaluating all four conditions and handing you one field.</p>
+      <p class="faq-a" id="faq-3-answer">Almost always because the label has tracking events. That phrase is doing more work than it appears to. It does not mean delivered and it does not mean shipped. It means the carrier scanned the package even once, which happens the moment a driver sweeps a box off your counter, even if the order was already cancelled and the parcel comes straight back on the next run. Once a scan exists the void option disappears and Shopify's instruction is to contact the carrier with the package reference number, which is a claim rather than a void, with a slower and less certain outcome. The other three reasons are simpler: the label is more than 30 days old, it was bought on USPS First Class Mail, which is excluded outright, or it went onto a USPS shipping manifest within the last 15 minutes. If you want to know the answer without opening the order, the Admin GraphQL ShippingLabel object exposes a cancellable boolean that indicates whether the label is cancellable or not, which is Shopify evaluating all four conditions and handing you one field.</p>
     </div>
     <div class="faq-item" id="faq-4">
       <h2 class="faq-q">Does cancelling an order on Shopify void the shipping label?</h2>
-      <p class="faq-a">No, and this is the most expensive misunderstanding in the whole area. Cancelling an order restocks the inventory, because the Restock inventory option is selected by default, and it stops you collecting payment on an unpaid order, and it does nothing whatsoever about a label you already bought. Shopify's own canceling orders page carries the instruction, which tells you the behavior was understood and left as a manual step: if you purchased a shipping label for this order, then you can void the label, and, before deleting an order, if you purchased a shipping label for the order but didn't use it, then void the label before deleting the order. Note what that means in practice. The one place where a merchant is guaranteed to be thinking about this order, the cancel dialog, contains no prompt, no checkbox and no mention of the label, while restocking is handled for you. A merchant asked about exactly this in July 2022, after refunding and cancelling an order and finding no void option he could locate, and posted eleven days later asking whether it was simply not possible. No Shopify staff member answered the thread.</p>
+      <p class="faq-a" id="faq-4-answer">No, and this is the most expensive misunderstanding in the whole area. Cancelling an order restocks the inventory, because the Restock inventory option is selected by default, and it stops you collecting payment on an unpaid order, and it does nothing whatsoever about a label you already bought. Shopify's own canceling orders page carries the instruction, which tells you the behavior was understood and left as a manual step: if you purchased a shipping label for this order, then you can void the label, and, before deleting an order, if you purchased a shipping label for the order but didn't use it, then void the label before deleting the order. Note what that means in practice. The one place where a merchant is guaranteed to be thinking about this order, the cancel dialog, contains no prompt, no checkbox and no mention of the label, while restocking is handled for you. A merchant asked about exactly this in July 2022, after refunding and cancelling an order and finding no void option he could locate, and posted eleven days later asking whether it was simply not possible. No Shopify staff member answered the thread.</p>
     </div>
     <div class="faq-item" id="faq-5">
       <h2 class="faq-q">Can Shopify Flow find unused shipping labels for me?</h2>
-      <p class="faq-a">No. The Flow trigger reference lists 83 triggers and not one of them concerns a shipping label: there is no label purchased, no label voided, no label unused and no label expiring trigger anywhere on the bench. You can fire on Fulfillment created, Order canceled, Fulfillment order canceled, Refund created and Scheduled time, which gets you the order side of the story and never the label side. The trigger that sounds closest is the one explicitly ruled out: Fulfillment event created starts a workflow when changes occur in an existing order's fulfillment status, it is built for third party fulfillment services, and the documentation states that manual fulfillment events do not start workflows with it. Buying labels in the Shopify admin is manual fulfillment, so that trigger will never fire for the labels this problem is about. The result is that Flow can tell you an order was cancelled and can never tell you that the cancelled order had a paid, unscanned label attached to it, which is the only sentence that matters.</p>
+      <p class="faq-a" id="faq-5-answer">No. The Flow trigger reference lists 83 triggers and not one of them concerns a shipping label: there is no label purchased, no label voided, no label unused and no label expiring trigger anywhere on the bench. You can fire on Fulfillment created, Order canceled, Fulfillment order canceled, Refund created and Scheduled time, which gets you the order side of the story and never the label side. The trigger that sounds closest is the one explicitly ruled out: Fulfillment event created starts a workflow when changes occur in an existing order's fulfillment status, it is built for third party fulfillment services, and the documentation states that manual fulfillment events do not start workflows with it. Buying labels in the Shopify admin is manual fulfillment, so that trigger will never fire for the labels this problem is about. The result is that Flow can tell you an order was cancelled and can never tell you that the cancelled order had a paid, unscanned label attached to it, which is the only sentence that matters.</p>
     </div>
     <div class="faq-item" id="faq-6">
       <h2 class="faq-q">Can AI catch unused Shopify shipping labels before the window closes?</h2>
-      <p class="faq-a">Yes, and this is a good fit for automation precisely because it is bookkeeping rather than judgment. An automation like Dugong keeps the register Shopify does not: every label at the hour it is bought, with its order, carrier, service, cost read from the order timeline because the Admin API exposes no label cost field, and day zero. Then it watches one narrow thing, whether a first carrier scan ever arrived, and flags the break when an order is cancelled, refunded, held or replaced, or when a label simply sits unscanned past your threshold. It ranks the queue by remaining days rather than by value, because a four dollar label on day 28 is recoverable and a forty dollar label on day 31 is not, reads the cancellable field before queueing anything, drops USPS First Class Mail as never voidable, routes already scanned labels into a carrier claim list instead, and hands your team one batch a day sized to the bulk void limit of 250 labels. Then it reconciles the credits that appear against the voids you performed, which is the step that catches the case a merchant reported in March 2024 of voiding two labels and being credited for one. The honest limit: there is no void mutation in the Admin API, only shippingLabelPurchase, added in version 2026-07 on 17 June 2026, so the final press stays human. The automation's job is to make that one press cover 250 labels instead of one, inside 30 days, every day, without anybody remembering to look.</p>
+      <p class="faq-a" id="faq-6-answer">Yes, and this is a good fit for automation precisely because it is bookkeeping rather than judgment. An automation like Dugong keeps the register Shopify does not: every label at the hour it is bought, with its order, carrier, service, cost read from the order timeline because the Admin API exposes no label cost field, and day zero. Then it watches one narrow thing, whether a first carrier scan ever arrived, and flags the break when an order is cancelled, refunded, held or replaced, or when a label simply sits unscanned past your threshold. It ranks the queue by remaining days rather than by value, because a four dollar label on day 28 is recoverable and a forty dollar label on day 31 is not, reads the cancellable field before queueing anything, drops USPS First Class Mail as never voidable, routes already scanned labels into a carrier claim list instead, and hands your team one batch a day sized to the bulk void limit of 250 labels. Then it reconciles the credits that appear against the voids you performed, which is the step that catches the case a merchant reported in March 2024 of voiding two labels and being credited for one. The honest limit: there is no void mutation in the Admin API, only shippingLabelPurchase, added in version 2026-07 on 17 June 2026, so the final press stays human. The automation's job is to make that one press cover 250 labels instead of one, inside 30 days, every day, without anybody remembering to look.</p>
     </div>
   </div>
   <a href="shopify-automation-questions.html" class="hub-more">every question this blog answers &rarr;</a>
 </section>
 
-<section class="related">
+<section class="related" aria-labelledby="related-heading">
   <div class="section-head">
-    <span class="section-eyebrow">&#9670; READ NEXT</span>
+    <span class="section-eyebrow" id="related-heading">&#9670; READ NEXT</span>
     <span class="section-rule"></span>
   </div>
   <div class="related-grid">

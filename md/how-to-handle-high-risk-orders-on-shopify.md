@@ -5,12 +5,13 @@
 - Canonical: https://blog.dugong.live/how-to-handle-high-risk-orders-on-shopify.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-06
-- Updated: 2026-08-07
+- Updated: 2026-10-31
 - Section: Research
-- Word count: 1550
+- Word count: 1761
 - Dispatch: Nº 51 · Research · 9 min read
 - Full headline on page: How to handle *high-risk orders* on Shopify
 - Keywords: Shopify high-risk order, fraud analysis, fraud review automation, chargeback prevention, false decline, manual order review, ecommerce fraud automation
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); E-commerce (https://www.wikidata.org/wiki/Q484847); Business process automation (https://www.wikidata.org/wiki/Q5001911)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -20,6 +21,14 @@ There's a particular thread that resurfaces on r/shopify every few weeks, almost
 That is the strange thing about Shopify's fraud flag. It is the most-used piece of automation in the whole platform, it runs on every single order, and it's also the one merchants resent most, because it doesn't actually *decide* anything. It scores the order, raises an eyebrow, and hands the judgment call straight back to a human who has even less information than the algorithm that flagged it.
 
 > A good automation removes a decision. The high-risk flag just relocates it, from the machine that has the data to the person who doesn't.
+
+## The short answer
+
+Shopify's fraud flag scores the order and hands the decision straight back to you. It runs on every order and weighs signals such as the card verification result, whether billing and shipping match, proxy or VPN use, the email and the IP, and how closely the order rhymes with past fraud, then reports the conclusion in a single sentence about characteristics similar to fraudulent orders observed in the past.
+
+A good share of those signals stay hidden even after an order is flagged, so the merchant is handed the verdict and denied the evidence. Flow can branch on the risk level and no further. Auto-cancel every flag and you have automated the act of firing good customers; tag and hold and you have a pile somebody still works through by hand. A native rule cannot go and find out more.
+
+Fraud review is a small investigation, not a branch on one number. Pull the signals a careful person would check, look up this customer's own history with you, approve the clearly legitimate and cancel the clearly fraudulent with nobody involved, and send only the genuinely gray ones to a human with the dossier already gathered, so your own risk tolerance is written down *in your words rather than a vendor's model*.
 
 ## Two ways to be wrong, and both are expensive
 

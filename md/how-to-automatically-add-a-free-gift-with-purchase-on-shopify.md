@@ -11,6 +11,7 @@
 - Dispatch: Nº 80 · Research · 10 min read
 - Full headline on page: How to automatically add a *free gift* to the cart on Shopify
 - Keywords: Shopify free gift with purchase, Shopify auto add free gift to cart, Shopify buy x get y not adding to cart, Shopify gift with purchase threshold, Shopify free gift over amount, Shopify BOGO auto add, Shopify free gift app, Shopify cart value gift, Shopify automatic gift
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Promotion (marketing) (https://www.wikidata.org/wiki/Q353163); Discounts and allowances (https://www.wikidata.org/wiki/Q291046); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

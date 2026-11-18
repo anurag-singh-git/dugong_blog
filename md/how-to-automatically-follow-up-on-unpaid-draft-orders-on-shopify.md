@@ -11,6 +11,7 @@
 - Dispatch: Nº 101 · Research · 9 min read
 - Full headline on page: How to automatically follow up on *unpaid draft orders* on Shopify
 - Keywords: Shopify draft order follow up, unpaid draft order invoice Shopify, Shopify draft order payment reminder, Shopify quote follow up automation, draft order invoice link expires, auto cancel draft orders Shopify, Shopify Flow draft order trigger, B2B quote follow up Shopify
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Invoice (https://www.wikidata.org/wiki/Q190581); Business-to-business (https://www.wikidata.org/wiki/Q325421); Sales (https://www.wikidata.org/wiki/Q194189); Customer relationship management (https://www.wikidata.org/wiki/Q485643)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

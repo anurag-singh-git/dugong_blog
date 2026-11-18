@@ -11,6 +11,7 @@
 - Dispatch: Nº 94 · Research · 9 min read
 - Full headline on page: How to automatically release Shopify orders on hold *when stock arrives*
 - Keywords: Shopify release fulfillment hold, Shopify order on hold waiting for inventory, Shopify Flow release hold when back in stock, Shopify backorder automation, Shopify held orders queue, fulfillmentOrderReleaseHold, Shopify partial fulfillment backorder, Shopify order stuck on hold
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Backorder (https://www.wikidata.org/wiki/Q962928); Order fulfillment (https://www.wikidata.org/wiki/Q1473552); Inventory management (https://www.wikidata.org/wiki/Q3761396)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -28,6 +29,7 @@ Shopify will hold the order and will never tell you when to stop holding it. Flo
 What does not exist is a trigger for the stock a held order was waiting on arriving. Shopify staff said so on the community forums in 2023, and merchants were still confirming it in July 2026. Inventory quantity changed fires reliably, but it hands you a variant and a quantity with no way to search backward to the held orders containing it, so the only native path left is a scheduled poll of `status:ON_HOLD`.
 
 That poll has four sharp edges. The Flow release action has no fields and clears every hold on the fulfillment order, fraud and address holds included; availability has to be read at the assigned location rather than store-wide; get-data actions cap at 100 records; and availability is not a reservation, so two orders waiting on the same three units both pass in one run. Reserve before releasing, lift only your own hold by its ID, and rank the queue by promised date, *oldest first*.
+
 ## What Shopify actually gives you
 
 Credit first. Fulfillment holds are a real primitive, not a tag pretending to be one. Flow's **Hold fulfillment order** action takes a reason and reason notes, and a held fulfillment order genuinely will not be picked, requested, or pushed to a fulfillment service until the hold comes off. The matching **Release fulfillment order holds** action flips the status back from On hold to Open. Both are on every plan. If you are not holding short orders automatically today, that workflow is twenty minutes of work and you should build it before you finish this article.

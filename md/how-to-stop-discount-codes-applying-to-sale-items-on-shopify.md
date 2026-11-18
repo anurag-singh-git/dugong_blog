@@ -11,6 +11,7 @@
 - Dispatch: Nº 86 · Research · 10 min read
 - Full headline on page: How to stop *discount codes* from applying to sale items on Shopify
 - Keywords: Shopify exclude sale items from discount code, Shopify discount code on sale items, Shopify stop discount stacking, Shopify double discount, Shopify discount combinations, Shopify prevent discount codes on sale items, Shopify welcome code sale items, Shopify discount stacking rules
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Discounts and allowances (https://www.wikidata.org/wiki/Q291046); Coupon (https://www.wikidata.org/wiki/Q11034548); Pricing (https://www.wikidata.org/wiki/Q2516951); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -26,6 +27,7 @@ Nowhere in Shopify's discount screens is there a switch that keeps codes off mar
 The native route is eligibility, and it holds the way a rope bridge holds. Build an automated collection keyed off compare-at price so sale items gather in one place, then scope your codes to the inverse full-price collection. That works only while every compare-at price is maintained, a code cannot always be re-scoped once it has been issued, and every code your popup, loyalty and review apps mint on your behalf is born sitewide.
 
 Note the timing, too: Shopify Scripts stopped executing on June 30, 2026, and a Script is how Plus merchants used to strip a code when it met a markdown, so a store that quietly relied on one is now double-discounting in the open. Treat the policy itself as the source of truth, scope each code at the moment it is created, and at checkout apply the *single best* discount rather than the deepest stack that slipped through.
+
 ## What Shopify actually does, and where it stops
 
 Give the platform its due first. Shopify's discount engine handles the individual pieces well. Codes are easy to create and can be gated by collection, minimum spend, or [customer segment](https://help.shopify.com/en/manual/customers/customer-segmentation). Automatic discounts apply cleanly with nobody typing anything. And since discount combinations arrived, you can even decide which classes of discount are allowed to meet: product discounts, order discounts, and shipping discounts each carry a combines-with setting, so two offers you built as discounts can be told to stack or to keep apart.

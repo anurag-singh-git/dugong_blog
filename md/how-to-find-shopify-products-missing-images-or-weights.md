@@ -10,6 +10,7 @@
 - Dispatch: Nº 134 · Research · 12 min read
 - Full headline on page: How to find Shopify products missing *images or weights*
 - Keywords: shopify products missing images, find products without images shopify, shopify product missing weight, shopify flow check product has image, shopify product data quality, shopify no image filter, shopify missing barcode, AI catalog audit shopify
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Comma-separated values (https://www.wikidata.org/wiki/Q935809); E-commerce (https://www.wikidata.org/wiki/Q484847); Business process automation (https://www.wikidata.org/wiki/Q5001911)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

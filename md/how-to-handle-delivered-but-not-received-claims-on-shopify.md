@@ -11,6 +11,7 @@
 - Dispatch: Nº 102 · Research · 10 min read
 - Full headline on page: How to handle delivered but not received claims *on Shopify*
 - Keywords: delivered but not received shopify, shopify package says delivered but customer never received, customer claims package not delivered, item not received chargeback shopify, proof of delivery, porch piracy, missing package refund or reship, delivery claim automation
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); Package theft (https://www.wikidata.org/wiki/Q85791740); Proof of delivery (https://www.wikidata.org/wiki/Q322385); Chargeback (https://www.wikidata.org/wiki/Q3307525); E-commerce (https://www.wikidata.org/wiki/Q484847)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---

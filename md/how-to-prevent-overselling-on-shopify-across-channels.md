@@ -5,12 +5,13 @@
 - Canonical: https://blog.dugong.live/how-to-prevent-overselling-on-shopify-across-channels.html
 - Author: Priya Singh (https://blog.dugong.live/priya-singh.html)
 - Published: 2026-06-05
-- Updated: 2026-08-07
+- Updated: 2026-10-31
 - Section: Research
-- Word count: 1600
+- Word count: 1799
 - Dispatch: Nº 50 · Research · 8 min read
 - Full headline on page: How to *prevent overselling* on Shopify across channels
 - Keywords: Shopify overselling, inventory sync, multichannel inventory, prevent overselling, real-time stock sync, ecommerce inventory automation
+- Entities: Shopify (https://www.wikidata.org/wiki/Q7501150); E-commerce (https://www.wikidata.org/wiki/Q484847); Business process automation (https://www.wikidata.org/wiki/Q5001911)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
@@ -20,6 +21,14 @@ The r/shopify thread is almost a genre at this point. A store has its best day i
 That's overselling: selling a unit you no longer have. And of all the operational pain points merchants complain about publicly, it's the one they describe in the angriest terms, not because it's the most frequent, but because it's the **hardest to take back**. Running out of stock means a customer couldn't buy. Overselling means they *already did*, got the confirmation email, told their kid the present was coming, and now you have to walk it back.
 
 > Out-of-stock is a missed sale. Overselling is a broken promise. One costs you a customer you never had; the other costs you a customer you already won.
+
+## The short answer
+
+Overselling is almost never a counting mistake inside Shopify. It is a sync problem: the moment a store sells in more than one place there is one pile of physical stock and several systems each keeping their own tally of it, and nothing moves the number in all of them at once.
+
+So the last three units of a popular SKU sell on a marketplace in the early afternoon and Shopify finds out when the nightly export runs, and for those hours the store cheerfully sells inventory that is already gone. The danger window scales with success, because a sale that clears twenty units in minutes is exactly when the most orders pour in against stock that no longer exists.
+
+Every manual defense breaks under load. A reconciliation spreadsheet is stale the moment an order lands, a safety buffer is a guess that either still oversells or sits on stock you refuse to sell, and a Flow rule fires on Shopify events only, so it is blind to the marketplace sale that caused the trouble. What holds is continuous reconciliation to one trustworthy count, pushed everywhere at once, with bundles, pre-orders and returns treated as *more than plain decrements*.
 
 ## Where the number goes wrong
 
