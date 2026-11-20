@@ -98,13 +98,21 @@ EXCEPTIONS = {
         ".qa-guide-link a",
     },
 
-    # index.html wraps its whole page, header and footer included, in one
-    # <div class="view" role="main">, so its six hand-written sections are
-    # inside a landmark already and axe's region rule passes them unnamed.
-    # That wrapper is itself wrong -- a banner and a contentinfo do not belong
-    # inside main -- and is recorded as a standing finding in the 2026-11-18
-    # QA report. If it is ever fixed, drop this exception and name the six.
-    "section_name_exempt": {"index.html"},
+    # Lapsed 2026-11-19. index.html used to wrap its whole page, header and
+    # footer included, in one <div class="view" role="main">, so its
+    # hand-written sections were inside a landmark already and axe's region
+    # rule passed them unnamed. That wrapper was the defect they were hiding
+    # behind; on 2026-11-19 role="main" moved onto a <main> that holds only
+    # the content sections and all nine sections were named from the text
+    # already on screen, so there is nothing left to excuse. The key is kept,
+    # empty, because the next hand-written page will want the same decision.
+    "section_name_exempt": set(),
+
+    # Selectors allowed to truncate with an ellipsis; see
+    # text_truncated_by_ellipsis. Empty on 2026-11-19: the site's one such
+    # rule was the defect that added the check. A selector goes in here only
+    # with the other way a reader can reach the text written beside it.
+    "ellipsis_ok": set(),
 }
 
 # Claimed words per minute. The 89 dispatches run 172 to 312; the band is
@@ -176,6 +184,51 @@ def heading_slug(inner_html):
 # their .faq-item wrapper's #faq-N, and the rest are component titles in the
 # page furniture rather than places in an argument.
 NON_SECTION_H2 = {"faq-q", "cta-title", "featured-title", "signup-title", "author-name"}
+
+
+# A `## ` heading in a machine rendition that is not an <h2> carrying an id of
+# its own. Both of these sections are addressable; the id sits on the element
+# that labels the section rather than on the heading, so the heading's own text
+# cannot resolve it and the mapping has to be written down. `#faq-heading` is
+# the anchor the FAQ section's `aria-labelledby` has always pointed at and the
+# `url` the FAQPage node has carried since 2026-11-18.
+SECTION_BY_LABEL = {
+    "Common questions": "faq-heading",
+    "Read next": "related-heading",
+}
+
+
+def section_anchor_pairs(page_html, md_text):
+    """The (heading, anchor) pairs a dispatch's two machine renditions are
+    entitled to: one for every `## ` heading the md writes, in the order it
+    writes them, each resolved against an id that is already in the page's
+    markup.
+
+    Resolution is by the heading's visible text first, because 765 of the 876
+    headings are an <h2> whose text is identical in both renditions, and only
+    then by SECTION_BY_LABEL and by the slug convention. An anchor is returned
+    as None when nothing on the page resolves it, so the caller can say which
+    heading has no address rather than inventing one.
+
+    This lives here, beside heading_slug, so the writer imports it instead of
+    restating it. Two implementations of one convention is how the two short
+    answer writers came to disagree."""
+    ids = set(re.findall(r'\sid="([^"]+)"', page_html))
+    by_text = {}
+    for attr, inner in re.findall(r"<h2([^>]*)>(.*?)</h2>", page_html, re.S):
+        got = re.search(r'id="([^"]+)"', attr)
+        if got:
+            plain = html_unescape(re.sub(r"<[^>]+>", "", inner))
+            by_text.setdefault(re.sub(r"\s+", " ", plain).strip(), got.group(1))
+    pairs = []
+    for heading in re.findall(r"^## (.+)$", md_text, re.M):
+        heading = heading.strip()
+        anchor = by_text.get(heading) or SECTION_BY_LABEL.get(heading)
+        if anchor is None:
+            slug = heading_slug(heading)
+            anchor = slug if slug in ids else None
+        pairs.append((heading, anchor))
+    return pairs, ids
 
 
 def heading_regions(text, name):
@@ -364,6 +417,50 @@ def main():
         n_main -= len(re.findall(r'<main\b[^>]*role="main"', text))
         if n_main != 1:
             fail("main_landmark_count", f"{name}: {n_main}")
+
+        # No banner and no contentinfo inside the main landmark. Added
+        # 2026-11-19: index.html wrapped its whole document, header and
+        # footer included, in <div class="view" role="main">, so main on the
+        # most-crawled page of the site contained the entire page and carried
+        # no information, and the nav and the footer were announced as main
+        # content. axe reported it as landmark-banner-is-top-level and
+        # landmark-contentinfo-is-top-level, the only two automated a11y
+        # violations left anywhere on the site, and it had stood since at
+        # least 11-18. The landmark is now a <main> holding only the content
+        # sections. Page-wise rather than site-wise for the same reason
+        # main_landmark_count is: the page that got this wrong is the one
+        # page nothing else writes.
+        _main = re.search(r'<main\b[^>]*>|<[a-z]+[^>]*role="main"[^>]*>', text)
+        if _main:
+            _tag = re.match(r"<([a-z]+)", _main.group(0)).group(1)
+            _depth, _end = 0, None
+            for _m in re.finditer(r"<(/?)" + _tag + r"\b[^>]*>", text[_main.start():]):
+                _depth += -1 if _m.group(1) else 1
+                if _depth == 0:
+                    _end = _main.start() + _m.start()
+                    break
+            _inside = text[_main.end():_end] if _end else text[_main.end():]
+            for _land, _why in (("header", "banner"), ("footer", "contentinfo")):
+                if re.search(r"<" + _land + r"\b", _inside):
+                    fail("landmark_inside_main", f"{name}: <{_land}> ({_why})")
+
+        # Truncation that hides text the reader cannot get back. Added
+        # 2026-11-19: .pb-node-sub carried white-space: nowrap with
+        # overflow: hidden and text-overflow: ellipsis, which cut 112px of
+        # "type, vendor, weight, tags, title pattern" at 320px plain and
+        # 181px of it at 1280 under the WCAG 1.4.12 text-spacing override, on
+        # a line that renders in full at 1280 without the override. Content
+        # the reader loses by setting their own spacing is exactly what
+        # 1.4.12 forbids, and an ellipsis is an affordance only where there
+        # is some other way to read the text. There was none here. Same shape
+        # as pre_does_not_wrap on 11-17 and article_title_does_not_wrap on
+        # 11-18, and the same remedy: let it wrap.
+        for _sel, _body in re.findall(
+                r"([^{}\n]+)\{([^{}]*text-overflow:\s*ellipsis[^{}]*)\}", text):
+            _sel = _sel.strip()
+            if _sel in EXCEPTIONS["ellipsis_ok"]:
+                continue
+            fail("text_truncated_by_ellipsis", f"{name}: {_sel}")
 
         # A fractional opacity on a container scales the alpha of every text
         # run inside it, so it silently moves that text's contrast ratio.
@@ -1255,7 +1352,9 @@ def main():
     #     only topical index of the whole archive the homepage offers.
     if os.path.exists("index.html"):
         home = read("index.html")
-        cloud = re.search(r'<section class="topics" id="tags">.*?</section>',
+        # Attribute-tolerant: the section gained aria-labelledby on
+        # 2026-11-19 and a literal tag match silently stopped finding it.
+        cloud = re.search(r'<section class="topics" id="tags"[^>]*>.*?</section>',
                           home, re.S)
         if cloud is None:
             fail("tag_cloud_missing", "index.html has no #tags cloud")
@@ -2326,6 +2425,201 @@ def main():
                     "node_definition_conflict",
                     f"{ident}: {prop} is {sorted(values)!r} across "
                     f"{len(scalar_where[ident][prop])} pages",
+                )
+
+
+    # 2026-11-19. Since 11-02 every section heading inside an article carries
+    # an `id`, so any passage of any dispatch can be cited rather than the
+    # whole 2,500-word page. The two renditions the site tells a model to read
+    # INSTEAD of the page - /md/<slug>.md, named in every page's
+    # `rel=alternate`, and the llms-full.txt segment - carried **876 `## `
+    # headings between them and not one anchor**. The only route from the
+    # rendition to a section address was the construction rule llms.txt states
+    # in prose, and that rule was wrong on 37 of the site's 766 section
+    # anchors because it did not say that apostrophes are dropped. So the one
+    # audience the addresses were made for either could not use them or, worse,
+    # followed the published rule and built a dead link. Exactly the shape of
+    # the entity grounding before 11-17: the site made something addressable
+    # and said so nowhere a machine reads.
+    #
+    # Both renditions now carry a `Section anchors:` line in the `Name (URL)`
+    # format and `; `-separated shape the `- Entities:` line has used since
+    # 11-17, generated from the page's own markup so the three cannot drift.
+    def anchor_diff(where, listed, wanted):
+        """Name the first heading that disagrees and where it sits. Two lists
+        of eleven long URLs read as identical when a detail line is truncated,
+        which is the 11-17 lesson and the reason this is not a bare equality
+        message."""
+        have = listed.split("; ") if listed else []
+        at = next(
+            (i for i, (a, b) in enumerate(zip(have, wanted)) if a != b),
+            min(len(have), len(wanted)),
+        )
+        mine = have[at] if at < len(have) else "(nothing)"
+        theirs = wanted[at] if at < len(wanted) else "(nothing)"
+        return (
+            f"{where}: {len(have)} section anchors listed against "
+            f"{len(wanted)} headings in the rendition; first difference at "
+            f"position {at + 1}, {mine!r} where the page says {theirs!r}"
+        )
+
+    for name in posts:
+        md_path = os.path.join("md", name[:-5] + ".md")
+        if not os.path.exists(md_path):
+            continue  # absence is md_missing, reported above
+        md_text = read(md_path)
+        pairs, ids = section_anchor_pairs(read(name), md_text)
+        for heading, anchor in pairs:
+            if anchor is None:
+                fail(
+                    "section_heading_without_anchor",
+                    f"{name}: rendition heading {heading!r} resolves to no id "
+                    f"on the page, so it cannot be addressed",
+                )
+            elif anchor not in ids:
+                fail(
+                    "section_anchor_not_in_page",
+                    f"{name}: #{anchor} is listed for {heading!r} and is not "
+                    f"an id in the markup",
+                )
+        wanted = [f"{h} ({BASE}{name}#{a})" for h, a in pairs if a]
+        if not wanted:
+            continue
+
+        found = re.search(r"^- Section anchors: (.*)$", md_text, re.M)
+        if not found:
+            fail(
+                "md_without_section_anchors",
+                f"{md_path}: no '- Section anchors:' line, so none of its "
+                f"{len(wanted)} headings carries the address the page has",
+            )
+        elif found.group(1) != "; ".join(wanted):
+            fail("md_section_anchors_mismatch", anchor_diff(md_path, found.group(1), wanted))
+
+        head = f"URL: {BASE}{name}\n"
+        at = llms_full.find(head)
+        if at < 0:
+            continue  # absence is llms_full_missing, reported above
+        header = llms_full[at:].split("\n\n", 1)[0]
+        got = [ln for ln in header.split("\n") if ln.startswith("Section anchors: ")]
+        if not got:
+            fail(
+                "llms_full_without_section_anchors",
+                f"{name}: segment header carries no Section anchors line",
+            )
+        elif got[0][17:] != "; ".join(wanted):
+            fail("llms_full_section_anchors_mismatch", anchor_diff(name, got[0][17:], wanted))
+
+    # The rule llms.txt publishes has to be the rule the site applies. It is
+    # prose, so what is made executable here is its worked examples: every
+    # `"heading" is `#anchor`` pair in the Section anchors paragraph is checked
+    # against heading_slug and against the markup. A documented rule nothing
+    # reads is how the apostrophe clause came to be missing for seventeen days.
+    if os.path.exists("llms.txt"):
+        llms = read("llms.txt")
+        para = next(
+            (ln for ln in llms.split("\n") if ln.startswith("Section anchors:")),
+            "",
+        )
+        if not para:
+            fail("llms_without_section_anchor_note", "llms.txt: no 'Section anchors:' line")
+        else:
+            examples = re.findall(r'"([^"]+)" is `#(h-[a-z0-9-]+)`', para)
+            if not examples:
+                fail(
+                    "llms_anchor_rule_unexampled",
+                    "llms.txt: the section anchor rule states no worked example, "
+                    "so nothing checks that the published rule is the real one",
+                )
+            headings = {}
+            for page in rendered:
+                for attr, inner in re.findall(r"<h2([^>]*)>(.*?)</h2>", read(page), re.S):
+                    got = re.search(r'id="([^"]+)"', attr)
+                    if got:
+                        plain = html_unescape(re.sub(r"<[^>]+>", "", inner))
+                        headings.setdefault(re.sub(r"\s+", " ", plain).strip(), set()).add(got.group(1))
+            for heading, anchor in examples:
+                if heading not in headings:
+                    fail(
+                        "llms_anchor_rule_example_absent",
+                        f"llms.txt gives {heading!r} as an example heading and no "
+                        f"page carries a section heading with that text",
+                    )
+                elif heading_slug(heading) != anchor:
+                    fail(
+                        "llms_anchor_rule_example_wrong",
+                        f"llms.txt says {heading!r} is #{anchor}; the rule the "
+                        f"site applies gives #{heading_slug(heading)}",
+                    )
+                elif anchor not in headings[heading]:
+                    fail(
+                        "llms_anchor_rule_example_wrong",
+                        f"llms.txt says {heading!r} is #{anchor}; the markup "
+                        f"gives it {sorted(headings[heading])!r}",
+                    )
+
+    # 2026-11-19. The nine `CollectionPage` nodes are the site's eight topic
+    # guides and its question index. Eight carry `headline` and it is the
+    # node's own `name`; the question index carried none, so the one index
+    # whose whole job is to be lifted question by question was the one
+    # collection with no headline. A property eight of nine siblings carry is
+    # a convention, and a convention nothing reads is the drift this file
+    # exists to catch.
+    for name in rendered:
+        for node in nodes(docs[name]):
+            if node.get("@type") != "CollectionPage" or len(node) < 3:
+                continue
+            if "headline" not in node:
+                fail(
+                    "collectionpage_without_headline",
+                    f"{name}: CollectionPage {node.get('@id')} carries no headline",
+                )
+            elif node["headline"] != node.get("name"):
+                fail(
+                    "collectionpage_headline_not_name",
+                    f"{name}: CollectionPage headline {node['headline']!r} "
+                    f"against name {node.get('name')!r}",
+                )
+
+    # 2026-11-19. A shared site node is restated on every page that uses it,
+    # and most of those restatements are deliberately partial: a dispatch
+    # names `#priya-singh` with a name, a url and a job title and that is
+    # correct. A restatement that carries the person's biography is not
+    # partial, it is a full copy, and a full copy that drops a property is a
+    # thinner node for any consumer that reads only that page. `#priya-singh`
+    # on index.html carried her description, her employer and her expertise
+    # and **not `mainEntityOfPage`**, which her own page has always asserted.
+    # node_definition_conflict, added 11-17, compares scalars and so reads a
+    # missing reference as an absence rather than a disagreement; this is the
+    # half of that check which was missing. Only Person nodes are read,
+    # because a Person's `url` names a page in this repository and so there is
+    # always an unarguable canonical definition to compare against.
+    person_defs = defaultdict(dict)
+    for name in rendered:
+        for node in nodes(docs[name]):
+            ident = node.get("@id")
+            if node.get("@type") != "Person" or not isinstance(ident, str) or len(node) < 3:
+                continue
+            person_defs[ident][name] = node
+    for ident in sorted(person_defs):
+        where = person_defs[ident]
+        home = next(
+            (n for n, node in where.items()
+             if isinstance(node.get("url"), str) and node["url"].rsplit("/", 1)[-1] == n),
+            None,
+        )
+        if home is None:
+            continue
+        full = set(where[home]) - {"@id", "@type"}
+        for name, node in sorted(where.items()):
+            if name == home or "description" not in node:
+                continue
+            missing = sorted(full - set(node))
+            if missing:
+                fail(
+                    "person_restatement_incomplete",
+                    f"{name}: {ident} restates the full node and omits "
+                    f"{missing!r}, which {home} asserts",
                 )
 
     # --------------------------------------------------------------- report

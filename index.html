@@ -96,14 +96,15 @@
         "order fulfillment",
         "inventory management",
         "workflow automation"
-      ]
+      ],
+      "mainEntityOfPage": "https://blog.dugong.live/priya-singh.html"
     },
     {
       "@type": "Blog",
       "@id": "https://blog.dugong.live/#blog",
       "url": "https://blog.dugong.live/",
       "name": "Dugong Field Notes",
-      "dateModified": "2026-11-18",
+      "dateModified": "2026-11-19",
       "description": "A working journal from the team building AI-native automation. Essays, post-mortems, and field experiments on the playbooks that quietly run the modern company.",
       "publisher": {
         "@id": "https://blog.dugong.live/#organization"
@@ -166,6 +167,25 @@
         }
       ],
       "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#article",
+          "headline": "How to catch the Shopify products in the wrong shipping profile",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html",
+          "mainEntityOfPage": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html",
+          "description": "Every new Shopify product lands in the general profile, never your custom one. The AI playbook that catches it before checkout.",
+          "datePublished": "2026-11-19",
+          "dateModified": "2026-11-19",
+          "author": {
+            "@id": "https://blog.dugong.live/#priya-singh"
+          },
+          "publisher": {
+            "@id": "https://blog.dugong.live/#organization"
+          },
+          "image": "https://blog.dugong.live/og-image.png",
+          "inLanguage": "en",
+          "wordCount": 2855
+        },
         {
           "@type": "BlogPosting",
           "@id": "https://blog.dugong.live/how-to-catch-shopify-payments-with-no-order.html#article",
@@ -2248,7 +2268,7 @@ em { font-style: italic; }
 .pb-icon { font-size: 1.1rem; width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center; background: var(--surface); border: 1px solid var(--border); border-radius: 9px; flex-shrink: 0; }
 .pb-node-body { flex: 1; min-width: 0; }
 .pb-node-title { color: var(--text); font-size: 0.78rem; font-weight: 600; font-family: var(--display); }
-.pb-node-sub { color: var(--text-faint); font-size: 0.68rem; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pb-node-sub { color: var(--text-faint); font-size: 0.68rem; margin-top: 1px; overflow-wrap: break-word; }  /* QA 2026-11-19: was nowrap + ellipsis, which cut 181px of this text at 1280 under the WCAG 1.4.12 spacing override and 112px at 320 plain. */
 .pb-tag { font-family: var(--display); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--lime-deep); background: rgba(198,254,30,.3); padding: 0.2rem 0.45rem; border-radius: 100px; flex-shrink: 0; }
 .pb-line { width: 2px; height: 14px; background: var(--border-strong); margin: 0.25rem 0 0.25rem 1.95rem; }
 .pb-branch { display: grid; gap: 0.4rem; padding: 0.5rem 0.75rem; border: 1px dashed var(--border-strong); border-radius: 11px; }
@@ -2488,12 +2508,12 @@ a.card:hover .card-title, .card[data-nav]:hover .card-title { color: var(--lime-
 /* VIEW TOGGLE + ANIMATIONS */
 .view { display: none; }
 .view.active { display: block; }
-.view.active.home > .hero > * { opacity: 0; animation: rise 0.9s cubic-bezier(0.2,0.7,0.2,1) forwards; }
-.view.active.home > .hero > .hero-meta  { animation-delay: 0.1s; }
-.view.active.home > .hero > .hero-title { animation-delay: 0.25s; }
-.view.active.home > .hero > .hero-lede  { animation-delay: 0.45s; }
-.view.active.home > .hero > .hero-cta   { animation-delay: 0.55s; }
-.view.active.home > .hero > .hero-stats { animation-delay: 0.65s; }
+.view.active.home .hero > * { opacity: 0; animation: rise 0.9s cubic-bezier(0.2,0.7,0.2,1) forwards; }
+.view.active.home .hero > .hero-meta  { animation-delay: 0.1s; }
+.view.active.home .hero > .hero-title { animation-delay: 0.25s; }
+.view.active.home .hero > .hero-lede  { animation-delay: 0.45s; }
+.view.active.home .hero > .hero-cta   { animation-delay: 0.55s; }
+.view.active.home .hero > .hero-stats { animation-delay: 0.65s; }
 @keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.in { opacity: 1; transform: translateY(0); }
@@ -2690,18 +2710,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 <div class="grain" aria-hidden="true"></div>
 
 <!-- ============ HOME VIEW ============ -->
-<div class="view home active" id="view-home" role="main">
+<div class="view home active" id="view-home">
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
     <span>◆ FIELD NOTES VOL. 04 · 2026</span>
     <span>◆ FROM THE DUGONG RESEARCH DESK</span>
     <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
-    <span>◆ 6 NEW DISPATCHES THIS MONTH</span>
+    <span>◆ 7 NEW DISPATCHES THIS MONTH</span>
     <span>◆ FIELD NOTES VOL. 04 · 2026</span>
     <span>◆ FROM THE DUGONG RESEARCH DESK</span>
     <span>◆ WORKFLOWS, SPOKEN. PLAYBOOKS, AUTONOMOUS.</span>
-    <span>◆ 6 NEW DISPATCHES THIS MONTH</span>
+    <span>◆ 7 NEW DISPATCHES THIS MONTH</span>
   </div>
 </div>
 
@@ -2720,16 +2740,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
 </header>
 
-<section class="hero" id="main">
+<main id="main" role="main">
+
+<section class="hero" aria-labelledby="hero-heading">
   <div class="hero-meta">
-    <span class="hero-issue">ISSUE Nº 143</span>
+    <span class="hero-issue">ISSUE Nº 144</span>
     <span class="hero-divider" aria-hidden="true">·</span>
-    <span class="hero-date">NOV 18 · 2026</span>
+    <span class="hero-date">NOV 19 · 2026</span>
     <span class="hero-divider" aria-hidden="true">·</span>
     <span class="hero-pulse"><span class="dot"></span>LATEST DISPATCH</span>
   </div>
 
-  <h1 class="hero-title">
+  <h1 class="hero-title" id="hero-heading">
     Workflows,<br />
     <em>thought</em> through.
   </h1>
@@ -2747,7 +2769,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
   <div class="hero-stats">
     <div class="stat">
-      <span class="stat-num">143</span>
+      <span class="stat-num">144</span>
       <span class="stat-label">dispatches&nbsp;published</span>
     </div>
     <div class="stat">
@@ -2761,27 +2783,27 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   </div>
 </section>
 
-<section class="featured" id="latest">
+<section class="featured" id="latest" aria-labelledby="featured-heading">
   <div class="section-head">
-    <span class="section-eyebrow">◆ DISPATCH OF THE WEEK</span>
+    <span class="section-eyebrow" id="featured-heading">◆ DISPATCH OF THE WEEK</span>
     <span class="section-rule"></span>
   </div>
 
-  <a href="how-to-catch-shopify-payments-with-no-order.html" class="featured-card">
+  <a href="how-to-catch-shopify-products-in-the-wrong-shipping-profile.html" class="featured-card">
     <div class="featured-visual">
       <div class="playbook-mock">
         <div class="pb-header">
           <span class="pb-dot"></span>
           <span class="pb-dot"></span>
           <span class="pb-dot"></span>
-          <span class="pb-file">payment-without-order.playbook</span>
+          <span class="pb-file">shipping-profile-gap.playbook</span>
           <span class="pb-status">&#9654; live</span>
         </div>
         <div class="pb-node">
           <span class="pb-icon">&#9889;</span>
           <div class="pb-node-body">
-            <div class="pb-node-title">Trigger &middot; daily settlement pass</div>
-            <div class="pb-node-sub">plus any message about a charge</div>
+            <div class="pb-node-title">Trigger &middot; daily profile sweep</div>
+            <div class="pb-node-sub">plus every product you create</div>
           </div>
           <span class="pb-tag">ai-detected</span>
         </div>
@@ -2789,22 +2811,22 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
         <div class="pb-node">
           <span class="pb-icon">&#129504;</span>
           <div class="pb-node-body">
-            <div class="pb-node-title">Match both sides of the same window</div>
-            <div class="pb-node-sub">amount, email and timestamp, with tolerance</div>
+            <div class="pb-node-title">Match the product to its siblings</div>
+            <div class="pb-node-sub">type, vendor, weight, tags, title pattern</div>
           </div>
           <span class="pb-tag">ai-generated</span>
         </div>
         <div class="pb-line"></div>
         <div class="pb-branch">
-          <div class="pb-branch-arm">IF the money settled &rarr; &#128221; draft order, paid</div>
-          <div class="pb-branch-arm">ELSE &rarr; &#9201;&#65039; pending hold, explain it</div>
+          <div class="pb-branch-arm">IF the siblings agree &rarr; &#128230; assign the variants</div>
+          <div class="pb-branch-arm">ELSE &rarr; &#9995; one line to a person</div>
         </div>
         <div class="pb-line"></div>
         <div class="pb-node muted">
-          <span class="pb-icon">&#128172;</span>
+          <span class="pb-icon">&#128269;</span>
           <div class="pb-node-body">
-            <div class="pb-node-title">Answer the customer the same day</div>
-            <div class="pb-node-sub">weekly cluster by gateway &rarr; #ops</div>
+            <div class="pb-node-title">Quote the rate that was failing</div>
+            <div class="pb-node-sub">unrated countries and locations &rarr; #ops</div>
           </div>
           <span class="pb-tag">ai-injected</span>
         </div>
@@ -2814,16 +2836,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
     <div class="featured-body">
       <div class="post-meta">
         <span class="tag tag-research">research</span>
-        <span class="post-read">9&nbsp;min&nbsp;read</span>
+        <span class="post-read">10&nbsp;min&nbsp;read</span>
       </div>
       <h2 class="featured-title">
-        How to catch the Shopify payments that never became an order
+        How to catch the Shopify products in the wrong shipping profile
       </h2>
       <p class="featured-dek">
-        A Shopify order is created when the store is told the payment
-        succeeded, not when the money moves, so the two come apart and no
-        screen anywhere lists cash received with no order. The AI playbook
-        that reconciles both sides daily.
+        Shopify adds every new product to the general profile and never moves
+        it, so the custom profile you built stops being complete the day after
+        you build it. The AI playbook that finds the gap before a customer
+        does.
       </p>
       <div class="post-byline">
         <span class="byline-avatar" style="background: var(--gold);">PS</span>
@@ -2836,9 +2858,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   </a>
 </section>
 
-<section class="grid-section">
+<section class="grid-section" aria-labelledby="recent-heading">
   <div class="section-head">
-    <span class="section-eyebrow">◆ RECENT DISPATCHES</span>
+    <span class="section-eyebrow" id="recent-heading">◆ RECENT DISPATCHES</span>
     <span class="section-rule"></span>
     <div class="filter-pills" role="group" aria-label="Filter dispatches by type">
       <button type="button" class="pill pill-active" data-filter="" aria-pressed="true">all</button>
@@ -2852,12 +2874,28 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
   <div class="article-grid">
 
-        <a class="card card-tall" href="how-to-catch-shopify-payments-with-no-order.html" style="text-decoration:none;">
-      <div class="card-art card-art-1">
-        <span class="art-glyph">&#8617;</span>
-        <span class="art-coord">RETURNED&nbsp;19%&nbsp;&middot;&nbsp;ABUSIVE&nbsp;9%</span>
+        <a class="card card-tall" href="how-to-catch-shopify-products-in-the-wrong-shipping-profile.html" style="text-decoration:none;">
+      <div class="card-art card-art-2">
+        <span class="art-glyph">&#128230;</span>
+        <span class="art-coord">PROFILES&nbsp;4&nbsp;&middot;&nbsp;UNRATED&nbsp;9</span>
       </div>
       <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">How to catch the Shopify products in the <em>wrong shipping profile</em></h3>
+        <p class="card-dek">
+          Shopify puts every new product in the general profile and never moves it, so your custom profile quietly stops being complete. The AI playbook that finds the gap before checkout does.
+        </p>
+        <div class="card-foot">
+          <time class="card-date" datetime="2026-11-19">NOV 19</time>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+
+        <a class="card" href="how-to-catch-shopify-payments-with-no-order.html" style="text-decoration:none;">      <div class="card-body">
         <div class="post-meta">
           <span class="tag tag-research">research</span>
           <span class="post-read">9&nbsp;min</span>
@@ -4690,9 +4728,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
 </section>
 
-<section class="topics" id="guides">
+<section class="topics" id="guides" aria-labelledby="guides-heading">
   <div class="section-head">
-    <span class="section-eyebrow">&#9670; TOPIC GUIDES</span>
+    <span class="section-eyebrow" id="guides-heading">&#9670; TOPIC GUIDES</span>
     <span class="section-rule"></span>
   </div>
   <p class="article-dek" style="max-width: 46rem; margin-bottom: 1.5rem;">
@@ -4710,19 +4748,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
     <a href="shopify-catalog-and-storefront-operations.html" class="topic" style="--topic-size:1.5rem;">Shopify catalog and storefront operations</a>
   </div>
   <p class="article-dek" style="max-width: 46rem; margin: 1.4rem 0 0; font-size: 0.95rem;">
-    Looking for one specific answer? The <a href="shopify-automation-questions.html">question index</a> lists all 499 questions
+    Looking for one specific answer? The <a href="shopify-automation-questions.html">question index</a> lists all 505 questions
     these dispatches answer, grouped by guide.
   </p>
   <a href="#latest" class="archive-more">or browse every dispatch &darr;</a>
 </section>
 
-<section class="topics" id="tags">
+<section class="topics" id="tags" aria-labelledby="tags-heading">
   <div class="section-head">
-    <span class="section-eyebrow">◆ BROWSE BY TOPIC</span>
+    <span class="section-eyebrow" id="tags-heading">◆ BROWSE BY TOPIC</span>
     <span class="section-rule"></span>
   </div>
   <div class="topic-cloud">
     <a href="best-shopify-automations-to-set-up.html" class="topic" style="--topic-size:2.4rem;">shopify</a>
+    <a href="how-to-catch-shopify-products-in-the-wrong-shipping-profile.html" class="topic" style="--topic-size:2.3rem;">unrated products</a>
+    <a href="how-to-catch-shopify-products-in-the-wrong-shipping-profile.html" class="topic" style="--topic-size:1.3rem;">markets migration</a>
     <a href="how-to-catch-shopify-payments-with-no-order.html" class="topic" style="--topic-size:2.3rem;">orphan payments</a>
     <a href="how-to-catch-shopify-payments-with-no-order.html" class="topic" style="--topic-size:1.3rem;">failed checkouts</a>
     <a href="how-to-spot-serial-returners-on-shopify.html" class="topic" style="--topic-size:2.3rem;">return abuse</a>
@@ -4959,11 +4999,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   </div>
 </section>
 
-<section class="signup">
+<section class="signup" aria-labelledby="signup-heading">
   <div class="signup-inner">
     <div class="signup-left">
       <span class="signup-eyebrow">◆ THE WEEKLY DISPATCH</span>
-      <h2 class="signup-title">
+      <h2 class="signup-title" id="signup-heading">
         One letter,<br />
         every <em>Sunday.</em>
       </h2>
@@ -4983,9 +5023,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   </div>
 </section>
 
-<section class="archive" id="archive">
+<section class="archive" id="archive" aria-labelledby="archive-heading">
   <div class="section-head">
-    <span class="section-eyebrow">◆ FROM THE ARCHIVE</span>
+    <span class="section-eyebrow" id="archive-heading">◆ FROM THE ARCHIVE</span>
     <span class="section-rule"></span>
   </div>
   <ul class="archive-list">
@@ -5009,7 +5049,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
     <div>
       <h2 class="author-name"><a href="priya-singh.html" rel="author" style="color:inherit;">Priya Singh</a></h2>
       <p class="author-role">Commerce Research, Dugong</p>
-      <p class="author-text">Priya researches Shopify operations failure modes and writes the Dugong Field Notes commerce playbooks. Her raw material is merchant communities, Shopify changelogs, and the telemetry of 1,374 real automation workflows: authorizations that expire uncaptured, inventory that oversells across channels, fraud flags that punish good customers. Every dispatch is written as a playbook a merchant can actually run. See <a href="priya-singh.html">all 96 dispatches by Priya Singh</a>, or start with her field study of <a href="best-shopify-automations-to-set-up.html">the best Shopify automations to set up</a>, or follow new dispatches by <a href="/feed.xml">RSS</a>. The lead essay is by <a href="aanya-rao.html" rel="author">Aanya Rao</a>, Head of Research at Dugong.</p>
+      <p class="author-text">Priya researches Shopify operations failure modes and writes the Dugong Field Notes commerce playbooks. Her raw material is merchant communities, Shopify changelogs, and the telemetry of 1,374 real automation workflows: authorizations that expire uncaptured, inventory that oversells across channels, fraud flags that punish good customers. Every dispatch is written as a playbook a merchant can actually run. See <a href="priya-singh.html">all 97 dispatches by Priya Singh</a>, or start with her field study of <a href="best-shopify-automations-to-set-up.html">the best Shopify automations to set up</a>, or follow new dispatches by <a href="/feed.xml">RSS</a>. The lead essay is by <a href="aanya-rao.html" rel="author">Aanya Rao</a>, Head of Research at Dugong.</p>
     </div>
   </div>
 </section>
@@ -5027,6 +5067,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
     </div>
   </div>
 </section>
+
+</main>
 
 <footer class="foot">
   <div class="foot-top">

@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fix Shopify products with no shipping rate | Dugong</title>
+<meta name="description" content="Every new Shopify product lands in the general profile, never your custom one. The AI playbook that catches it before checkout." />
+<link rel="canonical" href="https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html" />
+<meta name="author" content="Priya Singh" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="shopify new product not in shipping profile, shopify no shipping rates available, shopify shipping profile not working, shopify products missing from general profile, shopify shipping not available to this address, assign products to shopify shipping profile, shopify deliveryProfileUpdate variantsToAssociate, shopify shipping options by market" />
+<meta name="theme-color" content="#c6fe1e" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Dugong Field Notes RSS" href="/feed.xml" />
+<link rel="alternate" type="text/markdown" href="/md/how-to-catch-shopify-products-in-the-wrong-shipping-profile.md" title="Markdown version for answer engines" />
+<meta property="article:published_time" content="2026-11-19" />
+<meta property="article:modified_time" content="2026-11-19" />
+<meta property="article:author" content="Priya Singh" />
+<meta property="article:section" content="Research" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dugong Field Notes" />
+<meta property="og:title" content="How to catch the Shopify products in the wrong shipping profile" />
+<meta property="og:description" content="Every new Shopify product lands in the general profile, never your custom one. The AI playbook that catches it before checkout." />
+<meta property="og:url" content="https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html" />
+<meta property="og:image" content="https://blog.dugong.live/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Dugong Field Notes" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to catch the Shopify products in the wrong shipping profile" />
+<meta name="twitter:description" content="Every new Shopify product lands in the general profile, never your custom one. The AI playbook that catches it before checkout." />
+<meta name="twitter:image" content="https://blog.dugong.live/og-image.png" />
+<meta name="twitter:image:alt" content="Dugong Field Notes" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#webpage",
+      "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html",
+      "name": "Fix Shopify products with no shipping rate",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://blog.dugong.live/#website",
+        "name": "Dugong Field Notes",
+        "url": "https://blog.dugong.live/"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#primaryimage"
+      },
+      "mainEntity": {
+        "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#article"
+      },
+      "datePublished": "2026-11-19",
+      "dateModified": "2026-11-19",
+      "breadcrumb": {
+        "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#article",
+      "isPartOf": [
+        {
+          "@type": "Blog",
+          "@id": "https://blog.dugong.live/#blog",
+          "name": "Dugong Field Notes",
+          "url": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://blog.dugong.live/shopify-shipping-and-fulfillment-automation.html#collection",
+          "name": "Shopify shipping and fulfillment automation",
+          "url": "https://blog.dugong.live/shopify-shipping-and-fulfillment-automation.html"
+        }
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#webpage"
+      },
+      "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html",
+      "headline": "How to catch the Shopify products in the wrong shipping profile",
+      "abstract": "Shopify adds every new product to the general shipping profile. Custom profiles are opt in, one product at a time, and nothing ever moves a new product into one for you. So the moment you build a second profile your catalog has two halves, and only one of them grows by itself.",
+      "description": "Every new Shopify product lands in the general profile, never your custom one. The AI playbook that catches it before checkout.",
+      "datePublished": "2026-11-19",
+      "dateModified": "2026-11-19",
+      "articleSection": "Research",
+      "keywords": "shopify new product not in shipping profile, shopify no shipping rates available, shopify shipping profile not working, shopify products missing from general profile, shopify shipping not available to this address, assign products to shopify shipping profile, shopify deliveryProfileUpdate variantsToAssociate, shopify shipping options by market",
+      "wordCount": 2855,
+      "timeRequired": "PT10M",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "image": {
+        "@type": "ImageObject",
+        "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#primaryimage",
+        "url": "https://blog.dugong.live/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q7501150",
+          "name": "Shopify",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Shopify",
+            "https://www.wikidata.org/wiki/Q7501150"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q927345",
+          "name": "Freight rate",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Freight_rate",
+            "https://www.wikidata.org/wiki/Q927345"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q1473552",
+          "name": "Order fulfillment",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Order_fulfillment",
+            "https://www.wikidata.org/wiki/Q1473552"
+          ]
+        },
+        {
+          "@type": "Thing",
+          "@id": "https://www.wikidata.org/wiki/Q484847",
+          "name": "E-commerce",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/E-commerce",
+            "https://www.wikidata.org/wiki/Q484847"
+          ]
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-title",
+          ".short-answer",
+          ".faq"
+        ]
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://blog.dugong.live/#priya-singh",
+        "name": "Priya Singh",
+        "url": "https://blog.dugong.live/priya-singh.html",
+        "jobTitle": "Commerce Research, Dugong",
+        "worksFor": {
+          "@id": "https://blog.dugong.live/#organization"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://blog.dugong.live/#organization",
+        "name": "Dugong",
+        "url": "https://dugong.live",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.dugong.live/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Dugong"
+        }
+      },
+      "citation": [
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | Setting up shipping profiles",
+          "url": "https://help.shopify.com/en/manual/fulfillment/setup/shipping-profiles"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Help Center | What is changing with shipping",
+          "url": "https://help.shopify.com/en/manual/fulfillment/setup/shipping-options/whats-changing-with-shipping"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Why are new products missing from my General Shipping Profile?",
+          "url": "https://community.shopify.com/c/payments-shipping-and/why-are-new-products-missing-from-my-general-shipping-profile/m-p/1675492"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | No products under the general shipping profile",
+          "url": "https://community.shopify.com/c/payments-shipping-and/no-products-under-the-general-shipping-profile/m-p/1310423"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Shipping Problems for a New Product",
+          "url": "https://community.shopify.com/t/shipping-problems-for-a-new-product/420805"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Newly added shipping rates not showing at checkout",
+          "url": "https://community.shopify.com/c/shopify-discussions/newly-added-shipping-rates-not-showing-at-checkout/td-p/1648336"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Community | Adding products or variants to a shipping profile with the API",
+          "url": "https://community.shopify.com/t/adding-products-or-variants-to-a-shipping-profile-with-api/572600"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Shopify Dev | DeliveryProfile object, GraphQL Admin API",
+          "url": "https://shopify.dev/docs/api/admin-graphql/latest/objects/DeliveryProfile"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#howto"
+        },
+        {
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Field Notes",
+          "item": "https://blog.dugong.live/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shopify shipping and fulfillment automation",
+          "item": "https://blog.dugong.live/shopify-shipping-and-fulfillment-automation.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The product your shipping profile never got",
+          "item": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq",
+      "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-heading",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q927345"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q1473552"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q484847"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "datePublished": "2026-11-19",
+      "dateModified": "2026-11-19",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-1",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-1",
+          "name": "Why are my new Shopify products missing from my shipping profile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-1-answer",
+            "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-1-answer",
+            "text": "Because Shopify only ever adds them to one profile, and it is not the one you built. The help page says that all your existing and new products are added to the general profile, and that a product or variant that is not in a custom profile uses the general shipping rates. Nothing in that sentence moves a new product into a custom profile, and no setting anywhere turns it into a default. So the day you create your first custom profile your catalog splits in two: the general half, which grows by itself every time you add a product, and the custom half, which only grows when somebody remembers. A merchant in July 2022 posted the version of this that most people hit first. They had just added several products, none of them showed up in the General profile, the products were imported through a Printful integration, every one had the requires shipping box checked, and the stocking location was set correctly. The replies asked for screenshots and raised active versus draft status. The thread has no resolution and is still one of the first results for the question."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-2",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-2",
+          "name": "Why does Shopify checkout say there are no shipping rates for my customer's address?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-2-answer",
+            "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-2-answer",
+            "text": "Nine times out of ten the product in that cart is in a profile whose zones do not include the address, and almost always because the product moved profiles rather than because a rate was deleted. The order matters here. First check which profile holds the product, not whether the rate exists, because the rate almost certainly does exist in a profile that no longer applies. Then check that the profile holding the product has an active rate for both the destination country and the location the stock ships from. Then check whether the cart is mixed, because a cart with items from two profiles has to be satisfied on both sides. A merchant in July 2022 added flat rates for the United Kingdom and Northern Ireland to a store that had only ever shipped to Ireland, and every British customer was told the store does not deliver to their destination. The diagnosis, two weeks later, was that the products were not added or the conditions were mismatched. The recommendation was to collapse back to one general profile holding all products. That fix works. It also throws away the reason you made the second profile."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-3",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-3",
+          "name": "Can a Shopify product be in two shipping profiles at once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-3-answer",
+            "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-3-answer",
+            "text": "No, and this is the single fact that explains most of the confusion. A Shopify support agent put it plainly in a September 2021 thread: products not explicitly added to a custom profile default to the General profile, and a product cannot be in two shipping profiles at the same time, so assigning a product to a custom profile removes it from the General profile. That means a custom profile is not an addition to your general rates. It is a replacement for the products in it. If your general profile covers the United States, Canada and the United Kingdom, and your new custom profile covers only the United States, then every product you move into it has just lost Canada and the United Kingdom. The merchant in that thread was watching exactly that happen to English customers and could not see why. Nobody in the thread connected the two halves, and it closed unresolved."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-4",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-4",
+          "name": "How do I assign products to a Shopify shipping profile with the API?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-4-answer",
+            "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-4-answer",
+            "text": "With the deliveryProfileUpdate mutation, passing variantsToAssociate inside the profile argument as a list of ProductVariant IDs. This catches out almost everyone who tries it from the product side first. A developer in October 2025 attempted productUpdate with a deliveryProfileId and got back that ProductInput does not accept that argument, then tried variantsToAssociate on the product input and got nothing. The working answer came from another developer in the thread, and the original poster confirmed it. Two details are worth carrying. The association is per variant, not per product, so a product with twelve variants is twelve associations and a thirteenth variant added later is a thirteenth gap. And on the read side, the deliveryProfiles query takes merchantOwnedOnly, which returns only the profiles created by the merchant, so you can audit your own profiles without tripping over the ones your shipping apps manage."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-5",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-5",
+          "name": "Can Shopify Flow catch a product that is missing from a shipping profile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-5-answer",
+            "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-5-answer",
+            "text": "Not the thing you actually need it to catch. Flow can fire when a product is created and can tag it, add it to a collection or send a message, which is genuinely useful as a reminder step, and a tag plus an automated collection is the closest thing to a native guardrail that exists today. What Flow cannot do is answer the question that matters, which is whether this product is now in a profile that has an active rate for every destination it is meant to reach. That answer lives across delivery profiles, location groups and zones, and Flow does not read it. So Flow is good at the moment of creation and blind afterwards, which is the wrong shape for this defect, because the gap usually opens later: a new variant, a new location, a zone edited for one profile and not the other. This needs something that reads the whole shipping configuration on a schedule and compares it with the catalog."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-6",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-6",
+          "name": "What happens to my shipping profiles when my store moves to shipping options by market?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-6-answer",
+            "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#faq-6-answer",
+            "text": "The profiles stop being the unit and the membership problem moves into collections. Shopify's own page on the change says shipping is moving from shipping profiles to Markets, that shipping zones and location groups are replaced, and that each rate uses product conditions to decide which products it applies to. Product based profiles become unpublished collections prefixed with Shipping, such as Shipping Fragile, and those collections are assigned to the product conditions on the migrated rates. Read that as an operator rather than a reader. Nothing about the question has gone away. If the new collection is manual, your next product falls out of it exactly as it fell out of the profile. If it is automated on a tag or product type, the gap moves upstream to whether anyone tagged the product. Three other changes are worth knowing before upgrade day: rates sharing a shipping option name are consolidated into one option, within an option only the highest matching rate is charged instead of rates being added together, and split shipping is turned on for every upgraded store including the ones that had turned it off. The rollout is gradual, there is an opt out window after your store is upgraded, and once that window closes you cannot switch back."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#howto",
+      "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#playbook",
+      "name": "The product your shipping profile never got",
+      "description": "The AI playbook for Shopify products sitting in the wrong shipping profile: pulling every delivery profile and its membership, flagging the new products the general profile swallowed, checking each profile for locations and countries with no active rate, comparing a new product against the siblings it should ship like, assigning the variants or escalating the ambiguous ones, testing the checkout that was failing, and reporting the gap on the day it opens rather than the quarter it is found.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#article"
+      },
+      "about": [
+        {
+          "@id": "https://www.wikidata.org/wiki/Q7501150"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q927345"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q1473552"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q484847"
+        }
+      ],
+      "author": {
+        "@id": "https://blog.dugong.live/#priya-singh"
+      },
+      "publisher": {
+        "@id": "https://blog.dugong.live/#organization"
+      },
+      "image": {
+        "@id": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#primaryimage"
+      },
+      "datePublished": "2026-11-19",
+      "dateModified": "2026-11-19",
+      "totalTime": "PT10M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Pull every profile and everything in it",
+          "text": "Pull every profile and everything in it",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Flag the products no profile you built claims",
+          "text": "Flag the products no profile you built claims",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Check each profile for a destination with no rate",
+          "text": "Check each profile for a destination with no rate",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Compare the new product with its siblings",
+          "text": "Compare the new product with its siblings",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Assign it, or hand it to a person",
+          "text": "Assign it, or hand it to a person",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Test the checkout before calling it fixed",
+          "text": "Test the checkout before calling it fixed",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#playbook"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Report the gap the day it opens",
+          "text": "Report the gap the day it opens",
+          "url": "https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html#playbook"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;450;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   DUGONG FIELD NOTES - matches dugong.live
+   Lime + warm off-white · Hanken Grotesk / Inter · easy to read
+   ========================================================= */
+
+:root {
+  --bg:           #f6f6f1;
+  --bg-2:         #ffffff;
+  --surface:      #ffffff;
+  --surface-2:    #fbfbf7;
+  --border:       rgba(15,15,12,.10);
+  --border-strong:rgba(15,15,12,.18);
+
+  --text:         #11110e;
+  --text-dim:     #56564e;
+  --text-faint:   #71716a;
+
+  --lime:         #c6fe1e;
+  --lime-deep:    #4f7000;
+  --lime-line:    rgba(168,224,0,.55);
+  --lime-tint:    rgba(198,254,30,.22);
+  --green:        #0b6f41;
+  --pink:         #ae1b81;
+
+  /* legacy aliases so any stray var() still resolves */
+  --ink: var(--text); --ink-2: var(--text-dim); --muted: var(--text-dim);
+  --dim: var(--text-faint); --line: var(--border); --line-2: var(--border-strong);
+  --teal: var(--lime-deep); --sand: var(--pink);
+  --cream-dim: var(--text-dim); --gold: #8d6a22;
+
+  --display: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --maxw:   1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 105px; }
+@media (min-width: 821px) { html { scroll-padding-top: 78px; } }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+::selection { background: var(--lime); color: #11110e; }
+
+/* atmospheric background - lime glow + faint grid (from dugong.live) */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% -12%, rgba(198,254,30,.30), transparent 60%),
+    radial-gradient(720px 520px at 3% 8%, rgba(198,254,30,.12), transparent 58%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15,15,12,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,15,12,.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+}
+.grain { display: none; }
+
+a { color: inherit; text-decoration: none; cursor: pointer; }
+em { font-style: italic; }
+
+/* ---- buttons (shared, dugong.live) ---- */
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  border-radius: 10px; padding: 10px 18px;
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  border: 1px solid transparent; white-space: nowrap;
+  transition: transform .15s ease, background .2s, box-shadow .2s, border-color .2s;
+}
+.btn-primary { background: var(--lime); color: #11110e !important; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+.btn-ghost { background: var(--surface); color: var(--text) !important; border-color: var(--border-strong); }
+.btn-ghost:hover { background: #fff; transform: translateY(-1px); border-color: var(--text); }
+.btn-lg { padding: 14px 26px; font-size: 16px; border-radius: 12px; }
+
+/* TICKER */
+.ticker {
+  position: relative; z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(246,246,241,.6);
+  overflow: hidden;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-faint); padding: 9px 0;
+}
+.ticker-track { display: inline-flex; white-space: nowrap; gap: 3rem; animation: ticker 55s linear infinite; }
+.ticker-track span { flex-shrink: 0; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0 var(--gutter); min-height: 66px;
+  background: rgba(246,246,241,.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; min-width: 0; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 8px; background: #11110e;
+  display: inline-grid; place-items: center; flex: none; color: #fff; font-size: 0;
+}
+.brand-mark svg { width: 16px; height: 16px; }
+.brand-mark.big { width: 40px; height: 40px; border-radius: 11px; }
+.brand-mark.big svg { width: 24px; height: 24px; }
+.brand-name { font-size: 21px; letter-spacing: -0.02em; color: var(--text); }
+.brand-slash { color: var(--text-faint); font-size: 18px; font-weight: 500; }
+.brand-section { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em; color: var(--text-dim); text-transform: lowercase; font-weight: 400; }
+
+.nav-links { display: flex; align-items: center; gap: 30px; font-size: 14.5px; color: var(--text-dim); font-family: var(--body); }
+.nav-links a { color: var(--text-dim); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
+  background: var(--lime); color: #11110e !important;
+  border: 1px solid var(--lime); padding: 10px 18px; border-radius: 10px;
+  white-space: nowrap; flex-shrink: 0;
+  transition: transform .15s ease, box-shadow .2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -8px rgba(168,224,0,.7); }
+/* superseded by the QA 2026-10-18 wrapping nav below */
+@media (max-width: 480px) {
+  .brand-slash, .brand-section { display: none; }
+  .nav-cta { font-size: 12.5px; padding: 8px 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 11.5px; padding: 7px 10px; }
+}
+
+/* QA 2026-10-12: 24px minimum tap target for the standalone topic-guide link */
+@media (max-width: 560px) {
+  .hub-more { padding-top: 5px; padding-bottom: 5px; }
+}
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; flex-wrap: wrap; }
+.section-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em;
+  color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0;
+}
+.section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--border-strong), transparent); min-width: 40px; }
+
+.post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
+
+.tag {
+  font-family: var(--display); font-weight: 700;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--lime-tint); color: var(--lime-deep); border: 1px solid var(--lime-line);
+}
+.tag-research   { background: var(--lime-tint); color: var(--lime-deep); border-color: var(--lime-line); }
+.tag-essay      { background: rgba(10,143,84,.12); color: var(--green); border-color: rgba(10,143,84,.30); }
+.tag-postmortem { background: rgba(198,31,147,.10); color: var(--pink); border-color: rgba(198,31,147,.30); }
+.tag-tactics    { background: #11110e; color: #fff; border-color: #11110e; }
+.tag-interview  { background: var(--surface); color: var(--text-dim); border-color: var(--border-strong); }
+.post-read { color: var(--text-faint); text-transform: uppercase; }
+
+/* GRID (for related cards) */
+.card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+.card:hover { transform: translateY(-3px); border-color: var(--lime-line); box-shadow: 0 16px 40px -30px rgba(15,15,12,.4); }
+.card:hover .card-title { color: var(--lime-deep); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.card-title { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.7rem; transition: color 0.25s; }
+.card-dek { font-family: var(--body); font-size: 0.95rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1.2rem; flex: 1; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; }
+.card-date { color: var(--text-faint); }
+.card-author { color: var(--text-dim); }
+
+/* FOOTER */
+.foot { position: relative; z-index: 2; margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--border); background: var(--surface-2); }
+.foot-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: clamp(2rem, 5vw, 5rem); max-width: var(--maxw); margin: 0 auto; padding: clamp(2.5rem, 5vw, 3.5rem) var(--gutter) 2rem; }
+@media (max-width: 760px) { .foot-top { grid-template-columns: 1fr; } }
+.foot-brand { display: flex; flex-direction: column; gap: 1rem; }
+.foot-tag { font-family: var(--body); font-weight: 400; font-size: 0.95rem; color: var(--text-dim); max-width: 22em; line-height: 1.45; }
+.foot-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 560px) { .foot-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; } }
+@media (max-width: 340px) { .foot-cols { grid-template-columns: 1fr; } }
+.foot-cols > div { display: flex; flex-direction: column; gap: 0.55rem; }
+.foot-h { font-family: var(--display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.5rem; }
+.foot-cols a { font-family: var(--body); font-size: 0.92rem; color: var(--text-dim); transition: color 0.2s; }
+.foot-cols a:hover { color: var(--lime-deep); }
+.foot-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: var(--maxw); margin: 0 auto; padding: 1.5rem var(--gutter); border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--text-faint); }
+
+/* POST PAGE */
+.article { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); }
+.article-back { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 2.5rem; display: inline-block; min-height: 24px; padding: 0.15rem 0; }
+.article-back:hover { color: var(--lime-deep); }
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.4rem; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.04em; flex-wrap: wrap; }
+.article-meta .meta-pair { display: inline-flex; align-items: center; gap: 0.75rem; }
+.article-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5.2vw, 3.5rem); line-height: 1.04; letter-spacing: -0.035em; color: var(--text); margin-bottom: 1.35rem; overflow-wrap: break-word; }
+/* highlight wraps at every width: nowrap overflowed the text column on long phrases */
+.article-title em { font-style: normal; position: relative; color: var(--text); background: linear-gradient(transparent 57%, var(--lime) 57%, var(--lime) 81%, transparent 81%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.article-title em::after { content: none; }
+.article-dek { font-family: var(--body); font-weight: 400; font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.55; color: var(--text-dim); margin-bottom: 2.25rem; }
+.article-byline { display: flex; align-items: center; gap: 0.75rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.75rem; font-family: var(--mono); font-size: 0.85rem; }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.68rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.byline-name { color: var(--text); font-family: var(--display); font-weight: 600; }
+.byline-divider { color: rgba(15,15,12,.45); } /* QA 2026-10-12 */
+.byline-role { color: var(--text-faint); }
+
+.article-body { font-family: var(--body); font-weight: 400; font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.article-body p { margin-bottom: 1.5rem; }
+.article-body h2 { font-family: var(--display); font-weight: 800; font-size: 1.8rem; line-height: 1.15; letter-spacing: -0.03em; margin: 2.85rem 0 1.1rem; color: var(--text); }
+.article-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; margin: 2.25rem 0 0.9rem; color: var(--text); }
+.article-body blockquote { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.4; letter-spacing: -0.02em; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 4px solid var(--lime); margin: 2rem 0; color: var(--text); }
+.article-body blockquote em { font-style: normal; color: var(--text-faint); }
+.article-body code { font-family: var(--mono); font-size: 0.88em; background: var(--lime-tint); padding: 0.12em 0.4em; border-radius: 5px; color: var(--lime-deep); }
+/* QA 2026-11-17: white-space/overflow-wrap added. 6 playbooks ran 8px past the
+   content box, making an unreachable-by-keyboard scroll region (WCAG 2.1.1).
+   The <=820px rule below has wrapped these since they were written. */
+.article-body pre { background: var(--surface-2); border: 1px solid var(--border); border-left: 3px solid var(--border-strong); border-radius: 10px; padding: 1.25rem; margin: 2rem 0; overflow-x: auto; white-space: pre-wrap; overflow-wrap: break-word; font-family: var(--mono); font-size: 0.86rem; line-height: 1.65; color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .article-body pre { font-size: 0.78rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: break-word; }
+}
+.article-body pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+.article-body pre .k { color: var(--lime-deep); font-weight: 600; }
+.article-body pre .s { color: var(--pink); }
+.article-body pre .c { color: var(--text-faint); font-style: italic; }
+.article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 1.4rem; }
+.article-body li { margin-bottom: 0.65rem; padding-left: 0.25rem; }
+.article-body li::marker { color: var(--lime-deep); }
+.article-body strong { font-weight: 700; color: var(--text); }
+.article-body a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); transition: background 0.2s, border-color 0.2s; }
+.article-body a:hover { background: var(--lime-tint); border-color: var(--lime-deep); }
+.article-body hr { border: none; height: 1px; background: var(--border-strong); margin: 2.85rem 0; }
+
+.callout { display: flex; gap: 1rem; padding: 1.2rem 1.4rem; background: var(--lime-tint); border: 1px solid var(--lime-line); border-left: 3px solid var(--lime-deep); border-radius: 12px; margin: 2rem 0; font-family: var(--body); font-size: 1rem; line-height: 1.6; color: var(--text-dim); }
+.callout strong { color: var(--text); }
+.callout-mark { font-family: var(--display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--lime-deep); text-transform: uppercase; flex-shrink: 0; padding-top: 0.2rem; }
+.callout-sand { background: rgba(198,31,147,.08); border-color: rgba(198,31,147,.28); border-left-color: var(--pink); }
+.callout-sand .callout-mark { color: var(--pink); }
+.short-answer { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--lime-deep); border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2.25rem 0 2.75rem; }
+.article-body .short-answer h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; line-height: 1.2; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime-deep); margin: 0 0 1rem; }
+.article-body .short-answer p:last-child { margin-bottom: 0; }
+.callout a { color: var(--lime-deep); border-bottom: 1px solid var(--lime-line); }
+
+.article-end { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.article-end-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.article-end-share { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+.faq { max-width: 720px; margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter); position: relative; z-index: 2; border-top: 1px solid var(--border); }
+.faq .section-head { margin-bottom: 2rem; }
+.faq-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.02em; color: var(--text); margin: 0 0 0.7rem; }
+.faq-a { font-family: var(--body); font-weight: 400; font-size: 1.08rem; line-height: 1.7; color: var(--text-dim); margin: 0; }
+.related { max-width: 1080px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); position: relative; z-index: 2; }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.5rem; }
+@media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ---- CTA band (to dugong.live) - mirrors the site's final card ---- */
+.cta-band { position: relative; z-index: 2; max-width: var(--maxw); margin: clamp(2.5rem,6vw,4.5rem) auto; padding: 0 var(--gutter); }
+.cta-band-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  padding: clamp(2.25rem,4vw,3.25rem) clamp(1.75rem,4vw,3.25rem);
+  border-radius: 26px; border: 1px solid var(--lime-line);
+  background: linear-gradient(135deg, rgba(198,254,30,.4), rgba(198,254,30,.12));
+  position: relative; overflow: hidden;
+}
+.cta-band-inner::before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(198,254,30,.7), transparent 70%); top: -160px; right: -90px; pointer-events: none; }
+.cta-band-copy { max-width: 32em; position: relative; }
+.cta-eyebrow { font-family: var(--display); font-weight: 700; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime-deep); margin-bottom: 0.7rem; display: block; }
+.cta-title { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem,3.4vw,2.5rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.55rem; }
+.cta-title em { font-style: normal; color: var(--text-faint); }
+.cta-sub { font-size: 1rem; line-height: 1.55; color: var(--text-dim); }
+.cta-actions { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; position: relative; }
+.cta-band .btn-primary { background: #11110e; color: #fff !important; border-color: #11110e; }
+.cta-band .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(15,15,12,.5); }
+.cta-fine { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.03em; color: var(--text-dim); }
+@media (max-width: 640px) { .cta-band-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+
+/* ACCESSIBILITY */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--lime-deep); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+
+/* QA 2026-09-21: keep byline on one line; drop dangling meta dots when the row wraps on phones */
+.byline-avatar { flex-shrink: 0; }
+.byline-name { white-space: nowrap; }
+@media (max-width: 520px) {
+  .article-meta > span[style*="--line-2"], .hero-meta .hero-divider { display: none; }
+}
+
+/* QA 2026-10-10: mobile tap targets + ticker legibility */
+@media (max-width: 560px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+  .foot-cols > div { gap: 0.1rem; }
+  .foot-cols a { padding: 0.45rem 0; }
+  .article-back { min-height: 40px; padding: 0.55rem 0; }
+  .pill { padding: 0.6rem 1rem; }
+  .nav-links a:not(.nav-cta) { padding: 0.35rem 0; }
+}
+
+/* QA 2026-10-21: the ticker's 12px floor, like the micro-label floor below,
+   had been scoped to phones and left the marquee at 11px everywhere else. */
+@media (min-width: 561px) and (max-width: 1024px) {
+  .ticker { font-size: 12px; letter-spacing: 0.13em; }
+}
+
+/* QA 2026-10-11: 12px legibility floor for micro-labels.
+   QA 2026-10-21: raised from 560px to 1024px. Scoped to phones, the floor
+   left every tablet rendering the tags at 10.24px and the card dates at
+   11.2px. */
+@media (max-width: 1024px) {
+  .tag { font-size: 12px; letter-spacing: 0.05em; }
+  .post-meta { font-size: 12px; }
+  .post-read { font-size: 12px; }
+  .card-foot { font-size: 12px; }
+  .card-date, .card-author { font-size: 12px; }
+  .byline-avatar { font-size: 12px; }
+  .callout-mark { font-size: 12px; }
+  .cta-fine { font-size: 12px; }
+  .foot-h { font-size: 12px; }
+  .stat-label { font-size: 12px; }
+  .pb-status, .pb-tag, .pb-node-sub, .pb-branch-arm { font-size: 12px; }
+  .foot-bot, .foot-bot span, .foot-bot a { font-size: 12px; }
+  .art-coord { font-size: 12px; }
+  .signup-label { font-size: 12px; }
+  .signup-fine { font-size: 12px; }
+  .arch-date { font-size: 12px; }
+  .author-role { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .nav-cta { font-size: 12px; padding: 7px 9px; }
+}
+
+/* QA 2026-10-19 */
+:root { color-scheme: light; }
+
+/* QA 2026-10-19: a skip link, so a keyboard or screen-reader visitor does not
+   walk the ticker, the brand and four nav links on every page (WCAG 2.4.1). */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  font-family: var(--display); font-weight: 700; font-size: 14px;
+  background: var(--lime); color: #11110e; border: 1px solid #11110e;
+  padding: 10px 18px; border-radius: 0 0 10px 0;
+}
+.skip-link:focus { left: 0; }
+
+/* QA 2026-10-19: the 2026-10-18 pass gave .nav-cta `order: 2` so the button
+   would ride on the brand's row below 820px, but the button was a child of
+   .nav-links, where `order` means nothing and margin-left:auto pushed it past
+   the gutter. It is a child of .nav now. These rules keep the old look. */
+.nav > .nav-cta { flex-shrink: 0; }
+@media (min-width: 821px) { .nav > .nav-cta { margin-left: 0; } }
+
+/* QA 2026-10-19: .callout is a flex row with a flex-shrink:0 label of
+   79-149px. On a 390px phone that left the quote a 136px column, ~20
+   characters a line, 25 lines for a single paragraph; at 320px, 96px and 41
+   lines, and one callout ran the page 7px wide. Stack below 700px. */
+@media (max-width: 700px) {
+  .callout { flex-direction: column; gap: 0.55rem; }
+  .short-answer { padding: 1.2rem 1.25rem; margin: 2rem 0 2.25rem; border-radius: 10px; }
+  .callout-mark { padding-top: 0; }
+}
+</style>
+<style>
+/* SEO 2026-10-12 topic guide link */
+.hub-more { display: inline-block; margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-dim); text-decoration: none; border-bottom: 1px solid var(--line-2); line-height: 22px; padding-bottom: 2px; } /* SEO 2026-10-14: 24px tap target */
+.hub-more:hover { color: var(--ink); border-bottom-color: var(--ink); }
+/* SEO 2026-10-14: author byline link, 24px tap target */
+.byline-name a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(15,15,12,.28); display: inline-block; line-height: 22px; padding-bottom: 2px; }
+.byline-name a:hover { border-bottom-color: currentColor; }
+</style>
+
+<style>
+/* SEO 2026-10-12 long inline code must break rather than widen the page */
+.article-body p code, .article-body li code, .article-body td code { overflow-wrap: anywhere; }
+/* QA 2026-10-21: long API identifiers are written as prose, not just in
+   <code>, and overflowed the viewport at 320-390px. */
+.article-body p, .article-body li, .article-body td, .article-body dd { overflow-wrap: anywhere; }
+</style>
+
+<style>
+/* 2026-10-13 long API identifiers in FAQ answers must break rather than widen the page */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  /* decorative separators strand at the end of a wrapped line on phones */
+  .article-meta span[aria-hidden="true"] { display: none; }
+  .article-meta { column-gap: 1rem; }
+}
+
+/* QA-2026-10-18-CSS
+   QA 2026-10-18: 24px minimum target size at every width, not only phones.
+   The 2026-10-10 pass put this inside @media (max-width:560px), so header and
+   footer links stayed at 23.2-23.5px on tablet and desktop. */
+.nav-links a:not(.nav-cta), .foot-cols a, .foot-bot a {
+  display: inline-flex; align-items: center; min-height: 24px;
+}
+
+/* QA 2026-10-18: the header nav used to vanish below 820px with nothing in its
+   place, so phone and tablet readers had no way back to Latest, Topics or the
+   Archive. Wrap it onto a second row instead of hiding it. */
+@media (max-width: 820px) {
+  .nav { flex-wrap: wrap; padding-top: 0.55rem; padding-bottom: 0.55rem; row-gap: 0.1rem; }
+  .brand { order: 1; }
+  .nav-cta { order: 2; margin-left: auto; }
+  .nav-links { order: 3; width: 100%; gap: 1.5rem; justify-content: flex-start;
+               font-size: 13.5px; padding-bottom: 0.1rem; }
+  .nav-links a:not(.nav-cta) { display: inline-flex; }
+}
+@media (max-width: 380px) { .nav-links { gap: 1.1rem; font-size: 13px; } }
+
+/* QA 2026-10-18: long API identifiers in deks and FAQ answers must break
+   rather than widen the page. Added 2026-10-13 to 5 pages only. */
+.faq-a, .article-dek, .card-dek { overflow-wrap: anywhere; }
+
+/* QA 2026-10-18: READ NEXT had grown to 79 cards on the oldest dispatches,
+   ~28,000px of card grid on a phone. The overflow now sits behind a
+   disclosure, so every link is still in the page and crawlable. */
+.related-more { max-width: var(--maxw); margin: 1.5rem auto 0; }
+.related-more > summary {
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-dim); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 0.5rem; min-height: 24px;
+  padding: 0.4rem 0.9rem; border: 1px solid var(--border-strong); border-radius: 999px;
+  list-style: none; transition: color .2s, border-color .2s, background .2s;
+}
+.related-more > summary::-webkit-details-marker { display: none; }
+.related-more > summary::after { content: "\002B"; font-size: 1rem; line-height: 1; }
+.related-more[open] > summary::after { content: "\2212"; }
+.related-more > summary:hover { color: var(--text); border-color: var(--text); background: var(--surface); }
+.related-more > .related-grid { margin-top: 1.5rem; }
+/* cards inside a closed disclosure never meet the IntersectionObserver that
+   clears .reveal, so they would open at opacity 0. */
+.related-more .reveal { opacity: 1; transform: none; }
+
+</style>
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>&#9670; DISPATCH N&ordm; 144 &middot; NOV 19, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 10 MIN READ &middot; 2,855 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+    <span>&#9670; DISPATCH N&ordm; 144 &middot; NOV 19, 2026</span>
+    <span>&#9670; FILED UNDER: RESEARCH &middot; SHOPIFY</span>
+    <span>&#9670; 10 MIN READ &middot; 2,855 WORDS</span>
+    <span>&#9670; BY PRIYA SINGH</span>
+  </div>
+</div>
+
+<header class="nav">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+    <span class="brand-name">dugong</span>
+    <span class="brand-slash">/</span>
+    <span class="brand-section">field&nbsp;notes</span>
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#tags">Topics</a>
+    <a href="index.html#archive">Archive</a>
+  </nav>
+  <a href="https://dugong.live" class="nav-cta">Try Dugong free &rarr;</a>
+</header>
+
+
+<article class="article" id="main" role="main">
+
+  <a href="index.html" class="article-back">&larr; back to field notes</a>
+
+  <div class="article-meta">
+<span class="tag tag-research">research</span>
+<span style="color: var(--cream-dim);">DISPATCH N&ordm; 144</span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><time datetime="2026-11-19" style="color: var(--cream-dim);">NOV 19, 2026</time></span>
+<span class="meta-pair"><span style="color: rgba(15,15,12,.45);" aria-hidden="true">&middot;</span><span style="color: var(--cream-dim);">10 MIN READ</span></span>
+</div>
+
+  <h1 class="article-title">
+    How to catch the Shopify products in the <em>wrong shipping profile</em>
+  </h1>
+
+  <p class="article-dek">
+    You built a custom shipping profile once. Every product you have added since went somewhere else, and the first person to notice is a customer who cannot check out.
+  </p>
+
+  <div class="article-byline">
+    <span class="byline-avatar" style="background: var(--gold);">PS</span>
+    <span class="byline-name"><a href="priya-singh.html" rel="author">Priya Singh</a></span>
+    <span class="byline-divider" aria-hidden="true">&middot;</span>
+    <span class="byline-role">Commerce Research, Dugong</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>
+      The new product went live on Tuesday. On Friday a customer in Manchester
+      got as far as the shipping step and was told you do not deliver to her
+      address.
+    </p>
+
+    <p>
+      You ship to Manchester five days a week. The rate is sitting in
+      Settings, in the profile you built in March for everything that travels
+      on a pallet.
+    </p>
+
+    <p>
+      The product was never in that profile. Shopify put it in the general
+      one, the way it puts every new product in the general one, and told
+      nobody.
+    </p>
+
+    <div class="short-answer" id="short-answer">
+      <h2 id="h-the-short-answer">The short answer</h2>
+
+      <p>
+        Shopify adds every new product to the general shipping profile.
+        Custom profiles are opt in, one product at a time, and nothing ever
+        moves a new product into one for you. So the moment you build a second
+        profile your catalog has two halves, and only one of them grows by
+        itself.
+      </p>
+
+      <p>
+        A product cannot sit in two profiles at once, so the two halves never
+        overlap and never warn each other. The failure lands at checkout in
+        one of two directions: no rate at all for a destination the product's
+        profile does not cover, or the cheap general rate on an item you meant
+        to charge freight for. You lose the first one in silence. You pay for
+        the second one.
+      </p>
+
+      <p>
+        Nothing in the admin lists the products a profile should hold and does
+        not. The check has to run on the catalog rather than on the order:
+        every profile, everything in it, every destination with no active
+        rate, read daily, so a gap is one day old instead of one quarter old.
+      </p>
+    </div>
+
+    <h2 id="h-every-new-product-goes-to-general-and-nothing-moves-it">Every new product goes to general, and nothing moves it</h2>
+
+    <p>
+      Shopify documents this accurately and in a tone that makes it sound like
+      good news. The
+      <a href="https://help.shopify.com/en/manual/fulfillment/setup/shipping-profiles">shipping
+      profiles page</a> says that all your existing and new products are added
+      to the general profile, that you can create up to ninety nine custom
+      profiles when some products need different rates, and that a product or
+      variant which is not in a custom profile uses the general shipping
+      rates.
+    </p>
+
+    <p>
+      Read those three sentences as a store that already has a custom profile
+      and they stop being reassuring. New products go to general. Custom
+      profiles are the exception you maintain by hand. There is no setting
+      that makes your fragile profile, or your pallet profile, or your
+      refrigerated profile the default for anything.
+    </p>
+
+    <p>
+      The predictable result shows up in the community every few weeks. In
+      July 2022 a merchant posted that they had
+      <a href="https://community.shopify.com/c/payments-shipping-and/why-are-new-products-missing-from-my-general-shipping-profile/m-p/1675492">just
+      added several products and none of them appeared</a> in their General
+      profile. They had checked the obvious things first: requires shipping was
+      ticked on every product, the stocking location was right, and General was
+      their only profile so nothing else could be holding the items. The replies
+      asked for screenshots and raised active versus draft status. The thread
+      has no resolution. It is still one of the first results anyone finds when
+      they go looking.
+    </p>
+
+    <h2 id="h-one-product-one-profile-and-what-that-does-to-a-cart">One product, one profile, and what that does to a cart</h2>
+
+    <p>
+      The mechanism is in a 2021 thread, in an answer from Shopify's own
+      support team, and it is the most useful paragraph written about this
+      anywhere. Products not explicitly added to a custom profile default to
+      the General profile, and
+      <a href="https://community.shopify.com/c/payments-shipping-and/no-products-under-the-general-shipping-profile/m-p/1310423">a
+      product cannot be in two shipping profiles at the same time</a>, so
+      assigning a product to a custom profile removes it from General.
+    </p>
+
+    <p>
+      That makes a custom profile a replacement rather than an addition. It is
+      worth saying out loud with numbers. Your general profile has zones for
+      the United States, Canada and the United Kingdom. You build a custom
+      profile for oversize goods and give it a single United States zone,
+      because that is the problem you were solving on the day. Every product
+      you move into it just lost Canada and the United Kingdom, and the admin
+      showed you nothing, because from inside that profile the configuration
+      is complete and correct.
+    </p>
+
+    <p>
+      The merchant in that thread was watching precisely this happen. Their
+      customers in England were being told their location is not available for
+      shipping. The support agent ran a test checkout, saw rates, and asked
+      which rates were missing. Nobody joined the two halves of the store, and
+      the thread closed with the question still open.
+    </p>
+
+    <p>
+      Mixed carts make it worse, in a way that is easy to misread as a bug. A
+      cart holding one product from each profile has to be satisfied on both
+      sides at once. If either profile has no rate for that address, the
+      customer gets nothing, even though the other product in the cart is
+      perfectly shippable and even though both products sell fine on their
+      own. You cannot reproduce it by testing products one at a time, which is
+      exactly how most people test.
+    </p>
+
+    <h2 id="h-the-two-ways-it-costs-you-and-only-one-of-them-is-visible">The two ways it costs you, and only one of them is visible</h2>
+
+    <p>
+      Direction one is the dead end. The customer reaches the shipping step,
+      is told you do not deliver to their address, and leaves. They do not
+      email you, because as far as they can tell your store is simply not for
+      them. Shopify files the checkout as abandoned, where it sits looking
+      identical to the hundreds of abandoned checkouts that were ordinary
+      browsing. There is no error, no flag and no counter. The only number
+      that moves is your conversion rate, by an amount too small to notice in
+      a week and large enough to matter in a quarter.
+    </p>
+
+    <p>
+      Direction two is the invoice. The new oversize item is in the general
+      profile, so it quotes the flat rate you wrote for everything else, and
+      you ship a thing that costs four times that to move. Nobody at your end
+      sees a problem, because the order looks healthy and the customer is
+      happy. The cost arrives three weeks later folded into a carrier bill,
+      spread across hundreds of shipments, in a line item nobody reconciles
+      back to a product.
+    </p>
+
+    <p>
+      The two directions share a cause and nothing else, which is why most
+      stores only ever find one of them. If you discovered this through a
+      checkout complaint, go and look at your margins. If you discovered it
+      through a carrier invoice, go and look at your abandoned checkouts.
+    </p>
+
+    <h2 id="h-the-threads-all-end-the-same-way">The threads all end the same way</h2>
+
+    <p>
+      In June 2025 a merchant added their first product that was not print on
+      demand, diecast models they stocked themselves, and built a new profile
+      with two zones: discounted United States rates and international DHL
+      rates. Their test checkout answered
+      <a href="https://community.shopify.com/t/shipping-problems-for-a-new-product/420805">shipping
+      not available to this address</a>. Postal codes from other countries did
+      not help either. Three people replied with the standard checklist, the
+      merchant confirmed they had done all of it, and then wrote the sentence
+      that belongs in every thread like this: they did not really know what to
+      do at that point.
+    </p>
+
+    <p>
+      The one genuinely diagnostic thing they reported came next. A flat rate
+      worked. So the problem was in the calculated rates, which is a different
+      investigation entirely. A week later someone suggested removing the
+      product from the General profile and adding named carrier services to
+      the custom one. There is no reply confirming whether that fixed it.
+    </p>
+
+    <p>
+      Three years earlier an Irish store added
+      <a href="https://community.shopify.com/c/shopify-discussions/newly-added-shipping-rates-not-showing-at-checkout/td-p/1648336">flat
+      rates for the United Kingdom and Northern Ireland</a> to a store that
+      had only ever shipped domestically. Every British customer was told the
+      store does not deliver to their destination. It took two weeks of
+      screenshots to reach a diagnosis, and the diagnosis was that the
+      products were not added, or the conditions were mismatched. The
+      recommendation was to collapse everything back into one general profile
+      holding all products, with both zones on it.
+    </p>
+
+    <p>
+      That recommendation is honest and it works. It also throws away the
+      reason the second profile existed. Which is the real state of this
+      problem: the native fix for a membership gap is to stop having more than
+      one profile.
+    </p>
+
+    <h2 id="h-what-the-api-knows-that-the-admin-will-not-show-you">What the API knows that the admin will not show you</h2>
+
+    <p>
+      Open Settings and Shipping and delivery and you get a list of profiles,
+      each with a count of products in it. The count is true and almost
+      useless, because the number you need is the one that does not exist: the
+      products that should be in this profile and are not. Shopify cannot
+      compute that, reasonably enough, because only you know what should ship
+      like what.
+    </p>
+
+    <p>
+      The API is a different story. The
+      <a href="https://shopify.dev/docs/api/admin-graphql/latest/objects/DeliveryProfile">DeliveryProfile
+      object</a> carries <code>profileItems</code> for the products and
+      variants associated with the profile, <code>productVariantsCount</code>
+      for how many variants are in it, <code>activeMethodDefinitionsCount</code>
+      for the number of active shipping rates,
+      <code>locationsWithoutRatesCount</code> for the number of locations with
+      no rates defined, and <code>zoneCountryCount</code> for the number of
+      countries with active rates to deliver to. The
+      <code>deliveryProfiles</code> query takes
+      <code>merchantOwnedOnly</code>, which returns only the profiles you
+      created, so you can audit your own setup without tripping over the ones
+      your shipping apps manage.
+    </p>
+
+    <p>
+      Those last three fields are the interesting ones. Read across every
+      profile and you have a matrix of what ships from where to where, and the
+      gaps in that matrix are the checkouts that will fail. A profile with a
+      non zero <code>locationsWithoutRatesCount</code> is a profile where some
+      of your stock is unsellable, today, and the admin reports it as a
+      number on a settings page rather than as a problem.
+    </p>
+
+    <p>
+      Writing is the part that catches people out. A developer in October 2025
+      tried <code>productUpdate</code> with a
+      <a href="https://community.shopify.com/t/adding-products-or-variants-to-a-shipping-profile-with-api/572600">deliveryProfileId
+      and was told ProductInput does not accept that argument</a>, then tried
+      the same thing from the product side again and got nowhere. The answer,
+      from another developer rather than from the documentation, is
+      <code>deliveryProfileUpdate</code> with
+      <code>variantsToAssociate</code>. Note what that implies: association is
+      per variant, not per product. A product with twelve variants is twelve
+      associations, and the thirteenth variant somebody adds in February is a
+      thirteenth gap.
+    </p>
+
+    <h2 id="h-shipping-is-moving-to-markets-and-the-gap-moves-with-it">Shipping is moving to Markets, and the gap moves with it</h2>
+
+    <p>
+      This is worth knowing now rather than on upgrade day. Shopify's own page
+      on the change says that
+      <a href="https://help.shopify.com/en/manual/fulfillment/setup/shipping-options/whats-changing-with-shipping">shipping
+      is moving from shipping profiles to Markets</a>, that shipping zones and
+      location groups are replaced, and that each rate uses product conditions
+      to set which products it applies to. Your rates are migrated for you;
+      you do not recreate them.
+    </p>
+
+    <p>
+      Here is the part that matters for this article. Product based profiles
+      become collections, unpublished so customers never see them, prefixed in
+      square brackets with the word Shipping, so a Fragile profile becomes a
+      Shipping Fragile collection. Those collections are then assigned
+      automatically to the right product conditions on the migrated rates.
+    </p>
+
+    <p>
+      Nothing about the membership question has gone away. It has moved into a
+      collection. If that collection is manual, your next product falls out of
+      it exactly as it fell out of the profile. If it is automated on a tag or
+      a product type, the gap moves one step upstream, to whether anyone
+      tagged the product, which in most stores is a worse place for it to live
+      rather than a better one. Either way something still has to check.
+    </p>
+
+    <p>
+      Three other changes are worth reading before your store is upgraded.
+      Rates that share a shipping option name are consolidated into a single
+      option. Within one option only the highest matching rate is charged,
+      instead of the rates being added together, so a mixed cart's shipping
+      total can move on upgrade day without anybody touching a setting. And
+      split shipping is activated for every upgraded store, including stores
+      that had deliberately turned it off. The rollout is gradual rather than
+      dated, there is an opt out window once your store is upgraded, and when
+      that window closes you cannot switch back.
+    </p>
+
+    <h2 id="h-what-the-automation-actually-has-to-do">What the automation actually has to do</h2>
+
+    <p>
+      As a Dugong playbook, in plain prose:
+    </p>
+
+    <pre id="playbook"><code><span class="c"># trigger</span>
+<span class="k">Daily</span> pass over profiles and the
+catalog, plus every new product
+
+<span class="c"># steps</span>
+1. <span class="k">Pull</span> every profile and
+   everything in it
+2. <span class="k">Flag</span> the products no profile
+   you built claims
+3. <span class="k">Check</span> each profile for a
+   destination with no rate
+4. <span class="k">Compare</span> the new product with
+   its siblings
+5. <span class="k">Assign</span> it, or hand it to a
+   person
+6. <span class="k">Test</span> the checkout before
+   calling it fixed
+7. <span class="k">Report</span> the gap the day it
+   opens
+</code></pre>
+
+    <p>
+      Step one is the whole shipping configuration, not a sample of it. Every
+      profile you own, its variants, its location groups and its zones, with
+      app managed profiles kept separate so you are auditing your own
+      decisions rather than an app's. This is the part that is tedious by hand
+      and trivial for a machine, and it has to happen every day, because
+      profiles change for reasons nobody logs.
+    </p>
+
+    <p>
+      Step two is the catalog comparison. Any product in the general profile
+      that resembles the contents of a custom profile is a candidate. Resembles
+      is doing real work in that sentence: same product type, same vendor,
+      similar weight, a tag that matches, a title that matches the pattern.
+      This is a judgment rather than a rule, which is why it has never been
+      written as a Flow condition and never will be.
+    </p>
+
+    <p>
+      Step three is the other half, and the one that catches the problems
+      nobody created today. Walk each profile and ask which countries it has
+      active rates for and which of your locations have no rates defined at
+      all. A profile that covers three countries when your general profile
+      covers nine is not broken, but every product in it has lost six
+      countries, and somebody should have decided that on purpose.
+    </p>
+
+    <p>
+      Step four is how the decision gets made without a human reading it.
+      Take the new product and find the five products most like it, then look
+      at which profile those five are in. If all five agree, you have an
+      answer and a reason you can print. If they disagree, you do not have an
+      answer, and pretending otherwise is how automation loses trust in week
+      three.
+    </p>
+
+    <p>
+      Step five is the action, and it is per variant because the API is per
+      variant. Confident cases get assigned and logged with the siblings that
+      justified it. Ambiguous cases go to a person as one line with the
+      evidence attached, which is a ten second decision rather than a research
+      task. Anything that would remove a product from a profile should always
+      be a person, because that is the direction that breaks a working
+      checkout.
+    </p>
+
+    <p>
+      Step six is the test nobody runs. After an assignment, quote the rate
+      for the destinations that were failing, from the location the stock
+      actually sits in. A rate that exists in a profile and a rate that
+      appears at checkout are not the same claim, as every merchant who has
+      had the standard checklist read back to them already knows.
+    </p>
+
+    <p>
+      Step seven is the cadence, and it is the reason this is worth
+      automating at all. A product that fell out of a profile on Tuesday and
+      is found on Wednesday is a non event. The same product found in March,
+      after the oversize items shipped at the flat rate all quarter and the
+      Manchester customers quietly stopped trying, is a number on a
+      spreadsheet you will argue about.
+    </p>
+
+    <h2 id="h-do-this-before-you-close-the-laptop">Do this before you close the laptop</h2>
+
+    <p>
+      Three things, about twenty minutes, no tooling required.
+    </p>
+
+    <p>
+      Open Settings, then Shipping and delivery, and write down each custom
+      profile with its product count. Then sort your products by date created
+      and take the twenty newest. For each one, open it and check which
+      profile holds it. If you have ever built a custom profile, expect to
+      find at least one product in the wrong half. Most stores find several,
+      and the oldest one is usually the most expensive.
+    </p>
+
+    <p>
+      Then take each custom profile and list the countries it has rates for
+      next to the countries your general profile has rates for. Any country in
+      the second list and not the first is a checkout that is failing right
+      now for every product in that profile. Do the same for your locations if
+      you ship from more than one, because a location with no rates in a
+      profile makes that stock unsellable without saying so.
+    </p>
+
+    <p>
+      Last, run a test checkout with a mixed cart: one item from a custom
+      profile and one from general, to an address in your furthest zone. It is
+      the case that single product testing cannot see, and it is the case your
+      customers create by accident every day.
+    </p>
+
+    <div class="callout">
+      <span class="callout-mark">&#9670; READING</span>
+      <span>
+        Two companion pieces if this one landed: <a
+        href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html">the
+        shipping rate that ignores your box</a>, on the rate that is right in
+        the settings and wrong for the parcel, and <a
+        href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html">the
+        order from a state you cannot ship to</a>, on the other place where
+        Shopify's unit of shipping and your unit of shipping do not match.
+      </span>
+    </div>
+
+    <p>
+      If you run a store with a version of this story, the new product that
+      quoted the wrong rate for a month, the customer who could not check out
+      from a country you ship to weekly, the profile somebody built in 2023
+      that nobody has added a product to since, the inbox is open:
+      <code>field-notes@dugong.live</code>. We are collecting case studies for
+      the next issue.
+    </p>
+
+  </div>
+
+  <div class="article-end">
+    <div class="article-end-tags">
+      <span class="tag tag-research">research</span>
+      <span class="tag tag-essay">essay</span>
+    </div>
+    <span class="article-end-share">share &middot; copy link &middot; &#10022;</span>
+  </div>
+
+</article>
+<section class="faq" aria-labelledby="faq-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="faq-heading">&#9670; COMMON QUESTIONS</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item" id="faq-1">
+      <h2 class="faq-q">Why are my new Shopify products missing from my shipping profile?</h2>
+      <p class="faq-a" id="faq-1-answer">Because Shopify only ever adds them to one profile, and it is not the one you built. The help page says that all your existing and new products are added to the general profile, and that a product or variant that is not in a custom profile uses the general shipping rates. Nothing in that sentence moves a new product into a custom profile, and no setting anywhere turns it into a default. So the day you create your first custom profile your catalog splits in two: the general half, which grows by itself every time you add a product, and the custom half, which only grows when somebody remembers. A merchant in July 2022 posted the version of this that most people hit first. They had just added several products, none of them showed up in the General profile, the products were imported through a Printful integration, every one had the requires shipping box checked, and the stocking location was set correctly. The replies asked for screenshots and raised active versus draft status. The thread has no resolution and is still one of the first results for the question.</p>
+    </div>
+    <div class="faq-item" id="faq-2">
+      <h2 class="faq-q">Why does Shopify checkout say there are no shipping rates for my customer's address?</h2>
+      <p class="faq-a" id="faq-2-answer">Nine times out of ten the product in that cart is in a profile whose zones do not include the address, and almost always because the product moved profiles rather than because a rate was deleted. The order matters here. First check which profile holds the product, not whether the rate exists, because the rate almost certainly does exist in a profile that no longer applies. Then check that the profile holding the product has an active rate for both the destination country and the location the stock ships from. Then check whether the cart is mixed, because a cart with items from two profiles has to be satisfied on both sides. A merchant in July 2022 added flat rates for the United Kingdom and Northern Ireland to a store that had only ever shipped to Ireland, and every British customer was told the store does not deliver to their destination. The diagnosis, two weeks later, was that the products were not added or the conditions were mismatched. The recommendation was to collapse back to one general profile holding all products. That fix works. It also throws away the reason you made the second profile.</p>
+    </div>
+    <div class="faq-item" id="faq-3">
+      <h2 class="faq-q">Can a Shopify product be in two shipping profiles at once?</h2>
+      <p class="faq-a" id="faq-3-answer">No, and this is the single fact that explains most of the confusion. A Shopify support agent put it plainly in a September 2021 thread: products not explicitly added to a custom profile default to the General profile, and a product cannot be in two shipping profiles at the same time, so assigning a product to a custom profile removes it from the General profile. That means a custom profile is not an addition to your general rates. It is a replacement for the products in it. If your general profile covers the United States, Canada and the United Kingdom, and your new custom profile covers only the United States, then every product you move into it has just lost Canada and the United Kingdom. The merchant in that thread was watching exactly that happen to English customers and could not see why. Nobody in the thread connected the two halves, and it closed unresolved.</p>
+    </div>
+    <div class="faq-item" id="faq-4">
+      <h2 class="faq-q">How do I assign products to a Shopify shipping profile with the API?</h2>
+      <p class="faq-a" id="faq-4-answer">With the deliveryProfileUpdate mutation, passing variantsToAssociate inside the profile argument as a list of ProductVariant IDs. This catches out almost everyone who tries it from the product side first. A developer in October 2025 attempted productUpdate with a deliveryProfileId and got back that ProductInput does not accept that argument, then tried variantsToAssociate on the product input and got nothing. The working answer came from another developer in the thread, and the original poster confirmed it. Two details are worth carrying. The association is per variant, not per product, so a product with twelve variants is twelve associations and a thirteenth variant added later is a thirteenth gap. And on the read side, the deliveryProfiles query takes merchantOwnedOnly, which returns only the profiles created by the merchant, so you can audit your own profiles without tripping over the ones your shipping apps manage.</p>
+    </div>
+    <div class="faq-item" id="faq-5">
+      <h2 class="faq-q">Can Shopify Flow catch a product that is missing from a shipping profile?</h2>
+      <p class="faq-a" id="faq-5-answer">Not the thing you actually need it to catch. Flow can fire when a product is created and can tag it, add it to a collection or send a message, which is genuinely useful as a reminder step, and a tag plus an automated collection is the closest thing to a native guardrail that exists today. What Flow cannot do is answer the question that matters, which is whether this product is now in a profile that has an active rate for every destination it is meant to reach. That answer lives across delivery profiles, location groups and zones, and Flow does not read it. So Flow is good at the moment of creation and blind afterwards, which is the wrong shape for this defect, because the gap usually opens later: a new variant, a new location, a zone edited for one profile and not the other. This needs something that reads the whole shipping configuration on a schedule and compares it with the catalog.</p>
+    </div>
+    <div class="faq-item" id="faq-6">
+      <h2 class="faq-q">What happens to my shipping profiles when my store moves to shipping options by market?</h2>
+      <p class="faq-a" id="faq-6-answer">The profiles stop being the unit and the membership problem moves into collections. Shopify's own page on the change says shipping is moving from shipping profiles to Markets, that shipping zones and location groups are replaced, and that each rate uses product conditions to decide which products it applies to. Product based profiles become unpublished collections prefixed with Shipping, such as Shipping Fragile, and those collections are assigned to the product conditions on the migrated rates. Read that as an operator rather than a reader. Nothing about the question has gone away. If the new collection is manual, your next product falls out of it exactly as it fell out of the profile. If it is automated on a tag or product type, the gap moves upstream to whether anyone tagged the product. Three other changes are worth knowing before upgrade day: rates sharing a shipping option name are consolidated into one option, within an option only the highest matching rate is charged instead of rates being added together, and split shipping is turned on for every upgraded store including the ones that had turned it off. The rollout is gradual, there is an opt out window after your store is upgraded, and once that window closes you cannot switch back.</p>
+    </div>
+  </div>
+</section>
+
+<section class="related" aria-labelledby="related-heading">
+  <div class="section-head">
+    <span class="section-eyebrow" id="related-heading">&#9670; READ NEXT</span>
+    <span class="section-rule"></span>
+  </div>
+  <div class="related-grid">
+<a href="how-to-fix-shopify-shipping-rates-that-ignore-product-dimensions.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">10&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The shipping rate that ignores your box</h3>
+        <p class="card-dek">
+          Shopify has no product dimensions field and quotes every order from one default box. The AI playbook that prices dimensional weight before checkout, not after.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP&nbsp;18</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-restrict-shopify-products-from-shipping-to-certain-states.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">9&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The order from a state you cannot ship to</h3>
+        <p class="card-dek">
+          Shopify restricts shipping by zone, not by product, and a mixed cart breaks the workaround. The AI playbook that blocks only the items a state bans.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">SEP&nbsp;19</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+<a href="how-to-validate-shipping-addresses-on-shopify.html" class="card">
+      <div class="card-body">
+        <div class="post-meta">
+          <span class="tag tag-research">research</span>
+          <span class="post-read">7&nbsp;min</span>
+        </div>
+        <h3 class="card-title">The bad address that ships anyway</h3>
+        <p class="card-dek">
+          Shopify warns about a bad address, you ship anyway, and the package bounces back. The AI playbook that catches undeliverable addresses before the label prints.
+        </p>
+        <div class="card-foot">
+          <span class="card-date">JUN&nbsp;06</span>
+          <span class="card-author">P. Singh</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="brand-mark big"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9"></path><path d="M12 3c2 3 3 6 3 9s-1 6-3 9"></path><path d="M3 12h18"></path></svg></span>
+      <span class="foot-tag">field&nbsp;notes from the dugong research desk</span>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <span class="foot-h">read</span>
+        <a href="index.html#latest">Latest</a>
+        <a href="index.html#essays">Essays</a>
+        <a href="index.html#post-mortems">Post-mortems</a>
+        <a href="index.html#interviews">Interviews</a>
+      </div>
+      <div>
+        <span class="foot-h">product</span>
+        <a href="https://dugong.live">Dugong</a>
+        <a href="https://dugong.live/#pricing">Pricing</a>
+        <a href="https://dugong.live">AI Engine</a>
+        <a href="https://dugong.live">Docs</a>
+      </div>
+      <div>
+        <span class="foot-h">company</span>
+        <a href="https://dugong.live">About</a>
+        <a href="https://dugong.live">Careers</a>
+        <a href="https://dugong.live">Privacy</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>&copy; 2026 Dugong AI Inc.</span>
+    <span>Set in Hanken Grotesk &amp; Inter. Made on a slow afternoon.</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".card, .section-head, .article-body p, .article-body h2, .article-body pre, .article-body .callout, .article-body blockquote")
+  .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+</script>
+</body>
+</html>

@@ -15,7 +15,17 @@
       <title>Dugong Field Notes</title>
       <link>https://blog.dugong.live/</link>
     </image>
-    <lastBuildDate>Wed, 18 Nov 2026 10:22:44 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 10:23:47 +0000</lastBuildDate>
+
+    <item>
+      <title>How to catch the Shopify products in the wrong shipping profile</title>
+      <link>https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html</link>
+      <guid isPermaLink="true">https://blog.dugong.live/how-to-catch-shopify-products-in-the-wrong-shipping-profile.html</guid>
+      <dc:creator>Priya Singh</dc:creator>
+      <category>Research</category>
+      <pubDate>Thu, 19 Nov 2026 09:53:47 +0000</pubDate>
+      <description>Shopify adds every existing and new product to the general shipping profile, and a product or variant that is not in a custom profile uses the general rates, so the day a merchant builds a second profile the catalog splits into a half that grows by itself and a half that only grows when somebody remembers. A product cannot be in two shipping profiles at the same time, which Shopify support confirmed in a September 2021 thread, so moving a product into a custom profile removes it from the general one and silently drops every destination the custom profile does not cover. The defect surfaces at checkout in two directions: no rate at all for a destination, which the merchant never hears about because the checkout is filed as abandoned like any other, or the cheap general rate on an item that should have carried freight, which arrives weeks later on a carrier invoice. Community threads from 2021 through June 2025 end the same way, including a merchant whose imported products never appeared in the General profile, a store told that British customers cannot be delivered to after adding United Kingdom rates, and a merchant whose first self stocked product returned shipping not available to this address on every test until flat rates were substituted for calculated ones. The admin has no report of the products a custom profile should hold and does not, but the Admin API does: DeliveryProfile carries profileItems, productVariantsCount, activeMethodDefinitionsCount, locationsWithoutRatesCount and zoneCountryCount, and deliveryProfiles takes merchantOwnedOnly. Writing is done with deliveryProfileUpdate and variantsToAssociate, per variant rather than per product. As shipping moves from profiles to Markets, product based profiles become unpublished collections prefixed Shipping and rates match on product conditions, so the membership gap moves into a collection rather than closing. The fix is a daily pass over every profile, its membership and its unrated destinations, compared against the catalog. By Priya Singh, 2026-11-19.</description>
+    </item>
 
     <item>
       <title>How to catch the Shopify payments that never became an order</title>

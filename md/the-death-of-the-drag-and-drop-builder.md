@@ -12,6 +12,7 @@
 - Full headline on page: The death of the *drag-and-drop* builder
 - Keywords: drag-and-drop workflow builder, no-code automation limits, natural language automation, AI workflow compiler, workflow automation canvas, node graph automation
 - Entities: Workflow automation (https://www.wikidata.org/wiki/Q627335); Low-code development platform (https://www.wikidata.org/wiki/Q30589910); Natural language programming (https://www.wikidata.org/wiki/Q17081452)
+- Section anchors: The short answer (https://blog.dugong.live/the-death-of-the-drag-and-drop-builder.html#h-the-short-answer); The canvas tax (https://blog.dugong.live/the-death-of-the-drag-and-drop-builder.html#h-the-canvas-tax); The natural-language alternative (https://blog.dugong.live/the-death-of-the-drag-and-drop-builder.html#h-the-natural-language-alternative); The compiler is the product (https://blog.dugong.live/the-death-of-the-drag-and-drop-builder.html#h-the-compiler-is-the-product); Three predictions (https://blog.dugong.live/the-death-of-the-drag-and-drop-builder.html#h-three-predictions)
 - Publisher: Dugong Field Notes, https://blog.dugong.live/ (Dugong, https://dugong.live)
 
 ---
